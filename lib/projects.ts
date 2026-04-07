@@ -5,6 +5,9 @@ export interface Project {
   category: string;
   company: string;
   period: string;
+  summary: string;
+  role: string;
+  scope: string;
   metrics: { value: string; label: string }[];
   context: string;
   problem: string;
@@ -22,6 +25,11 @@ export const projects: Project[] = [
     category: "Structured Systems",
     company: "SeamlessHR",
     period: "Mar 2022 – Mar 2025",
+    summary:
+      "Repositioned a broken recruitment add-on into a flagship hiring product by fixing workflow trust, applicant completion, and system value.",
+    role: "Product Design Lead across product strategy, UX, and phased rollout.",
+    scope:
+      "Applicant and recruiter workflows, research synthesis, roadmap definition, and cross-functional delivery with PM, engineering, CX, and sales.",
     metrics: [
       { value: "↓50%", label: "Support tickets" },
       { value: "100%", label: "Applicant completion" },
@@ -46,6 +54,11 @@ export const projects: Project[] = [
     category: "Organisational Scale",
     company: "SeamlessHR",
     period: "Dec 2023 – Present",
+    summary:
+      "Built the operating system that aligned design and engineering across 12 teams, replacing fragmented libraries with one governed source of truth.",
+    role: "Design Systems Lead and DesignOps driver.",
+    scope:
+      "Token architecture, component foundations, governance, adoption strategy, documentation, and team enablement across the product organisation.",
     metrics: [
       { value: "12", label: "Teams onboarded" },
       { value: "88.9", label: "Adoption score /100" },
@@ -70,6 +83,11 @@ export const projects: Project[] = [
     category: "Operational Scale",
     company: "Fets · Nigeria",
     period: "2021 – 2025",
+    summary:
+      "Designed the in-house transaction infrastructure that replaced an expensive vendor dependency and opened up white-label revenue.",
+    role: "Lead Product Designer across platform strategy and operational UX.",
+    scope:
+      "Transaction engine workflows, operator console, reporting, reconciliation, and direct collaboration with engineering on financial operations.",
     metrics: [
       { value: "$1M+", label: "Saved annually" },
       { value: "2×", label: "Transaction capacity" },
@@ -94,6 +112,11 @@ export const projects: Project[] = [
     category: "Societal Impact",
     company: "Fets · 2.4M+ customers",
     period: "2022 – 2024",
+    summary:
+      "Digitised utility payments and service workflows for millions of customers across consumer app and in-person POS touchpoints.",
+    role: "Lead Product Designer for customer and operational experiences.",
+    scope:
+      "Consumer app flows, agent and POS workflows, reconciliation tooling, and service operations spanning digital and walk-in channels.",
     metrics: [
       { value: "4.6★", label: "Play Store rating (2,800+)" },
       { value: "↓30%", label: "Call-center volume" },
@@ -118,6 +141,11 @@ export const projects: Project[] = [
     category: "Intelligent Systems",
     company: "Founding Team · iOS · Android · Web",
     period: "Jul 2025 – Jan 2026",
+    summary:
+      "Shaped the trust layer for an AI scheduling product, translating biometric data into explainable planning people could act on.",
+    role: "Founding Designer from product definition to cross-platform system design.",
+    scope:
+      "AI interaction design, Apple Health onboarding, web app design, and shared patterns spanning iOS, Android, and web.",
     metrics: [
       { value: "#4", label: "Product Hunt — Product of the Day" },
       { value: "500+", label: "Downloads in first month" },
@@ -141,6 +169,11 @@ export const projects: Project[] = [
     category: "Intelligent Systems",
     company: "SeamlessHR",
     period: "Jan 2025 – Present",
+    summary:
+      "Established reusable AI interaction patterns for enterprise workflows so teams could ship AI features as a system instead of one-offs.",
+    role: "Lead, DesignOps & AI-UX.",
+    scope:
+      "AI pattern design, prompt frameworks, workflow definition, reporting concepts, and rollout guidance across product teams.",
     metrics: [
       { value: "Faster", label: "Candidate shortlisting" },
       { value: "Reduced", label: "Screening bias" },
@@ -164,6 +197,11 @@ export const projects: Project[] = [
     category: "0→1 Systems",
     company: "Founding Team · African SaaS",
     period: "Oct 2024 – Jul 2025",
+    summary:
+      "Defined a localised quote-to-cash product for African SaaS operators where global billing tools were a poor fit.",
+    role: "Founding Designer leading MVP definition and product UX.",
+    scope:
+      "Pricing configuration, billing workflows, subscription dashboards, validation with founders and CFOs, and delivery with engineering.",
     metrics: [
       { value: "0→1", label: "Validated MVP" },
       { value: "Pilot", label: "Soft launch with SaaS businesses" },

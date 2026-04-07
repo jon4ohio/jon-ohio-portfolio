@@ -1,6 +1,6 @@
 export const metadata = {
   title: "About — John Ohio",
-  description: "Product Design Lead with a decade of experience building systems across enterprise SaaS, fintech, and 0→1 environments.",
+  description: "Product Design Lead with a decade of experience building trusted systems across enterprise SaaS, fintech infrastructure, and 0→1 products.",
 };
 
 const principles = [
@@ -44,23 +44,20 @@ export default function About() {
               About
             </p>
             <h1 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.15, marginBottom: 32 }}>
-              I think in systems, build in structures, and lead through clarity.
+              I turn complexity into working systems for product teams.
             </h1>
             <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
               <p style={{ fontSize: 17, lineHeight: 1.75, color: "#374151" }}>
-                I&apos;m a Product Design Lead based in Abuja, Nigeria, specialising in design systems, DesignOps, and enterprise UX. Over the past several years I&apos;ve led design across some of Africa&apos;s most complex product environments — from a 12-team SaaS platform to fintech infrastructure serving millions of users.
+                I&apos;m a Product Design Lead based in Abuja, Nigeria, specialising in design systems, DesignOps, enterprise UX, and AI-native product work. Over the past decade I&apos;ve led design across some of Africa&apos;s most complex product environments, from a 12-team SaaS platform to fintech infrastructure serving millions of users.
               </p>
               <p style={{ fontSize: 17, lineHeight: 1.75, color: "#374151" }}>
-                My core thesis is simple: design at scale only works when it&apos;s systematic. Good taste isn&apos;t enough — you need shared language, governance, and a repeatable way for teams to make consistent decisions without bottlenecking on designers.
+                My core thesis is simple: design at scale only works when it becomes systematic. Good taste is not enough. Teams need shared language, governance, and a repeatable way to make sound decisions without bottlenecking on individual designers.
               </p>
               <p style={{ fontSize: 17, lineHeight: 1.75, color: "#374151" }}>
-                That&apos;s why I built Seamkit — not as a component library, but as an operational system. A 3-layer token architecture, a CAVIS naming model, contribution pipelines, and governance rituals. It became the backbone of SeamlessHR&apos;s product organisation: 12 teams, 88.9/100 adoption score, ~80% daily usage.
+                That belief shaped Seamkit, which I built not as a component library but as an operating system for product teams: token architecture, naming logic, contribution pipelines, and governance rituals. It became the backbone of SeamlessHR&apos;s product organisation across 12 teams, with an 88.9 adoption score and roughly 80% daily usage.
               </p>
               <p style={{ fontSize: 17, lineHeight: 1.75, color: "#374151" }}>
-                I&apos;ve also built on the other end of the spectrum — 0→1 founding design for Rivva (AI scheduling, #4 Product Hunt) and ClearPrice (Africa&apos;s first localised RevOps platform). Each environment demands different instincts, and I&apos;ve developed both.
-              </p>
-              <p style={{ fontSize: 17, lineHeight: 1.75, color: "#374151" }}>
-                Currently, I&apos;m leading DesignOps and AI-UX at SeamlessTech — defining how AI surfaces decisions inside enterprise workflows. Not features. Not one-off experiments. Patterns, frameworks, and interaction models that scale.
+                I&apos;ve also worked at the 0→1 edge, shaping products like Rivva and ClearPrice, where the job is to define the product, earn trust quickly, and give the team a system worth scaling. Today I lead DesignOps and AI-UX work focused on how intelligence shows up inside enterprise workflows as reusable patterns, not one-off features.
               </p>
             </div>
 

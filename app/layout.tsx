@@ -10,19 +10,20 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "John Ohio — Product Design Lead",
-  description: "Product Design Lead specialising in design systems, fintech infrastructure, and enterprise SaaS. I design product systems that evolve — from fragmented to structured to scalable to intelligent.",
+  description:
+    "Product Design Lead specialising in design systems, fintech infrastructure, enterprise SaaS, and AI-native workflows. I turn messy products into trusted systems teams can scale.",
   keywords: ["product design", "design systems", "fintech", "enterprise UX", "DesignOps", "John Ohio"],
   authors: [{ name: "John Ohio" }],
   openGraph: {
     title: "John Ohio — Product Design Lead",
-    description: "Design systems · Fintech · Enterprise SaaS · 0→1 Product Design",
+    description: "Design systems · Fintech infrastructure · Enterprise SaaS · AI-native workflows",
     type: "website",
     url: siteUrl,
   },
   twitter: {
     card: "summary",
     title: "John Ohio — Product Design Lead",
-    description: "Design systems · Fintech · Enterprise SaaS · 0→1 Product Design",
+    description: "Design systems · Fintech infrastructure · Enterprise SaaS · AI-native workflows",
   },
 };
 

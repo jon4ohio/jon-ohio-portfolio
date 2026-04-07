@@ -3,7 +3,7 @@ import { projects } from "@/lib/projects";
 
 export const metadata = {
   title: "Work — John Ohio",
-  description: "Selected case studies in design systems, fintech, enterprise SaaS, and 0→1 product design.",
+  description: "Selected case studies in enterprise SaaS, fintech infrastructure, design systems, and AI-native product work.",
 };
 
 export default function WorkIndex() {
@@ -14,10 +14,10 @@ export default function WorkIndex() {
           Selected Work
         </p>
         <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.1, maxWidth: 640, marginBottom: 20 }}>
-          Systems built across enterprise, fintech, and 0→1.
+          Case studies in product systems, not isolated screens.
         </h1>
         <p style={{ fontSize: 17, color: "#6b7280", maxWidth: 520, lineHeight: 1.6 }}>
-          Each case study follows the same thread: a broken or absent system, a structured intervention, and measurable results.
+          I usually come in when the workflow is broken, the platform is fragmented, or the team needs a system it can actually scale.
         </p>
       </section>
 
@@ -49,7 +49,8 @@ export default function WorkIndex() {
                   <span style={{ fontSize: 11, color: "#9ca3af" }}>{p.period}</span>
                 </div>
                 <h2 style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 8 }}>{p.title}</h2>
-                <p style={{ fontSize: 14, color: "#6b7280", marginBottom: 16 }}>{p.subtitle}</p>
+                <p style={{ fontSize: 14, color: "#6b7280", marginBottom: 10 }}>{p.subtitle}</p>
+                <p style={{ fontSize: 14, color: "#4b5563", lineHeight: 1.65, maxWidth: 720, marginBottom: 16 }}>{p.summary}</p>
                 <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                   {p.tags.map((t) => (
                     <span key={t} style={{ fontSize: 11, color: "#6b7280", border: "1px solid #e5e7eb", padding: "3px 8px", borderRadius: 4 }}>

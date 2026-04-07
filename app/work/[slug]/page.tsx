@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!project) return {};
   return {
     title: `${project.title} — John Ohio`,
-    description: project.context,
+    description: project.summary,
   };
 }
 
@@ -49,7 +49,8 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
         <h1 style={{ fontSize: "clamp(32px, 5vw, 60px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.05, marginBottom: 16, maxWidth: 800 }}>
           {project.title}
         </h1>
-        <p style={{ fontSize: 20, color: "#6b7280", marginBottom: 48 }}>{project.subtitle}</p>
+        <p style={{ fontSize: 20, color: "#6b7280", marginBottom: 16 }}>{project.subtitle}</p>
+        <p style={{ fontSize: 18, color: "#374151", lineHeight: 1.7, maxWidth: 760, marginBottom: 48 }}>{project.summary}</p>
 
         {/* Metrics */}
         <div className="grid-metrics" style={{ gridTemplateColumns: `repeat(${project.metrics.length}, 1fr)`, gap: 0, border: "1px solid #e5e7eb", borderRadius: 12, overflow: "hidden" }}>
@@ -66,6 +67,21 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
             </div>
           ))}
         </div>
+
+        <div className="grid-2" style={{ gap: 16, marginTop: 20 }}>
+          <div style={{ border: "1px solid #e5e7eb", borderRadius: 12, padding: "20px 22px" }}>
+            <p style={{ fontSize: 11, fontWeight: 500, color: "#9ca3af", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
+              Role
+            </p>
+            <p style={{ fontSize: 15, color: "#1f2937", lineHeight: 1.65 }}>{project.role}</p>
+          </div>
+          <div style={{ border: "1px solid #e5e7eb", borderRadius: 12, padding: "20px 22px" }}>
+            <p style={{ fontSize: 11, fontWeight: 500, color: "#9ca3af", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
+              Scope
+            </p>
+            <p style={{ fontSize: 15, color: "#1f2937", lineHeight: 1.65 }}>{project.scope}</p>
+          </div>
+        </div>
       </section>
 
       {/* ── Case Study Body ── */}
@@ -73,9 +89,9 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
 
         {[
           { label: "Context", content: project.context },
-          { label: "Problem", content: project.problem },
-          { label: "Action", content: project.action },
-          { label: "Impact", content: project.impact },
+          { label: "What was broken", content: project.problem },
+          { label: "What I led", content: project.action },
+          { label: "What changed", content: project.impact },
         ].map((section, i) => (
           <div key={i} style={{ marginBottom: 56, paddingBottom: 56, borderBottom: i < 3 ? "1px solid #e5e7eb" : "none" }}>
             <p style={{ fontSize: 11, fontWeight: 500, color: "#9ca3af", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 16 }}>

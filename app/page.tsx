@@ -2,28 +2,28 @@ import Link from "next/link";
 import { getFeaturedProjects } from "@/lib/projects";
 
 const metrics = [
-  { value: "$1M+", label: "saved · FetsProza" },
-  { value: "75%↑", label: "satisfaction · SeamlessHiring" },
-  { value: "10k+", label: "downloads · IBEDC" },
+  { value: "$1M+", label: "annual savings · FetsProza" },
+  { value: "27→74", label: "NPS lift · SeamlessHiring" },
+  { value: "12", label: "teams aligned · Seamkit" },
   { value: "#4", label: "Product Hunt · Rivva" },
 ];
 
 const capabilities = [
   {
     label: "Enterprise SaaS",
-    desc: "Multi-product platforms at organisational scale. Structured, governed, built to last.",
+    desc: "Core workflows, governance, and adoption across multi-product platforms that need to scale without losing trust.",
   },
   {
     label: "Fintech Infrastructure",
-    desc: "Operational and regulatory complexity in financial systems. From mobile money to RevOps.",
+    desc: "High-stakes transaction and operational systems shaped by reconciliation, compliance, and service reliability.",
   },
   {
-    label: "Design Systems",
-    desc: "Token-based systems that scale across teams and codebases. Not a library — a system.",
+    label: "Design Systems & DesignOps",
+    desc: "Tokens, components, governance, and adoption programmes that hold across teams and codebases.",
   },
   {
-    label: "0→1 Product Design",
-    desc: "From ambiguity to validated MVP. Discovery, definition, and cross-functional execution.",
+    label: "0→1 + AI Products",
+    desc: "New products and AI-native workflows where trust, clarity, and speed to learning matter.",
   },
 ];
 
@@ -43,7 +43,7 @@ export default function Home() {
       {/* ── Hero ── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 80px" }}>
         <p className="animate-fade-up delay-1" style={{ fontSize: 13, fontWeight: 500, color: "#6b7280", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 24 }}>
-          Product Design Lead · Design Systems · Fintech · Enterprise
+          Product Design Lead · Design Systems · Fintech Infrastructure · Enterprise AI
         </p>
         <h1
           className="animate-fade-up delay-2"
@@ -56,10 +56,10 @@ export default function Home() {
             marginBottom: 32,
           }}
         >
-          I design product systems that evolve.
+          I turn messy products into trusted systems.
         </h1>
         <p className="animate-fade-up delay-3" style={{ fontSize: 20, color: "#6b7280", maxWidth: 540, marginBottom: 48, lineHeight: 1.5 }}>
-          From fragmented → structured → scalable → intelligent.
+          Across enterprise SaaS, fintech, and 0→1 bets, I design the workflows, patterns, and operating structure teams need to scale.
         </p>
         <div className="animate-fade-up delay-4" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
           <Link
@@ -135,10 +135,10 @@ export default function Home() {
             What I Do
           </p>
           <h2 style={{ fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: 24 }}>
-            I design product systems for complex platforms.
+            I help products move from friction to operational clarity.
           </h2>
           <p style={{ fontSize: 17, color: "#4b5563", lineHeight: 1.7 }}>
-            I structure fragmented products and scale them into cohesive, high-performing systems — across enterprise SaaS, fintech infrastructure, and 0→1 founding environments. My work spans design execution, systems architecture, and DesignOps leadership.
+            My work sits where UX, systems thinking, and execution meet: fixing core workflows, building shared design infrastructure, and giving teams a repeatable way to ship consistent, measurable improvements.
           </p>
         </div>
       </section>
@@ -233,7 +233,8 @@ export default function Home() {
                   <span style={{ fontSize: 11, color: "#9ca3af" }}>{p.company}</span>
                 </div>
                 <h3 style={{ fontSize: 20, fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 6 }}>{p.title}</h3>
-                <p style={{ fontSize: 14, color: "#6b7280" }}>{p.subtitle}</p>
+                <p style={{ fontSize: 14, color: "#6b7280", marginBottom: 10 }}>{p.subtitle}</p>
+                <p style={{ fontSize: 14, color: "#4b5563", lineHeight: 1.6, maxWidth: 640 }}>{p.summary}</p>
               </div>
               <div className="hide-mobile" style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "flex-end", alignItems: "center" }}>
                 {p.metrics.slice(0, 2).map((m, j) => (
