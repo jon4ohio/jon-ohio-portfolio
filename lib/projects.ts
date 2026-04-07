@@ -18,24 +18,24 @@ export const projects: Project[] = [
   {
     slug: "seamless-hiring",
     title: "SeamlessHiring 2.0",
-    subtitle: "Recruitment Management System",
+    subtitle: "Recruitment Management System (RMS)",
     category: "Structured Systems",
     company: "SeamlessHR",
     period: "Mar 2022 – Mar 2025",
     metrics: [
       { value: "↓50%", label: "Support tickets" },
-      { value: "↑75%", label: "User satisfaction" },
-      { value: "↑60%", label: "Workflow efficiency" },
-      { value: "↓24%", label: "App drop-offs" },
+      { value: "100%", label: "Applicant completion" },
+      { value: "27→74", label: "NPS" },
+      { value: "$3,600/yr", label: "Flagship module pricing" },
     ],
     context:
-      "SeamlessHR's ATS collapsed during a high-volume recruitment programme. 12 product teams were operating with no shared system, fragmented across Blade and Vue implementations, with inconsistent patterns and compounding technical debt.",
+      "SeamlessHiring is SeamlessHR’s pioneering Recruitment Management System (RMS). Built on a legacy PHP‑Blade foundation, it became so burdened by inefficiencies that sales could only move it as a nominal add‑on priced at ₦150,000 (≈ US $190) — a steep discount that signalled sagging perceived value and stalled revenue growth.",
     problem:
-      "Fragmented UX, backward-compatibility constraints, high support load, and 24% application drop-offs made the system unreliable at scale. The platform needed rebuilding — not patching.",
+      "The platform couldn’t scale: user churn rose, applicants dropped mid‑flow, and revenue drag compounded. Research showed repetitive errors, broken links, mis‑sequenced steps, and reconciliation busywork that ate recruiter time and eroded trust in the hiring process.",
     action:
-      "Led a 5-phase system redesign: rebuilt ATS flows, RBAC, and full job lifecycle from the ground up. Implemented AI-powered CV parsing and smart ranking. Built Seamkit alongside — a token-driven design system — to unify all 12 product teams under a shared design language.",
+      "Led a phased, user‑centred rebuild anchored on restoring trust and eliminating systemic failure points. Partnered cross‑functionally (PM, engineering, CX, sales) to synthesize FullStory analytics, stakeholder interviews, and ticket audits into a five‑phase roadmap that delivered zero‑downtime improvements while modernising the end‑to‑end experience.",
     impact:
-      "Support tickets halved. User satisfaction rose 75%. Workflow efficiency improved by 60%. Seamkit achieved 2.49M token insertions, 443K component insertions, an 88.9/100 adoption score, and 91.1/100 trust score across 12 onboarded teams.",
+      "In two years, SeamlessHiring moved from a discounted “add‑on” to a $3,600‑per‑year flagship module. Support tickets dropped 50%, applicant completion reached 100%, and NPS rose from 27 to 74 while saving clients an estimated ~$500k/year in admin overhead.",
     tags: ["Design Systems", "ATS", "Enterprise SaaS", "AI/ML", "DesignOps"],
     featured: true,
   },
@@ -50,23 +50,23 @@ export const projects: Project[] = [
       { value: "12", label: "Teams onboarded" },
       { value: "88.9", label: "Adoption score /100" },
       { value: "91.1", label: "Trust score /100" },
-      { value: "~80%", label: "Daily usage" },
+      { value: "+15%", label: "Efficiency uplift" },
     ],
     context:
-      "12 product teams were operating with disconnected Figma libraries, inconsistent Vue components, and no shared token system. Each team built independently, creating duplication, rework, and poor design-engineering handoffs.",
+      "SeamlessHR had three fragmented UI libraries and disconnected Figma assets across squads. Duplicate components slowed releases, eroded brand trust, and inflated maintenance cost — exactly as the company pushed toward global expansion and a Product‑Led Growth (PLG) strategy.",
     problem:
-      "No governance, no shared language, and no system to coordinate design decisions at scale. UX inconsistency across products was visible to users and costly for teams to resolve.",
+      "Without a shared language (tokens, patterns, governance), design and engineering shipped inconsistent UI across products and spent days on “style churn.” The organisation needed one source of truth that could scale with teams, frameworks, and evolving brand/accessibility requirements.",
     action:
-      "Built a token-driven design system from scratch: a 3-layer token hierarchy (Core → Semantic → Component), a CAVIS naming model, a reusable component library, governance documentation, and a structured contribution and release pipeline.",
+      "Consolidated the ecosystem into SeamKit — a token‑driven source of truth that aligns designers and engineers on brand, accessibility, and scale. Established foundations (token hierarchy, naming, components) plus operating system (governance, documentation, contribution/release cadence) to support sustained adoption across squads.",
     impact:
-      "2.49M token insertions and 443K component insertions in 12 months. Onboarding time reduced by 30%. Token misuse down 50%. All 12 product teams unified under a single, trusted system.",
+      "A single trusted system now anchors UI consistency and accelerates delivery: 2.49M token insertions and 443K component insertions, 12 teams onboarded, and measurable improvements in onboarding speed and token hygiene — while enabling progressive rollout into live screens gated by feature flags for zero downtime.",
     tags: ["Design Systems", "Tokens", "Governance", "Vue", "Figma"],
     featured: true,
   },
   {
     slug: "fetsproza",
     title: "FetsProza",
-    subtitle: "Mobile Money Infrastructure",
+    subtitle: "Infrastructure‑as‑a‑Service (IaaS) Platform",
     category: "Operational Scale",
     company: "Fets · Nigeria",
     period: "2021 – 2025",
@@ -74,16 +74,16 @@ export const projects: Project[] = [
       { value: "$1M+", label: "Saved annually" },
       { value: "2×", label: "Transaction capacity" },
       { value: "50%", label: "Faster settlement" },
-      { value: "↓", label: "Vendor dependency" },
+      { value: "White-label", label: "Licensable engine" },
     ],
     context:
-      "Fets relied on costly third-party mobile money infrastructure — $1M+ annually in vendor fees with no control over performance, localisation, or scaling decisions.",
+      "Fetswallet’s mobile‑money operations relied on Huawei’s licensed engine — costly, inflexible, and struggling to keep up with growth. With expansion plans (including Congo), the team needed infrastructure we could customise instead of merely leasing.",
     problem:
-      "A rigid vendor system limited scalability and market expansion. Manual workflows, operational inefficiencies, and no white-label potential constrained the business at every layer.",
+      "The vendor system limited scalability and localisation, and it blocked white‑label opportunities. Operational work stayed overly manual, and strategic product decisions were constrained by a third‑party dependency.",
     action:
-      "Led product definition and UX design for an in-house IaaS platform — built with no PM, working directly with engineering. Designed a modular transaction engine, reporting system, and operational console. Translated complex financial operations into actionable, auditable UI.",
+      "Led strategy, operations, and product design for Fetsproza: a proprietary, white‑label‑ready IaaS platform powering a modular transaction engine, reporting, and an operator console. Worked directly with engineering to translate complex financial workflows into clear, auditable interfaces.",
     impact:
-      "Replaced a core infrastructure dependency entirely. $1M+ saved annually. Transaction capacity doubled (10k → 20k/min). Settlement time halved (4s → 2s). Operational overhead reduced. New white-label revenue stream unlocked.",
+      "Saved the company $1M+ annually, streamlined operations, and laid the groundwork for licensing the engine to external fintechs. Transaction capacity doubled (10k → 20k/min) and settlement time halved (4s → 2s), unlocking a new white‑label revenue stream.",
     tags: ["Fintech", "IaaS", "Mobile Money", "Infrastructure", "0→1"],
     featured: true,
   },
@@ -95,19 +95,19 @@ export const projects: Project[] = [
     company: "Fets · 2.4M+ customers",
     period: "2022 – 2024",
     metrics: [
-      { value: "49→96%", label: "Ledger accuracy" },
-      { value: "10k+", label: "App downloads" },
+      { value: "4.6★", label: "Play Store rating (2,800+)" },
+      { value: "↓30%", label: "Call-center volume" },
       { value: "↓30%", label: "Support volume" },
-      { value: "+25pp", label: "NPS improvement" },
+      { value: "24–48h→mins", label: "Token/payment turnaround" },
     ],
     context:
-      "Manual, paper-based billing for 2.4M+ electricity customers across multiple Nigerian states. No real-time visibility, no digital channel, and no reconciliation infrastructure.",
+      "The Ibadan Electricity Distribution Company (IBEDC) is Nigeria’s largest distribution company by geographic coverage, serving five states. Its billing and payment operations relied heavily on manual processes and fragmented third‑party portals.",
     problem:
-      "Revenue leakage, fraud, poor traceability. Long queues, 24–48h token delays, fragmented payment channels, and no audit trail. A critical public utility operating on broken systems.",
+      "Customers bounced between third‑party portals (FETSwallet, Bypower, bank USSD…) or queued at walk‑in centres using handwritten ledgers. Token SMS often lagged 24–48 hours; revenue leaked; and support tickets doubled year‑on‑year.",
     action:
-      "Designed IBEDC Care App (customer + staff-facing), a walk-in POS system, and digitised billing, payment, and reconciliation workflows end-to-end. Mapped complex utility workflows into clear, accessible digital experiences for both staff and customers.",
+      "Designed a friction‑free, end‑to‑end digital experience: IBEDC Care App (B2C + customer relations) and a bespoke POS terminal workflow for walk‑in centres. Digitised billing, payment, receipt verification, and reconciliation so both customers and staff could transact confidently and traceably.",
     impact:
-      "Ledger accuracy improved from 49% to 96%. Fraud reduced by 80%. Support volume fell 30%. NPS improved 25 percentage points. 10,000+ app downloads. A critical public utility moved from paper to real-time digital — at societal scale.",
+      "IBEDC’s billing and payments shifted from paper and third‑party fragmentation to a unified digital system: customers transact in seconds, staff reconcile in minutes, and revenue leakage is materially reduced. Positive feedback from customers and staff (Play Store 4.6★, 2,800+ reviews) and a ~30% reduction in call‑centre volume as queue/token complaints disappeared.",
     tags: ["Fintech", "Utilities", "Mobile App", "POS", "Public Sector"],
     featured: true,
   },
