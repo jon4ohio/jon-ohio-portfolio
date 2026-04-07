@@ -15,7 +15,63 @@ export interface Project {
   impact: string;
   tags: string[];
   featured: boolean;
+  assets?: ProjectAssets;
 }
+
+export type ImageAsset = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption?: string;
+};
+
+export type CaseStudyBlock =
+  | {
+      kind: "image";
+      image: ImageAsset;
+      layout?: "inline" | "wide";
+      treatment?: "plain" | "device";
+    }
+  | {
+      kind: "gallery";
+      images: ImageAsset[];
+      columns?: 2 | 3;
+      layout?: "inline" | "wide";
+      treatment?: "plain" | "device";
+    }
+  | {
+      kind: "callout";
+      title: string;
+      body: string;
+    };
+
+export type ProjectAssets = {
+  thumbnails?: [ImageAsset, ImageAsset?];
+  hero?: ImageAsset;
+  blocks?: CaseStudyBlock[];
+};
+
+const placeholderThumbA: ImageAsset = {
+  src: "/assets/work/_placeholders/thumb-a.svg",
+  alt: "Project thumbnail placeholder",
+  width: 1200,
+  height: 900,
+};
+
+const placeholderThumbB: ImageAsset = {
+  src: "/assets/work/_placeholders/thumb-b.svg",
+  alt: "Project thumbnail placeholder (alt)",
+  width: 1200,
+  height: 900,
+};
+
+const placeholderHero: ImageAsset = {
+  src: "/assets/work/_placeholders/hero.svg",
+  alt: "Case study hero placeholder",
+  width: 2400,
+  height: 1350,
+};
 
 export const projects: Project[] = [
   {
@@ -46,6 +102,31 @@ export const projects: Project[] = [
       "In two years, SeamlessHiring moved from a discounted “add‑on” to a $3,600‑per‑year flagship module. Support tickets dropped 50%, applicant completion reached 100%, and NPS rose from 27 to 74 while saving clients an estimated ~$500k/year in admin overhead.",
     tags: ["Design Systems", "ATS", "Enterprise SaaS", "AI/ML", "DesignOps"],
     featured: true,
+    assets: {
+      thumbnails: [placeholderThumbA, placeholderThumbB],
+      hero: placeholderHero,
+      blocks: [
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "device",
+          image: {
+            ...placeholderThumbA,
+            caption: "Example flow snapshot (replace with real visuals).",
+          },
+        },
+        {
+          kind: "gallery",
+          layout: "inline",
+          columns: 2,
+          treatment: "plain",
+          images: [
+            { ...placeholderThumbA, caption: "Before" },
+            { ...placeholderThumbB, caption: "After" },
+          ],
+        },
+      ],
+    },
   },
   {
     slug: "seamkit",
@@ -75,6 +156,17 @@ export const projects: Project[] = [
       "A single trusted system now anchors UI consistency and accelerates delivery: 2.49M token insertions and 443K component insertions, 12 teams onboarded, and measurable improvements in onboarding speed and token hygiene — while enabling progressive rollout into live screens gated by feature flags for zero downtime.",
     tags: ["Design Systems", "Tokens", "Governance", "Vue", "Figma"],
     featured: true,
+    assets: {
+      thumbnails: [placeholderThumbB, placeholderThumbA],
+      hero: placeholderHero,
+      blocks: [
+        {
+          kind: "callout",
+          title: "System artefacts",
+          body: "This case study supports sectional images and galleries (tokens, components, governance docs, rollout snapshots).",
+        },
+      ],
+    },
   },
   {
     slug: "fetsproza",
@@ -104,6 +196,10 @@ export const projects: Project[] = [
       "Saved the company $1M+ annually, streamlined operations, and laid the groundwork for licensing the engine to external fintechs. Transaction capacity doubled (10k → 20k/min) and settlement time halved (4s → 2s), unlocking a new white‑label revenue stream.",
     tags: ["Fintech", "IaaS", "Mobile Money", "Infrastructure", "0→1"],
     featured: true,
+    assets: {
+      thumbnails: [placeholderThumbA, placeholderThumbB],
+      hero: placeholderHero,
+    },
   },
   {
     slug: "ibedc",
@@ -133,6 +229,10 @@ export const projects: Project[] = [
       "IBEDC’s billing and payments shifted from paper and third‑party fragmentation to a unified digital system: customers transact in seconds, staff reconcile in minutes, and revenue leakage is materially reduced. Positive feedback from customers and staff (Play Store 4.6★, 2,800+ reviews) and a ~30% reduction in call‑centre volume as queue/token complaints disappeared.",
     tags: ["Fintech", "Utilities", "Mobile App", "POS", "Public Sector"],
     featured: true,
+    assets: {
+      thumbnails: [placeholderThumbB, placeholderThumbA],
+      hero: placeholderHero,
+    },
   },
   {
     slug: "rivva",
@@ -161,6 +261,10 @@ export const projects: Project[] = [
       "#4 Product of the Day on Product Hunt. 500+ downloads in the first month. 30+ paying customers within two months. A trusted, explainable AI assistant — not just automation.",
     tags: ["AI/ML", "iOS", "Android", "Health Tech", "0→1", "Cross-platform"],
     featured: true,
+    assets: {
+      thumbnails: [placeholderThumbA, placeholderThumbB],
+      hero: placeholderHero,
+    },
   },
   {
     slug: "seamless-ai",
@@ -189,6 +293,10 @@ export const projects: Project[] = [
       "Reusable AI interaction patterns established as a system — not one-off features. Faster shortlisting, improved quality, reduced bias. A foundation for AI-native enterprise design at scale.",
     tags: ["AI/ML", "Enterprise SaaS", "Design Systems", "Recruitment", "UX Patterns"],
     featured: false,
+    assets: {
+      thumbnails: [placeholderThumbB, placeholderThumbA],
+      hero: placeholderHero,
+    },
   },
   {
     slug: "clearprice",
@@ -217,6 +325,10 @@ export const projects: Project[] = [
       "Soft launch pilot with African SaaS businesses. Scalable, compliance-ready billing infrastructure established. Positioned as the first localised RevOps platform for Africa's SaaS growth ecosystem.",
     tags: ["Fintech", "SaaS", "0→1", "Africa", "Billing Infrastructure"],
     featured: false,
+    assets: {
+      thumbnails: [placeholderThumbA, placeholderThumbB],
+      hero: placeholderHero,
+    },
   },
 ];
 

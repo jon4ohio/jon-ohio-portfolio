@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1400" viewBox="0 0 1200 1400" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="1400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9FAFB"/>
+      <stop offset="1" stop-color="#EEF2F7"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="1198" height="1398" rx="40" fill="url(#bg)" stroke="#E5E7EB" stroke-width="2"/>
+  <g opacity="0.65">
+    <circle cx="600" cy="520" r="230" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+    <path d="M210 1180C300 940 430 830 600 830C770 830 900 940 990 1180" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+  </g>
+  <text x="90" y="1290" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="30" fill="#6B7280" letter-spacing="0.02em">
+    Portrait placeholder
+  </text>
+</svg>

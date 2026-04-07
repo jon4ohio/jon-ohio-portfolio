@@ -68,7 +68,7 @@ body {
 /* Work index list row: index + content + metrics */
 .grid-work-row {
   display: grid;
-  grid-template-columns: 80px 1fr auto;
+  grid-template-columns: 80px 240px 1fr auto;
   align-items: start;
   gap: 32px;
 }

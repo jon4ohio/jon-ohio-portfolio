@@ -3,6 +3,16 @@ export const metadata = {
   description: "Product Design Lead with a decade of experience building trusted systems across enterprise SaaS, fintech infrastructure, and 0→1 products.",
 };
 
+import AssetImage from "@/components/AssetImage";
+import type { ImageAsset } from "@/lib/projects";
+
+const portrait: ImageAsset = {
+  src: "/assets/about/portrait.svg",
+  alt: "Portrait of John Ohio",
+  width: 1200,
+  height: 1400,
+};
+
 const principles = [
   {
     title: "Systems over screens",
@@ -73,6 +83,9 @@ export default function About() {
 
           {/* Right: Principles + Timeline */}
           <div>
+            <div style={{ marginBottom: 24 }}>
+              <AssetImage asset={portrait} sizes="(max-width: 900px) 92vw, 480px" />
+            </div>
             <p style={{ fontSize: 12, fontWeight: 500, color: "#6b7280", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 24 }}>
               How I Think
             </p>

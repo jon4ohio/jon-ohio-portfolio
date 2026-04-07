@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { projects } from "@/lib/projects";
+import AssetImage from "@/components/AssetImage";
 
 export const metadata = {
   title: "Work — John Ohio",
@@ -38,6 +39,24 @@ export default function WorkIndex() {
               <span style={{ fontSize: 12, color: "#9ca3af", fontWeight: 500, letterSpacing: "0.04em", paddingTop: 4 }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
+              <div className="hide-mobile" style={{ paddingTop: 6 }}>
+                {p.assets?.thumbnails?.[0] ? (
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+                    <AssetImage
+                      asset={p.assets.thumbnails[0]}
+                      sizes="(max-width: 900px) 180px, 120px"
+                      style={{}}
+                    />
+                    {p.assets.thumbnails[1] ? (
+                      <AssetImage
+                        asset={p.assets.thumbnails[1]}
+                        sizes="(max-width: 900px) 180px, 120px"
+                        style={{}}
+                      />
+                    ) : null}
+                  </div>
+                ) : null}
+              </div>
               <div>
                 <div style={{ display: "flex", gap: 12, marginBottom: 10, flexWrap: "wrap" }}>
                   <span style={{ fontSize: 11, color: "#9ca3af", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase" }}>

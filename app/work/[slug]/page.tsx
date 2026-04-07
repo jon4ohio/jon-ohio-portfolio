@@ -1,6 +1,53 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getProject, projects } from "@/lib/projects";
+import { getProject, projects, type CaseStudyBlock } from "@/lib/projects";
+import AssetImage from "@/components/AssetImage";
+
+function BlockRenderer({ block }: { block: CaseStudyBlock }) {
+  if (block.kind === "callout") {
+    return (
+      <div style={{ border: "1px solid var(--border)", borderRadius: 14, padding: "20px 22px", background: "var(--surface)" }}>
+        <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 8 }}>{block.title}</p>
+        <p style={{ fontSize: 14, color: "var(--fg-muted)", lineHeight: 1.7 }}>{block.body}</p>
+      </div>
+    );
+  }
+
+  if (block.kind === "image") {
+    return (
+      <div>
+        <AssetImage
+          asset={block.image}
+          sizes={block.layout === "wide" ? "(max-width: 900px) 92vw, 1120px" : "(max-width: 900px) 92vw, 720px"}
+          treatment={block.treatment}
+        />
+        {block.image.caption ? (
+          <p style={{ fontSize: 12, color: "var(--fg-subtle)", lineHeight: 1.6, marginTop: 10 }}>{block.image.caption}</p>
+        ) : null}
+      </div>
+    );
+  }
+
+  // gallery
+  const columns = block.columns ?? 2;
+  const gridTemplateColumns = columns === 3 ? "repeat(3, 1fr)" : "repeat(2, 1fr)";
+  return (
+    <div>
+      <div style={{ display: "grid", gridTemplateColumns, gap: 12 }}>
+        {block.images.map((img, idx) => (
+          <div key={`${img.src}-${idx}`}>
+            <AssetImage
+              asset={img}
+              sizes={block.layout === "wide" ? "(max-width: 900px) 44vw, 520px" : "(max-width: 900px) 44vw, 340px"}
+              treatment={block.treatment}
+            />
+            {img.caption ? <p style={{ fontSize: 12, color: "var(--fg-subtle)", marginTop: 10 }}>{img.caption}</p> : null}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export async function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -52,6 +99,15 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
         <p style={{ fontSize: 20, color: "#6b7280", marginBottom: 16 }}>{project.subtitle}</p>
         <p style={{ fontSize: 18, color: "#374151", lineHeight: 1.7, maxWidth: 760, marginBottom: 48 }}>{project.summary}</p>
 
+        {project.assets?.hero ? (
+          <div style={{ marginBottom: 28 }}>
+            <AssetImage asset={project.assets.hero} sizes="(max-width: 900px) 92vw, 1120px" priority />
+            {project.assets.hero.caption ? (
+              <p style={{ fontSize: 12, color: "var(--fg-subtle)", lineHeight: 1.6, marginTop: 10 }}>{project.assets.hero.caption}</p>
+            ) : null}
+          </div>
+        ) : null}
+
         {/* Metrics */}
         <div className="grid-metrics" style={{ gridTemplateColumns: `repeat(${project.metrics.length}, 1fr)`, gap: 0, border: "1px solid #e5e7eb", borderRadius: 12, overflow: "hidden" }}>
           {project.metrics.map((m, i) => (
@@ -100,6 +156,14 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
             <p style={{ fontSize: 17, lineHeight: 1.75, color: "#1f2937" }}>{section.content}</p>
           </div>
         ))}
+
+        {project.assets?.blocks?.length ? (
+          <div style={{ display: "flex", flexDirection: "column", gap: 18, marginBottom: 56 }}>
+            {project.assets.blocks.map((block, idx) => (
+              <BlockRenderer key={idx} block={block} />
+            ))}
+          </div>
+        ) : null}
 
         {/* Tags */}
         <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
