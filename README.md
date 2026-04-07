@@ -44,3 +44,7 @@ This repo is configured for Vercel. `vercel.json` uses:
 
 - `installCommand`: `npm ci`
 - `buildCommand`: `npm run build`
+
+## Architecture Decision Records (ADRs)
+
+See `docs/adrs/index.md`.
