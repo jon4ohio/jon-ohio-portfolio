@@ -2,9 +2,9 @@
 
 ## Status
 <!-- One of: Draft | Proposed | Accepted | Deprecated | Superseded by ADR-NNN -->
-**Status:** Draft
+**Status:** Accepted
 **Date:** 2026-04-07
-**Decision Maker(s):** Unknown (required before Accepted)
+**Decision Maker(s):** John Ohio (Owner/Maintainer)
 **Supersedes:** None
 
 ## Context
