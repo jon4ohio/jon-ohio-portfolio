@@ -69,7 +69,7 @@ export default function Leadership() {
 
       {/* Stats bar */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 64px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 0, border: "1px solid #e5e7eb", borderRadius: 12, overflow: "hidden" }}>
+        <div className="grid-4" style={{ gap: 0, border: "1px solid #e5e7eb", borderRadius: 12, overflow: "hidden" }}>
           {systemStats.slice(0, 4).map((s, i) => (
             <div
               key={i}
@@ -84,7 +84,7 @@ export default function Leadership() {
             </div>
           ))}
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 0, border: "1px solid #e5e7eb", borderTop: "none", borderRadius: "0 0 12px 12px", overflow: "hidden" }}>
+        <div className="grid-4" style={{ gap: 0, border: "1px solid #e5e7eb", borderTop: "none", borderRadius: "0 0 12px 12px", overflow: "hidden" }}>
           {systemStats.slice(4).map((s, i) => (
             <div
               key={i}
@@ -105,7 +105,7 @@ export default function Leadership() {
         <p style={{ fontSize: 12, fontWeight: 500, color: "#6b7280", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 40 }}>
           How I Lead
         </p>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+        <div className="grid-2" style={{ gap: 16 }}>
           {focusAreas.map((f, i) => (
             <div
               key={i}
@@ -125,12 +125,10 @@ export default function Leadership() {
       {/* Seamkit highlight */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 64px" }}>
         <div
+          className="grid-2 pad-inset"
           style={{
             background: "#0a0a0a",
             borderRadius: 16,
-            padding: "56px",
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
             gap: 64,
             alignItems: "start",
           }}
@@ -189,7 +187,7 @@ export default function Leadership() {
         <p style={{ fontSize: 12, fontWeight: 500, color: "#6b7280", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 40 }}>
           Current Focus · SeamlessHR / SeamlesTech · Jan 2025 – Present
         </p>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+        <div className="grid-3" style={{ gap: 16 }}>
           {currentFocus.map((f, i) => (
             <div
               key={i}

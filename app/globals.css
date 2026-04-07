@@ -47,3 +47,126 @@ body {
 .delay-8 { animation-delay: 0.8s; }
 
 [class*="animate-"] { opacity: 0; }
+
+/* ─────────────────────────────────────────────────────
+   Responsive grid utilities
+   Only grid-template-columns lives here; all decorative
+   styles (gap, padding, colors, borders) stay inline.
+───────────────────────────────────────────────────── */
+
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); }
+
+/* Two-col with large gap — About page layout */
+.grid-2-lg {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 80px;
+}
+
+/* Work index list row: index + content + metrics */
+.grid-work-row {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: start;
+  gap: 32px;
+}
+
+/* Homepage featured work row: content + metric chips */
+.grid-work-feat {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+/* Case study dynamic-column metrics — class is a mobile override hook */
+.grid-metrics { display: grid; }
+
+/* ── Tablet  ≤ 900px ─────────────────────────────── */
+@media (max-width: 900px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── Mobile  ≤ 640px ─────────────────────────────── */
+@media (max-width: 640px) {
+  .grid-2         { grid-template-columns: 1fr; }
+  .grid-2-lg      { grid-template-columns: 1fr; gap: 48px; }
+  .grid-3         { grid-template-columns: 1fr; }
+  .grid-work-row  { grid-template-columns: 40px 1fr; gap: 16px; }
+  .grid-work-feat { grid-template-columns: 1fr; }
+
+  /* Override dynamic inline gridTemplateColumns on case study metrics */
+  .grid-metrics   { grid-template-columns: repeat(2, 1fr) !important; }
+
+  .hide-mobile    { display: none !important; }
+
+  /* Prev/next: left-align "next" when stacked */
+  .next-item      { text-align: left !important; }
+}
+
+/* ─────────────────────────────────────────────────────
+   Dark / inset section padding
+───────────────────────────────────────────────────── */
+.pad-inset      { padding: 56px; }
+.pad-inset-wide { padding: 64px 56px; }
+
+@media (max-width: 900px) {
+  .pad-inset      { padding: 40px 36px; }
+  .pad-inset-wide { padding: 48px 40px; }
+}
+
+@media (max-width: 640px) {
+  .pad-inset      { padding: 28px 20px; }
+  .pad-inset-wide { padding: 32px 20px; }
+}
+
+/* ─────────────────────────────────────────────────────
+   Navigation responsive
+───────────────────────────────────────────────────── */
+.nav-desktop-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-desktop-cta {
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-mobile-panel {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 56px;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e5e7eb;
+  padding: 16px 24px 24px;
+  z-index: 49;
+}
+
+.nav-mobile-panel.open { display: flex; }
+
+@media (max-width: 640px) {
+  .nav-desktop-links { display: none !important; }
+  .nav-desktop-cta   { display: none !important; }
+  .nav-hamburger     { display: flex !important; }
+}

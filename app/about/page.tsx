@@ -36,7 +36,7 @@ export default function About() {
   return (
     <div style={{ paddingTop: 56 }}>
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "80px 24px 64px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "start" }}>
+        <div className="grid-2-lg" style={{ alignItems: "start" }}>
 
           {/* Left: Narrative */}
           <div>

@@ -27,11 +27,8 @@ export default function WorkIndex() {
             <Link
               key={p.slug}
               href={`/work/${p.slug}`}
+              className="grid-work-row"
               style={{
-                display: "grid",
-                gridTemplateColumns: "80px 1fr auto",
-                alignItems: "start",
-                gap: 32,
                 padding: "36px 0",
                 borderTop: "1px solid #e5e7eb",
                 textDecoration: "none",
@@ -61,7 +58,7 @@ export default function WorkIndex() {
                   ))}
                 </div>
               </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: 8, alignItems: "flex-end", minWidth: 140 }}>
+              <div className="hide-mobile" style={{ display: "flex", flexDirection: "column", gap: 8, alignItems: "flex-end", minWidth: 140 }}>
                 {p.metrics.slice(0, 2).map((m, j) => (
                   <div key={j} style={{ textAlign: "right" }}>
                     <span style={{ fontSize: 18, fontWeight: 600, letterSpacing: "-0.02em" }}>{m.value}</span>

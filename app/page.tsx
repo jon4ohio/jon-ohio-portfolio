@@ -105,12 +105,11 @@ export default function Home() {
       {/* ── Metrics strip ── */}
       <section style={{ borderTop: "1px solid #e5e7eb", borderBottom: "1px solid #e5e7eb", background: "#f9fafb" }}>
         <div
+          className="grid-4"
           style={{
             maxWidth: 1120,
             margin: "0 auto",
             padding: "0 24px",
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
             gap: 0,
           }}
         >
@@ -149,7 +148,7 @@ export default function Home() {
         <p style={{ fontSize: 12, fontWeight: 500, color: "#6b7280", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 48 }}>
           System Evolution Model
         </p>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 0, border: "1px solid #e5e7eb", borderRadius: 12, overflow: "hidden" }}>
+        <div className="grid-4" style={{ gap: 0, border: "1px solid #e5e7eb", borderRadius: 12, overflow: "hidden" }}>
           {evolutionStages.map((s, i) => (
             <div
               key={i}
@@ -181,7 +180,7 @@ export default function Home() {
         <p style={{ fontSize: 12, fontWeight: 500, color: "#6b7280", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 48 }}>
           Where I Operate
         </p>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16 }}>
+        <div className="grid-2" style={{ gap: 16 }}>
           {capabilities.map((c, i) => (
             <div
               key={i}
@@ -215,10 +214,8 @@ export default function Home() {
             <Link
               key={p.slug}
               href={`/work/${p.slug}`}
+              className="grid-work-feat"
               style={{
-                display: "grid",
-                gridTemplateColumns: "1fr auto",
-                alignItems: "center",
                 gap: 24,
                 padding: "28px 0",
                 borderTop: "1px solid #e5e7eb",
@@ -238,7 +235,7 @@ export default function Home() {
                 <h3 style={{ fontSize: 20, fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 6 }}>{p.title}</h3>
                 <p style={{ fontSize: 14, color: "#6b7280" }}>{p.subtitle}</p>
               </div>
-              <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "flex-end", alignItems: "center" }}>
+              <div className="hide-mobile" style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "flex-end", alignItems: "center" }}>
                 {p.metrics.slice(0, 2).map((m, j) => (
                   <span
                     key={j}
@@ -266,12 +263,10 @@ export default function Home() {
       {/* ── Leadership Preview ── */}
       <section style={{ maxWidth: 1120, margin: "96px auto 0", padding: "0 24px" }}>
         <div
+          className="grid-2 pad-inset-wide"
           style={{
             background: "#0a0a0a",
             borderRadius: 16,
-            padding: "64px 56px",
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
             gap: 64,
             alignItems: "center",
           }}

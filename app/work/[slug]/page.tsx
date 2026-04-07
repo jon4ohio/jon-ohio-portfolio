@@ -52,7 +52,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
         <p style={{ fontSize: 20, color: "#6b7280", marginBottom: 48 }}>{project.subtitle}</p>
 
         {/* Metrics */}
-        <div style={{ display: "grid", gridTemplateColumns: `repeat(${project.metrics.length}, 1fr)`, gap: 0, border: "1px solid #e5e7eb", borderRadius: 12, overflow: "hidden" }}>
+        <div className="grid-metrics" style={{ gridTemplateColumns: `repeat(${project.metrics.length}, 1fr)`, gap: 0, border: "1px solid #e5e7eb", borderRadius: 12, overflow: "hidden" }}>
           {project.metrics.map((m, i) => (
             <div
               key={i}
@@ -97,7 +97,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
 
       {/* ── Next / Prev ── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 80px" }}>
-        <div style={{ borderTop: "1px solid #e5e7eb", paddingTop: 40, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+        <div className="grid-2" style={{ borderTop: "1px solid #e5e7eb", paddingTop: 40, gap: 24 }}>
           <div>
             {prev && (
               <Link href={`/work/${prev.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
@@ -106,7 +106,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
               </Link>
             )}
           </div>
-          <div style={{ textAlign: "right" }}>
+          <div className="next-item" style={{ textAlign: "right" }}>
             {next && (
               <Link href={`/work/${next.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
                 <p style={{ fontSize: 12, color: "#9ca3af", marginBottom: 8 }}>Next →</p>
