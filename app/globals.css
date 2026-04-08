@@ -187,6 +187,15 @@ button:focus-visible {
   .stats-cell { padding: 20px 16px; }
 }
 
+
+.system-model-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 640px) {
+  .system-model-grid { grid-template-columns: 1fr; }
+}
+
 /* Selected systems / capabilities row: label + content */
 .grid-systems-group {
   display: grid;
