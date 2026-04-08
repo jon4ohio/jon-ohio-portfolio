@@ -77,7 +77,6 @@ export default function Home() {
     <div style={{ paddingTop: 56 }}>
 
       <Hero />
-      <SystemModel />
 
       <section
         aria-label="Career metrics"
@@ -185,6 +184,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <SystemModel />
 
       {/* ── 3. SELECTED SYSTEMS ─────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
