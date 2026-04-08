@@ -18,6 +18,14 @@ export const metadata: Metadata = {
   },
 };
 
+const heroMetrics = [
+  { value: "$1M+", label: "saved annually" },
+  { value: "↑75%", label: "satisfaction" },
+  { value: "2.49M", label: "token usage" },
+  { value: "12", label: "teams scaled" },
+  { value: "#4", label: "Product Hunt" },
+];
+
 const systemGroups = [
   {
     label: "Product Systems",
@@ -70,6 +78,41 @@ export default function Home() {
 
       <Hero />
       <SystemModel />
+
+      <section
+        aria-label="Career metrics"
+        style={{
+          borderTop: "1px solid #e5e7eb",
+          borderBottom: "1px solid #e5e7eb",
+          background: "#f9fafb",
+        }}
+      >
+        <div
+          className="hero-metrics"
+          style={{
+            maxWidth: 1120,
+            margin: "0 auto",
+            padding: "0 24px",
+          }}
+        >
+          {heroMetrics.map((m) => (
+            <div key={m.value} className="hero-metric">
+              <p
+                style={{
+                  fontSize: 26,
+                  fontWeight: 600,
+                  letterSpacing: "-0.02em",
+                  marginBottom: 4,
+                }}
+              >
+                {m.value}
+              </p>
+              <p style={{ fontSize: 13, color: "#6b7280" }}>{m.label}</p>
+            </div>
+          ))}
+          <div className="hero-metric hero-metric--filler" aria-hidden="true" />
+        </div>
+      </section>
 
       {/* ── 2. POSITIONING ──────────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
