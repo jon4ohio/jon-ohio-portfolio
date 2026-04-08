@@ -1,27 +1,19 @@
 const stages = [
   {
-    title: "Fragmented",
+    title: "Fragmented →",
     description: "Disconnected workflows, inconsistent interfaces, and high support load.",
-    titleWeight: 500,
-    titleOpacity: 0.72,
   },
   {
-    title: "Structured",
+    title: "Structured →",
     description: "Clear flows, defined logic, and a predictable user experience.",
-    titleWeight: 500,
-    titleOpacity: 0.9,
   },
   {
-    title: "Scalable",
+    title: "Scalable →",
     description: "Shared systems across teams, reusable patterns, and consistent delivery.",
-    titleWeight: 600,
-    titleOpacity: 0.96,
   },
   {
     title: "Intelligent",
     description: "AI embedded into workflows — supporting decisions, improving outcomes, and reducing manual effort.",
-    titleWeight: 700,
-    titleOpacity: 1,
   },
 ] as const;
 
@@ -44,27 +36,18 @@ export default function SystemModel() {
         Most products don&apos;t fail at the interface level — they fail at the system level. This is how systems evolve.
       </p>
 
-      <div className="system-model-grid" style={{ alignItems: "start", gap: 28 }}>
-        {stages.map((stage, index) => (
+      <div className="system-model-grid" style={{ alignItems: "start", gap: 30 }}>
+        {stages.map((stage) => (
           <div key={stage.title} style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             <p
               style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 16,
                 minHeight: 28,
                 fontSize: 18,
-                fontWeight: stage.titleWeight,
+                fontWeight: 600,
                 letterSpacing: "-0.01em",
-                opacity: stage.titleOpacity,
               }}
             >
-              <span>{stage.title}</span>
-              {index < stages.length - 1 ? (
-                <span aria-hidden="true" style={{ color: "#6b7280", fontWeight: 500, marginLeft: 2 }}>
-                  →
-                </span>
-              ) : null}
+              {stage.title}
             </p>
             <p style={{ fontSize: 14, color: "#6b7280", lineHeight: 1.5, maxWidth: 240 }}>{stage.description}</p>
           </div>
@@ -72,7 +55,7 @@ export default function SystemModel() {
       </div>
 
       <p style={{ fontSize: 14, color: "#6b7280", lineHeight: 1.6, marginTop: 24 }}>
-        These systems exist across different stages — here are the systems I&apos;ve built.
+        These systems exist across different stages — here&apos;s what I&apos;ve built.
       </p>
     </section>
   );

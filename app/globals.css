@@ -152,7 +152,7 @@ button:focus-visible {
 }
 .hero-metric {
   background: #f9fafb;
-  padding: 28px 24px;
+  padding: 36px 24px;
 }
 .hero-metric--filler {
   /* Synthetic cell to keep wrapping clean when item count is odd */
@@ -161,12 +161,12 @@ button:focus-visible {
 }
 @media (max-width: 900px) {
   .hero-metrics { grid-template-columns: repeat(3, 1fr); }
-  .hero-metric { padding: 24px 18px; }
+  .hero-metric { padding: 32px 18px; }
   .hero-metric--filler { display: block; }
 }
 @media (max-width: 640px) {
   .hero-metrics { grid-template-columns: repeat(2, 1fr); }
-  .hero-metric { padding: 20px 16px; }
+  .hero-metric { padding: 28px 16px; }
   .hero-metric--filler { display: block; }
 }
 
