@@ -41,7 +41,7 @@ export default function Hero() {
       >
         Senior Product Designer working across enterprise SaaS, fintech infrastructure, and AI — designing systems that scale from fragmented to intelligent.
       </p>
-      <div className="animate-fade-up delay-4" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+      <div className="animate-fade-up delay-4 hero-cta">
         <Link
           href="/work"
           style={{

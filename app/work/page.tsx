@@ -38,31 +38,29 @@ export default function WorkIndex() {
             <Link
               key={p.slug}
               href={`/work/${p.slug}`}
+              className="work-list-row"
               style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 20,
                 padding: "36px 0",
                 borderTop: "1px solid #e5e7eb",
                 textDecoration: "none",
                 color: "inherit",
               }}
             >
-              <span style={{ fontSize: 12, color: "#9ca3af", fontWeight: 500, letterSpacing: "0.04em" }}>
+              <span className="work-list-idx" style={{ fontSize: 12, color: "#9ca3af", fontWeight: 500, letterSpacing: "0.04em", paddingTop: 4 }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
 
-              {p.assets?.thumbnails?.[0] ? (
-                <div style={{ maxWidth: 480, width: "100%" }}>
+              <div className="work-list-thumb">
+                {p.assets?.thumbnails?.[0] ? (
                   <AssetImage
                     asset={p.assets.thumbnails[0]}
-                    sizes="(max-width: 900px) 92vw, 480px"
+                    sizes="(max-width: 640px) 92vw, (max-width: 900px) 200px, 240px"
                     style={{}}
                   />
-                </div>
-              ) : null}
+                ) : null}
+              </div>
 
-              <div>
+              <div className="work-list-body">
                 <div style={{ display: "flex", gap: 12, marginBottom: 10, flexWrap: "wrap" }}>
                   <span style={{ fontSize: 11, color: "#9ca3af", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase" }}>
                     {p.category}
@@ -74,39 +72,41 @@ export default function WorkIndex() {
                 </div>
                 <h2 style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 8 }}>{p.title}</h2>
                 <p style={{ fontSize: 14, color: "#6b7280", marginBottom: 10 }}>{p.subtitle}</p>
-                <p style={{ fontSize: 14, color: "#4b5563", lineHeight: 1.65, maxWidth: 720, marginBottom: 16 }}>{p.summary}</p>
-                <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 16 }}>
+
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 12 }}>
+                  {p.metrics.map((m, j) => (
+                    <div
+                      key={j}
+                      style={{
+                        border: "1px solid #e5e7eb",
+                        borderRadius: 999,
+                        padding: "5px 10px",
+                        display: "inline-flex",
+                        flexWrap: "wrap",
+                        alignItems: "baseline",
+                        gap: "4px 6px",
+                        background: "var(--surface)",
+                      }}
+                    >
+                      <span style={{ fontSize: 14, fontWeight: 600, letterSpacing: "-0.02em" }}>{m.value}</span>
+                      <span style={{ fontSize: 11, color: "#9ca3af" }}>{m.label}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <p style={{ fontSize: 14, color: "#4b5563", lineHeight: 1.65, maxWidth: 720, marginBottom: 12 }}>{p.summary}</p>
+
+                <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                   {p.tags.map((t) => (
                     <span key={t} style={{ fontSize: 11, color: "#6b7280", border: "1px solid #e5e7eb", padding: "3px 8px", borderRadius: 4 }}>
                       {t}
                     </span>
                   ))}
                 </div>
-
-                <div style={{ display: "flex", flexDirection: "column", gap: 8, maxWidth: 420 }}>
-                  {p.metrics.slice(0, 2).map((m, j) => (
-                    <div
-                      key={j}
-                      style={{
-                        border: "1px solid #e5e7eb",
-                        borderRadius: 999,
-                        padding: "10px 16px",
-                        display: "flex",
-                        flexWrap: "wrap",
-                        alignItems: "baseline",
-                        gap: "6px 10px",
-                        background: "var(--surface)",
-                      }}
-                    >
-                      <span style={{ fontSize: 17, fontWeight: 600, letterSpacing: "-0.02em" }}>{m.value}</span>
-                      <span style={{ fontSize: 12, color: "#9ca3af" }}>{m.label}</span>
-                    </div>
-                  ))}
-                </div>
               </div>
 
-              <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                <span style={{ color: "#9ca3af", fontSize: 16 }} aria-hidden>→</span>
+              <div className="work-list-arrow" style={{ color: "#9ca3af", fontSize: 16, paddingTop: 4 }} aria-hidden>
+                →
               </div>
             </Link>
           ))}

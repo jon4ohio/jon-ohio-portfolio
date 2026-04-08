@@ -155,7 +155,30 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
         <h1 style={{ fontSize: "clamp(32px, 5vw, 60px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.05, marginBottom: 16, maxWidth: 800 }}>
           {project.title}
         </h1>
-        <p style={{ fontSize: 20, color: "#6b7280", marginBottom: 16 }}>{project.subtitle}</p>
+        <p style={{ fontSize: 20, color: "#6b7280", marginBottom: 14 }}>{project.subtitle}</p>
+
+        {/* Concise metric badges — side by side between subtext and description */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 18 }}>
+          {project.metrics.map((m, i) => (
+            <div
+              key={i}
+              style={{
+                border: "1px solid #e5e7eb",
+                borderRadius: 999,
+                padding: "6px 12px",
+                display: "inline-flex",
+                flexWrap: "wrap",
+                alignItems: "baseline",
+                gap: "4px 8px",
+                background: "var(--surface)",
+              }}
+            >
+              <span style={{ fontSize: 15, fontWeight: 700, letterSpacing: "-0.02em" }}>{m.value}</span>
+              <span style={{ fontSize: 12, color: "#6b7280" }}>{m.label}</span>
+            </div>
+          ))}
+        </div>
+
         <p style={{ fontSize: 18, color: "#374151", lineHeight: 1.7, maxWidth: 760, marginBottom: 48 }}>{project.summary}</p>
 
         {project.assets?.hero ? (
@@ -167,7 +190,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
           </div>
         ) : null}
 
-        <div className="grid-2" style={{ gap: 16, marginBottom: 20 }}>
+        <div className="grid-2" style={{ gap: 16 }}>
           <div style={{ border: "1px solid #e5e7eb", borderRadius: 12, padding: "20px 22px" }}>
             <p style={{ fontSize: 11, fontWeight: 500, color: "#9ca3af", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
               Role
@@ -180,36 +203,6 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
             </p>
             <p style={{ fontSize: 15, color: "#1f2937", lineHeight: 1.65 }}>{project.scope}</p>
           </div>
-        </div>
-
-        {/* Metrics — stacked pills under details */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 10, maxWidth: 560 }}>
-          {project.metrics.map((m, i) => (
-            <div
-              key={i}
-              style={{
-                border: "1px solid #e5e7eb",
-                borderRadius: 999,
-                padding: "14px 20px",
-                display: "flex",
-                flexWrap: "wrap",
-                alignItems: "baseline",
-                gap: "8px 12px",
-                background: "var(--surface)",
-              }}
-            >
-              <span
-                style={{
-                  fontSize: 22,
-                  fontWeight: 700,
-                  letterSpacing: "-0.03em",
-                }}
-              >
-                {m.value}
-              </span>
-              <span style={{ fontSize: 13, color: "#6b7280" }}>{m.label}</span>
-            </div>
-          ))}
         </div>
       </section>
 
