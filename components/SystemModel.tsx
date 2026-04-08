@@ -2,32 +2,32 @@ const stages = [
   {
     title: "Fragmented",
     description: "Disconnected workflows, inconsistent interfaces, and high support load.",
-    titleColor: "#6b7280",
     titleWeight: 500,
+    titleOpacity: 0.72,
   },
   {
     title: "Structured",
     description: "Clear flows, defined logic, and a predictable user experience.",
-    titleColor: "#374151",
     titleWeight: 600,
+    titleOpacity: 0.86,
   },
   {
     title: "Scalable",
     description: "Shared systems across teams, reusable patterns, and consistent delivery.",
-    titleColor: "#1f2937",
     titleWeight: 600,
+    titleOpacity: 0.94,
   },
   {
     title: "Intelligent",
-    description: "AI embedded into workflows to support decisions, not replace them.",
-    titleColor: "#0a0a0a",
+    description: "AI embedded into workflows — supporting decisions, improving outcomes, and reducing manual effort.",
     titleWeight: 700,
+    titleOpacity: 1,
   },
 ] as const;
 
 export default function SystemModel() {
   return (
-    <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
+    <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 32px" }}>
       <h2
         style={{
           fontSize: "clamp(24px, 3vw, 36px)",
@@ -51,17 +51,17 @@ export default function SystemModel() {
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: 14,
+                gap: 16,
                 minHeight: 28,
                 fontSize: 18,
                 fontWeight: stage.titleWeight,
                 letterSpacing: "-0.01em",
-                color: stage.titleColor,
+                opacity: stage.titleOpacity,
               }}
             >
               <span>{stage.title}</span>
               {index < stages.length - 1 ? (
-                <span aria-hidden="true" style={{ color: "#9ca3af", fontWeight: 500 }}>
+                <span aria-hidden="true" style={{ color: "#6b7280", fontWeight: 500, marginLeft: 2 }}>
                   →
                 </span>
               ) : null}
@@ -72,7 +72,7 @@ export default function SystemModel() {
       </div>
 
       <p style={{ fontSize: 14, color: "#6b7280", lineHeight: 1.6, marginTop: 24 }}>
-        These systems exist across different stages — here are the ones I&apos;ve built.
+        I&apos;ve worked across each stage of this evolution — here are the systems I&apos;ve built.
       </p>
     </section>
   );
