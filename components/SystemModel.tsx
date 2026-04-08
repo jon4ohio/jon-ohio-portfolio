@@ -8,14 +8,14 @@ const stages = [
   {
     title: "Structured",
     description: "Clear flows, defined logic, and a predictable user experience.",
-    titleWeight: 600,
-    titleOpacity: 0.86,
+    titleWeight: 500,
+    titleOpacity: 0.9,
   },
   {
     title: "Scalable",
     description: "Shared systems across teams, reusable patterns, and consistent delivery.",
     titleWeight: 600,
-    titleOpacity: 0.94,
+    titleOpacity: 0.96,
   },
   {
     title: "Intelligent",
@@ -41,7 +41,7 @@ export default function SystemModel() {
         How systems evolve
       </h2>
       <p style={{ fontSize: 15, color: "#6b7280", lineHeight: 1.6, maxWidth: 860, marginBottom: 32 }}>
-        Most products don&apos;t fail at the interface level — they fail at the system level. This is how systems evolve.
+        Most products don&apos;t fail at the interface level — they fail at the system level. This is how I design systems to evolve.
       </p>
 
       <div className="system-model-grid" style={{ alignItems: "start", gap: 28 }}>
@@ -72,7 +72,7 @@ export default function SystemModel() {
       </div>
 
       <p style={{ fontSize: 14, color: "#6b7280", lineHeight: 1.6, marginTop: 24 }}>
-        I&apos;ve worked across each stage of this evolution — here are the systems I&apos;ve built.
+        I&apos;ve designed systems across each stage of this evolution — here are the systems I&apos;ve built.
       </p>
     </section>
   );
