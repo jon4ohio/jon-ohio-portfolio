@@ -73,28 +73,16 @@ export default function WorkIndex() {
                 <h2 style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 8 }}>{p.title}</h2>
                 <p style={{ fontSize: 14, color: "#6b7280", marginBottom: 10 }}>{p.subtitle}</p>
 
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 12 }}>
+                <p style={{ fontSize: 14, color: "#4b5563", lineHeight: 1.65, maxWidth: 720, marginBottom: 12 }}>{p.summary}</p>
+
+                <div className="metric-badges" style={{ marginBottom: 12 }}>
                   {p.metrics.map((m, j) => (
-                    <div
-                      key={j}
-                      style={{
-                        border: "1px solid #e5e7eb",
-                        borderRadius: 999,
-                        padding: "5px 10px",
-                        display: "inline-flex",
-                        flexWrap: "wrap",
-                        alignItems: "baseline",
-                        gap: "4px 6px",
-                        background: "var(--surface)",
-                      }}
-                    >
-                      <span style={{ fontSize: 14, fontWeight: 600, letterSpacing: "-0.02em" }}>{m.value}</span>
-                      <span style={{ fontSize: 11, color: "#9ca3af" }}>{m.label}</span>
+                    <div key={j} className="metric-badge">
+                      <span className="metric-badge__value">{m.value}</span>
+                      <span className="metric-badge__label">{m.label}</span>
                     </div>
                   ))}
                 </div>
-
-                <p style={{ fontSize: 14, color: "#4b5563", lineHeight: 1.65, maxWidth: 720, marginBottom: 12 }}>{p.summary}</p>
 
                 <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                   {p.tags.map((t) => (

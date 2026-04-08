@@ -155,31 +155,19 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
         <h1 style={{ fontSize: "clamp(32px, 5vw, 60px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.05, marginBottom: 16, maxWidth: 800 }}>
           {project.title}
         </h1>
-        <p style={{ fontSize: 20, color: "#6b7280", marginBottom: 14 }}>{project.subtitle}</p>
+        <p style={{ fontSize: 20, color: "#6b7280", marginBottom: 16 }}>{project.subtitle}</p>
 
-        {/* Concise metric badges — side by side between subtext and description */}
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 18 }}>
+        <p style={{ fontSize: 18, color: "#374151", lineHeight: 1.7, maxWidth: 760, marginBottom: 16 }}>{project.summary}</p>
+
+        {/* Metric badges — below description; size/spacing from globals for responsive type */}
+        <div className="metric-badges metric-badges--hero" style={{ marginBottom: 36 }}>
           {project.metrics.map((m, i) => (
-            <div
-              key={i}
-              style={{
-                border: "1px solid #e5e7eb",
-                borderRadius: 999,
-                padding: "6px 12px",
-                display: "inline-flex",
-                flexWrap: "wrap",
-                alignItems: "baseline",
-                gap: "4px 8px",
-                background: "var(--surface)",
-              }}
-            >
-              <span style={{ fontSize: 15, fontWeight: 700, letterSpacing: "-0.02em" }}>{m.value}</span>
-              <span style={{ fontSize: 12, color: "#6b7280" }}>{m.label}</span>
+            <div key={i} className="metric-badge">
+              <span className="metric-badge__value">{m.value}</span>
+              <span className="metric-badge__label">{m.label}</span>
             </div>
           ))}
         </div>
-
-        <p style={{ fontSize: 18, color: "#374151", lineHeight: 1.7, maxWidth: 760, marginBottom: 48 }}>{project.summary}</p>
 
         {project.assets?.hero ? (
           <div style={{ marginBottom: 28 }}>
