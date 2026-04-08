@@ -26,6 +26,15 @@ const systemGroups = [
 
 export default function SelectedSystems() {
   const projectMap = new Map(projects.map((project) => [project.slug, project]));
+  const populatedGroups = systemGroups
+    .map((group) => {
+      const items = group.slugs
+        .map((slug) => projectMap.get(slug))
+        .filter((project): project is NonNullable<typeof project> => Boolean(project));
+
+      return { ...group, items };
+    })
+    .filter((group) => group.items.length > 0);
 
   return (
     <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
@@ -56,22 +65,14 @@ export default function SelectedSystems() {
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-        {systemGroups.map((group, groupIndex) => {
-          const groupItems = group.slugs
-            .map((slug) => projectMap.get(slug))
-            .filter((project): project is NonNullable<typeof project> => Boolean(project));
-
-          if (groupItems.length === 0) {
-            return null;
-          }
-
+        {populatedGroups.map((group, groupIndex) => {
           return (
             <div
               key={group.label}
               style={{
                 padding: "32px 0",
                 borderTop: "1px solid #e5e7eb",
-                borderBottom: groupIndex === systemGroups.length - 1 ? "1px solid #e5e7eb" : "none",
+                borderBottom: groupIndex === populatedGroups.length - 1 ? "1px solid #e5e7eb" : "none",
                 alignItems: "start",
               }}
               className="grid-systems-group"
@@ -89,7 +90,7 @@ export default function SelectedSystems() {
                 {group.label}
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-                {groupItems.map((project) => (
+                {group.items.map((project) => (
                   <Link
                     key={project.slug}
                     href={`/work/${project.slug}`}
