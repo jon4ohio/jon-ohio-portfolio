@@ -41,7 +41,7 @@ export default function SystemModel() {
         How systems evolve
       </h2>
       <p style={{ fontSize: 15, color: "#6b7280", lineHeight: 1.6, maxWidth: 860, marginBottom: 32 }}>
-        Most products don&apos;t fail at the interface level — they fail at the system level. This is how systems evolve.
+        Most products don&apos;t fail at the interface level — they fail at the system level. Below is the progression I design and ship toward.
       </p>
 
       <div className="system-model-grid" style={{ alignItems: "start", gap: 28 }}>
@@ -72,7 +72,7 @@ export default function SystemModel() {
       </div>
 
       <p style={{ fontSize: 14, color: "#6b7280", lineHeight: 1.6, marginTop: 24 }}>
-        These systems exist across different stages — here are the systems I&apos;ve built.
+        That arc shows up across the case studies below — work from fragmented to intelligent.
       </p>
     </section>
   );

@@ -21,7 +21,7 @@ No test suite is configured.
 ### Key Next.js 16 differences
 - `params` in page/layout components is a **`Promise`** — always `await params` before accessing properties.
 - Middleware is replaced by `proxy.ts` (none configured yet).
-- `'use client'` is absent from all pages — everything is a Server Component.
+- `'use client'` appears only in `components/Nav.tsx` (pathname + mobile menu). All **pages** are Server Components.
 
 ### Data layer
 All project/case study data lives in **`lib/projects.ts`** as a static typed array — no database, no CMS, no API calls. Adding or editing case studies means editing this file. The `Project` interface, `getProject(slug)`, and `getFeaturedProjects()` helpers are the only data access points.
