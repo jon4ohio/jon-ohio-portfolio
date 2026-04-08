@@ -23,6 +23,7 @@ Annotated tree (build/cache dirs omitted):
 │   ├── Footer.tsx
 │   ├── Hero.tsx
 │   ├── SystemModel.tsx
+│   ├── SelectedSystems.tsx   # Homepage grouped case study links
 │   └── AssetImage.tsx        # next/image + optional device frame
 ├── lib/
 │   └── projects.ts           # Domain: Project[], types, getProject, getFeaturedProjects
@@ -31,7 +32,7 @@ Annotated tree (build/cache dirs omitted):
 │   ├── adrs/                 # Architecture Decision Records
 │   └── project-knowledge/    # This documentation set (BMad output)
 ├── _bmad/bmm/
-│   └── config.yaml           # BMad BMM config (project_knowledge path)
+│   └── config.yaml           # BMad BMM: planning paths + project_knowledge
 ├── next.config.ts            # Turbopack root guard
 ├── vercel.json               # Vercel framework/build hints
 ├── package.json

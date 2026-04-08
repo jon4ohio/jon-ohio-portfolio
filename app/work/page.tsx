@@ -99,7 +99,9 @@ export default function WorkIndex() {
                   ))}
                 </div>
               </div>
-              <span style={{ fontSize: 16, color: "#9ca3af", paddingTop: 6 }}>→</span>
+              <span className="hide-mobile" style={{ fontSize: 16, color: "#9ca3af", paddingTop: 6 }} aria-hidden="true">
+                →
+              </span>
             </Link>
           ))}
           <div style={{ borderTop: "1px solid #e5e7eb" }} />

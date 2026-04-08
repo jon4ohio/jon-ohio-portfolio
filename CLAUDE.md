@@ -29,7 +29,7 @@ All project/case study data lives in **`lib/projects.ts`** as a static typed arr
 ### Routing
 | Route | File | Notes |
 |---|---|---|
-| `/` | `app/page.tsx` | Homepage with hero, metrics strip, featured work |
+| `/` | `app/page.tsx` | Homepage: `Hero`, metrics strip, positioning, `SystemModel`, `SelectedSystems`, capabilities |
 | `/work` | `app/work/page.tsx` | Full project list |
 | `/work/[slug]` | `app/work/[slug]/page.tsx` | Case study; uses `generateStaticParams` for SSG |
 | `/about` | `app/about/page.tsx` | |

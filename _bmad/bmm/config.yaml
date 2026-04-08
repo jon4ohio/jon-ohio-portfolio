@@ -1,8 +1,15 @@
-# BMad BMM — document-project workflow
-# Resolved paths are relative to repository root unless noted.
+# BMM Module Configuration
+# BMad document-project and planning paths; `{project-root}` expands per BMad tooling.
 
-project_knowledge: docs/project-knowledge
-user_name: John
+project_name: jon-ohio-portfolio
+user_skill_level: intermediate
+planning_artifacts: "{project-root}/_bmad-output/planning-artifacts"
+implementation_artifacts: "{project-root}/_bmad-output/implementation-artifacts"
+# Brownfield docs / AI retrieval (document-project workflow)
+project_knowledge: "{project-root}/docs/project-knowledge"
+output_folder: "{project-root}/_bmad-output"
+
+# Core Configuration Values
+user_name: John Ohio
 communication_language: English
 document_output_language: English
-user_skill_level: intermediate

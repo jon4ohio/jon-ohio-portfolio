@@ -10,6 +10,7 @@ Conventions: **Server Components** unless `components/Nav.tsx` (client). Styling
 | Footer | `components/Footer.tsx` | No | Site footer links and meta |
 | Hero | `components/Hero.tsx` | No | Homepage headline, role line, CTAs to Work and Leadership |
 | SystemModel | `components/SystemModel.tsx` | No | “How systems evolve” four-stage model (homepage) |
+| SelectedSystems | `components/SelectedSystems.tsx` | No | Grouped case study links (“Selected systems”) on homepage |
 
 ## Content / media
 
@@ -21,7 +22,7 @@ Conventions: **Server Components** unless `components/Nav.tsx` (client). Styling
 
 | Area | Notes |
 |------|--------|
-| `app/page.tsx` | Homepage: imports `Hero`, `SystemModel`, featured work cards, metrics — large file |
+| `app/page.tsx` | Homepage: `Hero`, metrics, positioning, `SystemModel`, `SelectedSystems`, capabilities, principles, teasers |
 | `app/work/page.tsx` | Project grid/list |
 | `app/work/[slug]/page.tsx` | Case study layout; **`BlockRenderer`** inline for `CaseStudyBlock` union |
 | `app/about/page.tsx`, `app/leadership/page.tsx` | Long-form marketing copy |
