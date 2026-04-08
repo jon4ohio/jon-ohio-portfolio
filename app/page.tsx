@@ -1,14 +1,16 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { projects } from "@/lib/projects";
+import Hero from "@/components/Hero";
+import SystemModel from "@/components/SystemModel";
 
 export const metadata: Metadata = {
-  title: "John Ohio — Product Systems & DesignOps Lead",
+  title: "John Ohio — Senior Product Designer · Systems & DesignOps",
   description:
-    "Product Design Lead designing systems that scale across enterprise SaaS, fintech, and AI — from fragmented to intelligent. $1M+ saved annually, 12 teams aligned, 2.49M token usage.",
+    "Senior Product Designer designing systems that scale across enterprise SaaS, fintech, and AI — from fragmented to intelligent. $1M+ saved annually, 12 teams aligned, 2.49M token usage.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "John Ohio — Product Systems & DesignOps Lead",
+    title: "John Ohio — Senior Product Designer · Systems & DesignOps",
     description:
       "I design product systems that scale — from fragmented to intelligent. Design systems · DesignOps · Enterprise SaaS · AI UX.",
     url: "/",
@@ -20,15 +22,8 @@ const heroMetrics = [
   { value: "$1M+", label: "saved annually" },
   { value: "↑75%", label: "satisfaction" },
   { value: "2.49M", label: "token usage" },
-  { value: "12", label: "teams scaled" },
+  { value: "12", label: "teams aligned" },
   { value: "#4", label: "Product Hunt" },
-];
-
-const evolutionStages = [
-  { stage: "01", label: "Fragmented", sub: "Disconnected workflows, inconsistency" },
-  { stage: "02", label: "Structured", sub: "Clear flows, predictable UX" },
-  { stage: "03", label: "Scalable", sub: "Shared systems across teams" },
-  { stage: "04", label: "Intelligent", sub: "AI embedded into workflows" },
 ];
 
 const systemGroups = [
@@ -58,7 +53,7 @@ const capabilities = [
   { label: "System Design", desc: "Restructuring fragmented products into scalable systems." },
   { label: "Design Systems", desc: "Token architecture, governance, and contribution pipelines." },
   { label: "Product Growth", desc: "Adoption, onboarding, and self-service for PLG transitions." },
-  { label: "DesignOps", desc: "Operationalising design as a function across teams." },
+  { label: "DesignOps", desc: "Systems and rituals that improve how design operates and scales across teams." },
   { label: "AI UX", desc: "Trust, explainability, and reusable AI patterns inside enterprise workflows." },
 ];
 
@@ -72,7 +67,7 @@ const principles = [
 const currentFocus = [
   "AI-integrated enterprise systems",
   "Product-led growth transformation",
-  "DesignOps and organizational scale",
+  "DesignOps and cross-team scale",
 ];
 
 export default function Home() {
@@ -81,88 +76,8 @@ export default function Home() {
   return (
     <div style={{ paddingTop: 56 }}>
 
-      {/* ── 1. HERO ─────────────────────────────────────────── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 80px" }}>
-        <p
-          className="animate-fade-up delay-1"
-          style={{
-            fontSize: 13,
-            fontWeight: 500,
-            color: "#6b7280",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            marginBottom: 24,
-          }}
-        >
-          Product Design Lead · Systems · DesignOps · AI
-        </p>
-        <h1
-          className="animate-fade-up delay-2"
-          style={{
-            fontSize: "clamp(40px, 6vw, 72px)",
-            fontWeight: 600,
-            letterSpacing: "-0.03em",
-            lineHeight: 1.1,
-            maxWidth: 880,
-            marginBottom: 32,
-          }}
-        >
-          I design product systems that scale — from fragmented to intelligent.
-        </h1>
-        <p
-          className="animate-fade-up delay-3"
-          style={{
-            fontSize: 20,
-            color: "#6b7280",
-            maxWidth: 600,
-            marginBottom: 48,
-            lineHeight: 1.5,
-          }}
-        >
-          Product Design Lead working across enterprise SaaS, fintech infrastructure, and AI — structuring complex products into scalable, high-performing systems.
-        </p>
-        <div className="animate-fade-up delay-4" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-          <Link
-            href="/work"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              background: "#0a0a0a",
-              color: "#fff",
-              fontSize: 14,
-              fontWeight: 500,
-              padding: "12px 24px",
-              borderRadius: 8,
-              textDecoration: "none",
-              letterSpacing: "-0.01em",
-            }}
-          >
-            View selected systems →
-          </Link>
-          <Link
-            href="/leadership"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              background: "transparent",
-              color: "#0a0a0a",
-              fontSize: 14,
-              fontWeight: 500,
-              padding: "12px 24px",
-              borderRadius: 8,
-              textDecoration: "none",
-              border: "1px solid #e5e7eb",
-              letterSpacing: "-0.01em",
-            }}
-          >
-            Leadership & DesignOps
-          </Link>
-        </div>
-      </section>
+      <Hero />
 
-      {/* ── Metrics strip ───────────────────────────────────── */}
       <section
         aria-label="Career metrics"
         style={{
@@ -179,8 +94,8 @@ export default function Home() {
             padding: "0 24px",
           }}
         >
-          {heroMetrics.map((m, i) => (
-            <div key={i} className="hero-metric">
+          {heroMetrics.map((m) => (
+            <div key={m.value} className="hero-metric">
               <p
                 style={{
                   fontSize: 26,
@@ -227,10 +142,16 @@ export default function Home() {
         <div className="grid-2-lg" style={{ alignItems: "start" }}>
           <div>
             <p style={{ fontSize: 18, color: "#1f2937", lineHeight: 1.7, marginBottom: 18 }}>
-              Most products don&apos;t fail because of poor ideas. They fail because the system underneath can&apos;t support scale.
+              Most products don&apos;t fail because of bad ideas.
+            </p>
+            <p style={{ fontSize: 18, color: "#1f2937", lineHeight: 1.7, marginBottom: 18 }}>
+              They fail because the system underneath can&apos;t support scale.
+            </p>
+            <p style={{ fontSize: 17, color: "#4b5563", lineHeight: 1.7, marginBottom: 18 }}>
+              My focus is restructuring these systems — so they become reliable, scalable, and capable of evolving.
             </p>
             <p style={{ fontSize: 17, color: "#4b5563", lineHeight: 1.7 }}>
-              My focus is restructuring those systems — so they become reliable, scalable, and capable of evolving.
+              I lead the design of these systems across teams — aligning product, engineering, and design toward scalable outcomes.
             </p>
           </div>
           <div>
@@ -244,13 +165,13 @@ export default function Home() {
                 marginBottom: 16,
               }}
             >
-              I work on products where
+              I work on complex platforms where:
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 0 }}>
               {[
-                "Workflows break under load",
-                "Systems are fragmented across teams",
-                "Design decisions don't compound",
+                "workflows break under load",
+                "systems are fragmented across teams",
+                "design decisions don\u2019t compound",
               ].map((line, i) => (
                 <li
                   key={i}
@@ -270,86 +191,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 3. SYSTEM MODEL ─────────────────────────────────── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
-        <p
-          style={{
-            fontSize: 12,
-            fontWeight: 500,
-            color: "#6b7280",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            marginBottom: 16,
-          }}
-        >
-          System Evolution Model
-        </p>
-        <h2
-          style={{
-            fontSize: "clamp(24px, 3vw, 36px)",
-            fontWeight: 600,
-            letterSpacing: "-0.02em",
-            lineHeight: 1.2,
-            marginBottom: 48,
-            maxWidth: 640,
-          }}
-        >
-          How systems evolve.
-        </h2>
-        <div
-          className="stats-grid stats-grid--4"
-          style={{
-            border: "1px solid #e5e7eb",
-            borderRadius: 12,
-            overflow: "hidden",
-          }}
-        >
-          {evolutionStages.map((s, i) => (
-            <div
-              key={i}
-              className="stats-cell"
-              style={{
-                padding: "32px 28px",
-                background: i === 3 ? "#0a0a0a" : "#fff",
-                color: i === 3 ? "#fff" : "#0a0a0a",
-              }}
-            >
-              <p
-                style={{
-                  fontSize: 11,
-                  fontWeight: 500,
-                  color: i === 3 ? "rgba(255,255,255,0.4)" : "#9ca3af",
-                  marginBottom: 16,
-                  letterSpacing: "0.06em",
-                }}
-              >
-                {s.stage}
-              </p>
-              <p
-                style={{
-                  fontSize: 18,
-                  fontWeight: 600,
-                  letterSpacing: "-0.02em",
-                  marginBottom: 8,
-                }}
-              >
-                {s.label}
-              </p>
-              <p
-                style={{
-                  fontSize: 13,
-                  color: i === 3 ? "rgba(255,255,255,0.6)" : "#6b7280",
-                  lineHeight: 1.5,
-                }}
-              >
-                {s.sub}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <SystemModel />
 
-      {/* ── 4. SELECTED SYSTEMS ─────────────────────────────── */}
+      {/* ── 3. SELECTED SYSTEMS ─────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
         <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 48, flexWrap: "wrap", gap: 12 }}>
           <p
@@ -428,7 +272,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 5. WHAT I DO ────────────────────────────────────── */}
+      {/* ── 4. WHAT I DO ────────────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
         <p
           style={{
@@ -473,7 +317,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 6. HOW I THINK ──────────────────────────────────── */}
+      {/* ── 5. HOW I THINK ──────────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
         <p
           style={{
@@ -559,7 +403,7 @@ export default function Home() {
               Scaling design as a system, not a service.
             </h2>
             <p style={{ fontSize: 16, color: "rgba(255,255,255,0.6)", lineHeight: 1.7, marginBottom: 32 }}>
-              Operationalising design across the product organisation — governance, contribution, onboarding, capability, and AI-UX layer.
+              Introducing systems that improved design operations across teams — governance, contribution, onboarding, capability, and an AI-UX layer.
             </p>
             <Link
               href="/leadership"
@@ -590,9 +434,9 @@ export default function Home() {
             }}
           >
             {[
-              "Built and scaled a design system across 12 teams",
-              "Defined governance, contribution, and delivery workflows",
-              "Established onboarding, critique, and capability systems",
+              "Led the development of a design system adopted across 12 teams, helping standardize workflows and improve consistency",
+              "Defined governance models and contribution workflows that helped teams align and scale design decisions",
+              "Introduced structured onboarding, critique, and capability practices so designers could ramp within the system",
             ].map((line, i) => (
               <li
                 key={i}

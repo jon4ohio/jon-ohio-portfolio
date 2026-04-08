@@ -4,12 +4,12 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Leadership & DesignOps",
   description:
-    "Scaling design as a system, not a service. DesignOps at SeamlessHR: 12 teams aligned, 88.9 adoption, 91.1 trust, 2.49M token insertions. Governance, contribution, onboarding, capability, AI-UX layer.",
+    "Senior Product Designer: DesignOps and systems at SeamlessHR — 12 teams aligned, 88.9 adoption, 91.1 trust, 2.49M token insertions. Governance, contribution, onboarding, capability, AI-UX layer.",
   alternates: { canonical: "/leadership" },
   openGraph: {
     title: "Leadership & DesignOps — John Ohio",
     description:
-      "Scaling design as a system, not a service. 12 teams · 8 designers · 88.9 adoption · 91.1 trust · 2.49M token insertions.",
+      "Senior Product Designer: systems that help design scale. 12 teams · 8 designers · 88.9 adoption · 91.1 trust · 2.49M token insertions.",
     url: "/leadership",
     type: "article",
   },
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 const stats = [
   { value: "12", label: "Product teams aligned" },
-  { value: "8", label: "Designers led" },
+  { value: "8", label: "Designers on the team" },
   { value: "88.9", label: "Adoption score /100" },
   { value: "91.1", label: "Trust score /100" },
   { value: "↓30%", label: "Onboarding time" },
@@ -29,7 +29,7 @@ const stats = [
 const philosophy = [
   "Design is infrastructure, not a service.",
   "Systems compound. One-offs decay.",
-  "Operationalise decisions before they become bottlenecks.",
+  "Introduce operational clarity before decisions become bottlenecks.",
   "Onboarding is the fastest path to system literacy.",
 ];
 
@@ -37,7 +37,7 @@ const layers = [
   {
     label: "01",
     title: "System Operationalization",
-    body: "Turning the design system from a library into operating infrastructure — token architecture, governance model, contribution pipeline, and release cadence.",
+    body: "Helping evolve the design system from a library into operating infrastructure — token architecture, governance model, contribution pipeline, and release cadence.",
   },
   {
     label: "02",
@@ -57,7 +57,7 @@ const layers = [
   {
     label: "05",
     title: "Team Capability",
-    body: "Capability maps, role-gap frameworks, structured PIPs, critique rituals, and performance frameworks. Raising the floor across the whole design function — not just the top.",
+    body: "Capability maps, role-gap frameworks, structured PIPs, critique rituals, and performance frameworks. Raising the floor across the design team and partners — not just the top performers.",
   },
   {
     label: "06",
@@ -81,15 +81,15 @@ const onboardingSteps = [
 const currentFocus = [
   {
     label: "AI-Integrated Product Systems",
-    desc: "Defining AI-UX patterns, prompt frameworks, and interaction models adopted across SeamlesTech's product suite.",
+    desc: "Contributing to AI-UX patterns, prompt frameworks, and interaction models adopted across SeamlesTech's product suite.",
   },
   {
     label: "Product-Led Growth",
-    desc: "Driving PLG transformation — shifting from sales-led to product-led. Enhancing adoption, onboarding, and self-service capability.",
+    desc: "Contributing to PLG transformation — shifting from sales-led to product-led. Enhancing adoption, onboarding, and self-service capability.",
   },
   {
-    label: "Enterprise Design Leadership",
-    desc: "Leading DesignOps across 8 designers. Strategy, governance, capability development, and cross-functional alignment.",
+    label: "DesignOps & team enablement",
+    desc: "Contributing to DesignOps with a team of 8 designers — strategy, governance, capability development, and cross-functional alignment.",
   },
 ];
 
@@ -124,7 +124,7 @@ export default function Leadership() {
           Scaling design as a system, not a service.
         </h1>
         <p style={{ fontSize: 19, color: "#4b5563", maxWidth: 680, lineHeight: 1.65 }}>
-          Led DesignOps and system adoption across 12 product teams at SeamlessHR — operationalising design as infrastructure: how decisions are made, how knowledge compounds, and how teams stay coherent as the organisation scales.
+          My work has focused on contributing to and shaping systems that help design scale across teams and products. At SeamlessHR, I led initiatives around DesignOps and design-system adoption across 12 product teams — helping establish design as infrastructure: how decisions get made, how knowledge compounds, and how teams stay aligned as the company scales.
         </p>
       </section>
 

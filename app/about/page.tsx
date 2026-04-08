@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "John Ohio — Product Design Lead based in Abuja, Nigeria. A decade building trusted systems across enterprise SaaS, fintech infrastructure, and 0→1 products.",
+    "John Ohio — Senior Product Designer based in Abuja, Nigeria. A decade building trusted systems across enterprise SaaS, fintech infrastructure, and 0→1 products.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About — John Ohio",
     description:
-      "Product Design Lead · Systems · DesignOps · AI. Based in Abuja, Nigeria.",
+      "Senior Product Designer · Systems · DesignOps · AI. Based in Abuja, Nigeria.",
     url: "/about",
     type: "profile",
   },
@@ -35,7 +35,7 @@ const principles = [
   },
   {
     title: "Decisions should compound",
-    body: "Good design decisions create leverage. Patterns, tokens, and systems multiply individual decisions into organisation-wide consistency.",
+    body: "Good design decisions create leverage. Patterns, tokens, and systems multiply individual decisions into consistency across teams.",
   },
   {
     title: "Design must reflect operational reality",
@@ -69,16 +69,16 @@ export default function About() {
             </h1>
             <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
               <p style={{ fontSize: 17, lineHeight: 1.75, color: "#374151" }}>
-                I&apos;m a Product Design Lead based in Abuja, Nigeria, specialising in design systems, DesignOps, enterprise UX, and AI-native product work. Over the past decade I&apos;ve led design across some of Africa&apos;s most complex product environments, from a 12-team SaaS platform to fintech infrastructure serving millions of users.
+                I&apos;m a Senior Product Designer based in Abuja, Nigeria, specialising in design systems, DesignOps, enterprise UX, and AI-native product work. Over the past decade I&apos;ve worked across some of Africa&apos;s most complex product environments — from a 12-team SaaS platform to fintech infrastructure serving millions of users — leading initiatives and contributing to systems that scale.
               </p>
               <p style={{ fontSize: 17, lineHeight: 1.75, color: "#374151" }}>
                 My core thesis is simple: design at scale only works when it becomes systematic. Good taste is not enough. Teams need shared language, governance, and a repeatable way to make sound decisions without bottlenecking on individual designers.
               </p>
               <p style={{ fontSize: 17, lineHeight: 1.75, color: "#374151" }}>
-                That belief shaped Seamkit, which I built not as a component library but as an operating system for product teams: token architecture, naming logic, contribution pipelines, and governance rituals. It became the backbone of SeamlessHR&apos;s product organisation across 12 teams, with an 88.9 adoption score and roughly 80% daily usage.
+                That belief shaped Seamkit, which I built not as a component library but as an operating system for product teams: token architecture, naming logic, contribution pipelines, and governance rituals. It was adopted across 12 product teams at SeamlessHR, with an 88.9 adoption score and roughly 80% daily usage.
               </p>
               <p style={{ fontSize: 17, lineHeight: 1.75, color: "#374151" }}>
-                I&apos;ve also worked at the 0→1 edge, shaping products like Rivva and ClearPrice, where the job is to define the product, earn trust quickly, and give the team a system worth scaling. Today I lead DesignOps and AI-UX work focused on how intelligence shows up inside enterprise workflows as reusable patterns, not one-off features.
+                I&apos;ve also worked at the 0→1 edge, shaping products like Rivva and ClearPrice, where the job is to define the product, earn trust quickly, and give the team a system worth scaling. Today I focus on DesignOps and AI-UX — how intelligence shows up inside enterprise workflows as reusable patterns, not one-off features.
               </p>
             </div>
 

@@ -7,9 +7,9 @@ const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
   (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
 
-const defaultTitle = "John Ohio — Product Systems & DesignOps Lead";
+const defaultTitle = "John Ohio — Senior Product Designer · Systems & DesignOps";
 const defaultDescription =
-  "John Ohio designs product systems that scale — from fragmented to intelligent. Design systems, DesignOps, enterprise SaaS, fintech infrastructure, and AI-native workflows.";
+  "Senior Product Designer focused on systems, scale, and AI — designing and contributing to products and infrastructures that evolve from fragmented to intelligent.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description: defaultDescription,
   keywords: [
     "John Ohio",
-    "Product Design Lead",
+    "Senior Product Designer",
     "Product Systems",
     "Design Systems",
     "DesignOps",
@@ -84,7 +84,7 @@ const personSchema = {
   "@type": "Person",
   name: "John Ohio",
   alternateName: "Jon Ohio",
-  jobTitle: "Product Systems & DesignOps Lead",
+  jobTitle: "Senior Product Designer",
   description: defaultDescription,
   url: siteUrl,
   email: "mailto:jon4ohio@gmail.com",

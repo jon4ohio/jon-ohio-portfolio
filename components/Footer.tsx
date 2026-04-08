@@ -17,7 +17,7 @@ export default function Footer() {
       >
         <div>
           <p style={{ fontWeight: 600, fontSize: 15, marginBottom: 4 }}>John Ohio</p>
-          <p style={{ fontSize: 13, color: "#6b7280" }}>Product Design Lead · Abuja, Nigeria</p>
+          <p style={{ fontSize: 13, color: "#6b7280" }}>Senior Product Designer · Abuja, Nigeria</p>
         </div>
 
         <div style={{ display: "flex", gap: 32 }}>
