@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { projects } from "@/lib/projects";
+import Hero from "@/components/Hero";
+import SystemModel from "@/components/SystemModel";
 
 export const metadata: Metadata = {
   title: "John Ohio — Product Systems & DesignOps Lead",
@@ -15,21 +17,6 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
-
-const heroMetrics = [
-  { value: "$1M+", label: "saved annually" },
-  { value: "↑75%", label: "satisfaction" },
-  { value: "2.49M", label: "token usage" },
-  { value: "12", label: "teams scaled" },
-  { value: "#4", label: "Product Hunt" },
-];
-
-const evolutionStages = [
-  { stage: "01", label: "Fragmented", sub: "Disconnected workflows, inconsistency" },
-  { stage: "02", label: "Structured", sub: "Clear flows, predictable UX" },
-  { stage: "03", label: "Scalable", sub: "Shared systems across teams" },
-  { stage: "04", label: "Intelligent", sub: "AI embedded into workflows" },
-];
 
 const systemGroups = [
   {
@@ -81,122 +68,8 @@ export default function Home() {
   return (
     <div style={{ paddingTop: 56 }}>
 
-      {/* ── 1. HERO ─────────────────────────────────────────── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 80px" }}>
-        <p
-          className="animate-fade-up delay-1"
-          style={{
-            fontSize: 13,
-            fontWeight: 500,
-            color: "#6b7280",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            marginBottom: 24,
-          }}
-        >
-          Product Design Lead · Systems · DesignOps · AI
-        </p>
-        <h1
-          className="animate-fade-up delay-2"
-          style={{
-            fontSize: "clamp(40px, 6vw, 72px)",
-            fontWeight: 600,
-            letterSpacing: "-0.03em",
-            lineHeight: 1.1,
-            maxWidth: 880,
-            marginBottom: 32,
-          }}
-        >
-          I design product systems that scale — from fragmented to intelligent.
-        </h1>
-        <p
-          className="animate-fade-up delay-3"
-          style={{
-            fontSize: 20,
-            color: "#6b7280",
-            maxWidth: 600,
-            marginBottom: 48,
-            lineHeight: 1.5,
-          }}
-        >
-          Product Design Lead working across enterprise SaaS, fintech infrastructure, and AI — structuring complex products into scalable, high-performing systems.
-        </p>
-        <div className="animate-fade-up delay-4" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-          <Link
-            href="/work"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              background: "#0a0a0a",
-              color: "#fff",
-              fontSize: 14,
-              fontWeight: 500,
-              padding: "12px 24px",
-              borderRadius: 8,
-              textDecoration: "none",
-              letterSpacing: "-0.01em",
-            }}
-          >
-            View selected systems →
-          </Link>
-          <Link
-            href="/leadership"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              background: "transparent",
-              color: "#0a0a0a",
-              fontSize: 14,
-              fontWeight: 500,
-              padding: "12px 24px",
-              borderRadius: 8,
-              textDecoration: "none",
-              border: "1px solid #e5e7eb",
-              letterSpacing: "-0.01em",
-            }}
-          >
-            Leadership & DesignOps
-          </Link>
-        </div>
-      </section>
-
-      {/* ── Metrics strip ───────────────────────────────────── */}
-      <section
-        aria-label="Career metrics"
-        style={{
-          borderTop: "1px solid #e5e7eb",
-          borderBottom: "1px solid #e5e7eb",
-          background: "#f9fafb",
-        }}
-      >
-        <div
-          className="hero-metrics"
-          style={{
-            maxWidth: 1120,
-            margin: "0 auto",
-            padding: "0 24px",
-          }}
-        >
-          {heroMetrics.map((m, i) => (
-            <div key={i} className="hero-metric">
-              <p
-                style={{
-                  fontSize: 26,
-                  fontWeight: 600,
-                  letterSpacing: "-0.02em",
-                  marginBottom: 4,
-                }}
-              >
-                {m.value}
-              </p>
-              <p style={{ fontSize: 13, color: "#6b7280" }}>{m.label}</p>
-            </div>
-          ))}
-          <div className="hero-metric hero-metric--filler" aria-hidden="true" />
-        </div>
-      </section>
+      <Hero />
+      <SystemModel />
 
       {/* ── 2. POSITIONING ──────────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
@@ -270,86 +143,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 3. SYSTEM MODEL ─────────────────────────────────── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
-        <p
-          style={{
-            fontSize: 12,
-            fontWeight: 500,
-            color: "#6b7280",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            marginBottom: 16,
-          }}
-        >
-          System Evolution Model
-        </p>
-        <h2
-          style={{
-            fontSize: "clamp(24px, 3vw, 36px)",
-            fontWeight: 600,
-            letterSpacing: "-0.02em",
-            lineHeight: 1.2,
-            marginBottom: 48,
-            maxWidth: 640,
-          }}
-        >
-          How systems evolve.
-        </h2>
-        <div
-          className="stats-grid stats-grid--4"
-          style={{
-            border: "1px solid #e5e7eb",
-            borderRadius: 12,
-            overflow: "hidden",
-          }}
-        >
-          {evolutionStages.map((s, i) => (
-            <div
-              key={i}
-              className="stats-cell"
-              style={{
-                padding: "32px 28px",
-                background: i === 3 ? "#0a0a0a" : "#fff",
-                color: i === 3 ? "#fff" : "#0a0a0a",
-              }}
-            >
-              <p
-                style={{
-                  fontSize: 11,
-                  fontWeight: 500,
-                  color: i === 3 ? "rgba(255,255,255,0.4)" : "#9ca3af",
-                  marginBottom: 16,
-                  letterSpacing: "0.06em",
-                }}
-              >
-                {s.stage}
-              </p>
-              <p
-                style={{
-                  fontSize: 18,
-                  fontWeight: 600,
-                  letterSpacing: "-0.02em",
-                  marginBottom: 8,
-                }}
-              >
-                {s.label}
-              </p>
-              <p
-                style={{
-                  fontSize: 13,
-                  color: i === 3 ? "rgba(255,255,255,0.6)" : "#6b7280",
-                  lineHeight: 1.5,
-                }}
-              >
-                {s.sub}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── 4. SELECTED SYSTEMS ─────────────────────────────── */}
+      {/* ── 3. SELECTED SYSTEMS ─────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
         <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 48, flexWrap: "wrap", gap: 12 }}>
           <p
@@ -428,7 +222,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 5. WHAT I DO ────────────────────────────────────── */}
+      {/* ── 4. WHAT I DO ────────────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
         <p
           style={{
@@ -473,7 +267,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 6. HOW I THINK ──────────────────────────────────── */}
+      {/* ── 5. HOW I THINK ──────────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
         <p
           style={{
