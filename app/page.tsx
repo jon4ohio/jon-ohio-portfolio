@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { projects } from "@/lib/projects";
 import Hero from "@/components/Hero";
+import SelectedSystems from "@/components/SelectedSystems";
 import SystemModel from "@/components/SystemModel";
 
 export const metadata: Metadata = {
@@ -26,29 +26,6 @@ const heroMetrics = [
   { value: "#4", label: "Product Hunt" },
 ];
 
-const systemGroups = [
-  {
-    label: "Product Systems",
-    slugs: ["seamless-hiring"],
-  },
-  {
-    label: "Organizational Systems",
-    slugs: ["seamkit"],
-  },
-  {
-    label: "Operational Systems",
-    slugs: ["fetsproza", "ibedc", "abms"],
-  },
-  {
-    label: "Intelligent Systems",
-    slugs: ["rivva", "seamless-ai"],
-  },
-  {
-    label: "0→1 Systems",
-    slugs: ["clearprice", "blualliance"],
-  },
-];
-
 const capabilities = [
   { label: "System Design", desc: "Restructuring fragmented products into scalable systems." },
   { label: "Design Systems", desc: "Token architecture, governance, and contribution pipelines." },
@@ -71,8 +48,6 @@ const currentFocus = [
 ];
 
 export default function Home() {
-  const projectMap = new Map(projects.map((p) => [p.slug, p]));
-
   return (
     <div style={{ paddingTop: 56 }}>
 
@@ -188,83 +163,7 @@ export default function Home() {
       <SystemModel />
 
       {/* ── 3. SELECTED SYSTEMS ─────────────────────────────── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
-        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 48, flexWrap: "wrap", gap: 12 }}>
-          <p
-            style={{
-              fontSize: 12,
-              fontWeight: 500,
-              color: "#6b7280",
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-            }}
-          >
-            Selected Systems
-          </p>
-          <Link href="/work" style={{ fontSize: 13, color: "#6b7280", textDecoration: "none" }}>
-            View all →
-          </Link>
-        </div>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-          {systemGroups.map((group, gi) => {
-            const groupItems = group.slugs
-              .map((s) => projectMap.get(s))
-              .filter((p): p is NonNullable<typeof p> => Boolean(p));
-            if (groupItems.length === 0) return null;
-            return (
-              <div
-                key={group.label}
-                style={{
-                  padding: "32px 0",
-                  borderTop: "1px solid #e5e7eb",
-                  borderBottom: gi === systemGroups.length - 1 ? "1px solid #e5e7eb" : "none",
-                  alignItems: "start",
-                }}
-                className="grid-systems-group"
-              >
-                <p
-                  style={{
-                    fontSize: 12,
-                    fontWeight: 500,
-                    color: "#9ca3af",
-                    letterSpacing: "0.06em",
-                    textTransform: "uppercase",
-                    paddingTop: 4,
-                  }}
-                >
-                  {group.label}
-                </p>
-                <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-                  {groupItems.map((p) => (
-                    <Link
-                      key={p.slug}
-                      href={`/work/${p.slug}`}
-                      style={{
-                        textDecoration: "none",
-                        color: "inherit",
-                        display: "flex",
-                        alignItems: "baseline",
-                        justifyContent: "space-between",
-                        gap: 16,
-                        flexWrap: "wrap",
-                      }}
-                    >
-                      <span style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                        <span style={{ fontSize: 18, fontWeight: 600, letterSpacing: "-0.01em" }}>
-                          {p.title}
-                        </span>
-                        <span style={{ fontSize: 13, color: "#6b7280" }}>{p.subtitle}</span>
-                      </span>
-                      <span style={{ fontSize: 13, color: "#9ca3af" }}>→</span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
+      <SelectedSystems />
 
       {/* ── 4. WHAT I DO ────────────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
