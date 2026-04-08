@@ -1,9 +1,20 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { projects } from "@/lib/projects";
+import AssetImage from "@/components/AssetImage";
 
-export const metadata = {
-  title: "Work — John Ohio",
-  description: "Selected case studies in design systems, fintech, enterprise SaaS, and 0→1 product design.",
+export const metadata: Metadata = {
+  title: "Selected Systems",
+  description:
+    "Case studies in product systems, not isolated screens. Enterprise SaaS, fintech infrastructure, design systems, and AI-native workflows.",
+  alternates: { canonical: "/work" },
+  openGraph: {
+    title: "Selected Systems — John Ohio",
+    description:
+      "Case studies in product systems: SeamlessHiring, Seamkit, FetsProza, IBEDC, Rivva, SeamlessAI, ClearPrice and more.",
+    url: "/work",
+    type: "website",
+  },
 };
 
 export default function WorkIndex() {
@@ -14,10 +25,10 @@ export default function WorkIndex() {
           Selected Work
         </p>
         <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.1, maxWidth: 640, marginBottom: 20 }}>
-          Systems built across enterprise, fintech, and 0→1.
+          Case studies in product systems, not isolated screens.
         </h1>
         <p style={{ fontSize: 17, color: "#6b7280", maxWidth: 520, lineHeight: 1.6 }}>
-          Each case study follows the same thread: a broken or absent system, a structured intervention, and measurable results.
+          I usually come in when the workflow is broken, the platform is fragmented, or the team needs a system it can actually scale.
         </p>
       </section>
 
@@ -27,11 +38,8 @@ export default function WorkIndex() {
             <Link
               key={p.slug}
               href={`/work/${p.slug}`}
+              className="grid-work-row"
               style={{
-                display: "grid",
-                gridTemplateColumns: "80px 1fr auto",
-                alignItems: "start",
-                gap: 32,
                 padding: "36px 0",
                 borderTop: "1px solid #e5e7eb",
                 textDecoration: "none",
@@ -41,6 +49,24 @@ export default function WorkIndex() {
               <span style={{ fontSize: 12, color: "#9ca3af", fontWeight: 500, letterSpacing: "0.04em", paddingTop: 4 }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
+              <div className="hide-mobile" style={{ paddingTop: 6 }}>
+                {p.assets?.thumbnails?.[0] ? (
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+                    <AssetImage
+                      asset={p.assets.thumbnails[0]}
+                      sizes="(max-width: 900px) 180px, 120px"
+                      style={{}}
+                    />
+                    {p.assets.thumbnails[1] ? (
+                      <AssetImage
+                        asset={p.assets.thumbnails[1]}
+                        sizes="(max-width: 900px) 180px, 120px"
+                        style={{}}
+                      />
+                    ) : null}
+                  </div>
+                ) : null}
+              </div>
               <div>
                 <div style={{ display: "flex", gap: 12, marginBottom: 10, flexWrap: "wrap" }}>
                   <span style={{ fontSize: 11, color: "#9ca3af", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase" }}>
@@ -52,7 +78,8 @@ export default function WorkIndex() {
                   <span style={{ fontSize: 11, color: "#9ca3af" }}>{p.period}</span>
                 </div>
                 <h2 style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 8 }}>{p.title}</h2>
-                <p style={{ fontSize: 14, color: "#6b7280", marginBottom: 16 }}>{p.subtitle}</p>
+                <p style={{ fontSize: 14, color: "#6b7280", marginBottom: 10 }}>{p.subtitle}</p>
+                <p style={{ fontSize: 14, color: "#4b5563", lineHeight: 1.65, maxWidth: 720, marginBottom: 16 }}>{p.summary}</p>
                 <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                   {p.tags.map((t) => (
                     <span key={t} style={{ fontSize: 11, color: "#6b7280", border: "1px solid #e5e7eb", padding: "3px 8px", borderRadius: 4 }}>
@@ -61,7 +88,7 @@ export default function WorkIndex() {
                   ))}
                 </div>
               </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: 8, alignItems: "flex-end", minWidth: 140 }}>
+              <div className="hide-mobile" style={{ display: "flex", flexDirection: "column", gap: 8, alignItems: "flex-end", minWidth: 140 }}>
                 {p.metrics.slice(0, 2).map((m, j) => (
                   <div key={j} style={{ textAlign: "right" }}>
                     <span style={{ fontSize: 18, fontWeight: 600, letterSpacing: "-0.02em" }}>{m.value}</span>

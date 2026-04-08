@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const links = [
   { href: "/", label: "Home" },
@@ -11,84 +12,176 @@ const links = [
 
 export default function Nav() {
   const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 50,
-        borderBottom: "1px solid #e5e7eb",
-        background: "rgba(255,255,255,0.9)",
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
-      }}
-    >
-      <nav
+    <>
+      <header
         style={{
-          maxWidth: 1120,
-          margin: "0 auto",
-          padding: "0 24px",
-          height: 56,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 50,
+          borderBottom: "1px solid #e5e7eb",
+          background: "rgba(255,255,255,0.9)",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
         }}
       >
-        <Link href="/" style={{ fontWeight: 600, fontSize: 15, color: "#0a0a0a", textDecoration: "none", letterSpacing: "-0.01em" }}>
-          John Ohio
-        </Link>
-
-        <div style={{ display: "flex", gap: 4 }}>
-          {links.map((l) => {
-            const active = pathname === l.href || (l.href !== "/" && pathname.startsWith(l.href));
-            return (
-              <Link
-                key={l.href}
-                href={l.href}
-                style={{
-                  fontSize: 14,
-                  fontWeight: active ? 500 : 400,
-                  color: active ? "#0a0a0a" : "#6b7280",
-                  textDecoration: "none",
-                  padding: "6px 12px",
-                  borderRadius: 6,
-                  transition: "color 0.15s, background 0.15s",
-                  background: active ? "#f3f4f6" : "transparent",
-                }}
-              >
-                {l.label}
-              </Link>
-            );
-          })}
-        </div>
-
-        <a
-          href="mailto:jon4ohio@gmail.com"
+        <nav
           style={{
-            fontSize: 13,
-            fontWeight: 500,
-            color: "#0a0a0a",
-            textDecoration: "none",
-            border: "1px solid #0a0a0a",
-            padding: "7px 16px",
-            borderRadius: 6,
-            transition: "background 0.15s, color 0.15s",
-          }}
-          onMouseEnter={(e) => {
-            (e.target as HTMLElement).style.background = "#0a0a0a";
-            (e.target as HTMLElement).style.color = "#fff";
-          }}
-          onMouseLeave={(e) => {
-            (e.target as HTMLElement).style.background = "transparent";
-            (e.target as HTMLElement).style.color = "#0a0a0a";
+            maxWidth: 1120,
+            margin: "0 auto",
+            padding: "0 24px",
+            height: 56,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
           }}
         >
-          Get in touch
+          <Link
+            href="/"
+            style={{ fontWeight: 600, fontSize: 15, color: "#0a0a0a", textDecoration: "none", letterSpacing: "-0.01em" }}
+            onClick={() => setMenuOpen(false)}
+          >
+            John Ohio
+          </Link>
+
+          {/* Desktop nav links */}
+          <div className="nav-desktop-links">
+            {links.map((l) => {
+              const active = pathname === l.href || (l.href !== "/" && pathname.startsWith(l.href));
+              return (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  style={{
+                    fontSize: 14,
+                    fontWeight: active ? 500 : 400,
+                    color: active ? "#0a0a0a" : "#6b7280",
+                    textDecoration: "none",
+                    padding: "6px 12px",
+                    borderRadius: 6,
+                    transition: "color 0.15s, background 0.15s",
+                    background: active ? "#f3f4f6" : "transparent",
+                  }}
+                >
+                  {l.label}
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Desktop CTA */}
+          <a
+            href="mailto:jon4ohio@gmail.com"
+            className="nav-desktop-cta"
+            style={{
+              fontSize: 13,
+              fontWeight: 500,
+              color: "#0a0a0a",
+              textDecoration: "none",
+              border: "1px solid #0a0a0a",
+              padding: "7px 16px",
+              borderRadius: 6,
+              transition: "background 0.15s, color 0.15s",
+            }}
+            onMouseEnter={(e) => {
+              (e.target as HTMLElement).style.background = "#0a0a0a";
+              (e.target as HTMLElement).style.color = "#fff";
+            }}
+            onMouseLeave={(e) => {
+              (e.target as HTMLElement).style.background = "transparent";
+              (e.target as HTMLElement).style.color = "#0a0a0a";
+            }}
+          >
+            Get in touch
+          </a>
+
+          {/* Mobile hamburger */}
+          <button
+            className="nav-hamburger"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+          >
+            <span
+              style={{
+                display: "block",
+                width: 22,
+                height: 1.5,
+                background: "#0a0a0a",
+                transition: "transform 0.2s",
+                transform: menuOpen ? "translateY(6.5px) rotate(45deg)" : "none",
+              }}
+            />
+            <span
+              style={{
+                display: "block",
+                width: 22,
+                height: 1.5,
+                background: "#0a0a0a",
+                transition: "opacity 0.2s",
+                opacity: menuOpen ? 0 : 1,
+              }}
+            />
+            <span
+              style={{
+                display: "block",
+                width: 22,
+                height: 1.5,
+                background: "#0a0a0a",
+                transition: "transform 0.2s",
+                transform: menuOpen ? "translateY(-6.5px) rotate(-45deg)" : "none",
+              }}
+            />
+          </button>
+        </nav>
+      </header>
+
+      {/* Mobile menu panel */}
+      <div className={`nav-mobile-panel${menuOpen ? " open" : ""}`}>
+        {links.map((l) => {
+          const active = pathname === l.href || (l.href !== "/" && pathname.startsWith(l.href));
+          return (
+            <Link
+              key={l.href}
+              href={l.href}
+              onClick={() => setMenuOpen(false)}
+              style={{
+                fontSize: 16,
+                fontWeight: active ? 600 : 400,
+                color: active ? "#0a0a0a" : "#6b7280",
+                textDecoration: "none",
+                padding: "13px 0",
+                borderBottom: "1px solid #f3f4f6",
+              }}
+            >
+              {l.label}
+            </Link>
+          );
+        })}
+        <a
+          href="mailto:jon4ohio@gmail.com"
+          onClick={() => setMenuOpen(false)}
+          style={{
+            marginTop: 16,
+            display: "inline-flex",
+            alignItems: "center",
+            fontSize: 14,
+            fontWeight: 500,
+            color: "#fff",
+            textDecoration: "none",
+            background: "#0a0a0a",
+            padding: "10px 20px",
+            borderRadius: 8,
+            alignSelf: "flex-start",
+          }}
+        >
+          Get in touch →
         </a>
-      </nav>
-    </header>
+      </div>
+    </>
   );
 }
