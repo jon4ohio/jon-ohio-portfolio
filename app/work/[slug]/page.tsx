@@ -53,13 +53,25 @@ export async function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) return {};
+  const url = `/work/${project.slug}`;
   return {
-    title: `${project.title} — John Ohio`,
+    title: project.title,
     description: project.summary,
+    alternates: { canonical: url },
+    openGraph: {
+      title: `${project.title} — ${project.subtitle}`,
+      description: project.summary,
+      url,
+      type: "article",
+    },
   };
 }
 
@@ -72,15 +84,62 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
   const next = projects[currentIndex + 1];
   const prev = projects[currentIndex - 1];
 
+  const caseStudySchema = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    alternativeHeadline: project.subtitle,
+    about: project.category,
+    description: project.summary,
+    author: {
+      "@type": "Person",
+      name: "John Ohio",
+    },
+    publisher: {
+      "@type": "Person",
+      name: "John Ohio",
+    },
+    keywords: project.tags.join(", "),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+      { "@type": "ListItem", position: 2, name: "Work", item: "/work" },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: project.title,
+        item: `/work/${project.slug}`,
+      },
+    ],
+  };
+
   return (
     <div style={{ paddingTop: 56 }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudySchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
 
       {/* ── Breadcrumb ── */}
-      <div style={{ maxWidth: 1120, margin: "0 auto", padding: "32px 24px 0" }}>
-        <Link href="/work" style={{ fontSize: 13, color: "#6b7280", textDecoration: "none" }}>
+      <nav
+        aria-label="Breadcrumb"
+        style={{ maxWidth: 1120, margin: "0 auto", padding: "32px 24px 0" }}
+      >
+        <Link
+          href="/work"
+          style={{ fontSize: 13, color: "#6b7280", textDecoration: "none" }}
+        >
           ← Work
         </Link>
-      </div>
+      </nav>
 
       {/* ── Hero ── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "48px 24px 64px" }}>
@@ -109,16 +168,27 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
         ) : null}
 
         {/* Metrics */}
-        <div className="grid-metrics" style={{ gridTemplateColumns: `repeat(${project.metrics.length}, 1fr)`, gap: 0, border: "1px solid #e5e7eb", borderRadius: 12, overflow: "hidden" }}>
+        <div
+          className="case-metrics"
+          style={{
+            gridTemplateColumns: `repeat(${project.metrics.length}, 1fr)`,
+            border: "1px solid #e5e7eb",
+            borderRadius: 12,
+            overflow: "hidden",
+          }}
+        >
           {project.metrics.map((m, i) => (
-            <div
-              key={i}
-              style={{
-                padding: "28px 24px",
-                borderRight: i < project.metrics.length - 1 ? "1px solid #e5e7eb" : "none",
-              }}
-            >
-              <p style={{ fontSize: 32, fontWeight: 700, letterSpacing: "-0.03em", marginBottom: 6 }}>{m.value}</p>
+            <div key={i} className="case-metric" style={{ padding: "28px 24px" }}>
+              <p
+                style={{
+                  fontSize: 32,
+                  fontWeight: 700,
+                  letterSpacing: "-0.03em",
+                  marginBottom: 6,
+                }}
+              >
+                {m.value}
+              </p>
               <p style={{ fontSize: 13, color: "#6b7280" }}>{m.label}</p>
             </div>
           ))}
@@ -143,19 +213,52 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       {/* ── Case Study Body ── */}
       <section style={{ maxWidth: 720, margin: "0 auto", padding: "0 24px 80px" }}>
 
-        {[
-          { label: "Context", content: project.context },
-          { label: "What was broken", content: project.problem },
-          { label: "What I led", content: project.action },
-          { label: "What changed", content: project.impact },
-        ].map((section, i) => (
-          <div key={i} style={{ marginBottom: 56, paddingBottom: 56, borderBottom: i < 3 ? "1px solid #e5e7eb" : "none" }}>
-            <p style={{ fontSize: 11, fontWeight: 500, color: "#9ca3af", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 16 }}>
-              {section.label}
-            </p>
-            <p style={{ fontSize: 17, lineHeight: 1.75, color: "#1f2937" }}>{section.content}</p>
-          </div>
-        ))}
+        {(() => {
+          const sections: { label: string; content: string }[] = [
+            { label: "Context", content: project.context },
+            { label: "Problem", content: project.problem },
+            { label: "My Role", content: project.role },
+            { label: "Approach", content: project.action },
+            { label: "Outcomes", content: project.impact },
+          ];
+          if (project.systemEvolution) sections.push({ label: "System Evolution", content: project.systemEvolution });
+          if (project.systemImpact) sections.push({ label: "System Impact", content: project.systemImpact });
+          if (project.keyInsight) sections.push({ label: "Key Insight", content: project.keyInsight });
+          return sections.map((section, i) => (
+            <div
+              key={i}
+              style={{
+                marginBottom: 56,
+                paddingBottom: 56,
+                borderBottom: i < sections.length - 1 ? "1px solid #e5e7eb" : "none",
+              }}
+            >
+              <p
+                style={{
+                  fontSize: 11,
+                  fontWeight: 500,
+                  color: "#9ca3af",
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  marginBottom: 16,
+                }}
+              >
+                {section.label}
+              </p>
+              <p
+                style={{
+                  fontSize: section.label === "Key Insight" ? 20 : 17,
+                  fontWeight: section.label === "Key Insight" ? 500 : 400,
+                  letterSpacing: section.label === "Key Insight" ? "-0.01em" : "normal",
+                  lineHeight: 1.75,
+                  color: "#1f2937",
+                }}
+              >
+                {section.content}
+              </p>
+            </div>
+          ));
+        })()}
 
         {project.assets?.blocks?.length ? (
           <div style={{ display: "flex", flexDirection: "column", gap: 18, marginBottom: 56 }}>

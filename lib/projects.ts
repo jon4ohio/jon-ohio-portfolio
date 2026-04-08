@@ -13,6 +13,10 @@ export interface Project {
   problem: string;
   action: string;
   impact: string;
+  // Optional system-level case study sections
+  systemEvolution?: string;
+  systemImpact?: string;
+  keyInsight?: string;
   tags: string[];
   featured: boolean;
   assets?: ProjectAssets;
@@ -78,7 +82,7 @@ export const projects: Project[] = [
     slug: "seamless-hiring",
     title: "SeamlessHiring 2.0",
     subtitle: "Recruitment Management System (RMS)",
-    category: "Structured Systems",
+    category: "Product Systems",
     company: "SeamlessHR",
     period: "Mar 2022 – Mar 2025",
     summary:
@@ -132,7 +136,7 @@ export const projects: Project[] = [
     slug: "seamkit",
     title: "Seamkit",
     subtitle: "Enterprise Design System",
-    category: "Organisational Scale",
+    category: "Organizational Systems",
     company: "SeamlessHR",
     period: "Dec 2023 – Present",
     summary:
@@ -172,7 +176,7 @@ export const projects: Project[] = [
     slug: "fetsproza",
     title: "FetsProza",
     subtitle: "Infrastructure‑as‑a‑Service (IaaS) Platform",
-    category: "Operational Scale",
+    category: "Operational Systems",
     company: "Fets · Nigeria",
     period: "2021 – 2025",
     summary:
@@ -205,7 +209,7 @@ export const projects: Project[] = [
     slug: "ibedc",
     title: "IBEDC Digital Transformation",
     subtitle: "Care App + POS System",
-    category: "Societal Impact",
+    category: "Operational Systems",
     company: "Fets · 2.4M+ customers",
     period: "2022 – 2024",
     summary:
@@ -324,6 +328,70 @@ export const projects: Project[] = [
     impact:
       "Soft launch pilot with African SaaS businesses. Scalable, compliance-ready billing infrastructure established. Positioned as the first localised RevOps platform for Africa's SaaS growth ecosystem.",
     tags: ["Fintech", "SaaS", "0→1", "Africa", "Billing Infrastructure"],
+    featured: false,
+    assets: {
+      thumbnails: [placeholderThumbA, placeholderThumbB],
+      hero: placeholderHero,
+    },
+  },
+  {
+    slug: "abms",
+    title: "ABMS",
+    subtitle: "Agency Banking Management System",
+    category: "Operational Systems",
+    company: "Fets",
+    period: "2022 – 2024",
+    summary:
+      "Designed the operational backbone for an agency banking network — onboarding, transaction monitoring, and reconciliation across thousands of agents.",
+    role: "Lead Product Designer for operations and field workflows.",
+    scope:
+      "Agent onboarding, transaction monitoring, reconciliation tooling, dispute workflows, and compliance reporting.",
+    metrics: [
+      { value: "Multi-tier", label: "Agent hierarchy" },
+      { value: "Real-time", label: "Transaction monitoring" },
+      { value: "Unified", label: "Reconciliation across channels" },
+    ],
+    context:
+      "Agency banking operations were spread across spreadsheets, paper records, and disconnected mobile apps — leaving compliance, onboarding, and reconciliation as ongoing operational bottlenecks.",
+    problem:
+      "No unified system for agent management, cash position monitoring, or dispute handling. Settlement delays and reconciliation errors compounded as the agent network grew.",
+    action:
+      "Led product design for an end-to-end agency banking management system: agent onboarding, KYC, transaction monitoring, float management, dispute workflows, and reconciliation. Worked with engineering on operational data models and audit trails.",
+    impact:
+      "Operational reconciliation collapsed from days to minutes. Agent onboarding became a single guided workflow. The system became the operating backbone for the agency banking business unit.",
+    tags: ["Fintech", "Agency Banking", "Operations", "Compliance"],
+    featured: false,
+    assets: {
+      thumbnails: [placeholderThumbB, placeholderThumbA],
+      hero: placeholderHero,
+    },
+  },
+  {
+    slug: "blualliance",
+    title: "BluAlliance",
+    subtitle: "Healthcare Network Platform",
+    category: "0→1 Systems",
+    company: "Founding Team",
+    period: "2024 – 2025",
+    summary:
+      "Defined the foundational product for a healthcare network connecting providers, payers, and members across emerging markets.",
+    role: "Founding Designer leading product definition and core flows.",
+    scope:
+      "Provider onboarding, member portal, claims workflows, network discovery, and the foundational design system.",
+    metrics: [
+      { value: "0→1", label: "Validated MVP" },
+      { value: "Multi-sided", label: "Network model" },
+      { value: "Pilot", label: "Provider rollout" },
+    ],
+    context:
+      "Healthcare networks in emerging markets are fragmented across providers, payers, and members — with paper-driven claims, opaque pricing, and no shared operational layer.",
+    problem:
+      "No unified product to connect providers and members, no claims workflow, no shared network directory. Building infrastructure where none existed.",
+    action:
+      "Led product design from 0 → validated MVP. Defined provider onboarding, member discovery, and claims workflows. Established the foundational design system and key user journeys.",
+    impact:
+      "Validated MVP rolled out to a pilot network of providers. Foundational system in place to support the next stage of network growth.",
+    tags: ["Healthcare", "0→1", "Marketplace", "Africa"],
     featured: false,
     assets: {
       thumbnails: [placeholderThumbA, placeholderThumbB],

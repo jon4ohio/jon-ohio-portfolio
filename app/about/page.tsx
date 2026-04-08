@@ -1,6 +1,17 @@
-export const metadata = {
-  title: "About — John Ohio",
-  description: "Product Design Lead with a decade of experience building trusted systems across enterprise SaaS, fintech infrastructure, and 0→1 products.",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "John Ohio — Product Design Lead based in Abuja, Nigeria. A decade building trusted systems across enterprise SaaS, fintech infrastructure, and 0→1 products.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About — John Ohio",
+    description:
+      "Product Design Lead · Systems · DesignOps · AI. Based in Abuja, Nigeria.",
+    url: "/about",
+    type: "profile",
+  },
 };
 
 import AssetImage from "@/components/AssetImage";

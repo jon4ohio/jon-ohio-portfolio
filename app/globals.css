@@ -15,6 +15,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+  scroll-padding-top: 72px;
 }
 
 body {
@@ -22,6 +23,49 @@ body {
   color: var(--fg);
   font-size: 16px;
   line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Respect user preference — disables scroll-smooth + animations */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  [class*="animate-"] { opacity: 1 !important; }
+}
+
+/* Accessibility: skip link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: #0a0a0a;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 100;
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+.skip-link:focus {
+  top: 12px;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Focus visible — consistent focus ring on keyboard nav */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #0a0a0a;
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 @keyframes fadeUp {
@@ -83,10 +127,83 @@ body {
 /* Case study dynamic-column metrics — class is a mobile override hook */
 .grid-metrics { display: grid; }
 
+/* Case study metrics — uses gap-as-border for clean wrapping at any breakpoint */
+.case-metrics {
+  display: grid;
+  gap: 1px;
+  background: #e5e7eb;
+}
+.case-metric { background: #fff; }
+@media (max-width: 900px) {
+  .case-metrics { grid-template-columns: repeat(3, 1fr) !important; }
+  .case-metric { padding: 22px 18px !important; }
+}
+@media (max-width: 640px) {
+  .case-metrics { grid-template-columns: repeat(2, 1fr) !important; }
+  .case-metric { padding: 18px 14px !important; }
+}
+
+/* Homepage hero metrics — gap-as-border, wraps cleanly across breakpoints */
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: #e5e7eb;
+}
+.hero-metric {
+  background: #f9fafb;
+  padding: 28px 24px;
+}
+.hero-metric--filler {
+  /* Synthetic cell to keep wrapping clean when item count is odd */
+  display: none;
+  background: #f9fafb;
+}
+@media (max-width: 900px) {
+  .hero-metrics { grid-template-columns: repeat(3, 1fr); }
+  .hero-metric { padding: 24px 18px; }
+  .hero-metric--filler { display: block; }
+}
+@media (max-width: 640px) {
+  .hero-metrics { grid-template-columns: repeat(2, 1fr); }
+  .hero-metric { padding: 20px 16px; }
+  .hero-metric--filler { display: block; }
+}
+
+/* Generic stats grid — wraps cleanly using gap-as-border */
+.stats-grid {
+  display: grid;
+  gap: 1px;
+  background: #e5e7eb;
+}
+.stats-grid--4 { grid-template-columns: repeat(4, 1fr); }
+.stats-cell { padding: 28px 24px; }
+@media (max-width: 900px) {
+  .stats-grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .stats-cell { padding: 24px 18px; }
+}
+@media (max-width: 640px) {
+  .stats-grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .stats-cell { padding: 20px 16px; }
+}
+
+/* Selected systems / capabilities row: label + content */
+.grid-systems-group {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+}
+.grid-systems-group--wide   { grid-template-columns: 240px 1fr; }
+.grid-systems-group--narrow { grid-template-columns: 120px 1fr; }
+
 /* ── Tablet  ≤ 900px ─────────────────────────────── */
 @media (max-width: 900px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  /* Case study dynamic metrics: cap at 3 columns on tablet */
+  .grid-metrics { grid-template-columns: repeat(3, 1fr) !important; }
+  /* Selected systems / capabilities rows: tighter label column on tablet */
+  .grid-systems-group { grid-template-columns: 160px 1fr; gap: 24px; }
 }
 
 /* ── Mobile  ≤ 640px ─────────────────────────────── */
@@ -99,6 +216,12 @@ body {
 
   /* Override dynamic inline gridTemplateColumns on case study metrics */
   .grid-metrics   { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Selected systems / capabilities rows stack on mobile */
+  .grid-systems-group {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
 
   .hide-mobile    { display: none !important; }
 

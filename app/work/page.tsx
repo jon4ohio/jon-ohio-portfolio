@@ -1,10 +1,20 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { projects } from "@/lib/projects";
 import AssetImage from "@/components/AssetImage";
 
-export const metadata = {
-  title: "Work — John Ohio",
-  description: "Selected case studies in enterprise SaaS, fintech infrastructure, design systems, and AI-native product work.",
+export const metadata: Metadata = {
+  title: "Selected Systems",
+  description:
+    "Case studies in product systems, not isolated screens. Enterprise SaaS, fintech infrastructure, design systems, and AI-native workflows.",
+  alternates: { canonical: "/work" },
+  openGraph: {
+    title: "Selected Systems — John Ohio",
+    description:
+      "Case studies in product systems: SeamlessHiring, Seamkit, FetsProza, IBEDC, Rivva, SeamlessAI, ClearPrice and more.",
+    url: "/work",
+    type: "website",
+  },
 };
 
 export default function WorkIndex() {
