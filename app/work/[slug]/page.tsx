@@ -156,7 +156,27 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
           {project.title}
         </h1>
         <p style={{ fontSize: 20, color: "#6b7280", marginBottom: 16 }}>{project.subtitle}</p>
-        <p style={{ fontSize: 18, color: "#374151", lineHeight: 1.7, maxWidth: 760, marginBottom: 48 }}>{project.summary}</p>
+        <p style={{ fontSize: 18, color: "#374151", lineHeight: 1.7, maxWidth: 760, marginBottom: 24 }}>{project.summary}</p>
+
+        {/* Metric pills — stacked under case study details */}
+        <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 48 }}>
+          {project.metrics.map((m, i) => (
+            <span
+              key={i}
+              style={{
+                display: "inline-flex",
+                alignItems: "baseline",
+                gap: 8,
+                background: "#f3f4f6",
+                borderRadius: 8,
+                padding: "10px 14px",
+              }}
+            >
+              <span style={{ fontSize: 18, fontWeight: 700, color: "#0a0a0a", letterSpacing: "-0.02em" }}>{m.value}</span>
+              <span style={{ fontSize: 13, color: "#6b7280" }}>{m.label}</span>
+            </span>
+          ))}
+        </div>
 
         {project.assets?.hero ? (
           <div style={{ marginBottom: 28 }}>
@@ -166,33 +186,6 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
             ) : null}
           </div>
         ) : null}
-
-        {/* Metrics */}
-        <div
-          className="case-metrics"
-          style={{
-            gridTemplateColumns: `repeat(${project.metrics.length}, 1fr)`,
-            border: "1px solid #e5e7eb",
-            borderRadius: 12,
-            overflow: "hidden",
-          }}
-        >
-          {project.metrics.map((m, i) => (
-            <div key={i} className="case-metric" style={{ padding: "28px 24px" }}>
-              <p
-                style={{
-                  fontSize: 32,
-                  fontWeight: 700,
-                  letterSpacing: "-0.03em",
-                  marginBottom: 6,
-                }}
-              >
-                {m.value}
-              </p>
-              <p style={{ fontSize: 13, color: "#6b7280" }}>{m.label}</p>
-            </div>
-          ))}
-        </div>
 
         <div className="grid-2" style={{ gap: 16, marginTop: 20 }}>
           <div style={{ border: "1px solid #e5e7eb", borderRadius: 12, padding: "20px 22px" }}>

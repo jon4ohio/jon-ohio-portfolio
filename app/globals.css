@@ -109,10 +109,10 @@ button:focus-visible {
   gap: 80px;
 }
 
-/* Work index list row: index + content + metrics */
+/* Work index list row: index + thumbnail + content + arrow */
 .grid-work-row {
   display: grid;
-  grid-template-columns: 80px 240px 1fr auto;
+  grid-template-columns: 56px 200px 1fr auto;
   align-items: start;
   gap: 32px;
 }
@@ -152,7 +152,7 @@ button:focus-visible {
 }
 .hero-metric {
   background: #f9fafb;
-  padding: 28px 24px;
+  padding: 36px 24px;
 }
 .hero-metric--filler {
   /* Synthetic cell to keep wrapping clean when item count is odd */
@@ -161,12 +161,12 @@ button:focus-visible {
 }
 @media (max-width: 900px) {
   .hero-metrics { grid-template-columns: repeat(3, 1fr); }
-  .hero-metric { padding: 24px 18px; }
+  .hero-metric { padding: 32px 18px; }
   .hero-metric--filler { display: block; }
 }
 @media (max-width: 640px) {
   .hero-metrics { grid-template-columns: repeat(2, 1fr); }
-  .hero-metric { padding: 20px 16px; }
+  .hero-metric { padding: 28px 16px; }
   .hero-metric--filler { display: block; }
 }
 
@@ -185,6 +185,15 @@ button:focus-visible {
 @media (max-width: 640px) {
   .stats-grid--4 { grid-template-columns: repeat(2, 1fr); }
   .stats-cell { padding: 20px 16px; }
+}
+
+
+.system-model-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 640px) {
+  .system-model-grid { grid-template-columns: 1fr; }
 }
 
 /* Selected systems / capabilities row: label + content */
