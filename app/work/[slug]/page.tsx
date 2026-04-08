@@ -167,34 +167,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
           </div>
         ) : null}
 
-        {/* Metrics */}
-        <div
-          className="case-metrics"
-          style={{
-            gridTemplateColumns: `repeat(${project.metrics.length}, 1fr)`,
-            border: "1px solid #e5e7eb",
-            borderRadius: 12,
-            overflow: "hidden",
-          }}
-        >
-          {project.metrics.map((m, i) => (
-            <div key={i} className="case-metric" style={{ padding: "28px 24px" }}>
-              <p
-                style={{
-                  fontSize: 32,
-                  fontWeight: 700,
-                  letterSpacing: "-0.03em",
-                  marginBottom: 6,
-                }}
-              >
-                {m.value}
-              </p>
-              <p style={{ fontSize: 13, color: "#6b7280" }}>{m.label}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="grid-2" style={{ gap: 16, marginTop: 20 }}>
+        <div className="grid-2" style={{ gap: 16, marginBottom: 20 }}>
           <div style={{ border: "1px solid #e5e7eb", borderRadius: 12, padding: "20px 22px" }}>
             <p style={{ fontSize: 11, fontWeight: 500, color: "#9ca3af", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
               Role
@@ -207,6 +180,36 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
             </p>
             <p style={{ fontSize: 15, color: "#1f2937", lineHeight: 1.65 }}>{project.scope}</p>
           </div>
+        </div>
+
+        {/* Metrics — stacked pills under details */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 10, maxWidth: 560 }}>
+          {project.metrics.map((m, i) => (
+            <div
+              key={i}
+              style={{
+                border: "1px solid #e5e7eb",
+                borderRadius: 999,
+                padding: "14px 20px",
+                display: "flex",
+                flexWrap: "wrap",
+                alignItems: "baseline",
+                gap: "8px 12px",
+                background: "var(--surface)",
+              }}
+            >
+              <span
+                style={{
+                  fontSize: 22,
+                  fontWeight: 700,
+                  letterSpacing: "-0.03em",
+                }}
+              >
+                {m.value}
+              </span>
+              <span style={{ fontSize: 13, color: "#6b7280" }}>{m.label}</span>
+            </div>
+          ))}
         </div>
       </section>
 

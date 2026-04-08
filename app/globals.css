@@ -109,38 +109,11 @@ button:focus-visible {
   gap: 80px;
 }
 
-/* Work index list row: index + content + metrics */
-.grid-work-row {
-  display: grid;
-  grid-template-columns: 80px 240px 1fr auto;
-  align-items: start;
-  gap: 32px;
-}
-
 /* Homepage featured work row: content + metric chips */
 .grid-work-feat {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
-}
-
-/* Case study dynamic-column metrics — class is a mobile override hook */
-.grid-metrics { display: grid; }
-
-/* Case study metrics — uses gap-as-border for clean wrapping at any breakpoint */
-.case-metrics {
-  display: grid;
-  gap: 1px;
-  background: #e5e7eb;
-}
-.case-metric { background: #fff; }
-@media (max-width: 900px) {
-  .case-metrics { grid-template-columns: repeat(3, 1fr) !important; }
-  .case-metric { padding: 22px 18px !important; }
-}
-@media (max-width: 640px) {
-  .case-metrics { grid-template-columns: repeat(2, 1fr) !important; }
-  .case-metric { padding: 18px 14px !important; }
 }
 
 /* Homepage hero metrics — gap-as-border, wraps cleanly across breakpoints */
@@ -209,8 +182,6 @@ button:focus-visible {
 @media (max-width: 900px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
-  /* Case study dynamic metrics: cap at 3 columns on tablet */
-  .grid-metrics { grid-template-columns: repeat(3, 1fr) !important; }
   /* Selected systems / capabilities rows: tighter label column on tablet */
   .grid-systems-group { grid-template-columns: 160px 1fr; gap: 24px; }
 }
@@ -220,11 +191,7 @@ button:focus-visible {
   .grid-2         { grid-template-columns: 1fr; }
   .grid-2-lg      { grid-template-columns: 1fr; gap: 48px; }
   .grid-3         { grid-template-columns: 1fr; }
-  .grid-work-row  { grid-template-columns: 40px 1fr; gap: 16px; }
   .grid-work-feat { grid-template-columns: 1fr; }
-
-  /* Override dynamic inline gridTemplateColumns on case study metrics */
-  .grid-metrics   { grid-template-columns: repeat(2, 1fr) !important; }
 
   /* Selected systems / capabilities rows stack on mobile */
   .grid-systems-group {
