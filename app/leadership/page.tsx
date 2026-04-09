@@ -337,7 +337,7 @@ export default function Leadership() {
       {/* ── 6. CURRENT FOCUS ────────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 96px" }}>
         <p style={{ fontSize: 12, fontWeight: 500, color: "#6b7280", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 16 }}>
-          Current Focus · SeamlessHR / SeamlesTech · Jan 2025 – Present
+          Current Focus · SeamlessHR · Jan 2025 – Present
         </p>
         <h2
           style={{

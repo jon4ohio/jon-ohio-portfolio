@@ -247,7 +247,7 @@ export const projects: Project[] = [
     period: "Jul 2025 – Jan 2026",
     summary:
       "Shaped the trust layer for an AI scheduling product, translating biometric data into explainable planning people could act on.",
-    role: "Founding Designer from product definition to cross-platform system design.",
+    role: "Product Designer (Founding Team) from product definition to cross-platform system design.",
     scope:
       "AI interaction design, Apple Health onboarding, web app design, and shared patterns spanning iOS, Android, and web.",
     metrics: [
@@ -311,7 +311,7 @@ export const projects: Project[] = [
     period: "Oct 2024 – Jul 2025",
     summary:
       "Defined a localised quote-to-cash product for African SaaS operators where global billing tools were a poor fit.",
-    role: "Founding Designer leading MVP definition and product UX.",
+    role: "Product Designer (Founding Member) leading MVP definition and product UX.",
     scope:
       "Pricing configuration, billing workflows, subscription dashboards, validation with founders and CFOs, and delivery with engineering.",
     metrics: [
@@ -375,12 +375,13 @@ export const projects: Project[] = [
     period: "Jun 2025 – Present",
     summary:
       "Co-led product discovery for Africa’s first HRM platform for the blue-collar workforce — field research across Kenya and Nigeria, journey mapping, and MVP scoping.",
-    role: "Product Designer (0→1) supporting discovery, research, and MVP definition.",
+    role: "UX Research Lead for product discovery and MVP definition.",
     scope:
-      "Field research, journey mapping, opportunity mapping, and MVP scoping across hiring, payroll, scheduling, and benefits.",
+      "Field research, ethnographic visits, worker and employer journey mapping, opportunity mapping, and MVP scoping across hiring, payroll, scheduling, and benefits.",
     metrics: [
       { value: "30+", label: "Field interviews" },
       { value: "2", label: "Markets researched (Kenya, Nigeria)" },
+      { value: "0→1", label: "MVP scoped" },
     ],
     context:
       "BluAlliance is a 0→1 HRM platform for Africa’s blue-collar workforce, co-led by SeamlessHR in partnership with the Gates Foundation. The goal was to build an HRM product tailored to the realities of field-based, shift-based, and informal work — with employer needs spanning hiring, payroll, scheduling, and benefits.",
