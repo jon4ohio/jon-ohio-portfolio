@@ -65,21 +65,6 @@ body {
   text-underline-offset: 4px;
 }
 
-/* Trusted By logo marquee (homepage) */
-@keyframes trusted-by-marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.trusted-by-marquee-track {
-  animation: trusted-by-marquee 55s linear infinite;
-  will-change: transform;
-}
-
 /* Respect user preference — disables scroll-smooth + animations */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -91,11 +76,6 @@ body {
     transition-duration: 0.01ms !important;
   }
   [class*="animate-"] { opacity: 1 !important; }
-  .trusted-by-marquee-track {
-    animation: none !important;
-    transform: none !important;
-    will-change: auto;
-  }
 }
 
 /* Accessibility: skip link */

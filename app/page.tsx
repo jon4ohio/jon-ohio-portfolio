@@ -2,8 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { projects } from "@/lib/projects";
 import Hero from "@/components/Hero";
+import SelectedSystemsLogosRow from "@/components/SelectedSystemsLogosRow";
 import SystemModel from "@/components/SystemModel";
-import TrustedByMarquee from "@/components/TrustedByMarquee";
 
 export const metadata: Metadata = {
   title: "John Ohio — Product Systems & DesignOps Lead",
@@ -114,8 +114,6 @@ export default function Home() {
         </div>
       </section>
 
-      <TrustedByMarquee />
-
       <SystemModel />
 
       {/* ── 3. SELECTED SYSTEMS ─────────────────────────────── */}
@@ -204,6 +202,8 @@ export default function Home() {
             );
           })}
         </div>
+
+        <SelectedSystemsLogosRow />
       </section>
 
       {/* ── 4. WHAT I DO ────────────────────────────────────── */}
