@@ -39,7 +39,7 @@ export default function Hero() {
           lineHeight: 1.5,
         }}
       >
-        Product Design Lead working across enterprise SaaS, fintech infrastructure, and AI — designing systems that scale from fragmented to intelligent.
+        Product Design Lead working across enterprise SaaS, fintech infrastructure, and AI — design systems, DesignOps, and AI-native workflows.
       </p>
       <div className="animate-fade-up delay-4 hero-cta">
         <Link

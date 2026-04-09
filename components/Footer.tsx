@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer style={{ borderTop: "1px solid #e5e7eb", marginTop: 120 }}>
+    <footer style={{ borderTop: "1px solid #e5e7eb", marginTop: 0 }}>
       <div
         style={{
           maxWidth: 1120,
@@ -20,7 +20,7 @@ export default function Footer() {
           <p style={{ fontSize: 13, color: "#6b7280" }}>Product Design Lead · Abuja, Nigeria</p>
         </div>
 
-        <div style={{ display: "flex", gap: 32 }}>
+        <nav aria-label="Footer navigation" style={{ display: "flex", gap: 32 }}>
           {[
             { label: "Work", href: "/work" },
             { label: "Leadership", href: "/leadership" },
@@ -30,7 +30,7 @@ export default function Footer() {
               {l.label}
             </Link>
           ))}
-        </div>
+        </nav>
 
         <div style={{ display: "flex", gap: 16 }}>
           <a href="mailto:jon4ohio@gmail.com" style={{ fontSize: 13, color: "#6b7280", textDecoration: "none" }}>

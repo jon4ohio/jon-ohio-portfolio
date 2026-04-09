@@ -26,6 +26,21 @@ body {
   overflow-x: hidden;
 }
 
+/* Hover affordances (keep minimal, no extra animation) */
+.work-list-row:hover {
+  background: #f9fafb;
+  cursor: pointer;
+}
+.grid-systems-group a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.case-study-nav-link:hover p:last-child {
+  color: #0a0a0a;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 /* Respect user preference — disables scroll-smooth + animations */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -223,6 +238,9 @@ button:focus-visible {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
+@media (max-width: 900px) {
+  .system-model-grid { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 640px) {
   .system-model-grid { grid-template-columns: 1fr; }
 }
@@ -240,8 +258,11 @@ button:focus-visible {
 @media (max-width: 900px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .grid-2-lg { gap: 48px; }
   /* Selected systems / capabilities rows: tighter label column on tablet */
   .grid-systems-group { grid-template-columns: 160px 1fr; gap: 24px; }
+  .grid-systems-group--narrow { grid-template-columns: 120px 1fr; }
+  .grid-systems-group--wide { grid-template-columns: 200px 1fr; }
   .work-list-row {
     grid-template-columns: 40px minmax(120px, 200px) minmax(0, 1fr) 24px;
     gap: 16px 20px;
@@ -365,12 +386,23 @@ button:focus-visible {
   border-bottom: 1px solid #e5e7eb;
   padding: 16px 24px 24px;
   z-index: 49;
+  opacity: 0;
+  transform: translateY(-8px);
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
 }
 
-.nav-mobile-panel.open { display: flex; }
+.nav-mobile-panel.open {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+}
 
 @media (max-width: 640px) {
   .nav-desktop-links { display: none !important; }
   .nav-desktop-cta   { display: none !important; }
   .nav-hamburger     { display: flex !important; }
+  .nav-mobile-panel  { display: flex; }
 }

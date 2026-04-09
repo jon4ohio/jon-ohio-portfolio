@@ -84,7 +84,7 @@ export default function Nav() {
               textDecoration: "none",
               border: "1px solid #0a0a0a",
               padding: "7px 16px",
-              borderRadius: 6,
+              borderRadius: 8,
               transition: "background 0.15s, color 0.15s",
             }}
             onMouseEnter={(e) => {
@@ -105,6 +105,7 @@ export default function Nav() {
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
+            aria-controls="nav-mobile-panel"
           >
             <span
               style={{
@@ -141,7 +142,11 @@ export default function Nav() {
       </header>
 
       {/* Mobile menu panel */}
-      <div className={`nav-mobile-panel${menuOpen ? " open" : ""}`}>
+      <div
+        id="nav-mobile-panel"
+        className={`nav-mobile-panel${menuOpen ? " open" : ""}`}
+        aria-hidden={!menuOpen}
+      >
         {links.map((l) => {
           const active = pathname === l.href || (l.href !== "/" && pathname.startsWith(l.href));
           return (

@@ -171,7 +171,16 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
 
         {project.assets?.hero ? (
           <div style={{ marginBottom: 28 }}>
-            <AssetImage asset={project.assets.hero} sizes="(max-width: 900px) 92vw, 1120px" priority />
+            <AssetImage
+              asset={{
+                ...project.assets.hero,
+                alt: project.assets.hero.src.includes("/assets/work/_placeholders/")
+                  ? `${project.title} — project preview`
+                  : project.assets.hero.alt,
+              }}
+              sizes="(max-width: 900px) 92vw, 1120px"
+              priority
+            />
             {project.assets.hero.caption ? (
               <p style={{ fontSize: 12, color: "var(--fg-subtle)", lineHeight: 1.6, marginTop: 10 }}>{project.assets.hero.caption}</p>
             ) : null}
@@ -195,13 +204,12 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       </section>
 
       {/* ── Case Study Body ── */}
-      <section style={{ maxWidth: 720, margin: "0 auto", padding: "0 24px 80px" }}>
+      <section style={{ maxWidth: 760, margin: "0 auto", padding: "0 24px 80px" }}>
 
         {(() => {
           const sections: { label: string; content: string }[] = [
             { label: "Context", content: project.context },
             { label: "Problem", content: project.problem },
-            { label: "My Role", content: project.role },
             { label: "Approach", content: project.action },
             { label: "Outcomes", content: project.impact },
           ];
@@ -244,14 +252,6 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
           ));
         })()}
 
-        {project.assets?.blocks?.length ? (
-          <div style={{ display: "flex", flexDirection: "column", gap: 18, marginBottom: 56 }}>
-            {project.assets.blocks.map((block, idx) => (
-              <BlockRenderer key={idx} block={block} />
-            ))}
-          </div>
-        ) : null}
-
         {/* Tags */}
         <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
           {project.tags.map((t) => (
@@ -262,12 +262,27 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
         </div>
       </section>
 
+      {/* ── Case Study Assets ── */}
+      {project.assets?.blocks?.length ? (
+        <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 80px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+            {project.assets.blocks.map((block, idx) => (
+              <BlockRenderer key={idx} block={block} />
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       {/* ── Next / Prev ── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 80px" }}>
+      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 120px" }}>
         <div className="grid-2" style={{ borderTop: "1px solid #e5e7eb", paddingTop: 40, gap: 24 }}>
           <div>
             {prev && (
-              <Link href={`/work/${prev.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
+              <Link
+                href={`/work/${prev.slug}`}
+                className="case-study-nav-link"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
                 <p style={{ fontSize: 12, color: "#9ca3af", marginBottom: 8 }}>← Previous</p>
                 <p style={{ fontSize: 16, fontWeight: 600, letterSpacing: "-0.01em" }}>{prev.title}</p>
               </Link>
@@ -275,7 +290,11 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
           </div>
           <div className="next-item" style={{ textAlign: "right" }}>
             {next && (
-              <Link href={`/work/${next.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
+              <Link
+                href={`/work/${next.slug}`}
+                className="case-study-nav-link"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
                 <p style={{ fontSize: 12, color: "#9ca3af", marginBottom: 8 }}>Next →</p>
                 <p style={{ fontSize: 16, fontWeight: 600, letterSpacing: "-0.01em" }}>{next.title}</p>
               </Link>

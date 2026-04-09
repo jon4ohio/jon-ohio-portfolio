@@ -184,7 +184,19 @@ export default function Home() {
                         </span>
                         <span style={{ fontSize: 13, color: "#6b7280" }}>{p.subtitle}</span>
                       </span>
-                      <span style={{ fontSize: 13, color: "#9ca3af" }}>→</span>
+                      <span style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", justifyContent: "flex-end" }}>
+                        {p.metrics?.length ? (
+                          <span className="metric-badges" aria-label="Key metrics">
+                            {p.metrics.slice(0, 3).map((m, mi) => (
+                              <span key={mi} className="metric-badge">
+                                <span className="metric-badge__value">{m.value}</span>
+                                <span className="metric-badge__label">{m.label}</span>
+                              </span>
+                            ))}
+                          </span>
+                        ) : null}
+                        <span style={{ fontSize: 13, color: "#9ca3af" }}>→</span>
+                      </span>
                     </Link>
                   ))}
                 </div>
@@ -422,7 +434,7 @@ export default function Home() {
       </section>
 
       {/* ── 9. CLOSING ──────────────────────────────────────── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0", textAlign: "center" }}>
+      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 120px", textAlign: "center" }}>
         <p
           style={{
             fontSize: 12,
