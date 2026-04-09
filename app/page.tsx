@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { projects } from "@/lib/projects";
 import Hero from "@/components/Hero";
 import SystemModel from "@/components/SystemModel";
+import TrustedByMarquee from "@/components/TrustedByMarquee";
 
 export const metadata: Metadata = {
   title: "John Ohio — Product Systems & DesignOps Lead",
@@ -112,6 +113,8 @@ export default function Home() {
           <div className="hero-metric hero-metric--filler" aria-hidden="true" />
         </div>
       </section>
+
+      <TrustedByMarquee />
 
       <SystemModel />
 

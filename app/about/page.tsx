@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "John Ohio — Product Design Lead based in Abuja, Nigeria. Five years building trusted systems across enterprise SaaS, fintech infrastructure, and 0→1 products.",
+    "John Ohio — Product Design Lead based in Abuja, Nigeria. Five years building trusted systems across enterprise SaaS, fintech infrastructure, and 0→1 products. Community: speaking, facilitation, and mentorship.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About — John Ohio",
@@ -15,14 +15,12 @@ export const metadata: Metadata = {
 };
 
 import AssetImage from "@/components/AssetImage";
-import type { ImageAsset } from "@/lib/projects";
-
-const portrait: ImageAsset = {
-  src: "/assets/about/portrait.svg",
-  alt: "Portrait of John Ohio",
-  width: 1200,
-  height: 1400,
-};
+import {
+  communityCards,
+  communityPullQuote,
+  communitySectionEyebrow,
+  communitySectionTitle,
+} from "@/lib/communityContribution";
 
 const principles = [
   {
@@ -56,7 +54,13 @@ const timeline = [
 export default function About() {
   return (
     <div style={{ paddingTop: 56 }}>
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "80px 24px 120px" }}>
+      <section
+        style={{
+          maxWidth: 1120,
+          margin: "0 auto",
+          padding: "clamp(56px, 12vw, 80px) clamp(20px, 4vw, 24px) clamp(80px, 14vw, 120px)",
+        }}
+      >
         <div className="grid-2-lg" style={{ alignItems: "start" }}>
 
           {/* Left: Narrative */}
@@ -94,9 +98,6 @@ export default function About() {
 
           {/* Right: Principles + Timeline */}
           <div>
-            <div style={{ marginBottom: 24 }}>
-              <AssetImage asset={portrait} sizes="(max-width: 900px) 92vw, 480px" />
-            </div>
             <p className="section-label" style={{ marginBottom: 24 }}>
               How I Think
             </p>
@@ -143,6 +144,102 @@ export default function About() {
             </div>
           </div>
 
+        </div>
+
+        <div
+          style={{
+            marginTop: "clamp(48px, 10vw, 80px)",
+            paddingTop: "clamp(48px, 10vw, 80px)",
+            borderTop: "1px solid var(--border)",
+          }}
+        >
+          <blockquote style={{ margin: 0, marginBottom: "clamp(40px, 7vw, 64px)", padding: 0 }}>
+            <p
+              style={{
+                fontSize: "clamp(28px, 4vw, 44px)",
+                fontWeight: 600,
+                letterSpacing: "-0.03em",
+                lineHeight: 1.15,
+                color: "var(--fg-strong)",
+                marginBottom: "clamp(12px, 2vw, 20px)",
+              }}
+            >
+              “{communityPullQuote.text}”
+            </p>
+            <p
+              style={{
+                fontSize: "clamp(16px, 2vw, 22px)",
+                color: "var(--fg-muted)",
+                fontWeight: 500,
+              }}
+            >
+              — {communityPullQuote.attribution}
+            </p>
+          </blockquote>
+
+          <p className="section-label" style={{ marginBottom: 10 }}>
+            {communitySectionEyebrow}
+          </p>
+          <h2
+            style={{
+              fontSize: "clamp(26px, 3.2vw, 40px)",
+              fontWeight: 600,
+              letterSpacing: "-0.03em",
+              lineHeight: 1.15,
+              marginBottom: "clamp(20px, 4vw, 32px)",
+            }}
+          >
+            {communitySectionTitle}
+          </h2>
+
+          <div
+            className="grid-2"
+            style={{
+              gap: "clamp(32px, 5vw, 48px) clamp(24px, 4vw, 56px)",
+              alignItems: "start",
+            }}
+          >
+            {communityCards.map((card, i) => (
+              <div key={i}>
+                <div style={{ marginBottom: "clamp(12px, 2vw, 16px)" }}>
+                  <AssetImage
+                    asset={card.asset}
+                    aspectCover="16 / 9"
+                    sizes="(max-width: 640px) 100vw, (max-width: 900px) 92vw, 520px"
+                  />
+                </div>
+                <h3
+                  style={{
+                    fontSize: "clamp(17px, 2.1vw, 20px)",
+                    fontWeight: 600,
+                    letterSpacing: "-0.01em",
+                    marginBottom: 6,
+                  }}
+                >
+                  {card.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: "clamp(14px, 1.6vw, 16px)",
+                    color: "var(--fg-muted)",
+                    fontWeight: 500,
+                    marginBottom: "clamp(8px, 1.5vw, 12px)",
+                  }}
+                >
+                  {card.subtitle}
+                </p>
+                <p
+                  style={{
+                    fontSize: "clamp(15px, 1.6vw, 17px)",
+                    lineHeight: 1.5,
+                    color: "var(--fg-body)",
+                  }}
+                >
+                  {card.body}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>
