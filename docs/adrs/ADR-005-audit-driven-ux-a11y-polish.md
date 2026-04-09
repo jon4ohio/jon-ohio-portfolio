@@ -17,8 +17,8 @@ The project already has accepted constraints from prior ADRs:
 
 The decision needed now is whether to resolve the audit as incremental code-level improvements in existing structures, or redesign/refactor broader UI patterns first.
 
-**In scope:** targeted UX/a11y/layout fixes from the audit (hover affordance, aria attributes for decorative separators/elements, not-found metadata/page, mobile/tablet layout corrections, and case-study content flow order).
-**Out of scope:** comprehensive visual redesign, data model changes, removing optional project fields, and global token architecture refactors.
+**In scope:** targeted UX/a11y/layout fixes from the audit (hover affordance, aria attributes for decorative separators/elements, not-found metadata/page, mobile/tablet layout corrections, case-study content flow order); color token migration (replacing raw hex with `:root` CSS variables); homepage polish (Selected Systems row layout, spacing normalization, "How I Think" surface band).
+**Out of scope:** comprehensive visual redesign, data model changes, removing optional project fields.
 
 ## Decision Drivers
 
@@ -71,15 +71,21 @@ The implementation will make targeted in-place fixes to interaction feedback, de
 - Not-found route has explicit metadata and intentional page output.
 - Mobile/tablet behavior improves in SystemModel, leadership cards, and about timeline.
 - Case-study tags appear after visual evidence, improving information flow.
+- All raw hex colors replaced with semantic CSS variables; palette changes only require updating `:root` tokens.
+- Selected Systems rows use vertical stacking (title/subtitle above metric badges) for better readability at constrained widths; inter-project separators replaced with spacing for a cleaner feel.
+- SystemModel closing line relocated as Selected Systems subtext, improving contextual flow.
+- "How I Think" section uses a full-width surface band for clear sectional contrast.
 
 ### Negative / Trade-offs
 
 - Styling consistency still relies on a mix of inline styles and utility classes.
 - Minor UX improvements are distributed across multiple files, requiring careful review.
+- Color migration introduces dependency on CSS custom properties; browsers without support (pre-2016) will see unstyled defaults. Acceptable for the target audience.
 
 ### Operational Impact
 
 - Ongoing edits should keep targeted UX/a11y fixes localized to owning components and `app/globals.css`.
+- New color values should use existing `:root` tokens; only add new tokens when a color appears repeatedly and has no semantic match.
 - Manual responsive and accessibility spot checks are required for nav/footer/work/case-study pages after similar changes.
 - **Migration / rollback:** Each fix is independently reversible; if a behavior regresses, revert the specific rule/component change without rolling back unrelated improvements.
 
