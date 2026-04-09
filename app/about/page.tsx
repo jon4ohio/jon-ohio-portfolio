@@ -56,7 +56,7 @@ const timeline = [
 export default function About() {
   return (
     <div style={{ paddingTop: 56 }}>
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "80px 24px 64px" }}>
+      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "80px 24px 120px" }}>
         <div className="grid-2-lg" style={{ alignItems: "start" }}>
 
           {/* Left: Narrative */}
@@ -106,7 +106,7 @@ export default function About() {
                   key={i}
                   style={{
                     padding: "24px 0",
-                    borderTop: i === 0 ? "1px solid #e5e7eb" : "1px solid #e5e7eb",
+                    borderTop: "1px solid #e5e7eb",
                     borderBottom: i === principles.length - 1 ? "1px solid #e5e7eb" : "none",
                   }}
                 >

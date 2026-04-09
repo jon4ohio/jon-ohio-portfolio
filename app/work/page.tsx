@@ -53,7 +53,12 @@ export default function WorkIndex() {
               <div className="work-list-thumb">
                 {p.assets?.thumbnails?.[0] ? (
                   <AssetImage
-                    asset={p.assets.thumbnails[0]}
+                    asset={{
+                      ...p.assets.thumbnails[0],
+                      alt: p.assets.thumbnails[0].src.includes("/assets/work/_placeholders/")
+                        ? `${p.title} — project preview`
+                        : p.assets.thumbnails[0].alt,
+                    }}
                     sizes="(max-width: 640px) 92vw, (max-width: 900px) 200px, 240px"
                     style={{}}
                   />
