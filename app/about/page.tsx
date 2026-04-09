@@ -62,7 +62,13 @@ const timeline = [
 export default function About() {
   return (
     <div style={{ paddingTop: 56 }}>
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "80px 24px 120px" }}>
+      <section
+        style={{
+          maxWidth: 1120,
+          margin: "0 auto",
+          padding: "clamp(56px, 12vw, 80px) clamp(20px, 4vw, 24px) clamp(80px, 14vw, 120px)",
+        }}
+      >
         <div className="grid-2-lg" style={{ alignItems: "start" }}>
 
           {/* Left: Narrative */}
@@ -153,60 +159,95 @@ export default function About() {
 
         <div
           style={{
-            marginTop: 80,
-            paddingTop: 80,
+            marginTop: "clamp(48px, 10vw, 80px)",
+            paddingTop: "clamp(48px, 10vw, 80px)",
             borderTop: "1px solid var(--border)",
           }}
         >
-          <blockquote style={{ margin: 0, marginBottom: 56, padding: 0 }}>
+          <blockquote style={{ margin: 0, marginBottom: "clamp(40px, 7vw, 64px)", padding: 0 }}>
             <p
               style={{
-                fontSize: "clamp(26px, 3.5vw, 44px)",
+                fontSize: "clamp(28px, 4vw, 44px)",
                 fontWeight: 600,
                 letterSpacing: "-0.03em",
-                lineHeight: 1.2,
+                lineHeight: 1.15,
                 color: "var(--fg-strong)",
-                marginBottom: 16,
+                marginBottom: "clamp(12px, 2vw, 20px)",
               }}
             >
               “{communityPullQuote.text}”
             </p>
-            <p style={{ fontSize: "clamp(18px, 2vw, 24px)", color: "var(--fg-muted)", fontWeight: 500 }}>
+            <p
+              style={{
+                fontSize: "clamp(16px, 2vw, 22px)",
+                color: "var(--fg-muted)",
+                fontWeight: 500,
+              }}
+            >
               — {communityPullQuote.attribution}
             </p>
           </blockquote>
 
-          <p className="section-label" style={{ marginBottom: 8 }}>
+          <p className="section-label" style={{ marginBottom: 10 }}>
             {communitySectionEyebrow}
           </p>
           <h2
             style={{
-              fontSize: "clamp(28px, 3.5vw, 40px)",
+              fontSize: "clamp(26px, 3.2vw, 40px)",
               fontWeight: 600,
               letterSpacing: "-0.03em",
               lineHeight: 1.15,
-              marginBottom: 28,
+              marginBottom: "clamp(20px, 4vw, 32px)",
             }}
           >
             {communitySectionTitle}
           </h2>
 
-          <div className="grid-2" style={{ gap: "44px 56px", alignItems: "start" }}>
+          <div
+            className="grid-2"
+            style={{
+              gap: "clamp(32px, 5vw, 48px) clamp(24px, 4vw, 56px)",
+              alignItems: "start",
+            }}
+          >
             {communityCards.map((card, i) => (
               <div key={i}>
-                <div style={{ marginBottom: 14 }}>
+                <div style={{ marginBottom: "clamp(12px, 2vw, 16px)" }}>
                   <AssetImage
                     asset={card.asset}
-                    sizes="(max-width: 900px) 92vw, 520px"
+                    aspectCover="16 / 9"
+                    sizes="(max-width: 640px) 100vw, (max-width: 900px) 92vw, 520px"
                   />
                 </div>
-                <h3 style={{ fontSize: 20, fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 6 }}>
+                <h3
+                  style={{
+                    fontSize: "clamp(17px, 2.1vw, 20px)",
+                    fontWeight: 600,
+                    letterSpacing: "-0.01em",
+                    marginBottom: 6,
+                  }}
+                >
                   {card.title}
                 </h3>
-                <p style={{ fontSize: 16, color: "var(--fg-muted)", fontWeight: 500, marginBottom: 10 }}>
+                <p
+                  style={{
+                    fontSize: "clamp(14px, 1.6vw, 16px)",
+                    color: "var(--fg-muted)",
+                    fontWeight: 500,
+                    marginBottom: "clamp(8px, 1.5vw, 12px)",
+                  }}
+                >
                   {card.subtitle}
                 </p>
-                <p style={{ fontSize: 17, lineHeight: 1.45, color: "var(--fg-body)" }}>{card.body}</p>
+                <p
+                  style={{
+                    fontSize: "clamp(15px, 1.6vw, 17px)",
+                    lineHeight: 1.5,
+                    color: "var(--fg-body)",
+                  }}
+                >
+                  {card.body}
+                </p>
               </div>
             ))}
           </div>

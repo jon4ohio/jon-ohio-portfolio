@@ -7,9 +7,14 @@ type Props = {
   priority?: boolean;
   style?: React.CSSProperties;
   treatment?: "plain" | "device";
+  /**
+   * Uniform thumbnail: image fills this aspect box with object-fit: cover (plain treatment only).
+   * Example: "16 / 9"
+   */
+  aspectCover?: string;
 };
 
-export default function AssetImage({ asset, sizes, priority, style, treatment = "plain" }: Props) {
+export default function AssetImage({ asset, sizes, priority, style, treatment = "plain", aspectCover }: Props) {
   if (treatment === "device") {
     return (
       <div
@@ -45,6 +50,31 @@ export default function AssetImage({ asset, sizes, priority, style, treatment = 
           sizes={sizes}
           priority={priority}
           style={{ width: "100%", height: "auto", display: "block" }}
+        />
+      </div>
+    );
+  }
+
+  if (aspectCover) {
+    return (
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          aspectRatio: aspectCover,
+          borderRadius: 16,
+          overflow: "hidden",
+          border: "1px solid var(--border)",
+          ...style,
+        }}
+      >
+        <Image
+          src={asset.src}
+          alt={asset.alt}
+          fill
+          sizes={sizes}
+          priority={priority}
+          style={{ objectFit: "cover" }}
         />
       </div>
     );
