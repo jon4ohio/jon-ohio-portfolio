@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "John Ohio — Product Systems & DesignOps Lead",
     description:
-      "I design product systems that evolve — from fragmented to intelligent. Design systems · DesignOps · Enterprise SaaS · AI UX.",
+      "I design systems that evolve — from fragmented to intelligent. Design systems · DesignOps · Enterprise SaaS · AI UX.",
     url: "/",
     type: "website",
   },
@@ -50,11 +50,11 @@ const systemGroups = [
 ];
 
 const capabilities = [
-  { label: "System Design", desc: "Restructure fragmented systems into scalable product foundations." },
-  { label: "Design Systems", desc: "Build token-driven systems with governance and adoption across teams." },
-  { label: "Product Growth", desc: "Design onboarding, adoption, and PLG-driven system flows." },
-  { label: "DesignOps", desc: "Operationalize design through governance, workflows, and team systems." },
-  { label: "AI UX", desc: "Design assistive, explainable, and reusable AI interaction patterns." },
+  { label: "System Design", desc: "Restructure fragmented systems into scalable product foundations" },
+  { label: "Design Systems", desc: "Build token-driven systems with governance and cross-team adoption" },
+  { label: "Product Growth", desc: "Design onboarding, adoption, and PLG-driven system flows" },
+  { label: "DesignOps", desc: "Operationalize design through governance, workflows, and team systems" },
+  { label: "AI UX", desc: "Design assistive, explainable, and reusable AI interaction patterns" },
 ];
 
 const principles = [
@@ -126,7 +126,7 @@ export default function Home() {
           </Link>
         </div>
         <p style={{ fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.6, maxWidth: 520, marginBottom: 48 }}>
-          Selected systems across each stage — from structure to intelligence.
+          Across each stage — from structure to intelligence.
         </p>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
@@ -321,10 +321,10 @@ export default function Home() {
                 marginBottom: 24,
               }}
             >
-              Design as a system — not a service.
+              Design as a system — not a service
             </h2>
             <p style={{ fontSize: 16, color: "rgba(255,255,255,0.6)", lineHeight: 1.7, marginBottom: 32 }}>
-              Built and scaled design systems across 12 teams — governance, contribution, onboarding, and AI UX integration.
+              Built and scaled design systems across 12 teams — governance, contribution, onboarding, and AI UX integration
             </p>
             <Link
               href="/leadership"
@@ -426,7 +426,7 @@ export default function Home() {
             margin: "0 auto 32px",
           }}
         >
-          I design systems that evolve —<br />from fragmented → structured → scalable → intelligent.
+          I design systems that evolve —<br />from fragmented → structured → scalable → intelligent
         </h2>
         <a
           href="mailto:jon4ohio@gmail.com"

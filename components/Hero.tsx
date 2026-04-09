@@ -27,7 +27,7 @@ export default function Hero() {
           marginBottom: 32,
         }}
       >
-        I design product systems that evolve — from fragmented to intelligent.
+        I design systems that evolve — from fragmented to intelligent.
       </h1>
       <p
         className="animate-fade-up delay-3"
