@@ -8,7 +8,7 @@ export default function Hero() {
         style={{
           fontSize: 13,
           fontWeight: 500,
-          color: "#6b7280",
+          color: "var(--fg-muted)",
           letterSpacing: "0.08em",
           textTransform: "uppercase",
           marginBottom: 24,
@@ -33,7 +33,7 @@ export default function Hero() {
         className="animate-fade-up delay-3"
         style={{
           fontSize: 20,
-          color: "#6b7280",
+          color: "var(--fg-muted)",
           maxWidth: 600,
           marginBottom: 48,
           lineHeight: 1.5,
@@ -48,8 +48,8 @@ export default function Hero() {
             display: "inline-flex",
             alignItems: "center",
             gap: 8,
-            background: "#0a0a0a",
-            color: "#fff",
+            background: "var(--fg)",
+            color: "var(--bg)",
             fontSize: 14,
             fontWeight: 500,
             padding: "12px 24px",
@@ -67,13 +67,13 @@ export default function Hero() {
             alignItems: "center",
             gap: 8,
             background: "transparent",
-            color: "#0a0a0a",
+            color: "var(--fg)",
             fontSize: 14,
             fontWeight: 500,
             padding: "12px 24px",
             borderRadius: 8,
             textDecoration: "none",
-            border: "1px solid #e5e7eb",
+            border: "1px solid var(--border)",
             letterSpacing: "-0.01em",
           }}
         >

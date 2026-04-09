@@ -23,7 +23,7 @@ export default function Nav() {
           left: 0,
           right: 0,
           zIndex: 50,
-          borderBottom: "1px solid #e5e7eb",
+          borderBottom: "1px solid var(--border)",
           background: "rgba(255,255,255,0.9)",
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
@@ -42,7 +42,7 @@ export default function Nav() {
         >
           <Link
             href="/"
-            style={{ fontWeight: 600, fontSize: 15, color: "#0a0a0a", textDecoration: "none", letterSpacing: "-0.01em" }}
+            style={{ fontWeight: 600, fontSize: 15, color: "var(--fg)", textDecoration: "none", letterSpacing: "-0.01em" }}
             onClick={() => setMenuOpen(false)}
           >
             John Ohio
@@ -59,7 +59,7 @@ export default function Nav() {
                   style={{
                     fontSize: 14,
                     fontWeight: active ? 500 : 400,
-                    color: active ? "#0a0a0a" : "#6b7280",
+                    color: active ? "var(--fg)" : "var(--fg-muted)",
                     textDecoration: "none",
                     padding: "6px 12px",
                     borderRadius: 6,
@@ -80,20 +80,20 @@ export default function Nav() {
             style={{
               fontSize: 13,
               fontWeight: 500,
-              color: "#0a0a0a",
+              color: "var(--fg)",
               textDecoration: "none",
-              border: "1px solid #0a0a0a",
+              border: "1px solid var(--fg)",
               padding: "7px 16px",
               borderRadius: 8,
               transition: "background 0.15s, color 0.15s",
             }}
             onMouseEnter={(e) => {
-              (e.target as HTMLElement).style.background = "#0a0a0a";
-              (e.target as HTMLElement).style.color = "#fff";
+              (e.target as HTMLElement).style.background = "var(--fg)";
+              (e.target as HTMLElement).style.color = "var(--bg)";
             }}
             onMouseLeave={(e) => {
               (e.target as HTMLElement).style.background = "transparent";
-              (e.target as HTMLElement).style.color = "#0a0a0a";
+              (e.target as HTMLElement).style.color = "var(--fg)";
             }}
           >
             Get in touch
@@ -112,7 +112,7 @@ export default function Nav() {
                 display: "block",
                 width: 22,
                 height: 1.5,
-                background: "#0a0a0a",
+                background: "var(--fg)",
                 transition: "transform 0.2s",
                 transform: menuOpen ? "translateY(6.5px) rotate(45deg)" : "none",
               }}
@@ -122,7 +122,7 @@ export default function Nav() {
                 display: "block",
                 width: 22,
                 height: 1.5,
-                background: "#0a0a0a",
+                background: "var(--fg)",
                 transition: "opacity 0.2s",
                 opacity: menuOpen ? 0 : 1,
               }}
@@ -132,7 +132,7 @@ export default function Nav() {
                 display: "block",
                 width: 22,
                 height: 1.5,
-                background: "#0a0a0a",
+                background: "var(--fg)",
                 transition: "transform 0.2s",
                 transform: menuOpen ? "translateY(-6.5px) rotate(-45deg)" : "none",
               }}
@@ -157,7 +157,7 @@ export default function Nav() {
               style={{
                 fontSize: 16,
                 fontWeight: active ? 600 : 400,
-                color: active ? "#0a0a0a" : "#6b7280",
+                color: active ? "var(--fg)" : "var(--fg-muted)",
                 textDecoration: "none",
                 padding: "13px 0",
                 borderBottom: "1px solid var(--surface-subtle)",
@@ -176,9 +176,9 @@ export default function Nav() {
             alignItems: "center",
             fontSize: 14,
             fontWeight: 500,
-            color: "#fff",
+            color: "var(--bg)",
             textDecoration: "none",
-            background: "#0a0a0a",
+            background: "var(--fg)",
             padding: "10px 20px",
             borderRadius: 8,
             alignSelf: "flex-start",

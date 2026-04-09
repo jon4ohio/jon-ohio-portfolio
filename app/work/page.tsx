@@ -27,7 +27,7 @@ export default function WorkIndex() {
         <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.1, maxWidth: 640, marginBottom: 20 }}>
           Case studies in product systems, not isolated screens.
         </h1>
-        <p style={{ fontSize: 17, color: "#6b7280", maxWidth: 520, lineHeight: 1.6 }}>
+        <p style={{ fontSize: 17, color: "var(--fg-muted)", maxWidth: 520, lineHeight: 1.6 }}>
           I usually come in when the workflow is broken, the platform is fragmented, or the team needs a system it can actually scale.
         </p>
       </section>
@@ -41,12 +41,12 @@ export default function WorkIndex() {
               className="work-list-row"
               style={{
                 padding: "36px 0",
-                borderTop: "1px solid #e5e7eb",
+                borderTop: "1px solid var(--border)",
                 textDecoration: "none",
                 color: "inherit",
               }}
             >
-              <span className="work-list-idx" style={{ fontSize: 12, color: "#9ca3af", fontWeight: 500, letterSpacing: "0.04em", paddingTop: 4 }}>
+              <span className="work-list-idx" style={{ fontSize: 12, color: "var(--fg-subtle)", fontWeight: 500, letterSpacing: "0.04em", paddingTop: 4 }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
 
@@ -67,16 +67,16 @@ export default function WorkIndex() {
 
               <div className="work-list-body">
                 <div style={{ display: "flex", gap: 12, marginBottom: 10, flexWrap: "wrap" }}>
-                  <span style={{ fontSize: 11, color: "#9ca3af", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                  <span style={{ fontSize: 11, color: "var(--fg-subtle)", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase" }}>
                     {p.category}
                   </span>
                   <span aria-hidden="true" style={{ fontSize: 11, color: "var(--border-subtle)" }}>·</span>
-                  <span style={{ fontSize: 11, color: "#9ca3af" }}>{p.company}</span>
+                  <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{p.company}</span>
                   <span aria-hidden="true" style={{ fontSize: 11, color: "var(--border-subtle)" }}>·</span>
-                  <span style={{ fontSize: 11, color: "#9ca3af" }}>{p.period}</span>
+                  <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{p.period}</span>
                 </div>
                 <h2 style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 8 }}>{p.title}</h2>
-                <p style={{ fontSize: 14, color: "#6b7280", marginBottom: 10 }}>{p.subtitle}</p>
+                <p style={{ fontSize: 14, color: "var(--fg-muted)", marginBottom: 10 }}>{p.subtitle}</p>
 
                 <p style={{ fontSize: 14, color: "var(--fg-body-muted)", lineHeight: 1.65, maxWidth: 720, marginBottom: 12 }}>{p.summary}</p>
 
@@ -91,19 +91,19 @@ export default function WorkIndex() {
 
                 <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                   {p.tags.map((t) => (
-                    <span key={t} style={{ fontSize: 11, color: "#6b7280", border: "1px solid #e5e7eb", padding: "3px 8px", borderRadius: 4 }}>
+                    <span key={t} style={{ fontSize: 11, color: "var(--fg-muted)", border: "1px solid var(--border)", padding: "3px 8px", borderRadius: 4 }}>
                       {t}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="work-list-arrow" style={{ color: "#9ca3af", fontSize: 16, paddingTop: 4 }} aria-hidden>
+              <div className="work-list-arrow" style={{ color: "var(--fg-subtle)", fontSize: 16, paddingTop: 4 }} aria-hidden>
                 →
               </div>
             </Link>
           ))}
-          <div style={{ borderTop: "1px solid #e5e7eb" }} />
+          <div style={{ borderTop: "1px solid var(--border)" }} />
         </div>
       </section>
     </div>

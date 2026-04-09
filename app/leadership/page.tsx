@@ -127,7 +127,7 @@ export default function Leadership() {
         <div
           className="stats-grid stats-grid--4"
           style={{
-            border: "1px solid #e5e7eb",
+            border: "1px solid var(--border)",
             borderRadius: 12,
             overflow: "hidden",
           }}
@@ -136,12 +136,12 @@ export default function Leadership() {
             <div
               key={s.label}
               className="stats-cell"
-              style={{ background: "#fff" }}
+              style={{ background: "var(--bg)" }}
             >
               <p style={{ fontSize: 26, fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 4 }}>
                 {s.value}
               </p>
-              <p style={{ fontSize: 13, color: "#6b7280" }}>{s.label}</p>
+              <p style={{ fontSize: 13, color: "var(--fg-muted)" }}>{s.label}</p>
             </div>
           ))}
         </div>
@@ -172,13 +172,13 @@ export default function Leadership() {
                 fontSize: "clamp(20px, 2.4vw, 28px)",
                 fontWeight: 500,
                 letterSpacing: "-0.02em",
-                color: "#0a0a0a",
+                color: "var(--fg)",
                 padding: "24px 0",
-                borderTop: "1px solid #e5e7eb",
-                borderBottom: i === philosophy.length - 1 ? "1px solid #e5e7eb" : "none",
+                borderTop: "1px solid var(--border)",
+                borderBottom: i === philosophy.length - 1 ? "1px solid var(--border)" : "none",
               }}
             >
-              <span style={{ fontSize: 13, color: "#9ca3af", marginRight: 16, fontWeight: 400 }}>
+              <span style={{ fontSize: 13, color: "var(--fg-subtle)", marginRight: 16, fontWeight: 400 }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
               {p}
@@ -210,8 +210,8 @@ export default function Leadership() {
               key={s.label}
               style={{
                 padding: "32px 0",
-                borderTop: "1px solid #e5e7eb",
-                borderBottom: i === layers.length - 1 ? "1px solid #e5e7eb" : "none",
+                borderTop: "1px solid var(--border)",
+                borderBottom: i === layers.length - 1 ? "1px solid var(--border)" : "none",
                 alignItems: "start",
               }}
               className="grid-systems-group grid-systems-group--narrow"
@@ -220,7 +220,7 @@ export default function Leadership() {
                 style={{
                   fontSize: 12,
                   fontWeight: 500,
-                  color: "#9ca3af",
+                  color: "var(--fg-subtle)",
                   letterSpacing: "0.06em",
                   paddingTop: 6,
                 }}
@@ -267,7 +267,7 @@ export default function Leadership() {
         <div
           className="stats-grid stats-grid--4"
           style={{
-            border: "1px solid #e5e7eb",
+            border: "1px solid var(--border)",
             borderRadius: 12,
             overflow: "hidden",
           }}
@@ -276,13 +276,13 @@ export default function Leadership() {
             <div
               key={s.step}
               className="stats-cell"
-              style={{ background: "#fff", padding: "32px 28px" }}
+              style={{ background: "var(--bg)", padding: "32px 28px" }}
             >
               <p
                 style={{
                   fontSize: 11,
                   fontWeight: 500,
-                  color: "#9ca3af",
+                  color: "var(--fg-subtle)",
                   letterSpacing: "0.06em",
                   marginBottom: 16,
                 }}
@@ -292,7 +292,7 @@ export default function Leadership() {
               <p style={{ fontSize: 16, fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 8 }}>
                 {s.title}
               </p>
-              <p style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.5 }}>{s.desc}</p>
+              <p style={{ fontSize: 13, color: "var(--fg-muted)", lineHeight: 1.5 }}>{s.desc}</p>
             </div>
           ))}
         </div>
@@ -321,12 +321,12 @@ export default function Leadership() {
               key={i}
               style={{
                 padding: "28px",
-                border: "1px solid #e5e7eb",
+                border: "1px solid var(--border)",
                 borderRadius: 12,
               }}
             >
               <h3 style={{ fontSize: 15, fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 12 }}>{f.label}</h3>
-              <p style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.6 }}>{f.desc}</p>
+              <p style={{ fontSize: 13, color: "var(--fg-muted)", lineHeight: 1.6 }}>{f.desc}</p>
             </div>
           ))}
         </div>
@@ -337,7 +337,7 @@ export default function Leadership() {
         <div
           className="grid-2 pad-inset"
           style={{
-            background: "#0a0a0a",
+            background: "var(--fg)",
             borderRadius: 16,
             gap: 64,
             alignItems: "center",
@@ -361,7 +361,7 @@ export default function Leadership() {
                 fontSize: 28,
                 fontWeight: 600,
                 letterSpacing: "-0.02em",
-                color: "#fff",
+                color: "var(--bg)",
                 lineHeight: 1.15,
                 marginBottom: 16,
               }}
@@ -378,7 +378,7 @@ export default function Leadership() {
                 alignItems: "center",
                 fontSize: 13,
                 fontWeight: 500,
-                color: "#fff",
+                color: "var(--bg)",
                 textDecoration: "none",
                 borderBottom: "1px solid rgba(255,255,255,0.3)",
                 paddingBottom: 2,
@@ -405,7 +405,7 @@ export default function Leadership() {
                 fontSize: 28,
                 fontWeight: 600,
                 letterSpacing: "-0.02em",
-                color: "#fff",
+                color: "var(--bg)",
                 lineHeight: 1.15,
                 marginBottom: 16,
               }}
@@ -422,7 +422,7 @@ export default function Leadership() {
                 alignItems: "center",
                 fontSize: 13,
                 fontWeight: 500,
-                color: "#fff",
+                color: "var(--bg)",
                 textDecoration: "none",
                 borderBottom: "1px solid rgba(255,255,255,0.3)",
                 paddingBottom: 2,

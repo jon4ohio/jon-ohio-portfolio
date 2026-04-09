@@ -135,7 +135,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       >
         <Link
           href="/work"
-          style={{ fontSize: 13, color: "#6b7280", textDecoration: "none" }}
+          style={{ fontSize: 13, color: "var(--fg-muted)", textDecoration: "none" }}
         >
           ← Work
         </Link>
@@ -144,18 +144,18 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       {/* ── Hero ── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "48px 24px 64px" }}>
         <div style={{ display: "flex", gap: 12, marginBottom: 20, flexWrap: "wrap" }}>
-          <span style={{ fontSize: 11, fontWeight: 500, color: "#9ca3af", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+          <span style={{ fontSize: 11, fontWeight: 500, color: "var(--fg-subtle)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
             {project.category}
           </span>
           <span aria-hidden="true" style={{ fontSize: 11, color: "var(--border-subtle)" }}>·</span>
-          <span style={{ fontSize: 11, color: "#9ca3af" }}>{project.company}</span>
+          <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{project.company}</span>
           <span aria-hidden="true" style={{ fontSize: 11, color: "var(--border-subtle)" }}>·</span>
-          <span style={{ fontSize: 11, color: "#9ca3af" }}>{project.period}</span>
+          <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{project.period}</span>
         </div>
         <h1 style={{ fontSize: "clamp(32px, 5vw, 60px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.05, marginBottom: 16, maxWidth: 800 }}>
           {project.title}
         </h1>
-        <p style={{ fontSize: 20, color: "#6b7280", marginBottom: 16 }}>{project.subtitle}</p>
+        <p style={{ fontSize: 20, color: "var(--fg-muted)", marginBottom: 16 }}>{project.subtitle}</p>
 
         <p style={{ fontSize: 18, color: "var(--fg-body)", lineHeight: 1.7, maxWidth: 760, marginBottom: 16 }}>{project.summary}</p>
 
@@ -188,14 +188,14 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
         ) : null}
 
         <div className="grid-2" style={{ gap: 16 }}>
-          <div style={{ border: "1px solid #e5e7eb", borderRadius: 12, padding: "20px 22px" }}>
-            <p style={{ fontSize: 11, fontWeight: 500, color: "#9ca3af", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
+          <div style={{ border: "1px solid var(--border)", borderRadius: 12, padding: "20px 22px" }}>
+            <p style={{ fontSize: 11, fontWeight: 500, color: "var(--fg-subtle)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
               Role
             </p>
             <p style={{ fontSize: 15, color: "var(--fg-strong)", lineHeight: 1.65 }}>{project.role}</p>
           </div>
-          <div style={{ border: "1px solid #e5e7eb", borderRadius: 12, padding: "20px 22px" }}>
-            <p style={{ fontSize: 11, fontWeight: 500, color: "#9ca3af", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
+          <div style={{ border: "1px solid var(--border)", borderRadius: 12, padding: "20px 22px" }}>
+            <p style={{ fontSize: 11, fontWeight: 500, color: "var(--fg-subtle)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
               Scope
             </p>
             <p style={{ fontSize: 15, color: "var(--fg-strong)", lineHeight: 1.65 }}>{project.scope}</p>
@@ -222,14 +222,14 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
               style={{
                 marginBottom: 56,
                 paddingBottom: 56,
-                borderBottom: i < sections.length - 1 ? "1px solid #e5e7eb" : "none",
+                borderBottom: i < sections.length - 1 ? "1px solid var(--border)" : "none",
               }}
             >
               <p
                 style={{
                   fontSize: 11,
                   fontWeight: 500,
-                  color: "#9ca3af",
+                  color: "var(--fg-subtle)",
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
                   marginBottom: 16,
@@ -269,7 +269,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 80px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto", display: "flex", gap: 6, flexWrap: "wrap" }}>
           {project.tags.map((t) => (
-            <span key={t} style={{ fontSize: 12, color: "#6b7280", border: "1px solid #e5e7eb", padding: "4px 10px", borderRadius: 4 }}>
+            <span key={t} style={{ fontSize: 12, color: "var(--fg-muted)", border: "1px solid var(--border)", padding: "4px 10px", borderRadius: 4 }}>
               {t}
             </span>
           ))}
@@ -278,7 +278,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
 
       {/* ── Next / Prev ── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 120px" }}>
-        <div className="grid-2" style={{ borderTop: "1px solid #e5e7eb", paddingTop: 40, gap: 24 }}>
+        <div className="grid-2" style={{ borderTop: "1px solid var(--border)", paddingTop: 40, gap: 24 }}>
           <div>
             {prev && (
               <Link
@@ -286,7 +286,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
                 className="case-study-nav-link"
                 style={{ textDecoration: "none", color: "inherit" }}
               >
-                <p style={{ fontSize: 12, color: "#9ca3af", marginBottom: 8 }}>← Previous</p>
+                <p style={{ fontSize: 12, color: "var(--fg-subtle)", marginBottom: 8 }}>← Previous</p>
                 <p style={{ fontSize: 16, fontWeight: 600, letterSpacing: "-0.01em" }}>{prev.title}</p>
               </Link>
             )}
@@ -298,7 +298,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
                 className="case-study-nav-link"
                 style={{ textDecoration: "none", color: "inherit" }}
               >
-                <p style={{ fontSize: 12, color: "#9ca3af", marginBottom: 8 }}>Next →</p>
+                <p style={{ fontSize: 12, color: "var(--fg-subtle)", marginBottom: 8 }}>Next →</p>
                 <p style={{ fontSize: 16, fontWeight: 600, letterSpacing: "-0.01em" }}>{next.title}</p>
               </Link>
             )}
