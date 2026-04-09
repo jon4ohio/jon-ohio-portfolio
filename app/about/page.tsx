@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "John Ohio — Product Design Lead based in Abuja, Nigeria. Five years building trusted systems across enterprise SaaS, fintech infrastructure, and 0→1 products. Community: speaking, facilitation, and mentorship.",
+    "John Ohio — Product Design Lead. Systems-level design leadership across enterprise SaaS, fintech infrastructure, and AI-native products. Community: speaking, facilitation, and mentorship.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About — John Ohio",
     description:
-      "Product Design Lead · Systems · DesignOps · AI. Based in Abuja, Nigeria.",
+      "Product Design Lead — enterprise SaaS, fintech infrastructure, design systems, and AI-native product work.",
     url: "/about",
     type: "profile",
   },
@@ -16,40 +16,24 @@ export const metadata: Metadata = {
 
 import AssetImage from "@/components/AssetImage";
 import {
+  aboutHeadline,
+  aboutNarrativeBlocks,
+  aboutTimeline,
+  operatingPrinciples,
+  operatingPrinciplesLabel,
+} from "@/lib/aboutNarrative";
+import {
   communityCards,
   communityPullQuote,
   communitySectionEyebrow,
   communitySectionTitle,
 } from "@/lib/communityContribution";
 
-const principles = [
-  {
-    title: "Systems over screens",
-    body: "The interface is a surface. The system is what matters — how it behaves under load, at scale, and over time.",
-  },
-  {
-    title: "Structure reduces complexity",
-    body: "Complexity is unavoidable. The job is to impose structure so teams can navigate it without friction.",
-  },
-  {
-    title: "Decisions should compound",
-    body: "Good design decisions create leverage. Patterns, tokens, and systems multiply individual decisions into organisation-wide consistency.",
-  },
-  {
-    title: "Design must reflect operational reality",
-    body: "The best design fails if it doesn't account for constraints: engineering capacity, compliance, team bandwidth, and market context.",
-  },
-];
-
-const timeline = [
-  { year: "2025–Present", role: "Lead, DesignOps & AI-UX", org: "SeamlessHR" },
-  { year: "2024–2025", role: "Product Designer (Founding Member)", org: "ClearPrice" },
-  { year: "2025–2026", role: "Product Designer (Founding Team)", org: "Rivva" },
-  { year: "2022–2025", role: "Lead Product Designer", org: "SeamlessHR (SeamlessHiring 2.0)" },
-  { year: "2021–2025", role: "Senior UX Contractor", org: "Fets" },
-  { year: "2021–Present", role: "Founder & Design Lead", org: "The UX Company" },
-  { year: "Earlier", role: "UX Coach & Mentor", org: "Utiva / ADPList" },
-];
+const bodyStyle: React.CSSProperties = {
+  fontSize: 17,
+  lineHeight: 1.75,
+  color: "var(--fg-body)",
+};
 
 export default function About() {
   return (
@@ -68,50 +52,100 @@ export default function About() {
             <p className="section-label" style={{ marginBottom: 24 }}>
               About
             </p>
-            <h1 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.15, marginBottom: 32 }}>
-              I turn complexity into working systems for product teams.
+            <h1
+              style={{
+                fontSize: "clamp(28px, 4vw, 44px)",
+                fontWeight: 600,
+                letterSpacing: "-0.03em",
+                lineHeight: 1.15,
+                marginBottom: 32,
+              }}
+            >
+              {aboutHeadline}
             </h1>
-            <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-              <p style={{ fontSize: 17, lineHeight: 1.75, color: "var(--fg-body)" }}>
-                I&apos;m a Product Design Lead based in Abuja, Nigeria, specialising in design systems, DesignOps, enterprise UX, and AI-native product work. Over the past five years I&apos;ve led design across some of Africa&apos;s most complex product environments, from a 12-team SaaS platform to fintech infrastructure serving millions of users.
-              </p>
-              <p style={{ fontSize: 17, lineHeight: 1.75, color: "var(--fg-body)" }}>
-                My core thesis is simple: design at scale only works when it becomes systematic. Good taste is not enough. Teams need shared language, governance, and a repeatable way to make sound decisions without bottlenecking on individual designers.
-              </p>
-              <p style={{ fontSize: 17, lineHeight: 1.75, color: "var(--fg-body)" }}>
-                That belief shaped Seamkit, which I built not as a component library but as an operating system for product teams: token architecture, naming logic, contribution pipelines, and governance rituals. It became the backbone of SeamlessHR&apos;s product organisation across 12 teams, with an 88.9 adoption score and roughly 80% daily usage.
-              </p>
-              <p style={{ fontSize: 17, lineHeight: 1.75, color: "var(--fg-body)" }}>
-                I&apos;ve also worked at the 0→1 edge, shaping products like Rivva and ClearPrice, where the job is to define the product, earn trust quickly, and give the team a system worth scaling. Today I lead DesignOps and AI-UX work focused on how intelligence shows up inside enterprise workflows as reusable patterns, not one-off features.
-              </p>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "clamp(20px, 3vw, 28px)",
+                maxWidth: "65ch",
+              }}
+            >
+              {aboutNarrativeBlocks.map((block, i) => {
+                if (block.kind === "paragraph") {
+                  return (
+                    <p key={i} style={bodyStyle}>
+                      {block.text}
+                    </p>
+                  );
+                }
+                if (block.kind === "lead") {
+                  return (
+                    <p key={i} style={{ ...bodyStyle, fontWeight: 600, color: "var(--fg-body)" }}>
+                      {block.text}
+                    </p>
+                  );
+                }
+                return (
+                  <p key={i} style={{ ...bodyStyle, fontWeight: 500, color: "var(--fg-strong)" }}>
+                    {block.text}
+                  </p>
+                );
+              })}
             </div>
 
-            <div style={{ marginTop: 40, display: "flex", gap: 16 }}>
-              <a href="mailto:jon4ohio@gmail.com" style={{ fontSize: 14, fontWeight: 500, color: "var(--fg)", textDecoration: "none", border: "1px solid var(--fg)", padding: "10px 20px", borderRadius: 8 }}>
+            <div style={{ marginTop: 40, display: "flex", gap: 16, flexWrap: "wrap" }}>
+              <a
+                href="mailto:jon4ohio@gmail.com"
+                style={{
+                  fontSize: 14,
+                  fontWeight: 500,
+                  color: "var(--fg)",
+                  textDecoration: "none",
+                  border: "1px solid var(--fg)",
+                  padding: "10px 20px",
+                  borderRadius: 8,
+                }}
+              >
                 Get in touch
               </a>
-              <a href="https://linkedin.com/in/jon4ohio" target="_blank" rel="noopener noreferrer" style={{ fontSize: 14, fontWeight: 500, color: "var(--fg-muted)", textDecoration: "none", border: "1px solid var(--border)", padding: "10px 20px", borderRadius: 8 }}>
+              <a
+                href="https://linkedin.com/in/jon4ohio"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontSize: 14,
+                  fontWeight: 500,
+                  color: "var(--fg-muted)",
+                  textDecoration: "none",
+                  border: "1px solid var(--border)",
+                  padding: "10px 20px",
+                  borderRadius: 8,
+                }}
+              >
                 LinkedIn ↗
               </a>
             </div>
           </div>
 
-          {/* Right: Principles + Timeline */}
+          {/* Right: Operating Principles + Experience */}
           <div>
             <p className="section-label" style={{ marginBottom: 24 }}>
-              How I Think
+              {operatingPrinciplesLabel}
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 0, marginBottom: 56 }}>
-              {principles.map((p, i) => (
+              {operatingPrinciples.map((p, i) => (
                 <div
-                  key={i}
+                  key={p.title}
                   style={{
                     padding: "24px 0",
                     borderTop: "1px solid var(--border)",
-                    borderBottom: i === principles.length - 1 ? "1px solid var(--border)" : "none",
+                    borderBottom: i === operatingPrinciples.length - 1 ? "1px solid var(--border)" : "none",
                   }}
                 >
-                  <h3 style={{ fontSize: 15, fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 8 }}>{p.title}</h3>
+                  <h3 style={{ fontSize: 15, fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 8 }}>
+                    {p.title}
+                  </h3>
                   <p style={{ fontSize: 14, color: "var(--fg-muted)", lineHeight: 1.6 }}>{p.body}</p>
                 </div>
               ))}
@@ -121,17 +155,17 @@ export default function About() {
               Experience
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-              {timeline.map((t, i) => (
+              {aboutTimeline.map((t, i) => (
                 <div
-                  key={i}
+                  key={`${t.year}-${t.org}-${i}`}
                   className="about-timeline-row"
                   style={{
                     display: "grid",
-                    gridTemplateColumns: "100px 1fr",
+                    gridTemplateColumns: "minmax(96px, 110px) 1fr",
                     gap: 16,
                     padding: "14px 0",
                     borderTop: "1px solid var(--border)",
-                    borderBottom: i === timeline.length - 1 ? "1px solid var(--border)" : "none",
+                    borderBottom: i === aboutTimeline.length - 1 ? "1px solid var(--border)" : "none",
                   }}
                 >
                   <span style={{ fontSize: 12, color: "var(--fg-subtle)", paddingTop: 2 }}>{t.year}</span>
@@ -146,14 +180,9 @@ export default function About() {
 
         </div>
 
-        <div
-          style={{
-            marginTop: "clamp(48px, 10vw, 80px)",
-            paddingTop: "clamp(48px, 10vw, 80px)",
-            borderTop: "1px solid var(--border)",
-          }}
-        >
-          <blockquote style={{ margin: 0, marginBottom: "clamp(40px, 7vw, 64px)", padding: 0 }}>
+        {/* Conviction quote — own band; separator before community only */}
+        <div style={{ marginTop: "clamp(40px, 8vw, 64px)" }}>
+          <blockquote style={{ margin: 0, padding: 0 }}>
             <p
               style={{
                 fontSize: "clamp(28px, 4vw, 44px)",
@@ -176,7 +205,15 @@ export default function About() {
               — {communityPullQuote.attribution}
             </p>
           </blockquote>
+        </div>
 
+        <div
+          style={{
+            marginTop: "clamp(40px, 8vw, 64px)",
+            paddingTop: "clamp(40px, 8vw, 64px)",
+            borderTop: "1px solid var(--border)",
+          }}
+        >
           <p className="section-label" style={{ marginBottom: 10 }}>
             {communitySectionEyebrow}
           </p>
