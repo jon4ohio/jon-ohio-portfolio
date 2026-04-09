@@ -21,7 +21,7 @@ export default function WorkIndex() {
   return (
     <div style={{ paddingTop: 56 }}>
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "80px 24px 64px" }}>
-        <p style={{ fontSize: 12, fontWeight: 500, color: "#6b7280", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
+        <p className="section-label" style={{ marginBottom: 20 }}>
           Selected Work
         </p>
         <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.1, maxWidth: 640, marginBottom: 20 }}>
@@ -70,15 +70,15 @@ export default function WorkIndex() {
                   <span style={{ fontSize: 11, color: "#9ca3af", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase" }}>
                     {p.category}
                   </span>
-                  <span style={{ fontSize: 11, color: "#d1d5db" }}>·</span>
+                  <span aria-hidden="true" style={{ fontSize: 11, color: "var(--border-subtle)" }}>·</span>
                   <span style={{ fontSize: 11, color: "#9ca3af" }}>{p.company}</span>
-                  <span style={{ fontSize: 11, color: "#d1d5db" }}>·</span>
+                  <span aria-hidden="true" style={{ fontSize: 11, color: "var(--border-subtle)" }}>·</span>
                   <span style={{ fontSize: 11, color: "#9ca3af" }}>{p.period}</span>
                 </div>
                 <h2 style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 8 }}>{p.title}</h2>
                 <p style={{ fontSize: 14, color: "#6b7280", marginBottom: 10 }}>{p.subtitle}</p>
 
-                <p style={{ fontSize: 14, color: "#4b5563", lineHeight: 1.65, maxWidth: 720, marginBottom: 12 }}>{p.summary}</p>
+                <p style={{ fontSize: 14, color: "var(--fg-body-muted)", lineHeight: 1.65, maxWidth: 720, marginBottom: 12 }}>{p.summary}</p>
 
                 <div className="metric-badges" style={{ marginBottom: 12 }}>
                   {p.metrics.map((m, j) => (

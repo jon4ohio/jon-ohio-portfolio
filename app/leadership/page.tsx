@@ -99,16 +99,7 @@ export default function Leadership() {
 
       {/* ── 1. HERO ─────────────────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "80px 24px 64px" }}>
-        <p
-          style={{
-            fontSize: 12,
-            fontWeight: 500,
-            color: "#6b7280",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            marginBottom: 24,
-          }}
-        >
+        <p className="section-label" style={{ marginBottom: 24 }}>
           Leadership & DesignOps
         </p>
         <h1
@@ -123,7 +114,7 @@ export default function Leadership() {
         >
           Scaling design as a system, not a service.
         </h1>
-        <p style={{ fontSize: 19, color: "#4b5563", maxWidth: 680, lineHeight: 1.65 }}>
+        <p style={{ fontSize: 19, color: "var(--fg-body-muted)", maxWidth: 680, lineHeight: 1.65 }}>
           Led DesignOps and system adoption across 12 product teams at SeamlessHR — operationalising design as infrastructure: how decisions are made, how knowledge compounds, and how teams stay coherent as the organisation scales.
         </p>
       </section>
@@ -141,11 +132,11 @@ export default function Leadership() {
             overflow: "hidden",
           }}
         >
-          {stats.map((s, i) => (
+          {stats.map((s) => (
             <div
-              key={i}
+              key={s.label}
               className="stats-cell"
-              style={{ background: i < 4 ? "#f9fafb" : "#fff" }}
+              style={{ background: "#fff" }}
             >
               <p style={{ fontSize: 26, fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 4 }}>
                 {s.value}
@@ -158,16 +149,7 @@ export default function Leadership() {
 
       {/* ── 3. PHILOSOPHY ───────────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 96px" }}>
-        <p
-          style={{
-            fontSize: 12,
-            fontWeight: 500,
-            color: "#6b7280",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            marginBottom: 16,
-          }}
-        >
+        <p className="section-label" style={{ marginBottom: 16 }}>
           Philosophy
         </p>
         <h2
@@ -207,16 +189,7 @@ export default function Leadership() {
 
       {/* ── 4. THE DESIGNOPS STACK ──────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 96px" }}>
-        <p
-          style={{
-            fontSize: 12,
-            fontWeight: 500,
-            color: "#6b7280",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            marginBottom: 16,
-          }}
-        >
+        <p className="section-label" style={{ marginBottom: 16 }}>
           The DesignOps Stack
         </p>
         <h2
@@ -265,7 +238,7 @@ export default function Leadership() {
                 >
                   {s.title}
                 </h3>
-                <p style={{ fontSize: 16, color: "#4b5563", lineHeight: 1.7, maxWidth: 720 }}>
+                <p style={{ fontSize: 16, color: "var(--fg-body-muted)", lineHeight: 1.7, maxWidth: 720 }}>
                   {s.body}
                 </p>
               </div>
@@ -276,16 +249,7 @@ export default function Leadership() {
 
       {/* ── 5. ONBOARDING DETAIL ────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 96px" }}>
-        <p
-          style={{
-            fontSize: 12,
-            fontWeight: 500,
-            color: "#6b7280",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            marginBottom: 16,
-          }}
-        >
+        <p className="section-label" style={{ marginBottom: 16 }}>
           Design Onboarding System
         </p>
         <h2
@@ -336,7 +300,7 @@ export default function Leadership() {
 
       {/* ── 6. CURRENT FOCUS ────────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 96px" }}>
-        <p style={{ fontSize: 12, fontWeight: 500, color: "#6b7280", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 16 }}>
+        <p className="section-label" style={{ marginBottom: 16 }}>
           Current Focus · SeamlessHR · Jan 2025 – Present
         </p>
         <h2
@@ -351,7 +315,7 @@ export default function Leadership() {
         >
           Where my work lives now.
         </h2>
-        <div className="grid-3" style={{ gap: 16 }}>
+        <div className="grid-3 leadership-focus-grid" style={{ gap: 16 }}>
           {currentFocus.map((f, i) => (
             <div
               key={i}

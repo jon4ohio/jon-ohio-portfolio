@@ -32,9 +32,9 @@ export default function AssetImage({ asset, sizes, priority, style, treatment = 
             background: "rgba(255,255,255,0.65)",
           }}
         >
-          <span style={{ width: 10, height: 10, borderRadius: 999, background: "#ef4444" }} />
-          <span style={{ width: 10, height: 10, borderRadius: 999, background: "#f59e0b" }} />
-          <span style={{ width: 10, height: 10, borderRadius: 999, background: "#22c55e" }} />
+          <span aria-hidden="true" style={{ width: 10, height: 10, borderRadius: 999, background: "#ef4444" }} />
+          <span aria-hidden="true" style={{ width: 10, height: 10, borderRadius: 999, background: "#f59e0b" }} />
+          <span aria-hidden="true" style={{ width: 10, height: 10, borderRadius: 999, background: "#22c55e" }} />
           <span style={{ marginLeft: 8, fontSize: 12, color: "var(--fg-subtle)" }}>Preview</span>
         </div>
         <Image

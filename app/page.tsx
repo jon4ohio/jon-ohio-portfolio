@@ -118,15 +118,7 @@ export default function Home() {
       {/* ── 3. SELECTED SYSTEMS ─────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
         <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 48, flexWrap: "wrap", gap: 12 }}>
-          <p
-            style={{
-              fontSize: 12,
-              fontWeight: 500,
-              color: "#6b7280",
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-            }}
-          >
+          <p className="section-label">
             Selected Systems
           </p>
           <Link href="/work" style={{ fontSize: 13, color: "#6b7280", textDecoration: "none" }}>
@@ -208,16 +200,7 @@ export default function Home() {
 
       {/* ── 4. WHAT I DO ────────────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
-        <p
-          style={{
-            fontSize: 12,
-            fontWeight: 500,
-            color: "#6b7280",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            marginBottom: 16,
-          }}
-        >
+        <p className="section-label" style={{ marginBottom: 16 }}>
           What I Do
         </p>
         <h2
@@ -253,16 +236,7 @@ export default function Home() {
 
       {/* ── 5. HOW I THINK ──────────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
-        <p
-          style={{
-            fontSize: 12,
-            fontWeight: 500,
-            color: "#6b7280",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            marginBottom: 16,
-          }}
-        >
+        <p className="section-label" style={{ marginBottom: 16 }}>
           How I Think
         </p>
         <h2
@@ -391,16 +365,7 @@ export default function Home() {
 
       {/* ── 8. CURRENT FOCUS ────────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
-        <p
-          style={{
-            fontSize: 12,
-            fontWeight: 500,
-            color: "#6b7280",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            marginBottom: 16,
-          }}
-        >
+        <p className="section-label" style={{ marginBottom: 16 }}>
           Current Focus
         </p>
         <h2
@@ -421,7 +386,7 @@ export default function Home() {
               key={i}
               style={{
                 fontSize: 17,
-                color: "#1f2937",
+                color: "var(--fg-strong)",
                 padding: "20px 0",
                 borderTop: "1px solid #e5e7eb",
                 borderBottom: i === currentFocus.length - 1 ? "1px solid #e5e7eb" : "none",
@@ -435,16 +400,7 @@ export default function Home() {
 
       {/* ── 9. CLOSING ──────────────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 120px", textAlign: "center" }}>
-        <p
-          style={{
-            fontSize: 12,
-            fontWeight: 500,
-            color: "#6b7280",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            marginBottom: 24,
-          }}
-        >
+        <p className="section-label" style={{ marginBottom: 24 }}>
           Closing
         </p>
         <h2
@@ -453,7 +409,6 @@ export default function Home() {
             fontWeight: 600,
             letterSpacing: "-0.03em",
             lineHeight: 1.15,
-            marginBottom: 32,
             maxWidth: 760,
             margin: "0 auto 32px",
           }}

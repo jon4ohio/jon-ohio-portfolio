@@ -61,23 +61,23 @@ export default function About() {
 
           {/* Left: Narrative */}
           <div>
-            <p style={{ fontSize: 12, fontWeight: 500, color: "#6b7280", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 24 }}>
+            <p className="section-label" style={{ marginBottom: 24 }}>
               About
             </p>
             <h1 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.15, marginBottom: 32 }}>
               I turn complexity into working systems for product teams.
             </h1>
             <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-              <p style={{ fontSize: 17, lineHeight: 1.75, color: "#374151" }}>
+              <p style={{ fontSize: 17, lineHeight: 1.75, color: "var(--fg-body)" }}>
                 I&apos;m a Product Design Lead based in Abuja, Nigeria, specialising in design systems, DesignOps, enterprise UX, and AI-native product work. Over the past five years I&apos;ve led design across some of Africa&apos;s most complex product environments, from a 12-team SaaS platform to fintech infrastructure serving millions of users.
               </p>
-              <p style={{ fontSize: 17, lineHeight: 1.75, color: "#374151" }}>
+              <p style={{ fontSize: 17, lineHeight: 1.75, color: "var(--fg-body)" }}>
                 My core thesis is simple: design at scale only works when it becomes systematic. Good taste is not enough. Teams need shared language, governance, and a repeatable way to make sound decisions without bottlenecking on individual designers.
               </p>
-              <p style={{ fontSize: 17, lineHeight: 1.75, color: "#374151" }}>
+              <p style={{ fontSize: 17, lineHeight: 1.75, color: "var(--fg-body)" }}>
                 That belief shaped Seamkit, which I built not as a component library but as an operating system for product teams: token architecture, naming logic, contribution pipelines, and governance rituals. It became the backbone of SeamlessHR&apos;s product organisation across 12 teams, with an 88.9 adoption score and roughly 80% daily usage.
               </p>
-              <p style={{ fontSize: 17, lineHeight: 1.75, color: "#374151" }}>
+              <p style={{ fontSize: 17, lineHeight: 1.75, color: "var(--fg-body)" }}>
                 I&apos;ve also worked at the 0→1 edge, shaping products like Rivva and ClearPrice, where the job is to define the product, earn trust quickly, and give the team a system worth scaling. Today I lead DesignOps and AI-UX work focused on how intelligence shows up inside enterprise workflows as reusable patterns, not one-off features.
               </p>
             </div>
@@ -97,7 +97,7 @@ export default function About() {
             <div style={{ marginBottom: 24 }}>
               <AssetImage asset={portrait} sizes="(max-width: 900px) 92vw, 480px" />
             </div>
-            <p style={{ fontSize: 12, fontWeight: 500, color: "#6b7280", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 24 }}>
+            <p className="section-label" style={{ marginBottom: 24 }}>
               How I Think
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 0, marginBottom: 56 }}>
@@ -116,13 +116,14 @@ export default function About() {
               ))}
             </div>
 
-            <p style={{ fontSize: 12, fontWeight: 500, color: "#6b7280", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 24 }}>
+            <p className="section-label" style={{ marginBottom: 24 }}>
               Experience
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
               {timeline.map((t, i) => (
                 <div
                   key={i}
+                  className="about-timeline-row"
                   style={{
                     display: "grid",
                     gridTemplateColumns: "100px 1fr",
