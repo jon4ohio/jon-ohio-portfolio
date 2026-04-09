@@ -22,8 +22,8 @@ No test suite is configured.
 
 ### Key Next.js 16 differences
 - `params` in page/layout components is a **`Promise`** — always `await params` before accessing properties.
-- Middleware is replaced by `proxy.ts` (none configured yet).
-- `'use client'` is absent from all pages — everything is a Server Component.
+- Middleware is replaced by optional root-level `proxy.ts` when you need request interception; this repo has not added one yet.
+- All pages are Server Components. `'use client'` only appears in `components/Nav.tsx` (needs `usePathname`) — add it to components when hooks require it, never to pages.
 
 ### Data layer
 All project/case study data lives in **`lib/projects.ts`** as a static typed array — no database, no CMS, no API calls. Adding or editing case studies means editing this file. The `Project` interface, `getProject(slug)`, and `getFeaturedProjects()` helpers are the only data access points.
@@ -36,9 +36,16 @@ All project/case study data lives in **`lib/projects.ts`** as a static typed arr
 | `/work/[slug]` | `app/work/[slug]/page.tsx` | Case study; uses `generateStaticParams` for SSG |
 | `/about` | `app/about/page.tsx` | |
 | `/leadership` | `app/leadership/page.tsx` | |
+| `/robots.txt` | `app/robots.ts` | Auto-generated via Next.js Metadata API |
+| `/sitemap.xml` | `app/sitemap.ts` | Auto-generated via Next.js Metadata API |
 
 ### Styling
 All layout and visual styles use **inline `style` props** — not Tailwind classes. Tailwind is only used for the `animate-fade-up` / `delay-*` utility classes defined in `app/globals.css`. Do not introduce Tailwind for structural layout; maintain the inline-style convention.
 
+`globals.css` defines CSS custom properties (`--bg`, `--fg`, `--fg-muted`, `--fg-subtle`, `--border`, `--accent`, `--surface`) — prefer `var(--fg)` etc. in inline styles over hardcoded hex values.
+
 ### Layout
 `app/layout.tsx` wraps every page with `<Nav />` and `<Footer />` from `components/`. Pages apply `paddingTop: 56` to account for the fixed nav height. Max content width is `1120px` centered with `margin: "0 auto"`.
+
+### Path alias
+`@/` resolves to the project root — use for all cross-directory imports (e.g. `@/lib/projects`, `@/components/Nav`).

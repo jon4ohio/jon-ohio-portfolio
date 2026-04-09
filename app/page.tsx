@@ -159,7 +159,7 @@ export default function Home() {
                   {group.label}
                 </p>
                 <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-                  {groupItems.map((p, pi) => (
+                  {groupItems.map((p) => (
                     <Link
                       key={p.slug}
                       href={`/work/${p.slug}`}
