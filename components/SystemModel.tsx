@@ -1,25 +1,25 @@
 const stages = [
   {
     title: "Fragmented",
-    description: "Disconnected workflows, inconsistent interfaces, and high support load.",
+    description: "Disconnected workflows, inconsistent interfaces, high support load.",
     titleWeight: 500,
     titleOpacity: 0.72,
   },
   {
     title: "Structured",
-    description: "Clear flows, defined logic, and a predictable user experience.",
+    description: "Clear flows, defined logic, predictable system behavior.",
     titleWeight: 500,
     titleOpacity: 0.9,
   },
   {
     title: "Scalable",
-    description: "Shared systems across teams, reusable patterns, and consistent delivery.",
+    description: "Reusable patterns across teams, consistent delivery.",
     titleWeight: 600,
     titleOpacity: 0.96,
   },
   {
     title: "Intelligent",
-    description: "AI embedded into workflows — supporting decisions, improving outcomes, and reducing manual effort.",
+    description: "Systems that assist decisions, reduce effort, and improve outcomes.",
     titleWeight: 700,
     titleOpacity: 1,
   },
@@ -41,8 +41,7 @@ export default function SystemModel() {
         How systems evolve
       </h2>
       <p style={{ fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.6, maxWidth: 860, marginBottom: 32 }}>
-        Most products don&apos;t fail at the interface level — they fail at the system level. Below is the progression I design
-        and ship toward.
+        Most product failures are not interface problems — they are system failures. Below is the progression I design toward.
       </p>
 
       <div className="system-model-grid" style={{ alignItems: "start", gap: 28 }}>

@@ -27,7 +27,7 @@ export default function Hero() {
           marginBottom: 32,
         }}
       >
-        I design product systems that scale — from fragmented to intelligent.
+        I design product systems that evolve — from fragmented to intelligent.
       </h1>
       <p
         className="animate-fade-up delay-3"
@@ -39,7 +39,7 @@ export default function Hero() {
           lineHeight: 1.5,
         }}
       >
-        Product Design Lead working across enterprise SaaS, fintech infrastructure, and AI — design systems, DesignOps, and AI-native workflows.
+        Product Design Lead working across enterprise SaaS, fintech infrastructure, and AI — designing systems, DesignOps, and intelligent workflows.
       </p>
       <div className="animate-fade-up delay-4 hero-cta">
         <Link

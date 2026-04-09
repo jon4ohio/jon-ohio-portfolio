@@ -7,12 +7,12 @@ import SystemModel from "@/components/SystemModel";
 export const metadata: Metadata = {
   title: "John Ohio — Product Systems & DesignOps Lead",
   description:
-    "Product Design Lead designing systems that scale across enterprise SaaS, fintech, and AI — from fragmented to intelligent. $1M+ saved annually, 12 teams aligned, 2.49M token usage.",
+    "Product Design Lead designing systems that evolve across enterprise SaaS, fintech, and AI — from fragmented to intelligent. $1M+ saved annually, 12 teams aligned, 2.49M token usage.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "John Ohio — Product Systems & DesignOps Lead",
     description:
-      "I design product systems that scale — from fragmented to intelligent. Design systems · DesignOps · Enterprise SaaS · AI UX.",
+      "I design product systems that evolve — from fragmented to intelligent. Design systems · DesignOps · Enterprise SaaS · AI UX.",
     url: "/",
     type: "website",
   },
@@ -50,17 +50,17 @@ const systemGroups = [
 ];
 
 const capabilities = [
-  { label: "System Design", desc: "Restructuring fragmented products into scalable systems." },
-  { label: "Design Systems", desc: "Token architecture, governance, and contribution pipelines." },
-  { label: "Product Growth", desc: "Adoption, onboarding, and self-service for PLG transitions." },
-  { label: "DesignOps", desc: "Operationalising design as a function across teams." },
-  { label: "AI UX", desc: "Trust, explainability, and reusable AI patterns inside enterprise workflows." },
+  { label: "System Design", desc: "Restructure fragmented systems into scalable product foundations." },
+  { label: "Design Systems", desc: "Build token-driven systems with governance and adoption across teams." },
+  { label: "Product Growth", desc: "Design onboarding, adoption, and PLG-driven system flows." },
+  { label: "DesignOps", desc: "Operationalize design through governance, workflows, and team systems." },
+  { label: "AI UX", desc: "Design assistive, explainable, and reusable AI interaction patterns." },
 ];
 
 const principles = [
   "Systems over screens.",
   "Structure reduces complexity.",
-  "Decisions should compound.",
+  "Decisions compound over time.",
   "Design must reflect operational reality.",
 ];
 
@@ -126,7 +126,7 @@ export default function Home() {
           </Link>
         </div>
         <p style={{ fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.6, maxWidth: 520, marginBottom: 48 }}>
-          That arc shows up across the case studies below — work from fragmented to intelligent.
+          Selected systems across each stage — from structure to intelligence.
         </p>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
@@ -159,7 +159,7 @@ export default function Home() {
                   {group.label}
                 </p>
                 <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-                  {groupItems.map((p) => (
+                  {groupItems.map((p, pi) => (
                     <Link
                       key={p.slug}
                       href={`/work/${p.slug}`}
@@ -172,6 +172,7 @@ export default function Home() {
                         gap: 8,
                         padding: "14px 8px",
                         margin: "0 -8px",
+                        borderTop: pi > 0 ? "1px solid var(--border)" : "none",
                       }}
                     >
                       <span style={{ display: "flex", flexDirection: "column", gap: 4 }}>
@@ -320,10 +321,10 @@ export default function Home() {
                 marginBottom: 24,
               }}
             >
-              Scaling design as a system, not a service.
+              Design as a system — not a service.
             </h2>
             <p style={{ fontSize: 16, color: "rgba(255,255,255,0.6)", lineHeight: 1.7, marginBottom: 32 }}>
-              Operationalising design across the product organisation — governance, contribution, onboarding, capability, and AI-UX layer.
+              Built and scaled design systems across 12 teams — governance, contribution, onboarding, and AI UX integration.
             </p>
             <Link
               href="/leadership"
@@ -354,9 +355,9 @@ export default function Home() {
             }}
           >
             {[
-              "Built and scaled a design system across 12 teams",
-              "Defined governance, contribution, and delivery workflows",
-              "Established onboarding, critique, and capability systems",
+              "Unified token architecture and component libraries at scale",
+              "Reduced design-to-dev handoff friction across product squads",
+              "Embedded AI UX patterns into the core design workflow",
             ].map((line, i) => (
               <li
                 key={i}
@@ -390,7 +391,7 @@ export default function Home() {
             maxWidth: 640,
           }}
         >
-          Where my work lives now.
+          Where my work is evolving.
         </h2>
         <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 0 }}>
           {currentFocus.map((line, i) => (
@@ -425,7 +426,7 @@ export default function Home() {
             margin: "0 auto 32px",
           }}
         >
-          I design systems that evolve — from fragmented to intelligent.
+          I design systems that evolve —<br />from fragmented → structured → scalable → intelligent.
         </h2>
         <a
           href="mailto:jon4ohio@gmail.com"
