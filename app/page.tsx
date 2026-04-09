@@ -172,7 +172,7 @@ export default function Home() {
                         gap: 8,
                         padding: "14px 8px",
                         margin: "0 -8px",
-                        borderTop: pi > 0 ? "1px solid var(--border)" : "none",
+                        borderTop: "none",
                       }}
                     >
                       <span style={{ display: "flex", flexDirection: "column", gap: 4 }}>
