@@ -185,6 +185,25 @@ button:focus-visible {
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); }
 .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); }
 
+/* About page — operating principles (4 → 2 → 1 columns) */
+.about-principles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+@media (max-width: 900px) {
+  .about-principles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+@media (max-width: 640px) {
+  .about-principles-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
 /* Two-col with large gap — About page layout */
 .grid-2-lg {
   display: grid;

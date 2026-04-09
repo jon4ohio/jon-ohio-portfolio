@@ -1,4 +1,21 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
+import AssetImage from "@/components/AssetImage";
+import {
+  aboutBodyBlocks,
+  aboutHeadline,
+  aboutHookBlocks,
+  aboutTimeline,
+  operatingPrinciples,
+  operatingPrinciplesLabel,
+  type NarrativeBlock,
+} from "@/lib/aboutNarrative";
+import {
+  communityCards,
+  communityPullQuote,
+  communitySectionEyebrow,
+  communitySectionTitle,
+} from "@/lib/communityContribution";
 
 export const metadata: Metadata = {
   title: "About",
@@ -14,135 +31,86 @@ export const metadata: Metadata = {
   },
 };
 
-import AssetImage from "@/components/AssetImage";
-import {
-  aboutHeadline,
-  aboutNarrativeBlocks,
-  aboutTimeline,
-  operatingPrinciples,
-  operatingPrinciplesLabel,
-} from "@/lib/aboutNarrative";
-import {
-  communityCards,
-  communityPullQuote,
-  communitySectionEyebrow,
-  communitySectionTitle,
-} from "@/lib/communityContribution";
-
-const bodyStyle: React.CSSProperties = {
+const bodyStyle: CSSProperties = {
   fontSize: 17,
   lineHeight: 1.75,
   color: "var(--fg-body)",
 };
 
+function renderNarrativeBlock(block: NarrativeBlock, i: number) {
+  if (block.kind === "paragraph") {
+    return (
+      <p key={i} style={bodyStyle}>
+        {block.text}
+      </p>
+    );
+  }
+  if (block.kind === "lead") {
+    return (
+      <p key={i} style={{ ...bodyStyle, fontWeight: 600, color: "var(--fg-body)" }}>
+        {block.text}
+      </p>
+    );
+  }
+  return (
+    <p key={i} style={{ ...bodyStyle, fontWeight: 500, color: "var(--fg-strong)" }}>
+      {block.text}
+    </p>
+  );
+}
+
 export default function About() {
   return (
     <div style={{ paddingTop: 56 }}>
-      <section
+      <div
         style={{
           maxWidth: 1120,
           margin: "0 auto",
           padding: "clamp(56px, 12vw, 80px) clamp(20px, 4vw, 24px) clamp(80px, 14vw, 120px)",
         }}
       >
-        <div className="grid-2-lg" style={{ alignItems: "start" }}>
+        {/* Hook */}
+        <p className="section-label" style={{ marginBottom: 24 }}>
+          About
+        </p>
+        <h1
+          style={{
+            fontSize: "clamp(28px, 4vw, 44px)",
+            fontWeight: 600,
+            letterSpacing: "-0.03em",
+            lineHeight: 1.15,
+            marginBottom: 32,
+            maxWidth: 640,
+          }}
+        >
+          {aboutHeadline}
+        </h1>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "clamp(20px, 3vw, 28px)",
+            maxWidth: 620,
+          }}
+        >
+          {aboutHookBlocks.map((block, i) => renderNarrativeBlock(block, i))}
+        </div>
 
-          {/* Left: Narrative */}
-          <div>
-            <p className="section-label" style={{ marginBottom: 24 }}>
-              About
-            </p>
-            <h1
-              style={{
-                fontSize: "clamp(28px, 4vw, 44px)",
-                fontWeight: 600,
-                letterSpacing: "-0.03em",
-                lineHeight: 1.15,
-                marginBottom: 32,
-              }}
-            >
-              {aboutHeadline}
-            </h1>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "clamp(20px, 3vw, 28px)",
-                maxWidth: "65ch",
-              }}
-            >
-              {aboutNarrativeBlocks.map((block, i) => {
-                if (block.kind === "paragraph") {
-                  return (
-                    <p key={i} style={bodyStyle}>
-                      {block.text}
-                    </p>
-                  );
-                }
-                if (block.kind === "lead") {
-                  return (
-                    <p key={i} style={{ ...bodyStyle, fontWeight: 600, color: "var(--fg-body)" }}>
-                      {block.text}
-                    </p>
-                  );
-                }
-                return (
-                  <p key={i} style={{ ...bodyStyle, fontWeight: 500, color: "var(--fg-strong)" }}>
-                    {block.text}
-                  </p>
-                );
-              })}
-            </div>
-
-            <div style={{ marginTop: 40, display: "flex", gap: 16, flexWrap: "wrap" }}>
-              <a
-                href="mailto:jon4ohio@gmail.com"
-                style={{
-                  fontSize: 14,
-                  fontWeight: 500,
-                  color: "var(--fg)",
-                  textDecoration: "none",
-                  border: "1px solid var(--fg)",
-                  padding: "10px 20px",
-                  borderRadius: 8,
-                }}
-              >
-                Get in touch
-              </a>
-              <a
-                href="https://linkedin.com/in/jon4ohio"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  fontSize: 14,
-                  fontWeight: 500,
-                  color: "var(--fg-muted)",
-                  textDecoration: "none",
-                  border: "1px solid var(--border)",
-                  padding: "10px 20px",
-                  borderRadius: 8,
-                }}
-              >
-                LinkedIn ↗
-              </a>
-            </div>
-          </div>
-
-          {/* Right: Operating Principles + Experience */}
-          <div>
-            <p className="section-label" style={{ marginBottom: 24 }}>
+        {/* Operating Principles — surface band */}
+        <div style={{ marginTop: "clamp(48px, 8vw, 64px)" }}>
+          <div
+            style={{
+              background: "var(--surface)",
+              borderRadius: 12,
+              padding: "clamp(28px, 5vw, 40px) clamp(20px, 4vw, 28px)",
+            }}
+          >
+            <p className="section-label" style={{ marginBottom: 28 }}>
               {operatingPrinciplesLabel}
             </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: 0, marginBottom: 56 }}>
-              {operatingPrinciples.map((p, i) => (
-                <div
-                  key={p.title}
-                  style={{
-                    padding: "24px 0",
-                    borderTop: "1px solid var(--border)",
-                    borderBottom: i === operatingPrinciples.length - 1 ? "1px solid var(--border)" : "none",
-                  }}
-                >
+            <div className="about-principles-grid">
+              {operatingPrinciples.map((p) => (
+                <div key={p.title}>
                   <h3 style={{ fontSize: 15, fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 8 }}>
                     {p.title}
                   </h3>
@@ -150,39 +118,88 @@ export default function About() {
                 </div>
               ))}
             </div>
-
-            <p className="section-label" style={{ marginBottom: 24 }}>
-              Experience
-            </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-              {aboutTimeline.map((t, i) => (
-                <div
-                  key={`${t.year}-${t.org}-${i}`}
-                  className="about-timeline-row"
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "minmax(96px, 110px) 1fr",
-                    gap: 16,
-                    padding: "14px 0",
-                    borderTop: "1px solid var(--border)",
-                    borderBottom: i === aboutTimeline.length - 1 ? "1px solid var(--border)" : "none",
-                  }}
-                >
-                  <span style={{ fontSize: 12, color: "var(--fg-subtle)", paddingTop: 2 }}>{t.year}</span>
-                  <div>
-                    <p style={{ fontSize: 14, fontWeight: 500 }}>{t.role}</p>
-                    <p style={{ fontSize: 13, color: "var(--fg-muted)" }}>{t.org}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
-
         </div>
 
-        {/* Conviction quote — own band; separator before community only */}
+        {/* Body narrative + CTAs */}
+        <div style={{ marginTop: "clamp(48px, 8vw, 64px)" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "clamp(20px, 3vw, 28px)",
+              maxWidth: 620,
+            }}
+          >
+            {aboutBodyBlocks.map((block, i) => renderNarrativeBlock(block, i))}
+          </div>
+
+          <div style={{ marginTop: 40, display: "flex", gap: 16, flexWrap: "wrap" }}>
+            <a
+              href="mailto:jon4ohio@gmail.com"
+              style={{
+                fontSize: 14,
+                fontWeight: 500,
+                color: "var(--fg)",
+                textDecoration: "none",
+                border: "1px solid var(--fg)",
+                padding: "10px 20px",
+                borderRadius: 8,
+              }}
+            >
+              Get in touch
+            </a>
+            <a
+              href="https://linkedin.com/in/jon4ohio"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontSize: 14,
+                fontWeight: 500,
+                color: "var(--fg-muted)",
+                textDecoration: "none",
+                border: "1px solid var(--border)",
+                padding: "10px 20px",
+                borderRadius: 8,
+              }}
+            >
+              LinkedIn ↗
+            </a>
+          </div>
+        </div>
+
+        {/* Experience */}
+        <div style={{ marginTop: "clamp(56px, 10vw, 80px)" }}>
+          <p className="section-label" style={{ marginBottom: 24 }}>
+            Experience
+          </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+            {aboutTimeline.map((t, i) => (
+              <div
+                key={`${t.year}-${t.org}-${i}`}
+                className="about-timeline-row"
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "minmax(96px, 110px) 1fr",
+                  gap: 16,
+                  padding: "14px 0",
+                  borderTop: "1px solid var(--border)",
+                  borderBottom: i === aboutTimeline.length - 1 ? "1px solid var(--border)" : "none",
+                }}
+              >
+                <span style={{ fontSize: 12, color: "var(--fg-subtle)", paddingTop: 2 }}>{t.year}</span>
+                <div>
+                  <p style={{ fontSize: 14, fontWeight: 500 }}>{t.role}</p>
+                  <p style={{ fontSize: 13, color: "var(--fg-muted)" }}>{t.org}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Conviction quote */}
         <div style={{ marginTop: "clamp(40px, 8vw, 64px)" }}>
-          <blockquote style={{ margin: 0, padding: 0 }}>
+          <blockquote style={{ margin: 0, padding: 0, maxWidth: 720 }}>
             <p
               style={{
                 fontSize: "clamp(28px, 4vw, 44px)",
@@ -207,6 +224,7 @@ export default function About() {
           </blockquote>
         </div>
 
+        {/* Community */}
         <div
           style={{
             marginTop: "clamp(40px, 8vw, 64px)",
@@ -278,7 +296,7 @@ export default function About() {
             ))}
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

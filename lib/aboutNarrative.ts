@@ -28,13 +28,17 @@ export type NarrativeBlock =
   | { kind: "lead"; text: string }
   | { kind: "closing"; text: string };
 
-/** Hook → Problem → Proof → Edge → Close (continuous paragraphs; no duplicate bullet list). */
-export const aboutNarrativeBlocks: NarrativeBlock[] = [
+/** Problem framing + punch line (above Operating Principles band). */
+export const aboutHookBlocks: NarrativeBlock[] = [
   {
     kind: "paragraph",
     text: "Most products don't fail at the interface level. They fail at the system level — where workflows break, decisions don't compound, and teams can't scale what they build.",
   },
   { kind: "lead", text: "That's the problem I solve." },
+];
+
+/** Proof, edge, and close (below Operating Principles). */
+export const aboutBodyBlocks: NarrativeBlock[] = [
   {
     kind: "paragraph",
     text: "I'm a Product Design Lead working across enterprise SaaS, fintech infrastructure, and AI-native systems — turning fragmented products into structured, scalable systems that hold under real-world conditions.",
@@ -64,6 +68,9 @@ export const aboutNarrativeBlocks: NarrativeBlock[] = [
     text: "Because at scale, good design isn't about screens. It's about systems that work.",
   },
 ];
+
+/** Full story order (hook + body). */
+export const aboutNarrativeBlocks: NarrativeBlock[] = [...aboutHookBlocks, ...aboutBodyBlocks];
 
 export type TimelineEntry = {
   year: string;
