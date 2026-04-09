@@ -87,7 +87,7 @@ export const projects: Project[] = [
     period: "Mar 2022 – Mar 2025",
     summary:
       "Repositioned a broken recruitment add-on into a flagship hiring product by fixing workflow trust, applicant completion, and system value.",
-    role: "Product Design Lead across product strategy, UX, and phased rollout.",
+    role: "Lead Product Designer across product strategy, UX, and phased rollout.",
     scope:
       "Applicant and recruiter workflows, research synthesis, roadmap definition, and cross-functional delivery with PM, engineering, CX, and sales.",
     metrics: [
@@ -177,7 +177,7 @@ export const projects: Project[] = [
     title: "FetsProza",
     subtitle: "Infrastructure‑as‑a‑Service (IaaS) Platform",
     category: "Operational Systems",
-    company: "Fets · Nigeria",
+    company: "Funds and Electronic Transfer Solutions (Fets) · Nigeria",
     period: "2021 – 2025",
     summary:
       "Designed the in-house transaction infrastructure that replaced an expensive vendor dependency and opened up white-label revenue.",
@@ -210,7 +210,7 @@ export const projects: Project[] = [
     title: "IBEDC Digital Transformation",
     subtitle: "Care App + POS System",
     category: "Operational Systems",
-    company: "Fets · 2.4M+ customers",
+    company: "Funds and Electronic Transfer Solutions (Fets) · 2.4M+ customers",
     period: "2022 – 2024",
     summary:
       "Digitised utility payments and service workflows for millions of customers across consumer app and in-person POS touchpoints.",
@@ -230,7 +230,7 @@ export const projects: Project[] = [
     action:
       "Designed a friction‑free, end‑to‑end digital experience: IBEDC Care App (B2C + customer relations) and a bespoke POS terminal workflow for walk‑in centres. Digitised billing, payment, receipt verification, and reconciliation so both customers and staff could transact confidently and traceably.",
     impact:
-      "IBEDC’s billing and payments shifted from paper and third‑party fragmentation to a unified digital system: customers transact in seconds, staff reconcile in minutes, and revenue leakage is materially reduced. Positive feedback from customers and staff (Play Store 4.6★, 2,800+ reviews) and a ~30% reduction in call‑centre volume as queue/token complaints disappeared.",
+      "IBEDC’s billing and payments shifted from paper and third‑party fragmentation to a unified digital system: customers transact in seconds, staff reconcile in minutes, and revenue leakage is materially reduced. In the first year, payment times dropped 30% and satisfaction increased 40%. Positive feedback from customers and staff (Play Store 4.6★, 2,800+ reviews) and a ~30% reduction in call‑centre volume as queue/token complaints disappeared.",
     tags: ["Fintech", "Utilities", "Mobile App", "POS", "Public Sector"],
     featured: true,
     assets: {
@@ -247,7 +247,7 @@ export const projects: Project[] = [
     period: "Jul 2025 – Jan 2026",
     summary:
       "Shaped the trust layer for an AI scheduling product, translating biometric data into explainable planning people could act on.",
-    role: "Founding Designer from product definition to cross-platform system design.",
+    role: "Product Designer (Founding Team) from product definition to cross-platform system design.",
     scope:
       "AI interaction design, Apple Health onboarding, web app design, and shared patterns spanning iOS, Android, and web.",
     metrics: [
@@ -260,7 +260,7 @@ export const projects: Project[] = [
     problem:
       "AI capability without usable interaction models. Most AI scheduling tools surface outputs without helping users understand or trust the underlying reasoning. The gap between ML capability and human trust was the core design challenge.",
     action:
-      "Designed AI-assisted planning workflows, an energy-aware scheduling model, and Apple Health onboarding from 0→1. Co-designed Nia (AI assistant) — translating ML outputs into actionable, trusted decisions. Led web app design and established a cross-platform design system for seamless handoff between mobile and web.",
+      "Designed AI-assisted planning workflows, an energy-aware scheduling model, and Apple Health onboarding from 0→1. Led web app design and shaped the AI-driven daily planning experience. Co-designed Nia (AI assistant) — translating ML outputs into actionable, trusted decisions — and established the cross-platform design system for seamless handoff between mobile and web.",
     impact:
       "#4 Product of the Day on Product Hunt. 500+ downloads in the first month. 30+ paying customers within two months. A trusted, explainable AI assistant — not just automation.",
     tags: ["AI/ML", "iOS", "Android", "Health Tech", "0→1", "Cross-platform"],
@@ -281,7 +281,7 @@ export const projects: Project[] = [
       "Established reusable AI interaction patterns for enterprise workflows so teams could ship AI features as a system instead of one-offs.",
     role: "Lead, DesignOps & AI-UX.",
     scope:
-      "AI pattern design, prompt frameworks, workflow definition, reporting concepts, and rollout guidance across product teams.",
+      "AI pattern design, prompt frameworks, workflow definition, agent behaviours, reporting concepts, and rollout guidance across product teams.",
     metrics: [
       { value: "Faster", label: "Candidate shortlisting" },
       { value: "Reduced", label: "Screening bias" },
@@ -292,7 +292,7 @@ export const projects: Project[] = [
     problem:
       "AI capability without a design system to support it. No shared patterns for AI interactions, no established framework for how AI surfaces decisions to enterprise users. Teams building AI features independently created inconsistency and eroded user trust.",
     action:
-      "Defined scalable AI-UX patterns, prompt frameworks, and interaction models adopted across all product teams. Scoped analytics and reporting with ML/AI processing pipelines. Designed Smart CV Parsing, Smart Ranking, and Smart Assessment flows layered into recruitment.",
+      "Designed an AI-native UX layer across SeamlessHR’s suite: prompt-based workflows, agent behaviours, and AI-UX patterns. Partnered with AI/ML, product, and engineering to balance usability and performance. Defined scalable AI-UX patterns, prompt frameworks, and interaction models adopted across all product teams. Scoped analytics and reporting with ML/AI processing pipelines. Designed Smart CV Parsing, Smart Ranking, and Smart Assessment flows layered into recruitment.",
     impact:
       "Reusable AI interaction patterns established as a system — not one-off features. Faster shortlisting, improved quality, reduced bias. A foundation for AI-native enterprise design at scale.",
     tags: ["AI/ML", "Enterprise SaaS", "Design Systems", "Recruitment", "UX Patterns"],
@@ -311,7 +311,7 @@ export const projects: Project[] = [
     period: "Oct 2024 – Jul 2025",
     summary:
       "Defined a localised quote-to-cash product for African SaaS operators where global billing tools were a poor fit.",
-    role: "Founding Designer leading MVP definition and product UX.",
+    role: "Product Designer (Founding Member) leading MVP definition and product UX.",
     scope:
       "Pricing configuration, billing workflows, subscription dashboards, validation with founders and CFOs, and delivery with engineering.",
     metrics: [
@@ -339,7 +339,7 @@ export const projects: Project[] = [
     title: "ABMS",
     subtitle: "Agency Banking Management System",
     category: "Operational Systems",
-    company: "Fets",
+    company: "Funds and Electronic Transfer Solutions (Fets)",
     period: "2022 – 2024",
     summary:
       "Designed the operational backbone for an agency banking network — onboarding, transaction monitoring, and reconciliation across thousands of agents.",
@@ -369,29 +369,29 @@ export const projects: Project[] = [
   {
     slug: "blualliance",
     title: "BluAlliance",
-    subtitle: "Healthcare Network Platform",
+    subtitle: "Blue-Collar HRM Platform",
     category: "0→1 Systems",
-    company: "Founding Team",
-    period: "2024 – 2025",
+    company: "Gates Foundation × SeamlessHR",
+    period: "Jun 2025 – Present",
     summary:
-      "Defined the foundational product for a healthcare network connecting providers, payers, and members across emerging markets.",
-    role: "Founding Designer leading product definition and core flows.",
+      "Co-led product discovery for Africa’s first HRM platform for the blue-collar workforce — field research across Kenya and Nigeria, journey mapping, and MVP scoping.",
+    role: "UX Research Lead for product discovery and MVP definition.",
     scope:
-      "Provider onboarding, member portal, claims workflows, network discovery, and the foundational design system.",
+      "Field research, ethnographic visits, worker and employer journey mapping, opportunity mapping, and MVP scoping across hiring, payroll, scheduling, and benefits.",
     metrics: [
-      { value: "0→1", label: "Validated MVP" },
-      { value: "Multi-sided", label: "Network model" },
-      { value: "Pilot", label: "Provider rollout" },
+      { value: "30+", label: "Field interviews" },
+      { value: "2", label: "Markets researched (Kenya, Nigeria)" },
+      { value: "0→1", label: "MVP scoped" },
     ],
     context:
-      "Healthcare networks in emerging markets are fragmented across providers, payers, and members — with paper-driven claims, opaque pricing, and no shared operational layer.",
+      "BluAlliance is a 0→1 HRM platform for Africa’s blue-collar workforce, co-led by SeamlessHR in partnership with the Gates Foundation. The goal was to build an HRM product tailored to the realities of field-based, shift-based, and informal work — with employer needs spanning hiring, payroll, scheduling, and benefits.",
     problem:
-      "No unified product to connect providers and members, no claims workflow, no shared network directory. Building infrastructure where none existed.",
+      "Existing HR tools were not built for the operational constraints of blue-collar workforces across African markets. The team needed to validate jobs-to-be-done, map real-world workflows, and define an MVP that could earn trust quickly on both employer and worker sides.",
     action:
-      "Led product design from 0 → validated MVP. Defined provider onboarding, member discovery, and claims workflows. Established the foundational design system and key user journeys.",
+      "Collaborated with a product lead to develop product strategy and MVP scope. Participated in an immersive design thinking workshop with a cross-functional group of industry leaders. Conducted field research in Kenya and Nigeria (30+ interviews, ethnographic visits). Mapped worker and employer journeys across hiring, payroll, scheduling, and benefits. Facilitated opportunity mapping and MVP scoping.",
     impact:
-      "Validated MVP rolled out to a pilot network of providers. Foundational system in place to support the next stage of network growth.",
-    tags: ["Healthcare", "0→1", "Marketplace", "Africa"],
+      "Research-backed MVP scope defined with clear opportunity areas, journey maps, and validated workflow priorities to guide build and delivery.",
+    tags: ["HRTech", "0→1", "Field Research", "Africa", "Gates Foundation"],
     featured: false,
     assets: {
       thumbnails: [placeholderThumbA, placeholderThumbB],

@@ -38,7 +38,7 @@ export default function WorkIndex() {
             <Link
               key={p.slug}
               href={`/work/${p.slug}`}
-              className="grid-work-row"
+              className="work-list-row"
               style={{
                 padding: "36px 0",
                 borderTop: "1px solid #e5e7eb",
@@ -46,28 +46,21 @@ export default function WorkIndex() {
                 color: "inherit",
               }}
             >
-              <span style={{ fontSize: 12, color: "#9ca3af", fontWeight: 500, letterSpacing: "0.04em", paddingTop: 4 }}>
+              <span className="work-list-idx" style={{ fontSize: 12, color: "#9ca3af", fontWeight: 500, letterSpacing: "0.04em", paddingTop: 4 }}>
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <div className="hide-mobile" style={{ paddingTop: 6 }}>
+
+              <div className="work-list-thumb">
                 {p.assets?.thumbnails?.[0] ? (
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-                    <AssetImage
-                      asset={p.assets.thumbnails[0]}
-                      sizes="(max-width: 900px) 180px, 120px"
-                      style={{}}
-                    />
-                    {p.assets.thumbnails[1] ? (
-                      <AssetImage
-                        asset={p.assets.thumbnails[1]}
-                        sizes="(max-width: 900px) 180px, 120px"
-                        style={{}}
-                      />
-                    ) : null}
-                  </div>
+                  <AssetImage
+                    asset={p.assets.thumbnails[0]}
+                    sizes="(max-width: 640px) 92vw, (max-width: 900px) 200px, 240px"
+                    style={{}}
+                  />
                 ) : null}
               </div>
-              <div>
+
+              <div className="work-list-body">
                 <div style={{ display: "flex", gap: 12, marginBottom: 10, flexWrap: "wrap" }}>
                   <span style={{ fontSize: 11, color: "#9ca3af", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase" }}>
                     {p.category}
@@ -79,7 +72,18 @@ export default function WorkIndex() {
                 </div>
                 <h2 style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 8 }}>{p.title}</h2>
                 <p style={{ fontSize: 14, color: "#6b7280", marginBottom: 10 }}>{p.subtitle}</p>
-                <p style={{ fontSize: 14, color: "#4b5563", lineHeight: 1.65, maxWidth: 720, marginBottom: 16 }}>{p.summary}</p>
+
+                <p style={{ fontSize: 14, color: "#4b5563", lineHeight: 1.65, maxWidth: 720, marginBottom: 12 }}>{p.summary}</p>
+
+                <div className="metric-badges" style={{ marginBottom: 12 }}>
+                  {p.metrics.map((m, j) => (
+                    <div key={j} className="metric-badge">
+                      <span className="metric-badge__value">{m.value}</span>
+                      <span className="metric-badge__label">{m.label}</span>
+                    </div>
+                  ))}
+                </div>
+
                 <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                   {p.tags.map((t) => (
                     <span key={t} style={{ fontSize: 11, color: "#6b7280", border: "1px solid #e5e7eb", padding: "3px 8px", borderRadius: 4 }}>
@@ -88,14 +92,9 @@ export default function WorkIndex() {
                   ))}
                 </div>
               </div>
-              <div className="hide-mobile" style={{ display: "flex", flexDirection: "column", gap: 8, alignItems: "flex-end", minWidth: 140 }}>
-                {p.metrics.slice(0, 2).map((m, j) => (
-                  <div key={j} style={{ textAlign: "right" }}>
-                    <span style={{ fontSize: 18, fontWeight: 600, letterSpacing: "-0.02em" }}>{m.value}</span>
-                    <span style={{ fontSize: 12, color: "#9ca3af", marginLeft: 4 }}>{m.label}</span>
-                  </div>
-                ))}
-                <span style={{ color: "#9ca3af", fontSize: 16, marginTop: 8 }}>→</span>
+
+              <div className="work-list-arrow" style={{ color: "#9ca3af", fontSize: 16, paddingTop: 4 }} aria-hidden>
+                →
               </div>
             </Link>
           ))}

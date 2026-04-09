@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "John Ohio — Product Design Lead based in Abuja, Nigeria. A decade building trusted systems across enterprise SaaS, fintech infrastructure, and 0→1 products.",
+    "John Ohio — Product Design Lead based in Abuja, Nigeria. Five years building trusted systems across enterprise SaaS, fintech infrastructure, and 0→1 products.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About — John Ohio",
@@ -44,13 +44,13 @@ const principles = [
 ];
 
 const timeline = [
-  { year: "2025–Now", role: "Lead, DesignOps & AI-UX", org: "SeamlessHR / SeamlesTech" },
-  { year: "2024–2025", role: "Founding Designer", org: "ClearPrice" },
-  { year: "2025–2026", role: "Founding Designer", org: "Rivva" },
-  { year: "2022–2025", role: "Product Design Lead", org: "SeamlessHR" },
-  { year: "2021–2025", role: "Lead Product Designer", org: "Fets" },
-  { year: "2020–2022", role: "Senior Product Designer", org: "The UX Company" },
-  { year: "Earlier", role: "Instructor & Coach", org: "Utiva" },
+  { year: "2025–Present", role: "Lead, DesignOps & AI-UX", org: "SeamlessHR" },
+  { year: "2024–2025", role: "Product Designer (Founding Member)", org: "ClearPrice" },
+  { year: "2025–2026", role: "Product Designer (Founding Team)", org: "Rivva" },
+  { year: "2022–2025", role: "Lead Product Designer", org: "SeamlessHR (SeamlessHiring 2.0)" },
+  { year: "2021–2025", role: "Senior UX Contractor", org: "Fets" },
+  { year: "2021–Present", role: "Founder & Design Lead", org: "The UX Company" },
+  { year: "Earlier", role: "UX Coach & Mentor", org: "Utiva / ADPList" },
 ];
 
 export default function About() {
@@ -69,7 +69,7 @@ export default function About() {
             </h1>
             <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
               <p style={{ fontSize: 17, lineHeight: 1.75, color: "#374151" }}>
-                I&apos;m a Product Design Lead based in Abuja, Nigeria, specialising in design systems, DesignOps, enterprise UX, and AI-native product work. Over the past decade I&apos;ve led design across some of Africa&apos;s most complex product environments, from a 12-team SaaS platform to fintech infrastructure serving millions of users.
+                I&apos;m a Product Design Lead based in Abuja, Nigeria, specialising in design systems, DesignOps, enterprise UX, and AI-native product work. Over the past five years I&apos;ve led design across some of Africa&apos;s most complex product environments, from a 12-team SaaS platform to fintech infrastructure serving millions of users.
               </p>
               <p style={{ fontSize: 17, lineHeight: 1.75, color: "#374151" }}>
                 My core thesis is simple: design at scale only works when it becomes systematic. Good taste is not enough. Teams need shared language, governance, and a repeatable way to make sound decisions without bottlenecking on individual designers.

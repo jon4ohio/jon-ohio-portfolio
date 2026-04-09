@@ -14,7 +14,7 @@ export default function Hero() {
           marginBottom: 24,
         }}
       >
-        SENIOR PRODUCT DESIGNER · DESIGN SYSTEMS · DESIGNOPS · AI UX
+        PRODUCT DESIGN LEAD · DESIGN SYSTEMS · DESIGNOPS · AI UX
       </p>
       <h1
         className="animate-fade-up delay-2"
@@ -39,9 +39,9 @@ export default function Hero() {
           lineHeight: 1.5,
         }}
       >
-        Senior Product Designer working across enterprise SaaS, fintech infrastructure, and AI — designing systems that scale from fragmented to intelligent.
+        Product Design Lead working across enterprise SaaS, fintech infrastructure, and AI — designing systems that scale from fragmented to intelligent.
       </p>
-      <div className="animate-fade-up delay-4" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+      <div className="animate-fade-up delay-4 hero-cta">
         <Link
           href="/work"
           style={{

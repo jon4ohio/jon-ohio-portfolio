@@ -156,7 +156,18 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
           {project.title}
         </h1>
         <p style={{ fontSize: 20, color: "#6b7280", marginBottom: 16 }}>{project.subtitle}</p>
-        <p style={{ fontSize: 18, color: "#374151", lineHeight: 1.7, maxWidth: 760, marginBottom: 48 }}>{project.summary}</p>
+
+        <p style={{ fontSize: 18, color: "#374151", lineHeight: 1.7, maxWidth: 760, marginBottom: 16 }}>{project.summary}</p>
+
+        {/* Metric badges — below description; size/spacing from globals for responsive type */}
+        <div className="metric-badges metric-badges--hero" style={{ marginBottom: 36 }}>
+          {project.metrics.map((m, i) => (
+            <div key={i} className="metric-badge">
+              <span className="metric-badge__value">{m.value}</span>
+              <span className="metric-badge__label">{m.label}</span>
+            </div>
+          ))}
+        </div>
 
         {project.assets?.hero ? (
           <div style={{ marginBottom: 28 }}>
@@ -167,34 +178,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
           </div>
         ) : null}
 
-        {/* Metrics */}
-        <div
-          className="case-metrics"
-          style={{
-            gridTemplateColumns: `repeat(${project.metrics.length}, 1fr)`,
-            border: "1px solid #e5e7eb",
-            borderRadius: 12,
-            overflow: "hidden",
-          }}
-        >
-          {project.metrics.map((m, i) => (
-            <div key={i} className="case-metric" style={{ padding: "28px 24px" }}>
-              <p
-                style={{
-                  fontSize: 32,
-                  fontWeight: 700,
-                  letterSpacing: "-0.03em",
-                  marginBottom: 6,
-                }}
-              >
-                {m.value}
-              </p>
-              <p style={{ fontSize: 13, color: "#6b7280" }}>{m.label}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="grid-2" style={{ gap: 16, marginTop: 20 }}>
+        <div className="grid-2" style={{ gap: 16 }}>
           <div style={{ border: "1px solid #e5e7eb", borderRadius: 12, padding: "20px 22px" }}>
             <p style={{ fontSize: 11, fontWeight: 500, color: "#9ca3af", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
               Role

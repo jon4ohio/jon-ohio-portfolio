@@ -12,6 +12,8 @@ npm run build    # Production build
 npm run lint     # ESLint
 ```
 
+**Live preview (Cursor / VS Code):** With `npm run dev` running, open http://localhost:3000 — use the **Ports** view to forward/open the app if prompted, **Simple Browser: Show** from the Command Palette, or your system browser. Workspace settings (`.vscode/settings.json`) label port **3000** and request **open browser** on auto-forward when the editor supports it.
+
 No test suite is configured.
 
 ## Architecture
