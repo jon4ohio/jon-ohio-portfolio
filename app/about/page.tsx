@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "John Ohio — Product Design Lead based in Abuja, Nigeria. Five years building trusted systems across enterprise SaaS, fintech infrastructure, and 0→1 products.",
+    "John Ohio — Product Design Lead based in Abuja, Nigeria. Five years building trusted systems across enterprise SaaS, fintech infrastructure, and 0→1 products. Community: speaking, facilitation, and mentorship.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About — John Ohio",
@@ -15,6 +15,12 @@ export const metadata: Metadata = {
 };
 
 import AssetImage from "@/components/AssetImage";
+import {
+  communityCards,
+  communityPullQuote,
+  communitySectionEyebrow,
+  communitySectionTitle,
+} from "@/lib/communityContribution";
 import type { ImageAsset } from "@/lib/projects";
 
 const portrait: ImageAsset = {
@@ -143,6 +149,67 @@ export default function About() {
             </div>
           </div>
 
+        </div>
+
+        <div
+          style={{
+            marginTop: 80,
+            paddingTop: 80,
+            borderTop: "1px solid var(--border)",
+          }}
+        >
+          <blockquote style={{ margin: 0, marginBottom: 56, padding: 0 }}>
+            <p
+              style={{
+                fontSize: "clamp(26px, 3.5vw, 44px)",
+                fontWeight: 600,
+                letterSpacing: "-0.03em",
+                lineHeight: 1.2,
+                color: "var(--fg-strong)",
+                marginBottom: 16,
+              }}
+            >
+              “{communityPullQuote.text}”
+            </p>
+            <p style={{ fontSize: "clamp(18px, 2vw, 24px)", color: "var(--fg-muted)", fontWeight: 500 }}>
+              — {communityPullQuote.attribution}
+            </p>
+          </blockquote>
+
+          <p className="section-label" style={{ marginBottom: 8 }}>
+            {communitySectionEyebrow}
+          </p>
+          <h2
+            style={{
+              fontSize: "clamp(28px, 3.5vw, 40px)",
+              fontWeight: 600,
+              letterSpacing: "-0.03em",
+              lineHeight: 1.15,
+              marginBottom: 28,
+            }}
+          >
+            {communitySectionTitle}
+          </h2>
+
+          <div className="grid-2" style={{ gap: "44px 56px", alignItems: "start" }}>
+            {communityCards.map((card, i) => (
+              <div key={i}>
+                <div style={{ marginBottom: 14 }}>
+                  <AssetImage
+                    asset={card.asset}
+                    sizes="(max-width: 900px) 92vw, 520px"
+                  />
+                </div>
+                <h3 style={{ fontSize: 20, fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 6 }}>
+                  {card.title}
+                </h3>
+                <p style={{ fontSize: 16, color: "var(--fg-muted)", fontWeight: 500, marginBottom: 10 }}>
+                  {card.subtitle}
+                </p>
+                <p style={{ fontSize: 17, lineHeight: 1.45, color: "var(--fg-body)" }}>{card.body}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>
