@@ -71,10 +71,6 @@ export default function SystemModel() {
           </div>
         ))}
       </div>
-
-      <p style={{ fontSize: 14, color: "var(--fg-muted)", lineHeight: 1.6, marginTop: 24 }}>
-        That arc shows up across the case studies below — work from fragmented to intelligent.
-      </p>
     </section>
   );
 }

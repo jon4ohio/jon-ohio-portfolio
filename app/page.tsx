@@ -117,7 +117,7 @@ export default function Home() {
 
       {/* ── 3. SELECTED SYSTEMS ─────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
-        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 48, flexWrap: "wrap", gap: 12 }}>
+        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 16, flexWrap: "wrap", gap: 12 }}>
           <p className="section-label">
             Selected Systems
           </p>
@@ -125,6 +125,9 @@ export default function Home() {
             View all →
           </Link>
         </div>
+        <p style={{ fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.6, maxWidth: 520, marginBottom: 48 }}>
+          That arc shows up across the case studies below — work from fragmented to intelligent.
+        </p>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
           {systemGroups.map((group, gi) => {
@@ -156,7 +159,7 @@ export default function Home() {
                   {group.label}
                 </p>
                 <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-                  {groupItems.map((p, idx) => (
+                  {groupItems.map((p) => (
                     <Link
                       key={p.slug}
                       href={`/work/${p.slug}`}
@@ -165,13 +168,10 @@ export default function Home() {
                         textDecoration: "none",
                         color: "inherit",
                         display: "flex",
-                        alignItems: "baseline",
-                        justifyContent: "space-between",
-                        gap: 16,
-                        flexWrap: "wrap",
+                        flexDirection: "column",
+                        gap: 8,
                         padding: "14px 8px",
                         margin: "0 -8px",
-                        borderTop: idx > 0 ? "1px solid var(--border)" : "none",
                       }}
                     >
                       <span style={{ display: "flex", flexDirection: "column", gap: 4 }}>
@@ -180,7 +180,7 @@ export default function Home() {
                         </span>
                         <span style={{ fontSize: 13, color: "var(--fg-muted)" }}>{p.subtitle}</span>
                       </span>
-                      <span style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", justifyContent: "flex-end" }}>
+                      <span style={{ display: "flex", alignItems: "center", justifyContent: p.metrics?.length ? "space-between" : "flex-end", gap: 10 }}>
                         {p.metrics?.length ? (
                           <span className="metric-badges" aria-label="Key metrics">
                             {p.metrics.slice(0, 3).map((m, mi) => (
