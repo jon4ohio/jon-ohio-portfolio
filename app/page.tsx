@@ -1,290 +1,330 @@
 import Link from "next/link";
-import { getFeaturedProjects } from "@/lib/projects";
+import type { Metadata } from "next";
+import { projects } from "@/lib/projects";
+import Hero from "@/components/Hero";
+import SystemModel from "@/components/SystemModel";
 
-const metrics = [
-  { value: "$1M+", label: "saved · FetsProza" },
-  { value: "75%↑", label: "satisfaction · SeamlessHiring" },
-  { value: "10k+", label: "downloads · IBEDC" },
-  { value: "#4", label: "Product Hunt · Rivva" },
+export const metadata: Metadata = {
+  title: "John Ohio — Product Systems & DesignOps Lead",
+  description:
+    "Product Design Lead designing systems that evolve across enterprise SaaS, fintech, and AI — from fragmented to intelligent. $1M+ saved annually, 12 teams aligned, 2.49M token usage.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "John Ohio — Product Systems & DesignOps Lead",
+    description:
+      "I design systems that evolve — from fragmented to intelligent. Design systems · DesignOps · Enterprise SaaS · AI UX.",
+    url: "/",
+    type: "website",
+  },
+};
+
+const heroMetrics = [
+  { value: "$1M+", label: "saved annually" },
+  { value: "↑75%", label: "satisfaction" },
+  { value: "2.49M", label: "token usage" },
+  { value: "12", label: "teams scaled" },
+  { value: "#4", label: "Product Hunt" },
+];
+
+const systemGroups = [
+  {
+    label: "Product Systems",
+    slugs: ["seamless-hiring"],
+  },
+  {
+    label: "Organizational Systems",
+    slugs: ["seamkit"],
+  },
+  {
+    label: "Operational Systems",
+    slugs: ["fetsproza", "ibedc", "abms"],
+  },
+  {
+    label: "Intelligent Systems",
+    slugs: ["rivva", "seamless-ai"],
+  },
+  {
+    label: "0→1 Systems",
+    slugs: ["clearprice", "blualliance"],
+  },
 ];
 
 const capabilities = [
-  {
-    label: "Enterprise SaaS",
-    desc: "Multi-product platforms at organisational scale. Structured, governed, built to last.",
-  },
-  {
-    label: "Fintech Infrastructure",
-    desc: "Operational and regulatory complexity in financial systems. From mobile money to RevOps.",
-  },
-  {
-    label: "Design Systems",
-    desc: "Token-based systems that scale across teams and codebases. Not a library — a system.",
-  },
-  {
-    label: "0→1 Product Design",
-    desc: "From ambiguity to validated MVP. Discovery, definition, and cross-functional execution.",
-  },
+  { label: "System Design", desc: "Restructure fragmented systems into scalable product foundations" },
+  { label: "Design Systems", desc: "Build token-driven systems with governance and cross-team adoption" },
+  { label: "Product Growth", desc: "Design onboarding, adoption, and PLG-driven system flows" },
+  { label: "DesignOps", desc: "Operationalize design through governance, workflows, and team systems" },
+  { label: "AI UX", desc: "Design assistive, explainable, and reusable AI interaction patterns" },
 ];
 
-const evolutionStages = [
-  { stage: "01", label: "Fragmented", sub: "Where most products start" },
-  { stage: "02", label: "Structured", sub: "Clear foundations, consistent workflows" },
-  { stage: "03", label: "Scalable", sub: "Design and engineering unified at scale" },
-  { stage: "04", label: "Intelligent", sub: "AI woven into mature systems" },
+const principles = [
+  "Systems over screens.",
+  "Structure reduces complexity.",
+  "Decisions compound over time.",
+  "Design must reflect operational reality.",
 ];
 
-const featuredWork = getFeaturedProjects().slice(0, 4);
+const currentFocus = [
+  "AI-integrated enterprise systems",
+  "Product-led growth transformation",
+  "DesignOps and organizational scale",
+];
 
 export default function Home() {
+  const projectMap = new Map(projects.map((p) => [p.slug, p]));
+
   return (
     <div style={{ paddingTop: 56 }}>
 
-      {/* ── Hero ── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 80px" }}>
-        <p className="animate-fade-up delay-1" style={{ fontSize: 13, fontWeight: 500, color: "#6b7280", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 24 }}>
-          Product Design Lead · Design Systems · Fintech · Enterprise
-        </p>
-        <h1
-          className="animate-fade-up delay-2"
-          style={{
-            fontSize: "clamp(40px, 6vw, 72px)",
-            fontWeight: 600,
-            letterSpacing: "-0.03em",
-            lineHeight: 1.1,
-            maxWidth: 800,
-            marginBottom: 32,
-          }}
-        >
-          I design product systems that evolve.
-        </h1>
-        <p className="animate-fade-up delay-3" style={{ fontSize: 20, color: "#6b7280", maxWidth: 540, marginBottom: 48, lineHeight: 1.5 }}>
-          From fragmented → structured → scalable → intelligent.
-        </p>
-        <div className="animate-fade-up delay-4" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-          <Link
-            href="/work"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              background: "#0a0a0a",
-              color: "#fff",
-              fontSize: 14,
-              fontWeight: 500,
-              padding: "12px 24px",
-              borderRadius: 8,
-              textDecoration: "none",
-              letterSpacing: "-0.01em",
-            }}
-          >
-            View selected work →
-          </Link>
-          <a
-            href="mailto:jon4ohio@gmail.com"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              background: "transparent",
-              color: "#0a0a0a",
-              fontSize: 14,
-              fontWeight: 500,
-              padding: "12px 24px",
-              borderRadius: 8,
-              textDecoration: "none",
-              border: "1px solid #e5e7eb",
-              letterSpacing: "-0.01em",
-            }}
-          >
-            Get in touch
-          </a>
-        </div>
-      </section>
+      <Hero />
 
-      {/* ── Metrics strip ── */}
-      <section style={{ borderTop: "1px solid #e5e7eb", borderBottom: "1px solid #e5e7eb", background: "#f9fafb" }}>
+      <section
+        aria-label="Career metrics"
+        style={{
+          borderTop: "1px solid var(--border)",
+          borderBottom: "1px solid var(--border)",
+          background: "var(--surface)",
+        }}
+      >
         <div
+          className="hero-metrics"
           style={{
             maxWidth: 1120,
             margin: "0 auto",
             padding: "0 24px",
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: 0,
           }}
         >
-          {metrics.map((m, i) => (
-            <div
-              key={i}
-              style={{
-                padding: "28px 32px",
-                borderRight: i < metrics.length - 1 ? "1px solid #e5e7eb" : "none",
-              }}
-            >
-              <p style={{ fontSize: 28, fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 4 }}>{m.value}</p>
-              <p style={{ fontSize: 13, color: "#6b7280" }}>{m.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── What I Do ── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "96px 24px 0" }}>
-        <div style={{ maxWidth: 640 }}>
-          <p style={{ fontSize: 12, fontWeight: 500, color: "#6b7280", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
-            What I Do
-          </p>
-          <h2 style={{ fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.2, marginBottom: 24 }}>
-            I design product systems for complex platforms.
-          </h2>
-          <p style={{ fontSize: 17, color: "#4b5563", lineHeight: 1.7 }}>
-            I structure fragmented products and scale them into cohesive, high-performing systems — across enterprise SaaS, fintech infrastructure, and 0→1 founding environments. My work spans design execution, systems architecture, and DesignOps leadership.
-          </p>
-        </div>
-      </section>
-
-      {/* ── System Evolution Model ── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "80px 24px 0" }}>
-        <p style={{ fontSize: 12, fontWeight: 500, color: "#6b7280", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 48 }}>
-          System Evolution Model
-        </p>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 0, border: "1px solid #e5e7eb", borderRadius: 12, overflow: "hidden" }}>
-          {evolutionStages.map((s, i) => (
-            <div
-              key={i}
-              style={{
-                padding: "32px 28px",
-                borderRight: i < evolutionStages.length - 1 ? "1px solid #e5e7eb" : "none",
-                position: "relative",
-                background: i === 3 ? "#0a0a0a" : "#fff",
-                color: i === 3 ? "#fff" : "#0a0a0a",
-              }}
-            >
-              <p style={{ fontSize: 11, fontWeight: 500, color: i === 3 ? "rgba(255,255,255,0.4)" : "#9ca3af", marginBottom: 16, letterSpacing: "0.06em" }}>
-                {s.stage}
+          {heroMetrics.map((m) => (
+            <div key={m.value} className="hero-metric">
+              <p
+                style={{
+                  fontSize: 26,
+                  fontWeight: 600,
+                  letterSpacing: "-0.02em",
+                  marginBottom: 4,
+                }}
+              >
+                {m.value}
               </p>
-              <p style={{ fontSize: 18, fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 8 }}>{s.label}</p>
-              <p style={{ fontSize: 13, color: i === 3 ? "rgba(255,255,255,0.6)" : "#6b7280", lineHeight: 1.5 }}>{s.sub}</p>
-              {i < evolutionStages.length - 1 && (
-                <span style={{ position: "absolute", right: -8, top: "50%", transform: "translateY(-50%)", fontSize: 14, color: "#d1d5db", zIndex: 1 }}>
-                  →
-                </span>
-              )}
+              <p style={{ fontSize: 13, color: "var(--fg-muted)" }}>{m.label}</p>
             </div>
           ))}
+          <div className="hero-metric hero-metric--filler" aria-hidden="true" />
         </div>
       </section>
 
-      {/* ── Capabilities ── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "80px 24px 0" }}>
-        <p style={{ fontSize: 12, fontWeight: 500, color: "#6b7280", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 48 }}>
-          Where I Operate
-        </p>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16 }}>
-          {capabilities.map((c, i) => (
-            <div
-              key={i}
-              style={{
-                padding: "32px",
-                border: "1px solid #e5e7eb",
-                borderRadius: 12,
-                transition: "border-color 0.2s",
-              }}
-            >
-              <h3 style={{ fontSize: 16, fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 12 }}>{c.label}</h3>
-              <p style={{ fontSize: 14, color: "#6b7280", lineHeight: 1.6 }}>{c.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <SystemModel />
 
-      {/* ── Selected Work ── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "96px 24px 0" }}>
-        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 48 }}>
-          <p style={{ fontSize: 12, fontWeight: 500, color: "#6b7280", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-            Selected Work
+      {/* ── 3. SELECTED SYSTEMS ─────────────────────────────── */}
+      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
+        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 16, flexWrap: "wrap", gap: 12 }}>
+          <p className="section-label">
+            Selected Systems
           </p>
-          <Link href="/work" style={{ fontSize: 13, color: "#6b7280", textDecoration: "none" }}>
+          <Link href="/work" style={{ fontSize: 13, color: "var(--fg-muted)", textDecoration: "none" }}>
             View all →
           </Link>
         </div>
+        <p style={{ fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.6, maxWidth: 520, marginBottom: 48 }}>
+          Across each stage — from structure to intelligence.
+        </p>
 
-        <div style={{ display: "grid", gap: 2 }}>
-          {featuredWork.map((p) => (
-            <Link
-              key={p.slug}
-              href={`/work/${p.slug}`}
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr auto",
-                alignItems: "center",
-                gap: 24,
-                padding: "28px 0",
-                borderTop: "1px solid #e5e7eb",
-                textDecoration: "none",
-                color: "inherit",
-                transition: "background 0.15s",
-              }}
-            >
-              <div>
-                <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
-                  <span style={{ fontSize: 11, color: "#9ca3af", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase" }}>
-                    {p.category}
-                  </span>
-                  <span style={{ fontSize: 11, color: "#d1d5db" }}>·</span>
-                  <span style={{ fontSize: 11, color: "#9ca3af" }}>{p.company}</span>
+        <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+          {systemGroups.map((group, gi) => {
+            const groupItems = group.slugs
+              .map((s) => projectMap.get(s))
+              .filter((p): p is NonNullable<typeof p> => Boolean(p));
+            if (groupItems.length === 0) return null;
+            return (
+              <div
+                key={group.label}
+                style={{
+                  padding: "32px 0",
+                  borderTop: "1px solid var(--border)",
+                  borderBottom: gi === systemGroups.length - 1 ? "1px solid var(--border)" : "none",
+                  alignItems: "start",
+                }}
+                className="grid-systems-group"
+              >
+                <p
+                  style={{
+                    fontSize: 12,
+                    fontWeight: 500,
+                    color: "var(--fg-subtle)",
+                    letterSpacing: "0.06em",
+                    textTransform: "uppercase",
+                    paddingTop: 4,
+                  }}
+                >
+                  {group.label}
+                </p>
+                <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+                  {groupItems.map((p, pi) => (
+                    <Link
+                      key={p.slug}
+                      href={`/work/${p.slug}`}
+                      className="system-project-link"
+                      style={{
+                        textDecoration: "none",
+                        color: "inherit",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: 8,
+                        padding: "14px 8px",
+                        margin: "0 -8px",
+                        borderTop: "none",
+                      }}
+                    >
+                      <span style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                        <span style={{ fontSize: 18, fontWeight: 600, letterSpacing: "-0.01em" }}>
+                          {p.title}
+                        </span>
+                        <span style={{ fontSize: 13, color: "var(--fg-muted)" }}>{p.subtitle}</span>
+                      </span>
+                      <span style={{ display: "flex", alignItems: "center", justifyContent: p.metrics?.length ? "space-between" : "flex-end", gap: 10 }}>
+                        {p.metrics?.length ? (
+                          <span className="metric-badges" aria-label="Key metrics">
+                            {p.metrics.slice(0, 3).map((m, mi) => (
+                              <span key={mi} className="metric-badge">
+                                <span className="metric-badge__value">{m.value}</span>
+                                <span className="metric-badge__label">{m.label}</span>
+                              </span>
+                            ))}
+                          </span>
+                        ) : null}
+                        <span style={{ fontSize: 13, color: "var(--fg-subtle)" }}>→</span>
+                      </span>
+                    </Link>
+                  ))}
                 </div>
-                <h3 style={{ fontSize: 20, fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 6 }}>{p.title}</h3>
-                <p style={{ fontSize: 14, color: "#6b7280" }}>{p.subtitle}</p>
               </div>
-              <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "flex-end", alignItems: "center" }}>
-                {p.metrics.slice(0, 2).map((m, j) => (
-                  <span
-                    key={j}
-                    style={{
-                      fontSize: 13,
-                      fontWeight: 600,
-                      color: "#0a0a0a",
-                      background: "#f3f4f6",
-                      padding: "4px 10px",
-                      borderRadius: 6,
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    {m.value} <span style={{ fontWeight: 400, color: "#9ca3af" }}>{m.label}</span>
-                  </span>
-                ))}
-                <span style={{ color: "#9ca3af", fontSize: 18 }}>→</span>
-              </div>
-            </Link>
-          ))}
-          <div style={{ borderTop: "1px solid #e5e7eb" }} />
+            );
+          })}
         </div>
       </section>
 
-      {/* ── Leadership Preview ── */}
-      <section style={{ maxWidth: 1120, margin: "96px auto 0", padding: "0 24px" }}>
-        <div
+      {/* ── 4. WHAT I DO ────────────────────────────────────── */}
+      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
+        <p className="section-label" style={{ marginBottom: 20 }}>
+          What I Do
+        </p>
+        <h2
           style={{
-            background: "#0a0a0a",
+            fontSize: "clamp(24px, 3vw, 36px)",
+            fontWeight: 600,
+            letterSpacing: "-0.02em",
+            lineHeight: 1.2,
+            marginBottom: 48,
+            maxWidth: 640,
+          }}
+        >
+          System-level capabilities.
+        </h2>
+        <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+          {capabilities.map((c, i) => (
+            <div
+              key={c.label}
+              style={{
+                padding: "24px 0",
+                borderTop: "1px solid var(--border)",
+                borderBottom: i === capabilities.length - 1 ? "1px solid var(--border)" : "none",
+                alignItems: "baseline",
+              }}
+              className="grid-systems-group grid-systems-group--wide"
+            >
+              <p style={{ fontSize: 16, fontWeight: 600, letterSpacing: "-0.01em" }}>{c.label}</p>
+              <p style={{ fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.6 }}>{c.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── 5. HOW I THINK ──────────────────────────────────── */}
+      <section
+        style={{
+          background: "var(--surface)",
+          borderTop: "1px solid var(--border)",
+          borderBottom: "1px solid var(--border)",
+        }}
+      >
+        <div style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px" }}>
+          <p className="section-label" style={{ marginBottom: 20 }}>
+            How I Think
+          </p>
+          <h2
+            style={{
+              fontSize: "clamp(24px, 3vw, 36px)",
+              fontWeight: 600,
+              letterSpacing: "-0.02em",
+              lineHeight: 1.2,
+              marginBottom: 48,
+              maxWidth: 640,
+            }}
+          >
+            Four operating principles.
+          </h2>
+          <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 0 }}>
+            {principles.map((p, i) => (
+              <li
+                key={i}
+                style={{
+                  fontSize: "clamp(20px, 2.4vw, 28px)",
+                  fontWeight: 500,
+                  letterSpacing: "-0.02em",
+                  color: "var(--fg)",
+                  padding: "24px 0",
+                  borderTop: "1px solid var(--border)",
+                  borderBottom: i === principles.length - 1 ? "1px solid var(--border)" : "none",
+                }}
+              >
+                <span style={{ fontSize: 13, color: "var(--fg-subtle)", marginRight: 16, fontWeight: 400 }}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                {p}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* ── 7. LEADERSHIP & DESIGNOPS TEASER ────────────────── */}
+      <section style={{ maxWidth: 1120, margin: "120px auto 0", padding: "0 24px" }}>
+        <div
+          className="grid-2 pad-inset-wide"
+          style={{
+            background: "var(--fg)",
             borderRadius: 16,
-            padding: "64px 56px",
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
             gap: 64,
             alignItems: "center",
           }}
         >
           <div>
-            <p style={{ fontSize: 12, fontWeight: 500, color: "rgba(255,255,255,0.4)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 20 }}>
+            <p
+              style={{
+                fontSize: 12,
+                fontWeight: 500,
+                color: "rgba(255,255,255,0.4)",
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                marginBottom: 20,
+              }}
+            >
               Leadership & DesignOps
             </p>
-            <h2 style={{ fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 600, letterSpacing: "-0.02em", color: "#fff", lineHeight: 1.2, marginBottom: 20 }}>
-              Scaling design as a function.
+            <h2
+              style={{
+                fontSize: "clamp(24px, 3vw, 36px)",
+                fontWeight: 600,
+                letterSpacing: "-0.02em",
+                color: "var(--bg)",
+                lineHeight: 1.2,
+                marginBottom: 24,
+              }}
+            >
+              Design as a system — not a service
             </h2>
             <p style={{ fontSize: 16, color: "rgba(255,255,255,0.6)", lineHeight: 1.7, marginBottom: 32 }}>
-              Led DesignOps and system adoption across 12 product teams — transforming design from execution into an operational system.
+              Built and scaled design systems across 12 teams — governance, contribution, onboarding, and AI UX integration
             </p>
             <Link
               href="/leadership"
@@ -292,8 +332,8 @@ export default function Home() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 8,
-                background: "#fff",
-                color: "#0a0a0a",
+                background: "var(--bg)",
+                color: "var(--fg)",
                 fontSize: 14,
                 fontWeight: 500,
                 padding: "12px 24px",
@@ -301,55 +341,101 @@ export default function Home() {
                 textDecoration: "none",
               }}
             >
-              View leadership work →
+              View Leadership & DesignOps →
             </Link>
           </div>
-          <div style={{ display: "grid", gap: 12 }}>
+          <ul
+            style={{
+              listStyle: "none",
+              padding: 0,
+              margin: 0,
+              display: "flex",
+              flexDirection: "column",
+              gap: 0,
+            }}
+          >
             {[
-              { value: "12", label: "Product teams led" },
-              { value: "8", label: "Designers mentored" },
-              { value: "30%", label: "Onboarding time reduced" },
-              { value: "88.9", label: "System adoption score" },
-            ].map((stat, i) => (
-              <div
+              "Unified token architecture and component libraries at scale",
+              "Reduced design-to-dev handoff friction across product squads",
+              "Embedded AI UX patterns into the core design workflow",
+            ].map((line, i) => (
+              <li
                 key={i}
                 style={{
-                  background: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  borderRadius: 10,
-                  padding: "18px 24px",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
+                  fontSize: 15,
+                  color: "rgba(255,255,255,0.85)",
+                  padding: "18px 0",
+                  borderTop: "1px solid rgba(255,255,255,0.1)",
+                  borderBottom: i === 2 ? "1px solid rgba(255,255,255,0.1)" : "none",
                 }}
               >
-                <span style={{ fontSize: 13, color: "rgba(255,255,255,0.5)" }}>{stat.label}</span>
-                <span style={{ fontSize: 22, fontWeight: 600, color: "#fff", letterSpacing: "-0.02em" }}>{stat.value}</span>
-              </div>
+                {line}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "96px 24px 0", textAlign: "center" }}>
-        <p style={{ fontSize: 12, fontWeight: 500, color: "#6b7280", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 24 }}>
-          Available for senior roles
+      {/* ── 8. CURRENT FOCUS ────────────────────────────────── */}
+      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
+        <p className="section-label" style={{ marginBottom: 20 }}>
+          Current Focus
         </p>
-        <h2 style={{ fontSize: "clamp(28px, 4vw, 48px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.15, marginBottom: 24 }}>
-          Let&apos;s build something that lasts.
+        <h2
+          style={{
+            fontSize: "clamp(24px, 3vw, 36px)",
+            fontWeight: 600,
+            letterSpacing: "-0.02em",
+            lineHeight: 1.2,
+            marginBottom: 48,
+            maxWidth: 640,
+          }}
+        >
+          Where my work is evolving.
         </h2>
-        <p style={{ fontSize: 17, color: "#6b7280", maxWidth: 480, margin: "0 auto 40px", lineHeight: 1.6 }}>
-          Open to Design Systems Lead, Head of Design, and senior IC roles in enterprise SaaS and fintech.
+        <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 0 }}>
+          {currentFocus.map((line, i) => (
+            <li
+              key={i}
+              style={{
+                fontSize: 17,
+                color: "var(--fg-strong)",
+                padding: "20px 0",
+                borderTop: "1px solid var(--border)",
+                borderBottom: i === currentFocus.length - 1 ? "1px solid var(--border)" : "none",
+              }}
+            >
+              {line}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* ── 9. CLOSING ──────────────────────────────────────── */}
+      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 120px", textAlign: "center" }}>
+        <p className="section-label" style={{ marginBottom: 24 }}>
+          Closing
         </p>
+        <h2
+          style={{
+            fontSize: "clamp(28px, 4vw, 48px)",
+            fontWeight: 600,
+            letterSpacing: "-0.03em",
+            lineHeight: 1.15,
+            maxWidth: 760,
+            margin: "0 auto 32px",
+          }}
+        >
+          I design systems that evolve —<br />from fragmented → structured → scalable → intelligent
+        </h2>
         <a
           href="mailto:jon4ohio@gmail.com"
           style={{
             display: "inline-flex",
             alignItems: "center",
             gap: 8,
-            background: "#0a0a0a",
-            color: "#fff",
+            background: "var(--fg)",
+            color: "var(--bg)",
             fontSize: 14,
             fontWeight: 500,
             padding: "14px 28px",

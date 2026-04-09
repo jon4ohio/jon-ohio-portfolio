@@ -1,0 +1,9 @@
+{
+  "portsAttributes": {
+    "3000": {
+      "label": "Next.js dev",
+      "onAutoForward": "openBrowser",
+      "protocol": "http"
+    }
+  }
+}

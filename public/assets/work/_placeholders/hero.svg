@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1350" viewBox="0 0 2400 1350" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="2400" y2="1350" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A0A0A" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#0A0A0A" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="2398" height="1348" rx="40" fill="url(#bg)" stroke="#E5E7EB" stroke-width="2"/>
+  <g opacity="0.75">
+    <rect x="120" y="150" width="1020" height="74" rx="18" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+    <rect x="120" y="270" width="1680" height="44" rx="14" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+    <rect x="120" y="340" width="1440" height="44" rx="14" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+    <rect x="120" y="410" width="1280" height="44" rx="14" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+  </g>
+  <g opacity="0.45">
+    <rect x="120" y="540" width="2160" height="660" rx="32" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+    <path d="M260 1110L700 720L980 980L1330 650L2060 1260" stroke="#9CA3AF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="740" cy="690" r="46" fill="#D1D5DB"/>
+  </g>
+  <text x="120" y="1270" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="34" fill="#6B7280" letter-spacing="0.02em">
+    Case study hero (placeholder)
+  </text>
+</svg>
