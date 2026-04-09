@@ -147,9 +147,9 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
           <span style={{ fontSize: 11, fontWeight: 500, color: "#9ca3af", letterSpacing: "0.08em", textTransform: "uppercase" }}>
             {project.category}
           </span>
-          <span style={{ fontSize: 11, color: "#d1d5db" }}>·</span>
+          <span aria-hidden="true" style={{ fontSize: 11, color: "var(--border-subtle)" }}>·</span>
           <span style={{ fontSize: 11, color: "#9ca3af" }}>{project.company}</span>
-          <span style={{ fontSize: 11, color: "#d1d5db" }}>·</span>
+          <span aria-hidden="true" style={{ fontSize: 11, color: "var(--border-subtle)" }}>·</span>
           <span style={{ fontSize: 11, color: "#9ca3af" }}>{project.period}</span>
         </div>
         <h1 style={{ fontSize: "clamp(32px, 5vw, 60px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.05, marginBottom: 16, maxWidth: 800 }}>
@@ -157,7 +157,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
         </h1>
         <p style={{ fontSize: 20, color: "#6b7280", marginBottom: 16 }}>{project.subtitle}</p>
 
-        <p style={{ fontSize: 18, color: "#374151", lineHeight: 1.7, maxWidth: 760, marginBottom: 16 }}>{project.summary}</p>
+        <p style={{ fontSize: 18, color: "var(--fg-body)", lineHeight: 1.7, maxWidth: 760, marginBottom: 16 }}>{project.summary}</p>
 
         {/* Metric badges — below description; size/spacing from globals for responsive type */}
         <div className="metric-badges metric-badges--hero" style={{ marginBottom: 36 }}>
@@ -192,13 +192,13 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
             <p style={{ fontSize: 11, fontWeight: 500, color: "#9ca3af", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
               Role
             </p>
-            <p style={{ fontSize: 15, color: "#1f2937", lineHeight: 1.65 }}>{project.role}</p>
+            <p style={{ fontSize: 15, color: "var(--fg-strong)", lineHeight: 1.65 }}>{project.role}</p>
           </div>
           <div style={{ border: "1px solid #e5e7eb", borderRadius: 12, padding: "20px 22px" }}>
             <p style={{ fontSize: 11, fontWeight: 500, color: "#9ca3af", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
               Scope
             </p>
-            <p style={{ fontSize: 15, color: "#1f2937", lineHeight: 1.65 }}>{project.scope}</p>
+            <p style={{ fontSize: 15, color: "var(--fg-strong)", lineHeight: 1.65 }}>{project.scope}</p>
           </div>
         </div>
       </section>
@@ -243,7 +243,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
                   fontWeight: section.label === "Key Insight" ? 500 : 400,
                   letterSpacing: section.label === "Key Insight" ? "-0.01em" : "normal",
                   lineHeight: 1.75,
-                  color: "#1f2937",
+                  color: "var(--fg-strong)",
                 }}
               >
                 {section.content}
@@ -252,14 +252,6 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
           ));
         })()}
 
-        {/* Tags */}
-        <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-          {project.tags.map((t) => (
-            <span key={t} style={{ fontSize: 12, color: "#6b7280", border: "1px solid #e5e7eb", padding: "4px 10px", borderRadius: 4 }}>
-              {t}
-            </span>
-          ))}
-        </div>
       </section>
 
       {/* ── Case Study Assets ── */}
@@ -272,6 +264,17 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
           </div>
         </section>
       ) : null}
+
+      {/* Tags */}
+      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 80px" }}>
+        <div style={{ maxWidth: 760, margin: "0 auto", display: "flex", gap: 6, flexWrap: "wrap" }}>
+          {project.tags.map((t) => (
+            <span key={t} style={{ fontSize: 12, color: "#6b7280", border: "1px solid #e5e7eb", padding: "4px 10px", borderRadius: 4 }}>
+              {t}
+            </span>
+          ))}
+        </div>
+      </section>
 
       {/* ── Next / Prev ── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 120px" }}>

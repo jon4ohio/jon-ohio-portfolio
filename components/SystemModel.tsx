@@ -62,7 +62,7 @@ export default function SystemModel() {
             >
               <span>{stage.title}</span>
               {index < stages.length - 1 ? (
-                <span aria-hidden="true" style={{ color: "#6b7280", fontWeight: 500, marginLeft: 2 }}>
+                <span className="system-model-arrow" aria-hidden="true" style={{ color: "#6b7280", fontWeight: 500, marginLeft: 2 }}>
                   →
                 </span>
               ) : null}

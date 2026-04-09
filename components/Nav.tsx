@@ -64,7 +64,7 @@ export default function Nav() {
                     padding: "6px 12px",
                     borderRadius: 6,
                     transition: "color 0.15s, background 0.15s",
-                    background: active ? "#f3f4f6" : "transparent",
+                    background: active ? "var(--surface-subtle)" : "transparent",
                   }}
                 >
                   {l.label}
@@ -160,7 +160,7 @@ export default function Nav() {
                 color: active ? "#0a0a0a" : "#6b7280",
                 textDecoration: "none",
                 padding: "13px 0",
-                borderBottom: "1px solid #f3f4f6",
+                borderBottom: "1px solid var(--surface-subtle)",
               }}
             >
               {l.label}

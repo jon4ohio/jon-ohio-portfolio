@@ -20,7 +20,7 @@ export default function Footer() {
           <p style={{ fontSize: 13, color: "#6b7280" }}>Product Design Lead · Abuja, Nigeria</p>
         </div>
 
-        <nav aria-label="Footer navigation" style={{ display: "flex", gap: 32 }}>
+        <nav aria-label="Footer navigation" className="footer-nav" style={{ display: "flex", gap: 32 }}>
           {[
             { label: "Work", href: "/work" },
             { label: "Leadership", href: "/leadership" },
@@ -32,7 +32,7 @@ export default function Footer() {
           ))}
         </nav>
 
-        <div style={{ display: "flex", gap: 16 }}>
+        <div className="footer-contact-links" style={{ display: "flex", gap: 16 }}>
           <a href="mailto:jon4ohio@gmail.com" style={{ fontSize: 13, color: "#6b7280", textDecoration: "none" }}>
             jon4ohio@gmail.com
           </a>

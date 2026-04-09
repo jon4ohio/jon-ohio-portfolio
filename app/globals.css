@@ -5,9 +5,14 @@
   --fg: #0a0a0a;
   --fg-muted: #6b7280;
   --fg-subtle: #9ca3af;
+  --fg-strong: #1f2937;
+  --fg-body: #374151;
+  --fg-body-muted: #4b5563;
   --border: #e5e7eb;
+  --border-subtle: #d1d5db;
   --accent: #0a0a0a;
   --surface: #f9fafb;
+  --surface-subtle: #f3f4f6;
 }
 
 * { box-sizing: border-box; padding: 0; margin: 0; }
@@ -26,16 +31,33 @@ body {
   overflow-x: hidden;
 }
 
+.section-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--fg-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 /* Hover affordances (keep minimal, no extra animation) */
 .work-list-row:hover {
   background: #f9fafb;
-  cursor: pointer;
 }
 .grid-systems-group a:hover {
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 .case-study-nav-link:hover p:last-child {
+  color: #0a0a0a;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.nav-desktop-links a:hover {
+  background: var(--surface-subtle);
+  color: #0a0a0a;
+}
+.footer-nav a:hover,
+.footer-contact-links a:hover {
   color: #0a0a0a;
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -243,6 +265,7 @@ button:focus-visible {
 }
 @media (max-width: 640px) {
   .system-model-grid { grid-template-columns: 1fr; }
+  .system-model-arrow { display: none; }
 }
 
 /* Selected systems / capabilities row: label + content */
@@ -258,6 +281,8 @@ button:focus-visible {
 @media (max-width: 900px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .leadership-focus-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .leadership-focus-grid > :last-child { grid-column: 1 / -1; }
   .grid-2-lg { gap: 48px; }
   /* Selected systems / capabilities rows: tighter label column on tablet */
   .grid-systems-group { grid-template-columns: 160px 1fr; gap: 24px; }
@@ -323,6 +348,9 @@ button:focus-visible {
   .grid-systems-group {
     grid-template-columns: 1fr !important;
     gap: 12px !important;
+  }
+  .about-timeline-row {
+    grid-template-columns: 80px 1fr !important;
   }
 
   .hide-mobile    { display: none !important; }
