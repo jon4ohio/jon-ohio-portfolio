@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer style={{ borderTop: "1px solid #e5e7eb", marginTop: 0 }}>
+    <footer style={{ borderTop: "1px solid var(--border)", marginTop: 0 }}>
       <div
         style={{
           maxWidth: 1120,
@@ -17,7 +17,7 @@ export default function Footer() {
       >
         <div>
           <p style={{ fontWeight: 600, fontSize: 15, marginBottom: 4 }}>John Ohio</p>
-          <p style={{ fontSize: 13, color: "#6b7280" }}>Product Design Lead · Abuja, Nigeria</p>
+          <p style={{ fontSize: 13, color: "var(--fg-muted)" }}>Product Design Lead · Abuja, Nigeria</p>
         </div>
 
         <nav aria-label="Footer navigation" className="footer-nav" style={{ display: "flex", gap: 32 }}>
@@ -26,17 +26,17 @@ export default function Footer() {
             { label: "Leadership", href: "/leadership" },
             { label: "About", href: "/about" },
           ].map((l) => (
-            <Link key={l.href} href={l.href} style={{ fontSize: 14, color: "#6b7280", textDecoration: "none" }}>
+            <Link key={l.href} href={l.href} style={{ fontSize: 14, color: "var(--fg-muted)", textDecoration: "none" }}>
               {l.label}
             </Link>
           ))}
         </nav>
 
         <div className="footer-contact-links" style={{ display: "flex", gap: 16 }}>
-          <a href="mailto:jon4ohio@gmail.com" style={{ fontSize: 13, color: "#6b7280", textDecoration: "none" }}>
+          <a href="mailto:jon4ohio@gmail.com" style={{ fontSize: 13, color: "var(--fg-muted)", textDecoration: "none" }}>
             jon4ohio@gmail.com
           </a>
-          <a href="https://linkedin.com/in/jon4ohio" target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: "#6b7280", textDecoration: "none" }}>
+          <a href="https://linkedin.com/in/jon4ohio" target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: "var(--fg-muted)", textDecoration: "none" }}>
             LinkedIn ↗
           </a>
         </div>

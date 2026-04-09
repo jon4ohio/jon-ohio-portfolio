@@ -81,9 +81,9 @@ export default function Home() {
       <section
         aria-label="Career metrics"
         style={{
-          borderTop: "1px solid #e5e7eb",
-          borderBottom: "1px solid #e5e7eb",
-          background: "#f9fafb",
+          borderTop: "1px solid var(--border)",
+          borderBottom: "1px solid var(--border)",
+          background: "var(--surface)",
         }}
       >
         <div
@@ -106,7 +106,7 @@ export default function Home() {
               >
                 {m.value}
               </p>
-              <p style={{ fontSize: 13, color: "#6b7280" }}>{m.label}</p>
+              <p style={{ fontSize: 13, color: "var(--fg-muted)" }}>{m.label}</p>
             </div>
           ))}
           <div className="hero-metric hero-metric--filler" aria-hidden="true" />
@@ -121,7 +121,7 @@ export default function Home() {
           <p className="section-label">
             Selected Systems
           </p>
-          <Link href="/work" style={{ fontSize: 13, color: "#6b7280", textDecoration: "none" }}>
+          <Link href="/work" style={{ fontSize: 13, color: "var(--fg-muted)", textDecoration: "none" }}>
             View all →
           </Link>
         </div>
@@ -137,8 +137,8 @@ export default function Home() {
                 key={group.label}
                 style={{
                   padding: "32px 0",
-                  borderTop: "1px solid #e5e7eb",
-                  borderBottom: gi === systemGroups.length - 1 ? "1px solid #e5e7eb" : "none",
+                  borderTop: "1px solid var(--border)",
+                  borderBottom: gi === systemGroups.length - 1 ? "1px solid var(--border)" : "none",
                   alignItems: "start",
                 }}
                 className="grid-systems-group"
@@ -147,7 +147,7 @@ export default function Home() {
                   style={{
                     fontSize: 12,
                     fontWeight: 500,
-                    color: "#9ca3af",
+                    color: "var(--fg-subtle)",
                     letterSpacing: "0.06em",
                     textTransform: "uppercase",
                     paddingTop: 4,
@@ -155,11 +155,12 @@ export default function Home() {
                 >
                   {group.label}
                 </p>
-                <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-                  {groupItems.map((p) => (
+                <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+                  {groupItems.map((p, idx) => (
                     <Link
                       key={p.slug}
                       href={`/work/${p.slug}`}
+                      className="system-project-link"
                       style={{
                         textDecoration: "none",
                         color: "inherit",
@@ -168,13 +169,16 @@ export default function Home() {
                         justifyContent: "space-between",
                         gap: 16,
                         flexWrap: "wrap",
+                        padding: "14px 8px",
+                        margin: "0 -8px",
+                        borderTop: idx > 0 ? "1px solid var(--border)" : "none",
                       }}
                     >
                       <span style={{ display: "flex", flexDirection: "column", gap: 4 }}>
                         <span style={{ fontSize: 18, fontWeight: 600, letterSpacing: "-0.01em" }}>
                           {p.title}
                         </span>
-                        <span style={{ fontSize: 13, color: "#6b7280" }}>{p.subtitle}</span>
+                        <span style={{ fontSize: 13, color: "var(--fg-muted)" }}>{p.subtitle}</span>
                       </span>
                       <span style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", justifyContent: "flex-end" }}>
                         {p.metrics?.length ? (
@@ -187,7 +191,7 @@ export default function Home() {
                             ))}
                           </span>
                         ) : null}
-                        <span style={{ fontSize: 13, color: "#9ca3af" }}>→</span>
+                        <span style={{ fontSize: 13, color: "var(--fg-subtle)" }}>→</span>
                       </span>
                     </Link>
                   ))}
@@ -200,7 +204,7 @@ export default function Home() {
 
       {/* ── 4. WHAT I DO ────────────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
-        <p className="section-label" style={{ marginBottom: 16 }}>
+        <p className="section-label" style={{ marginBottom: 20 }}>
           What I Do
         </p>
         <h2
@@ -221,57 +225,65 @@ export default function Home() {
               key={c.label}
               style={{
                 padding: "24px 0",
-                borderTop: "1px solid #e5e7eb",
-                borderBottom: i === capabilities.length - 1 ? "1px solid #e5e7eb" : "none",
+                borderTop: "1px solid var(--border)",
+                borderBottom: i === capabilities.length - 1 ? "1px solid var(--border)" : "none",
                 alignItems: "baseline",
               }}
               className="grid-systems-group grid-systems-group--wide"
             >
               <p style={{ fontSize: 16, fontWeight: 600, letterSpacing: "-0.01em" }}>{c.label}</p>
-              <p style={{ fontSize: 15, color: "#6b7280", lineHeight: 1.6 }}>{c.desc}</p>
+              <p style={{ fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.6 }}>{c.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* ── 5. HOW I THINK ──────────────────────────────────── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
-        <p className="section-label" style={{ marginBottom: 16 }}>
-          How I Think
-        </p>
-        <h2
-          style={{
-            fontSize: "clamp(24px, 3vw, 36px)",
-            fontWeight: 600,
-            letterSpacing: "-0.02em",
-            lineHeight: 1.2,
-            marginBottom: 40,
-            maxWidth: 640,
-          }}
-        >
-          Four operating principles.
-        </h2>
-        <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 0 }}>
-          {principles.map((p, i) => (
-            <li
-              key={i}
-              style={{
-                fontSize: "clamp(20px, 2.4vw, 28px)",
-                fontWeight: 500,
-                letterSpacing: "-0.02em",
-                color: "#0a0a0a",
-                padding: "24px 0",
-                borderTop: "1px solid #e5e7eb",
-                borderBottom: i === principles.length - 1 ? "1px solid #e5e7eb" : "none",
-              }}
-            >
-              <span style={{ fontSize: 13, color: "#9ca3af", marginRight: 16, fontWeight: 400 }}>
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              {p}
-            </li>
-          ))}
-        </ul>
+      <section
+        style={{
+          background: "var(--surface)",
+          borderTop: "1px solid var(--border)",
+          borderBottom: "1px solid var(--border)",
+        }}
+      >
+        <div style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px" }}>
+          <p className="section-label" style={{ marginBottom: 20 }}>
+            How I Think
+          </p>
+          <h2
+            style={{
+              fontSize: "clamp(24px, 3vw, 36px)",
+              fontWeight: 600,
+              letterSpacing: "-0.02em",
+              lineHeight: 1.2,
+              marginBottom: 48,
+              maxWidth: 640,
+            }}
+          >
+            Four operating principles.
+          </h2>
+          <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 0 }}>
+            {principles.map((p, i) => (
+              <li
+                key={i}
+                style={{
+                  fontSize: "clamp(20px, 2.4vw, 28px)",
+                  fontWeight: 500,
+                  letterSpacing: "-0.02em",
+                  color: "var(--fg)",
+                  padding: "24px 0",
+                  borderTop: "1px solid var(--border)",
+                  borderBottom: i === principles.length - 1 ? "1px solid var(--border)" : "none",
+                }}
+              >
+                <span style={{ fontSize: 13, color: "var(--fg-subtle)", marginRight: 16, fontWeight: 400 }}>
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                {p}
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       {/* ── 7. LEADERSHIP & DESIGNOPS TEASER ────────────────── */}
@@ -279,7 +291,7 @@ export default function Home() {
         <div
           className="grid-2 pad-inset-wide"
           style={{
-            background: "#0a0a0a",
+            background: "var(--fg)",
             borderRadius: 16,
             gap: 64,
             alignItems: "center",
@@ -303,7 +315,7 @@ export default function Home() {
                 fontSize: "clamp(24px, 3vw, 36px)",
                 fontWeight: 600,
                 letterSpacing: "-0.02em",
-                color: "#fff",
+                color: "var(--bg)",
                 lineHeight: 1.2,
                 marginBottom: 24,
               }}
@@ -319,8 +331,8 @@ export default function Home() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 8,
-                background: "#fff",
-                color: "#0a0a0a",
+                background: "var(--bg)",
+                color: "var(--fg)",
                 fontSize: 14,
                 fontWeight: 500,
                 padding: "12px 24px",
@@ -365,7 +377,7 @@ export default function Home() {
 
       {/* ── 8. CURRENT FOCUS ────────────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
-        <p className="section-label" style={{ marginBottom: 16 }}>
+        <p className="section-label" style={{ marginBottom: 20 }}>
           Current Focus
         </p>
         <h2
@@ -374,7 +386,7 @@ export default function Home() {
             fontWeight: 600,
             letterSpacing: "-0.02em",
             lineHeight: 1.2,
-            marginBottom: 40,
+            marginBottom: 48,
             maxWidth: 640,
           }}
         >
@@ -388,8 +400,8 @@ export default function Home() {
                 fontSize: 17,
                 color: "var(--fg-strong)",
                 padding: "20px 0",
-                borderTop: "1px solid #e5e7eb",
-                borderBottom: i === currentFocus.length - 1 ? "1px solid #e5e7eb" : "none",
+                borderTop: "1px solid var(--border)",
+                borderBottom: i === currentFocus.length - 1 ? "1px solid var(--border)" : "none",
               }}
             >
               {line}
@@ -421,8 +433,8 @@ export default function Home() {
             display: "inline-flex",
             alignItems: "center",
             gap: 8,
-            background: "#0a0a0a",
-            color: "#fff",
+            background: "var(--fg)",
+            color: "var(--bg)",
             fontSize: 14,
             fontWeight: 500,
             padding: "14px 28px",

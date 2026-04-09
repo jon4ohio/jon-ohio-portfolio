@@ -27,7 +27,7 @@ const stages = [
 
 export default function SystemModel() {
   return (
-    <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 32px" }}>
+    <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
       <h2
         style={{
           fontSize: "clamp(24px, 3vw, 36px)",
@@ -40,7 +40,7 @@ export default function SystemModel() {
       >
         How systems evolve
       </h2>
-      <p style={{ fontSize: 15, color: "#6b7280", lineHeight: 1.6, maxWidth: 860, marginBottom: 32 }}>
+      <p style={{ fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.6, maxWidth: 860, marginBottom: 32 }}>
         Most products don&apos;t fail at the interface level — they fail at the system level. Below is the progression I design
         and ship toward.
       </p>
@@ -62,17 +62,17 @@ export default function SystemModel() {
             >
               <span>{stage.title}</span>
               {index < stages.length - 1 ? (
-                <span className="system-model-arrow" aria-hidden="true" style={{ color: "#6b7280", fontWeight: 500, marginLeft: 2 }}>
+                <span className="system-model-arrow" aria-hidden="true" style={{ color: "var(--fg-muted)", fontWeight: 500, marginLeft: 2 }}>
                   →
                 </span>
               ) : null}
             </p>
-            <p style={{ fontSize: 14, color: "#6b7280", lineHeight: 1.5, maxWidth: 240 }}>{stage.description}</p>
+            <p style={{ fontSize: 14, color: "var(--fg-muted)", lineHeight: 1.5, maxWidth: 240 }}>{stage.description}</p>
           </div>
         ))}
       </div>
 
-      <p style={{ fontSize: 14, color: "#6b7280", lineHeight: 1.6, marginTop: 24 }}>
+      <p style={{ fontSize: 14, color: "var(--fg-muted)", lineHeight: 1.6, marginTop: 24 }}>
         That arc shows up across the case studies below — work from fragmented to intelligent.
       </p>
     </section>

@@ -20,7 +20,7 @@ export default function NotFound() {
         <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 16 }}>
           Page not found
         </h1>
-        <p style={{ fontSize: 17, color: "#6b7280", lineHeight: 1.7, maxWidth: 620, marginBottom: 32 }}>
+        <p style={{ fontSize: 17, color: "var(--fg-muted)", lineHeight: 1.7, maxWidth: 620, marginBottom: 32 }}>
           The page you requested does not exist or may have moved. Use the links below to continue exploring.
         </p>
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
@@ -30,8 +30,8 @@ export default function NotFound() {
               display: "inline-flex",
               alignItems: "center",
               gap: 8,
-              background: "#0a0a0a",
-              color: "#fff",
+              background: "var(--fg)",
+              color: "var(--bg)",
               fontSize: 14,
               fontWeight: 500,
               padding: "12px 24px",
@@ -48,12 +48,12 @@ export default function NotFound() {
               alignItems: "center",
               gap: 8,
               background: "transparent",
-              color: "#0a0a0a",
+              color: "var(--fg)",
               fontSize: 14,
               fontWeight: 500,
               padding: "12px 24px",
               borderRadius: 8,
-              border: "1px solid #e5e7eb",
+              border: "1px solid var(--border)",
               textDecoration: "none",
             }}
           >

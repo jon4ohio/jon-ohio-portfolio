@@ -83,10 +83,10 @@ export default function About() {
             </div>
 
             <div style={{ marginTop: 40, display: "flex", gap: 16 }}>
-              <a href="mailto:jon4ohio@gmail.com" style={{ fontSize: 14, fontWeight: 500, color: "#0a0a0a", textDecoration: "none", border: "1px solid #0a0a0a", padding: "10px 20px", borderRadius: 8 }}>
+              <a href="mailto:jon4ohio@gmail.com" style={{ fontSize: 14, fontWeight: 500, color: "var(--fg)", textDecoration: "none", border: "1px solid var(--fg)", padding: "10px 20px", borderRadius: 8 }}>
                 Get in touch
               </a>
-              <a href="https://linkedin.com/in/jon4ohio" target="_blank" rel="noopener noreferrer" style={{ fontSize: 14, fontWeight: 500, color: "#6b7280", textDecoration: "none", border: "1px solid #e5e7eb", padding: "10px 20px", borderRadius: 8 }}>
+              <a href="https://linkedin.com/in/jon4ohio" target="_blank" rel="noopener noreferrer" style={{ fontSize: 14, fontWeight: 500, color: "var(--fg-muted)", textDecoration: "none", border: "1px solid var(--border)", padding: "10px 20px", borderRadius: 8 }}>
                 LinkedIn ↗
               </a>
             </div>
@@ -106,12 +106,12 @@ export default function About() {
                   key={i}
                   style={{
                     padding: "24px 0",
-                    borderTop: "1px solid #e5e7eb",
-                    borderBottom: i === principles.length - 1 ? "1px solid #e5e7eb" : "none",
+                    borderTop: "1px solid var(--border)",
+                    borderBottom: i === principles.length - 1 ? "1px solid var(--border)" : "none",
                   }}
                 >
                   <h3 style={{ fontSize: 15, fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 8 }}>{p.title}</h3>
-                  <p style={{ fontSize: 14, color: "#6b7280", lineHeight: 1.6 }}>{p.body}</p>
+                  <p style={{ fontSize: 14, color: "var(--fg-muted)", lineHeight: 1.6 }}>{p.body}</p>
                 </div>
               ))}
             </div>
@@ -129,14 +129,14 @@ export default function About() {
                     gridTemplateColumns: "100px 1fr",
                     gap: 16,
                     padding: "14px 0",
-                    borderTop: "1px solid #e5e7eb",
-                    borderBottom: i === timeline.length - 1 ? "1px solid #e5e7eb" : "none",
+                    borderTop: "1px solid var(--border)",
+                    borderBottom: i === timeline.length - 1 ? "1px solid var(--border)" : "none",
                   }}
                 >
-                  <span style={{ fontSize: 12, color: "#9ca3af", paddingTop: 2 }}>{t.year}</span>
+                  <span style={{ fontSize: 12, color: "var(--fg-subtle)", paddingTop: 2 }}>{t.year}</span>
                   <div>
                     <p style={{ fontSize: 14, fontWeight: 500 }}>{t.role}</p>
-                    <p style={{ fontSize: 13, color: "#6b7280" }}>{t.org}</p>
+                    <p style={{ fontSize: 13, color: "var(--fg-muted)" }}>{t.org}</p>
                   </div>
                 </div>
               ))}
