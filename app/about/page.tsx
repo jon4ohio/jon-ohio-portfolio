@@ -21,14 +21,6 @@ import {
   communitySectionEyebrow,
   communitySectionTitle,
 } from "@/lib/communityContribution";
-import type { ImageAsset } from "@/lib/projects";
-
-const portrait: ImageAsset = {
-  src: "/assets/about/portrait.svg",
-  alt: "Portrait of John Ohio",
-  width: 1200,
-  height: 1400,
-};
 
 const principles = [
   {
@@ -106,9 +98,6 @@ export default function About() {
 
           {/* Right: Principles + Timeline */}
           <div>
-            <div style={{ marginBottom: 24 }}>
-              <AssetImage asset={portrait} sizes="(max-width: 900px) 92vw, 480px" />
-            </div>
             <p className="section-label" style={{ marginBottom: 24 }}>
               How I Think
             </p>
