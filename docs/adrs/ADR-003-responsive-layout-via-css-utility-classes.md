@@ -110,6 +110,7 @@ Heading font sizes already used `clamp()` and required no changes.
 
 - ADR-001 — constrained by: responsive layout must not use Tailwind for structural styling
 - ADR-002 — unaffected: data layer unchanged
+- ADR-004 — extends: shared metric-badge classes, work list layout hooks (`.work-list-*`), hero CTA (`.hero-cta`), and workspace port preview for local dev
 
 ## References
 

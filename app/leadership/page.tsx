@@ -81,7 +81,7 @@ const onboardingSteps = [
 const currentFocus = [
   {
     label: "AI-Integrated Product Systems",
-    desc: "Defining AI-UX patterns, prompt frameworks, and interaction models adopted across SeamlesTech's product suite.",
+    desc: "Defining AI-UX patterns, prompt frameworks, and interaction models adopted across SeamlessHR's product suite.",
   },
   {
     label: "Product-Led Growth",
