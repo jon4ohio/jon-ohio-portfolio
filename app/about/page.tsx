@@ -37,6 +37,10 @@ const bodyStyle: CSSProperties = {
   color: "var(--fg-body)",
 };
 
+/** Vertical rhythm between major bands (matches hook→body scale). */
+const sectionGap = "clamp(48px, 8vw, 64px)";
+const sectionGapAfterNarrative = "clamp(56px, 10vw, 80px)";
+
 function renderNarrativeBlock(block: NarrativeBlock, i: number) {
   if (block.kind === "paragraph") {
     return (
@@ -80,7 +84,7 @@ export default function About() {
             letterSpacing: "-0.03em",
             lineHeight: 1.15,
             marginBottom: 32,
-            maxWidth: 640,
+            maxWidth: "min(100%, 640px)",
           }}
         >
           {aboutHeadline}
@@ -90,45 +94,20 @@ export default function About() {
             display: "flex",
             flexDirection: "column",
             gap: "clamp(20px, 3vw, 28px)",
-            maxWidth: 620,
+            maxWidth: "min(100%, 620px)",
           }}
         >
           {aboutHookBlocks.map((block, i) => renderNarrativeBlock(block, i))}
         </div>
 
-        {/* Operating Principles — surface band */}
-        <div style={{ marginTop: "clamp(48px, 8vw, 64px)" }}>
-          <div
-            style={{
-              background: "var(--surface)",
-              borderRadius: 12,
-              padding: "clamp(28px, 5vw, 40px) clamp(20px, 4vw, 28px)",
-            }}
-          >
-            <p className="section-label" style={{ marginBottom: 28 }}>
-              {operatingPrinciplesLabel}
-            </p>
-            <div className="about-principles-grid">
-              {operatingPrinciples.map((p) => (
-                <div key={p.title}>
-                  <h3 style={{ fontSize: 15, fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 8 }}>
-                    {p.title}
-                  </h3>
-                  <p style={{ fontSize: 14, color: "var(--fg-muted)", lineHeight: 1.6 }}>{p.body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
         {/* Body narrative + CTAs */}
-        <div style={{ marginTop: "clamp(48px, 8vw, 64px)" }}>
+        <div style={{ marginTop: sectionGap }}>
           <div
             style={{
               display: "flex",
               flexDirection: "column",
               gap: "clamp(20px, 3vw, 28px)",
-              maxWidth: 620,
+              maxWidth: "min(100%, 620px)",
             }}
           >
             {aboutBodyBlocks.map((block, i) => renderNarrativeBlock(block, i))}
@@ -169,7 +148,7 @@ export default function About() {
         </div>
 
         {/* Experience */}
-        <div style={{ marginTop: "clamp(56px, 10vw, 80px)" }}>
+        <div style={{ marginTop: sectionGapAfterNarrative }}>
           <p className="section-label" style={{ marginBottom: 24 }}>
             Experience
           </p>
@@ -188,7 +167,7 @@ export default function About() {
                 }}
               >
                 <span style={{ fontSize: 12, color: "var(--fg-subtle)", paddingTop: 2 }}>{t.year}</span>
-                <div>
+                <div style={{ minWidth: 0 }}>
                   <p style={{ fontSize: 14, fontWeight: 500 }}>{t.role}</p>
                   <p style={{ fontSize: 13, color: "var(--fg-muted)" }}>{t.org}</p>
                 </div>
@@ -198,8 +177,8 @@ export default function About() {
         </div>
 
         {/* Conviction quote */}
-        <div style={{ marginTop: "clamp(40px, 8vw, 64px)" }}>
-          <blockquote style={{ margin: 0, padding: 0, maxWidth: 720 }}>
+        <div style={{ marginTop: sectionGap }}>
+          <blockquote style={{ margin: 0, padding: 0, maxWidth: "min(100%, 720px)" }}>
             <p
               style={{
                 fontSize: "clamp(28px, 4vw, 44px)",
@@ -224,14 +203,35 @@ export default function About() {
           </blockquote>
         </div>
 
+        {/* Operating Principles — surface band (between conviction and community; no top border — fill provides separation) */}
+        <div style={{ marginTop: sectionGap }}>
+          <div
+            style={{
+              width: "100%",
+              boxSizing: "border-box",
+              background: "var(--surface)",
+              borderRadius: 12,
+              padding: "clamp(28px, 5vw, 40px) clamp(20px, 4vw, 28px)",
+            }}
+          >
+            <p className="section-label" style={{ marginBottom: 28 }}>
+              {operatingPrinciplesLabel}
+            </p>
+            <div className="about-principles-grid">
+              {operatingPrinciples.map((p) => (
+                <div key={p.title}>
+                  <h3 style={{ fontSize: 15, fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 8 }}>
+                    {p.title}
+                  </h3>
+                  <p style={{ fontSize: 14, color: "var(--fg-muted)", lineHeight: 1.6 }}>{p.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* Community */}
-        <div
-          style={{
-            marginTop: "clamp(40px, 8vw, 64px)",
-            paddingTop: "clamp(40px, 8vw, 64px)",
-            borderTop: "1px solid var(--border)",
-          }}
-        >
+        <div style={{ marginTop: sectionGap }}>
           <p className="section-label" style={{ marginBottom: 10 }}>
             {communitySectionEyebrow}
           </p>

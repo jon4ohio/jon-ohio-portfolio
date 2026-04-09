@@ -191,6 +191,9 @@ button:focus-visible {
   grid-template-columns: repeat(4, 1fr);
   gap: 32px;
 }
+.about-principles-grid > * {
+  min-width: 0;
+}
 @media (max-width: 900px) {
   .about-principles-grid {
     grid-template-columns: repeat(2, 1fr);
