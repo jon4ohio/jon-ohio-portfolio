@@ -98,7 +98,7 @@ export default function Leadership() {
     <div style={{ paddingTop: 56 }}>
 
       {/* ── 1. HERO ─────────────────────────────────────────── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "80px 24px 64px" }}>
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 64px" }}>
         <p className="section-label" style={{ marginBottom: 24 }}>
           Leadership & DesignOps
         </p>
@@ -122,7 +122,7 @@ export default function Leadership() {
       {/* ── 2. STATS BAR ────────────────────────────────────── */}
       <section
         aria-label="Leadership & DesignOps impact metrics"
-        style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 96px" }}
+        style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px 96px" }}
       >
         <div
           className="stats-grid stats-grid--4"
@@ -148,7 +148,7 @@ export default function Leadership() {
       </section>
 
       {/* ── 3. PHILOSOPHY ───────────────────────────────────── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 96px" }}>
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px 96px" }}>
         <p className="section-label" style={{ marginBottom: 16 }}>
           Philosophy
         </p>
@@ -188,7 +188,7 @@ export default function Leadership() {
       </section>
 
       {/* ── 4. THE DESIGNOPS STACK ──────────────────────────── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 96px" }}>
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px 96px" }}>
         <p className="section-label" style={{ marginBottom: 16 }}>
           The DesignOps Stack
         </p>
@@ -248,7 +248,7 @@ export default function Leadership() {
       </section>
 
       {/* ── 5. ONBOARDING DETAIL ────────────────────────────── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 96px" }}>
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px 96px" }}>
         <p className="section-label" style={{ marginBottom: 16 }}>
           Design Onboarding System
         </p>
@@ -299,7 +299,7 @@ export default function Leadership() {
       </section>
 
       {/* ── 6. CURRENT FOCUS ────────────────────────────────── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 96px" }}>
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px 96px" }}>
         <p className="section-label" style={{ marginBottom: 16 }}>
           Current Focus · SeamlessHR · Jan 2025 – Present
         </p>
@@ -333,7 +333,7 @@ export default function Leadership() {
       </section>
 
       {/* ── 7. RELATED CASE STUDIES ─────────────────────────── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 120px" }}>
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px 120px" }}>
         <div
           className="grid-2 pad-inset emphasis-block"
           style={{

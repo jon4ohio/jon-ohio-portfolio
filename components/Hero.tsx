@@ -125,7 +125,7 @@ function GridCanvas() {
       const dpr = dprRef.current;
       const anchorY = clamp(H * 0.98, H * 0.9, H - 8);
       const ultraWideDampen = clamp(1800 / Math.max(W, 1), 0.9, 1);
-      const xSpread = 1200 * clamp(W / 1120, 1.0, 1.22) * ultraWideDampen;
+      const xSpread = 1200 * clamp(W / 1240, 1.0, 1.22) * ultraWideDampen;
       const zSpread = 1100 * clamp(H / 720, 0.8, 1.15);
       const waveScale = 1.45;
       const yBase = 120;
@@ -292,7 +292,7 @@ export default function Hero() {
       />
       <section
         style={{
-          maxWidth: 1120,
+          maxWidth: 1240,
           margin: "0 auto",
           padding: "120px 24px 80px",
           position: "relative",

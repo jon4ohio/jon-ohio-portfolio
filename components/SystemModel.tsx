@@ -27,7 +27,7 @@ const stages = [
 
 export default function SystemModel() {
   return (
-    <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
+    <section style={{ maxWidth: 1240, margin: "0 auto", padding: "120px 24px 0" }}>
       <h2
         style={{
           fontSize: "clamp(24px, 3vw, 36px)",
