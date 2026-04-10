@@ -264,6 +264,7 @@ function GridCanvas() {
         height: "100%",
         display: "block",
         pointerEvents: "none",
+        zIndex: 0,
       }}
     />
   );
