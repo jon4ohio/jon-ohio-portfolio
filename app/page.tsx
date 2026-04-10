@@ -8,12 +8,12 @@ import SystemModel from "@/components/SystemModel";
 export const metadata: Metadata = {
   title: "John Ohio — Product Systems & DesignOps Lead",
   description:
-    "Product Design Lead designing systems that evolve across enterprise SaaS, fintech, and AI — from fragmented to intelligent. $1M+ saved annually, 12 teams aligned, 2.49M token usage.",
+    "Product Design Lead designing systems that evolve across enterprise SaaS, fintech, and AI — from fragmented to intelligent workflows. $1M+ saved annually, 12 teams aligned, 2.49M token usage.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "John Ohio — Product Systems & DesignOps Lead",
     description:
-      "I design systems that evolve — from fragmented to intelligent. Design systems · DesignOps · Enterprise SaaS · AI UX.",
+      "I design systems that evolve – from fragmented to intelligent workflows. Design systems · DesignOps · Enterprise SaaS · AI UX.",
     url: "/",
     type: "website",
   },
@@ -417,7 +417,7 @@ export default function Home() {
             margin: "0 auto 32px",
           }}
         >
-          I design systems that evolve —<br />from fragmented → structured → scalable → intelligent
+          I design systems that evolve<br />– from fragmented to intelligent workflows
         </h2>
         <a
           href="mailto:jon4ohio@gmail.com"

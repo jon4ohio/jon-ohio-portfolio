@@ -11,7 +11,7 @@ const siteUrl =
 
 const defaultTitle = "John Ohio — Product Systems & DesignOps Lead";
 const defaultDescription =
-  "John Ohio designs product systems that scale — from fragmented to intelligent. Design systems, DesignOps, enterprise SaaS, fintech infrastructure, and AI-native workflows.";
+  "John Ohio designs product systems that scale — from fragmented to intelligent workflows. Design systems, DesignOps, enterprise SaaS, fintech infrastructure, and AI-native workflows.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
