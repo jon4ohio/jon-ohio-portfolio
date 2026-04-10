@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const links = [
@@ -14,6 +14,24 @@ const links = [
 export default function Nav() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [menuOpen]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [menuOpen]);
 
   return (
     <>
@@ -31,6 +49,7 @@ export default function Nav() {
         }}
       >
         <nav
+          aria-label="Primary"
           style={{
             maxWidth: 1240,
             margin: "0 auto",
@@ -112,6 +131,7 @@ export default function Nav() {
 
           {/* Mobile hamburger */}
           <button
+            type="button"
             className="nav-hamburger"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -119,6 +139,7 @@ export default function Nav() {
             aria-controls="nav-mobile-panel"
           >
             <span
+              aria-hidden
               style={{
                 display: "block",
                 width: 22,
@@ -129,6 +150,7 @@ export default function Nav() {
               }}
             />
             <span
+              aria-hidden
               style={{
                 display: "block",
                 width: 22,
@@ -139,6 +161,7 @@ export default function Nav() {
               }}
             />
             <span
+              aria-hidden
               style={{
                 display: "block",
                 width: 22,
@@ -153,10 +176,12 @@ export default function Nav() {
       </header>
 
       {/* Mobile menu panel */}
-      <div
+      <nav
         id="nav-mobile-panel"
         className={`nav-mobile-panel${menuOpen ? " open" : ""}`}
         aria-hidden={!menuOpen}
+        aria-label="Mobile menu"
+        inert={!menuOpen ? true : undefined}
       >
         <div className="nav-mobile-panel-inner">
           <div className="nav-mobile-panel-scroll">
@@ -205,7 +230,7 @@ export default function Nav() {
             </a>
           </div>
         </div>
-      </div>
+      </nav>
     </>
   );
 }

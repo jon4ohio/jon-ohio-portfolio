@@ -49,6 +49,18 @@ test(`axe wcag2a/aa (no serious/critical): /work/${caseStudySlug}`, async ({
   assertNoSeriousViolations(results);
 });
 
+test("axe wcag2a/aa (no serious/critical): mobile viewport with menu open — /", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/", { waitUntil: "networkidle" });
+  await page.getByRole("button", { name: /open menu/i }).click();
+  const results = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa"])
+    .analyze();
+  assertNoSeriousViolations(results);
+});
+
 test("axe wcag2a/aa (no serious/critical): 404 page", async ({ page }) => {
   const res = await page.goto("/this-route-should-not-exist-404", {
     waitUntil: "networkidle",
