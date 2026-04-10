@@ -1,18 +1,75 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #ffffff;
-  --fg: #0a0a0a;
-  --fg-muted: #6b7280;
-  --fg-subtle: #9ca3af;
-  --fg-strong: #1f2937;
-  --fg-body: #374151;
-  --fg-body-muted: #4b5563;
-  --border: #e5e7eb;
-  --border-subtle: #d1d5db;
-  --accent: #0a0a0a;
-  --surface: #f9fafb;
-  --surface-subtle: #f3f4f6;
+  /* Legacy palette (original site colors) */
+  --legacy-light: #ffffff;
+  --legacy-dark: #0a0a0a;
+  --legacy-muted: #6b7280;
+  --legacy-subtle: #9ca3af;
+  --legacy-strong: #1f2937;
+  --legacy-body: #374151;
+  --legacy-body-muted: #4b5563;
+  --legacy-border: #e5e7eb;
+  --legacy-border-subtle: #d1d5db;
+  --legacy-surface: #f9fafb;
+  --legacy-surface-subtle: #f3f4f6;
+  --legacy-accent: #0a0a0a;
+
+  /* Claude / Anthropic palette */
+  --claude-light: #faf9f5;
+  --claude-dark: #141413;
+  --claude-mid-gray: #b0aea5;
+  --claude-light-gray: #e8e6dc;
+  --claude-orange: #d97757;
+  --claude-blue: #6a9bcc;
+  --claude-green: #788c5d;
+}
+
+:root,
+:root[data-theme="claude"] {
+  --bg: var(--claude-light);
+  --fg: var(--claude-dark);
+  --fg-muted: var(--claude-mid-gray);
+  --fg-subtle: var(--claude-mid-gray);
+  --fg-strong: var(--claude-dark);
+  --fg-body: var(--claude-dark);
+  --fg-body-muted: rgba(20, 20, 19, 0.78);
+  --border: var(--claude-light-gray);
+  --border-subtle: var(--claude-light-gray);
+  --accent: var(--claude-orange);
+  --surface: var(--claude-light);
+  --surface-subtle: var(--claude-light-gray);
+  --accent-orange: var(--claude-orange);
+  --accent-blue: var(--claude-blue);
+  --accent-green: var(--claude-green);
+  --hero-overlay-strong: rgba(250, 249, 245, 0.96);
+  --hero-overlay-soft: rgba(250, 249, 245, 0.6);
+  --nav-backdrop: rgba(250, 249, 245, 0.9);
+  --panel-backdrop: rgba(250, 249, 245, 0.97);
+  --asset-chrome-bg: rgba(250, 249, 245, 0.75);
+}
+
+:root[data-theme="legacy"] {
+  --bg: var(--legacy-light);
+  --fg: var(--legacy-dark);
+  --fg-muted: var(--legacy-muted);
+  --fg-subtle: var(--legacy-subtle);
+  --fg-strong: var(--legacy-strong);
+  --fg-body: var(--legacy-body);
+  --fg-body-muted: var(--legacy-body-muted);
+  --border: var(--legacy-border);
+  --border-subtle: var(--legacy-border-subtle);
+  --accent: var(--legacy-accent);
+  --surface: var(--legacy-surface);
+  --surface-subtle: var(--legacy-surface-subtle);
+  --accent-orange: #f59e0b;
+  --accent-blue: #3b82f6;
+  --accent-green: #22c55e;
+  --hero-overlay-strong: rgba(255, 255, 255, 0.96);
+  --hero-overlay-soft: rgba(255, 255, 255, 0.6);
+  --nav-backdrop: rgba(255, 255, 255, 0.9);
+  --panel-backdrop: rgba(255, 255, 255, 0.97);
+  --asset-chrome-bg: rgba(255, 255, 255, 0.75);
 }
 
 * { box-sizing: border-box; padding: 0; margin: 0; }
@@ -432,7 +489,7 @@ button:focus-visible {
   top: 56px;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.97);
+  background: var(--panel-backdrop);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);

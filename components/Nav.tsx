@@ -24,7 +24,7 @@ export default function Nav() {
           right: 0,
           zIndex: 50,
           borderBottom: "1px solid var(--border)",
-          background: "rgba(255,255,255,0.9)",
+          background: "var(--nav-backdrop)",
           backdropFilter: "blur(12px)",
           WebkitBackdropFilter: "blur(12px)",
         }}

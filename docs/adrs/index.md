@@ -7,3 +7,4 @@
 | 003 | Responsive layout via CSS utility classes in globals.css | Accepted | 2026-04-07 | None |
 | 004 | Shared metric-badge CSS, work index grid, and local preview in Cursor | Accepted | 2026-04-09 | None |
 | 005 | Audit-driven UX and accessibility polish via targeted in-place fixes | Accepted | 2026-04-09 | None |
+| 006 | Dual brand theme token system (legacy + claude) | Accepted | 2026-04-10 | None |
