@@ -20,3 +20,55 @@ npm run lint
 npm run build
 ```
 
+## ADR gate for major pushes
+
+Per `docs/adrs/ADR-008-adr-update-gate-for-major-pushes.md`, every major push must include an ADR checkpoint.
+
+### What counts as a major push
+
+Any push that changes one or more of:
+- architecture or decision-token model
+- routing/layout structure
+- cross-page interaction behavior
+- data model/content source strategy
+- operational workflow that affects how the app is built or maintained
+
+### Required before major push
+
+Complete one of these actions:
+1. Add a new ADR in `docs/adrs/` and update `docs/adrs/index.md`, or
+2. Add a superseding ADR and update supersession metadata/index, or
+3. Explicitly state in PR description: `ADR impact: none (reason: <short reason>)`
+
+For any ADR-impacting major push, option 3 is not valid.
+
+### Enforced pre-push hook
+
+Install local hooks once:
+
+```bash
+npm run hooks:install
+```
+
+The pre-push hook runs:
+
+```bash
+npm run check:adr-major-push
+```
+
+If a push includes major changes (architecture/theme/layout/interaction/data-model paths) and no ADR file changes in `docs/adrs/`, the push is blocked.
+
+### CI enforcement
+
+GitHub Actions also enforces this gate on pull requests via:
+
+- `.github/workflows/adr-gate.yml`
+
+It runs:
+
+```bash
+node scripts/check-adr-major-push.mjs --range <base_sha> <head_sha>
+```
+
+This keeps enforcement consistent even if local hooks are not installed.
+

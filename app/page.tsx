@@ -293,11 +293,10 @@ export default function Home() {
       {/* ── 7. LEADERSHIP & DESIGNOPS TEASER ────────────────── */}
       <section style={{ maxWidth: 1120, margin: "120px auto 0", padding: "0 24px" }}>
         <div
-          className="grid-2 pad-inset-wide"
+          className="grid-2 pad-inset-wide emphasis-block"
           style={{
-            background: "var(--fg)",
+            background: "var(--surface-emphasis)",
             borderRadius: 16,
-            gap: 64,
             alignItems: "center",
           }}
         >
@@ -306,7 +305,7 @@ export default function Home() {
               style={{
                 fontSize: 12,
                 fontWeight: 500,
-                color: "rgba(255,255,255,0.4)",
+                color: "var(--fg-on-emphasis-soft)",
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
                 marginBottom: 20,
@@ -319,14 +318,14 @@ export default function Home() {
                 fontSize: "clamp(24px, 3vw, 36px)",
                 fontWeight: 600,
                 letterSpacing: "-0.02em",
-                color: "var(--bg)",
+                color: "var(--fg-on-emphasis)",
                 lineHeight: 1.2,
                 marginBottom: 24,
               }}
             >
               Design as a system — not a service
             </h2>
-            <p style={{ fontSize: 16, color: "rgba(255,255,255,0.6)", lineHeight: 1.7, marginBottom: 32 }}>
+            <p style={{ fontSize: 16, color: "var(--fg-on-emphasis-muted)", lineHeight: 1.7, marginBottom: 32 }}>
               Built and scaled design systems across 12 teams — governance, contribution, onboarding, and AI UX integration
             </p>
             <Link
@@ -366,10 +365,10 @@ export default function Home() {
                 key={i}
                 style={{
                   fontSize: 15,
-                  color: "rgba(255,255,255,0.85)",
+                  color: "var(--fg-on-emphasis-strong)",
                   padding: "18px 0",
-                  borderTop: "1px solid rgba(255,255,255,0.1)",
-                  borderBottom: i === 2 ? "1px solid rgba(255,255,255,0.1)" : "none",
+                  borderTop: "1px solid var(--border-on-emphasis-faint)",
+                  borderBottom: i === 2 ? "1px solid var(--border-on-emphasis-faint)" : "none",
                 }}
               >
                 {line}
@@ -437,8 +436,8 @@ export default function Home() {
             display: "inline-flex",
             alignItems: "center",
             gap: 8,
-            background: "var(--fg)",
-            color: "var(--bg)",
+            background: "var(--surface-emphasis)",
+            color: "var(--fg-on-emphasis)",
             fontSize: 14,
             fontWeight: 500,
             padding: "14px 28px",

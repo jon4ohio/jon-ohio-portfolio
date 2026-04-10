@@ -335,11 +335,10 @@ export default function Leadership() {
       {/* ── 7. RELATED CASE STUDIES ─────────────────────────── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 120px" }}>
         <div
-          className="grid-2 pad-inset"
+          className="grid-2 pad-inset emphasis-block"
           style={{
-            background: "var(--fg)",
+            background: "var(--surface-emphasis)",
             borderRadius: 16,
-            gap: 64,
             alignItems: "center",
           }}
         >
@@ -348,7 +347,7 @@ export default function Leadership() {
               style={{
                 fontSize: 11,
                 fontWeight: 500,
-                color: "rgba(255,255,255,0.4)",
+                color: "var(--fg-on-emphasis-soft)",
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
                 marginBottom: 16,
@@ -361,14 +360,14 @@ export default function Leadership() {
                 fontSize: 28,
                 fontWeight: 600,
                 letterSpacing: "-0.02em",
-                color: "var(--bg)",
+                color: "var(--fg-on-emphasis)",
                 lineHeight: 1.15,
                 marginBottom: 16,
               }}
             >
               Seamkit — the operating system underneath.
             </h3>
-            <p style={{ fontSize: 15, color: "rgba(255,255,255,0.6)", lineHeight: 1.7, marginBottom: 24 }}>
+            <p style={{ fontSize: 15, color: "var(--fg-on-emphasis-muted)", lineHeight: 1.7, marginBottom: 24 }}>
               The token architecture, governance model, and adoption programme that DesignOps is built on.
             </p>
             <Link
@@ -378,9 +377,9 @@ export default function Leadership() {
                 alignItems: "center",
                 fontSize: 13,
                 fontWeight: 500,
-                color: "var(--bg)",
+                color: "var(--fg-on-emphasis)",
                 textDecoration: "none",
-                borderBottom: "1px solid rgba(255,255,255,0.3)",
+                borderBottom: "1px solid var(--border-on-emphasis-subtle)",
                 paddingBottom: 2,
               }}
             >
@@ -392,7 +391,7 @@ export default function Leadership() {
               style={{
                 fontSize: 11,
                 fontWeight: 500,
-                color: "rgba(255,255,255,0.4)",
+                color: "var(--fg-on-emphasis-soft)",
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
                 marginBottom: 16,
@@ -405,14 +404,14 @@ export default function Leadership() {
                 fontSize: 28,
                 fontWeight: 600,
                 letterSpacing: "-0.02em",
-                color: "var(--bg)",
+                color: "var(--fg-on-emphasis)",
                 lineHeight: 1.15,
                 marginBottom: 16,
               }}
             >
               SeamlessAI — patterns, not features.
             </h3>
-            <p style={{ fontSize: 15, color: "rgba(255,255,255,0.6)", lineHeight: 1.7, marginBottom: 24 }}>
+            <p style={{ fontSize: 15, color: "var(--fg-on-emphasis-muted)", lineHeight: 1.7, marginBottom: 24 }}>
               Reusable AI interaction patterns built into enterprise workflows as a system layer — not one-off integrations.
             </p>
             <Link
@@ -422,9 +421,9 @@ export default function Leadership() {
                 alignItems: "center",
                 fontSize: 13,
                 fontWeight: 500,
-                color: "var(--bg)",
+                color: "var(--fg-on-emphasis)",
                 textDecoration: "none",
-                borderBottom: "1px solid rgba(255,255,255,0.3)",
+                borderBottom: "1px solid var(--border-on-emphasis-subtle)",
                 paddingBottom: 2,
               }}
             >

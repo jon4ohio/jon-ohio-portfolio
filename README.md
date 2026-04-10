@@ -26,6 +26,7 @@ Open `http://localhost:3000`.
 npm run lint   # eslint
 npm run build  # production build
 npm run start  # run production server (after build)
+npm run hooks:install # install git pre-push hook
 ```
 
 ## Content editing
@@ -49,17 +50,18 @@ This repo is configured for Vercel. `vercel.json` uses:
 
 See `docs/adrs/index.md`.
 
+Major-push governance: `docs/adrs/ADR-008-adr-update-gate-for-major-pushes.md`.
+
 ## Theme system (code-level)
 
-The site supports two color themes through CSS custom properties:
+The site supports three themes through CSS custom properties:
 
-- `warm` (default, Claude-inspired palette)
-- `light` (original palette)
+- `light`
+- `warm` (default fallback)
+- `dark`
 
-Theme selection is controlled in `app/layout.tsx` via the `activeTheme` constant and applied on the root `<html data-theme="...">`.
+Theme is applied on the root `<html data-theme="...">` and persisted with `localStorage`.
 
-To switch theme defaults:
-
-1. Open `app/layout.tsx`
-2. Change `activeTheme` from `"warm"` to `"light"` (or back)
-3. Restart dev server if needed
+- Pre-hydration initialization: `components/ThemeScript.tsx`
+- Runtime control UI: `components/ThemeToggle.tsx` (rendered in `components/Nav.tsx`)
+- Token source: `app/globals.css` and `docs/theme-tokens.md`

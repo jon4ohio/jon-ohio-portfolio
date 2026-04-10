@@ -1,0 +1,22 @@
+name: ADR Gate
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+jobs:
+  adr-major-push-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Enforce ADR gate for major changes
+        run: node scripts/check-adr-major-push.mjs --range "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}"
