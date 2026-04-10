@@ -628,15 +628,15 @@ button:focus-visible {
 /* Homepage hero metrics — minimalist editorial report style */
 .hero-metrics {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  column-gap: 64px;
-  row-gap: 48px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  column-gap: 28px;
+  row-gap: 0;
   padding: 48px 0;
 }
 .hero-metric {
   border-left: 1px solid color-mix(in oklab, var(--border) 45%, transparent);
   padding-left: 16px;
-  white-space: nowrap;
+  min-width: 0;
 }
 .hero-metric-value {
   font-size: clamp(30px, 4vw, 36px);
@@ -647,29 +647,30 @@ button:focus-visible {
 }
 .hero-metric-label {
   margin: 6px 0 0;
-  font-size: 12px;
+  font-size: 10px;
   color: var(--fg-muted);
   letter-spacing: 0.02em;
   line-height: 1.35;
 }
-@media (max-width: 900px) {
+@media (min-width: 768px) {
+  .hero-metric {
+    white-space: nowrap;
+  }
+}
+@media (max-width: 767px) {
   .hero-metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 40px;
-    row-gap: 36px;
-    padding: 40px 0;
-  }
-  .hero-metric { padding-left: 14px; }
-}
-@media (max-width: 640px) {
-  .hero-metrics {
-    grid-template-columns: 1fr;
-    column-gap: 0;
     row-gap: 28px;
     padding: 32px 0;
   }
-  .hero-metric { padding-left: 12px; }
-  .hero-metric-value { font-size: clamp(28px, 9vw, 34px); }
+  .hero-metric {
+    padding-left: 12px;
+    white-space: normal;
+  }
+  .hero-metric-value {
+    font-size: clamp(28px, 9vw, 34px);
+  }
 }
 
 /* Generic stats grid — wraps cleanly using gap-as-border */
