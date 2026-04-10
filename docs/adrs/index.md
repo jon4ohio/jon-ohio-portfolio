@@ -18,3 +18,4 @@
 | 014 | SystemModel Fragmented stage copy for narrow-column line breaks | Accepted | 2026-04-10 | None |
 | 015 | Mobile navigation full-height tray with bottom-pinned actions | Accepted | 2026-04-11 | None |
 | 016 | Mobile nav link column layout and vertical footer actions | Accepted | 2026-04-11 | None |
+| 017 | Mobile navigation accessibility, touch targets, and viewport hardening | Accepted | 2026-04-11 | None |

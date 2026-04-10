@@ -895,6 +895,16 @@ button:focus-visible {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* WCAG 2.5.5-friendly tap targets; flex keeps label vertically centered */
+.nav-mobile-panel-scroll a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  box-sizing: border-box;
 }
 
 .nav-mobile-panel-footer {
@@ -906,11 +916,21 @@ button:focus-visible {
   padding-top: 16px;
 }
 
+.nav-mobile-panel-footer a[href^="mailto"] {
+  min-height: 44px;
+}
+
 .nav-mobile-panel.open {
   opacity: 1;
   transform: translateY(0);
   visibility: visible;
   pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-mobile-panel {
+    transition: none;
+  }
 }
 
 @media (max-width: 640px) {
