@@ -74,8 +74,8 @@ export default function Nav() {
             })}
           </div>
 
-          {/* Desktop actions: theme switcher sits next to CTA for balance */}
-          <div className="nav-desktop-cta" style={{ gap: 8 }}>
+          {/* Desktop actions: keep switcher tight to CTA and away from link cluster */}
+          <div className="nav-desktop-cta" style={{ gap: 18, marginLeft: 12 }}>
             <ThemeToggle compact />
             <a
               href="mailto:jon4ohio@gmail.com"
@@ -178,14 +178,14 @@ export default function Nav() {
             </Link>
           );
         })}
-        <div style={{ marginTop: 12, marginBottom: 8 }}>
+        <div style={{ marginTop: 14, marginBottom: 0 }}>
           <ThemeToggle />
         </div>
         <a
           href="mailto:jon4ohio@gmail.com"
           onClick={() => setMenuOpen(false)}
           style={{
-            marginTop: 16,
+            marginTop: 10,
             display: "inline-flex",
             alignItems: "center",
             fontSize: 14,
