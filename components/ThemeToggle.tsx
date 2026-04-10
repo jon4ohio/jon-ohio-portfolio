@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type KeyboardEvent } from "react";
+import { useEffect, useLayoutEffect, useState, type KeyboardEvent } from "react";
 import { coerceTheme, DEFAULT_THEME, THEME_STORAGE_KEY, THEMES, type ThemeName } from "@/components/theme";
 
 const labels: Record<ThemeName, string> = {
@@ -9,31 +9,39 @@ const labels: Record<ThemeName, string> = {
   dark: "Dark",
 };
 
+function persistUserTheme(next: ThemeName) {
+  try {
+    window.localStorage.setItem(THEME_STORAGE_KEY, next);
+  } catch {
+    // private mode / blocked storage
+  }
+}
+
 export default function ThemeToggle({ compact = false }: { compact?: boolean }) {
   // Keep initial client render identical to SSR to avoid hydration mismatch.
   const [theme, setTheme] = useState<ThemeName>(DEFAULT_THEME);
 
-  useEffect(() => {
-    const frame = window.requestAnimationFrame(() => {
-      const rootTheme = document.documentElement.dataset.theme;
-      try {
-        const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
-        setTheme(coerceTheme(storedTheme ?? rootTheme));
-      } catch {
-        setTheme(coerceTheme(rootTheme));
-      }
-    });
-    return () => window.cancelAnimationFrame(frame);
+  const chooseUserTheme = (next: ThemeName) => {
+    setTheme(next);
+    persistUserTheme(next);
+  };
+
+  // Sync to `data-theme` set by ThemeScript (runs before React); must run before paint to avoid toggle flash.
+  /* eslint-disable react-hooks/set-state-in-effect -- one-shot read of DOM/localStorage after blocking head script (external system) */
+  useLayoutEffect(() => {
+    const rootTheme = document.documentElement.dataset.theme;
+    try {
+      const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
+      setTheme(coerceTheme(storedTheme ?? rootTheme));
+    } catch {
+      setTheme(coerceTheme(rootTheme));
+    }
   }, []);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   useEffect(() => {
     if (document.documentElement.dataset.theme !== theme) {
       document.documentElement.dataset.theme = theme;
-    }
-    try {
-      window.localStorage.setItem(THEME_STORAGE_KEY, theme);
-    } catch {
-      // Ignore storage write failures (private mode / blocked storage).
     }
     // Components like the hero canvas listen to resize for color refresh.
     window.dispatchEvent(new Event("resize"));
@@ -52,22 +60,22 @@ export default function ThemeToggle({ compact = false }: { compact?: boolean }) 
     const currentIndex = THEMES.indexOf(theme);
     if (event.key === "ArrowRight" || event.key === "ArrowDown") {
       event.preventDefault();
-      setTheme(THEMES[(currentIndex + 1) % THEMES.length]);
+      chooseUserTheme(THEMES[(currentIndex + 1) % THEMES.length]);
       return;
     }
     if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
       event.preventDefault();
-      setTheme(THEMES[(currentIndex - 1 + THEMES.length) % THEMES.length]);
+      chooseUserTheme(THEMES[(currentIndex - 1 + THEMES.length) % THEMES.length]);
       return;
     }
     if (event.key === "Home") {
       event.preventDefault();
-      setTheme(THEMES[0]);
+      chooseUserTheme(THEMES[0]);
       return;
     }
     if (event.key === "End") {
       event.preventDefault();
-      setTheme(THEMES[THEMES.length - 1]);
+      chooseUserTheme(THEMES[THEMES.length - 1]);
     }
   };
 
@@ -97,7 +105,7 @@ export default function ThemeToggle({ compact = false }: { compact?: boolean }) 
             aria-checked={active}
             aria-label={`Theme ${labels[item]}`}
             tabIndex={active ? 0 : -1}
-            onClick={() => setTheme(item)}
+            onClick={() => chooseUserTheme(item)}
             style={{
               border: "none",
               borderRadius: 999,
