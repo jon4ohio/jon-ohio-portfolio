@@ -187,8 +187,11 @@ export default function Nav() {
               href="mailto:jon4ohio@gmail.com"
               onClick={() => setMenuOpen(false)}
               style={{
-                display: "inline-flex",
+                display: "flex",
                 alignItems: "center",
+                justifyContent: "center",
+                width: "100%",
+                boxSizing: "border-box",
                 fontSize: 14,
                 fontWeight: 500,
                 color: "var(--fg-on-emphasis)",
@@ -196,7 +199,6 @@ export default function Nav() {
                 background: "var(--surface-emphasis)",
                 padding: "10px 20px",
                 borderRadius: 8,
-                flex: "0 0 auto",
               }}
             >
               Get in touch →
