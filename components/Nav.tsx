@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const links = [
   { href: "/", label: "Home" },
@@ -48,29 +49,34 @@ export default function Nav() {
             John Ohio
           </Link>
 
-          {/* Desktop nav links */}
-          <div className="nav-desktop-links">
-            {links.map((l) => {
-              const active = pathname === l.href || (l.href !== "/" && pathname.startsWith(l.href));
-              return (
-                <Link
-                  key={l.href}
-                  href={l.href}
-                  style={{
-                    fontSize: 14,
-                    fontWeight: active ? 500 : 400,
-                    color: active ? "var(--fg)" : "var(--fg-muted)",
-                    textDecoration: "none",
-                    padding: "6px 12px",
-                    borderRadius: 6,
-                    transition: "color 0.15s, background 0.15s",
-                    background: active ? "var(--surface-subtle)" : "transparent",
-                  }}
-                >
-                  {l.label}
-                </Link>
-              );
-            })}
+          {/* Desktop nav links + theme selector */}
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <div className="nav-desktop-links">
+              {links.map((l) => {
+                const active = pathname === l.href || (l.href !== "/" && pathname.startsWith(l.href));
+                return (
+                  <Link
+                    key={l.href}
+                    href={l.href}
+                    style={{
+                      fontSize: 14,
+                      fontWeight: active ? 500 : 400,
+                      color: active ? "var(--fg)" : "var(--fg-muted)",
+                      textDecoration: "none",
+                      padding: "6px 12px",
+                      borderRadius: 6,
+                      transition: "color 0.15s, background 0.15s",
+                      background: active ? "var(--surface-subtle)" : "transparent",
+                    }}
+                  >
+                    {l.label}
+                  </Link>
+                );
+              })}
+            </div>
+            <div className="nav-desktop-links">
+              <ThemeToggle compact />
+            </div>
           </div>
 
           {/* Desktop CTA */}
@@ -88,10 +94,18 @@ export default function Nav() {
               transition: "background 0.15s, color 0.15s",
             }}
             onMouseEnter={(e) => {
-              (e.target as HTMLElement).style.background = "var(--fg)";
-              (e.target as HTMLElement).style.color = "var(--bg)";
+              (e.target as HTMLElement).style.background = "var(--surface-emphasis)";
+              (e.target as HTMLElement).style.color = "var(--fg-on-emphasis)";
             }}
             onMouseLeave={(e) => {
+              (e.target as HTMLElement).style.background = "transparent";
+              (e.target as HTMLElement).style.color = "var(--fg)";
+            }}
+            onFocus={(e) => {
+              (e.target as HTMLElement).style.background = "var(--surface-emphasis)";
+              (e.target as HTMLElement).style.color = "var(--fg-on-emphasis)";
+            }}
+            onBlur={(e) => {
               (e.target as HTMLElement).style.background = "transparent";
               (e.target as HTMLElement).style.color = "var(--fg)";
             }}
@@ -147,6 +161,9 @@ export default function Nav() {
         className={`nav-mobile-panel${menuOpen ? " open" : ""}`}
         aria-hidden={!menuOpen}
       >
+        <div style={{ marginBottom: 8 }}>
+          <ThemeToggle />
+        </div>
         {links.map((l) => {
           const active = pathname === l.href || (l.href !== "/" && pathname.startsWith(l.href));
           return (
@@ -176,9 +193,9 @@ export default function Nav() {
             alignItems: "center",
             fontSize: 14,
             fontWeight: 500,
-            color: "var(--bg)",
+            color: "var(--fg-on-emphasis)",
             textDecoration: "none",
-            background: "var(--fg)",
+            background: "var(--surface-emphasis)",
             padding: "10px 20px",
             borderRadius: 8,
             alignSelf: "flex-start",
