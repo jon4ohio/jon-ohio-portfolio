@@ -444,6 +444,12 @@ body {
   outline-offset: 2px;
 }
 
+/* Nav brand avatar — discourage drag / selection (casual copy/save friction only) */
+.nav-avatar {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
 /* Hover affordances (keep minimal, no extra animation) */
 .work-list-row:hover {
   background: var(--surface-hover);

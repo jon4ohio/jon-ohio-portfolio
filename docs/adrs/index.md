@@ -20,3 +20,4 @@
 | 016 | Mobile nav link column layout and vertical footer actions | Accepted | 2026-04-11 | None |
 | 017 | Mobile navigation accessibility, touch targets, and viewport hardening | Accepted | 2026-04-11 | None |
 | 018 | Homepage Selected Systems project thumbnails | Accepted | 2026-04-11 | None |
+| 019 | Nav brand avatar beside John Ohio text and anti-copy mitigations | Accepted | 2026-04-11 | None |
