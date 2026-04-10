@@ -367,8 +367,8 @@ export const projects: Project[] = [
       "Consumer app flows, agent and POS workflows, reconciliation tooling, and service operations spanning digital and walk-in channels.",
     metrics: [
       { value: "4.6★", label: "Play Store rating (2,800+)" },
-      { value: "↓30%", label: "Call-center volume" },
-      { value: "↓30%", label: "Support volume" },
+      { value: "↓30%", label: "Call-centre volume" },
+      { value: "3", label: "Utilities on POS template" },
       { value: "24–48h→mins", label: "Token/payment turnaround" },
     ],
     context:
@@ -378,16 +378,16 @@ export const projects: Project[] = [
     action:
       "Designed a friction‑free, end‑to‑end digital experience: IBEDC Care App (B2C + customer relations) and a bespoke POS terminal workflow for walk‑in centres. Digitised billing, payment, receipt verification, and reconciliation so both customers and staff could transact confidently and traceably.",
     impact:
-      "IBEDC’s billing and payments shifted from paper and third‑party fragmentation to a unified digital system: customers transact in seconds, staff reconcile in minutes, and revenue leakage is materially reduced. In the first year, payment times dropped 30% and satisfaction increased 40%. Positive feedback from customers and staff (Play Store 4.6★, 2,800+ reviews) and a ~30% reduction in call‑centre volume as queue/token complaints disappeared.",
+      "IBEDC’s billing and payments shifted from paper and third‑party fragmentation to a unified digital system: customers transact in seconds, staff reconcile in minutes, and revenue leakage is materially reduced. In the first year, payment times dropped 30% and satisfaction increased 40%. Positive feedback streams from customers and IBEDC staff (Play Store 4.6★ and Twitter praise). Call‑centre volume fell ~30% as queue and token complaints vanished. The POS template was already adopted by three external utilities, proving scalability.",
     tags: ["Fintech", "Utilities", "Mobile App", "POS", "Public Sector"],
     featured: true,
     assets: {
       thumbnails: [
         {
-          src: "/assets/work/ibedc/thumb-1.png",
-          alt: "IBEDC Care App and POS — TL;DR impact",
-          width: 3024,
-          height: 1102,
+          src: "/assets/work/ibedc/case-cover.png",
+          alt: "IBEDC Digital Transformation — project preview",
+          width: 2752,
+          height: 1848,
         },
         {
           src: "/assets/work/ibedc/thumb-2.png",
@@ -397,12 +397,36 @@ export const projects: Project[] = [
         },
       ],
       hero: {
-        src: "/assets/work/ibedc/hero.png",
+        src: "/assets/work/ibedc/case-cover.png",
         alt: "IBEDC Digital Transformation case study header",
-        width: 3024,
-        height: 2098,
+        width: 2752,
+        height: 1848,
       },
       blocks: [
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/ibedc/block-customer-journey.png",
+            alt: "Customer journey user flow — IBEDC digital touchpoints",
+            width: 2197,
+            height: 1487,
+            caption: "Customer journey user flow.",
+          },
+        },
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/ibedc/block-pos-payment-flow.png",
+            alt: "POS payment user flow for walk-in centres",
+            width: 3024,
+            height: 1330,
+            caption: "POS payment user flow.",
+          },
+        },
         {
           kind: "gallery",
           layout: "wide",
@@ -410,18 +434,18 @@ export const projects: Project[] = [
           treatment: "plain",
           images: [
             {
-              src: "/assets/work/ibedc/block-screens.png",
-              alt: "IBEDC Care app and walk-in experience — product screenshots",
-              width: 2196,
-              height: 1222,
-              caption: "Digital touchpoints replacing fragmented portals and queues.",
+              src: "/assets/work/ibedc/block-pos-ui.png",
+              alt: "POS terminal interface for in-person payments",
+              width: 3024,
+              height: 2071,
+              caption: "POS UI.",
             },
             {
-              src: "/assets/work/ibedc/block-challenges.png",
-              alt: "User, cashier, and business challenge mapping",
-              width: 2196,
-              height: 942,
-              caption: "Synthesised pains across customers, cashiers, and operations.",
+              src: "/assets/work/ibedc/block-care-app-ui.png",
+              alt: "IBEDC Care utility payment app interface",
+              width: 3024,
+              height: 1574,
+              caption: "IBEDC Care — utility payment app UI.",
             },
           ],
         },
@@ -430,11 +454,12 @@ export const projects: Project[] = [
           layout: "wide",
           treatment: "plain",
           image: {
-            src: "/assets/work/ibedc/block-objective.png",
-            alt: "Program objective and hypothesis for the IBEDC redesign",
-            width: 3024,
-            height: 832,
-            caption: "North-star objective and phased hypothesis for trust and revenue.",
+            src: "/assets/work/ibedc/block-additional-wins.png",
+            alt: "Additional wins — feedback, operations, and POS template adoption",
+            width: 2432,
+            height: 1883,
+            caption:
+              "Additional wins: customer and staff feedback (Play Store 4.6★, Twitter), call-centre relief, and POS template reused by three utilities.",
           },
         },
       ],

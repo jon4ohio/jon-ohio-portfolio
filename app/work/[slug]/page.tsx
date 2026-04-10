@@ -172,7 +172,8 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
         {(() => {
           const thumb = project.assets?.thumbnails?.[0];
           const hero = project.assets?.hero;
-          const lead = thumb ?? hero;
+          /** Dedicated case-study header image when present; avoids duplicating the listing thumbnail. */
+          const lead = hero ?? thumb;
           if (!lead) return null;
           const alt = lead.src.includes("/assets/work/_placeholders/")
             ? `${project.title} — project preview`

@@ -130,16 +130,10 @@
       "slug": "ibedc",
       "assets": [
         {
-          "id": "2476:24717",
-          "out": "hero.png",
+          "id": "29337:11200",
+          "out": "case-cover.png",
           "designWidth": 1512,
           "designHeight": 1049
-        },
-        {
-          "id": "2476:21131",
-          "out": "thumb-1.png",
-          "designWidth": 1512,
-          "designHeight": 551
         },
         {
           "id": "2481:10621",
@@ -148,22 +142,34 @@
           "designHeight": 385
         },
         {
-          "id": "2610:21508",
-          "out": "block-screens.png",
+          "id": "2708:19639",
+          "out": "block-customer-journey.png",
           "designWidth": 1098,
-          "designHeight": 611
+          "designHeight": 720
         },
         {
-          "id": "2753:29630",
-          "out": "block-challenges.png",
+          "id": "2708:19664",
+          "out": "block-pos-payment-flow.png",
           "designWidth": 1098,
-          "designHeight": 471
+          "designHeight": 720
         },
         {
-          "id": "2476:21257",
-          "out": "block-objective.png",
-          "designWidth": 1512,
-          "designHeight": 416
+          "id": "2708:19767",
+          "out": "block-pos-ui.png",
+          "designWidth": 1098,
+          "designHeight": 720
+        },
+        {
+          "id": "2708:19769",
+          "out": "block-care-app-ui.png",
+          "designWidth": 1098,
+          "designHeight": 720
+        },
+        {
+          "id": "2708:19746",
+          "out": "block-additional-wins.png",
+          "designWidth": 1098,
+          "designHeight": 640
         }
       ]
     }
