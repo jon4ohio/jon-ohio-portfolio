@@ -31,23 +31,24 @@
   --jop-color-teal-70: #4f9eba;
   --jop-color-teal-80: #077597;
 
-  /* Warm-only primitives */
-  --jop-color-sand-5: #fdfcfa;
-  --jop-color-sand-10: #faf7f2;
-  --jop-color-sand-20: #f5f0e8;
-  --jop-color-sand-30: #efe9dd;
-  --jop-color-sand-40: #e6ded0;
-  --jop-color-sand-50: #d9cfc0;
-  --jop-color-sand-60: #b5a998;
-  --jop-color-sand-70: #968a79;
-  --jop-color-sand-80: #6e6354;
-  --jop-color-sand-90: #5c5245;
-  --jop-color-sand-100: #4a4238;
+  /* Warm-only primitives (Claude-aligned warm gray scale; see docs/theme-tokens.md) */
+  --jop-color-sand-5: #ffffff;
+  --jop-color-sand-10: #f8f8f6;
+  --jop-color-sand-20: #f3f2ef;
+  --jop-color-sand-30: #efeeeb;
+  --jop-color-sand-40: #e8e7e3;
+  --jop-color-sand-50: #d8d7d3;
+  --jop-color-sand-60: #b5b3ae;
+  --jop-color-sand-70: #7b7974;
+  --jop-color-sand-80: #5a5855;
+  --jop-color-sand-90: #454342;
+  --jop-color-sand-100: #373734;
 
-  --jop-color-clay-60: #b89e82;
-  --jop-color-clay-70: #9c8264;
-  --jop-color-clay-80: #7a6347;
-  --jop-color-clay-90: #6b5740;
+  /* Neutral warm grays for subtle gradients (primary brand/interactive use coral in warm theme block) */
+  --jop-color-clay-60: #9e9c98;
+  --jop-color-clay-70: #7b7974;
+  --jop-color-clay-80: #4a4947;
+  --jop-color-clay-90: #373734;
 
   /* Dark-only surface primitives */
   --jop-color-slate-5: #1e2228;
@@ -66,41 +67,43 @@
   --jop-bg-surface: var(--jop-color-sand-10);
   --jop-bg-surface-subtle: var(--jop-color-sand-40);
 
-  --jop-text-primary: #141413;
-  --jop-text-strong: #141413;
-  --jop-text-body: #141413;
-  --jop-text-muted: #6f6a61;
-  --jop-text-subtle: #6f6a61;
-  --jop-text-body-muted: rgba(20, 20, 19, 0.78);
+  --jop-text-primary: #121212;
+  --jop-text-strong: #121212;
+  --jop-text-body: #121212;
+  /* #6f6c66: WCAG AA vs canvas (#7b7974 scraped from Claude is ~4.09:1 on #f8f8f6) */
+  --jop-text-muted: #6f6c66;
+  --jop-text-subtle: #6f6c66;
+  --jop-text-body-muted: rgba(18, 18, 18, 0.78);
 
-  --jop-text-on-brand: rgba(250, 249, 245, 0.95);
-  --jop-text-on-brand-strong: rgba(250, 249, 245, 0.85);
-  --jop-text-on-brand-muted: rgba(250, 249, 245, 0.6);
-  --jop-text-on-brand-soft: rgba(250, 249, 245, 0.4);
-  --jop-text-on-emphasis: rgba(250, 249, 245, 0.95);
-  --jop-text-on-emphasis-strong: rgba(250, 249, 245, 0.85);
-  --jop-text-on-emphasis-muted: rgba(250, 249, 245, 0.6);
-  /* ≥4.5:1 on --jop-bg-emphasis (#141413) for small uppercase labels (axe color-contrast) */
-  --jop-text-on-emphasis-soft: rgba(250, 249, 245, 0.5);
+  --jop-text-on-brand: rgba(248, 248, 246, 0.95);
+  --jop-text-on-brand-strong: rgba(248, 248, 246, 0.85);
+  --jop-text-on-brand-muted: rgba(248, 248, 246, 0.6);
+  --jop-text-on-brand-soft: rgba(248, 248, 246, 0.4);
+  --jop-text-on-emphasis: rgba(248, 248, 246, 0.95);
+  --jop-text-on-emphasis-strong: rgba(248, 248, 246, 0.85);
+  --jop-text-on-emphasis-muted: rgba(248, 248, 246, 0.6);
+  /* ≥4.5:1 on --jop-bg-emphasis (#121212) for small uppercase labels (axe color-contrast) */
+  --jop-text-on-emphasis-soft: rgba(248, 248, 246, 0.5);
 
-  --jop-border-default: #e8e6dc;
-  --jop-border-subtle: #e8e6dc;
-  --jop-border-on-brand-subtle: rgba(250, 249, 245, 0.3);
-  --jop-border-on-brand-faint: rgba(250, 249, 245, 0.1);
-  --jop-border-on-emphasis-subtle: rgba(250, 249, 245, 0.3);
-  --jop-border-on-emphasis-faint: rgba(250, 249, 245, 0.1);
+  --jop-border-default: #e8e7e3;
+  --jop-border-subtle: #e8e7e3;
+  --jop-border-on-brand-subtle: rgba(248, 248, 246, 0.3);
+  --jop-border-on-brand-faint: rgba(248, 248, 246, 0.1);
+  --jop-border-on-emphasis-subtle: rgba(248, 248, 246, 0.3);
+  --jop-border-on-emphasis-faint: rgba(248, 248, 246, 0.1);
 
   --jop-accent-brand: #d97757;
   --jop-accent-orange: #9b553d;
   --jop-accent-blue: #6a9bcc;
   --jop-accent-green: #788c5d;
 
-  --jop-bg-emphasis: #141413;
+  --jop-bg-emphasis: #121212;
 
+  /* Primary brand + interactive: coral (Claude accent); subtle/neutral gradients stay on sand/clay */
   --jop-fill-brand-gradient: linear-gradient(
     135deg,
-    var(--jop-color-clay-60) 0%,
-    var(--jop-color-clay-80) 100%
+    var(--jop-accent-brand) 0%,
+    var(--jop-accent-orange) 100%
   );
   --jop-fill-brand-gradient-subtle: linear-gradient(
     135deg,
@@ -140,20 +143,20 @@
   --jop-interactive-gradient: var(--jop-fill-brand-gradient);
   --jop-interactive-gradient-hover: linear-gradient(
     135deg,
-    var(--jop-color-clay-70) 0%,
-    var(--jop-color-clay-90) 100%
+    color-mix(in oklab, var(--jop-accent-brand) 82%, #ffffff 18%) 0%,
+    color-mix(in oklab, var(--jop-accent-orange) 90%, #121212 10%) 100%
   );
   --jop-interactive-gradient-pressed: linear-gradient(
     135deg,
-    var(--jop-color-clay-80) 0%,
-    var(--jop-color-sand-100) 100%
+    color-mix(in oklab, var(--jop-accent-brand) 72%, #121212 28%) 0%,
+    color-mix(in oklab, var(--jop-accent-orange) 85%, #121212 15%) 100%
   );
 
-  --jop-overlay-hero-strong: rgba(250, 249, 245, 0.96);
-  --jop-overlay-hero-soft: rgba(250, 249, 245, 0.6);
-  --jop-backdrop-nav: rgba(250, 249, 245, 0.9);
-  --jop-backdrop-panel: rgba(250, 249, 245, 0.97);
-  --jop-bg-asset-chrome: rgba(250, 249, 245, 0.75);
+  --jop-overlay-hero-strong: rgba(248, 248, 246, 0.96);
+  --jop-overlay-hero-soft: rgba(248, 248, 246, 0.6);
+  --jop-backdrop-nav: rgba(248, 248, 246, 0.9);
+  --jop-backdrop-panel: rgba(248, 248, 246, 0.97);
+  --jop-bg-asset-chrome: rgba(248, 248, 246, 0.75);
 }
 
 :root[data-theme="light"] {
