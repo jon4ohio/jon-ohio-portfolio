@@ -1,84 +1,391 @@
 @import "tailwindcss";
 
 :root {
-  /* Light palette (original site colors) */
-  --light-bg: #ffffff;
-  --light-fg: #0a0a0a;
-  --light-muted: #6b7280;
-  --light-subtle: #6b7280;
-  --light-strong: #1f2937;
-  --light-body: #374151;
-  --light-body-muted: #4b5563;
-  --light-border: #e5e7eb;
-  --light-border-subtle: #d1d5db;
-  --light-surface: #f9fafb;
-  --light-surface-subtle: #f3f4f6;
-  --light-accent: #0a0a0a;
-  --light-accent-orange-text: #b45309;
+  /* Shared primitives */
+  --jop-color-violet-10: #f7f5ff;
+  --jop-color-violet-20: #f3f0ff;
+  --jop-color-violet-30: #eeebff;
+  --jop-color-violet-40: #e3e0ff;
+  --jop-color-violet-50: #dcd6ff;
+  --jop-color-violet-60: #aba2fb;
+  --jop-color-violet-70: #917ef1;
+  --jop-color-violet-80: #634eca;
+  --jop-color-violet-90: #573fcf;
+  --jop-color-violet-100: #4e38bc;
+  --jop-color-violet-110: #39288a;
 
-  /* Warm palette (Claude/Anthropic-inspired) */
-  --warm-bg: #faf9f5;
-  --warm-fg: #141413;
-  --warm-muted: #6f6a61;
-  --warm-subtle: #6f6a61;
-  --warm-strong: #141413;
-  --warm-body: #141413;
-  --warm-body-muted: rgba(20, 20, 19, 0.78);
-  --warm-border: #e8e6dc;
-  --warm-border-subtle: #e8e6dc;
-  --warm-surface: #faf9f5;
-  --warm-surface-subtle: #e8e6dc;
-  --warm-accent: #d97757;
-  --warm-accent-orange-text: #9b553d;
-  --warm-blue: #6a9bcc;
-  --warm-green: #788c5d;
+  --jop-color-grey-5: #fcfcfd;
+  --jop-color-grey-10: #f5f7f9;
+  --jop-color-grey-20: #f0f3f5;
+  --jop-color-grey-30: #eaedf0;
+  --jop-color-grey-40: #dee3e7;
+  --jop-color-grey-50: #cfd6dd;
+  --jop-color-grey-60: #9ea8b3;
+  --jop-color-grey-70: #7e8c9a;
+  --jop-color-grey-80: #555f6d;
+  --jop-color-grey-110: #272e35;
+  --jop-color-grey-120: #1b242c;
+
+  --jop-color-teal-50: #b8e8f5;
+  --jop-color-teal-60: #7ac0dc;
+  --jop-color-teal-70: #4f9eba;
+  --jop-color-teal-80: #077597;
+
+  /* Warm-only primitives */
+  --jop-color-sand-5: #fdfcfa;
+  --jop-color-sand-10: #faf7f2;
+  --jop-color-sand-20: #f5f0e8;
+  --jop-color-sand-30: #efe9dd;
+  --jop-color-sand-40: #e6ded0;
+  --jop-color-sand-50: #d9cfc0;
+  --jop-color-sand-60: #b5a998;
+  --jop-color-sand-70: #968a79;
+  --jop-color-sand-80: #6e6354;
+  --jop-color-sand-90: #5c5245;
+  --jop-color-sand-100: #4a4238;
+
+  --jop-color-clay-60: #b89e82;
+  --jop-color-clay-70: #9c8264;
+  --jop-color-clay-80: #7a6347;
+  --jop-color-clay-90: #6b5740;
+
+  /* Dark-only surface primitives */
+  --jop-color-slate-5: #1e2228;
+  --jop-color-slate-10: #232830;
+  --jop-color-slate-20: #2a3039;
+  --jop-color-slate-30: #323a44;
+  --jop-color-slate-40: #3c4550;
 }
 
 :root,
 :root[data-theme="warm"] {
-  --bg: var(--warm-bg);
-  --fg: var(--warm-fg);
-  --fg-muted: var(--warm-muted);
-  --fg-subtle: var(--warm-subtle);
-  --fg-strong: var(--warm-strong);
-  --fg-body: var(--warm-body);
-  --fg-body-muted: var(--warm-body-muted);
-  --border: var(--warm-border);
-  --border-subtle: var(--warm-border-subtle);
-  --accent: var(--warm-accent);
-  --surface: var(--warm-surface);
-  --surface-subtle: var(--warm-surface-subtle);
-  --accent-orange: var(--warm-accent-orange-text);
-  --accent-blue: var(--warm-blue);
-  --accent-green: var(--warm-green);
-  --hero-overlay-strong: rgba(250, 249, 245, 0.96);
-  --hero-overlay-soft: rgba(250, 249, 245, 0.6);
-  --nav-backdrop: rgba(250, 249, 245, 0.9);
-  --panel-backdrop: rgba(250, 249, 245, 0.97);
-  --asset-chrome-bg: rgba(250, 249, 245, 0.75);
+  color-scheme: light;
+
+  /* Decision tokens */
+  --jop-bg-canvas: var(--jop-color-sand-10);
+  --jop-bg-surface: var(--jop-color-sand-10);
+  --jop-bg-surface-subtle: var(--jop-color-sand-40);
+
+  --jop-text-primary: #141413;
+  --jop-text-strong: #141413;
+  --jop-text-body: #141413;
+  --jop-text-muted: #6f6a61;
+  --jop-text-subtle: #6f6a61;
+  --jop-text-body-muted: rgba(20, 20, 19, 0.78);
+
+  --jop-text-on-brand: rgba(250, 249, 245, 0.95);
+  --jop-text-on-brand-strong: rgba(250, 249, 245, 0.85);
+  --jop-text-on-brand-muted: rgba(250, 249, 245, 0.6);
+  --jop-text-on-brand-soft: rgba(250, 249, 245, 0.4);
+  --jop-text-on-emphasis: rgba(250, 249, 245, 0.95);
+  --jop-text-on-emphasis-strong: rgba(250, 249, 245, 0.85);
+  --jop-text-on-emphasis-muted: rgba(250, 249, 245, 0.6);
+  --jop-text-on-emphasis-soft: rgba(250, 249, 245, 0.4);
+
+  --jop-border-default: #e8e6dc;
+  --jop-border-subtle: #e8e6dc;
+  --jop-border-on-brand-subtle: rgba(250, 249, 245, 0.3);
+  --jop-border-on-brand-faint: rgba(250, 249, 245, 0.1);
+  --jop-border-on-emphasis-subtle: rgba(250, 249, 245, 0.3);
+  --jop-border-on-emphasis-faint: rgba(250, 249, 245, 0.1);
+
+  --jop-accent-brand: #d97757;
+  --jop-accent-orange: #9b553d;
+  --jop-accent-blue: #6a9bcc;
+  --jop-accent-green: #788c5d;
+
+  --jop-bg-emphasis: #141413;
+
+  --jop-fill-brand-gradient: linear-gradient(
+    135deg,
+    var(--jop-color-clay-60) 0%,
+    var(--jop-color-clay-80) 100%
+  );
+  --jop-fill-brand-gradient-subtle: linear-gradient(
+    135deg,
+    var(--jop-color-sand-30) 0%,
+    var(--jop-color-sand-50) 100%
+  );
+  --jop-fill-accent-gradient: linear-gradient(
+    135deg,
+    var(--jop-color-clay-60) 0%,
+    var(--jop-color-sand-60) 100%
+  );
+  --jop-fill-neutral-gradient: linear-gradient(
+    135deg,
+    var(--jop-color-sand-10) 0%,
+    var(--jop-color-sand-30) 100%
+  );
+  --jop-text-brand-gradient: linear-gradient(
+    135deg,
+    var(--jop-color-clay-70) 0%,
+    var(--jop-color-clay-90) 100%
+  );
+  --jop-text-accent-gradient: linear-gradient(
+    135deg,
+    var(--jop-color-clay-60) 0%,
+    var(--jop-color-sand-70) 100%
+  );
+  --jop-border-brand-gradient: linear-gradient(
+    135deg,
+    var(--jop-color-clay-60) 0%,
+    var(--jop-color-sand-50) 100%
+  );
+  --jop-border-subtle-gradient: linear-gradient(
+    135deg,
+    var(--jop-color-sand-20) 0%,
+    var(--jop-color-sand-40) 100%
+  );
+  --jop-interactive-gradient: var(--jop-fill-brand-gradient);
+  --jop-interactive-gradient-hover: linear-gradient(
+    135deg,
+    var(--jop-color-clay-70) 0%,
+    var(--jop-color-clay-90) 100%
+  );
+  --jop-interactive-gradient-pressed: linear-gradient(
+    135deg,
+    var(--jop-color-clay-80) 0%,
+    var(--jop-color-sand-100) 100%
+  );
+
+  --jop-overlay-hero-strong: rgba(250, 249, 245, 0.96);
+  --jop-overlay-hero-soft: rgba(250, 249, 245, 0.6);
+  --jop-backdrop-nav: rgba(250, 249, 245, 0.9);
+  --jop-backdrop-panel: rgba(250, 249, 245, 0.97);
+  --jop-bg-asset-chrome: rgba(250, 249, 245, 0.75);
 }
 
 :root[data-theme="light"] {
-  --bg: var(--light-bg);
-  --fg: var(--light-fg);
-  --fg-muted: var(--light-muted);
-  --fg-subtle: var(--light-subtle);
-  --fg-strong: var(--light-strong);
-  --fg-body: var(--light-body);
-  --fg-body-muted: var(--light-body-muted);
-  --border: var(--light-border);
-  --border-subtle: var(--light-border-subtle);
-  --accent: var(--light-accent);
-  --surface: var(--light-surface);
-  --surface-subtle: var(--light-surface-subtle);
-  --accent-orange: var(--light-accent-orange-text);
-  --accent-blue: #1d4ed8;
-  --accent-green: #15803d;
-  --hero-overlay-strong: rgba(255, 255, 255, 0.96);
-  --hero-overlay-soft: rgba(255, 255, 255, 0.6);
-  --nav-backdrop: rgba(255, 255, 255, 0.9);
-  --panel-backdrop: rgba(255, 255, 255, 0.97);
-  --asset-chrome-bg: rgba(255, 255, 255, 0.75);
+  color-scheme: light;
+
+  --jop-bg-canvas: #ffffff;
+  --jop-bg-surface: #f9fafb;
+  --jop-bg-surface-subtle: #f3f4f6;
+
+  --jop-text-primary: #0a0a0a;
+  --jop-text-strong: #1f2937;
+  --jop-text-body: #374151;
+  --jop-text-muted: #6b7280;
+  --jop-text-subtle: #6b7280;
+  --jop-text-body-muted: #4b5563;
+
+  --jop-text-on-brand: rgba(255, 255, 255, 0.96);
+  --jop-text-on-brand-strong: rgba(255, 255, 255, 0.85);
+  --jop-text-on-brand-muted: rgba(255, 255, 255, 0.6);
+  --jop-text-on-brand-soft: rgba(255, 255, 255, 0.4);
+  --jop-text-on-emphasis: rgba(255, 255, 255, 0.96);
+  --jop-text-on-emphasis-strong: rgba(255, 255, 255, 0.85);
+  --jop-text-on-emphasis-muted: rgba(255, 255, 255, 0.6);
+  --jop-text-on-emphasis-soft: rgba(255, 255, 255, 0.4);
+
+  --jop-border-default: #e5e7eb;
+  --jop-border-subtle: #d1d5db;
+  --jop-border-on-brand-subtle: rgba(255, 255, 255, 0.3);
+  --jop-border-on-brand-faint: rgba(255, 255, 255, 0.1);
+  --jop-border-on-emphasis-subtle: rgba(255, 255, 255, 0.3);
+  --jop-border-on-emphasis-faint: rgba(255, 255, 255, 0.1);
+
+  --jop-accent-brand: #0a0a0a;
+  --jop-accent-orange: #b45309;
+  --jop-accent-blue: #1d4ed8;
+  --jop-accent-green: #15803d;
+
+  --jop-bg-emphasis: #0a0a0a;
+
+  --jop-fill-brand-gradient: linear-gradient(
+    135deg,
+    var(--jop-color-violet-60) 0%,
+    var(--jop-color-violet-80) 100%
+  );
+  --jop-fill-brand-gradient-subtle: linear-gradient(
+    135deg,
+    var(--jop-color-violet-20) 0%,
+    var(--jop-color-violet-40) 100%
+  );
+  --jop-fill-accent-gradient: linear-gradient(
+    135deg,
+    var(--jop-color-teal-60) 0%,
+    var(--jop-color-violet-60) 100%
+  );
+  --jop-fill-neutral-gradient: linear-gradient(
+    135deg,
+    var(--jop-color-grey-10) 0%,
+    var(--jop-color-grey-30) 100%
+  );
+  --jop-text-brand-gradient: linear-gradient(
+    135deg,
+    var(--jop-color-violet-70) 0%,
+    var(--jop-color-violet-90) 100%
+  );
+  --jop-text-accent-gradient: linear-gradient(
+    135deg,
+    var(--jop-color-teal-70) 0%,
+    var(--jop-color-violet-70) 100%
+  );
+  --jop-border-brand-gradient: linear-gradient(
+    135deg,
+    var(--jop-color-violet-40) 0%,
+    var(--jop-color-violet-60) 100%
+  );
+  --jop-border-subtle-gradient: linear-gradient(
+    135deg,
+    var(--jop-color-grey-20) 0%,
+    var(--jop-color-grey-40) 100%
+  );
+  --jop-interactive-gradient: var(--jop-fill-brand-gradient);
+  --jop-interactive-gradient-hover: linear-gradient(
+    135deg,
+    var(--jop-color-violet-70) 0%,
+    var(--jop-color-violet-90) 100%
+  );
+  --jop-interactive-gradient-pressed: linear-gradient(
+    135deg,
+    var(--jop-color-violet-80) 0%,
+    var(--jop-color-violet-100) 100%
+  );
+
+  --jop-overlay-hero-strong: rgba(255, 255, 255, 0.96);
+  --jop-overlay-hero-soft: rgba(255, 255, 255, 0.6);
+  --jop-backdrop-nav: rgba(255, 255, 255, 0.9);
+  --jop-backdrop-panel: rgba(255, 255, 255, 0.97);
+  --jop-bg-asset-chrome: rgba(255, 255, 255, 0.75);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --jop-bg-canvas: var(--jop-color-slate-5);
+  --jop-bg-surface: var(--jop-color-slate-10);
+  --jop-bg-surface-subtle: var(--jop-color-slate-20);
+
+  --jop-text-primary: #f0f3f5;
+  --jop-text-strong: #f8fafc;
+  --jop-text-body: #e6ebf0;
+  --jop-text-muted: #b7c0ca;
+  --jop-text-subtle: #97a1ad;
+  --jop-text-body-muted: rgba(230, 235, 240, 0.8);
+
+  --jop-text-on-brand: #f8fafc;
+  --jop-text-on-brand-strong: rgba(248, 250, 252, 0.9);
+  --jop-text-on-brand-muted: rgba(248, 250, 252, 0.72);
+  --jop-text-on-brand-soft: rgba(248, 250, 252, 0.5);
+  --jop-text-on-emphasis: #f8fafc;
+  --jop-text-on-emphasis-strong: rgba(248, 250, 252, 0.9);
+  --jop-text-on-emphasis-muted: rgba(248, 250, 252, 0.72);
+  --jop-text-on-emphasis-soft: rgba(248, 250, 252, 0.5);
+
+  --jop-border-default: var(--jop-color-slate-30);
+  --jop-border-subtle: var(--jop-color-slate-20);
+  --jop-border-on-brand-subtle: rgba(248, 250, 252, 0.36);
+  --jop-border-on-brand-faint: rgba(248, 250, 252, 0.16);
+  --jop-border-on-emphasis-subtle: rgba(248, 250, 252, 0.36);
+  --jop-border-on-emphasis-faint: rgba(248, 250, 252, 0.16);
+
+  --jop-accent-brand: var(--jop-color-violet-70);
+  --jop-accent-orange: var(--jop-color-violet-60);
+  --jop-accent-blue: var(--jop-color-teal-60);
+  --jop-accent-green: var(--jop-color-teal-70);
+
+  --jop-bg-emphasis: var(--jop-color-slate-30);
+
+  --jop-fill-brand-gradient: linear-gradient(
+    135deg,
+    var(--jop-color-violet-70) 0%,
+    var(--jop-color-violet-90) 100%
+  );
+  --jop-fill-brand-gradient-subtle: linear-gradient(
+    135deg,
+    var(--jop-color-violet-100) 0%,
+    var(--jop-color-violet-110) 100%
+  );
+  --jop-fill-accent-gradient: linear-gradient(
+    135deg,
+    var(--jop-color-teal-70) 0%,
+    var(--jop-color-violet-70) 100%
+  );
+  --jop-fill-neutral-gradient: linear-gradient(
+    135deg,
+    var(--jop-color-slate-10) 0%,
+    var(--jop-color-slate-20) 100%
+  );
+  --jop-text-brand-gradient: linear-gradient(
+    135deg,
+    var(--jop-color-violet-50) 0%,
+    var(--jop-color-violet-70) 100%
+  );
+  --jop-text-accent-gradient: linear-gradient(
+    135deg,
+    var(--jop-color-teal-50) 0%,
+    var(--jop-color-violet-60) 100%
+  );
+  --jop-border-brand-gradient: linear-gradient(
+    135deg,
+    var(--jop-color-violet-80) 0%,
+    var(--jop-color-violet-100) 100%
+  );
+  --jop-border-subtle-gradient: linear-gradient(
+    135deg,
+    var(--jop-color-slate-20) 0%,
+    var(--jop-color-slate-30) 100%
+  );
+  --jop-interactive-gradient: var(--jop-fill-brand-gradient);
+  --jop-interactive-gradient-hover: linear-gradient(
+    135deg,
+    var(--jop-color-violet-80) 0%,
+    var(--jop-color-violet-100) 100%
+  );
+  --jop-interactive-gradient-pressed: linear-gradient(
+    135deg,
+    var(--jop-color-violet-90) 0%,
+    var(--jop-color-violet-110) 100%
+  );
+
+  --jop-overlay-hero-strong: rgba(30, 34, 40, 0.94);
+  --jop-overlay-hero-soft: rgba(35, 40, 48, 0.58);
+  --jop-backdrop-nav: rgba(30, 34, 40, 0.9);
+  --jop-backdrop-panel: rgba(30, 34, 40, 0.96);
+  --jop-bg-asset-chrome: rgba(35, 40, 48, 0.78);
+}
+
+/* Compatibility aliases for existing components */
+:root {
+  --bg: var(--jop-bg-canvas);
+  --fg: var(--jop-text-primary);
+  --fg-muted: var(--jop-text-muted);
+  --fg-subtle: var(--jop-text-subtle);
+  --fg-strong: var(--jop-text-strong);
+  --fg-body: var(--jop-text-body);
+  --fg-body-muted: var(--jop-text-body-muted);
+  --fg-on-brand: var(--jop-text-on-brand);
+  --fg-on-brand-strong: var(--jop-text-on-brand-strong);
+  --fg-on-brand-muted: var(--jop-text-on-brand-muted);
+  --fg-on-brand-soft: var(--jop-text-on-brand-soft);
+  --fg-on-emphasis: var(--jop-text-on-emphasis);
+  --fg-on-emphasis-strong: var(--jop-text-on-emphasis-strong);
+  --fg-on-emphasis-muted: var(--jop-text-on-emphasis-muted);
+  --fg-on-emphasis-soft: var(--jop-text-on-emphasis-soft);
+
+  --border: var(--jop-border-default);
+  --border-subtle: var(--jop-border-subtle);
+  --border-on-brand-subtle: var(--jop-border-on-brand-subtle);
+  --border-on-brand-faint: var(--jop-border-on-brand-faint);
+  --border-on-emphasis-subtle: var(--jop-border-on-emphasis-subtle);
+  --border-on-emphasis-faint: var(--jop-border-on-emphasis-faint);
+
+  --accent: var(--jop-accent-brand);
+  --accent-orange: var(--jop-accent-orange);
+  --accent-blue: var(--jop-accent-blue);
+  --accent-green: var(--jop-accent-green);
+
+  --surface: var(--jop-bg-surface);
+  --surface-subtle: var(--jop-bg-surface-subtle);
+  --surface-emphasis: var(--jop-bg-emphasis);
+
+  --hero-overlay-strong: var(--jop-overlay-hero-strong);
+  --hero-overlay-soft: var(--jop-overlay-hero-soft);
+  --nav-backdrop: var(--jop-backdrop-nav);
+  --panel-backdrop: var(--jop-backdrop-panel);
+  --asset-chrome-bg: var(--jop-bg-asset-chrome);
 }
 
 * { box-sizing: border-box; padding: 0; margin: 0; }
@@ -454,15 +761,18 @@ button:focus-visible {
 ───────────────────────────────────────────────────── */
 .pad-inset      { padding: 56px; }
 .pad-inset-wide { padding: 64px 56px; }
+.emphasis-block { gap: 64px; }
 
 @media (max-width: 900px) {
   .pad-inset      { padding: 40px 36px; }
   .pad-inset-wide { padding: 48px 40px; }
+  .emphasis-block { gap: 40px; }
 }
 
 @media (max-width: 640px) {
   .pad-inset      { padding: 28px 20px; }
   .pad-inset-wide { padding: 32px 20px; }
+  .emphasis-block { gap: 28px; }
 }
 
 /* ─────────────────────────────────────────────────────

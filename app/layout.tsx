@@ -3,8 +3,7 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-
-const activeTheme = "warm" as const;
+import ThemeScript from "@/components/ThemeScript";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
@@ -78,8 +77,11 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: activeTheme === "warm" ? "#faf9f5" : "#ffffff",
-  colorScheme: "light",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#faf9f5" },
+    { media: "(prefers-color-scheme: dark)", color: "#1e2228" },
+  ],
+  colorScheme: "light dark",
 };
 
 const personSchema = {
@@ -123,8 +125,9 @@ const websiteSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-theme={activeTheme}>
+    <html lang="en" data-theme="warm" suppressHydrationWarning>
       <head>
+        <ThemeScript />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
