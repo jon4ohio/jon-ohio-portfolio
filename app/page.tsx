@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { projects } from "@/lib/projects";
+import AssetImage from "@/components/AssetImage";
 import Hero from "@/components/Hero";
 import SelectedSystemsLogosRow from "@/components/SelectedSystemsLogosRow";
 import SystemModel from "@/components/SystemModel";
@@ -157,33 +158,50 @@ export default function Home() {
                       style={{
                         textDecoration: "none",
                         color: "inherit",
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: 8,
+                        display: "block",
                         padding: "14px 8px",
                         margin: "0 -8px",
                         borderTop: "none",
                       }}
                     >
-                      <span style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                        <span style={{ fontSize: 18, fontWeight: 600, letterSpacing: "-0.01em" }}>
-                          {p.title}
-                        </span>
-                        <span style={{ fontSize: 13, color: "var(--fg-muted)" }}>{p.subtitle}</span>
-                      </span>
-                      <span style={{ display: "flex", alignItems: "center", justifyContent: p.metrics?.length ? "space-between" : "flex-end", gap: 10 }}>
-                        {p.metrics?.length ? (
-                          <span className="metric-badges" aria-label="Key metrics">
-                            {p.metrics.slice(0, 3).map((m, mi) => (
-                              <span key={mi} className="metric-badge">
-                                <span className="metric-badge__value">{m.value}</span>
-                                <span className="metric-badge__label">{m.label}</span>
-                              </span>
-                            ))}
-                          </span>
+                      <div className="system-project-link__inner">
+                        {p.assets?.thumbnails?.[0] ? (
+                          <div className="system-project-thumb">
+                            <AssetImage
+                              asset={{
+                                ...p.assets.thumbnails[0],
+                                alt: p.assets.thumbnails[0].src.includes("/assets/work/_placeholders/")
+                                  ? `${p.title} — project preview`
+                                  : p.assets.thumbnails[0].alt,
+                              }}
+                              sizes="(max-width: 640px) 92vw, 160px"
+                              aspectCover="4 / 3"
+                              style={{}}
+                            />
+                          </div>
                         ) : null}
-                        <span style={{ fontSize: 13, color: "var(--fg-subtle)" }}>→</span>
-                      </span>
+                        <div className="system-project-link__body">
+                          <span style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                            <span style={{ fontSize: 18, fontWeight: 600, letterSpacing: "-0.01em" }}>
+                              {p.title}
+                            </span>
+                            <span style={{ fontSize: 13, color: "var(--fg-muted)" }}>{p.subtitle}</span>
+                          </span>
+                          <span style={{ display: "flex", alignItems: "center", justifyContent: p.metrics?.length ? "space-between" : "flex-end", gap: 10 }}>
+                            {p.metrics?.length ? (
+                              <span className="metric-badges" aria-label="Key metrics">
+                                {p.metrics.slice(0, 3).map((m, mi) => (
+                                  <span key={mi} className="metric-badge">
+                                    <span className="metric-badge__value">{m.value}</span>
+                                    <span className="metric-badge__label">{m.label}</span>
+                                  </span>
+                                ))}
+                              </span>
+                            ) : null}
+                            <span style={{ fontSize: 13, color: "var(--fg-subtle)" }}>→</span>
+                          </span>
+                        </div>
+                      </div>
                     </Link>
                   ))}
                 </div>

@@ -454,6 +454,27 @@ body {
 }
 .system-project-link { border-radius: 8px; }
 .system-project-link:hover { background: var(--surface-hover); }
+
+/* Homepage Selected Systems: thumb + text row */
+.system-project-link__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+}
+.system-project-thumb {
+  flex: 0 0 auto;
+  width: 140px;
+  max-width: 160px;
+  min-width: 0;
+}
+.system-project-link__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 .case-study-nav-link:hover p:last-child {
   color: var(--fg);
   text-decoration: underline;
@@ -798,6 +819,13 @@ button:focus-visible {
   .grid-systems-group {
     grid-template-columns: 1fr !important;
     gap: 12px !important;
+  }
+  .system-project-link__inner {
+    flex-direction: column;
+  }
+  .system-project-thumb {
+    width: 100%;
+    max-width: 100%;
   }
   .about-timeline-row {
     grid-template-columns: 80px 1fr !important;
