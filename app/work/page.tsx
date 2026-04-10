@@ -60,6 +60,7 @@ export default function WorkIndex() {
                         : p.assets.thumbnails[0].alt,
                     }}
                     sizes="(max-width: 640px) 92vw, (max-width: 900px) 200px, 240px"
+                    aspectCover="4 / 3"
                     style={{}}
                   />
                 ) : null}

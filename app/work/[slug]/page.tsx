@@ -169,23 +169,29 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
           ))}
         </div>
 
-        {project.assets?.hero ? (
-          <div style={{ marginBottom: 28 }}>
-            <AssetImage
-              asset={{
-                ...project.assets.hero,
-                alt: project.assets.hero.src.includes("/assets/work/_placeholders/")
-                  ? `${project.title} — project preview`
-                  : project.assets.hero.alt,
-              }}
-              sizes="(max-width: 900px) 92vw, 1240px"
-              priority
-            />
-            {project.assets.hero.caption ? (
-              <p style={{ fontSize: 12, color: "var(--fg-subtle)", lineHeight: 1.6, marginTop: 10 }}>{project.assets.hero.caption}</p>
-            ) : null}
-          </div>
-        ) : null}
+        {(() => {
+          const thumb = project.assets?.thumbnails?.[0];
+          const hero = project.assets?.hero;
+          const lead = thumb ?? hero;
+          if (!lead) return null;
+          const alt = lead.src.includes("/assets/work/_placeholders/")
+            ? `${project.title} — project preview`
+            : lead.alt;
+          return (
+            <div style={{ marginBottom: 28 }}>
+              <AssetImage
+                asset={{ ...lead, alt }}
+                sizes="(max-width: 900px) 92vw, 1240px"
+                priority
+                aspectCover="16 / 9"
+                aspectFit="cover"
+              />
+              {lead.caption ? (
+                <p style={{ fontSize: 12, color: "var(--fg-subtle)", lineHeight: 1.6, marginTop: 10 }}>{lead.caption}</p>
+              ) : null}
+            </div>
+          );
+        })()}
 
         <div className="grid-2" style={{ gap: 16 }}>
           <div style={{ border: "1px solid var(--border)", borderRadius: 12, padding: "20px 22px" }}>

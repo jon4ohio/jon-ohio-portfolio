@@ -107,16 +107,49 @@ export const projects: Project[] = [
     tags: ["Design Systems", "ATS", "Enterprise SaaS", "AI/ML", "DesignOps"],
     featured: true,
     assets: {
-      thumbnails: [placeholderThumbA, placeholderThumbB],
-      hero: placeholderHero,
+      thumbnails: [
+        {
+          src: "/assets/work/seamless-hiring/thumb-1.png",
+          alt: "SeamlessHiring TL;DR — measurable impact summary",
+          width: 3024,
+          height: 1434,
+        },
+        {
+          src: "/assets/work/seamless-hiring/thumb-2.png",
+          alt: "Product screenshots from the SeamlessHiring case study",
+          width: 2196,
+          height: 1304,
+        },
+      ],
+      hero: {
+        src: "/assets/work/seamless-hiring/hero.png",
+        alt: "SeamlessHiring 2.0 case study header with RMS dashboard preview",
+        width: 3024,
+        height: 2098,
+      },
       blocks: [
         {
           kind: "image",
           layout: "wide",
           treatment: "device",
           image: {
-            ...placeholderThumbA,
-            caption: "Example flow snapshot (replace with real visuals).",
+            src: "/assets/work/seamless-hiring/block-cover.png",
+            alt: "Slide from the SeamlessHiring portfolio presentation",
+            width: 2196,
+            height: 1002,
+            caption: "Portfolio narrative slide from the SeamlessHiring rebuild.",
+          },
+        },
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/seamless-hiring/block-pain-points.png",
+            alt: "Pain point discovery — interviews, synthesis, and key insights",
+            width: 2196,
+            height: 2312,
+            caption: "Research-led problem framing: what broke down for recruiters and applicants.",
           },
         },
         {
@@ -125,9 +158,33 @@ export const projects: Project[] = [
           columns: 2,
           treatment: "plain",
           images: [
-            { ...placeholderThumbA, caption: "Before" },
-            { ...placeholderThumbB, caption: "After" },
+            {
+              src: "/assets/work/seamless-hiring/block-gallery-1.png",
+              alt: "TL;DR metrics table — SeamlessHiring measurable impact",
+              width: 2196,
+              height: 966,
+              caption: "Impact snapshot (TL;DR section).",
+            },
+            {
+              src: "/assets/work/seamless-hiring/thumb-2.png",
+              alt: "Overlapping mobile and desktop UI from the case study",
+              width: 2196,
+              height: 1304,
+              caption: "Key UI explorations from the phased rollout.",
+            },
           ],
+        },
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/seamless-hiring/block-journey.png",
+            alt: "Revisiting the customer journey map after research and phased delivery",
+            width: 2196,
+            height: 788,
+            caption: "Journey alignment as roadmap phases and governance landed.",
+          },
         },
       ],
     },
@@ -161,13 +218,50 @@ export const projects: Project[] = [
     tags: ["Design Systems", "Tokens", "Governance", "Vue", "Figma"],
     featured: true,
     assets: {
-      thumbnails: [placeholderThumbB, placeholderThumbA],
-      hero: placeholderHero,
+      thumbnails: [
+        {
+          src: "/assets/work/seamkit/thumb-1.png",
+          alt: "SeamKit TL;DR — adoption and measurable impact",
+          width: 3024,
+          height: 1208,
+        },
+        {
+          src: "/assets/work/seamkit/thumb-2.png",
+          alt: "Design system screenshots and UI examples",
+          width: 2120,
+          height: 1110,
+        },
+      ],
+      hero: {
+        src: "/assets/work/seamkit/hero.png",
+        alt: "SeamKit enterprise design system case study header",
+        width: 3024,
+        height: 2098,
+      },
       blocks: [
         {
-          kind: "callout",
-          title: "System artefacts",
-          body: "This case study supports sectional images and galleries (tokens, components, governance docs, rollout snapshots).",
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/seamkit/block-hypothesis.png",
+            alt: "Hypothesis and objective for consolidating SeamKit",
+            width: 3024,
+            height: 1136,
+            caption: "Why a unified design system was essential for PLG and global scale.",
+          },
+        },
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/seamkit/block-approach.png",
+            alt: "Approach section — technology behind SeamKit",
+            width: 2196,
+            height: 1864,
+            caption: "Technology choices: tokens, components, and integration across design and engineering.",
+          },
         },
       ],
     },
@@ -201,8 +295,62 @@ export const projects: Project[] = [
     tags: ["Fintech", "IaaS", "Mobile Money", "Infrastructure", "0→1"],
     featured: true,
     assets: {
-      thumbnails: [placeholderThumbA, placeholderThumbB],
-      hero: placeholderHero,
+      thumbnails: [
+        {
+          src: "/assets/work/fetsproza/thumb-1.png",
+          alt: "FetsProza TL;DR — measurable impact",
+          width: 3024,
+          height: 1434,
+        },
+        {
+          src: "/assets/work/fetsproza/thumb-2.png",
+          alt: "Operator console and platform screenshots",
+          width: 2196,
+          height: 1222,
+        },
+      ],
+      hero: {
+        src: "/assets/work/fetsproza/hero.png",
+        alt: "FetsProza IaaS platform case study header",
+        width: 3024,
+        height: 2098,
+      },
+      blocks: [
+        {
+          kind: "gallery",
+          layout: "wide",
+          columns: 2,
+          treatment: "plain",
+          images: [
+            {
+              src: "/assets/work/fetsproza/block-module-payment.png",
+              alt: "FetsProza platform — payment processing module in context",
+              width: 2196,
+              height: 1742,
+              caption: "Payment processing: real-time flows, refunds, and peak-load performance.",
+            },
+            {
+              src: "/assets/work/fetsproza/block-module-merchant.png",
+              alt: "FetsProza platform — merchant and agent management",
+              width: 2196,
+              height: 1742,
+              caption: "Merchant and agent management: onboarding and reconciliation.",
+            },
+          ],
+        },
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/fetsproza/block-outcome.png",
+            alt: "Outcome — quantitative, UX, and strategic impact for FetsProza",
+            width: 3024,
+            height: 2254,
+            caption: "Measurable impact: cost savings, throughput, and white-label positioning.",
+          },
+        },
+      ],
     },
   },
   {
@@ -234,8 +382,62 @@ export const projects: Project[] = [
     tags: ["Fintech", "Utilities", "Mobile App", "POS", "Public Sector"],
     featured: true,
     assets: {
-      thumbnails: [placeholderThumbB, placeholderThumbA],
-      hero: placeholderHero,
+      thumbnails: [
+        {
+          src: "/assets/work/ibedc/thumb-1.png",
+          alt: "IBEDC Care App and POS — TL;DR impact",
+          width: 3024,
+          height: 1102,
+        },
+        {
+          src: "/assets/work/ibedc/thumb-2.png",
+          alt: "Overview — north-star objective for IBEDC digital transformation",
+          width: 2196,
+          height: 770,
+        },
+      ],
+      hero: {
+        src: "/assets/work/ibedc/hero.png",
+        alt: "IBEDC Digital Transformation case study header",
+        width: 3024,
+        height: 2098,
+      },
+      blocks: [
+        {
+          kind: "gallery",
+          layout: "wide",
+          columns: 2,
+          treatment: "plain",
+          images: [
+            {
+              src: "/assets/work/ibedc/block-screens.png",
+              alt: "IBEDC Care app and walk-in experience — product screenshots",
+              width: 2196,
+              height: 1222,
+              caption: "Digital touchpoints replacing fragmented portals and queues.",
+            },
+            {
+              src: "/assets/work/ibedc/block-challenges.png",
+              alt: "User, cashier, and business challenge mapping",
+              width: 2196,
+              height: 942,
+              caption: "Synthesised pains across customers, cashiers, and operations.",
+            },
+          ],
+        },
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/ibedc/block-objective.png",
+            alt: "Program objective and hypothesis for the IBEDC redesign",
+            width: 3024,
+            height: 832,
+            caption: "North-star objective and phased hypothesis for trust and revenue.",
+          },
+        },
+      ],
     },
   },
   {
