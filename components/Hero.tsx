@@ -271,7 +271,7 @@ export default function Hero() {
       <div
         style={{
           background:
-            "radial-gradient(ellipse 55% 65% at 38% 52%, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.6) 55%, transparent 100%)",
+            "radial-gradient(ellipse 55% 65% at 38% 52%, var(--hero-overlay-strong) 0%, var(--hero-overlay-soft) 55%, transparent 100%)",
           position: "absolute",
           inset: 0,
           pointerEvents: "none",
@@ -284,7 +284,7 @@ export default function Hero() {
           style={{
             fontSize: 13,
             fontWeight: 500,
-            color: "var(--fg-muted)",
+            color: "var(--accent-orange)",
             letterSpacing: "0.08em",
             textTransform: "uppercase",
             marginBottom: 24,

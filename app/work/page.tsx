@@ -67,12 +67,12 @@ export default function WorkIndex() {
 
               <div className="work-list-body">
                 <div style={{ display: "flex", gap: 12, marginBottom: 10, flexWrap: "wrap" }}>
-                  <span style={{ fontSize: 11, color: "var(--fg-subtle)", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+                  <span style={{ fontSize: 11, color: "var(--accent-orange)", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase" }}>
                     {p.category}
                   </span>
-                  <span aria-hidden="true" style={{ fontSize: 11, color: "var(--border-subtle)" }}>·</span>
+                  <span aria-hidden="true" style={{ fontSize: 11, color: "var(--accent-orange)" }}>·</span>
                   <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{p.company}</span>
-                  <span aria-hidden="true" style={{ fontSize: 11, color: "var(--border-subtle)" }}>·</span>
+                  <span aria-hidden="true" style={{ fontSize: 11, color: "var(--accent-orange)" }}>·</span>
                   <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{p.period}</span>
                 </div>
                 <h2 style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 8 }}>{p.title}</h2>
@@ -91,7 +91,7 @@ export default function WorkIndex() {
 
                 <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                   {p.tags.map((t) => (
-                    <span key={t} style={{ fontSize: 11, color: "var(--fg-muted)", border: "1px solid var(--border)", padding: "3px 8px", borderRadius: 4 }}>
+                    <span key={t} style={{ fontSize: 11, color: "var(--accent-orange)", border: "1px solid var(--border)", padding: "3px 8px", borderRadius: 4 }}>
                       {t}
                     </span>
                   ))}

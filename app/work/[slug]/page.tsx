@@ -144,12 +144,12 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       {/* ── Hero ── */}
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "48px 24px 64px" }}>
         <div style={{ display: "flex", gap: 12, marginBottom: 20, flexWrap: "wrap" }}>
-          <span style={{ fontSize: 11, fontWeight: 500, color: "var(--fg-subtle)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+          <span style={{ fontSize: 11, fontWeight: 500, color: "var(--accent-orange)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
             {project.category}
           </span>
-          <span aria-hidden="true" style={{ fontSize: 11, color: "var(--border-subtle)" }}>·</span>
+          <span aria-hidden="true" style={{ fontSize: 11, color: "var(--accent-orange)" }}>·</span>
           <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{project.company}</span>
-          <span aria-hidden="true" style={{ fontSize: 11, color: "var(--border-subtle)" }}>·</span>
+          <span aria-hidden="true" style={{ fontSize: 11, color: "var(--accent-orange)" }}>·</span>
           <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{project.period}</span>
         </div>
         <h1 style={{ fontSize: "clamp(32px, 5vw, 60px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.05, marginBottom: 16, maxWidth: 800 }}>
@@ -269,7 +269,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 80px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto", display: "flex", gap: 6, flexWrap: "wrap" }}>
           {project.tags.map((t) => (
-            <span key={t} style={{ fontSize: 12, color: "var(--fg-muted)", border: "1px solid var(--border)", padding: "4px 10px", borderRadius: 4 }}>
+            <span key={t} style={{ fontSize: 12, color: "var(--accent-orange)", border: "1px solid var(--border)", padding: "4px 10px", borderRadius: 4 }}>
               {t}
             </span>
           ))}

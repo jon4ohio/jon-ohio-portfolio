@@ -34,12 +34,12 @@ export default function AssetImage({ asset, sizes, priority, style, treatment = 
             gap: 8,
             padding: "0 14px",
             borderBottom: "1px solid var(--border)",
-            background: "rgba(255,255,255,0.65)",
+            background: "var(--asset-chrome-bg)",
           }}
         >
-          <span aria-hidden="true" style={{ width: 10, height: 10, borderRadius: 999, background: "#ef4444" }} />
-          <span aria-hidden="true" style={{ width: 10, height: 10, borderRadius: 999, background: "#f59e0b" }} />
-          <span aria-hidden="true" style={{ width: 10, height: 10, borderRadius: 999, background: "#22c55e" }} />
+          <span aria-hidden="true" style={{ width: 10, height: 10, borderRadius: 999, background: "var(--accent-orange)" }} />
+          <span aria-hidden="true" style={{ width: 10, height: 10, borderRadius: 999, background: "var(--accent-blue)" }} />
+          <span aria-hidden="true" style={{ width: 10, height: 10, borderRadius: 999, background: "var(--accent-green)" }} />
           <span style={{ marginLeft: 8, fontSize: 12, color: "var(--fg-subtle)" }}>Preview</span>
         </div>
         <Image
