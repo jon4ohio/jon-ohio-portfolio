@@ -49,69 +49,66 @@ export default function Nav() {
             John Ohio
           </Link>
 
-          {/* Desktop nav links + theme selector */}
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <div className="nav-desktop-links">
-              {links.map((l) => {
-                const active = pathname === l.href || (l.href !== "/" && pathname.startsWith(l.href));
-                return (
-                  <Link
-                    key={l.href}
-                    href={l.href}
-                    style={{
-                      fontSize: 14,
-                      fontWeight: active ? 500 : 400,
-                      color: active ? "var(--fg)" : "var(--fg-muted)",
-                      textDecoration: "none",
-                      padding: "6px 12px",
-                      borderRadius: 6,
-                      transition: "color 0.15s, background 0.15s",
-                      background: active ? "var(--surface-subtle)" : "transparent",
-                    }}
-                  >
-                    {l.label}
-                  </Link>
-                );
-              })}
-            </div>
-            <div className="nav-desktop-links">
-              <ThemeToggle compact />
-            </div>
+          {/* Desktop nav links */}
+          <div className="nav-desktop-links">
+            {links.map((l) => {
+              const active = pathname === l.href || (l.href !== "/" && pathname.startsWith(l.href));
+              return (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  style={{
+                    fontSize: 14,
+                    fontWeight: active ? 500 : 400,
+                    color: active ? "var(--fg)" : "var(--fg-muted)",
+                    textDecoration: "none",
+                    padding: "6px 12px",
+                    borderRadius: 6,
+                    transition: "color 0.15s, background 0.15s",
+                    background: active ? "var(--surface-subtle)" : "transparent",
+                  }}
+                >
+                  {l.label}
+                </Link>
+              );
+            })}
           </div>
 
-          {/* Desktop CTA */}
-          <a
-            href="mailto:jon4ohio@gmail.com"
-            className="nav-desktop-cta"
-            style={{
-              fontSize: 13,
-              fontWeight: 500,
-              color: "var(--fg)",
-              textDecoration: "none",
-              border: "1px solid var(--fg)",
-              padding: "7px 16px",
-              borderRadius: 8,
-              transition: "background 0.15s, color 0.15s",
-            }}
-            onMouseEnter={(e) => {
-              (e.target as HTMLElement).style.background = "var(--surface-emphasis)";
-              (e.target as HTMLElement).style.color = "var(--fg-on-emphasis)";
-            }}
-            onMouseLeave={(e) => {
-              (e.target as HTMLElement).style.background = "transparent";
-              (e.target as HTMLElement).style.color = "var(--fg)";
-            }}
-            onFocus={(e) => {
-              (e.target as HTMLElement).style.background = "var(--surface-emphasis)";
-              (e.target as HTMLElement).style.color = "var(--fg-on-emphasis)";
-            }}
-            onBlur={(e) => {
-              (e.target as HTMLElement).style.background = "transparent";
-              (e.target as HTMLElement).style.color = "var(--fg)";
-            }}
-          >
-            Get in touch
-          </a>
+          {/* Desktop actions: theme switcher sits next to CTA for balance */}
+          <div className="nav-desktop-cta" style={{ gap: 8 }}>
+            <ThemeToggle compact />
+            <a
+              href="mailto:jon4ohio@gmail.com"
+              style={{
+                fontSize: 13,
+                fontWeight: 500,
+                color: "var(--fg)",
+                textDecoration: "none",
+                border: "1px solid var(--fg)",
+                padding: "7px 16px",
+                borderRadius: 8,
+                transition: "background 0.15s, color 0.15s",
+              }}
+              onMouseEnter={(e) => {
+                (e.target as HTMLElement).style.background = "var(--surface-emphasis)";
+                (e.target as HTMLElement).style.color = "var(--fg-on-emphasis)";
+              }}
+              onMouseLeave={(e) => {
+                (e.target as HTMLElement).style.background = "transparent";
+                (e.target as HTMLElement).style.color = "var(--fg)";
+              }}
+              onFocus={(e) => {
+                (e.target as HTMLElement).style.background = "var(--surface-emphasis)";
+                (e.target as HTMLElement).style.color = "var(--fg-on-emphasis)";
+              }}
+              onBlur={(e) => {
+                (e.target as HTMLElement).style.background = "transparent";
+                (e.target as HTMLElement).style.color = "var(--fg)";
+              }}
+            >
+              Get in touch
+            </a>
+          </div>
 
           {/* Mobile hamburger */}
           <button
@@ -161,9 +158,6 @@ export default function Nav() {
         className={`nav-mobile-panel${menuOpen ? " open" : ""}`}
         aria-hidden={!menuOpen}
       >
-        <div style={{ marginBottom: 8 }}>
-          <ThemeToggle />
-        </div>
         {links.map((l) => {
           const active = pathname === l.href || (l.href !== "/" && pathname.startsWith(l.href));
           return (
@@ -184,6 +178,9 @@ export default function Nav() {
             </Link>
           );
         })}
+        <div style={{ marginTop: 12, marginBottom: 8 }}>
+          <ThemeToggle />
+        </div>
         <a
           href="mailto:jon4ohio@gmail.com"
           onClick={() => setMenuOpen(false)}
