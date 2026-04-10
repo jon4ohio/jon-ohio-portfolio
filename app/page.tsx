@@ -20,11 +20,12 @@ export const metadata: Metadata = {
 };
 
 const heroMetrics = [
-  { value: "$1M+", line1: "Saved", line2: "annually" },
-  { value: "↑75%", line1: "User", line2: "satisfaction" },
-  { value: "2.49M", line1: "Design tokens", line2: "used" },
-  { value: "12", line1: "Product teams", line2: "onboarded" },
-  { value: "#4", line1: "Product Hunt", line2: "" },
+  { value: "$1M+", label: "Annual savings (Fets)" },
+  { value: "↑75%", label: "CSAT (SeamlessHR)" },
+  { value: "2.49M", label: "Tokens used" },
+  { value: "12", label: "Teams onboarded" },
+  { value: "↓80%", label: "Fraud reduction (IBEDC)" },
+  { value: "#4", label: "Product Hunt (Rivva)" },
 ];
 
 const systemGroups = [
@@ -82,9 +83,7 @@ export default function Home() {
       <section
         aria-label="Career metrics"
         style={{
-          borderTop: "1px solid var(--border)",
-          borderBottom: "1px solid var(--border)",
-          background: "var(--surface)",
+          padding: "8px 0 24px",
         }}
       >
         <div
@@ -96,22 +95,9 @@ export default function Home() {
           }}
         >
           {heroMetrics.map((m) => (
-            <div key={m.value} className="hero-metric">
-              <p
-                style={{
-                  fontSize: 32,
-                  fontWeight: 600,
-                  letterSpacing: "-0.02em",
-                  lineHeight: 1.1,
-                  marginBottom: 8,
-                }}
-              >
-                {m.value}
-              </p>
-              <p className="hero-metric-label" style={{ fontSize: 13, color: "var(--fg-muted)" }}>
-                <span>{m.line1}</span>
-                {m.line2 ? <span>{m.line2}</span> : null}
-              </p>
+            <div key={`${m.value}-${m.label}`} className="hero-metric">
+              <p className="hero-metric-value">{m.value}</p>
+              <p className="hero-metric-label">{m.label}</p>
             </div>
           ))}
         </div>
