@@ -45,6 +45,7 @@ export default function SelectedSystemsLogosRow() {
 
   return (
     <div
+      role="group"
       aria-label={`Organizations: ${names}`}
       style={{
         marginTop: 40,

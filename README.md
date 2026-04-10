@@ -29,6 +29,21 @@ npm run start  # run production server (after build)
 npm run hooks:install # install git pre-push hook
 ```
 
+### Accessibility (automated)
+
+Page-level scans use [Playwright](https://playwright.dev/) and [@axe-core/playwright](https://github.com/dequelabs/axe-core-npm/tree/develop/packages/playwright) against a production build (same checks as axe in the browser; contrast and other rules are DOM-based heuristics).
+
+1. Install browsers once: `npx playwright install chromium`
+2. Build, then run tests (starts `next start` automatically unless a server is already running):
+
+```bash
+npm run test:a11y:ci
+```
+
+Or: `npm run build && npm run test:a11y`
+
+Failures report **critical** and **serious** WCAG 2 A/AA-tagged violations only; moderate/minor issues may still need manual review.
+
 ## Content editing
 
 - **Case studies / projects**: edit `lib/projects.ts`
