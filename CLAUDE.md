@@ -45,7 +45,7 @@ All layout and visual styles use **inline `style` props** — not Tailwind class
 `globals.css` defines CSS custom properties (`--bg`, `--fg`, `--fg-muted`, `--fg-subtle`, `--border`, `--accent`, `--surface`) — prefer `var(--fg)` etc. in inline styles over hardcoded hex values.
 
 ### Layout
-`app/layout.tsx` wraps every page with `<Nav />` and `<Footer />` from `components/`. Pages apply `paddingTop: 56` to account for the fixed nav height. Max content width is `1120px` centered with `margin: "0 auto"`.
+`app/layout.tsx` wraps every page with `<Nav />` and `<Footer />` from `components/`. Pages apply `paddingTop: 56` to account for the fixed nav height. Max content width is `1240px` centered with `margin: "0 auto"`.
 
 ### Path alias
 `@/` resolves to the project root — use for all cross-directory imports (e.g. `@/lib/projects`, `@/components/Nav`).

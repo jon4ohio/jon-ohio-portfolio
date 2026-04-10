@@ -18,7 +18,7 @@ function BlockRenderer({ block }: { block: CaseStudyBlock }) {
       <div>
         <AssetImage
           asset={block.image}
-          sizes={block.layout === "wide" ? "(max-width: 900px) 92vw, 1120px" : "(max-width: 900px) 92vw, 720px"}
+          sizes={block.layout === "wide" ? "(max-width: 900px) 92vw, 1240px" : "(max-width: 900px) 92vw, 720px"}
           treatment={block.treatment}
         />
         {block.image.caption ? (
@@ -131,7 +131,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       {/* ── Breadcrumb ── */}
       <nav
         aria-label="Breadcrumb"
-        style={{ maxWidth: 1120, margin: "0 auto", padding: "32px 24px 0" }}
+        style={{ maxWidth: 1240, margin: "0 auto", padding: "32px 24px 0" }}
       >
         <Link
           href="/work"
@@ -142,7 +142,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       </nav>
 
       {/* ── Hero ── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "48px 24px 64px" }}>
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "48px 24px 64px" }}>
         <div style={{ display: "flex", gap: 12, marginBottom: 20, flexWrap: "wrap" }}>
           <span style={{ fontSize: 11, fontWeight: 500, color: "var(--accent-orange)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
             {project.category}
@@ -178,7 +178,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
                   ? `${project.title} — project preview`
                   : project.assets.hero.alt,
               }}
-              sizes="(max-width: 900px) 92vw, 1120px"
+              sizes="(max-width: 900px) 92vw, 1240px"
               priority
             />
             {project.assets.hero.caption ? (
@@ -256,7 +256,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
 
       {/* ── Case Study Assets ── */}
       {project.assets?.blocks?.length ? (
-        <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 80px" }}>
+        <section style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px 80px" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
             {project.assets.blocks.map((block, idx) => (
               <BlockRenderer key={idx} block={block} />
@@ -266,7 +266,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       ) : null}
 
       {/* Tags */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 80px" }}>
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px 80px" }}>
         <div style={{ maxWidth: 760, margin: "0 auto", display: "flex", gap: 6, flexWrap: "wrap" }}>
           {project.tags.map((t) => (
             <span key={t} style={{ fontSize: 12, color: "var(--accent-orange)", border: "1px solid var(--border)", padding: "4px 10px", borderRadius: 4 }}>
@@ -277,7 +277,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       </section>
 
       {/* ── Next / Prev ── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 120px" }}>
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px 120px" }}>
         <div className="grid-2" style={{ borderTop: "1px solid var(--border)", paddingTop: 40, gap: 24 }}>
           <div>
             {prev && (

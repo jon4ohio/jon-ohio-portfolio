@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 export default function WorkIndex() {
   return (
     <div style={{ paddingTop: 56 }}>
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "80px 24px 64px" }}>
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 64px" }}>
         <p className="section-label" style={{ marginBottom: 20 }}>
           Selected Work
         </p>
@@ -32,7 +32,7 @@ export default function WorkIndex() {
         </p>
       </section>
 
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "0 24px 120px" }}>
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px 120px" }}>
         <div style={{ display: "grid", gap: 2 }}>
           {projects.map((p, i) => (
             <Link

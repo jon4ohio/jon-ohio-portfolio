@@ -68,7 +68,7 @@ export default function About() {
     <div style={{ paddingTop: 56 }}>
       <div
         style={{
-          maxWidth: 1120,
+          maxWidth: 1240,
           margin: "0 auto",
           padding: "clamp(56px, 12vw, 80px) clamp(20px, 4vw, 24px) clamp(80px, 14vw, 120px)",
         }}

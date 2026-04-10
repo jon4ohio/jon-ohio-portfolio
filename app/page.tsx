@@ -89,7 +89,7 @@ export default function Home() {
         <div
           className="hero-metrics"
           style={{
-            maxWidth: 1120,
+            maxWidth: 1240,
             margin: "0 auto",
             padding: "0 24px",
           }}
@@ -106,7 +106,7 @@ export default function Home() {
       <SystemModel />
 
       {/* ── 3. SELECTED SYSTEMS ─────────────────────────────── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "120px 24px 0" }}>
         <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 16, flexWrap: "wrap", gap: 12 }}>
           <p className="section-label">
             Selected Systems
@@ -196,7 +196,7 @@ export default function Home() {
       </section>
 
       {/* ── 4. WHAT I DO ────────────────────────────────────── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "120px 24px 0" }}>
         <p className="section-label" style={{ marginBottom: 20 }}>
           What I Do
         </p>
@@ -239,7 +239,7 @@ export default function Home() {
           borderBottom: "1px solid var(--border)",
         }}
       >
-        <div style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px" }}>
+        <div style={{ maxWidth: 1240, margin: "0 auto", padding: "120px 24px" }}>
           <p className="section-label" style={{ marginBottom: 20 }}>
             How I Think
           </p>
@@ -280,7 +280,7 @@ export default function Home() {
       </section>
 
       {/* ── 7. LEADERSHIP & DESIGNOPS TEASER ────────────────── */}
-      <section style={{ maxWidth: 1120, margin: "120px auto 0", padding: "0 24px" }}>
+      <section style={{ maxWidth: 1240, margin: "120px auto 0", padding: "0 24px" }}>
         <div
           className="grid-2 pad-inset-wide emphasis-block"
           style={{
@@ -368,7 +368,7 @@ export default function Home() {
       </section>
 
       {/* ── 8. CURRENT FOCUS ────────────────────────────────── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 0" }}>
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "120px 24px 0" }}>
         <p className="section-label" style={{ marginBottom: 20 }}>
           Current Focus
         </p>
@@ -403,7 +403,7 @@ export default function Home() {
       </section>
 
       {/* ── 9. CLOSING ──────────────────────────────────────── */}
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 120px", textAlign: "center" }}>
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "120px 24px 120px", textAlign: "center" }}>
         <p className="section-label" style={{ marginBottom: 24 }}>
           Closing
         </p>

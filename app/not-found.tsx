@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <div style={{ paddingTop: 56 }}>
-      <section style={{ maxWidth: 1120, margin: "0 auto", padding: "120px 24px 120px" }}>
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "120px 24px 120px" }}>
         <p className="section-label" style={{ marginBottom: 16 }}>
           404
         </p>
