@@ -15,3 +15,4 @@
 | 011 | Surface-hover token for perceptible warm-theme hovers | Accepted | 2026-04-10 | None |
 | 012 | Homepage hero headline natural wrap and decoupled About copy | Accepted | 2026-04-11 | None |
 | 013 | Playwright and axe page-level accessibility tests | Accepted | 2026-04-11 | None |
+| 014 | SystemModel Fragmented stage copy for narrow-column line breaks | Accepted | 2026-04-10 | None |

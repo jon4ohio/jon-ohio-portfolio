@@ -1,7 +1,7 @@
 const stages = [
   {
     title: "Fragmented",
-    description: "Disconnected workflows, inconsistent interfaces, high support load.",
+    description: "Disconnected workflows, UI/UX inconsistent, high support load.",
     titleWeight: 500,
     titleOpacity: 0.72,
   },

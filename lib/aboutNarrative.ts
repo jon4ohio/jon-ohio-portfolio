@@ -1,6 +1,6 @@
 /** About lead line; often matches the homepage hero headline — update both when copy changes. */
 export const aboutHeadline =
-  "I design systems that evolve – from fragmented to intelligent";
+  "I design systems that evolve – from fragmented to intelligent workflows";
 
 export const operatingPrinciplesLabel = "Operating Principles";
 
