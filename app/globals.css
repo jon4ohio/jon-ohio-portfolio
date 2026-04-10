@@ -379,6 +379,11 @@
 
   --surface: var(--jop-bg-surface);
   --surface-subtle: var(--jop-bg-surface-subtle);
+  /** Hover/focus wash for rows and links on canvas (warm theme: canvas === surface, so never use --surface alone for hover). */
+  --surface-hover: var(--jop-bg-surface-subtle);
+  /** Theme switcher active segment (defaults to hover wash; warm overrides to a lighter mix). */
+  --theme-toggle-active-bg: var(--surface-hover);
+  --theme-toggle-active-shadow: inset 0 0 0 1px var(--border);
   --surface-emphasis: var(--jop-bg-emphasis);
 
   --hero-overlay-strong: var(--jop-overlay-hero-strong);
@@ -386,6 +391,13 @@
   --nav-backdrop: var(--jop-backdrop-nav);
   --panel-backdrop: var(--jop-backdrop-panel);
   --asset-chrome-bg: var(--jop-bg-asset-chrome);
+}
+
+/* Warm theme: softer hover wash than full surface-subtle (sand-40), closer to light/dark subtlety */
+:root[data-theme="warm"] {
+  --surface-hover: color-mix(in oklab, var(--jop-bg-canvas) 82%, var(--jop-bg-surface-subtle) 18%);
+  --theme-toggle-active-bg: color-mix(in oklab, var(--jop-bg-canvas) 91%, var(--jop-bg-surface-subtle) 9%);
+  --theme-toggle-active-shadow: none;
 }
 
 * { box-sizing: border-box; padding: 0; margin: 0; }
@@ -412,23 +424,39 @@ body {
   text-transform: uppercase;
 }
 
+/* Hero h1 — natural wrap on narrow viewports; intentional two lines from tablet up */
+.hero-headline-l1,
+.hero-headline-l2 {
+  display: inline;
+}
+@media (min-width: 640px) {
+  .hero-headline-l1 {
+    display: block;
+  }
+}
+
+.theme-toggle-segment:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 /* Hover affordances (keep minimal, no extra animation) */
 .work-list-row:hover {
-  background: var(--surface);
+  background: var(--surface-hover);
 }
 .grid-systems-group a:not(.system-project-link):hover {
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 .system-project-link { border-radius: 8px; }
-.system-project-link:hover { background: var(--surface); }
+.system-project-link:hover { background: var(--surface-hover); }
 .case-study-nav-link:hover p:last-child {
   color: var(--fg);
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 .nav-desktop-links a:hover {
-  background: var(--surface-subtle);
+  background: var(--surface-hover);
   color: var(--fg);
 }
 .footer-nav a:hover,
@@ -608,31 +636,51 @@ button:focus-visible {
   min-width: 0;
 }
 
-/* Homepage hero metrics — gap-as-border, wraps cleanly across breakpoints */
+/* Homepage hero metrics — minimalist editorial report style */
 .hero-metrics {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1px;
-  background: var(--border);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 64px;
+  row-gap: 48px;
+  padding: 48px 0;
 }
 .hero-metric {
-  background: var(--surface);
-  padding: 28px 24px;
+  border-left: 1px solid color-mix(in oklab, var(--border) 45%, transparent);
+  padding-left: 16px;
+  white-space: nowrap;
 }
-.hero-metric--filler {
-  /* Synthetic cell to keep wrapping clean when item count is odd */
-  display: none;
-  background: var(--surface);
+.hero-metric-value {
+  font-size: clamp(30px, 4vw, 36px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin: 0;
+}
+.hero-metric-label {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: var(--fg-muted);
+  letter-spacing: 0.02em;
+  line-height: 1.35;
 }
 @media (max-width: 900px) {
-  .hero-metrics { grid-template-columns: repeat(3, 1fr); }
-  .hero-metric { padding: 24px 18px; }
-  .hero-metric--filler { display: block; }
+  .hero-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 40px;
+    row-gap: 36px;
+    padding: 40px 0;
+  }
+  .hero-metric { padding-left: 14px; }
 }
 @media (max-width: 640px) {
-  .hero-metrics { grid-template-columns: repeat(2, 1fr); }
-  .hero-metric { padding: 20px 16px; }
-  .hero-metric--filler { display: block; }
+  .hero-metrics {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+    row-gap: 28px;
+    padding: 32px 0;
+  }
+  .hero-metric { padding-left: 12px; }
+  .hero-metric-value { font-size: clamp(28px, 9vw, 34px); }
 }
 
 /* Generic stats grid — wraps cleanly using gap-as-border */

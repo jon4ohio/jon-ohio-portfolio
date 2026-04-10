@@ -311,12 +311,12 @@ export default function Hero() {
               marginBottom: 24,
             }}
           >
-            PRODUCT DESIGN LEAD · DESIGN SYSTEMS · DESIGNOPS · AI UX
+            PRODUCT DESIGN LEAD · SYSTEMS · DESIGNOPS · AI UX
           </p>
           <h1
             className="animate-fade-up delay-2"
             style={{
-              fontSize: "clamp(40px, 6vw, 72px)",
+              fontSize: "clamp(36px, 5.6vw, 72px)",
               fontWeight: 600,
               letterSpacing: "-0.03em",
               lineHeight: 1.1,
@@ -324,7 +324,8 @@ export default function Hero() {
               marginBottom: 32,
             }}
           >
-            I design systems that evolve — from fragmented to intelligent.
+            <span className="hero-headline-l1">I design systems that evolve —</span>{" "}
+            <span className="hero-headline-l2">from fragmented to intelligent</span>
           </h1>
           <p
             className="animate-fade-up delay-3"
@@ -336,7 +337,7 @@ export default function Hero() {
               lineHeight: 1.5,
             }}
           >
-            Product Design Lead working across enterprise SaaS, fintech infrastructure, and AI — designing systems, DesignOps, and intelligent workflows.
+            Working across enterprise SaaS, fintech infrastructure, and AI — designing systems, DesignOps, and intelligent workflows.
           </p>
           <div className="animate-fade-up delay-4 hero-cta">
             <Link

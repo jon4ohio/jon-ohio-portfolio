@@ -83,7 +83,7 @@ export default function ThemeToggle({ compact = false }: { compact?: boolean }) 
         border: "1px solid var(--border)",
         borderRadius: 999,
         padding: compact ? 2 : 3,
-        background: "var(--surface)",
+        background: "transparent",
       }}
     >
       {THEMES.map((item) => {
@@ -93,6 +93,7 @@ export default function ThemeToggle({ compact = false }: { compact?: boolean }) 
             key={item}
             type="button"
             role="radio"
+            className="theme-toggle-segment"
             aria-checked={active}
             aria-label={`Theme ${labels[item]}`}
             tabIndex={active ? 0 : -1}
@@ -101,13 +102,14 @@ export default function ThemeToggle({ compact = false }: { compact?: boolean }) 
               border: "none",
               borderRadius: 999,
               padding: compact ? "5px 8px" : "6px 10px",
-              background: active ? "var(--fg)" : "transparent",
-              color: active ? "var(--bg)" : "var(--fg-muted)",
+              background: active ? "var(--theme-toggle-active-bg)" : "transparent",
+              color: active ? "var(--fg)" : "var(--fg-muted)",
               fontSize: compact ? 11 : 12,
               fontWeight: 500,
               letterSpacing: "0.01em",
               cursor: "pointer",
-              transition: "background 0.15s ease, color 0.15s ease",
+              boxShadow: active ? "var(--theme-toggle-active-shadow)" : "none",
+              transition: "background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease",
             }}
           >
             {labels[item]}

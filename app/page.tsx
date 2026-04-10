@@ -20,11 +20,12 @@ export const metadata: Metadata = {
 };
 
 const heroMetrics = [
-  { value: "$1M+", label: "saved annually" },
-  { value: "↑75%", label: "satisfaction" },
-  { value: "2.49M", label: "token usage" },
-  { value: "12", label: "teams scaled" },
-  { value: "#4", label: "Product Hunt" },
+  { value: "$1M+", label: "Annual savings (Fets)" },
+  { value: "↑75%", label: "CSAT (SeamlessHR)" },
+  { value: "2.49m", label: "tokens used (Seamkit DS)" },
+  { value: "12", label: "teams onboarded (Seamkit DS)" },
+  { value: "↓80%", label: "Fraud reduction (IBEDC)" },
+  { value: "#4", label: "Product Hunt (Rivva)" },
 ];
 
 const systemGroups = [
@@ -82,9 +83,7 @@ export default function Home() {
       <section
         aria-label="Career metrics"
         style={{
-          borderTop: "1px solid var(--border)",
-          borderBottom: "1px solid var(--border)",
-          background: "var(--surface)",
+          padding: "8px 0 24px",
         }}
       >
         <div
@@ -96,21 +95,11 @@ export default function Home() {
           }}
         >
           {heroMetrics.map((m) => (
-            <div key={m.value} className="hero-metric">
-              <p
-                style={{
-                  fontSize: 26,
-                  fontWeight: 600,
-                  letterSpacing: "-0.02em",
-                  marginBottom: 4,
-                }}
-              >
-                {m.value}
-              </p>
-              <p style={{ fontSize: 13, color: "var(--fg-muted)" }}>{m.label}</p>
+            <div key={`${m.value}-${m.label}`} className="hero-metric">
+              <p className="hero-metric-value">{m.value}</p>
+              <p className="hero-metric-label">{m.label}</p>
             </div>
           ))}
-          <div className="hero-metric hero-metric--filler" aria-hidden="true" />
         </div>
       </section>
 
