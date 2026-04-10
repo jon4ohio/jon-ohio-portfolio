@@ -379,6 +379,8 @@
 
   --surface: var(--jop-bg-surface);
   --surface-subtle: var(--jop-bg-surface-subtle);
+  /** Hover/focus wash for rows and links on canvas (warm theme: canvas === surface, so never use --surface alone for hover). */
+  --surface-hover: var(--jop-bg-surface-subtle);
   --surface-emphasis: var(--jop-bg-emphasis);
 
   --hero-overlay-strong: var(--jop-overlay-hero-strong);
@@ -414,21 +416,21 @@ body {
 
 /* Hover affordances (keep minimal, no extra animation) */
 .work-list-row:hover {
-  background: var(--surface);
+  background: var(--surface-hover);
 }
 .grid-systems-group a:not(.system-project-link):hover {
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 .system-project-link { border-radius: 8px; }
-.system-project-link:hover { background: var(--surface); }
+.system-project-link:hover { background: var(--surface-hover); }
 .case-study-nav-link:hover p:last-child {
   color: var(--fg);
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 .nav-desktop-links a:hover {
-  background: var(--surface-subtle);
+  background: var(--surface-hover);
   color: var(--fg);
 }
 .footer-nav a:hover,

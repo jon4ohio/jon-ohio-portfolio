@@ -12,3 +12,4 @@
 | 008 | ADR update gate for major pushes | Accepted | 2026-04-10 | None |
 | 009 | Full-viewport hero grid background layering | Accepted | 2026-04-10 | None |
 | 010 | Homepage hero and metrics evidence hierarchy | Accepted | 2026-04-10 | None |
+| 011 | Surface-hover token for perceptible warm-theme hovers | Accepted | 2026-04-10 | None |

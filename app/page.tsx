@@ -22,8 +22,8 @@ export const metadata: Metadata = {
 const heroMetrics = [
   { value: "$1M+", label: "Annual savings (Fets)" },
   { value: "↑75%", label: "CSAT (SeamlessHR)" },
-  { value: "2.49M", label: "Tokens used" },
-  { value: "12", label: "Teams onboarded" },
+  { value: "2.49m", label: "tokens used (Seamkit DS)" },
+  { value: "12", label: "teams onboarded (Seamkit DS)" },
   { value: "↓80%", label: "Fraud reduction (IBEDC)" },
   { value: "#4", label: "Product Hunt (Rivva)" },
 ];
