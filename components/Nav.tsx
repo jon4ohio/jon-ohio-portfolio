@@ -1,8 +1,11 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
+
+const NAV_AVATAR_SRC = "/assets/nav/avatar.png";
 
 const links = [
   { href: "/", label: "Home" },
@@ -62,9 +65,40 @@ export default function Nav() {
         >
           <Link
             href="/"
-            style={{ fontWeight: 600, fontSize: 15, color: "var(--fg)", textDecoration: "none", letterSpacing: "-0.01em" }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 10,
+              fontWeight: 600,
+              fontSize: 15,
+              color: "var(--fg)",
+              textDecoration: "none",
+              letterSpacing: "-0.01em",
+            }}
             onClick={() => setMenuOpen(false)}
           >
+            <span
+              className="nav-avatar"
+              style={{
+                position: "relative",
+                width: "clamp(28px, 5vw, 36px)",
+                height: "clamp(28px, 5vw, 36px)",
+                flexShrink: 0,
+                borderRadius: "50%",
+                overflow: "hidden",
+                border: "1px solid var(--border)",
+              }}
+              onContextMenu={(e) => e.preventDefault()}
+            >
+              <Image
+                src={NAV_AVATAR_SRC}
+                alt=""
+                fill
+                sizes="(max-width: 640px) 28px, 36px"
+                draggable={false}
+                style={{ objectFit: "cover" }}
+              />
+            </span>
             John Ohio
           </Link>
 
