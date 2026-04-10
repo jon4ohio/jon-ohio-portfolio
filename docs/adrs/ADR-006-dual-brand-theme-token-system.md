@@ -2,7 +2,7 @@
 
 ## Status
 <!-- One of: Draft | Proposed | Accepted | Deprecated | Superseded by ADR-NNN -->
-**Status:** Accepted
+**Status:** Superseded by ADR-007
 **Date:** 2026-04-10
 **Decision Maker(s):** John Ohio (Owner/Maintainer)
 **Supersedes:** None
@@ -76,6 +76,7 @@ The implementation keeps semantic token names unchanged for compatibility, intro
 
 - ADR-001 — constrains inline styling approach that consumes semantic tokens.
 - ADR-005 — extends prior color-token normalization work with multi-theme architecture.
+- ADR-007 — supersedes naming and accessibility refinements for theme tokens.
 
 ## References
 

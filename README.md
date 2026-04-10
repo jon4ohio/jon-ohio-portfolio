@@ -53,13 +53,13 @@ See `docs/adrs/index.md`.
 
 The site supports two color themes through CSS custom properties:
 
-- `claude` (default)
-- `legacy` (original palette)
+- `warm` (default, Claude-inspired palette)
+- `light` (original palette)
 
 Theme selection is controlled in `app/layout.tsx` via the `activeTheme` constant and applied on the root `<html data-theme="...">`.
 
 To switch theme defaults:
 
 1. Open `app/layout.tsx`
-2. Change `activeTheme` from `"claude"` to `"legacy"` (or back)
+2. Change `activeTheme` from `"warm"` to `"light"` (or back)
 3. Restart dev server if needed

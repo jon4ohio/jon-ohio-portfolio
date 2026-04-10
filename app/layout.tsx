@@ -3,7 +3,7 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
-const activeTheme = "claude" as const;
+const activeTheme = "warm" as const;
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
@@ -77,7 +77,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: activeTheme === "claude" ? "#faf9f5" : "#ffffff",
+  themeColor: activeTheme === "warm" ? "#faf9f5" : "#ffffff",
   colorScheme: "light",
 };
 
