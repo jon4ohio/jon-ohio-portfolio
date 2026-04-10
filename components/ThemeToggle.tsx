@@ -10,16 +10,21 @@ const labels: Record<ThemeName, string> = {
 };
 
 export default function ThemeToggle({ compact = false }: { compact?: boolean }) {
-  const [theme, setTheme] = useState<ThemeName>(() => {
-    if (typeof window === "undefined") return DEFAULT_THEME;
-    const rootTheme = document.documentElement.dataset.theme;
-    try {
-      const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
-      return coerceTheme(storedTheme ?? rootTheme);
-    } catch {
-      return coerceTheme(rootTheme);
-    }
-  });
+  // Keep initial client render identical to SSR to avoid hydration mismatch.
+  const [theme, setTheme] = useState<ThemeName>(DEFAULT_THEME);
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      const rootTheme = document.documentElement.dataset.theme;
+      try {
+        const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
+        setTheme(coerceTheme(storedTheme ?? rootTheme));
+      } catch {
+        setTheme(coerceTheme(rootTheme));
+      }
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
 
   useEffect(() => {
     if (document.documentElement.dataset.theme !== theme) {
