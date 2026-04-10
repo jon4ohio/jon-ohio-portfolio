@@ -390,6 +390,11 @@
   --asset-chrome-bg: var(--jop-bg-asset-chrome);
 }
 
+/* Warm theme: softer hover wash than full surface-subtle (sand-40), closer to light/dark subtlety */
+:root[data-theme="warm"] {
+  --surface-hover: color-mix(in oklab, var(--jop-bg-canvas) 82%, var(--jop-bg-surface-subtle) 18%);
+}
+
 * { box-sizing: border-box; padding: 0; margin: 0; }
 
 html {
