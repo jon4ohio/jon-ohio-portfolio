@@ -102,13 +102,13 @@ export default function ThemeToggle({ compact = false }: { compact?: boolean }) 
               border: "none",
               borderRadius: 999,
               padding: compact ? "5px 8px" : "6px 10px",
-              background: active ? "var(--surface-hover)" : "transparent",
+              background: active ? "var(--theme-toggle-active-bg)" : "transparent",
               color: active ? "var(--fg)" : "var(--fg-muted)",
               fontSize: compact ? 11 : 12,
-              fontWeight: active ? 600 : 500,
+              fontWeight: 500,
               letterSpacing: "0.01em",
               cursor: "pointer",
-              boxShadow: active ? "inset 0 0 0 1px var(--border)" : "none",
+              boxShadow: active ? "var(--theme-toggle-active-shadow)" : "none",
               transition: "background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease",
             }}
           >
