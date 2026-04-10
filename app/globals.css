@@ -861,17 +861,45 @@ button:focus-visible {
   top: 56px;
   left: 0;
   right: 0;
+  bottom: 0;
   background: var(--panel-backdrop);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  padding: 16px 24px 24px;
+  padding: 16px 24px;
+  padding-bottom: max(24px, env(safe-area-inset-bottom));
   z-index: 49;
+  overflow: hidden;
   opacity: 0;
   transform: translateY(-8px);
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+}
+
+.nav-mobile-panel-inner {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+}
+
+.nav-mobile-panel-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.nav-mobile-panel-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+  padding-top: 16px;
 }
 
 .nav-mobile-panel.open {
