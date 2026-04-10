@@ -1,6 +1,6 @@
-/** Must stay aligned with `components/Hero.tsx` hero headline. */
+/** About lead line; often matches the homepage hero headline — update both when copy changes. */
 export const aboutHeadline =
-  "I design systems that evolve — from fragmented to intelligent";
+  "I design systems that evolve – from fragmented to intelligent";
 
 export const operatingPrinciplesLabel = "Operating Principles";
 

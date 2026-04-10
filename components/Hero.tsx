@@ -316,7 +316,7 @@ export default function Hero() {
           <h1
             className="animate-fade-up delay-2"
             style={{
-              fontSize: "clamp(36px, 5.6vw, 72px)",
+              fontSize: "clamp(36px, 5.6vw, 64px)",
               fontWeight: 600,
               letterSpacing: "-0.03em",
               lineHeight: 1.1,
@@ -324,8 +324,7 @@ export default function Hero() {
               marginBottom: 32,
             }}
           >
-            <span className="hero-headline-l1">I design systems that evolve —</span>{" "}
-            <span className="hero-headline-l2">from fragmented to intelligent</span>
+            I design systems that evolve – from fragmented to intelligent
           </h1>
           <p
             className="animate-fade-up delay-3"
