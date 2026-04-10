@@ -80,7 +80,8 @@
   --jop-text-on-emphasis: rgba(250, 249, 245, 0.95);
   --jop-text-on-emphasis-strong: rgba(250, 249, 245, 0.85);
   --jop-text-on-emphasis-muted: rgba(250, 249, 245, 0.6);
-  --jop-text-on-emphasis-soft: rgba(250, 249, 245, 0.4);
+  /* ≥4.5:1 on --jop-bg-emphasis (#141413) for small uppercase labels (axe color-contrast) */
+  --jop-text-on-emphasis-soft: rgba(250, 249, 245, 0.5);
 
   --jop-border-default: #e8e6dc;
   --jop-border-subtle: #e8e6dc;
@@ -176,7 +177,7 @@
   --jop-text-on-emphasis: rgba(255, 255, 255, 0.96);
   --jop-text-on-emphasis-strong: rgba(255, 255, 255, 0.85);
   --jop-text-on-emphasis-muted: rgba(255, 255, 255, 0.6);
-  --jop-text-on-emphasis-soft: rgba(255, 255, 255, 0.4);
+  --jop-text-on-emphasis-soft: rgba(255, 255, 255, 0.5);
 
   --jop-border-default: #e5e7eb;
   --jop-border-subtle: #d1d5db;
