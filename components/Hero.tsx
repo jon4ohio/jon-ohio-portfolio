@@ -41,6 +41,10 @@ function parseCssColorToRgb(inputRaw: string): [number, number, number] | null {
   return null;
 }
 
+function clamp(value: number, min: number, max: number): number {
+  return Math.min(max, Math.max(min, value));
+}
+
 function GridCanvas() {
   const ref = useRef<HTMLCanvasElement | null>(null);
   const raf = useRef<number | null>(null);
@@ -119,6 +123,11 @@ function GridCanvas() {
       const H = canvas.offsetHeight;
       const [r, g, b] = rgbRef.current;
       const dpr = dprRef.current;
+      const anchorY = clamp(H * 0.86, H * 0.72, H - 24);
+      const xSpread = 900 * clamp(W / 1120, 0.72, 1.0);
+      const zSpread = 1100 * clamp(H / 720, 0.8, 1.15);
+      const waveScale = 1.45;
+      const yBase = 90;
 
       ctx.clearRect(0, 0, W, H);
 
@@ -129,20 +138,23 @@ function GridCanvas() {
           const nx = (cI / COLS) * 2 - 1;
           const nz = rI / ROWS;
 
-          const x3 = nx * 900;
-          const z3 = (1 - nz) * 1100 + 80;
+          const x3 = nx * xSpread;
+          const z3 = (1 - nz) * zSpread + 80;
 
           const wave1 = Math.sin(nx * 2.2 + nz * 1.8 - t * 0.55) * 38;
           const wave2 = Math.sin(nx * 4.1 - nz * 2.6 + t * 0.38) * 16;
-          const y3 = wave1 + wave2 - 60;
+          const y3 = (wave1 + wave2) * waveScale - yBase;
 
           const scale = FL / (FL + z3);
           const sx = W * 0.5 + x3 * scale;
-          const sy = H * 0.62 + y3 * scale;
+          const sy = anchorY + y3 * scale;
 
           const depthFade = nz * 0.9;
           const sideFade = Math.abs(nx) * 0.4 + 0.6;
-          const alpha = depthFade * sideFade * 0.11;
+          const a0 = depthFade * sideFade * 0.11;
+          const a1 = a0 * 1.25;
+          const a2 = Math.pow(a1, 0.78);
+          const alpha = Math.min(a2, 0.16);
 
           pts[rI][cI] = { sx, sy, alpha };
         }
