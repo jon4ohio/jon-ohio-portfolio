@@ -123,11 +123,12 @@ function GridCanvas() {
       const H = canvas.offsetHeight;
       const [r, g, b] = rgbRef.current;
       const dpr = dprRef.current;
-      const anchorY = clamp(H * 0.86, H * 0.72, H - 24);
-      const xSpread = 900 * clamp(W / 1120, 0.72, 1.0);
+      const anchorY = clamp(H * 0.98, H * 0.9, H - 8);
+      const ultraWideDampen = clamp(1800 / Math.max(W, 1), 0.9, 1);
+      const xSpread = 1200 * clamp(W / 1120, 1.0, 1.22) * ultraWideDampen;
       const zSpread = 1100 * clamp(H / 720, 0.8, 1.15);
       const waveScale = 1.45;
-      const yBase = 90;
+      const yBase = 120;
 
       ctx.clearRect(0, 0, W, H);
 
