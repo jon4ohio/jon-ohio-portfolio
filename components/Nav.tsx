@@ -158,48 +158,53 @@ export default function Nav() {
         className={`nav-mobile-panel${menuOpen ? " open" : ""}`}
         aria-hidden={!menuOpen}
       >
-        {links.map((l) => {
-          const active = pathname === l.href || (l.href !== "/" && pathname.startsWith(l.href));
-          return (
-            <Link
-              key={l.href}
-              href={l.href}
+        <div className="nav-mobile-panel-inner">
+          <div className="nav-mobile-panel-scroll">
+            {links.map((l) => {
+              const active = pathname === l.href || (l.href !== "/" && pathname.startsWith(l.href));
+              return (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setMenuOpen(false)}
+                  style={{
+                    fontSize: 16,
+                    fontWeight: active ? 600 : 400,
+                    color: active ? "var(--fg)" : "var(--fg-muted)",
+                    textDecoration: "none",
+                    padding: "13px 0",
+                    borderBottom: "1px solid var(--surface-subtle)",
+                  }}
+                >
+                  {l.label}
+                </Link>
+              );
+            })}
+          </div>
+          <div className="nav-mobile-panel-footer">
+            <ThemeToggle compact />
+            <a
+              href="mailto:jon4ohio@gmail.com"
               onClick={() => setMenuOpen(false)}
               style={{
-                fontSize: 16,
-                fontWeight: active ? 600 : 400,
-                color: active ? "var(--fg)" : "var(--fg-muted)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "100%",
+                boxSizing: "border-box",
+                fontSize: 14,
+                fontWeight: 500,
+                color: "var(--fg-on-emphasis)",
                 textDecoration: "none",
-                padding: "13px 0",
-                borderBottom: "1px solid var(--surface-subtle)",
+                background: "var(--surface-emphasis)",
+                padding: "10px 20px",
+                borderRadius: 8,
               }}
             >
-              {l.label}
-            </Link>
-          );
-        })}
-        <div style={{ marginTop: 14, marginBottom: 0 }}>
-          <ThemeToggle />
+              Get in touch →
+            </a>
+          </div>
         </div>
-        <a
-          href="mailto:jon4ohio@gmail.com"
-          onClick={() => setMenuOpen(false)}
-          style={{
-            marginTop: 10,
-            display: "inline-flex",
-            alignItems: "center",
-            fontSize: 14,
-            fontWeight: 500,
-            color: "var(--fg-on-emphasis)",
-            textDecoration: "none",
-            background: "var(--surface-emphasis)",
-            padding: "10px 20px",
-            borderRadius: 8,
-            alignSelf: "flex-start",
-          }}
-        >
-          Get in touch →
-        </a>
       </div>
     </>
   );
