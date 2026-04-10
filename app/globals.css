@@ -414,6 +414,22 @@ body {
   text-transform: uppercase;
 }
 
+/* Hero h1 — natural wrap on narrow viewports; intentional two lines from tablet up */
+.hero-headline-l1,
+.hero-headline-l2 {
+  display: inline;
+}
+@media (min-width: 640px) {
+  .hero-headline-l1 {
+    display: block;
+  }
+}
+
+.theme-toggle-segment:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 /* Hover affordances (keep minimal, no extra animation) */
 .work-list-row:hover {
   background: var(--surface-hover);

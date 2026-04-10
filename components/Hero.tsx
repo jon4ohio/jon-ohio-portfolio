@@ -324,8 +324,8 @@ export default function Hero() {
               marginBottom: 32,
             }}
           >
-            I design systems that evolve —<br />
-            from fragmented to intelligent
+            <span className="hero-headline-l1">I design systems that evolve —</span>{" "}
+            <span className="hero-headline-l2">from fragmented to intelligent</span>
           </h1>
           <p
             className="animate-fade-up delay-3"
