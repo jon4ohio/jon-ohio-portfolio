@@ -1,0 +1,171 @@
+{
+  "fileKey": "HNS3VdAyubm38nx5aYVZOR",
+  "scale": 2,
+  "comment": "Node IDs from Portfolio Presentation (2385:6305). Design px from Figma metadata; raster size = round(design * scale).",
+  "projects": [
+    {
+      "slug": "seamless-hiring",
+      "assets": [
+        {
+          "id": "2476:15705",
+          "out": "hero.png",
+          "designWidth": 1512,
+          "designHeight": 1049
+        },
+        {
+          "id": "2476:14136",
+          "out": "thumb-1.png",
+          "designWidth": 1512,
+          "designHeight": 717
+        },
+        {
+          "id": "2528:11461",
+          "out": "thumb-2.png",
+          "designWidth": 1098,
+          "designHeight": 652
+        },
+        {
+          "id": "2528:12042",
+          "out": "block-cover.png",
+          "designWidth": 1098,
+          "designHeight": 501
+        },
+        {
+          "id": "2476:14137",
+          "out": "block-gallery-1.png",
+          "designWidth": 1098,
+          "designHeight": 483
+        },
+        {
+          "id": "2476:14269",
+          "out": "block-pain-points.png",
+          "designWidth": 1098,
+          "designHeight": 1156
+        },
+        {
+          "id": "2476:14320",
+          "out": "block-journey.png",
+          "designWidth": 1098,
+          "designHeight": 394
+        }
+      ]
+    },
+    {
+      "slug": "seamkit",
+      "assets": [
+        {
+          "id": "2496:10214",
+          "out": "hero.png",
+          "designWidth": 1512,
+          "designHeight": 1049
+        },
+        {
+          "id": "2555:21937",
+          "out": "thumb-1.png",
+          "designWidth": 1512,
+          "designHeight": 604
+        },
+        {
+          "id": "2591:16830",
+          "out": "thumb-2.png",
+          "designWidth": 1060,
+          "designHeight": 555
+        },
+        {
+          "id": "2555:21842",
+          "out": "block-hypothesis.png",
+          "designWidth": 1512,
+          "designHeight": 568
+        },
+        {
+          "id": "2559:22284",
+          "out": "block-approach.png",
+          "designWidth": 1098,
+          "designHeight": 932
+        }
+      ]
+    },
+    {
+      "slug": "fetsproza",
+      "assets": [
+        {
+          "id": "2481:15315",
+          "out": "hero.png",
+          "designWidth": 1512,
+          "designHeight": 1049
+        },
+        {
+          "id": "2481:13744",
+          "out": "thumb-1.png",
+          "designWidth": 1512,
+          "designHeight": 717
+        },
+        {
+          "id": "2528:26164",
+          "out": "thumb-2.png",
+          "designWidth": 1098,
+          "designHeight": 611
+        },
+        {
+          "id": "2528:26177",
+          "out": "block-module-payment.png",
+          "designWidth": 1098,
+          "designHeight": 871
+        },
+        {
+          "id": "2528:26186",
+          "out": "block-module-merchant.png",
+          "designWidth": 1098,
+          "designHeight": 871
+        },
+        {
+          "id": "2528:26329",
+          "out": "block-outcome.png",
+          "designWidth": 1512,
+          "designHeight": 1127
+        }
+      ]
+    },
+    {
+      "slug": "ibedc",
+      "assets": [
+        {
+          "id": "2476:24717",
+          "out": "hero.png",
+          "designWidth": 1512,
+          "designHeight": 1049
+        },
+        {
+          "id": "2476:21131",
+          "out": "thumb-1.png",
+          "designWidth": 1512,
+          "designHeight": 551
+        },
+        {
+          "id": "2481:10621",
+          "out": "thumb-2.png",
+          "designWidth": 1098,
+          "designHeight": 385
+        },
+        {
+          "id": "2610:21508",
+          "out": "block-screens.png",
+          "designWidth": 1098,
+          "designHeight": 611
+        },
+        {
+          "id": "2753:29630",
+          "out": "block-challenges.png",
+          "designWidth": 1098,
+          "designHeight": 471
+        },
+        {
+          "id": "2476:21257",
+          "out": "block-objective.png",
+          "designWidth": 1512,
+          "designHeight": 416
+        }
+      ]
+    }
+  ]
+}
