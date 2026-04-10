@@ -11,3 +11,4 @@
 | 007 | Theme naming and contrast hardening (warm + light) | Accepted | 2026-04-10 | None |
 | 008 | ADR update gate for major pushes | Accepted | 2026-04-10 | None |
 | 009 | Full-viewport hero grid background layering | Accepted | 2026-04-10 | None |
+| 010 | Homepage hero and metrics evidence hierarchy | Accepted | 2026-04-10 | None |

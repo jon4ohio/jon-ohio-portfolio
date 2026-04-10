@@ -20,11 +20,11 @@ export const metadata: Metadata = {
 };
 
 const heroMetrics = [
-  { value: "$1M+", label: "saved annually" },
-  { value: "↑75%", label: "satisfaction" },
-  { value: "2.49M", label: "token usage" },
-  { value: "12", label: "teams scaled" },
-  { value: "#4", label: "Product Hunt" },
+  { value: "$1M+", line1: "Saved", line2: "annually" },
+  { value: "↑75%", line1: "User", line2: "satisfaction" },
+  { value: "2.49M", line1: "Design tokens", line2: "used" },
+  { value: "12", line1: "Product teams", line2: "onboarded" },
+  { value: "#4", line1: "Product Hunt", line2: "" },
 ];
 
 const systemGroups = [
@@ -99,18 +99,21 @@ export default function Home() {
             <div key={m.value} className="hero-metric">
               <p
                 style={{
-                  fontSize: 26,
+                  fontSize: 32,
                   fontWeight: 600,
                   letterSpacing: "-0.02em",
-                  marginBottom: 4,
+                  lineHeight: 1.1,
+                  marginBottom: 8,
                 }}
               >
                 {m.value}
               </p>
-              <p style={{ fontSize: 13, color: "var(--fg-muted)" }}>{m.label}</p>
+              <p className="hero-metric-label" style={{ fontSize: 13, color: "var(--fg-muted)" }}>
+                <span>{m.line1}</span>
+                {m.line2 ? <span>{m.line2}</span> : null}
+              </p>
             </div>
           ))}
-          <div className="hero-metric hero-metric--filler" aria-hidden="true" />
         </div>
       </section>
 

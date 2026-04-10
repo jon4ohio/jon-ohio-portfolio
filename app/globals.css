@@ -608,31 +608,31 @@ button:focus-visible {
   min-width: 0;
 }
 
-/* Homepage hero metrics — gap-as-border, wraps cleanly across breakpoints */
+/* Homepage hero metrics — subtle segmented strip */
 .hero-metrics {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 1px;
-  background: var(--border);
+  border-left: 1px solid var(--border);
 }
 .hero-metric {
-  background: var(--surface);
+  background: transparent;
   padding: 28px 24px;
+  border-right: 1px solid var(--border);
 }
-.hero-metric--filler {
-  /* Synthetic cell to keep wrapping clean when item count is odd */
-  display: none;
-  background: var(--surface);
+.hero-metric-label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.25;
+  min-height: 34px;
 }
 @media (max-width: 900px) {
   .hero-metrics { grid-template-columns: repeat(3, 1fr); }
   .hero-metric { padding: 24px 18px; }
-  .hero-metric--filler { display: block; }
 }
 @media (max-width: 640px) {
   .hero-metrics { grid-template-columns: repeat(2, 1fr); }
   .hero-metric { padding: 20px 16px; }
-  .hero-metric--filler { display: block; }
 }
 
 /* Generic stats grid — wraps cleanly using gap-as-border */
