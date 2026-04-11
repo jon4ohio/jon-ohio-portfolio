@@ -86,6 +86,8 @@ The **Selected Systems** block on the homepage ([`app/page.tsx`](../../app/page.
 - ADR-002 — data source unchanged; uses existing `assets.thumbnails`  
 - ADR-003 — new utilities live alongside `.grid-systems-group` and `.work-list-*`  
 - ADR-004 — precedent: work index thumbnail column and shared CSS for list affordances  
+- ADR-020 — follow-up: default **`aspectFit="auto"`** for **`aspectCover`** (same **`4 / 3`** boxes on `/` and `/work`)  
+- ADR-021 — follow-up: case study **`/work/[slug]`** lead uses first thumbnail with **`aspectFit="cover"`** on **16:9** for parity with listings  
 
 ## References
 
