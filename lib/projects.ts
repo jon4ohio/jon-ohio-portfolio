@@ -28,6 +28,8 @@ export type ImageAsset = {
   width: number;
   height: number;
   caption?: string;
+  /** Solid fill behind the image (e.g. #fff for screenshots). */
+  backdropColor?: string;
 };
 
 export type CaseStudyBlock =
@@ -50,6 +52,7 @@ export type CaseStudyBlock =
       body: string;
     };
 
+/** Card + case study lead art. When both `hero` and `thumbnails` exist, keep `thumbnails[0]` identical to `hero` (see IBEDC). Use {@link getPrimaryPreviewImage} in UI. */
 export type ProjectAssets = {
   thumbnails?: [ImageAsset, ImageAsset?];
   hero?: ImageAsset;
@@ -109,10 +112,10 @@ export const projects: Project[] = [
     assets: {
       thumbnails: [
         {
-          src: "/assets/work/seamless-hiring/thumb-1.png",
-          alt: "SeamlessHiring TL;DR — measurable impact summary",
+          src: "/assets/work/seamless-hiring/hero.png",
+          alt: "SeamlessHiring 2.0 case study header with RMS dashboard preview",
           width: 3024,
-          height: 1434,
+          height: 2098,
         },
         {
           src: "/assets/work/seamless-hiring/thumb-2.png",
@@ -220,10 +223,10 @@ export const projects: Project[] = [
     assets: {
       thumbnails: [
         {
-          src: "/assets/work/seamkit/thumb-1.png",
-          alt: "SeamKit TL;DR — adoption and measurable impact",
+          src: "/assets/work/seamkit/hero.png",
+          alt: "SeamKit enterprise design system case study header",
           width: 3024,
-          height: 1208,
+          height: 2098,
         },
         {
           src: "/assets/work/seamkit/thumb-2.png",
@@ -297,10 +300,10 @@ export const projects: Project[] = [
     assets: {
       thumbnails: [
         {
-          src: "/assets/work/fetsproza/thumb-1.png",
-          alt: "FetsProza TL;DR — measurable impact",
+          src: "/assets/work/fetsproza/hero.png",
+          alt: "FetsProza IaaS platform case study header",
           width: 3024,
-          height: 1434,
+          height: 2098,
         },
         {
           src: "/assets/work/fetsproza/thumb-2.png",
@@ -367,8 +370,8 @@ export const projects: Project[] = [
       "Consumer app flows, agent and POS workflows, reconciliation tooling, and service operations spanning digital and walk-in channels.",
     metrics: [
       { value: "4.6★", label: "Play Store rating (2,800+)" },
-      { value: "↓30%", label: "Call-center volume" },
-      { value: "↓30%", label: "Support volume" },
+      { value: "↓30%", label: "Call-centre volume" },
+      { value: "3", label: "Utilities on POS template" },
       { value: "24–48h→mins", label: "Token/payment turnaround" },
     ],
     context:
@@ -378,16 +381,16 @@ export const projects: Project[] = [
     action:
       "Designed a friction‑free, end‑to‑end digital experience: IBEDC Care App (B2C + customer relations) and a bespoke POS terminal workflow for walk‑in centres. Digitised billing, payment, receipt verification, and reconciliation so both customers and staff could transact confidently and traceably.",
     impact:
-      "IBEDC’s billing and payments shifted from paper and third‑party fragmentation to a unified digital system: customers transact in seconds, staff reconcile in minutes, and revenue leakage is materially reduced. In the first year, payment times dropped 30% and satisfaction increased 40%. Positive feedback from customers and staff (Play Store 4.6★, 2,800+ reviews) and a ~30% reduction in call‑centre volume as queue/token complaints disappeared.",
+      "IBEDC’s billing and payments shifted from paper and third‑party fragmentation to a unified digital system: customers transact in seconds, staff reconcile in minutes, and revenue leakage is materially reduced. In the first year, payment times dropped 30% and satisfaction increased 40%. Positive feedback streams from customers and IBEDC staff (Play Store 4.6★ and Twitter praise). Call‑centre volume fell ~30% as queue and token complaints vanished. The POS template was already adopted by three external utilities, proving scalability.",
     tags: ["Fintech", "Utilities", "Mobile App", "POS", "Public Sector"],
     featured: true,
     assets: {
       thumbnails: [
         {
-          src: "/assets/work/ibedc/thumb-1.png",
-          alt: "IBEDC Care App and POS — TL;DR impact",
-          width: 3024,
-          height: 1102,
+          src: "/assets/work/ibedc/case-cover.png",
+          alt: "IBEDC Digital Transformation — project preview",
+          width: 2752,
+          height: 1848,
         },
         {
           src: "/assets/work/ibedc/thumb-2.png",
@@ -397,12 +400,36 @@ export const projects: Project[] = [
         },
       ],
       hero: {
-        src: "/assets/work/ibedc/hero.png",
+        src: "/assets/work/ibedc/case-cover.png",
         alt: "IBEDC Digital Transformation case study header",
-        width: 3024,
-        height: 2098,
+        width: 2752,
+        height: 1848,
       },
       blocks: [
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/ibedc/block-customer-journey.png",
+            alt: "Customer journey user flow — IBEDC digital touchpoints",
+            width: 2197,
+            height: 1487,
+            caption: "Customer journey user flow.",
+          },
+        },
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/ibedc/block-pos-payment-flow.png",
+            alt: "POS payment user flow for walk-in centres",
+            width: 3024,
+            height: 1330,
+            caption: "POS payment user flow.",
+          },
+        },
         {
           kind: "gallery",
           layout: "wide",
@@ -410,18 +437,19 @@ export const projects: Project[] = [
           treatment: "plain",
           images: [
             {
-              src: "/assets/work/ibedc/block-screens.png",
-              alt: "IBEDC Care app and walk-in experience — product screenshots",
-              width: 2196,
-              height: 1222,
-              caption: "Digital touchpoints replacing fragmented portals and queues.",
+              src: "/assets/work/ibedc/block-pos-ui.png",
+              alt: "POS terminal interface for in-person payments",
+              width: 3024,
+              height: 2071,
+              caption: "POS UI.",
             },
             {
-              src: "/assets/work/ibedc/block-challenges.png",
-              alt: "User, cashier, and business challenge mapping",
-              width: 2196,
-              height: 942,
-              caption: "Synthesised pains across customers, cashiers, and operations.",
+              src: "/assets/work/ibedc/block-care-app-ui.png",
+              alt: "IBEDC Care — Pay Bill flow with bank transfer, Quickteller, FETS, and payment success",
+              width: 1024,
+              height: 526,
+              caption: "A multi-payment channel that allows several payment options.",
+              backdropColor: "#ffffff",
             },
           ],
         },
@@ -430,11 +458,12 @@ export const projects: Project[] = [
           layout: "wide",
           treatment: "plain",
           image: {
-            src: "/assets/work/ibedc/block-objective.png",
-            alt: "Program objective and hypothesis for the IBEDC redesign",
-            width: 3024,
-            height: 832,
-            caption: "North-star objective and phased hypothesis for trust and revenue.",
+            src: "/assets/work/ibedc/block-additional-wins.png",
+            alt: "Additional wins — feedback, operations, and POS template adoption",
+            width: 2432,
+            height: 1883,
+            caption:
+              "Additional wins: customer and staff feedback (Play Store 4.6★, Twitter), call-centre relief, and POS template reused by three utilities.",
           },
         },
       ],
@@ -468,7 +497,7 @@ export const projects: Project[] = [
     tags: ["AI/ML", "iOS", "Android", "Health Tech", "0→1", "Cross-platform"],
     featured: true,
     assets: {
-      thumbnails: [placeholderThumbA, placeholderThumbB],
+      thumbnails: [placeholderHero, placeholderThumbB],
       hero: placeholderHero,
     },
   },
@@ -500,7 +529,7 @@ export const projects: Project[] = [
     tags: ["AI/ML", "Enterprise SaaS", "Design Systems", "Recruitment", "UX Patterns"],
     featured: false,
     assets: {
-      thumbnails: [placeholderThumbB, placeholderThumbA],
+      thumbnails: [placeholderHero, placeholderThumbA],
       hero: placeholderHero,
     },
   },
@@ -532,7 +561,7 @@ export const projects: Project[] = [
     tags: ["Fintech", "SaaS", "0→1", "Africa", "Billing Infrastructure"],
     featured: false,
     assets: {
-      thumbnails: [placeholderThumbA, placeholderThumbB],
+      thumbnails: [placeholderHero, placeholderThumbB],
       hero: placeholderHero,
     },
   },
@@ -564,7 +593,7 @@ export const projects: Project[] = [
     tags: ["Fintech", "Agency Banking", "Operations", "Compliance"],
     featured: false,
     assets: {
-      thumbnails: [placeholderThumbB, placeholderThumbA],
+      thumbnails: [placeholderHero, placeholderThumbA],
       hero: placeholderHero,
     },
   },
@@ -596,11 +625,16 @@ export const projects: Project[] = [
     tags: ["HRTech", "0→1", "Field Research", "Africa", "Gates Foundation"],
     featured: false,
     assets: {
-      thumbnails: [placeholderThumbA, placeholderThumbB],
+      thumbnails: [placeholderHero, placeholderThumbB],
       hero: placeholderHero,
     },
   },
 ];
+
+/** Same image as the case study hero when `hero` is set; otherwise first listing thumbnail. Keeps `/`, `/work`, and `/work/[slug]` in sync. */
+export function getPrimaryPreviewImage(assets?: ProjectAssets): ImageAsset | undefined {
+  return assets?.hero ?? assets?.thumbnails?.[0];
+}
 
 export function getProject(slug: string) {
   return projects.find((p) => p.slug === slug);

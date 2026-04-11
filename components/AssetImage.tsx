@@ -39,6 +39,8 @@ type Props = {
   priority?: boolean;
   style?: React.CSSProperties;
   treatment?: "plain" | "device";
+  /** Omit frame border when a parent supplies backdrop + border (case-study gallery). */
+  borderless?: boolean;
   /**
    * Fixed aspect box (layout stays consistent). Image uses object-fit per `aspectFit`.
    * Example: "16 / 9"
@@ -58,6 +60,7 @@ export default function AssetImage({
   treatment = "plain",
   aspectCover,
   aspectFit = "auto",
+  borderless = false,
 }: Props) {
   if (treatment === "device") {
     return (
@@ -135,7 +138,13 @@ export default function AssetImage({
         height={asset.height}
         sizes={sizes}
         priority={priority}
-        style={{ width: "100%", height: "auto", display: "block", borderRadius: 16, border: "1px solid var(--border)" }}
+        style={{
+          width: "100%",
+          height: "auto",
+          display: "block",
+          borderRadius: borderless ? 0 : 16,
+          border: borderless ? "none" : "1px solid var(--border)",
+        }}
       />
     </div>
   );
