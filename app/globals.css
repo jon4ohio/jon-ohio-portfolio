@@ -461,6 +461,27 @@ body {
 .system-project-link { border-radius: 8px; }
 .system-project-link:hover { background: var(--surface-hover); }
 
+/* Case study listing thumbnails — subtle zoom + micro-lift (AssetImage aspect box) */
+.work-list-thumb > div,
+.system-project-thumb > div {
+  transition:
+    transform 0.45s cubic-bezier(0.33, 1, 0.68, 1),
+    border-color 0.35s ease;
+}
+.work-list-thumb img,
+.system-project-thumb img {
+  transition: transform 0.45s cubic-bezier(0.33, 1, 0.68, 1);
+}
+.work-list-row:hover .work-list-thumb > div,
+.system-project-link:hover .system-project-thumb > div {
+  transform: translateY(-1px);
+  border-color: color-mix(in oklab, var(--border), var(--fg) 12%);
+}
+.work-list-row:hover .work-list-thumb img,
+.system-project-link:hover .system-project-thumb img {
+  transform: scale(1.04);
+}
+
 /* Homepage Selected Systems: thumb + text row */
 .system-project-link__inner {
   display: flex;
