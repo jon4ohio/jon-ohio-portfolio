@@ -88,4 +88,4 @@ From `https://www.figma.com/design/{fileKey}/...?node-id=1-2`:
 
 ### Figma file hygiene (auto layout, JOP tokens, naming)
 
-When editing or building frames in Figma for this site, follow **[`docs/figma-jop-structure.md`](docs/figma-jop-structure.md)** — auto layout defaults, **JOP** variable paths aligned with `--jop-*` in [`app/globals.css`](app/globals.css), atomic **Atom / Mol / Org / Section / Page** naming, and section frame naming. Shorthand **JOS** in design discussions means the same JOP token system.
+When editing or building frames in Figma for this site, follow **[`docs/figma-jop-structure.md`](docs/figma-jop-structure.md)** — auto layout defaults, **JOP** variable paths aligned with `--jop-*` in [`app/globals.css`](app/globals.css), atomic **Atom / Mol / Org / Section / Page** naming, and section frame naming. Shorthand **JOS** in design discussions means the same JOP token system. After **`get_design_context`** (Figma → code), follow **§7 Figma MCP → site** in that doc and [ADR-023](docs/adrs/ADR-023-figma-mcp-handoff-jop-tokens.md) so implementations stay on **`var(--jop-…)`**, not pasted hex.

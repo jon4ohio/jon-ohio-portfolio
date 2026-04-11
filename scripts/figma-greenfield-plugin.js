@@ -36,14 +36,6 @@ function propKey(defs, baseName) {
 const colX = 48;
 let yCursor = 40;
 
-function placeBottom(root, pad) {
-  let maxY = 0;
-  for (const c of root.children) {
-    maxY = Math.max(maxY, c.y + c.height);
-  }
-  return maxY + (pad || 0);
-}
-
 const lib = figma.createFrame();
 lib.name = "🧩 Components";
 lib.layoutMode = "VERTICAL";
