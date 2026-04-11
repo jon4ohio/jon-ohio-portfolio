@@ -28,6 +28,8 @@ export type ImageAsset = {
   width: number;
   height: number;
   caption?: string;
+  /** Solid fill behind the image (e.g. #fff for screenshots). */
+  backdropColor?: string;
 };
 
 export type CaseStudyBlock =
@@ -442,10 +444,11 @@ export const projects: Project[] = [
             },
             {
               src: "/assets/work/ibedc/block-care-app-ui.png",
-              alt: "IBEDC Care utility payment app interface",
-              width: 3024,
-              height: 1574,
-              caption: "IBEDC Care — utility payment app UI.",
+              alt: "IBEDC Care — Pay Bill flow with bank transfer, Quickteller, FETS, and payment success",
+              width: 1024,
+              height: 526,
+              caption: "A multi-payment channel that allows several payment options.",
+              backdropColor: "#ffffff",
             },
           ],
         },

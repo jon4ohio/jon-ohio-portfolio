@@ -14,13 +14,32 @@ function BlockRenderer({ block }: { block: CaseStudyBlock }) {
   }
 
   if (block.kind === "image") {
-    return (
-      <div>
+    const wrap = block.image.backdropColor ? (
+      <div
+        style={{
+          background: block.image.backdropColor,
+          borderRadius: 16,
+          border: "1px solid var(--border)",
+          overflow: "hidden",
+        }}
+      >
         <AssetImage
           asset={block.image}
           sizes={block.layout === "wide" ? "(max-width: 900px) 92vw, 1240px" : "(max-width: 900px) 92vw, 720px"}
           treatment={block.treatment}
+          borderless
         />
+      </div>
+    ) : (
+      <AssetImage
+        asset={block.image}
+        sizes={block.layout === "wide" ? "(max-width: 900px) 92vw, 1240px" : "(max-width: 900px) 92vw, 720px"}
+        treatment={block.treatment}
+      />
+    );
+    return (
+      <div>
+        {wrap}
         {block.image.caption ? (
           <p style={{ fontSize: 12, color: "var(--fg-subtle)", lineHeight: 1.6, marginTop: 10 }}>{block.image.caption}</p>
         ) : null}
@@ -36,11 +55,29 @@ function BlockRenderer({ block }: { block: CaseStudyBlock }) {
       <div style={{ display: "grid", gridTemplateColumns, gap: 12 }}>
         {block.images.map((img, idx) => (
           <div key={`${img.src}-${idx}`}>
-            <AssetImage
-              asset={img}
-              sizes={block.layout === "wide" ? "(max-width: 900px) 44vw, 520px" : "(max-width: 900px) 44vw, 340px"}
-              treatment={block.treatment}
-            />
+            {img.backdropColor ? (
+              <div
+                style={{
+                  background: img.backdropColor,
+                  borderRadius: 16,
+                  border: "1px solid var(--border)",
+                  overflow: "hidden",
+                }}
+              >
+                <AssetImage
+                  asset={img}
+                  sizes={block.layout === "wide" ? "(max-width: 900px) 44vw, 520px" : "(max-width: 900px) 44vw, 340px"}
+                  treatment={block.treatment}
+                  borderless
+                />
+              </div>
+            ) : (
+              <AssetImage
+                asset={img}
+                sizes={block.layout === "wide" ? "(max-width: 900px) 44vw, 520px" : "(max-width: 900px) 44vw, 340px"}
+                treatment={block.treatment}
+              />
+            )}
             {img.caption ? <p style={{ fontSize: 12, color: "var(--fg-subtle)", marginTop: 10 }}>{img.caption}</p> : null}
           </div>
         ))}
