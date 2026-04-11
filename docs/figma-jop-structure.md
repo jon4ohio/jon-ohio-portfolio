@@ -4,7 +4,17 @@ This file is the **Figma-side contract** for the portfolio. Code uses **`--jop-*
 
 ## 1. Variable collections (mirror code)
 
-Use **Figma variables** with slash-separated paths so they align with CSS:
+The live file is **Portfolio_ John Ohio** (`fileKey` in [`scripts/figma-asset-map.json`](../scripts/figma-asset-map.json)). Local collections:
+
+| Collection | Modes | Contents |
+|------------|-------|----------|
+| **JOP / Primitives / Color** | `default` | `jop/primitive/color/...` — sand, grey, violet, teal, clay, slate ramps (aligned with `:root` primitives in `app/globals.css`). |
+| **JOP / Decision / Theme** | `warm`, `light`, `dark` | `jop/decision/...` — canvas, surfaces, text, borders, accents, overlays, backdrops, etc., aligned to `data-theme`. |
+| **JOP / Layout / Space** | `default` | `jop/space/1`–`7` → 4–48 px for gap and padding (see §3). |
+
+Apply **explicit variable mode** on frames when previewing non-default themes (Figma: variable mode picker per frame).
+
+Slash-separated variable paths align with CSS:
 
 | Tier | CSS example | Figma path pattern |
 |------|----------------|-------------------|
@@ -78,10 +88,28 @@ Use **Title Case** after the prefix. Patterns:
 - **`use_figma` / `search_design_system`:** Prefer **instancing** existing `Atom/*` and `Org/*` components over drawing new rectangles.
 - After **generate_figma_design** imports, refactor captures into **components + auto layout** rather than leaving flat groups.
 
-## 7. Quick checklist
+## 7. Figma MCP → site (implementation)
+
+When moving **from Figma to code** (e.g. after **`get_design_context`** or any generated snippet):
+
+1. **Treat output as layout and structure reference**, not drop-in styling. MCP output often includes **literal hex/RGB** or class names that do not match this repo’s **inline `style` + CSS variables** convention ([`CLAUDE.md`](../CLAUDE.md), [ADR-001](./adrs/ADR-001-inline-styles-for-layout-and-visuals.md)).
+2. **Do not merge pasted hex** as final styles if it bypasses **JOP** and [ADR-007](./adrs/ADR-007-theme-naming-and-contrast-hardening.md) theme behaviour. Map fills and text to **`var(--jop-…)`** decision tokens first; use primitives only when no semantic token fits ([theme-tokens.md](./theme-tokens.md)).
+3. **Frames authored with raw hex in Figma** do not auto-tokenize in code—you still choose matching **`var(--jop-…)`** at implementation time. Rebasing Figma to JOP variables improves parity; Code Connect does not substitute tokens automatically—review every color line.
+4. **Case study content** remains authored in [`lib/projects.ts`](../lib/projects.ts) per [ADR-002](./adrs/ADR-002-static-in-repo-data-for-case-studies.md); do not replace it with generated copy from MCP alone.
+
+**One-line rule:** If suggested code shows `#RRGGBB`, replace with the appropriate **`var(--jop-…)`** (or legacy semantic `var(--fg)` where that is still the convention) before merging.
+
+## 8. Quick checklist
+
+**Figma file**
 
 - [ ] Color and text use **JOP** variables (primitive or decision), not one-off hex.
 - [ ] Sections and pages use **auto layout** with gap/padding from **space** variables.
 - [ ] Layers follow **Atom / Mol / Org / Section / Page** naming.
 - [ ] Light / warm / dark modes defined for decision tokens where the site differs.
 - [ ] Max content width **1240** respected for main editorial columns.
+
+**Repository (after MCP or manual handoff)**
+
+- [ ] No pasted **`#hex`** left as final styles—mapped to **`var(--jop-…)`** per theme.
+- [ ] Case study structure and copy still driven by [`lib/projects.ts`](../lib/projects.ts) where applicable.
