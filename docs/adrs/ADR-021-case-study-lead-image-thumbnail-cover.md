@@ -2,7 +2,7 @@
 
 ## Status
 
-**Status:** Accepted  
+**Status:** Superseded by [ADR-022](ADR-022-primary-preview-hero-and-aligned-thumbnails.md) (asset resolution order for the case study lead)  
 **Date:** 2026-04-11  
 **Decision Maker(s):** John Ohio (Owner/Maintainer)  
 **Supersedes:** None  
@@ -82,6 +82,7 @@ Case study pages ([`app/work/[slug]/page.tsx`](../../app/work/[slug]/page.tsx)) 
 
 ## Related ADRs
 
+- [ADR-022 — Primary preview image — hero first, aligned thumbnails, shared resolver](ADR-022-primary-preview-hero-and-aligned-thumbnails.md) — **supersedes this ADR** for which asset resolves the case study lead; ADR-021’s **16:9 cover framing** for that lead remains the implementation approach  
 - [ADR-002 — Static in-repo data for case studies](ADR-002-static-in-repo-data-for-case-studies.md) — constrains: static **`lib/projects.ts`** data; no schema change  
 - [ADR-018 — Homepage Selected Systems project thumbnails](ADR-018-homepage-selected-systems-thumbnails.md) — related: first thumbnail on homepage Selected Systems; same parity goal  
 - [ADR-001 — Inline styles for layout and visuals](ADR-001-inline-styles-for-layout-and-visuals.md) — layout/spacing remains inline in page TSX; image framing via **`AssetImage`**  

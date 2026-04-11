@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { projects } from "@/lib/projects";
+import { getPrimaryPreviewImage, projects } from "@/lib/projects";
 import AssetImage from "@/components/AssetImage";
 
 export const metadata: Metadata = {
@@ -34,7 +34,9 @@ export default function WorkIndex() {
 
       <section style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px 120px" }}>
         <div style={{ display: "grid", gap: 2 }}>
-          {projects.map((p, i) => (
+          {projects.map((p, i) => {
+            const preview = getPrimaryPreviewImage(p.assets);
+            return (
             <Link
               key={p.slug}
               href={`/work/${p.slug}`}
@@ -51,13 +53,13 @@ export default function WorkIndex() {
               </span>
 
               <div className="work-list-thumb">
-                {p.assets?.thumbnails?.[0] ? (
+                {preview ? (
                   <AssetImage
                     asset={{
-                      ...p.assets.thumbnails[0],
-                      alt: p.assets.thumbnails[0].src.includes("/assets/work/_placeholders/")
+                      ...preview,
+                      alt: preview.src.includes("/assets/work/_placeholders/")
                         ? `${p.title} — project preview`
-                        : p.assets.thumbnails[0].alt,
+                        : preview.alt,
                     }}
                     sizes="(max-width: 640px) 92vw, (max-width: 900px) 200px, 240px"
                     aspectCover="4 / 3"
@@ -103,7 +105,8 @@ export default function WorkIndex() {
                 →
               </div>
             </Link>
-          ))}
+            );
+          })}
           <div style={{ borderTop: "1px solid var(--border)" }} />
         </div>
       </section>

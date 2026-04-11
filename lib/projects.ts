@@ -52,6 +52,7 @@ export type CaseStudyBlock =
       body: string;
     };
 
+/** Card + case study lead art. When both `hero` and `thumbnails` exist, keep `thumbnails[0]` identical to `hero` (see IBEDC). Use {@link getPrimaryPreviewImage} in UI. */
 export type ProjectAssets = {
   thumbnails?: [ImageAsset, ImageAsset?];
   hero?: ImageAsset;
@@ -111,10 +112,10 @@ export const projects: Project[] = [
     assets: {
       thumbnails: [
         {
-          src: "/assets/work/seamless-hiring/thumb-1.png",
-          alt: "SeamlessHiring TL;DR — measurable impact summary",
+          src: "/assets/work/seamless-hiring/hero.png",
+          alt: "SeamlessHiring 2.0 case study header with RMS dashboard preview",
           width: 3024,
-          height: 1434,
+          height: 2098,
         },
         {
           src: "/assets/work/seamless-hiring/thumb-2.png",
@@ -222,10 +223,10 @@ export const projects: Project[] = [
     assets: {
       thumbnails: [
         {
-          src: "/assets/work/seamkit/thumb-1.png",
-          alt: "SeamKit TL;DR — adoption and measurable impact",
+          src: "/assets/work/seamkit/hero.png",
+          alt: "SeamKit enterprise design system case study header",
           width: 3024,
-          height: 1208,
+          height: 2098,
         },
         {
           src: "/assets/work/seamkit/thumb-2.png",
@@ -299,10 +300,10 @@ export const projects: Project[] = [
     assets: {
       thumbnails: [
         {
-          src: "/assets/work/fetsproza/thumb-1.png",
-          alt: "FetsProza TL;DR — measurable impact",
+          src: "/assets/work/fetsproza/hero.png",
+          alt: "FetsProza IaaS platform case study header",
           width: 3024,
-          height: 1434,
+          height: 2098,
         },
         {
           src: "/assets/work/fetsproza/thumb-2.png",
@@ -496,7 +497,7 @@ export const projects: Project[] = [
     tags: ["AI/ML", "iOS", "Android", "Health Tech", "0→1", "Cross-platform"],
     featured: true,
     assets: {
-      thumbnails: [placeholderThumbA, placeholderThumbB],
+      thumbnails: [placeholderHero, placeholderThumbB],
       hero: placeholderHero,
     },
   },
@@ -528,7 +529,7 @@ export const projects: Project[] = [
     tags: ["AI/ML", "Enterprise SaaS", "Design Systems", "Recruitment", "UX Patterns"],
     featured: false,
     assets: {
-      thumbnails: [placeholderThumbB, placeholderThumbA],
+      thumbnails: [placeholderHero, placeholderThumbA],
       hero: placeholderHero,
     },
   },
@@ -560,7 +561,7 @@ export const projects: Project[] = [
     tags: ["Fintech", "SaaS", "0→1", "Africa", "Billing Infrastructure"],
     featured: false,
     assets: {
-      thumbnails: [placeholderThumbA, placeholderThumbB],
+      thumbnails: [placeholderHero, placeholderThumbB],
       hero: placeholderHero,
     },
   },
@@ -592,7 +593,7 @@ export const projects: Project[] = [
     tags: ["Fintech", "Agency Banking", "Operations", "Compliance"],
     featured: false,
     assets: {
-      thumbnails: [placeholderThumbB, placeholderThumbA],
+      thumbnails: [placeholderHero, placeholderThumbA],
       hero: placeholderHero,
     },
   },
@@ -624,11 +625,16 @@ export const projects: Project[] = [
     tags: ["HRTech", "0→1", "Field Research", "Africa", "Gates Foundation"],
     featured: false,
     assets: {
-      thumbnails: [placeholderThumbA, placeholderThumbB],
+      thumbnails: [placeholderHero, placeholderThumbB],
       hero: placeholderHero,
     },
   },
 ];
+
+/** Same image as the case study hero when `hero` is set; otherwise first listing thumbnail. Keeps `/`, `/work`, and `/work/[slug]` in sync. */
+export function getPrimaryPreviewImage(assets?: ProjectAssets): ImageAsset | undefined {
+  return assets?.hero ?? assets?.thumbnails?.[0];
+}
 
 export function getProject(slug: string) {
   return projects.find((p) => p.slug === slug);

@@ -22,4 +22,5 @@
 | 018 | Homepage Selected Systems project thumbnails | Accepted | 2026-04-11 | None |
 | 019 | Nav brand avatar beside John Ohio text and anti-copy mitigations | Accepted | 2026-04-11 | None |
 | 020 | AssetImage aspect box with adaptive object-fit | Accepted | 2026-04-10 | None |
-| 021 | Case study lead image uses first thumbnail with 16:9 cover | Accepted | 2026-04-11 | None |
+| 021 | Case study lead image uses first thumbnail with 16:9 cover | Superseded by ADR-022 | 2026-04-11 | ADR-022 |
+| 022 | Primary preview image — hero first, aligned thumbnails, shared resolver | Accepted | 2026-04-11 | None |

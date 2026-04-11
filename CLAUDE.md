@@ -28,6 +28,8 @@ No test suite is configured.
 ### Data layer
 All project/case study data lives in **`lib/projects.ts`** as a static typed array — no database, no CMS, no API calls. Adding or editing case studies means editing this file. The `Project` interface, `getProject(slug)`, and `getFeaturedProjects()` helpers are the only data access points.
 
+**Primary preview image (listing card + case study hero):** Use `getPrimaryPreviewImage(assets)` everywhere — it returns `hero` when set, otherwise `thumbnails[0]`. When both `hero` and `thumbnails` exist, set **`thumbnails[0]` to the same `ImageAsset` as `hero`** (same `src`, dimensions, alt), matching the IBEDC pattern. Optional second slot `thumbnails[1]` is for an extra asset only; the UI reads the primary via the helper. Placeholders: use `placeholderHero` for both `hero` and `thumbnails[0]`.
+
 ### Routing
 | Route | File | Notes |
 |---|---|---|
@@ -49,3 +51,37 @@ All layout and visual styles use **inline `style` props** — not Tailwind class
 
 ### Path alias
 `@/` resolves to the project root — use for all cross-directory imports (e.g. `@/lib/projects`, `@/components/Nav`).
+
+## Figma MCP (optional)
+
+Use the **official Figma MCP** (`plugin-figma-figma` in Cursor) for a two-way loop in chat: read tools pull design context from Figma; write/capture tools push or edit the canvas. The **Figma desktop MCP** is mainly read + Code Connect — use the official server for `use_figma` and `generate_figma_design`. If `whoami` succeeds, the session is authenticated.
+
+### Site URLs (for capture into Figma)
+
+With `npm run dev`, pass the **full URL including path** to tools like `generate_figma_design`:
+
+| Use | URL pattern |
+|-----|-------------|
+| Local base | `http://localhost:3000` |
+| Homepage | `http://localhost:3000/` |
+| Work index | `http://localhost:3000/work` |
+| Case study | `http://localhost:3000/work/<slug>` (slug from `lib/projects.ts`) |
+| Other pages | `http://localhost:3000/about`, `/leadership` |
+
+For production capture, use the deployed origin instead of localhost.
+
+### Figma file URLs (for MCP tools)
+
+From `https://www.figma.com/design/{fileKey}/...?node-id=1-2`:
+
+- **`fileKey`** — first path segment after `/design/` (use branch key as `fileKey` for branch URLs).
+- **`nodeId`** — convert `node-id` by replacing the hyphen between numbers with a colon (e.g. `1-2` → `1:2`).
+
+### Which flow to use
+
+| Goal | Tools / approach |
+|------|------------------|
+| Import a running page into Figma (pixel capture) | `generate_figma_design` (poll `captureId` until complete); target `newFile`, `existingFile` + `fileKey`, or `clipboard` |
+| Build or edit frames with the team design system | `search_design_system` + `use_figma` (load the `figma-use` skill before `use_figma` when available) |
+| Implement or align code with a Figma frame | `get_design_context` + adapt output to this repo (inline styles, `lib/projects.ts`) |
+| Map components ↔ code | Code Connect tools (`get_code_connect_map`, `add_code_connect_map`, etc.) |

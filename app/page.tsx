@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { projects } from "@/lib/projects";
+import { getPrimaryPreviewImage, projects } from "@/lib/projects";
 import AssetImage from "@/components/AssetImage";
 import Hero from "@/components/Hero";
 import SelectedSystemsLogosRow from "@/components/SelectedSystemsLogosRow";
@@ -150,7 +150,9 @@ export default function Home() {
                   {group.label}
                 </p>
                 <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-                  {groupItems.map((p) => (
+                  {groupItems.map((p) => {
+                    const preview = getPrimaryPreviewImage(p.assets);
+                    return (
                     <Link
                       key={p.slug}
                       href={`/work/${p.slug}`}
@@ -165,14 +167,14 @@ export default function Home() {
                       }}
                     >
                       <div className="system-project-link__inner">
-                        {p.assets?.thumbnails?.[0] ? (
+                        {preview ? (
                           <div className="system-project-thumb">
                             <AssetImage
                               asset={{
-                                ...p.assets.thumbnails[0],
-                                alt: p.assets.thumbnails[0].src.includes("/assets/work/_placeholders/")
+                                ...preview,
+                                alt: preview.src.includes("/assets/work/_placeholders/")
                                   ? `${p.title} — project preview`
-                                  : p.assets.thumbnails[0].alt,
+                                  : preview.alt,
                               }}
                               sizes="(max-width: 640px) 92vw, 160px"
                               aspectCover="4 / 3"
@@ -203,7 +205,8 @@ export default function Home() {
                         </div>
                       </div>
                     </Link>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             );
