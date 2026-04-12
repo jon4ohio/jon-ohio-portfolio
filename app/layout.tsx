@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import ThemeScript from "@/components/ThemeScript";
 
 const siteUrl =
@@ -155,6 +156,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <SpeedInsights />
         <Analytics />
+        {process.env.NODE_ENV === "development" && (
+          <Script
+            src="https://mcp.figma.com/mcp/html-to-design/capture.js"
+            strategy="afterInteractive"
+          />
+        )}
       </body>
     </html>
   );

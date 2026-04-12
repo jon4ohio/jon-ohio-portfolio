@@ -85,3 +85,7 @@ From `https://www.figma.com/design/{fileKey}/...?node-id=1-2`:
 | Build or edit frames with the team design system | `search_design_system` + `use_figma` (load the `figma-use` skill before `use_figma` when available) |
 | Implement or align code with a Figma frame | `get_design_context` + adapt output to this repo (inline styles, `lib/projects.ts`) |
 | Map components ↔ code | Code Connect tools (`get_code_connect_map`, `add_code_connect_map`, etc.) |
+
+### Figma file hygiene (auto layout, JOP tokens, naming)
+
+When editing or building frames in Figma for this site, follow **[`docs/figma-jop-structure.md`](docs/figma-jop-structure.md)** — auto layout defaults, **JOP** variable paths aligned with `--jop-*` in [`app/globals.css`](app/globals.css), atomic **Atom / Mol / Org / Section / Page** naming, and section frame naming. Shorthand **JOS** in design discussions means the same JOP token system. After **`get_design_context`** (Figma → code), follow **§7 Figma MCP → site** in that doc and [ADR-023](docs/adrs/ADR-023-figma-mcp-handoff-jop-tokens.md) so implementations stay on **`var(--jop-…)`**, not pasted hex.
