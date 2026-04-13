@@ -399,10 +399,10 @@ export const projects: Project[] = [
           height: 768,
         },
         {
-          src: "/assets/work/orchestrated-portfolio/system-diagram.svg",
+          src: "/assets/work/orchestrated-portfolio/system-diagram.png",
           alt: "Multi-agent portfolio system diagram — roles, infrastructure layers, and bidirectional Figma–code loop",
-          width: 680,
-          height: 580,
+          width: 1024,
+          height: 768,
         },
       ],
       hero: {
@@ -417,10 +417,10 @@ export const projects: Project[] = [
           layout: "wide",
           treatment: "plain",
           image: {
-            src: "/assets/work/orchestrated-portfolio/system-diagram.svg",
+            src: "/assets/work/orchestrated-portfolio/system-diagram.png",
             alt: "Multi-agent portfolio system: orchestrator, reasoning tools, infrastructure layers, and bidirectional Figma–code loop.",
-            width: 680,
-            height: 580,
+            width: 1024,
+            height: 768,
             caption: "Orchestrator, tools, shared state, ADRs, deploy — and the Figma MCP loop.",
           },
         },
