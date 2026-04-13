@@ -28,5 +28,6 @@
 | 024 | Site copy, metadata, and About alignment (audit pass) | Accepted | 2026-04-13 | None |
 | 025 | Orchestrated portfolio case study — card title and subtitle | Superseded by ADR-026 | 2026-04-13 | ADR-026 |
 | 026 | Orchestrated portfolio case study — narrative refresh | Accepted | 2026-04-13 | None |
+| 027 | Orchestrated portfolio case study — evidence screenshots and governance proof | Accepted | 2026-04-13 | None |
 
 Chronological audit notes: [`LOG.md`](./LOG.md).

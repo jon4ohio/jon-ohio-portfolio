@@ -385,7 +385,7 @@ export const projects: Project[] = [
     systemEvolution:
       "Mid-build, compute limits surfaced before the work was done. Pushing through with the same setup would have meant lower quality or lower ambition. Instead, I treated it as a system design problem — redistributed responsibility across tools, reserved the most capable one for decisions that actually needed it. The constraint produced better role clarity than a clean start would have. The constraint was the architecture.",
     systemImpact:
-      "The deeper problem wasn't compute — it was memory. Each tool session started fresh. Decisions made in one session had no way of reaching the next. The fix was to document every significant decision in the repository itself, with the reasoning attached. Any tool, in any session, could read the history and continue without repeating what had already been resolved. Writing decisions down as they were made is what held the system together.",
+      "The deeper problem wasn't compute — it was memory. Each tool session started fresh. Decisions made in one session had no way of reaching the next. The fix was to document every significant decision in the repository itself, with the reasoning attached. Any tool, in any session, could read the history and continue without repeating what had already been resolved. Writing decisions down as they were made is what held the system together. ADR-008 formalised the gate: major pushes must update the decision log so rationale never lives only in a chat session. It blocked a PR mid-build when the rule wasn't followed — no human needed to catch it.",
     keyInsight:
       "Keeping the design file in sync with the codebase changed what design feedback felt like. Changes didn't have to wait for a developer to interpret them — they moved directly into the build. The gap between design and engineering didn't close — but it became something you could cross in either direction. That changes what design is allowed to do.",
     tags: ["DesignOps", "AI/ML", "Systems", "Workflow", "0→1"],
@@ -423,6 +423,32 @@ export const projects: Project[] = [
             height: 580,
             caption:
               "Multi-agent system — orchestrator, reasoning tools, infrastructure layers, and the bidirectional Figma–code loop.",
+          },
+        },
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/orchestrated-portfolio/codex-review.jpg",
+            alt: "Codex reviewing a pull request and flagging an image encoding issue (JPEG committed as .png extension)",
+            width: 1024,
+            height: 558,
+            caption:
+              "Codex reviewing a live PR — flagged a JPEG file committed with a .png extension. Independent review layer, working as designed.",
+          },
+        },
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/orchestrated-portfolio/adr-gate.jpg",
+            alt: "ADR governance gate failing a pull request because no ADR files were updated for a major change",
+            width: 1024,
+            height: 558,
+            caption:
+              "ADR-008 gate enforcement in CI — blocked a merge when a major change shipped without an ADR update.",
           },
         },
       ],
