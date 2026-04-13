@@ -2,7 +2,7 @@
 
 ## Status
 
-**Status:** Accepted  
+**Status:** Superseded by ADR-026  
 **Date:** 2026-04-13  
 **Decision Maker(s):** Jon Ohio (Product Design Lead)  
 **Supersedes:** None
@@ -71,6 +71,7 @@ The case study card displays **Agentic Portfolio** with subtitle **AI-native wor
 
 - ADR-002 — relationship: constrains (static `lib/projects.ts` data)  
 - ADR-022 — relationship: constrains (primary preview image when assets are updated)  
+- ADR-026 — relationship: superseded by  
 
 ## References
 
