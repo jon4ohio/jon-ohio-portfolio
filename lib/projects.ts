@@ -394,9 +394,9 @@ export const projects: Project[] = [
       thumbnails: [
         {
           src: "/assets/work/orchestrated-portfolio/hero.png",
-          alt: "Agentic Portfolio — homepage hero showing the deployed portfolio UI",
+          alt: "Agentic Portfolio — homepage hero with nav, headline, CTAs, and metrics strip",
           width: 1024,
-          height: 562,
+          height: 768,
         },
         {
           src: "/assets/work/orchestrated-portfolio/system-diagram.svg",
@@ -407,9 +407,9 @@ export const projects: Project[] = [
       ],
       hero: {
         src: "/assets/work/orchestrated-portfolio/hero.png",
-        alt: "Agentic Portfolio — homepage hero showing the deployed portfolio UI",
+        alt: "Agentic Portfolio — homepage hero with nav, headline, CTAs, and metrics strip",
         width: 1024,
-        height: 562,
+        height: 768,
       },
       blocks: [
         {
@@ -426,29 +426,71 @@ export const projects: Project[] = [
           },
         },
         {
-          kind: "image",
+          kind: "callout",
+          title: "System proof",
+          body:
+            "Independent review and governance ran continuously. Codex reviewed PRs without being asked, and ADR-008 blocked merges when major changes landed without an ADR update — no human needed to enforce it.",
+        },
+        {
+          kind: "gallery",
           layout: "wide",
+          columns: 2,
           treatment: "plain",
-          image: {
-            src: "/assets/work/orchestrated-portfolio/codex-review.jpg",
-            alt: "Codex reviewing a pull request and flagging an image encoding issue (JPEG committed as .png extension)",
-            width: 1024,
-            height: 558,
-            caption:
-              "Codex reviewing a live PR — flagged a JPEG file committed with a .png extension. Independent review layer, working as designed.",
-          },
+          images: [
+            {
+              src: "/assets/work/orchestrated-portfolio/codex-review.png",
+              alt: "Codex bot leaving a review comment on a PR flagging JPEG bytes committed as hero.png",
+              width: 1024,
+              height: 768,
+              caption:
+                "Independent review — Codex flagged a JPEG file committed with a .png extension.",
+            },
+            {
+              src: "/assets/work/orchestrated-portfolio/adr-gate.png",
+              alt: "GitHub checks showing ADR gate failing on a pull request",
+              width: 1024,
+              height: 768,
+              caption:
+                "Governance gate — ADR-008 blocked a merge when the rule wasn’t followed.",
+            },
+          ],
+        },
+        {
+          kind: "callout",
+          title: "Design loop",
+          body:
+            "The Figma file stayed current with the codebase throughout the build — pages for each case study, synced with what shipped.",
         },
         {
           kind: "image",
           layout: "wide",
           treatment: "plain",
           image: {
-            src: "/assets/work/orchestrated-portfolio/adr-gate.jpg",
-            alt: "ADR governance gate failing a pull request because no ADR files were updated for a major change",
+            src: "/assets/work/orchestrated-portfolio/figma-export.png",
+            alt: "Figma workspace with portfolio case study artboards — About, BluAlliance, SeamlessHiring, Seamkit, FetsProza",
             width: 1024,
-            height: 558,
+            height: 768,
             caption:
-              "ADR-008 gate enforcement in CI — blocked a merge when a major change shipped without an ADR update.",
+              "Portfolio design file in Figma — design and code staying in sync across the full build.",
+          },
+        },
+        {
+          kind: "callout",
+          title: "Implementation surface",
+          body:
+            "Cursor handled implementation volume — edits, builds, and ADR logging — while the agent panel ran merge checks and conflict resolution in the same session.",
+        },
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/orchestrated-portfolio/cursor-proof.png",
+            alt: "Cursor IDE showing the portfolio codebase, dev server, docs/adrs, and AI agent completing ADR log work",
+            width: 1024,
+            height: 768,
+            caption:
+              "Cursor as the implementation surface — build, ADR log, and merge check running in one session.",
           },
         },
       ],
