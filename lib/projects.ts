@@ -358,8 +358,8 @@ export const projects: Project[] = [
   },
   {
     slug: "orchestrated-portfolio",
-    title: "I Didn't Code My Portfolio. I Orchestrated It.",
-    subtitle: "Agentic, AI-native workflow to ship a production site",
+    title: "Agentic Portfolio",
+    subtitle: "AI-native workflow, from agents to production",
     category: "AI-Native Workflow",
     company: "Self-directed",
     period: "2026",
