@@ -72,3 +72,11 @@ node scripts/check-adr-major-push.mjs --range <base_sha> <head_sha>
 
 This keeps enforcement consistent even if local hooks are not installed.
 
+## Public showcase (`jon-ohio-portfolio-showcase`)
+
+The public repo is a **curated** mirror (ADRs + snippets), not a copy of this codebase. Do not push `main` to it.
+
+- **Workflow:** `docs/showcase-publish.md`
+- **Verify tree before push:** `npm run verify:showcase-publish` (validates the `publish/showcase` branch ref)
+- **Redaction:** follow the checklist linked from the public repo’s `docs/redaction-checklist.md`
+
