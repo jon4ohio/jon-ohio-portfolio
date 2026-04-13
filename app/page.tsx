@@ -44,7 +44,7 @@ const systemGroups = [
   },
   {
     label: "Intelligent Systems",
-    slugs: ["seamless-ai", "rivva"],
+    slugs: ["orchestrated-portfolio", "rivva"],
   },
 ];
 

@@ -34,5 +34,6 @@
 | 030 | Orchestrated portfolio — system diagram as PNG raster | Accepted | 2026-04-13 | None |
 | 031 | Work taxonomy consolidation and grouped index | Accepted | 2026-04-13 | None |
 | 032 | Production release alignment and post-deploy QA gate | Accepted | 2026-04-13 | None |
+| 033 | Work index row chrome and homepage Intelligent Systems curation | Accepted | 2026-04-13 | None |
 
 Chronological audit notes: [`LOG.md`](./LOG.md).
