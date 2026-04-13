@@ -85,7 +85,7 @@ export const projects: Project[] = [
     slug: "seamless-hiring",
     title: "SeamlessHiring 2.0",
     subtitle: "Recruitment Management System (RMS)",
-    category: "Product Systems",
+    category: "Structured Systems",
     company: "SeamlessHR",
     period: "Mar 2022 – Mar 2025",
     summary:
@@ -196,7 +196,7 @@ export const projects: Project[] = [
     slug: "seamkit",
     title: "Seamkit",
     subtitle: "Enterprise Design System",
-    category: "Organizational Systems",
+    category: "Structured Systems",
     company: "SeamlessHR",
     period: "Dec 2023 – Present",
     summary:
@@ -273,7 +273,7 @@ export const projects: Project[] = [
     slug: "fetsproza",
     title: "FetsProza",
     subtitle: "Infrastructure‑as‑a‑Service (IaaS) Platform",
-    category: "Operational Systems",
+    category: "Scalable Systems",
     company: "Funds and Electronic Transfer Solutions (Fets) · Nigeria",
     period: "2021 – 2025",
     summary:
@@ -360,7 +360,7 @@ export const projects: Project[] = [
     slug: "orchestrated-portfolio",
     title: "Agentic Portfolio",
     subtitle: "From agents to production",
-    category: "AI-Native Workflow",
+    category: "Intelligent Systems",
     company: "Self-directed",
     period: "2026",
     summary:
@@ -495,7 +495,7 @@ export const projects: Project[] = [
     slug: "ibedc",
     title: "IBEDC Digital Transformation",
     subtitle: "Care App + POS System",
-    category: "Operational Systems",
+    category: "Scalable Systems",
     company: "Funds and Electronic Transfer Solutions (Fets) · 2.4M+ customers",
     period: "2022 – 2024",
     summary:
@@ -704,7 +704,7 @@ export const projects: Project[] = [
     slug: "abms",
     title: "ABMS",
     subtitle: "Agency Banking Management System",
-    category: "Operational Systems",
+    category: "Scalable Systems",
     company: "Funds and Electronic Transfer Solutions (Fets)",
     period: "2022 – 2024",
     summary:
