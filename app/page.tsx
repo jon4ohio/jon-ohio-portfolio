@@ -187,6 +187,7 @@ export default function Home() {
                               }}
                               sizes="(max-width: 640px) 92vw, 160px"
                               aspectCover="4 / 3"
+                              aspectFit={p.slug === "orchestrated-portfolio" ? "contain" : "auto"}
                               style={{}}
                             />
                           </div>

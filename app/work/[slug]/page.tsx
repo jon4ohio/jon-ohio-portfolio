@@ -47,12 +47,25 @@ function BlockRenderer({ block }: { block: CaseStudyBlock }) {
     );
   }
 
-  // gallery
+  // gallery — 2 columns: single column below 641px; 3 columns: fixed grid
   const columns = block.columns ?? 2;
-  const gridTemplateColumns = columns === 3 ? "repeat(3, 1fr)" : "repeat(2, 1fr)";
+  const galleryWideSizes = "(max-width: 640px) 92vw, (max-width: 900px) 44vw, 520px";
+  const galleryInlineSizes = "(max-width: 640px) 92vw, (max-width: 900px) 44vw, 340px";
+  const isTwoCol = columns === 2;
   return (
     <div>
-      <div style={{ display: "grid", gridTemplateColumns, gap: 12 }}>
+      <div
+        className={isTwoCol ? "case-study-gallery case-study-gallery--cols-2" : undefined}
+        style={
+          isTwoCol
+            ? undefined
+            : {
+                display: "grid",
+                gridTemplateColumns: columns === 3 ? "repeat(3, 1fr)" : "repeat(2, 1fr)",
+                gap: 12,
+              }
+        }
+      >
         {block.images.map((img, idx) => (
           <div key={`${img.src}-${idx}`}>
             {img.backdropColor ? (
@@ -66,7 +79,7 @@ function BlockRenderer({ block }: { block: CaseStudyBlock }) {
               >
                 <AssetImage
                   asset={img}
-                  sizes={block.layout === "wide" ? "(max-width: 900px) 44vw, 520px" : "(max-width: 900px) 44vw, 340px"}
+                  sizes={block.layout === "wide" ? galleryWideSizes : galleryInlineSizes}
                   treatment={block.treatment}
                   borderless
                 />
@@ -74,11 +87,11 @@ function BlockRenderer({ block }: { block: CaseStudyBlock }) {
             ) : (
               <AssetImage
                 asset={img}
-                sizes={block.layout === "wide" ? "(max-width: 900px) 44vw, 520px" : "(max-width: 900px) 44vw, 340px"}
+                sizes={block.layout === "wide" ? galleryWideSizes : galleryInlineSizes}
                 treatment={block.treatment}
               />
             )}
-            {img.caption ? <p style={{ fontSize: 12, color: "var(--fg-subtle)", marginTop: 10 }}>{img.caption}</p> : null}
+            {img.caption ? <p className="case-study-gallery-caption">{img.caption}</p> : null}
           </div>
         ))}
       </div>

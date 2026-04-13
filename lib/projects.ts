@@ -379,13 +379,13 @@ export const projects: Project[] = [
     problem:
       "Years of work scattered across a dozen files with no single through-line. No engineering background. And mid-build, the tools themselves started working against the project — burning through compute limits, losing context between sessions, repeating decisions that were already made.",
     action:
-      "The first decision was to share everything upfront — prototype, CV, case study docs, presentations — before asking any tool to produce anything. When compute limits surfaced mid-build, the response wasn't to lower the ambition. It was to redesign who did what: one tool for strategy and judgment calls, another for volume output, a third for independent review, a fourth for voice. A shared repository became the project's memory — the one place where decisions survived past any single session. Deployments went live continuously, not at the end. Late in the build, the design file and the codebase started feeding each other: changes in one reflected in the other. The loop closed — design and code stopped waiting on each other.",
+      "The first decision was to share everything upfront — prototype, CV, case study docs, presentations — before asking any tool to produce anything. When compute limits surfaced mid-build, the response wasn't to lower the ambition. It was to redesign who did what: one tool for strategy and judgment calls, another for volume output, a third for independent review — Codex flagged a real asset encoding error on a merged PR without being asked — a fourth for voice. A shared repository became the project's memory — the one place where decisions survived past any single session. Deployments went live continuously, not at the end. Late in the build, the design file and the codebase started feeding each other: changes in one reflected in the other. The loop closed — design and code stopped waiting on each other.",
     impact:
       "The site shipped across four sections with a full decision log and a live design-to-code feedback loop. The more transferable result was a shift in how execution worked — something to direct rather than absorb. The judgment that mattered most throughout: knowing which decisions needed a human and which could be handed off to a well-structured system. That's the same instinct behind every DesignOps problem.",
     systemEvolution:
       "Mid-build, compute limits surfaced before the work was done. Pushing through with the same setup would have meant lower quality or lower ambition. Instead, I treated it as a system design problem — redistributed responsibility across tools, reserved the most capable one for decisions that actually needed it. The constraint produced better role clarity than a clean start would have. The constraint was the architecture.",
     systemImpact:
-      "The deeper problem wasn't compute — it was memory. Each tool session started fresh. Decisions made in one session had no way of reaching the next. The fix was to document every significant decision in the repository itself, with the reasoning attached. Any tool, in any session, could read the history and continue without repeating what had already been resolved. Writing decisions down as they were made is what held the system together.",
+      "The deeper problem wasn't compute — it was memory. Each tool session started fresh. Decisions made in one session had no way of reaching the next. The fix was to document every significant decision in the repository itself, with the reasoning attached. Any tool, in any session, could read the history and continue without repeating what had already been resolved. Writing decisions down as they were made is what held the system together. ADR-008 formalised the gate: major pushes must update the decision log so rationale never lives only in a chat session. It blocked a PR mid-build when the rule wasn't followed — no human needed to catch it.",
     keyInsight:
       "Keeping the design file in sync with the codebase changed what design feedback felt like. Changes didn't have to wait for a developer to interpret them — they moved directly into the build. The gap between design and engineering didn't close — but it became something you could cross in either direction. That changes what design is allowed to do.",
     tags: ["DesignOps", "AI/ML", "Systems", "Workflow", "0→1"],
@@ -394,9 +394,9 @@ export const projects: Project[] = [
       thumbnails: [
         {
           src: "/assets/work/orchestrated-portfolio/hero.png",
-          alt: "Agentic Portfolio — homepage hero showing the deployed portfolio UI",
+          alt: "Agentic Portfolio — homepage hero with nav, headline, CTAs, and metrics strip",
           width: 1024,
-          height: 562,
+          height: 768,
         },
         {
           src: "/assets/work/orchestrated-portfolio/system-diagram.svg",
@@ -407,9 +407,9 @@ export const projects: Project[] = [
       ],
       hero: {
         src: "/assets/work/orchestrated-portfolio/hero.png",
-        alt: "Agentic Portfolio — homepage hero showing the deployed portfolio UI",
+        alt: "Agentic Portfolio — homepage hero with nav, headline, CTAs, and metrics strip",
         width: 1024,
-        height: 562,
+        height: 768,
       },
       blocks: [
         {
@@ -421,8 +421,71 @@ export const projects: Project[] = [
             alt: "Multi-agent portfolio system: orchestrator, reasoning tools, infrastructure layers, and bidirectional Figma–code loop.",
             width: 680,
             height: 580,
-            caption:
-              "Multi-agent system — orchestrator, reasoning tools, infrastructure layers, and the bidirectional Figma–code loop.",
+            caption: "Orchestrator, tools, shared state, ADRs, deploy — and the Figma MCP loop.",
+          },
+        },
+        {
+          kind: "callout",
+          title: "System proof",
+          body:
+            "Independent review and governance ran continuously. Codex reviewed PRs without being asked, and ADR-008 blocked merges when major changes landed without an ADR update — no human needed to enforce it.",
+        },
+        {
+          kind: "gallery",
+          layout: "wide",
+          columns: 2,
+          treatment: "plain",
+          images: [
+            {
+              src: "/assets/work/orchestrated-portfolio/codex-review.png",
+              alt: "Codex bot leaving a review comment on a PR flagging JPEG bytes committed as hero.png",
+              width: 1024,
+              height: 768,
+              caption: "Codex: JPEG bytes committed as hero.png.",
+            },
+            {
+              src: "/assets/work/orchestrated-portfolio/adr-gate.png",
+              alt: "GitHub checks showing ADR gate failing on a pull request",
+              width: 1024,
+              height: 768,
+              caption: "ADR gate: major change without an ADR update.",
+            },
+          ],
+        },
+        {
+          kind: "callout",
+          title: "Design loop",
+          body:
+            "The Figma file stayed current with the codebase throughout the build — pages for each case study, synced with what shipped.",
+        },
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/orchestrated-portfolio/figma-export.png",
+            alt: "Figma workspace with portfolio case study artboards — About, BluAlliance, SeamlessHiring, Seamkit, FetsProza",
+            width: 1024,
+            height: 768,
+            caption: "Figma case study pages kept in sync with what shipped.",
+          },
+        },
+        {
+          kind: "callout",
+          title: "Implementation surface",
+          body:
+            "Cursor handled implementation volume — edits, builds, and ADR logging — while the agent panel ran merge checks and conflict resolution in the same session.",
+        },
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/orchestrated-portfolio/cursor-proof.png",
+            alt: "Cursor IDE showing the portfolio codebase, dev server, docs/adrs, and AI agent completing ADR log work",
+            width: 1024,
+            height: 768,
+            caption: "Cursor: dev server, ADR log, and merge checks in one session.",
           },
         },
       ],

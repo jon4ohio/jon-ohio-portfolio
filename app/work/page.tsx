@@ -63,6 +63,7 @@ export default function WorkIndex() {
                     }}
                     sizes="(max-width: 640px) 92vw, (max-width: 900px) 200px, 240px"
                     aspectCover="4 / 3"
+                    aspectFit={p.slug === "orchestrated-portfolio" ? "contain" : "auto"}
                     style={{}}
                   />
                 ) : null}

@@ -684,6 +684,29 @@ button:focus-visible {
 .work-list-thumb {
   min-width: 0;
 }
+
+/* Case study: 2-up image galleries stack on narrow viewports */
+.case-study-gallery {
+  display: grid;
+  gap: 12px;
+}
+.case-study-gallery--cols-2 {
+  grid-template-columns: 1fr;
+}
+@media (min-width: 641px) {
+  .case-study-gallery--cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.case-study-gallery-caption {
+  font-size: 12px;
+  color: var(--fg-subtle);
+  margin-top: 10px;
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .work-list-body {
   min-width: 0;
 }
