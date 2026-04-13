@@ -727,6 +727,9 @@ button:focus-visible {
     row-gap: 28px;
     padding: 32px 0;
   }
+  .hero-metric-seamkit-suffix {
+    display: none !important;
+  }
   .hero-metric {
     padding-left: 12px;
     white-space: normal;

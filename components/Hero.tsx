@@ -325,7 +325,7 @@ export default function Hero() {
             }}
           >
             <span className="hero-headline-l1">I design systems that evolve</span>{" "}
-            <span className="hero-headline-l2">– from fragmented to intelligent workflows</span>
+            <span className="hero-headline-l2">– from fragmented to intelligent</span>
           </h1>
           <p
             className="animate-fade-up delay-3"
@@ -337,7 +337,7 @@ export default function Hero() {
               lineHeight: 1.5,
             }}
           >
-            Working across enterprise SaaS, fintech infrastructure, and AI — designing systems, DesignOps, and intelligent workflows.
+            Working across enterprise SaaS, fintech infrastructure, and AI — designing systems, DesignOps, and AI-native product patterns.
           </p>
           <div className="animate-fade-up delay-4 hero-cta">
             <Link

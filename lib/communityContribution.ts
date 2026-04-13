@@ -8,7 +8,7 @@ export type CommunityCard = {
 };
 
 export const communityPullQuote = {
-  text: "Design isn’t just about pixels anymore. It’s systems, strategy, and scale.",
+  text: "Systems are how design scales past the individual. Everything else is decoration.",
   attribution: "My Conviction",
 } as const;
 

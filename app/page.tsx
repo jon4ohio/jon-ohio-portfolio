@@ -7,24 +7,28 @@ import SelectedSystemsLogosRow from "@/components/SelectedSystemsLogosRow";
 import SystemModel from "@/components/SystemModel";
 
 export const metadata: Metadata = {
-  title: "John Ohio — Product Systems & DesignOps Lead",
+  title: "John Ohio — Product Design Lead",
   description:
-    "Product Design Lead designing systems that evolve across enterprise SaaS, fintech, and AI — from fragmented to intelligent workflows. $1M+ saved annually, 12 teams aligned, 2.49M token usage.",
+    "Product Design Lead designing systems that evolve across enterprise SaaS, fintech, and AI — from fragmented to intelligent. $1M+ saved annually, 12 teams aligned, 2.49M token insertions.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "John Ohio — Product Systems & DesignOps Lead",
+    title: "John Ohio — Product Design Lead",
     description:
-      "I design systems that evolve – from fragmented to intelligent workflows. Design systems · DesignOps · Enterprise SaaS · AI UX.",
+      "I design systems that evolve – from fragmented to intelligent. Design systems · DesignOps · Enterprise SaaS · AI UX.",
     url: "/",
     type: "website",
   },
 };
 
-const heroMetrics = [
+const heroMetrics: Array<{
+  value: string;
+  label: string;
+  seamkitAttribution?: boolean;
+}> = [
   { value: "$1M+", label: "Annual savings (Fets)" },
   { value: "↑75%", label: "CSAT (SeamlessHR)" },
-  { value: "2.49m", label: "tokens used (Seamkit)" },
-  { value: "12 teams", label: "Adoption (Seamkit)" },
+  { value: "2.49m", label: "Token insertions", seamkitAttribution: true },
+  { value: "12", label: "Teams onboarded", seamkitAttribution: true },
   { value: "↓80%", label: "Fraud reduction (IBEDC)" },
   { value: "#4", label: "Product Hunt (Rivva)" },
 ];
@@ -98,7 +102,12 @@ export default function Home() {
           {heroMetrics.map((m) => (
             <div key={`${m.value}-${m.label}`} className="hero-metric">
               <p className="hero-metric-value">{m.value}</p>
-              <p className="hero-metric-label">{m.label}</p>
+              <p className="hero-metric-label">
+                {m.label}
+                {m.seamkitAttribution ? (
+                  <span className="hero-metric-seamkit-suffix"> (Seamkit)</span>
+                ) : null}
+              </p>
             </div>
           ))}
         </div>
@@ -438,7 +447,7 @@ export default function Home() {
             margin: "0 auto 32px",
           }}
         >
-          I design systems that evolve<br />– from fragmented to intelligent workflows
+          I design systems that evolve<br />– from fragmented to intelligent
         </h2>
         <a
           href="mailto:jon4ohio@gmail.com"
