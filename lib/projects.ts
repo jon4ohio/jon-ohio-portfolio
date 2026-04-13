@@ -421,8 +421,7 @@ export const projects: Project[] = [
             alt: "Multi-agent portfolio system: orchestrator, reasoning tools, infrastructure layers, and bidirectional Figma–code loop.",
             width: 680,
             height: 580,
-            caption:
-              "Multi-agent system — orchestrator, reasoning tools, infrastructure layers, and the bidirectional Figma–code loop.",
+            caption: "Orchestrator, tools, shared state, ADRs, deploy — and the Figma MCP loop.",
           },
         },
         {
@@ -442,16 +441,14 @@ export const projects: Project[] = [
               alt: "Codex bot leaving a review comment on a PR flagging JPEG bytes committed as hero.png",
               width: 1024,
               height: 768,
-              caption:
-                "Independent review — Codex flagged a JPEG file committed with a .png extension.",
+              caption: "Codex: JPEG bytes committed as hero.png.",
             },
             {
               src: "/assets/work/orchestrated-portfolio/adr-gate.png",
               alt: "GitHub checks showing ADR gate failing on a pull request",
               width: 1024,
               height: 768,
-              caption:
-                "Governance gate — ADR-008 blocked a merge when the rule wasn’t followed.",
+              caption: "ADR gate: major change without an ADR update.",
             },
           ],
         },
@@ -470,8 +467,7 @@ export const projects: Project[] = [
             alt: "Figma workspace with portfolio case study artboards — About, BluAlliance, SeamlessHiring, Seamkit, FetsProza",
             width: 1024,
             height: 768,
-            caption:
-              "Portfolio design file in Figma — design and code staying in sync across the full build.",
+            caption: "Figma case study pages kept in sync with what shipped.",
           },
         },
         {
@@ -489,8 +485,7 @@ export const projects: Project[] = [
             alt: "Cursor IDE showing the portfolio codebase, dev server, docs/adrs, and AI agent completing ADR log work",
             width: 1024,
             height: 768,
-            caption:
-              "Cursor as the implementation surface — build, ADR log, and merge check running in one session.",
+            caption: "Cursor: dev server, ADR log, and merge checks in one session.",
           },
         },
       ],
