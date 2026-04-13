@@ -35,5 +35,6 @@
 | 031 | Work taxonomy consolidation and grouped index | Accepted | 2026-04-13 | None |
 | 032 | Production release alignment and post-deploy QA gate | Accepted | 2026-04-13 | None |
 | 033 | Work index row chrome and homepage Intelligent Systems curation | Accepted | 2026-04-13 | None |
+| 034 | Mobile nav menu closes on route change | Accepted | 2026-04-13 | None |
 
 Chronological audit notes: [`LOG.md`](./LOG.md).
