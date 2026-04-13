@@ -67,6 +67,10 @@ See `docs/adrs/index.md`.
 
 Major-push governance: `docs/adrs/ADR-008-adr-update-gate-for-major-pushes.md`.
 
+## Public showcase repo (curated)
+
+Process-only mirror with sanitized ADRs/snippets — **not** the full app: [jon-ohio-portfolio-showcase](https://github.com/jon4ohio/jon-ohio-portfolio-showcase). Workflow, allowlist, and push commands: `docs/showcase-publish.md`.
+
 ## Theme system (code-level)
 
 The site supports three themes through CSS custom properties:

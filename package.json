@@ -11,6 +11,7 @@
     "test:a11y:ci": "npm run build && playwright test tests/a11y",
     "export:figma-assets": "node scripts/export-figma-assets.mjs",
     "check:adr-major-push": "node scripts/check-adr-major-push.mjs",
+    "verify:showcase-publish": "node scripts/verify-showcase-publish-tree.mjs",
     "hooks:install": "node scripts/install-hooks.mjs"
   },
   "dependencies": {
