@@ -17,7 +17,26 @@ export const metadata: Metadata = {
   },
 };
 
+const CATEGORIES = [
+  "Structured Systems",
+  "Scalable Systems",
+  "Intelligent Systems",
+  "0→1 Systems",
+] as const;
+
 export default function WorkIndex() {
+  const grouped = CATEGORIES.reduce<Array<{ category: string; startIndex: number; projects: typeof projects }>>(
+    (acc, category) => {
+      const items = projects.filter((p) => p.category === category);
+      if (items.length === 0) return acc;
+
+      const startIndex = acc.length ? acc[acc.length - 1].startIndex + acc[acc.length - 1].projects.length : 0;
+      acc.push({ category, startIndex, projects: items });
+      return acc;
+    },
+    [],
+  );
+
   return (
     <div style={{ paddingTop: 56 }}>
       <section style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 64px" }}>
@@ -33,83 +52,163 @@ export default function WorkIndex() {
       </section>
 
       <section style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px 120px" }}>
-        <div style={{ display: "grid", gap: 2 }}>
-          {projects.map((p, i) => {
-            const preview = getPrimaryPreviewImage(p.assets);
-            return (
-            <Link
-              key={p.slug}
-              href={`/work/${p.slug}`}
-              className="work-list-row"
+        {grouped.map((group, groupIndex) => {
+          const isFirst = groupIndex === 0;
+          return (
+            <section
+              key={group.category}
               style={{
-                padding: "36px 0",
-                borderTop: "1px solid var(--border)",
-                textDecoration: "none",
-                color: "inherit",
+                paddingTop: isFirst ? 0 : 56,
               }}
+              aria-label={group.category}
             >
-              <span className="work-list-idx" style={{ fontSize: 12, color: "var(--fg-subtle)", fontWeight: 500, letterSpacing: "0.04em", paddingTop: 4 }}>
-                {String(i + 1).padStart(2, "0")}
-              </span>
-
-              <div className="work-list-thumb">
-                {preview ? (
-                  <AssetImage
-                    asset={{
-                      ...preview,
-                      alt: preview.src.includes("/assets/work/_placeholders/")
-                        ? `${p.title} — project preview`
-                        : preview.alt,
-                    }}
-                    sizes="(max-width: 640px) 92vw, (max-width: 900px) 200px, 240px"
-                    aspectCover="4 / 3"
-                    aspectFit={p.slug === "orchestrated-portfolio" ? "contain" : "auto"}
-                    style={{}}
-                  />
-                ) : null}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "baseline",
+                  justifyContent: "space-between",
+                  gap: 16,
+                  padding: "0 0 16px",
+                  borderBottom: "1px solid var(--border)",
+                  marginBottom: 8,
+                  flexWrap: "wrap",
+                }}
+              >
+                <h2
+                  style={{
+                    fontSize: "clamp(18px, 2.2vw, 22px)",
+                    fontWeight: 600,
+                    letterSpacing: "-0.02em",
+                    margin: 0,
+                  }}
+                >
+                  {group.category}
+                </h2>
               </div>
 
-              <div className="work-list-body">
-                <div style={{ display: "flex", gap: 12, marginBottom: 10, flexWrap: "wrap" }}>
-                  <span style={{ fontSize: 11, color: "var(--accent-orange)", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase" }}>
-                    {p.category}
-                  </span>
-                  <span aria-hidden="true" style={{ fontSize: 11, color: "var(--accent-orange)" }}>·</span>
-                  <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{p.company}</span>
-                  <span aria-hidden="true" style={{ fontSize: 11, color: "var(--accent-orange)" }}>·</span>
-                  <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{p.period}</span>
-                </div>
-                <h2 style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 8 }}>{p.title}</h2>
-                <p style={{ fontSize: 14, color: "var(--fg-muted)", marginBottom: 10 }}>{p.subtitle}</p>
+              <div style={{ display: "grid", gap: 2 }}>
+                {group.projects.map((p, i) => {
+                  const itemNumber = group.startIndex + i + 1;
+                  const preview = getPrimaryPreviewImage(p.assets);
+                  return (
+                    <Link
+                      key={p.slug}
+                      href={`/work/${p.slug}`}
+                      className="work-list-row"
+                      style={{
+                        padding: "36px 0",
+                        borderTop: "1px solid var(--border)",
+                        textDecoration: "none",
+                        color: "inherit",
+                      }}
+                    >
+                      <span
+                        className="work-list-idx"
+                        style={{
+                          fontSize: 12,
+                          color: "var(--fg-subtle)",
+                          fontWeight: 500,
+                          letterSpacing: "0.04em",
+                          paddingTop: 4,
+                        }}
+                      >
+                        {String(itemNumber).padStart(2, "0")}
+                      </span>
 
-                <p style={{ fontSize: 14, color: "var(--fg-body-muted)", lineHeight: 1.65, maxWidth: 720, marginBottom: 12 }}>{p.summary}</p>
+                      <div className="work-list-thumb">
+                        {preview ? (
+                          <AssetImage
+                            asset={{
+                              ...preview,
+                              alt: preview.src.includes("/assets/work/_placeholders/")
+                                ? `${p.title} — project preview`
+                                : preview.alt,
+                            }}
+                            sizes="(max-width: 640px) 92vw, (max-width: 900px) 200px, 240px"
+                            aspectCover="4 / 3"
+                            aspectFit={p.slug === "orchestrated-portfolio" ? "contain" : "auto"}
+                            style={{}}
+                          />
+                        ) : null}
+                      </div>
 
-                <div className="metric-badges" style={{ marginBottom: 12 }}>
-                  {p.metrics.map((m, j) => (
-                    <div key={j} className="metric-badge">
-                      <span className="metric-badge__value">{m.value}</span>
-                      <span className="metric-badge__label">{m.label}</span>
-                    </div>
-                  ))}
-                </div>
+                      <div className="work-list-body">
+                        <div style={{ display: "flex", gap: 12, marginBottom: 10, flexWrap: "wrap" }}>
+                          <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{p.company}</span>
+                          <span aria-hidden="true" style={{ fontSize: 11, color: "var(--accent-orange)" }}>
+                            ·
+                          </span>
+                          <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{p.period}</span>
+                        </div>
+                        <h3
+                          style={{
+                            fontSize: 22,
+                            fontWeight: 600,
+                            letterSpacing: "-0.02em",
+                            marginBottom: 8,
+                            marginTop: 0,
+                          }}
+                        >
+                          {p.title}
+                        </h3>
+                        <p style={{ fontSize: 14, color: "var(--fg-muted)", marginBottom: 10 }}>
+                          {p.subtitle}
+                        </p>
 
-                <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                  {p.tags.map((t) => (
-                    <span key={t} style={{ fontSize: 11, color: "var(--accent-orange)", border: "1px solid var(--border)", padding: "3px 8px", borderRadius: 4 }}>
-                      {t}
-                    </span>
-                  ))}
-                </div>
+                        <p
+                          style={{
+                            fontSize: 14,
+                            color: "var(--fg-body-muted)",
+                            lineHeight: 1.65,
+                            maxWidth: 720,
+                            marginBottom: 12,
+                          }}
+                        >
+                          {p.summary}
+                        </p>
+
+                        <div className="metric-badges" style={{ marginBottom: 12 }}>
+                          {p.metrics.map((m, j) => (
+                            <div key={j} className="metric-badge">
+                              <span className="metric-badge__value">{m.value}</span>
+                              <span className="metric-badge__label">{m.label}</span>
+                            </div>
+                          ))}
+                        </div>
+
+                        <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                          {p.tags.map((t) => (
+                            <span
+                              key={t}
+                              style={{
+                                fontSize: 11,
+                                color: "var(--accent-orange)",
+                                border: "1px solid var(--border)",
+                                padding: "3px 8px",
+                                borderRadius: 4,
+                              }}
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div
+                        className="work-list-arrow"
+                        style={{ color: "var(--fg-subtle)", fontSize: 16, paddingTop: 4 }}
+                        aria-hidden
+                      >
+                        →
+                      </div>
+                    </Link>
+                  );
+                })}
+                <div style={{ borderTop: "1px solid var(--border)" }} />
               </div>
-
-              <div className="work-list-arrow" style={{ color: "var(--fg-subtle)", fontSize: 16, paddingTop: 4 }} aria-hidden>
-                →
-              </div>
-            </Link>
-            );
-          })}
-          <div style={{ borderTop: "1px solid var(--border)" }} />
-        </div>
+            </section>
+          );
+        })}
       </section>
     </div>
   );
