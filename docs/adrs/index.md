@@ -25,3 +25,5 @@
 | 021 | Case study lead image uses first thumbnail with 16:9 cover | Superseded by ADR-022 | 2026-04-11 | ADR-022 |
 | 022 | Primary preview image — hero first, aligned thumbnails, shared resolver | Accepted | 2026-04-11 | None |
 | 023 | Figma MCP handoff — map design output to JOP tokens | Accepted | 2026-04-11 | None |
+
+Chronological audit notes: [`LOG.md`](./LOG.md).
