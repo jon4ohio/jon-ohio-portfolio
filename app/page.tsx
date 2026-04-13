@@ -35,24 +35,16 @@ const heroMetrics: Array<{
 
 const systemGroups = [
   {
-    label: "Product Systems",
-    slugs: ["seamless-hiring"],
+    label: "Structured Systems",
+    slugs: ["seamless-hiring", "seamkit"],
   },
   {
-    label: "Organizational Systems",
-    slugs: ["seamkit", "orchestrated-portfolio"],
-  },
-  {
-    label: "Operational Systems",
-    slugs: ["fetsproza", "ibedc", "abms"],
+    label: "Scalable Systems",
+    slugs: ["fetsproza", "ibedc"],
   },
   {
     label: "Intelligent Systems",
-    slugs: ["rivva", "seamless-ai"],
-  },
-  {
-    label: "0→1 Systems",
-    slugs: ["clearprice", "blualliance"],
+    slugs: ["seamless-ai", "rivva"],
   },
 ];
 
