@@ -79,6 +79,56 @@ const placeholderHero: ImageAsset = {
 
 export const projects: Project[] = [
   {
+    slug: "orchestrated-portfolio",
+    title: "I Didn't Code My Portfolio. I Orchestrated It.",
+    subtitle: "Agentic, AI-native workflow to ship a production site",
+    category: "AI-Native Workflow",
+    company: "Self-directed",
+    period: "2026",
+    summary:
+      "A Design Lead built and deployed a production portfolio site using a deliberately designed multi-agent system: four reasoning tools with defined roles, four infrastructure layers for state, memory, design, and deploy, and a bidirectional Figma–code loop — without writing the majority of the code.",
+    role: "Orchestrator: system design, agent role definition, ADR authoring, voice calibration, and all judgment decisions.",
+    scope:
+      "Multi-agent workflow design, input synthesis, Figma MCP integration, GitHub as protocol layer, ADR-based decision memory, Cursor implementation coordination, and Vercel deployment via MCP.",
+    metrics: [
+      { value: "Solo", label: "Team" },
+      { value: "4", label: "Reasoning tools" },
+      { value: "4", label: "Infrastructure layers" },
+      { value: "Deployed", label: "Status" },
+    ],
+    context:
+      "A partially abandoned Figma prototype, a CV, case study documents, presentation decks, and years of work across enterprise SaaS, fintech, and DesignOps had never been pulled into a single deployable portfolio. No production codebase experience. The missing piece was not a developer — it was orchestration.",
+    problem:
+      "Fragmented source material across a dozen artifacts, no engineering background, token budget constraints that surfaced mid-build, and no shared memory across agents. The challenge was distributing coherent work across multiple AI tools without those tools working against each other or against prior decisions.",
+    action:
+      "Everything was shared with Claude before it produced anything — Figma prototype via MCP, CV, case study docs, presentation decks. Token budget pressure forced role clarity: Claude scoped to strategy and review, Cursor to implementation volume, Codex to independent review, ChatGPT to voice calibration. GitHub became shared state — the only place reality existed independent of any agent's context window. ADRs in the repo preserved decision reasoning across sessions. Vercel was folded into the loop via MCP, making live deployment the test standard rather than local builds. Late in the build, the Figma relationship ran both ways: codebase exported to Figma, visual decisions made there, fed back through Cursor, pushed to GitHub, deployed.",
+    impact:
+      "Production site shipped across four sections with a documented ADR log, a public showcase repo, and a live bidirectional Figma–code feedback loop. Execution became something to allocate rather than absorb — attention freed to the structural and judgment-level decisions that design leadership actually requires. The instinct that transferred most directly: knowing which decisions need human judgment and which can be trusted to a well-structured system. That's a DesignOps instinct, and it applied directly here.",
+    systemEvolution:
+      "Claude's output quality consumed the token budget faster than the build could complete. Rather than lower the ambition, the system was redesigned: GitHub as shared state, Cursor as implementation layer, Claude reserved for reasoning-heavy decisions. A system designed around resource limits produced clearer role divisions than unconstrained planning would have. The constraint was the architecture.",
+    systemImpact:
+      "GitHub became the contract between agents — the only place where reality existed independent of any agent's memory. ADRs addressed the quieter problem: agents could generate and execute, but none retained why decisions had been made. Storing ADRs in the repository gave every subsequent agent the why, not just the what. ADR-008 formalised the gate: major pushes must update the decision log so rationale never lives only in a chat session. ADR-023 documents the Figma-to-token handoff — the point where design decisions became system tokens and the bidirectional loop formally closed.",
+    keyInsight:
+      "It turns design from a precursor to code into a parallel interface to the system itself. The Figma file stayed current with the codebase. The codebase reflected design decisions made in the right environment. The gap between design and engineering didn't close — but it became traversable in both directions.",
+    tags: ["DesignOps", "AI/ML", "Systems", "Workflow", "0→1"],
+    featured: true,
+    assets: {
+      blocks: [
+        {
+          kind: "image",
+          image: {
+            src: "/assets/work/orchestrated-portfolio/system-diagram.svg",
+            alt: "Multi-agent portfolio system — orchestrator, reasoning tools, infrastructure layers, and the bidirectional Figma–code loop.",
+            width: 680,
+            height: 580,
+            caption:
+              "Multi-agent system — orchestrator, reasoning tools, infrastructure layers, and the bidirectional Figma–code loop.",
+          },
+        },
+      ],
+    },
+  },
+  {
     slug: "seamless-hiring",
     title: "SeamlessHiring 2.0",
     subtitle: "Recruitment Management System (RMS)",

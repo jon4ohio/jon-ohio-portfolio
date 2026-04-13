@@ -34,7 +34,7 @@ const systemGroups = [
   },
   {
     label: "Organizational Systems",
-    slugs: ["seamkit"],
+    slugs: ["seamkit", "orchestrated-portfolio"],
   },
   {
     label: "Operational Systems",
