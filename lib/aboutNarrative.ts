@@ -1,6 +1,6 @@
 /** About lead line; often matches the homepage hero headline — update both when copy changes. */
 export const aboutHeadline =
-  "I design systems that evolve – from fragmented to intelligent workflows";
+  "I design systems that evolve – from fragmented to intelligent";
 
 export const operatingPrinciplesLabel = "Operating Principles";
 
@@ -45,7 +45,7 @@ export const aboutBodyBlocks: NarrativeBlock[] = [
   },
   {
     kind: "paragraph",
-    text: "Over the past 4+ years, I've led design across complex environments — from a 12-team enterprise HR platform to fintech infrastructure serving millions of users across Africa.",
+    text: "Over the past five years, I've led design across complex environments — from a 12-team enterprise HR platform to fintech infrastructure serving millions of users across Africa.",
   },
   {
     kind: "paragraph",
@@ -78,12 +78,12 @@ export type TimelineEntry = {
   org: string;
 };
 
-/** CV-aligned ordering (current-first). */
+/** CV-aligned ordering: current role first, then descending by role start (overlaps ordered by recency). */
 export const aboutTimeline: TimelineEntry[] = [
   { year: "2025–Present", role: "Lead, DesignOps & AI-UX", org: "SeamlessHR" },
   { year: "2025–2026", role: "Product Designer (Founding Team)", org: "Rivva" },
-  { year: "2024–2025", role: "Product Designer (Founding Member)", org: "ClearPrice" },
   { year: "2022–2025", role: "Lead Product Designer", org: "SeamlessHR" },
+  { year: "2024–2025", role: "Product Designer (Founding Member)", org: "ClearPrice" },
   { year: "2021–2025", role: "Senior UX Contractor", org: "Fets" },
   { year: "2021–Present", role: "Founder & Design Lead", org: "The UX Company" },
   { year: "Earlier", role: "UX Coach & Mentor", org: "Utiva / ADPList" },
