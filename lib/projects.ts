@@ -359,40 +359,58 @@ export const projects: Project[] = [
   {
     slug: "orchestrated-portfolio",
     title: "Agentic Portfolio",
-    subtitle: "AI-native workflow, from agents to production",
+    subtitle: "From agents to production",
     category: "AI-Native Workflow",
     company: "Self-directed",
     period: "2026",
     summary:
-      "A Design Lead built and deployed a production portfolio site using a deliberately designed multi-agent system: four reasoning tools with defined roles, four infrastructure layers for state, memory, design, and deploy, and a bidirectional Figma–code loop — without writing the majority of the code.",
-    role: "Orchestrator: system design, agent role definition, ADR authoring, voice calibration, and all judgment decisions.",
+      "A production portfolio shipped without writing most of the code — by designing the system that built it.",
+    role: "System designer, orchestrator, and decision-maker throughout. Every judgment call — what to build, in what order, and which tool to trust — was mine.",
     scope:
-      "Multi-agent workflow design, input synthesis, Figma MCP integration, GitHub as protocol layer, ADR-based decision memory, Cursor implementation coordination, and Vercel deployment via MCP.",
+      "Workflow design, input synthesis, Figma integration, decision logging, multi-tool coordination, and live deployment.",
     metrics: [
       { value: "Solo", label: "Team" },
-      { value: "4", label: "Reasoning tools" },
-      { value: "4", label: "Infrastructure layers" },
+      { value: "4", label: "Agents" },
+      { value: "4", label: "System layers" },
       { value: "Deployed", label: "Status" },
     ],
     context:
       "A partially abandoned Figma prototype, a CV, case study documents, presentation decks, and years of work across enterprise SaaS, fintech, and DesignOps had never been pulled into a single deployable portfolio. No production codebase experience. The missing piece was not a developer — it was orchestration.",
     problem:
-      "Fragmented source material across a dozen artifacts, no engineering background, token budget constraints that surfaced mid-build, and no shared memory across agents. The challenge was distributing coherent work across multiple AI tools without those tools working against each other or against prior decisions.",
+      "Years of work scattered across a dozen files with no single through-line. No engineering background. And mid-build, the tools themselves started working against the project — burning through compute limits, losing context between sessions, repeating decisions that were already made.",
     action:
-      "Everything was shared with Claude before it produced anything — Figma prototype via MCP, CV, case study docs, presentation decks. Token budget pressure forced role clarity: Claude scoped to strategy and review, Cursor to implementation volume, Codex to independent review, ChatGPT to voice calibration. GitHub became shared state — the only place reality existed independent of any agent's context window. ADRs in the repo preserved decision reasoning across sessions. Vercel was folded into the loop via MCP, making live deployment the test standard rather than local builds. Late in the build, the Figma relationship ran both ways: codebase exported to Figma, visual decisions made there, fed back through Cursor, pushed to GitHub, deployed.",
+      "The first decision was to share everything upfront — prototype, CV, case study docs, presentations — before asking any tool to produce anything. When compute limits surfaced mid-build, the response wasn't to lower the ambition. It was to redesign who did what: one tool for strategy and judgment calls, another for volume output, a third for independent review, a fourth for voice. A shared repository became the project's memory — the one place where decisions survived past any single session. Deployments went live continuously, not at the end. Late in the build, the design file and the codebase started feeding each other: changes in one reflected in the other. The loop closed — design and code stopped waiting on each other.",
     impact:
-      "Production site shipped across four sections with a documented ADR log, a public showcase repo, and a live bidirectional Figma–code feedback loop. Execution became something to allocate rather than absorb — attention freed to the structural and judgment-level decisions that design leadership actually requires. The instinct that transferred most directly: knowing which decisions need human judgment and which can be trusted to a well-structured system. That's a DesignOps instinct, and it applied directly here.",
+      "The site shipped across four sections with a full decision log and a live design-to-code feedback loop. The more transferable result was a shift in how execution worked — something to direct rather than absorb. The judgment that mattered most throughout: knowing which decisions needed a human and which could be handed off to a well-structured system. That's the same instinct behind every DesignOps problem.",
     systemEvolution:
-      "Claude's output quality consumed the token budget faster than the build could complete. Rather than lower the ambition, the system was redesigned: GitHub as shared state, Cursor as implementation layer, Claude reserved for reasoning-heavy decisions. A system designed around resource limits produced clearer role divisions than unconstrained planning would have. The constraint was the architecture.",
+      "Mid-build, compute limits surfaced before the work was done. Pushing through with the same setup would have meant lower quality or lower ambition. Instead, I treated it as a system design problem — redistributed responsibility across tools, reserved the most capable one for decisions that actually needed it. The constraint produced better role clarity than a clean start would have. The constraint was the architecture.",
     systemImpact:
-      "GitHub became the contract between agents — the only place where reality existed independent of any agent's memory. ADRs addressed the quieter problem: agents could generate and execute, but none retained why decisions had been made. Storing ADRs in the repository gave every subsequent agent the why, not just the what. ADR-008 formalised the gate: major pushes must update the decision log so rationale never lives only in a chat session. ADR-023 documents the Figma-to-token handoff — the point where design decisions became system tokens and the bidirectional loop formally closed.",
+      "The deeper problem wasn't compute — it was memory. Each tool session started fresh. Decisions made in one session had no way of reaching the next. The fix was to document every significant decision in the repository itself, with the reasoning attached. Any tool, in any session, could read the history and continue without repeating what had already been resolved. Writing decisions down as they were made is what held the system together.",
     keyInsight:
-      "It turns design from a precursor to code into a parallel interface to the system itself. The Figma file stayed current with the codebase. The codebase reflected design decisions made in the right environment. The gap between design and engineering didn't close — but it became traversable in both directions.",
+      "Keeping the design file in sync with the codebase changed what design feedback felt like. Changes didn't have to wait for a developer to interpret them — they moved directly into the build. The gap between design and engineering didn't close — but it became something you could cross in either direction. That changes what design is allowed to do.",
     tags: ["DesignOps", "AI/ML", "Systems", "Workflow", "0→1"],
-    featured: true,
+    featured: false,
     assets: {
-      thumbnails: [placeholderHero, placeholderThumbB],
-      hero: placeholderHero,
+      thumbnails: [
+        {
+          src: "/assets/work/orchestrated-portfolio/hero.png",
+          alt: "Agentic Portfolio — homepage hero showing the deployed portfolio UI",
+          width: 1024,
+          height: 562,
+        },
+        {
+          src: "/assets/work/orchestrated-portfolio/system-diagram.svg",
+          alt: "Multi-agent portfolio system diagram — roles, infrastructure layers, and bidirectional Figma–code loop",
+          width: 680,
+          height: 580,
+        },
+      ],
+      hero: {
+        src: "/assets/work/orchestrated-portfolio/hero.png",
+        alt: "Agentic Portfolio — homepage hero showing the deployed portfolio UI",
+        width: 1024,
+        height: 562,
+      },
       blocks: [
         {
           kind: "image",
