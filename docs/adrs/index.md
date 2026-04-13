@@ -10,3 +10,4 @@
 | 006 | Dual brand theme token system (legacy + claude) | Superseded by ADR-007 | 2026-04-10 | ADR-007 |
 | 007 | Theme naming and contrast hardening (warm + light) | Accepted | 2026-04-10 | None |
 | 008 | ADR update gate for major pushes | Accepted | 2026-04-10 | None |
+| 009 | Orchestrated portfolio meta case study (static content + homepage placement) | Accepted | 2026-04-13 | None |
