@@ -496,15 +496,17 @@ export const projects: Project[] = [
     title: "IBEDC Digital Transformation",
     subtitle: "Care App + POS System",
     category: "Scalable Systems",
-    company: "Funds and Electronic Transfer Solutions (Fets) · 2.4M+ customers",
+    company: "Fets × IBEDC",
     period: "2022 – 2024",
     summary:
-      "Digitised utility payments and service workflows for millions of customers across consumer app and in-person POS touchpoints.",
+      "Digitised utility payments and service workflows for a major electricity distributor across consumer app and in-person POS touchpoints.",
     role: "Lead Product Designer for customer and operational experiences.",
     scope:
       "Consumer app flows, agent and POS workflows, reconciliation tooling, and service operations spanning digital and walk-in channels.",
     metrics: [
-      { value: "4.6★", label: "Play Store rating (2,800+)" },
+      { value: "4.6★", label: "Play Store (2,800+ reviews)" },
+      { value: "10k+", label: "App downloads (first 6 mo)" },
+      { value: "↓80%", label: "Fraud reduction" },
       { value: "↓30%", label: "Call-centre volume" },
       { value: "3", label: "Utilities on POS template" },
       { value: "24–48h→mins", label: "Token/payment turnaround" },
@@ -516,7 +518,7 @@ export const projects: Project[] = [
     action:
       "Designed a friction‑free, end‑to‑end digital experience: IBEDC Care App (B2C + customer relations) and a bespoke POS terminal workflow for walk‑in centres. Digitised billing, payment, receipt verification, and reconciliation so both customers and staff could transact confidently and traceably.",
     impact:
-      "IBEDC’s billing and payments shifted from paper and third‑party fragmentation to a unified digital system: customers transact in seconds, staff reconcile in minutes, and revenue leakage is materially reduced. In the first year, payment times dropped 30% and satisfaction increased 40%. Positive feedback streams from customers and IBEDC staff (Play Store 4.6★ and Twitter praise). Call‑centre volume fell ~30% as queue and token complaints vanished. The POS template was already adopted by three external utilities, proving scalability.",
+      "IBEDC’s billing and payments shifted from paper and third‑party fragmentation to a unified digital system: customers transact in seconds, staff reconcile in minutes, and revenue leakage is materially reduced. The Care App passed 10,000+ downloads in its first six months, with a 4.6★ Play Store rating and 2,800+ reviews; fraud fell 80% with stronger verification, and call‑centre volume dropped ~30% as queue and token complaints eased. Token and payment turnaround moved from 24–48 hours to minutes. The POS template was adopted by three external utilities, proving scalability beyond IBEDC.",
     tags: ["Fintech", "Utilities", "Mobile App", "POS", "Public Sector"],
     featured: true,
     assets: {
