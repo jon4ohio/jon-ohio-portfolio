@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Selected Systems — John Ohio",
     description:
-      "Case studies in product systems: SeamlessHiring, Seamkit, FetsProza, IBEDC, Rivva, SeamlessAI, ClearPrice and more.",
+      "Case studies in product systems: SeamlessHiring, Seamkit, FetsProza, IBEDC, Rivva, Agentic Portfolio, ClearPrice and more.",
     url: "/work",
     type: "website",
   },
@@ -86,35 +86,18 @@ export default function WorkIndex() {
                 </h2>
               </div>
 
-              <div style={{ display: "grid", gap: 2 }}>
+              <div className="work-list-stack">
                 {group.projects.map((p, i) => {
                   const itemNumber = group.startIndex + i + 1;
                   const preview = getPrimaryPreviewImage(p.assets);
                   return (
-                    <Link
-                      key={p.slug}
-                      href={`/work/${p.slug}`}
-                      className="work-list-row"
-                      style={{
-                        padding: "36px 0",
-                        borderTop: "1px solid var(--border)",
-                        textDecoration: "none",
-                        color: "inherit",
-                      }}
-                    >
-                      <span
-                        className="work-list-idx"
-                        style={{
-                          fontSize: 12,
-                          color: "var(--fg-subtle)",
-                          fontWeight: 500,
-                          letterSpacing: "0.04em",
-                          paddingTop: 4,
-                        }}
+                    <div key={p.slug} className="work-list-item">
+                      <span className="work-list-idx">{String(itemNumber).padStart(2, "0")}</span>
+                      <Link
+                        href={`/work/${p.slug}`}
+                        className="work-list-row"
+                        aria-label={`${p.title} — ${p.subtitle}`}
                       >
-                        {String(itemNumber).padStart(2, "0")}
-                      </span>
-
                       <div className="work-list-thumb">
                         {preview ? (
                           <AssetImage
@@ -201,10 +184,10 @@ export default function WorkIndex() {
                       >
                         →
                       </div>
-                    </Link>
+                      </Link>
+                    </div>
                   );
                 })}
-                <div style={{ borderTop: "1px solid var(--border)" }} />
               </div>
             </section>
           );
