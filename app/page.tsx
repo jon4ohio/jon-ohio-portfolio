@@ -111,15 +111,24 @@ export default function Home() {
       <section style={{ maxWidth: 1240, margin: "0 auto", padding: "120px 24px 0" }}>
         <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 16, flexWrap: "wrap", gap: 12 }}>
           <p className="section-label">
-            Selected Systems
+            Selected Works
           </p>
           <Link href="/work" style={{ fontSize: 13, color: "var(--fg-muted)", textDecoration: "none" }}>
             View all →
           </Link>
         </div>
-        <p style={{ fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.6, maxWidth: 520, marginBottom: 48 }}>
-          Across each stage — from structure to intelligence.
-        </p>
+        <h2
+          style={{
+            fontSize: "clamp(24px, 3vw, 36px)",
+            fontWeight: 600,
+            letterSpacing: "-0.02em",
+            lineHeight: 1.2,
+            marginBottom: 48,
+            maxWidth: 640,
+          }}
+        >
+          The systems behind the claim.
+        </h2>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
           {systemGroups.map((group, gi) => {
