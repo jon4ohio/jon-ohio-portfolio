@@ -876,6 +876,7 @@ button:focus-visible {
     width: 100%;
     justify-content: center;
     box-sizing: border-box;
+    padding: 16px 24px;
   }
 }
 
