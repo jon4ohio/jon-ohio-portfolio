@@ -140,12 +140,16 @@ export default function Home() {
               <div
                 key={group.label}
                 style={{
-                  padding: "32px 0",
+                  paddingTop: 12,
+                  paddingBottom: 12,
                   borderTop: "1px solid var(--border)",
                   borderBottom: gi === systemGroups.length - 1 ? "1px solid var(--border)" : "none",
                   alignItems: "start",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 12,
                 }}
-                className="grid-systems-group"
+                className="home-systems-group"
               >
                 <p
                   style={{
@@ -159,7 +163,7 @@ export default function Home() {
                 >
                   {group.label}
                 </p>
-                <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: 0, width: "100%" }}>
                   {groupItems.map((p) => {
                     const preview = getPrimaryPreviewImage(p.assets);
                     return (
@@ -171,8 +175,15 @@ export default function Home() {
                         textDecoration: "none",
                         color: "inherit",
                         display: "block",
-                        padding: "14px 8px",
-                        margin: "0 -8px",
+                        width: "100%",
+                        paddingTop: 16,
+                        paddingBottom: 16,
+                        paddingLeft: 12,
+                        paddingRight: 12,
+                        marginTop: p.slug === "orchestrated-portfolio" ? 24 : 0,
+                        marginBottom: p.slug === "orchestrated-portfolio" ? 24 : 0,
+                        marginLeft: 0,
+                        marginRight: -8,
                         borderTop: "none",
                       }}
                     >
@@ -187,7 +198,7 @@ export default function Home() {
                                   : preview.alt,
                               }}
                               sizes="(max-width: 640px) 92vw, 160px"
-                              aspectCover="4 / 3"
+                              aspectCover="16 / 9"
                               aspectFit={p.slug === "orchestrated-portfolio" ? "contain" : "auto"}
                               style={{}}
                             />
@@ -211,7 +222,7 @@ export default function Home() {
                                 ))}
                               </span>
                             ) : null}
-                            <span style={{ fontSize: 13, color: "var(--fg-subtle)" }}>→</span>
+                            <span style={{ fontSize: 13, color: "var(--fg-subtle)", paddingLeft: 12, paddingRight: 12 }}>→</span>
                           </span>
                         </div>
                       </div>

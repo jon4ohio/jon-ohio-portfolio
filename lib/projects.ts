@@ -112,10 +112,10 @@ export const projects: Project[] = [
     assets: {
       thumbnails: [
         {
-          src: "/assets/work/seamless-hiring/hero.png",
+          src: "/assets/work/seamless-hiring/preview-16x9.png",
           alt: "SeamlessHiring 2.0 case study header with RMS dashboard preview",
           width: 3024,
-          height: 2098,
+          height: 1701,
         },
         {
           src: "/assets/work/seamless-hiring/thumb-2.png",
@@ -125,10 +125,10 @@ export const projects: Project[] = [
         },
       ],
       hero: {
-        src: "/assets/work/seamless-hiring/hero.png",
+        src: "/assets/work/seamless-hiring/preview-16x9.png",
         alt: "SeamlessHiring 2.0 case study header with RMS dashboard preview",
         width: 3024,
-        height: 2098,
+        height: 1701,
       },
       blocks: [
         {
@@ -223,10 +223,10 @@ export const projects: Project[] = [
     assets: {
       thumbnails: [
         {
-          src: "/assets/work/seamkit/hero.png",
+          src: "/assets/work/seamkit/preview-16x9.png",
           alt: "SeamKit enterprise design system case study header",
           width: 3024,
-          height: 2098,
+          height: 1701,
         },
         {
           src: "/assets/work/seamkit/thumb-2.png",
@@ -236,10 +236,10 @@ export const projects: Project[] = [
         },
       ],
       hero: {
-        src: "/assets/work/seamkit/hero.png",
+        src: "/assets/work/seamkit/preview-16x9.png",
         alt: "SeamKit enterprise design system case study header",
         width: 3024,
-        height: 2098,
+        height: 1701,
       },
       blocks: [
         {
@@ -300,10 +300,10 @@ export const projects: Project[] = [
     assets: {
       thumbnails: [
         {
-          src: "/assets/work/fetsproza/hero.png",
+          src: "/assets/work/fetsproza/preview-16x9.png",
           alt: "FetsProza IaaS platform case study header",
           width: 3024,
-          height: 2098,
+          height: 1701,
         },
         {
           src: "/assets/work/fetsproza/thumb-2.png",
@@ -313,10 +313,10 @@ export const projects: Project[] = [
         },
       ],
       hero: {
-        src: "/assets/work/fetsproza/hero.png",
+        src: "/assets/work/fetsproza/preview-16x9.png",
         alt: "FetsProza IaaS platform case study header",
         width: 3024,
-        height: 2098,
+        height: 1701,
       },
       blocks: [
         {
@@ -393,10 +393,10 @@ export const projects: Project[] = [
     assets: {
       thumbnails: [
         {
-          src: "/assets/work/orchestrated-portfolio/hero.png",
+          src: "/assets/work/orchestrated-portfolio/preview-16x9.png",
           alt: "Agentic Portfolio — homepage hero with nav, headline, CTAs, and metrics strip",
           width: 1024,
-          height: 768,
+          height: 576,
         },
         {
           src: "/assets/work/orchestrated-portfolio/system-diagram.png",
@@ -406,10 +406,10 @@ export const projects: Project[] = [
         },
       ],
       hero: {
-        src: "/assets/work/orchestrated-portfolio/hero.png",
+        src: "/assets/work/orchestrated-portfolio/preview-16x9.png",
         alt: "Agentic Portfolio — homepage hero with nav, headline, CTAs, and metrics strip",
         width: 1024,
-        height: 768,
+        height: 576,
       },
       blocks: [
         {
@@ -524,10 +524,10 @@ export const projects: Project[] = [
     assets: {
       thumbnails: [
         {
-          src: "/assets/work/ibedc/case-cover.png",
+          src: "/assets/work/ibedc/preview-16x9.png",
           alt: "IBEDC Digital Transformation — project preview",
           width: 2752,
-          height: 1848,
+          height: 1548,
         },
         {
           src: "/assets/work/ibedc/thumb-2.png",
@@ -537,10 +537,10 @@ export const projects: Project[] = [
         },
       ],
       hero: {
-        src: "/assets/work/ibedc/case-cover.png",
+        src: "/assets/work/ibedc/preview-16x9.png",
         alt: "IBEDC Digital Transformation case study header",
         width: 2752,
-        height: 1848,
+        height: 1548,
       },
       blocks: [
         {
@@ -636,17 +636,17 @@ export const projects: Project[] = [
     assets: {
       thumbnails: [
         {
-          src: "/assets/work/rivva/hero.png",
+          src: "/assets/work/rivva/preview-16x9.png",
           alt: "Rivva — AI daily planner web landing page hero with product UI preview",
           width: 1024,
-          height: 768,
+          height: 576,
         },
       ],
       hero: {
-        src: "/assets/work/rivva/hero.png",
+        src: "/assets/work/rivva/preview-16x9.png",
         alt: "Rivva — AI daily planner web landing page hero with product UI preview",
         width: 1024,
-        height: 768,
+        height: 576,
       },
     },
   },
