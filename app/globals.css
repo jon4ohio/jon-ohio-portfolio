@@ -937,6 +937,10 @@ button:focus-visible {
     width: 100%;
     max-width: 100%;
   }
+  .home-systems-group .system-project-thumb {
+    width: 100%;
+    max-width: 100%;
+  }
   .about-timeline-row {
     grid-template-columns: 80px 1fr !important;
   }
