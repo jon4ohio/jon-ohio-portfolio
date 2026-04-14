@@ -459,7 +459,8 @@ body {
   background: var(--surface-hover);
   box-shadow: 0 0 0 2px var(--accent);
 }
-.grid-systems-group a:not(.system-project-link):hover {
+.grid-systems-group a:not(.system-project-link):hover,
+.home-systems-group a:not(.system-project-link):hover {
   text-decoration: underline;
   text-underline-offset: 4px;
 }
@@ -499,6 +500,9 @@ body {
   width: 140px;
   max-width: 160px;
   min-width: 0;
+}
+.home-systems-group .system-project-thumb {
+  width: 156px;
 }
 .system-project-link__body {
   flex: 1;
@@ -707,7 +711,8 @@ button:focus-visible {
 }
 .work-list-row {
   display: grid;
-  grid-template-columns: minmax(160px, 240px) minmax(0, 1fr) 28px;
+  /* Thumb uses a 16:9 aspect box; 240px height => ~427px width */
+  grid-template-columns: minmax(240px, 427px) minmax(0, 1fr) 28px;
   align-items: start;
   gap: 20px 28px;
   min-width: 0;
@@ -855,7 +860,7 @@ button:focus-visible {
     gap: 0 20px;
   }
   .work-list-row {
-    grid-template-columns: minmax(120px, 200px) minmax(0, 1fr) 24px;
+    grid-template-columns: minmax(200px, 356px) minmax(0, 1fr) 24px;
     gap: 16px 20px;
   }
 }
