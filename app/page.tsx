@@ -163,7 +163,7 @@ export default function Home() {
                 >
                   {group.label}
                 </p>
-                <div style={{ display: "flex", flexDirection: "column", gap: 0, width: "100%" }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: 12, width: "100%" }}>
                   {groupItems.map((p) => {
                     const preview = getPrimaryPreviewImage(p.assets);
                     return (
@@ -180,8 +180,6 @@ export default function Home() {
                         paddingBottom: 16,
                         paddingLeft: 12,
                         paddingRight: 12,
-                        marginTop: p.slug === "orchestrated-portfolio" ? 24 : 0,
-                        marginBottom: p.slug === "orchestrated-portfolio" ? 24 : 0,
                         marginLeft: 0,
                         marginRight: -8,
                         borderTop: "none",
@@ -198,8 +196,6 @@ export default function Home() {
                                   : preview.alt,
                               }}
                               sizes="(max-width: 640px) 92vw, 160px"
-                              aspectCover="16 / 9"
-                              aspectFit={p.slug === "orchestrated-portfolio" ? "contain" : "auto"}
                               style={{}}
                             />
                           </div>
