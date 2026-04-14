@@ -107,8 +107,8 @@ export default function WorkIndex() {
                                 ? `${p.title} — project preview`
                                 : preview.alt,
                             }}
-                            sizes="(max-width: 640px) 92vw, (max-width: 900px) 200px, 240px"
-                            aspectCover="4 / 3"
+                            sizes="(max-width: 640px) 92vw, (max-width: 900px) 356px, 427px"
+                            aspectCover="16 / 9"
                             aspectFit={p.slug === "orchestrated-portfolio" ? "contain" : "auto"}
                             style={{}}
                           />
@@ -179,7 +179,7 @@ export default function WorkIndex() {
 
                       <div
                         className="work-list-arrow"
-                        style={{ color: "var(--fg-subtle)", fontSize: 16, paddingTop: 4 }}
+                        style={{ color: "var(--fg-subtle)", fontSize: 16, paddingTop: 4, paddingRight: 32 }}
                         aria-hidden
                       >
                         →
