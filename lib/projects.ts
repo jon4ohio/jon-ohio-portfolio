@@ -634,8 +634,20 @@ export const projects: Project[] = [
     tags: ["AI/ML", "iOS", "Android", "Health Tech", "0→1", "Cross-platform"],
     featured: true,
     assets: {
-      thumbnails: [placeholderHero, placeholderThumbB],
-      hero: placeholderHero,
+      thumbnails: [
+        {
+          src: "/assets/work/rivva/hero.png",
+          alt: "Rivva — AI daily planner web landing page hero with product UI preview",
+          width: 1024,
+          height: 768,
+        },
+      ],
+      hero: {
+        src: "/assets/work/rivva/hero.png",
+        alt: "Rivva — AI daily planner web landing page hero with product UI preview",
+        width: 1024,
+        height: 768,
+      },
     },
   },
   {
