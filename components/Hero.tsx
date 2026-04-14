@@ -303,12 +303,13 @@ export default function Hero() {
           <p
             className="animate-fade-up delay-1"
             style={{
-              fontSize: 13,
+              fontSize: "clamp(11px, 1.15vw, 13px)",
               fontWeight: 500,
               color: "var(--accent-orange)",
-              letterSpacing: "0.08em",
+              letterSpacing: "clamp(0.05em, 0.14vw, 0.08em)",
               textTransform: "uppercase",
-              marginBottom: 24,
+              lineHeight: 1.2,
+              marginBottom: "clamp(16px, 2.2vw, 24px)",
             }}
           >
             PRODUCT DESIGN LEAD · SYSTEMS · DESIGNOPS · AI UX
