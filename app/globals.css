@@ -669,6 +669,61 @@ button:focus-visible {
   }
 }
 
+/* About — press & media strip (4 → 2 → 1) */
+.about-press-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.about-press-strip > * {
+  min-width: 0;
+}
+@media (max-width: 768px) {
+  .about-press-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .about-press-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* /thinking — responsive grids */
+.thinking-recognition-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+.thinking-recognition-grid > * {
+  min-width: 0;
+}
+@media (max-width: 900px) {
+  .thinking-recognition-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.thinking-writing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+.thinking-writing-grid > * {
+  min-width: 0;
+}
+@media (max-width: 640px) {
+  .thinking-writing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.thinking-conversation-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 520px));
+  gap: 16px;
+}
+
 /* Two-col with large gap — About page layout */
 .grid-2-lg {
   display: grid;

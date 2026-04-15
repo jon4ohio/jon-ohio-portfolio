@@ -5,6 +5,7 @@ import AssetImage from "@/components/AssetImage";
 import Hero from "@/components/Hero";
 import SelectedSystemsLogosRow from "@/components/SelectedSystemsLogosRow";
 import SystemModel from "@/components/SystemModel";
+import ThinkingHomeTeaser from "@/components/ThinkingHomeTeaser";
 
 export const metadata: Metadata = {
   title: "John Ohio — Product Design Lead",
@@ -317,6 +318,9 @@ export default function Home() {
           </ul>
         </div>
       </section>
+
+      {/* ── Beyond the work: thinking, press, writing ───────── */}
+      <ThinkingHomeTeaser />
 
       {/* ── 7. LEADERSHIP & DESIGNOPS TEASER ────────────────── */}
       <section style={{ maxWidth: 1240, margin: "120px auto 0", padding: "0 24px" }}>

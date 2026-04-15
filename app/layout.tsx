@@ -96,7 +96,7 @@ const personSchema = {
   description: defaultDescription,
   url: siteUrl,
   email: "mailto:jon4ohio@gmail.com",
-  sameAs: ["https://linkedin.com/in/jon4ohio"],
+  sameAs: ["https://linkedin.com/in/jon4ohio", "https://theuxcompany.substack.com/"],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Abuja",
