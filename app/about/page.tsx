@@ -16,6 +16,7 @@ import {
   communitySectionEyebrow,
   communitySectionTitle,
 } from "@/lib/communityContribution";
+import AboutPressStrip from "@/components/AboutPressStrip";
 
 export const metadata: Metadata = {
   title: "About",
@@ -296,6 +297,8 @@ export default function About() {
             ))}
           </div>
         </div>
+
+        <AboutPressStrip />
       </div>
     </div>
   );

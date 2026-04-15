@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { projects } from "@/lib/projects";
 
-const staticPaths = ["/", "/work", "/about", "/leadership"];
+const staticPaths = ["/", "/work", "/thinking", "/about", "/leadership"];
 
 const caseStudySlug = projects[0]?.slug;
 if (!caseStudySlug) {

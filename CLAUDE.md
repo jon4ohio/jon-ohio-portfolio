@@ -36,6 +36,7 @@ All project/case study data lives in **`lib/projects.ts`** as a static typed arr
 | `/` | `app/page.tsx` | Homepage with hero, metrics strip, featured work |
 | `/work` | `app/work/page.tsx` | Full project list |
 | `/work/[slug]` | `app/work/[slug]/page.tsx` | Case study; uses `generateStaticParams` for SSG |
+| `/thinking` | `app/thinking/page.tsx` | Press, writing (Substack), conversations; data in `lib/thinking.ts` |
 | `/about` | `app/about/page.tsx` | |
 | `/leadership` | `app/leadership/page.tsx` | |
 | `/robots.txt` | `app/robots.ts` | Auto-generated via Next.js Metadata API |
