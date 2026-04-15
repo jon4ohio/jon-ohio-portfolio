@@ -73,10 +73,16 @@ export const writingItems: WritingItem[] = [
 
 export const conversationItems: ConversationItem[] = [
   {
-    id: "youtube-talk",
-    title: "Talk — design, systems, and practice",
-    outlet: "YouTube",
+    id: "youtube-devfest",
+    title: "Design Thinking for Problem Solving: Beyond UX by John Ohio",
+    outlet: "GDG Lagos (DevFest)",
     href: "https://www.youtube.com/watch?v=9NG7TWiyIjo&list=PLzIthozLDW280eWfYTKxqe2Lu-uvCU7T7&index=13",
+  },
+  {
+    id: "youtube-aida",
+    title: "Embedding AI into Design Systems and Product Experiences / John Ohio",
+    outlet: "AIDA",
+    href: "https://www.youtube.com/watch?v=k7KGv6FYIhM&t=1549s",
   },
 ];
 
@@ -92,14 +98,14 @@ export const homepageThinkingPreviews: Array<{
     line: "Quick Fire — enterprise design & AI",
   },
   {
+    anchor: "conversation-youtube-devfest",
+    outlet: "GDG Lagos (DevFest)",
+    line: "Design Thinking for Problem Solving — beyond UX",
+  },
+  {
     anchor: "recognition-connected-awards",
     outlet: "Leadership.ng",
     line: "Connected Awards — Global Tech Hero",
-  },
-  {
-    anchor: "writing-design-tokens",
-    outlet: "The UX Company",
-    line: "Design tokens — the connective tissue",
   },
 ];
 
