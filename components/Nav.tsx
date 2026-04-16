@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { startTransition, useEffect, useState } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const NAV_AVATAR_SRC = "/assets/nav/avatar.png";
@@ -29,7 +29,9 @@ export default function Nav() {
   }, [menuOpen]);
 
   useEffect(() => {
-    setMenuOpen(false);
+    startTransition(() => {
+      setMenuOpen(false);
+    });
   }, [pathname]);
 
   useEffect(() => {
