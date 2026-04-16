@@ -400,8 +400,9 @@
 /* Warm theme: softer hover wash than full surface-subtle (sand-40), closer to light/dark subtlety */
 :root[data-theme="warm"] {
   --surface-hover: color-mix(in oklab, var(--jop-bg-canvas) 82%, var(--jop-bg-surface-subtle) 18%);
-  --theme-toggle-active-bg: color-mix(in oklab, var(--jop-bg-canvas) 91%, var(--jop-bg-surface-subtle) 9%);
-  --theme-toggle-active-shadow: none;
+  /* sand-30 (#efeeeb) gives a visible but non-heavy active step (canvas===surface in warm, so near-canvas mixes are invisible) */
+  --theme-toggle-active-bg: var(--jop-color-sand-30);
+  --theme-toggle-active-shadow: inset 0 0 0 1px var(--border);
 }
 
 * { box-sizing: border-box; padding: 0; margin: 0; }

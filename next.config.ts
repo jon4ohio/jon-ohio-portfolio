@@ -4,6 +4,10 @@ import fs from "fs";
 
 // In git worktrees, node_modules lives in the main repo, not the worktree.
 // Walk up from __dirname until we find a directory that contains node_modules/next.
+// Note: turbopack.root determines both the module resolution root AND the filesystem
+// root for file serving — so app/ and lib/ are resolved relative to the found root,
+// not the worktree. Accept this trade-off: worktree edits are committed via git and
+// verified in CI/production rather than the local preview.
 function findPackageRoot(dir: string): string {
   if (fs.existsSync(path.join(dir, "node_modules", "next"))) {
     return dir;

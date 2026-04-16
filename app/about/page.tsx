@@ -210,6 +210,7 @@ export default function About() {
               width: "100%",
               boxSizing: "border-box",
               background: "var(--surface)",
+              border: "1px solid var(--border)",
               borderRadius: 12,
               padding: "clamp(28px, 5vw, 40px) clamp(20px, 4vw, 28px)",
             }}
