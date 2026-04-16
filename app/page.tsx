@@ -300,7 +300,7 @@ export default function Home() {
               <li
                 key={i}
                 style={{
-                  fontSize: "clamp(20px, 2.4vw, 28px)",
+                  fontSize: "clamp(16px, 2.4vw, 28px)",
                   fontWeight: 500,
                   letterSpacing: "-0.02em",
                   color: "var(--fg)",

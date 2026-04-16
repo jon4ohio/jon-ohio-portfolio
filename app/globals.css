@@ -460,6 +460,14 @@ body {
   background: var(--surface-hover);
   box-shadow: 0 0 0 2px var(--accent);
 }
+.work-list-arrow {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.work-list-row:hover .work-list-arrow,
+.work-list-row:focus-visible .work-list-arrow {
+  transform: translateX(4px);
+  color: var(--fg);
+}
 .grid-systems-group a:not(.system-project-link):hover,
 .home-systems-group a:not(.system-project-link):hover {
   text-decoration: underline;
@@ -962,14 +970,16 @@ button:focus-visible {
   .work-list-row {
     grid-column: 2;
     grid-row: 1;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: 1fr;
     gap: 16px;
   }
   .work-list-arrow {
-    grid-column: 2;
-    grid-row: 1;
+    grid-column: 1 / -1;
+    grid-row: 4;
     justify-self: end;
-    align-self: start;
+    align-self: end;
+    padding-right: 0 !important;
+    padding-top: 8px;
   }
   .work-list-thumb {
     grid-column: 1 / -1;
