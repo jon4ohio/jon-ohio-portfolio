@@ -1,0 +1,226 @@
+<section class="module" id="module-1">
+  <div class="module-content">
+    <header class="module-header">
+      <span class="module-number">01</span>
+      <h1 class="module-title">What this site is (and why it feels fast)</h1>
+      <p class="module-subtitle">
+        A portfolio can be a pile of pages — or it can be a tiny system. This one is built like a system.
+      </p>
+    </header>
+
+    <div class="screen">
+      <h2 class="screen-heading">The simplest description</h2>
+      <div class="icon-rows stagger-children">
+        <div class="icon-row animate-in">
+          <div class="icon-circle" style="background: var(--color-actor-1)">🧭</div>
+          <div>
+            <strong>Pages</strong>
+            <p>Each route is a page file that returns UI (like a menu of rooms).</p>
+          </div>
+        </div>
+        <div class="icon-row animate-in">
+          <div class="icon-circle" style="background: var(--color-actor-2)">📚</div>
+          <div>
+            <strong>Content data</strong>
+            <p>The case studies are plain TypeScript objects in <code>lib/</code> — no database.</p>
+          </div>
+        </div>
+        <div class="icon-row animate-in">
+          <div class="icon-circle" style="background: var(--color-actor-3)">🎛️</div>
+          <div>
+            <strong>A theme switch</strong>
+            <p>Light / warm / dark is stored in the browser and applied before React loads.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-accent">
+        <div class="callout-icon">💡</div>
+        <div class="callout-content">
+          <strong class="callout-title">Key idea</strong>
+          <p>
+            This site is mostly <span class="term" data-definition="Static content means the data is already known at build time, so the server can pre-create the pages instead of building them on the fly. It is like printing a brochure instead of assembling it every time someone asks for it.">static content</span>.
+            That is why it can be fast and reliable — there are fewer moving parts.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h2 class="screen-heading">A quick map of the repo</h2>
+      <p>
+        Think of folders like labeled drawers. When you know which drawer holds what, you can change things without breaking the whole desk.
+      </p>
+
+      <div class="file-tree animate-in">
+        <div class="ft-folder open">
+          <span class="ft-name">app/</span>
+          <span class="ft-desc">The pages (routes) of the website</span>
+          <div class="ft-children">
+            <div class="ft-file">
+              <span class="ft-name">layout.tsx</span>
+              <span class="ft-desc">The shell that wraps every page</span>
+            </div>
+            <div class="ft-file">
+              <span class="ft-name">page.tsx</span>
+              <span class="ft-desc">The homepage</span>
+            </div>
+            <div class="ft-folder">
+              <span class="ft-name">work/</span>
+              <span class="ft-desc">Work list and case studies</span>
+              <div class="ft-children">
+                <div class="ft-file">
+                  <span class="ft-name">page.tsx</span>
+                  <span class="ft-desc">/work list of projects</span>
+                </div>
+                <div class="ft-folder">
+                  <span class="ft-name">[slug]/</span>
+                  <span class="ft-desc">One case study per slug</span>
+                </div>
+              </div>
+            </div>
+            <div class="ft-file">
+              <span class="ft-name">globals.css</span>
+              <span class="ft-desc">Theme tokens + a few utility classes</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ft-folder">
+          <span class="ft-name">components/</span>
+          <span class="ft-desc">Reusable UI pieces like <code>Nav</code> and <code>Footer</code></span>
+        </div>
+
+        <div class="ft-folder">
+          <span class="ft-name">lib/</span>
+          <span class="ft-desc">The content data (projects, thinking, etc.)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h2 class="screen-heading">The first big trick: one layout wraps everything</h2>
+      <p>
+        In Next.js, the <span class="term" data-definition="A layout is the shared wrapper around many pages. It is like a reusable frame that stays while the picture inside changes.">layout</span> is the always-on frame:
+        navigation at the top, footer at the bottom, and your page in the middle.
+      </p>
+
+      <div class="translation-block animate-in">
+        <div class="translation-code">
+          <span class="translation-label">CODE</span>
+          <pre><code>
+<span class="code-line"><span class="code-keyword">export</span> <span class="code-keyword">default</span> <span class="code-keyword">function</span> <span class="code-function">RootLayout</span>({ children }: { children: React.ReactNode }) {</span>
+<span class="code-line">  <span class="code-keyword">return</span> (</span>
+<span class="code-line">    &lt;<span class="code-tag">html</span> <span class="code-attr">lang</span>=<span class="code-string">"en"</span> <span class="code-attr">data-theme</span>=<span class="code-string">"warm"</span> <span class="code-attr">suppressHydrationWarning</span>&gt;</span>
+<span class="code-line">      &lt;<span class="code-tag">head</span>&gt;</span>
+<span class="code-line">        &lt;<span class="code-tag">ThemeScript</span> /&gt;</span>
+<span class="code-line">      &lt;/<span class="code-tag">head</span>&gt;</span>
+<span class="code-line">      &lt;<span class="code-tag">body</span>&gt;</span>
+<span class="code-line">        &lt;<span class="code-tag">Nav</span> /&gt;</span>
+<span class="code-line">        &lt;<span class="code-tag">main</span> <span class="code-attr">id</span>=<span class="code-string">"main"</span>&gt;{children}&lt;/<span class="code-tag">main</span>&gt;</span>
+<span class="code-line">        &lt;<span class="code-tag">Footer</span> /&gt;</span>
+<span class="code-line">      &lt;/<span class="code-tag">body</span>&gt;</span>
+<span class="code-line">    &lt;/<span class="code-tag">html</span>&gt;</span>
+<span class="code-line">  );</span>
+<span class="code-line">}</span>
+          </code></pre>
+        </div>
+        <div class="translation-english">
+          <span class="translation-label">PLAIN ENGLISH</span>
+          <div class="translation-lines">
+            <p class="tl">Define the one wrapper that every page will live inside.</p>
+            <p class="tl">Return a page frame (HTML) that always exists.</p>
+            <p class="tl">Set the language and a default theme on the root element.</p>
+            <p class="tl">Put shared setup in the head, including the theme script.</p>
+            <p class="tl">Start the body (the visible part).</p>
+            <p class="tl">Render the top navigation.</p>
+            <p class="tl">Render the page itself (whatever route you are on) inside main.</p>
+            <p class="tl">Render the footer.</p>
+            <p class="tl">Close up the body and html tags and finish.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-icon">🧠</div>
+        <div class="callout-content">
+          <strong class="callout-title">Why this matters for changes</strong>
+          <p>
+            If you want something to appear on every page (like a new link in the nav),
+            you do not edit five pages — you edit <code>components/Nav.tsx</code> once.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h2 class="screen-heading">A flow: visiting the homepage</h2>
+      <p>
+        Here is the journey when someone loads <code>/</code>. It helps to imagine the app as a relay race: the browser, then the server, then the UI components.
+      </p>
+
+      <div class="flow-animation" data-steps='[
+        {"highlight":"flow-actor-1","label":"A browser asks for /"},
+        {"highlight":"flow-actor-2","label":"Next.js chooses app/layout.tsx and app/page.tsx","packet":true,"from":"actor-1","to":"actor-2"},
+        {"highlight":"flow-actor-3","label":"Home page builds UI using components and lib/projects data","packet":true,"from":"actor-2","to":"actor-3"},
+        {"highlight":"flow-actor-1","label":"Browser receives HTML and renders it","packet":true,"from":"actor-3","to":"actor-1"}
+      ]'>
+        <div class="flow-actors">
+          <div class="flow-actor" id="flow-actor-1">
+            <div class="flow-actor-icon">🌐</div>
+            <span>Browser</span>
+          </div>
+          <div class="flow-actor" id="flow-actor-2">
+            <div class="flow-actor-icon">🧱</div>
+            <span>App Router</span>
+          </div>
+          <div class="flow-actor" id="flow-actor-3">
+            <div class="flow-actor-icon">🧩</div>
+            <span>Components</span>
+          </div>
+        </div>
+
+        <div class="flow-packet" id="flow-packet"></div>
+
+        <div class="flow-step-label">Click "Next Step" to begin</div>
+
+        <div class="flow-controls">
+          <button class="btn flow-next-btn">Next Step</button>
+          <button class="btn flow-reset-btn">Restart</button>
+          <span class="flow-progress"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen">
+      <h2 class="screen-heading">Quick check: where would you edit this?</h2>
+
+      <div class="quiz-container" id="quiz-module1">
+        <div class="quiz-question-block"
+             data-correct="b"
+             data-explanation-right="Yes. The shell that wraps every page is in app/layout.tsx, so that is where global head/body structure lives."
+             data-explanation-wrong="Not quite. Think: which file wraps every route, not just one page?">
+          <h3 class="quiz-question">You want to add a new site-wide analytics script. Where is the most likely place?</h3>
+          <div class="quiz-options">
+            <button class="quiz-option" data-value="a" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span><code>app/page.tsx</code> (homepage only)</span>
+            </button>
+            <button class="quiz-option" data-value="b" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span><code>app/layout.tsx</code> (wraps every page)</span>
+            </button>
+            <button class="quiz-option" data-value="c" onclick="selectOption(this)">
+              <div class="quiz-option-radio"></div>
+              <span><code>lib/projects.ts</code> (content data)</span>
+            </button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <button class="quiz-check-btn" onclick="checkQuiz('quiz-module1')">Check Answers</button>
+        <button class="quiz-reset-btn" onclick="resetQuiz('quiz-module1')">Try Again</button>
+      </div>
+    </div>
+  </div>
+</section>
