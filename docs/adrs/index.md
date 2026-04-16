@@ -36,5 +36,6 @@
 | 032 | Production release alignment and post-deploy QA gate | Accepted | 2026-04-13 | None |
 | 033 | Work index row chrome and homepage Intelligent Systems curation | Accepted | 2026-04-13 | None |
 | 034 | Mobile nav menu closes on route change | Accepted | 2026-04-13 | None |
+| 035 | About page label and Operating Principles copy | Accepted | 2026-04-16 | None |
 
 Chronological audit notes: [`LOG.md`](./LOG.md).

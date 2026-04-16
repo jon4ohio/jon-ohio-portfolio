@@ -7,19 +7,19 @@ export const operatingPrinciplesLabel = "Operating Principles";
 export const operatingPrinciples = [
   {
     title: "Systems over screens",
-    body: "The interface is a surface. The system is what matters — how it behaves under load, at scale, and over time.",
+    body: "Interfaces are surfaces. Systems define behavior — under load, at scale, and over time.",
   },
   {
     title: "Structure reduces complexity",
-    body: "Complexity is unavoidable. The job is to impose structure so teams can navigate it without friction.",
+    body: "Complexity is inevitable. Structure makes it navigable — enabling teams to move without friction.",
   },
   {
-    title: "Decisions should compound",
-    body: "Good design decisions create leverage. Patterns, tokens, and systems multiply individual decisions into organisation-wide consistency.",
+    title: "Decisions compound",
+    body: "Design decisions create leverage. Systems turn individual choices into organisation-wide consistency.",
   },
   {
-    title: "Design must reflect operational reality",
-    body: "The best design fails if it doesn't account for constraints: engineering capacity, compliance, team bandwidth, and market context.",
+    title: "Design reflects operational reality",
+    body: "Design fails when it ignores constraints. Systems must align with engineering, compliance, and real-world conditions.",
   },
 ] as const;
 

@@ -13,7 +13,6 @@ import {
 import {
   communityCards,
   communityPullQuote,
-  communitySectionEyebrow,
   communitySectionTitle,
 } from "@/lib/communityContribution";
 import AboutPressStrip from "@/components/AboutPressStrip";
@@ -76,7 +75,7 @@ export default function About() {
       >
         {/* Hook */}
         <p className="section-label" style={{ marginBottom: 24 }}>
-          About
+          About Me
         </p>
         <h1
           style={{
@@ -210,7 +209,7 @@ export default function About() {
             style={{
               width: "100%",
               boxSizing: "border-box",
-              background: "var(--surface)",
+              background: "var(--surface-subtle)",
               borderRadius: 12,
               padding: "clamp(28px, 5vw, 40px) clamp(20px, 4vw, 28px)",
             }}
@@ -233,9 +232,6 @@ export default function About() {
 
         {/* Community */}
         <div style={{ marginTop: sectionGap }}>
-          <p className="section-label" style={{ marginBottom: 10 }}>
-            {communitySectionEyebrow}
-          </p>
           <h2
             style={{
               fontSize: "clamp(26px, 3.2vw, 40px)",
