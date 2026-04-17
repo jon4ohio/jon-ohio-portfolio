@@ -1,0 +1,9 @@
+[    2325ms] [ERROR] Failed to load resource: net::ERR_FAILED @ chrome-extension://invalid/:0
+[    3491ms] [LOG] media copier is null:  false @ https://docs.google.com/_/docs/_/js/k=docs.client_js_prod.en.AYH0XwqTdKg.es5.O/am=AAA4ABg/d=0/wt=0/rs=AGWKN8lH66m9mwT27HIYgI82gzUfJqUJ2A/m=kix_core:4532
+[    3949ms] [ERROR] Failed to load resource: net::ERR_FAILED @ chrome-extension://invalid/:0
+[    3961ms] [ERROR] Failed to load resource: net::ERR_FAILED @ chrome-extension://invalid/:0
+[    3963ms] [ERROR] Failed to load resource: net::ERR_FAILED @ chrome-extension://invalid/:0
+[    3964ms] [ERROR] Failed to load resource: net::ERR_FAILED @ chrome-extension://invalid/:0
+[    4162ms] [WARNING] An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing. @ https://docs.google.com/drivesharing/clientmodel?id=1390pODS59C8K0P4LYoZhtRmW1UNgZLdi&foreignService=kix&authuser=0&origin=https%3A%2F%2Fdocs.google.com:0
+[    4380ms] [ERROR] Failed to load resource: the server responded with a status of 503 () @ https://play.google.com/log?format=json&hasfast=true&authuser=0:0
+[31073526ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://docs.google.com/document/d/1390pODS59C8K0P4LYoZhtRmW1UNgZLdi/bind?id=1390pODS59C8K0P4LYoZhtRmW1UNgZLdi&sid=727ba2888f3b8616&token=AOqKD6AzhpJbSDC07lKoGEMhHKfj%3A1776353394051&ouid=117193561655080443775&includes_info_params=true&usp=drivesdk&cros_files=false&nded=false&VER=8&lsq=1776353393074&u=03638993026981023183&vc=1&c=1&w=1&flr=0&gsi=0&smv=2147483647&smb=%5B2147483647%2C%20oAMQ%5D&cimpl=1&RID=rpc&SID=876D80C52F3B4AE5&CI=0&AID=1292&TYPE=xmlhttp&zx=oymescujxvuo&t=1:0
