@@ -23,6 +23,15 @@ const nextConfig: NextConfig = {
     // and resolve correctly when running from a git worktree.
     root: findPackageRoot(__dirname),
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "i.ytimg.com",
+        pathname: "/vi/**",
+      },
+    ],
+  },
 };
 
 export default nextConfig;

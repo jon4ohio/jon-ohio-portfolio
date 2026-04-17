@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   conversationItems,
   recognitionItems,
@@ -19,6 +20,43 @@ export const metadata: Metadata = {
     type: "article",
   },
 };
+
+function getYouTubeVideoId(href: string): string | null {
+  try {
+    const url = new URL(href);
+
+    // youtu.be/<id>
+    if (url.hostname === "youtu.be") {
+      const id = url.pathname.replace(/^\/+/, "").split("/")[0];
+      return id ? id : null;
+    }
+
+    const host = url.hostname.replace(/^www\./, "");
+    if (host !== "youtube.com" && host !== "m.youtube.com") return null;
+
+    // youtube.com/watch?v=<id>
+    const v = url.searchParams.get("v");
+    if (v) return v;
+
+    // youtube.com/embed/<id> or /shorts/<id>
+    const parts = url.pathname.split("/").filter(Boolean);
+    const embedIndex = parts.indexOf("embed");
+    if (embedIndex !== -1 && parts[embedIndex + 1]) return parts[embedIndex + 1]!;
+    const shortsIndex = parts.indexOf("shorts");
+    if (shortsIndex !== -1 && parts[shortsIndex + 1]) return parts[shortsIndex + 1]!;
+
+    return null;
+  } catch {
+    return null;
+  }
+}
+
+function getYouTubeThumbnailSrc(href: string): string | null {
+  const id = getYouTubeVideoId(href);
+  if (!id) return null;
+  // i.ytimg.com is the canonical thumbnail host (no Next image config required for <img>).
+  return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+}
 
 function ExternalCard({
   id,
@@ -240,7 +278,9 @@ export default function ThinkingPage() {
           Video
         </h2>
         <div className="thinking-conversation-grid">
-          {conversationItems.map((c) => (
+          {conversationItems.map((c) => {
+            const thumbnailSrc = c.thumbnailSrc ?? getYouTubeThumbnailSrc(c.href);
+            return (
             <article
               key={c.id}
               id={`conversation-${c.id}`}
@@ -251,6 +291,32 @@ export default function ThinkingPage() {
                 background: "var(--bg)",
               }}
             >
+              {thumbnailSrc ? (
+                <a
+                  href={c.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "block",
+                    borderRadius: 12,
+                    overflow: "hidden",
+                    border: "1px solid var(--border)",
+                    background: "var(--surface)",
+                    aspectRatio: "16 / 9",
+                    position: "relative",
+                    marginBottom: 16,
+                    textDecoration: "none",
+                  }}
+                >
+                  <Image
+                    src={thumbnailSrc}
+                    alt={`${c.title} — video thumbnail`}
+                    fill
+                    sizes="(min-width: 1240px) 560px, 100vw"
+                    style={{ objectFit: "cover" }}
+                  />
+                </a>
+              ) : null}
               <p style={{ fontSize: 12, fontWeight: 500, color: "var(--fg-subtle)", marginBottom: 8 }}>{c.outlet}</p>
               <h3 style={{ fontSize: 18, fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 16 }}>{c.title}</h3>
               <a
@@ -262,7 +328,8 @@ export default function ThinkingPage() {
                 Watch on YouTube ↗
               </a>
             </article>
-          ))}
+            );
+          })}
         </div>
       </section>
     </div>

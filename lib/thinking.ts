@@ -22,6 +22,11 @@ export type ConversationItem = {
   title: string;
   outlet: string;
   href: string;
+  /**
+   * Optional override for the conversation thumbnail image.
+   * When omitted, the UI can derive a thumbnail from the YouTube URL.
+   */
+  thumbnailSrc?: string;
 };
 
 export const substackHomeUrl = "https://theuxcompany.substack.com/";
