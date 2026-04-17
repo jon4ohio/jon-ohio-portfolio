@@ -47,6 +47,9 @@ yarn-error.log*
 # local agent outputs
 _bmad-output
 
+# playwright mcp artifacts (may contain signed URLs / telemetry)
+.playwright-mcp/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
