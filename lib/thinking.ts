@@ -22,6 +22,11 @@ export type ConversationItem = {
   title: string;
   outlet: string;
   href: string;
+  /**
+   * Optional override for the conversation thumbnail image.
+   * When omitted, the UI can derive a thumbnail from the YouTube URL.
+   */
+  thumbnailSrc?: string;
 };
 
 export const substackHomeUrl = "https://theuxcompany.substack.com/";
@@ -77,12 +82,14 @@ export const conversationItems: ConversationItem[] = [
     title: "Design Thinking for Problem Solving: Beyond UX by John Ohio",
     outlet: "GDG Lagos (DevFest)",
     href: "https://www.youtube.com/watch?v=9NG7TWiyIjo&list=PLzIthozLDW280eWfYTKxqe2Lu-uvCU7T7&index=13",
+    thumbnailSrc: "/assets/thinking/devfest-2024.jpg",
   },
   {
     id: "youtube-aida",
     title: "Embedding AI into Design Systems and Product Experiences / John Ohio",
     outlet: "AIDA",
     href: "https://www.youtube.com/watch?v=k7KGv6FYIhM&t=1549s",
+    thumbnailSrc: "/assets/thinking/aida-2025.jpg",
   },
 ];
 

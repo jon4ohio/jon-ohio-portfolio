@@ -729,8 +729,17 @@ button:focus-visible {
 }
 .thinking-conversation-grid {
   display: grid;
-  grid-template-columns: repeat(1, minmax(0, 520px));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
+  align-items: stretch;
+}
+.thinking-conversation-grid > * {
+  min-width: 0;
+}
+@media (max-width: 900px) {
+  .thinking-conversation-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Two-col with large gap — About page layout */
