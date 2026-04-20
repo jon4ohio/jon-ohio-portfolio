@@ -19,7 +19,7 @@
 | 015 | Mobile navigation full-height tray with bottom-pinned actions | Accepted | 2026-04-11 | None |
 | 016 | Mobile nav link column layout and vertical footer actions | Accepted | 2026-04-11 | None |
 | 017 | Mobile navigation accessibility, touch targets, and viewport hardening | Accepted | 2026-04-11 | None |
-| 018 | Homepage Selected Systems project thumbnails | Accepted | 2026-04-11 | None |
+| 018 | Homepage Selected Systems project thumbnails | Superseded by ADR-036 | 2026-04-11 | ADR-036 |
 | 019 | Nav brand avatar beside John Ohio text and anti-copy mitigations | Accepted | 2026-04-11 | None |
 | 020 | AssetImage aspect box with adaptive object-fit | Accepted | 2026-04-10 | None |
 | 021 | Case study lead image uses first thumbnail with 16:9 cover | Superseded by ADR-022 | 2026-04-11 | ADR-022 |
@@ -37,5 +37,6 @@
 | 033 | Work index row chrome and homepage Intelligent Systems curation | Accepted | 2026-04-13 | None |
 | 034 | Mobile nav menu closes on route change | Accepted | 2026-04-13 | None |
 | 035 | About page label and Operating Principles copy | Accepted | 2026-04-16 | None |
+| 036 | Homepage featured case studies over taxonomy | Accepted | 2026-04-20 | None |
 
 Chronological audit notes: [`LOG.md`](./LOG.md).

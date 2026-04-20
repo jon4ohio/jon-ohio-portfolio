@@ -325,8 +325,7 @@ export default function Hero() {
               marginBottom: 32,
             }}
           >
-            <span className="hero-headline-l1">I design systems that evolve</span>{" "}
-            <span className="hero-headline-l2">– from fragmented to intelligent</span>
+            I design high-impact products at scale — powered by systems thinking
           </h1>
           <p
             className="animate-fade-up delay-3"
@@ -338,7 +337,7 @@ export default function Hero() {
               lineHeight: 1.5,
             }}
           >
-            Working across enterprise SaaS, fintech infrastructure, and AI — designing systems, DesignOps, and AI-native product patterns.
+            Product Designer and Design Systems Lead with experience across enterprise SaaS, fintech infrastructure, and platform design. I turn complex systems into usable, scalable products that drive measurable outcomes.
           </p>
           <div className="animate-fade-up delay-4 hero-cta">
             <Link
@@ -357,26 +356,7 @@ export default function Hero() {
                 letterSpacing: "-0.01em",
               }}
             >
-              View systems →
-            </Link>
-            <Link
-              href="/leadership"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                background: "transparent",
-                color: "var(--fg)",
-                fontSize: 14,
-                fontWeight: 500,
-                padding: "12px 24px",
-                borderRadius: 8,
-                textDecoration: "none",
-                border: "1px solid var(--border)",
-                letterSpacing: "-0.01em",
-              }}
-            >
-              Leadership & DesignOps
+              View case studies →
             </Link>
           </div>
         </div>

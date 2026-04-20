@@ -2,7 +2,7 @@
 
 ## Status
 
-**Status:** Accepted  
+**Status:** Superseded by ADR-036  
 **Date:** 2026-04-11  
 **Decision Maker(s):** John Ohio (Owner/Maintainer)  
 **Supersedes:** None  

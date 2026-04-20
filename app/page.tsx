@@ -4,18 +4,17 @@ import { getPrimaryPreviewImage, projects } from "@/lib/projects";
 import AssetImage from "@/components/AssetImage";
 import Hero from "@/components/Hero";
 import SelectedSystemsLogosRow from "@/components/SelectedSystemsLogosRow";
-import SystemModel from "@/components/SystemModel";
 import ThinkingHomeTeaser from "@/components/ThinkingHomeTeaser";
 
 export const metadata: Metadata = {
   title: "John Ohio — Product Design Lead",
   description:
-    "Product Design Lead designing systems that evolve across enterprise SaaS, fintech, and AI — from fragmented to intelligent. $1M+ saved annually, 12 teams aligned, 2.49M token insertions.",
+    "Product designer and design systems lead turning complex enterprise SaaS, fintech infrastructure, and AI workflows into usable, scalable products with measurable outcomes.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "John Ohio — Product Design Lead",
     description:
-      "I design systems that evolve – from fragmented to intelligent. Design systems · DesignOps · Enterprise SaaS · AI UX.",
+      "I design high-impact products at scale — powered by systems thinking. Enterprise SaaS · Fintech infrastructure · Design systems · AI UX.",
     url: "/",
     type: "website",
   },
@@ -24,30 +23,14 @@ export const metadata: Metadata = {
 const heroMetrics: Array<{
   value: string;
   label: string;
-  seamkitAttribution?: boolean;
 }> = [
-  { value: "$1M+", label: "Annual savings (Fets)" },
-  { value: "↑75%", label: "CSAT (SeamlessHR)" },
-  { value: "2.49m", label: "Token insertions", seamkitAttribution: true },
-  { value: "12", label: "Teams onboarded", seamkitAttribution: true },
+  { value: "$1M+", label: "Annual savings (FetsProza)" },
+  { value: "↑75%", label: "User satisfaction (SeamlessHiring)" },
   { value: "↓80%", label: "Fraud reduction (IBEDC)" },
-  { value: "#4", label: "Product Hunt (Rivva)" },
+  { value: "12+", label: "Product teams onboarded (Seamkit)" },
 ];
 
-const systemGroups = [
-  {
-    label: "Structured Systems",
-    slugs: ["seamless-hiring", "seamkit"],
-  },
-  {
-    label: "Scalable Systems",
-    slugs: ["fetsproza", "ibedc"],
-  },
-  {
-    label: "Intelligent Systems",
-    slugs: ["orchestrated-portfolio", "rivva"],
-  },
-];
+const FEATURED_CASE_STUDY_SLUGS = ["seamless-hiring", "seamkit", "fetsproza", "ibedc"] as const;
 
 const capabilities = [
   { label: "System Design", desc: "Restructure fragmented systems into scalable product foundations" },
@@ -72,6 +55,9 @@ const currentFocus = [
 
 export default function Home() {
   const projectMap = new Map(projects.map((p) => [p.slug, p]));
+  const featured = FEATURED_CASE_STUDY_SLUGS.map((slug) => projectMap.get(slug)).filter(
+    (p): p is NonNullable<typeof p> => Boolean(p),
+  );
 
   return (
     <div style={{ paddingTop: 56 }}>
@@ -97,22 +83,26 @@ export default function Home() {
               <p className="hero-metric-value">{m.value}</p>
               <p className="hero-metric-label">
                 {m.label}
-                {m.seamkitAttribution ? (
-                  <span className="hero-metric-seamkit-suffix"> (Seamkit)</span>
-                ) : null}
               </p>
             </div>
           ))}
         </div>
       </section>
 
-      <SystemModel />
-
-      {/* ── 3. SELECTED SYSTEMS ─────────────────────────────── */}
+      {/* ── 3. FEATURED CASE STUDIES ─────────────────────────── */}
       <section style={{ maxWidth: 1240, margin: "0 auto", padding: "120px 24px 0" }}>
-        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 16, flexWrap: "wrap", gap: 12 }}>
-          <p className="section-label">
-            Selected Works
+        <div
+          style={{
+            display: "flex",
+            alignItems: "baseline",
+            justifyContent: "space-between",
+            gap: 16,
+            marginBottom: 16,
+            flexWrap: "wrap",
+          }}
+        >
+          <p className="section-label" style={{ marginBottom: 0 }}>
+            Selected case studies
           </p>
           <Link href="/work" style={{ fontSize: 13, color: "var(--fg-muted)", textDecoration: "none" }}>
             View all →
@@ -125,120 +115,128 @@ export default function Home() {
             letterSpacing: "-0.02em",
             lineHeight: 1.2,
             marginBottom: 48,
-            maxWidth: 640,
+            maxWidth: 760,
           }}
         >
-          The systems behind the claim.
+          A few projects that show how I design products, systems, and platforms at scale.
         </h2>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-          {systemGroups.map((group, gi) => {
-            const groupItems = group.slugs
-              .map((s) => projectMap.get(s))
-              .filter((p): p is NonNullable<typeof p> => Boolean(p));
-            if (groupItems.length === 0) return null;
+        <div className="work-list-stack">
+          {featured.map((p, i) => {
+            const itemNumber = i + 1;
+            const preview = getPrimaryPreviewImage(p.assets);
             return (
-              <div
-                key={group.label}
-                style={{
-                  paddingTop: 12,
-                  paddingBottom: 12,
-                  borderTop: "1px solid var(--border)",
-                  borderBottom: gi === systemGroups.length - 1 ? "1px solid var(--border)" : "none",
-                  alignItems: "start",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 12,
-                }}
-                className="home-systems-group"
-              >
-                <p
-                  style={{
-                    fontSize: 12,
-                    fontWeight: 500,
-                    color: "var(--fg-subtle)",
-                    letterSpacing: "0.06em",
-                    textTransform: "uppercase",
-                    paddingTop: 4,
-                  }}
+              <div key={p.slug} className="work-list-item">
+                <span className="work-list-idx">{String(itemNumber).padStart(2, "0")}</span>
+                <Link
+                  href={`/work/${p.slug}`}
+                  className="work-list-row"
+                  aria-label={`${p.title} — ${p.subtitle}`}
                 >
-                  {group.label}
-                </p>
-                <div style={{ display: "flex", flexDirection: "column", gap: 12, width: "100%" }}>
-                  {groupItems.map((p) => {
-                    const preview = getPrimaryPreviewImage(p.assets);
-                    return (
-                    <Link
-                      key={p.slug}
-                      href={`/work/${p.slug}`}
-                      className="system-project-link"
+                  <div className="work-list-thumb">
+                    {preview ? (
+                      <AssetImage
+                        asset={{
+                          ...preview,
+                          alt: preview.src.includes("/assets/work/_placeholders/")
+                            ? `${p.title} — project preview`
+                            : preview.alt,
+                        }}
+                        sizes="(max-width: 640px) 92vw, (max-width: 900px) 356px, 427px"
+                        aspectCover="16 / 9"
+                        aspectFit={p.slug === "orchestrated-portfolio" ? "contain" : "auto"}
+                        style={{}}
+                      />
+                    ) : null}
+                  </div>
+
+                  <div className="work-list-body">
+                    <div style={{ display: "flex", gap: 12, marginBottom: 10, flexWrap: "wrap" }}>
+                      <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{p.company}</span>
+                      <span aria-hidden="true" style={{ fontSize: 11, color: "var(--accent-orange)" }}>
+                        ·
+                      </span>
+                      <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{p.period}</span>
+                    </div>
+                    <h3
                       style={{
-                        textDecoration: "none",
-                        color: "inherit",
-                        display: "block",
-                        width: "100%",
-                        paddingTop: 16,
-                        paddingBottom: 16,
-                        paddingLeft: 12,
-                        paddingRight: 12,
-                        marginLeft: 0,
-                        marginRight: -8,
-                        borderTop: "none",
+                        fontSize: 22,
+                        fontWeight: 600,
+                        letterSpacing: "-0.02em",
+                        marginBottom: 8,
+                        marginTop: 0,
                       }}
                     >
-                      <div className="system-project-link__inner">
-                        {preview ? (
-                          <div className="system-project-thumb">
-                            <AssetImage
-                              asset={{
-                                ...preview,
-                                alt: preview.src.includes("/assets/work/_placeholders/")
-                                  ? `${p.title} — project preview`
-                                  : preview.alt,
-                              }}
-                              sizes="(max-width: 640px) 92vw, 160px"
-                              style={{}}
-                            />
-                          </div>
-                        ) : null}
-                        <div className="system-project-link__body">
-                          <span style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                            <span style={{ fontSize: 18, fontWeight: 600, letterSpacing: "-0.01em" }}>
-                              {p.title}
-                            </span>
-                            <span style={{ fontSize: 13, color: "var(--fg-muted)" }}>{p.subtitle}</span>
-                          </span>
-                          <span style={{ display: "flex", alignItems: "center", justifyContent: p.metrics?.length ? "space-between" : "flex-end", gap: 10 }}>
-                            {p.metrics?.length ? (
-                              <span className="metric-badges" aria-label="Key metrics">
-                                {p.metrics.slice(0, 3).map((m, mi) => (
-                                  <span key={mi} className="metric-badge">
-                                    <span className="metric-badge__value">{m.value}</span>
-                                    <span className="metric-badge__label">{m.label}</span>
-                                  </span>
-                                ))}
-                              </span>
-                            ) : null}
-                            <span style={{ fontSize: 13, color: "var(--fg-subtle)", paddingLeft: 12, paddingRight: 12 }}>→</span>
-                          </span>
+                      {p.title}
+                    </h3>
+                    <p style={{ fontSize: 14, color: "var(--fg-muted)", marginBottom: 10 }}>{p.subtitle}</p>
+
+                    <p
+                      style={{
+                        fontSize: 14,
+                        color: "var(--fg-body-muted)",
+                        lineHeight: 1.65,
+                        maxWidth: 720,
+                        marginBottom: 12,
+                        display: "-webkit-box",
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                      }}
+                    >
+                      {p.summary}
+                    </p>
+
+                    <div className="metric-badges" style={{ marginBottom: 12 }}>
+                      {p.metrics.slice(0, 2).map((m, j) => (
+                        <div key={j} className="metric-badge">
+                          <span className="metric-badge__value">{m.value}</span>
+                          <span className="metric-badge__label">{m.label}</span>
                         </div>
-                      </div>
-                    </Link>
-                    );
-                  })}
-                </div>
+                      ))}
+                    </div>
+
+                    <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                      {p.tags.map((t) => (
+                        <span
+                          key={t}
+                          style={{
+                            fontSize: 11,
+                            color: "var(--accent-orange)",
+                            border: "1px solid var(--border)",
+                            padding: "3px 8px",
+                            borderRadius: 4,
+                          }}
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div
+                    className="work-list-arrow"
+                    style={{ color: "var(--fg-subtle)", fontSize: 16, paddingTop: 4, paddingRight: 32 }}
+                    aria-hidden
+                  >
+                    →
+                  </div>
+                </Link>
               </div>
             );
           })}
         </div>
+      </section>
 
+      {/* ── 4. TRUSTED BY ───────────────────────────────────── */}
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "72px 24px 0" }}>
         <SelectedSystemsLogosRow />
       </section>
 
       {/* ── 4. WHAT I DO ────────────────────────────────────── */}
       <section style={{ maxWidth: 1240, margin: "0 auto", padding: "120px 24px 0" }}>
         <p className="section-label" style={{ marginBottom: 20 }}>
-          What I Do
+          How I design for scale
         </p>
         <h2
           style={{
@@ -250,8 +248,14 @@ export default function Home() {
             maxWidth: 640,
           }}
         >
-          System-level capabilities.
+          Foundations that support growth.
         </h2>
+        <p style={{ fontSize: 16, color: "var(--fg-muted)", lineHeight: 1.7, maxWidth: 820, marginBottom: 18 }}>
+          I approach product design as a system — where decisions at the component, flow, and platform level connect to long-term scalability.
+        </p>
+        <p style={{ fontSize: 16, color: "var(--fg-muted)", lineHeight: 1.7, maxWidth: 820, marginBottom: 48 }}>
+          From design tokens to workflow architecture, I focus on building foundations that support growth, consistency, and adaptability across products.
+        </p>
         <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
           {capabilities.map((c, i) => (
             <div
@@ -293,7 +297,7 @@ export default function Home() {
               maxWidth: 640,
             }}
           >
-            Four operating principles.
+            Operating principles.
           </h2>
           <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 0 }}>
             {principles.map((p, i) => (
@@ -321,94 +325,6 @@ export default function Home() {
 
       {/* ── Beyond the work: thinking, press, writing ───────── */}
       <ThinkingHomeTeaser />
-
-      {/* ── 7. LEADERSHIP & DESIGNOPS TEASER ────────────────── */}
-      <section style={{ maxWidth: 1240, margin: "120px auto 0", padding: "0 24px" }}>
-        <div
-          className="grid-2 pad-inset-wide emphasis-block"
-          style={{
-            background: "var(--surface-emphasis)",
-            borderRadius: 16,
-            alignItems: "center",
-          }}
-        >
-          <div>
-            <p
-              style={{
-                fontSize: 12,
-                fontWeight: 500,
-                color: "var(--fg-on-emphasis-soft)",
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-                marginBottom: 20,
-              }}
-            >
-              Leadership & DesignOps
-            </p>
-            <h2
-              style={{
-                fontSize: "clamp(24px, 3vw, 36px)",
-                fontWeight: 600,
-                letterSpacing: "-0.02em",
-                color: "var(--fg-on-emphasis)",
-                lineHeight: 1.2,
-                marginBottom: 24,
-              }}
-            >
-              Design as a system — not a service
-            </h2>
-            <p style={{ fontSize: 16, color: "var(--fg-on-emphasis-muted)", lineHeight: 1.7, marginBottom: 32 }}>
-              Built and scaled design systems across 12 teams — governance, contribution, onboarding, and AI UX integration
-            </p>
-            <Link
-              href="/leadership"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                background: "var(--bg)",
-                color: "var(--fg)",
-                fontSize: 14,
-                fontWeight: 500,
-                padding: "12px 24px",
-                borderRadius: 8,
-                textDecoration: "none",
-              }}
-            >
-              View Leadership & DesignOps →
-            </Link>
-          </div>
-          <ul
-            style={{
-              listStyle: "none",
-              padding: 0,
-              margin: 0,
-              display: "flex",
-              flexDirection: "column",
-              gap: 0,
-            }}
-          >
-            {[
-              "Unified token architecture and component libraries at scale",
-              "Reduced design-to-dev handoff friction across product squads",
-              "Embedded AI UX patterns into the core design workflow",
-            ].map((line, i) => (
-              <li
-                key={i}
-                style={{
-                  fontSize: 15,
-                  color: "var(--fg-on-emphasis-strong)",
-                  padding: "18px 0",
-                  borderTop: "1px solid var(--border-on-emphasis-faint)",
-                  borderBottom: i === 2 ? "1px solid var(--border-on-emphasis-faint)" : "none",
-                }}
-              >
-                {line}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
 
       {/* ── 8. CURRENT FOCUS ────────────────────────────────── */}
       <section style={{ maxWidth: 1240, margin: "0 auto", padding: "120px 24px 0" }}>
@@ -460,7 +376,7 @@ export default function Home() {
             margin: "0 auto 32px",
           }}
         >
-          I design systems that evolve<br />– from fragmented to intelligent
+          I design high-impact products at scale<br />— powered by systems thinking
         </h2>
         <a
           href="mailto:jon4ohio@gmail.com"
