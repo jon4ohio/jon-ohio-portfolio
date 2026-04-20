@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export type CaseStudyRowProps = {
+  index: number;
   title: string;
   subtitle: string;
   summary: string;
@@ -11,7 +12,17 @@ export type CaseStudyRowProps = {
   image: string;
 };
 
+function parseMetric(metric: string): { value: string; label?: string } {
+  const trimmed = metric.trim();
+  const firstSpace = trimmed.indexOf(" ");
+  if (firstSpace === -1) return { value: trimmed };
+  const value = trimmed.slice(0, firstSpace).trim();
+  const label = trimmed.slice(firstSpace + 1).trim();
+  return label ? { value, label } : { value };
+}
+
 export default function CaseStudyRow({
+  index,
   title,
   subtitle,
   summary,
@@ -24,6 +35,7 @@ export default function CaseStudyRow({
 
   return (
     <div className="work-list-item">
+      <span className="work-list-idx">{String(index).padStart(2, "0")}</span>
       <Link href={href} className="work-list-row" aria-label={`${title} — ${subtitle}`}>
         <div className="work-list-thumb">
           <div
@@ -78,11 +90,15 @@ export default function CaseStudyRow({
           </p>
 
           <div className="metric-badges" style={{ marginBottom: 12 }}>
-            {topMetrics.map((m) => (
+            {topMetrics.map((m) => {
+              const parsed = parseMetric(m);
+              return (
               <div key={m} className="metric-badge">
-                <span className="metric-badge__value">{m}</span>
+                <span className="metric-badge__value">{parsed.value}</span>
+                {parsed.label ? <span className="metric-badge__label">{parsed.label}</span> : null}
               </div>
-            ))}
+              );
+            })}
           </div>
 
           <p style={{ fontSize: 13, color: "var(--fg-subtle)", lineHeight: 1.55 }}>{role}</p>

@@ -37,9 +37,10 @@ export default function WorkIndex() {
 
       <section style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px 120px" }}>
         <div className="work-list-stack">
-          {orderedProjects.map((p) => (
+          {orderedProjects.map((p, i) => (
             <CaseStudyRow
               key={p.slug}
+              index={i + 1}
               title={p.title}
               subtitle={p.subtitle}
               summary={p.summary}
