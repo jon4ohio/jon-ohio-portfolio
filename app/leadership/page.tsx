@@ -362,6 +362,11 @@ export default function Leadership() {
                 letterSpacing: "-0.02em",
                 color: "var(--fg-on-emphasis)",
                 lineHeight: 1.15,
+                display: "-webkit-box",
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+                minHeight: "2.3em",
                 marginBottom: 16,
               }}
             >
@@ -406,6 +411,11 @@ export default function Leadership() {
                 letterSpacing: "-0.02em",
                 color: "var(--fg-on-emphasis)",
                 lineHeight: 1.15,
+                display: "-webkit-box",
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+                minHeight: "2.3em",
                 marginBottom: 16,
               }}
             >
