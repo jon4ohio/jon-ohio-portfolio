@@ -2,7 +2,7 @@
 
 ## Status
 <!-- One of: Draft | Proposed | Accepted | Deprecated | Superseded by ADR-NNN -->
-**Status:** Accepted  
+**Status:** Superseded by ADR-037  
 **Date:** 2026-04-13  
 **Decision Maker(s):** John Ohio (Owner/Maintainer)  
 **Supersedes:** None  

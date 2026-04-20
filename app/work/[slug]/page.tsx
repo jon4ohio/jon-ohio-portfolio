@@ -139,7 +139,6 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
     "@type": "CreativeWork",
     name: project.title,
     alternativeHeadline: project.subtitle,
-    about: project.category,
     description: project.summary,
     author: {
       "@type": "Person",
@@ -194,10 +193,6 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       {/* ── Hero ── */}
       <section style={{ maxWidth: 1240, margin: "0 auto", padding: "48px 24px 64px" }}>
         <div style={{ display: "flex", gap: 12, marginBottom: 20, flexWrap: "wrap" }}>
-          <span style={{ fontSize: 11, fontWeight: 500, color: "var(--accent-orange)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-            {project.category}
-          </span>
-          <span aria-hidden="true" style={{ fontSize: 11, color: "var(--accent-orange)" }}>·</span>
           <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{project.company}</span>
           <span aria-hidden="true" style={{ fontSize: 11, color: "var(--accent-orange)" }}>·</span>
           <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{project.period}</span>

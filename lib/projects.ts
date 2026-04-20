@@ -9,6 +9,11 @@ export interface Project {
   role: string;
   scope: string;
   metrics: { value: string; label: string }[];
+  /** Flat work index (recruiter-scan) fields. */
+  cover?: string;
+  indexSummary?: string;
+  indexMetrics?: string[];
+  indexRole?: string;
   context: string;
   problem: string;
   action: string;
@@ -21,6 +26,16 @@ export interface Project {
   featured: boolean;
   assets?: ProjectAssets;
 }
+
+export type CaseStudyIndexItem = {
+  slug: string;
+  title: string;
+  subtitle: string;
+  summary: string;
+  metrics: string[];
+  role: string;
+  cover: string;
+};
 
 export type ImageAsset = {
   src: string;
@@ -84,13 +99,18 @@ export const projects: Project[] = [
   {
     slug: "seamless-hiring",
     title: "SeamlessHiring 2.0",
-    subtitle: "Recruitment Management System (RMS)",
+    subtitle: "Enterprise recruitment platform redesign",
     category: "Structured Systems",
     company: "SeamlessHR",
     period: "Mar 2022 – Mar 2025",
     summary:
       "Repositioned a broken recruitment add-on into a flagship hiring product by fixing workflow trust, applicant completion, and system value.",
     role: "Lead Product Designer across product strategy, UX, and phased rollout.",
+    cover: "/assets/work/seamless-hiring/preview-16x9.png",
+    indexSummary:
+      "Redesigned a fragmented recruitment system into a structured, scalable workflow used across enterprise HR teams.",
+    indexMetrics: ["+75% CSAT", "+60% workflow efficiency", "↓50% support volume"],
+    indexRole: "Lead Product Designer · Enterprise SaaS · System redesign",
     scope:
       "Applicant and recruiter workflows, research synthesis, roadmap definition, and cross-functional delivery with PM, engineering, CX, and sales.",
     metrics: [
@@ -202,6 +222,11 @@ export const projects: Project[] = [
     summary:
       "Built the operating system that aligned design and engineering across 12 teams, replacing fragmented libraries with one governed source of truth.",
     role: "Design Systems Lead and DesignOps driver.",
+    cover: "/assets/work/seamkit/preview-16x9.png",
+    indexSummary:
+      "Built a governed design system that unified fragmented UI libraries across product teams and accelerated delivery.",
+    indexMetrics: ["12 teams onboarded", "88.9 adoption", "91.1 trust"],
+    indexRole: "Design Systems Lead · Enterprise SaaS · Governance + tokens",
     scope:
       "Token architecture, component foundations, governance, adoption strategy, documentation, and team enablement across the product organisation.",
     metrics: [
@@ -279,6 +304,11 @@ export const projects: Project[] = [
     summary:
       "Designed the in-house transaction infrastructure that replaced an expensive vendor dependency and opened up white-label revenue.",
     role: "Lead Product Designer across platform strategy and operational UX.",
+    cover: "/assets/work/fetsproza/preview-16x9.png",
+    indexSummary:
+      "Designed a proprietary transaction infrastructure that replaced a costly vendor engine and unlocked licensing revenue.",
+    indexMetrics: ["$1M+ annual savings", "2× transaction capacity", "50% faster settlement"],
+    indexRole: "Lead Product Designer · Fintech infrastructure · 0→1 platform",
     scope:
       "Transaction engine workflows, operator console, reporting, reconciliation, and direct collaboration with engineering on financial operations.",
     metrics: [
@@ -366,6 +396,11 @@ export const projects: Project[] = [
     summary:
       "A production portfolio shipped without writing most of the code — by designing the system that built it.",
     role: "System designer, orchestrator, and decision-maker throughout. Every judgment call — what to build, in what order, and which tool to trust — was mine.",
+    cover: "/assets/work/orchestrated-portfolio/preview-16x9.png",
+    indexSummary:
+      "Designed an agentic workflow that shipped a production portfolio with ADR governance and evidence-backed review loops.",
+    indexMetrics: ["Deployed", "ADR-gated", "4 agents"],
+    indexRole: "System designer · AI workflows · Orchestration",
     scope:
       "Workflow design, input synthesis, Figma integration, decision logging, multi-tool coordination, and live deployment.",
     metrics: [
@@ -501,6 +536,11 @@ export const projects: Project[] = [
     summary:
       "Digitised utility payments and service workflows for a major electricity distributor across consumer app and in-person POS touchpoints.",
     role: "Lead Product Designer for customer and operational experiences.",
+    cover: "/assets/work/ibedc/preview-16x9.png",
+    indexSummary:
+      "Unified utility payments across app + POS to reduce fraud, cut support load, and speed up token delivery for customers.",
+    indexMetrics: ["↓80% fraud", "↓30% call-centre volume", "10k+ downloads"],
+    indexRole: "Lead Product Designer · Utilities + fintech · Multi-channel UX",
     scope:
       "Consumer app flows, agent and POS workflows, reconciliation tooling, and service operations spanning digital and walk-in channels.",
     metrics: [
@@ -616,6 +656,11 @@ export const projects: Project[] = [
     summary:
       "Shaped the trust layer for an AI scheduling product, translating biometric data into explainable planning people could act on.",
     role: "Product Designer (Founding Team) from product definition to cross-platform system design.",
+    cover: "/assets/work/rivva/preview-16x9.png",
+    indexSummary:
+      "Designed explainable AI scheduling flows that translated biometric data into planning decisions people could trust.",
+    indexMetrics: ["#4 Product Hunt", "500+ downloads", "30+ paying customers"],
+    indexRole: "Founding Product Designer · AI UX · 0→1",
     scope:
       "AI interaction design, Apple Health onboarding, web app design, and shared patterns spanning iOS, Android, and web.",
     metrics: [
@@ -660,6 +705,7 @@ export const projects: Project[] = [
     summary:
       "Established reusable AI interaction patterns for enterprise workflows so teams could ship AI features as a system instead of one-offs.",
     role: "Lead, DesignOps & AI-UX.",
+    cover: "/assets/work/_placeholders/hero.svg",
     scope:
       "AI pattern design, prompt frameworks, workflow definition, agent behaviours, reporting concepts, and rollout guidance across product teams.",
     metrics: [
@@ -692,6 +738,7 @@ export const projects: Project[] = [
     summary:
       "Defined a localised quote-to-cash product for African SaaS operators where global billing tools were a poor fit.",
     role: "Product Designer (Founding Member) leading MVP definition and product UX.",
+    cover: "/assets/work/_placeholders/hero.svg",
     scope:
       "Pricing configuration, billing workflows, subscription dashboards, validation with founders and CFOs, and delivery with engineering.",
     metrics: [
@@ -724,6 +771,7 @@ export const projects: Project[] = [
     summary:
       "Designed the operational backbone for an agency banking network — onboarding, transaction monitoring, and reconciliation across thousands of agents.",
     role: "Lead Product Designer for operations and field workflows.",
+    cover: "/assets/work/_placeholders/hero.svg",
     scope:
       "Agent onboarding, transaction monitoring, reconciliation tooling, dispute workflows, and compliance reporting.",
     metrics: [
@@ -756,6 +804,7 @@ export const projects: Project[] = [
     summary:
       "Co-led product discovery for Africa’s first HRM platform for the blue-collar workforce — field research across Kenya and Nigeria, journey mapping, and MVP scoping.",
     role: "UX Research Lead for product discovery and MVP definition.",
+    cover: "/assets/work/_placeholders/hero.svg",
     scope:
       "Field research, ethnographic visits, worker and employer journey mapping, opportunity mapping, and MVP scoping across hiring, payroll, scheduling, and benefits.",
     metrics: [
@@ -779,6 +828,18 @@ export const projects: Project[] = [
     },
   },
 ];
+
+export const caseStudyIndex: CaseStudyIndexItem[] = projects
+  .filter((p) => Boolean(p.cover && p.indexSummary && p.indexMetrics && p.indexRole))
+  .map((p) => ({
+    slug: p.slug,
+    title: p.title,
+    subtitle: p.subtitle,
+    summary: p.indexSummary ?? p.summary,
+    metrics: p.indexMetrics ?? [],
+    role: p.indexRole ?? p.role,
+    cover: p.cover ?? "/assets/work/_placeholders/hero.svg",
+  }));
 
 /** Same image as the case study hero when `hero` is set; otherwise first listing thumbnail. Keeps `/`, `/work`, and `/work/[slug]` in sync. */
 export function getPrimaryPreviewImage(assets?: ProjectAssets): ImageAsset | undefined {
