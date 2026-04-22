@@ -2,14 +2,14 @@
 
 ## Status
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Date:** 2026-04-22  
 **Decision Maker(s):** John Ohio (Owner/Maintainer)  
 **Supersedes:** None  
 
 ## Context
 
-This is the `jon-ohio-portfolio` website. Case study content is stored in-repo in `lib/projects.ts` (ADR-002). The homepage (`app/page.tsx`) includes an impact metrics strip, an ownership list with curated `ownershipItems` copy (keyed by slug), and a Rivva “range” card sourced from `projects` for metrics + `/work/rivva` navigation.
+This is the `jon-ohio-portfolio` website. Case study content is stored in-repo in `lib/projects.ts` (ADR-002). The homepage (`app/page.tsx`) includes an impact metrics strip and curated homepage ownership copy keyed by slug (`ownershipItems`), while canonical case study metadata (metrics/tags/assets) continues to live on each `Project` record.
 
 A content pass is needed to:
 
@@ -78,7 +78,7 @@ Concretely:
 
 ### Operational Impact
 
-- Future copy edits may need to touch both `lib/projects.ts` and `app/page.tsx` for homepage-specific ownership copy (and Rivva range card text when it diverges from the case study summary).
+- Future copy edits may need to touch both `lib/projects.ts` and `app/page.tsx` for homepage-specific ownership copy when it intentionally diverges from `Project.summary`.
 - **Migration / rollback:** revert the touched strings in `lib/projects.ts` and `app/page.tsx`.
 
 ### Risks
@@ -102,3 +102,4 @@ Concretely:
 - `lib/projects.ts`
 - `app/page.tsx`
 - `app/work/[slug]/page.tsx`
+- https://github.com/jon4ohio/jon-ohio-portfolio/pull/85
