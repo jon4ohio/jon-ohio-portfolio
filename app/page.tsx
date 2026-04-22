@@ -23,40 +23,41 @@ const heroMetrics: Array<{ value: string; label: string }> = [
   { value: "↑75%", label: "From re-architecting enterprise HR workflows" },
   { value: "↓80%", label: "Via system-level transaction and validation redesign" },
   { value: "12+", label: "Through rollout of a unified design system (Seamkit)" },
+  { value: "#4 Product of the Day", label: "Product Hunt launch — Rivva (first week)" },
 ];
 
 const ownershipItems = [
   {
     slug: "seamkit",
     name: "Seamkit",
-    type: "Design System",
-    headline: "Scaled a unified product system across multiple products and teams",
+    type: "Enterprise Design System",
+    headline: "Scaling a product system across 12 teams",
     description:
-      "Led the creation and rollout of a design system that aligned design and engineering across 12+ teams, improving consistency, speed, and cross-product scalability.",
+      "Designed and scaled a unified product system across 12 teams — from scattered component libraries to a governed, token-driven architecture embedded across every SeamlessHR product. Now the standard for how design and engineering ship together.",
   },
   {
     slug: "seamless-hiring",
-    name: "SeamlessHiring",
-    type: "Enterprise Product",
-    headline: "Re-architected a core enterprise workflow at scale",
+    name: "SeamlessHiring 2.0",
+    type: "Recruitment Management System",
+    headline: "From underperforming add-on to flagship hiring product",
     description:
-      "Redesigned the recruitment system used by HR teams, improving workflow efficiency and user satisfaction while introducing structured, AI-assisted decision points.",
+      "Re-architected a core enterprise workflow from an underperforming add-on into a flagship hiring product. Rebuilt workflow trust, restored completion rates, and introduced structured AI-assisted decision points used by HR teams across the platform.",
   },
   {
     slug: "fetsproza",
     name: "FetsProza",
-    type: "Financial Infrastructure",
-    headline: "Designed infrastructure-level interfaces for financial systems",
+    type: "Infrastructure-as-a-Service Platform",
+    headline: "Interfaces for a mobile money engine at scale",
     description:
-      "Built a mobile money engine interface that enabled operational scale, reduced costs by over $1M annually, and simplified complex financial workflows.",
+      "Designed the interfaces for a mobile money engine that eliminated a costly external vendor dependency. The system now handles double the original transaction capacity and enables white-label revenue — saving over $1M annually.",
   },
   {
     slug: "ibedc",
-    name: "IBEDC",
-    type: "Public Infrastructure Digitisation",
-    headline: "Digitised large-scale operational workflows in a critical service sector",
+    name: "IBEDC Digital Transformation",
+    type: "Care App + POS System",
+    headline: "Consumer and field tools for utility payments at scale",
     description:
-      "Designed tools for electricity payment and distribution workflows, reducing processing time and improving service delivery at scale.",
+      "Designed consumer and field payment tools for one of Nigeria's largest electricity distributors, translating complex utility infrastructure into usable workflows at public-sector scale. 10,000+ downloads in the first six months; 4.6 stars on the Play Store.",
   },
 ] as const;
 
@@ -235,7 +236,7 @@ export default function Home() {
             maxWidth: 720,
           }}
         >
-          Beyond core systems work, I explore product ideas, AI-assisted workflows, and new interaction models.
+          Beyond core systems work — shipping fast, exploring AI-assisted workflows, and building products in global markets.
         </h2>
 
         {rivva ? (
@@ -254,11 +255,11 @@ export default function Home() {
             aria-label="Rivva case study"
           >
             <p style={{ fontSize: 16, fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 8 }}>
-              {rivva.title}
+              {rivva.title} — {rivva.subtitle}
             </p>
-            <p style={{ fontSize: 14, color: "var(--fg-muted)", marginBottom: 12 }}>{rivva.subtitle}</p>
+            <p style={{ fontSize: 14, color: "var(--fg-muted)", marginBottom: 12 }}>{rivva.company}</p>
             <p style={{ fontSize: 15, color: "var(--fg-body-muted)", lineHeight: 1.65, maxWidth: 860, marginBottom: 14 }}>
-              Shipped and validated a product in a global market — reached #4 Product of the Day on Product Hunt, demonstrating product intuition, execution speed, and global relevance.
+              Reached #4 on Product Hunt in its first week. Designed and shipped the web app from scratch as part of the founding team — the clearest example of what I can do outside an enterprise context.
             </p>
             <div className="metric-badges">
               {rivva.metrics.slice(0, 3).map((m, idx) => (

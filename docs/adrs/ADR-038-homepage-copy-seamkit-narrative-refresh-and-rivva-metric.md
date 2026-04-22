@@ -9,7 +9,7 @@
 
 ## Context
 
-This is the `jon-ohio-portfolio` website. Case study content is stored in-repo in `lib/projects.ts` (ADR-002). The homepage (`app/page.tsx`) includes an impact metrics strip, an ownership list with curated blurbs, and a “range” card for Rivva.
+This is the `jon-ohio-portfolio` website. Case study content is stored in-repo in `lib/projects.ts` (ADR-002). The homepage (`app/page.tsx`) includes an impact metrics strip, an ownership list with curated `ownershipItems` copy (keyed by slug), and a Rivva “range” card sourced from `projects` for metrics + `/work/rivva` navigation.
 
 A content pass is needed to:
 
@@ -48,7 +48,7 @@ A content pass is needed to:
   - Consistent story across homepage and `/work`
   - Adds a high-signal external validation metric without changing Rivva’s domain
 - **Cons:**
-  - Requires maintaining two curated surfaces (`ownershipBlurbBySlug` + `projects`)
+  - Requires maintaining two curated surfaces (`ownershipItems` + `projects.summary`)
   - Seamkit narrative is long; must still map cleanly to existing case study section labels
 - **Effort:** Medium
 - **Notes:** Seamkit narrative is split across `context` / `problem` / `action` / `impact` because `/work/[slug]` renders fixed section headings.
@@ -62,7 +62,7 @@ Concretely:
 - Update the four project `summary` strings in `lib/projects.ts`.
 - Replace Seamkit’s longform fields with the refreshed narrative (including explicit trade-offs), distributed across `context`, `problem`, `action`, and `impact` to match the existing case study renderer.
 - Add a fifth homepage metric for Rivva’s Product Hunt placement (first week).
-- Refresh homepage ownership blurbs and the Rivva “range” card copy while keeping Rivva as **AI Scheduling Platform**.
+- Refresh homepage `ownershipItems` copy and the Rivva “range” card copy while keeping Rivva as **AI Scheduling Platform**.
 
 ## Consequences
 
@@ -74,11 +74,11 @@ Concretely:
 
 ### Negative / Trade-offs
 
-- Homepage blurbs are not automatically derived from `summary` (mitigation: keep blurbs short and mirror `summary` intent; update both when repositioning).
+- Homepage ownership copy is not automatically derived from `summary` (mitigation: keep blurbs short and mirror `summary` intent; update both when repositioning).
 
 ### Operational Impact
 
-- Future copy edits may need to touch both `lib/projects.ts` and `app/page.tsx` for homepage-specific blurbs.
+- Future copy edits may need to touch both `lib/projects.ts` and `app/page.tsx` for homepage-specific ownership copy (and Rivva range card text when it diverges from the case study summary).
 - **Migration / rollback:** revert the touched strings in `lib/projects.ts` and `app/page.tsx`.
 
 ### Risks
