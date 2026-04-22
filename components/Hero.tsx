@@ -312,7 +312,7 @@ export default function Hero() {
               marginBottom: "clamp(16px, 2.2vw, 24px)",
             }}
           >
-            PRODUCT DESIGN LEAD · SYSTEMS · DESIGNOPS · AI UX
+            PRODUCT DESIGNER · SYSTEMS · SCALE · INTELLIGENT UX
           </p>
           <h1
             className="animate-fade-up delay-2"
@@ -325,21 +325,33 @@ export default function Hero() {
               marginBottom: 32,
             }}
           >
-            I design high-impact products at scale — powered by systems thinking
+            Product Designer focused on systems, scale, and intelligent experiences
           </h1>
           <p
             className="animate-fade-up delay-3"
             style={{
               fontSize: 20,
               color: "var(--fg-muted)",
-              maxWidth: 600,
-              marginBottom: 48,
+              maxWidth: 720,
+              marginBottom: 14,
               lineHeight: 1.5,
             }}
           >
-            Product Designer and Design Systems Lead with experience across enterprise SaaS, fintech infrastructure, and platform design. I turn complex systems into usable, scalable products that drive measurable outcomes.
+            I design and scale product systems used across teams, platforms, and markets — spanning enterprise SaaS, financial infrastructure, and AI-assisted workflows.
           </p>
-          <div className="animate-fade-up delay-4 hero-cta">
+          <p
+            className="animate-fade-up delay-4"
+            style={{
+              fontSize: 13,
+              color: "var(--fg-subtle)",
+              maxWidth: 760,
+              marginBottom: 40,
+              lineHeight: 1.55,
+            }}
+          >
+            Open to Senior / Staff Product Design and Design Systems roles (IC or Lead) in global teams. Based in Nigeria · Available for remote (UK/EU/US) · Open to relocation.
+          </p>
+          <div className="animate-fade-up delay-5 hero-cta">
             <Link
               href="/work"
               style={{
