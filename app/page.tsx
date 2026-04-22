@@ -117,7 +117,7 @@ export default function Home() {
             if (!copy) return null;
             const preview = getPrimaryPreviewImage(p.assets);
             return (
-              <div key={p.slug} className="work-list-item">
+              <div key={p.slug} className="work-list-item work-list-item--no-idx">
                 <Link
                   href={`/work/${p.slug}`}
                   className="work-list-row"

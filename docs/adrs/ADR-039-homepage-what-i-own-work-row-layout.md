@@ -14,7 +14,7 @@ This is the `jon-ohio-portfolio` website. The `/work` index uses a consistent �
 The homepage (`app/page.tsx`) previously used a different layout for the **What I own** section and duplicated Rivva in a separate **Selected work and experiments** section.
 
 **In scope:** homepage layout + information architecture for the ownership section; remove redundant homepage section.  
-**Out of scope:** changing `/work` grouping/categories, changing `Project` schema, redesigning global CSS beyond reusing existing classes.
+**Out of scope:** changing `/work` grouping/categories, changing `Project` schema, broad redesign of global CSS (a small modifier on existing `work-list-*` rules is in scope to keep no-index rows from inheriting the index column grid).
 
 ## Decision Drivers
 
@@ -54,6 +54,8 @@ The homepage (`app/page.tsx`) previously used a different layout for the **What 
 **We will use Option B because the goal is a single, consistent case study row language across the homepage ownership section and `/work`, while eliminating the extra Rivva-only section.**
 
 Homepage rows reuse `/work`’s row structure and asset preview behavior, omit serial numbering, include Rivva as the fifth ownership project, and remove the separate “Selected work and experiments” block.
+
+Because `.work-list-item` is a two-column grid (`work-list-idx` + `work-list-row`), homepage rows add **`work-list-item--no-idx`** on the outer item so the case study link spans the full width at desktop, tablet, and mobile (no squeezed first column).
 
 ## Consequences
 
