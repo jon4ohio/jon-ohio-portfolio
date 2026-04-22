@@ -38,6 +38,7 @@
 | 034 | Mobile nav menu closes on route change | Accepted | 2026-04-13 | None |
 | 035 | About page label and Operating Principles copy | Accepted | 2026-04-16 | None |
 | 036 | Homepage featured case studies over taxonomy | Accepted | 2026-04-20 | None |
-| 038 | Homepage copy refresh, Seamkit narrative update, and Rivva Product Hunt metric | Proposed | 2026-04-22 | None |
+| 038 | Homepage copy refresh, Seamkit narrative update, and Rivva Product Hunt metric | Accepted | 2026-04-22 | None |
+| 039 | Homepage “What I own” uses `/work` case study row layout (no S/N) and folds in Rivva | Proposed | 2026-04-22 | None |
 
 Chronological audit notes: [`LOG.md`](./LOG.md).

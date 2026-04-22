@@ -2,7 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import SystemModel from "@/components/SystemModel";
-import { projects } from "@/lib/projects";
+import AssetImage from "@/components/AssetImage";
+import { getPrimaryPreviewImage, projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "John Ohio — Senior Product Designer",
@@ -31,7 +32,6 @@ const ownershipItems = [
     slug: "seamkit",
     name: "Seamkit",
     type: "Enterprise Design System",
-    headline: "Scaling a product system across 12 teams",
     description:
       "Designed and scaled a unified product system across 12 teams — from scattered component libraries to a governed, token-driven architecture embedded across every SeamlessHR product. Now the standard for how design and engineering ship together.",
   },
@@ -39,7 +39,6 @@ const ownershipItems = [
     slug: "seamless-hiring",
     name: "SeamlessHiring 2.0",
     type: "Recruitment Management System",
-    headline: "From underperforming add-on to flagship hiring product",
     description:
       "Re-architected a core enterprise workflow from an underperforming add-on into a flagship hiring product. Rebuilt workflow trust, restored completion rates, and introduced structured AI-assisted decision points used by HR teams across the platform.",
   },
@@ -47,7 +46,6 @@ const ownershipItems = [
     slug: "fetsproza",
     name: "FetsProza",
     type: "Infrastructure-as-a-Service Platform",
-    headline: "Interfaces for a mobile money engine at scale",
     description:
       "Designed the interfaces for a mobile money engine that eliminated a costly external vendor dependency. The system now handles double the original transaction capacity and enables white-label revenue — saving over $1M annually.",
   },
@@ -55,17 +53,19 @@ const ownershipItems = [
     slug: "ibedc",
     name: "IBEDC Digital Transformation",
     type: "Care App + POS System",
-    headline: "Consumer and field tools for utility payments at scale",
     description:
       "Designed consumer and field payment tools for one of Nigeria's largest electricity distributors, translating complex utility infrastructure into usable workflows at public-sector scale. 10,000+ downloads in the first six months; 4.6 stars on the Play Store.",
   },
+  {
+    slug: "rivva",
+    name: "Rivva",
+    type: "AI Scheduling Platform",
+    description:
+      "Co-led design for an AI scheduling product shipped from beta to full release — reaching #4 on Product Hunt in its first week and surpassing 500 downloads within the first month. Owned the web app end-to-end and contributed to mobile.",
+  },
 ] as const;
 
-const RANGE_SLUG = "rivva" as const;
-
 export default function Home() {
-  const rivva = projects.find((p) => p.slug === RANGE_SLUG);
-
   return (
     <div style={{ paddingTop: 56 }}>
       {/* ── 1. HERO ──────────────────────────────────────────── */}
@@ -109,52 +109,108 @@ export default function Home() {
           I work at the system level — designing structures that scale across products, teams, and workflows.
         </h2>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-          {ownershipItems.map((item, i) => (
-            <div
-              key={item.slug}
-              style={{
-                padding: "32px 0",
-                borderTop: "1px solid var(--border)",
-                borderBottom: i === ownershipItems.length - 1 ? "1px solid var(--border)" : "none",
-              }}
-              className="grid-systems-group grid-systems-group--wide"
-            >
-              <div>
-                <p style={{ fontSize: 15, fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 4 }}>
-                  {item.name}
-                </p>
-                <p style={{ fontSize: 12, color: "var(--fg-subtle)", lineHeight: 1.4 }}>{item.type}</p>
-              </div>
-              <div>
-                <p
-                  style={{
-                    fontSize: 16,
-                    fontWeight: 600,
-                    letterSpacing: "-0.01em",
-                    marginBottom: 10,
-                    lineHeight: 1.35,
-                  }}
+        <div className="work-list-stack">
+          {ownershipItems.map((item) => {
+            const p = projects.find((project) => project.slug === item.slug);
+            if (!p) return null;
+            const copy = ownershipItems.find((o) => o.slug === item.slug);
+            if (!copy) return null;
+            const preview = getPrimaryPreviewImage(p.assets);
+            return (
+              <div key={p.slug} className="work-list-item">
+                <Link
+                  href={`/work/${p.slug}`}
+                  className="work-list-row"
+                  aria-label={`${copy.name} — ${copy.type}`}
                 >
-                  {item.headline}
-                </p>
-                <p
-                  style={{
-                    fontSize: 14,
-                    color: "var(--fg-muted)",
-                    lineHeight: 1.65,
-                    marginBottom: 16,
-                    maxWidth: 640,
-                  }}
-                >
-                  {item.description}
-                </p>
-                <Link href={`/work/${item.slug}`} style={{ fontSize: 13, color: "var(--accent-orange)", textDecoration: "none" }}>
-                  View case study →
+                  <div className="work-list-thumb">
+                    {preview ? (
+                      <AssetImage
+                        asset={{
+                          ...preview,
+                          alt: preview.src.includes("/assets/work/_placeholders/")
+                            ? `${copy.name} — project preview`
+                            : preview.alt,
+                        }}
+                        sizes="(max-width: 640px) 92vw, (max-width: 900px) 356px, 427px"
+                        aspectCover="16 / 9"
+                        aspectFit={p.slug === "orchestrated-portfolio" ? "contain" : "auto"}
+                        style={{}}
+                      />
+                    ) : null}
+                  </div>
+
+                  <div className="work-list-body">
+                    <div style={{ display: "flex", gap: 12, marginBottom: 10, flexWrap: "wrap" }}>
+                      <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{p.company}</span>
+                      <span aria-hidden="true" style={{ fontSize: 11, color: "var(--accent-orange)" }}>
+                        ·
+                      </span>
+                      <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{p.period}</span>
+                    </div>
+                    <h3
+                      style={{
+                        fontSize: 22,
+                        fontWeight: 600,
+                        letterSpacing: "-0.02em",
+                        marginBottom: 8,
+                        marginTop: 0,
+                      }}
+                    >
+                      {copy.name}
+                    </h3>
+                    <p style={{ fontSize: 14, color: "var(--fg-muted)", marginBottom: 10 }}>{copy.type}</p>
+
+                    <p
+                      style={{
+                        fontSize: 14,
+                        color: "var(--fg-body-muted)",
+                        lineHeight: 1.65,
+                        maxWidth: 720,
+                        marginBottom: 12,
+                      }}
+                    >
+                      {copy.description}
+                    </p>
+
+                    <div className="metric-badges" style={{ marginBottom: 12 }}>
+                      {p.metrics.map((m, j) => (
+                        <div key={j} className="metric-badge">
+                          <span className="metric-badge__value">{m.value}</span>
+                          <span className="metric-badge__label">{m.label}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                      {p.tags.map((t) => (
+                        <span
+                          key={t}
+                          style={{
+                            fontSize: 11,
+                            color: "var(--accent-orange)",
+                            border: "1px solid var(--border)",
+                            padding: "3px 8px",
+                            borderRadius: 4,
+                          }}
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div
+                    className="work-list-arrow"
+                    style={{ color: "var(--fg-subtle)", fontSize: 16, paddingTop: 4, paddingRight: 32 }}
+                    aria-hidden
+                  >
+                    →
+                  </div>
                 </Link>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div style={{ paddingTop: 18 }}>
@@ -221,61 +277,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 5. RANGE ─────────────────────────────────────────── */}
-      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "120px 24px 0" }}>
-        <p className="section-label" style={{ marginBottom: 20 }}>
-          Selected work and experiments
-        </p>
-        <h2
-          style={{
-            fontSize: "clamp(24px, 3vw, 36px)",
-            fontWeight: 600,
-            letterSpacing: "-0.02em",
-            lineHeight: 1.2,
-            marginBottom: 12,
-            maxWidth: 720,
-          }}
-        >
-          Beyond core systems work — shipping fast, exploring AI-assisted workflows, and building products in global markets.
-        </h2>
-
-        {rivva ? (
-          <Link
-            href={`/work/${rivva.slug}`}
-            style={{
-              display: "block",
-              marginTop: 28,
-              border: "1px solid var(--border)",
-              borderRadius: 12,
-              padding: "24px",
-              textDecoration: "none",
-              color: "inherit",
-              background: "var(--surface)",
-            }}
-            aria-label="Rivva case study"
-          >
-            <p style={{ fontSize: 16, fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 8 }}>
-              {rivva.title} — {rivva.subtitle}
-            </p>
-            <p style={{ fontSize: 14, color: "var(--fg-muted)", marginBottom: 12 }}>{rivva.company}</p>
-            <p style={{ fontSize: 15, color: "var(--fg-body-muted)", lineHeight: 1.65, maxWidth: 860, marginBottom: 14 }}>
-              Reached #4 on Product Hunt in its first week. Designed and shipped the web app from scratch as part of the founding team — the clearest example of what I can do outside an enterprise context.
-            </p>
-            <div className="metric-badges">
-              {rivva.metrics.slice(0, 3).map((m, idx) => (
-                <div key={`${m.value}-${m.label}-${idx}`} className="metric-badge">
-                  <span className="metric-badge__value">{m.value}</span>
-                  <span className="metric-badge__label">{m.label}</span>
-                </div>
-              ))}
-            </div>
-          </Link>
-        ) : (
-          <p style={{ fontSize: 14, color: "var(--fg-muted)" }}>Rivva case study is unavailable.</p>
-        )}
-      </section>
-
-      {/* ── 6. CLOSING ───────────────────────────────────────── */}
+      {/* ── 5. CLOSING ───────────────────────────────────────── */}
       <section style={{ maxWidth: 1240, margin: "0 auto", padding: "120px 24px 120px" }}>
         <div style={{ maxWidth: 760 }}>
           <p className="section-label" style={{ marginBottom: 24 }}>
