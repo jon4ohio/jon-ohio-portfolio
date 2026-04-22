@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
+import SystemModel from "@/components/SystemModel";
+import { projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "John Ohio — Senior Product Designer",
@@ -56,31 +58,15 @@ const ownershipItems = [
     description:
       "Designed tools for electricity payment and distribution workflows, reducing processing time and improving service delivery at scale.",
   },
-];
+] as const;
 
-const maturityStages = [
-  {
-    stage: "Fragmented",
-    description: "Disconnected flows, inconsistent patterns, manual workarounds",
-  },
-  {
-    stage: "Structured",
-    description: "Defined patterns, improved workflows, reduced friction",
-  },
-  {
-    stage: "Scalable",
-    description: "Systems, tokens, and components enabling cross-product consistency",
-  },
-  {
-    stage: "Intelligent",
-    description: "AI-assisted workflows, automation, and adaptive user experiences",
-  },
-];
+const RANGE_SLUG = "rivva" as const;
 
 export default function Home() {
+  const rivva = projects.find((p) => p.slug === RANGE_SLUG);
+
   return (
     <div style={{ paddingTop: 56 }}>
-
       {/* ── 1. HERO ──────────────────────────────────────────── */}
       <Hero />
 
@@ -93,10 +79,7 @@ export default function Home() {
           >
             Impact across products, systems, and operations
           </p>
-          <div
-            className="hero-metrics"
-            style={{ paddingTop: 32 }}
-          >
+          <div className="hero-metrics" style={{ paddingTop: 32 }}>
             {heroMetrics.map((m) => (
               <div key={`${m.value}-${m.label}`} className="hero-metric" style={{ whiteSpace: "normal" }}>
                 <p className="hero-metric-value">{m.value}</p>
@@ -165,15 +148,18 @@ export default function Home() {
                 >
                   {item.description}
                 </p>
-                <Link
-                  href={`/work/${item.slug}`}
-                  style={{ fontSize: 13, color: "var(--accent-orange)", textDecoration: "none" }}
-                >
+                <Link href={`/work/${item.slug}`} style={{ fontSize: 13, color: "var(--accent-orange)", textDecoration: "none" }}>
                   View case study →
                 </Link>
               </div>
             </div>
           ))}
+        </div>
+
+        <div style={{ paddingTop: 18 }}>
+          <Link href="/work" style={{ fontSize: 14, fontWeight: 500, color: "var(--accent-orange)", textDecoration: "none" }}>
+            View all case studies →
+          </Link>
         </div>
       </section>
 
@@ -197,65 +183,25 @@ export default function Home() {
               letterSpacing: "-0.02em",
               lineHeight: 1.2,
               marginBottom: 16,
-              maxWidth: 680,
+              maxWidth: 720,
             }}
           >
-            I approach product design as a progression of system maturity.
+            I approach product design as a progression of system maturity — from fragmented experiences to intelligent, adaptive systems.
           </h2>
           <p
             style={{
               fontSize: 16,
               color: "var(--fg-muted)",
               lineHeight: 1.7,
-              maxWidth: 640,
-              marginBottom: 56,
+              maxWidth: 720,
+              marginBottom: 40,
             }}
           >
-            From fragmented experiences to intelligent, adaptive systems — each stage builds on the last.
+            Fragmented → Structured → Scalable → Intelligent
           </p>
 
-          <div
-            className="system-model-grid"
-            style={{
-              borderTop: "1px solid var(--border)",
-              columnGap: 32,
-              rowGap: 0,
-              paddingTop: 32,
-            }}
-          >
-            {maturityStages.map((s, i) => (
-              <div
-                key={s.stage}
-                style={{ paddingBottom: 32 }}
-              >
-                <p
-                  style={{
-                    fontSize: 11,
-                    color: "var(--fg-subtle)",
-                    fontWeight: 500,
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    marginBottom: 14,
-                  }}
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </p>
-                <p
-                  style={{
-                    fontSize: 18,
-                    fontWeight: 600,
-                    letterSpacing: "-0.02em",
-                    marginBottom: 10,
-                    lineHeight: 1.2,
-                  }}
-                >
-                  {s.stage}
-                </p>
-                <p style={{ fontSize: 14, color: "var(--fg-muted)", lineHeight: 1.65 }}>
-                  {s.description}
-                </p>
-              </div>
-            ))}
+          <div style={{ paddingTop: 8, borderTop: "1px solid var(--border)" }}>
+            <SystemModel />
           </div>
 
           <p
@@ -263,14 +209,13 @@ export default function Home() {
               fontSize: 15,
               color: "var(--fg-muted)",
               lineHeight: 1.7,
-              maxWidth: 640,
-              marginTop: 48,
+              maxWidth: 720,
+              marginTop: 40,
               paddingTop: 32,
               borderTop: "1px solid var(--border)",
             }}
           >
-            My work focuses on moving products forward across this curve — designing not just interfaces,
-            but the systems behind them.
+            My work focuses on moving products forward across this curve — designing not just interfaces, but the systems behind them.
           </p>
         </div>
       </section>
@@ -286,69 +231,47 @@ export default function Home() {
             fontWeight: 600,
             letterSpacing: "-0.02em",
             lineHeight: 1.2,
-            marginBottom: 16,
-            maxWidth: 680,
+            marginBottom: 12,
+            maxWidth: 720,
           }}
         >
-          Beyond core systems work.
+          Beyond core systems work, I explore product ideas, AI-assisted workflows, and new interaction models.
         </h2>
-        <p
-          style={{
-            fontSize: 16,
-            color: "var(--fg-muted)",
-            lineHeight: 1.7,
-            maxWidth: 580,
-            marginBottom: 48,
-          }}
-        >
-          I explore product ideas, AI-assisted workflows, and new interaction models.
-        </p>
 
-        <div
-          style={{
-            borderTop: "1px solid var(--border)",
-            borderBottom: "1px solid var(--border)",
-          }}
-          className="grid-systems-group grid-systems-group--wide"
-        >
-          <div style={{ padding: "32px 0" }}>
-            <p style={{ fontSize: 15, fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 4 }}>
-              Rivva
+        {rivva ? (
+          <Link
+            href={`/work/${rivva.slug}`}
+            style={{
+              display: "block",
+              marginTop: 28,
+              border: "1px solid var(--border)",
+              borderRadius: 12,
+              padding: "24px",
+              textDecoration: "none",
+              color: "inherit",
+              background: "var(--surface)",
+            }}
+            aria-label="Rivva case study"
+          >
+            <p style={{ fontSize: 16, fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 8 }}>
+              {rivva.title}
             </p>
-            <p style={{ fontSize: 12, color: "var(--fg-subtle)", lineHeight: 1.4 }}>AI Scheduling Platform</p>
-          </div>
-          <div style={{ padding: "32px 0" }}>
-            <p
-              style={{
-                fontSize: 16,
-                fontWeight: 600,
-                letterSpacing: "-0.01em",
-                marginBottom: 10,
-                lineHeight: 1.35,
-              }}
-            >
-              Shipped and validated a product in a global market
+            <p style={{ fontSize: 14, color: "var(--fg-muted)", marginBottom: 12 }}>{rivva.subtitle}</p>
+            <p style={{ fontSize: 15, color: "var(--fg-body-muted)", lineHeight: 1.65, maxWidth: 860, marginBottom: 14 }}>
+              Shipped and validated a product in a global market — reached #4 Product of the Day on Product Hunt, demonstrating product intuition, execution speed, and global relevance.
             </p>
-            <p
-              style={{
-                fontSize: 14,
-                color: "var(--fg-muted)",
-                lineHeight: 1.65,
-                marginBottom: 16,
-                maxWidth: 640,
-              }}
-            >
-              Launched and reached #4 Product of the Day on Product Hunt, demonstrating product intuition,
-              execution speed, and global relevance.
-            </p>
-            <Link
-              href="/work/rivva"
-              style={{ fontSize: 13, color: "var(--accent-orange)", textDecoration: "none" }}
-            >
-              View case study →
-            </Link>
-          </div>
-        </div>
+            <div className="metric-badges">
+              {rivva.metrics.slice(0, 3).map((m, idx) => (
+                <div key={`${m.value}-${m.label}-${idx}`} className="metric-badge">
+                  <span className="metric-badge__value">{m.value}</span>
+                  <span className="metric-badge__label">{m.label}</span>
+                </div>
+              ))}
+            </div>
+          </Link>
+        ) : (
+          <p style={{ fontSize: 14, color: "var(--fg-muted)" }}>Rivva case study is unavailable.</p>
+        )}
       </section>
 
       {/* ── 6. CLOSING ───────────────────────────────────────── */}
@@ -366,8 +289,7 @@ export default function Home() {
               marginBottom: 20,
             }}
           >
-            Senior Product Designer with experience leading systems across enterprise SaaS, fintech
-            infrastructure, and platform products.
+            Senior Product Designer with experience leading systems across enterprise SaaS, fintech infrastructure, and platform products.
           </p>
           <p
             style={{
@@ -377,8 +299,7 @@ export default function Home() {
               marginBottom: 40,
             }}
           >
-            My work sits at the intersection of product design, design systems, and operational scale —
-            helping teams move from fragmented experiences to scalable, intelligent systems.
+            My work sits at the intersection of product design, design systems, and operational scale — helping teams move from fragmented experiences to scalable, intelligent systems.
           </p>
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap", alignItems: "center" }}>
             <a
@@ -411,7 +332,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
     </div>
   );
 }

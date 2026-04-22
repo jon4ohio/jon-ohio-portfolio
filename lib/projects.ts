@@ -89,7 +89,7 @@ export const projects: Project[] = [
     company: "SeamlessHR",
     period: "Mar 2022 – Mar 2025",
     summary:
-      "Repositioned a broken recruitment add-on into a flagship hiring product by fixing workflow trust, applicant completion, and system value.",
+      "Re-architected a core enterprise workflow from an underperforming add-on into a flagship hiring product. Rebuilt workflow trust, restored completion rates, and introduced structured AI-assisted decision points used by HR teams across the platform.",
     role: "Lead Product Designer across product strategy, UX, and phased rollout.",
     scope:
       "Applicant and recruiter workflows, research synthesis, roadmap definition, and cross-functional delivery with PM, engineering, CX, and sales.",
@@ -200,7 +200,7 @@ export const projects: Project[] = [
     company: "SeamlessHR",
     period: "Dec 2023 – Present",
     summary:
-      "Built the operating system that aligned design and engineering across 12 teams, replacing fragmented libraries with one governed source of truth.",
+      "Designed and scaled a unified product system across 12 teams — from scattered component libraries to a governed, token-driven architecture embedded across every SeamlessHR product. Now the standard for how design and engineering ship together.",
     role: "Design Systems Lead and DesignOps driver.",
     scope:
       "Token architecture, component foundations, governance, adoption strategy, documentation, and team enablement across the product organisation.",
@@ -211,13 +211,13 @@ export const projects: Project[] = [
       { value: "+15%", label: "Efficiency uplift" },
     ],
     context:
-      "SeamlessHR had three fragmented UI libraries and disconnected Figma assets across squads. Duplicate components slowed releases, eroded brand trust, and inflated maintenance cost — exactly as the company pushed toward global expansion and a Product‑Led Growth (PLG) strategy.",
+      "SeamlessHR runs multiple products across HR, payroll, recruitment, and performance management. Each product team had evolved its own component library, its own naming conventions, its own design patterns. The result was inconsistent interfaces across the suite, duplicated design and engineering effort, and no way to roll out platform-wide changes without touching every product individually. When the company needed to move fast — on a rebrand, a new product line, a compliance update — the fragmentation made it expensive. There was no single source of truth. There was also no one responsible for building one.",
     problem:
-      "Without a shared language (tokens, patterns, governance), design and engineering shipped inconsistent UI across products and spent days on “style churn.” The organisation needed one source of truth that could scale with teams, frameworks, and evolving brand/accessibility requirements.",
+      "Getting 12 product teams onto a shared system is not a design problem. It's an organizational one, and it was harder than the architecture. Each team had legitimate reasons to resist: delivery timelines, engineering muscle memory around existing patterns, and designers who had made considered local decisions that a new shared system might overrule. A top-down mandate would have generated surface compliance — teams technically using Seamkit but routing around it for anything that required judgment. The adoption risk was the real project. Getting the token architecture right mattered; getting twelve teams to trust a system they didn't build mattered more. That required showing up in team rituals rather than sending documentation, fixing edge cases within the same sprint they were reported, and treating adoption metrics — not just component coverage — as the primary measure of whether Seamkit was actually working. The governance model had to feel like a service, not a constraint. Contribution had to feel like influence, not bureaucratic overhead. The 91.1/100 trust score reflects that. Trust at that level, across teams with different codebases and competing priorities, doesn't come from a good Figma library. It comes from the system being genuinely useful under real product pressure.",
     action:
-      "Consolidated the ecosystem into SeamKit — a token‑driven source of truth that aligns designers and engineers on brand, accessibility, and scale. Established foundations (token hierarchy, naming, components) plus operating system (governance, documentation, contribution/release cadence) to support sustained adoption across squads.",
+      "I led Seamkit from concept to cross-product adoption. I defined the token hierarchy — a layered naming model separating primitive values, semantic roles, and component-level overrides. This wasn't cosmetic; it was the structural decision that determines whether a design system can scale or collapses into a pile of exceptions. Every downstream decision — how components are named, how themes work, how engineers consume the system — traces back to this architecture. (Diagram note: a sparse three-column token hierarchy — Core tokens → Semantic tokens → Component tokens — with inheritance arrows and a clear boundary between what designers own and what engineers consume; Figma frame title suggestion: \"Seamkit — Token Architecture Overview\".) A design system without governance becomes a dumping ground, so I wrote the contribution SOP, defined the component lifecycle stages (proposal, draft, review, stable, deprecated), and set the criteria for what enters the system versus what stays product-specific. This reduced arbitrary additions and gave teams a clear path to influence the system without breaking it. I ran structured onboarding per team, embedded Seamkit into the engineering workflow via a Vue component library and Figma token sync, and maintained adoption tracking across all 12 teams. The 88.9/100 adoption score and 91.1/100 trust score came from teams that were initially skeptical. Seamkit is not a project — it's an operating system for product work at SeamlessHR. I own its roadmap, its versioning, its documentation, and the decisions about what changes when new product directions require it. Key decisions and what they cost: I prioritised token architecture before components. The faster path was to ship components immediately — visible deliverables, early wins, teams see something working. I chose to establish the token layer first: primitive values, semantic mappings, component-level overrides, all defined and agreed before a single component was built. This delayed the moment when teams could see tangible output by roughly six weeks. The cost was real — early stakeholder pressure to show visible progress. The payoff was a system where a theme change or a brand update touches one layer and propagates everywhere, rather than requiring per-component edits across the suite. Without that architecture decision, Seamkit would have become the same problem it was built to replace. I chose incremental rollout over full migration. A full cut-over would have been cleaner to coordinate and easier to communicate, but a forced migration at platform scale, across teams with active delivery commitments, would have generated resentment rather than buy-in. The cost was a longer period of coexistence between Seamkit and legacy patterns, which created some inconsistency during the transition and required more sustained coordination than a clean cut-over would have. Teams that choose to adopt a system maintain it; teams that are forced onto one route around it at the first opportunity. I chose co-creation over enforcement. I could have written the system standards and distributed them; instead I ran design audits per product team, ran sessions where teams surfaced their real constraints, and let those constraints shape the contribution model. The cost was time — this process took significantly longer than a top-down approach. The outcome was a system that teams contribute to and defend, rather than one they tolerate.",
     impact:
-      "A single trusted system now anchors UI consistency and accelerates delivery: 2.49M token insertions and 443K component insertions, 12 teams onboarded, and measurable improvements in onboarding speed and token hygiene — while enabling progressive rollout into live screens gated by feature flags for zero downtime.",
+      "Before Seamkit, shipping a UI change to a shared pattern meant coordinating separately with each product team — if it happened at all. Now, a token update propagates across every product in one release cycle. Before Seamkit, design and engineering worked from different references. Now they work from the same source. The 88.9/100 adoption score reflects consistent usage. The 91.1/100 trust score reflects something harder to achieve: teams that rely on the system, rather than routing around it. The technical side of a design system is solvable. The architecture decisions are consequential but learnable. What can't be templated is the organizational work — building trust with teams that had no reason to give it, making governance feel like a feature rather than a fence, and sustaining engagement long past the point when the initial momentum runs out. A design system that only designers trust is a Figma file. Seamkit became infrastructure.",
     tags: ["Design Systems", "Tokens", "Governance", "Vue", "Figma"],
     featured: true,
     assets: {
@@ -277,7 +277,7 @@ export const projects: Project[] = [
     company: "Funds and Electronic Transfer Solutions (Fets) · Nigeria",
     period: "2021 – 2025",
     summary:
-      "Designed the in-house transaction infrastructure that replaced an expensive vendor dependency and opened up white-label revenue.",
+      "Designed the interfaces for a mobile money engine that eliminated a costly external vendor dependency. The system now handles double the original transaction capacity and enables white-label revenue — saving over $1M annually.",
     role: "Lead Product Designer across platform strategy and operational UX.",
     scope:
       "Transaction engine workflows, operator console, reporting, reconciliation, and direct collaboration with engineering on financial operations.",
@@ -499,7 +499,7 @@ export const projects: Project[] = [
     company: "Fets × IBEDC",
     period: "2022 – 2024",
     summary:
-      "Digitised utility payments and service workflows for a major electricity distributor across consumer app and in-person POS touchpoints.",
+      "Designed consumer and field payment tools for one of Nigeria's largest electricity distributors, translating complex utility infrastructure into usable workflows at public-sector scale. 10,000+ downloads in the first six months; 4.6 stars on the Play Store.",
     role: "Lead Product Designer for customer and operational experiences.",
     scope:
       "Consumer app flows, agent and POS workflows, reconciliation tooling, and service operations spanning digital and walk-in channels.",
@@ -611,10 +611,10 @@ export const projects: Project[] = [
     title: "Rivva",
     subtitle: "AI Scheduling Platform",
     category: "Intelligent Systems",
-    company: "Founding Team · iOS · Android · Web",
+    company: "Rivva · Nigeria",
     period: "Jul 2025 – Jan 2026",
     summary:
-      "Shaped the trust layer for an AI scheduling product, translating biometric data into explainable planning people could act on.",
+      "Co-led design for an AI scheduling product shipped from beta to full release — reaching #4 on Product Hunt in its first week and surpassing 500 downloads within the first month. Owned the web app end-to-end and contributed to mobile.",
     role: "Product Designer (Founding Team) from product definition to cross-platform system design.",
     scope:
       "AI interaction design, Apple Health onboarding, web app design, and shared patterns spanning iOS, Android, and web.",
@@ -631,7 +631,7 @@ export const projects: Project[] = [
       "Designed AI-assisted planning workflows, an energy-aware scheduling model, and Apple Health onboarding from 0→1. Led web app design and shaped the AI-driven daily planning experience. Co-designed Nia (AI assistant) — translating ML outputs into actionable, trusted decisions — and established the cross-platform design system for seamless handoff between mobile and web.",
     impact:
       "#4 Product of the Day on Product Hunt. 500+ downloads in the first month. 30+ paying customers within two months. A trusted, explainable AI assistant — not just automation.",
-    tags: ["AI/ML", "iOS", "Android", "Health Tech", "0→1", "Cross-platform"],
+    tags: ["Product Design", "Web App", "0→1", "Consumer", "AI/ML", "Health Tech"],
     featured: true,
     assets: {
       thumbnails: [
