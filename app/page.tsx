@@ -58,7 +58,7 @@ const ownershipItems = [
     name: "FetsProza",
     type: "Infrastructure-as-a-Service Platform",
     description:
-      "Designed the interfaces for a mobile money engine that eliminated a costly vendor dependency, doubled transaction capacity, and saves over $1M annually.",
+      "Owned the design of infrastructure interfaces for a mobile money engine that eliminated a costly vendor dependency, doubled transaction capacity, and saves over $1M annually.",
   },
   {
     slug: "ibedc",
@@ -117,7 +117,7 @@ export default function Home() {
             maxWidth: 720,
           }}
         >
-          I work at the system level — designing structures that scale across products, teams, and organizations.
+          I operate at the system level — designing structures that scale across products, teams, and organizations.
         </h2>
 
         <div className="work-list-stack">
