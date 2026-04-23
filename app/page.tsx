@@ -20,11 +20,22 @@ export const metadata: Metadata = {
 };
 
 const heroMetrics: Array<{ value: string; label: string }> = [
-  { value: "$1M+", label: "Through infrastructure redesign of a mobile money system" },
-  { value: "↑75%", label: "From re-architecting enterprise HR workflows" },
-  { value: "↓80%", label: "Via system-level transaction and validation redesign" },
-  { value: "12+", label: "Through rollout of a unified design system (Seamkit)" },
-  { value: "#4 Product of the Day", label: "Product Hunt launch — Rivva (first week)" },
+  {
+    value: "$1M+",
+    label: "Saved through infrastructure redesign of a mobile money system",
+  },
+  {
+    value: "↑75%",
+    label: "Increase in user satisfaction from enterprise workflow re-architecture",
+  },
+  {
+    value: "12+",
+    label: "Teams onboarded to a unified design system (Seamkit)",
+  },
+  {
+    value: "#4",
+    label: "Product of the Day — Product Hunt launch (Rivva)",
+  },
 ];
 
 const ownershipItems = [
@@ -33,35 +44,35 @@ const ownershipItems = [
     name: "Seamkit",
     type: "Enterprise Design System",
     description:
-      "Designed and scaled a unified product system across 12 teams — from scattered component libraries to a governed, token-driven architecture embedded across every SeamlessHR product. Now the standard for how design and engineering ship together.",
+      "Owned the design and rollout of a unified product system across 12 teams — governed, token-driven, and embedded across every SeamlessHR product.",
   },
   {
     slug: "seamless-hiring",
     name: "SeamlessHiring 2.0",
     type: "Recruitment Management System",
     description:
-      "Re-architected a core enterprise workflow from an underperforming add-on into a flagship hiring product. Rebuilt workflow trust, restored completion rates, and introduced structured AI-assisted decision points used by HR teams across the platform.",
+      "Owned the redesign of a core enterprise hiring system — transforming an underperforming add-on into a flagship product with AI-assisted decision support.",
   },
   {
     slug: "fetsproza",
     name: "FetsProza",
     type: "Infrastructure-as-a-Service Platform",
     description:
-      "Designed the interfaces for a mobile money engine that eliminated a costly external vendor dependency. The system now handles double the original transaction capacity and enables white-label revenue — saving over $1M annually.",
+      "Designed the interfaces for a mobile money engine that eliminated a costly vendor dependency, doubled transaction capacity, and saves over $1M annually.",
   },
   {
     slug: "ibedc",
     name: "IBEDC Digital Transformation",
     type: "Care App + POS System",
     description:
-      "Designed consumer and field payment tools for one of Nigeria's largest electricity distributors, translating complex utility infrastructure into usable workflows at public-sector scale. 10,000+ downloads in the first six months; 4.6 stars on the Play Store.",
+      "Designed consumer and field payment tools for one of Nigeria's largest electricity distributors — translating utility infrastructure into usable workflows at public-sector scale.",
   },
   {
     slug: "rivva",
     name: "Rivva",
     type: "AI Scheduling Platform",
     description:
-      "Co-led design for an AI scheduling product shipped from beta to full release — reaching #4 on Product Hunt in its first week and surpassing 500 downloads within the first month. Owned the web app end-to-end and contributed to mobile.",
+      "Co-led design for an AI scheduling product shipped from beta to full release — reaching #4 on Product Hunt in its first week and 500+ downloads within the first month.",
   },
 ] as const;
 
@@ -106,7 +117,7 @@ export default function Home() {
             maxWidth: 720,
           }}
         >
-          I work at the system level — designing structures that scale across products, teams, and workflows.
+          I work at the system level — designing structures that scale across products, teams, and organizations.
         </h2>
 
         <div className="work-list-stack">

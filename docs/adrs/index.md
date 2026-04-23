@@ -40,5 +40,6 @@
 | 036 | Homepage featured case studies over taxonomy | Accepted | 2026-04-20 | None |
 | 038 | Homepage copy refresh, Seamkit narrative update, and Rivva Product Hunt metric | Accepted | 2026-04-22 | None |
 | 039 | Homepage “What I own” uses `/work` case study row layout (no S/N) and folds in Rivva | Proposed | 2026-04-22 | None |
+| 040 | Homepage metrics strip (4 items) and ownership copy precision refresh | Proposed | 2026-04-23 | None |
 
 Chronological audit notes: [`LOG.md`](./LOG.md).

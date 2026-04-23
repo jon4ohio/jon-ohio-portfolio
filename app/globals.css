@@ -838,11 +838,15 @@ button:focus-visible {
   column-gap: 28px;
   row-gap: 0;
   padding: 48px 0;
+  grid-auto-rows: 1fr;
 }
 .hero-metric {
   border-left: 1px solid color-mix(in oklab, var(--border) 45%, transparent);
   padding-left: 16px;
   min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .hero-metric-value {
   font-size: clamp(30px, 4vw, 36px);
@@ -850,6 +854,7 @@ button:focus-visible {
   letter-spacing: -0.03em;
   line-height: 1;
   margin: 0;
+  white-space: nowrap;
 }
 .hero-metric-label {
   margin: 6px 0 0;
@@ -857,10 +862,17 @@ button:focus-visible {
   color: var(--fg-muted);
   letter-spacing: 0.02em;
   line-height: 1.35;
+  white-space: normal;
 }
 @media (min-width: 768px) {
   .hero-metric {
     white-space: nowrap;
+  }
+  .hero-metric-label {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
   }
 }
 @media (max-width: 767px) {
@@ -869,6 +881,7 @@ button:focus-visible {
     column-gap: 40px;
     row-gap: 28px;
     padding: 32px 0;
+    grid-auto-rows: 1fr;
   }
   .hero-metric-seamkit-suffix {
     display: none !important;
