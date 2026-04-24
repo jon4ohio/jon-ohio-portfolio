@@ -242,7 +242,7 @@ export default function Home() {
       >
         <div style={{ maxWidth: 1240, margin: "0 auto", padding: "120px 24px" }}>
           <p className="section-label" style={{ marginBottom: 20 }}>
-            How systems evolve
+            Perspectives
           </p>
           <h2
             style={{
@@ -285,6 +285,77 @@ export default function Home() {
           >
             My work focuses on moving products forward across this curve — designing not just interfaces, but the systems behind them.
           </p>
+
+          <div style={{ marginTop: 40, paddingTop: 32, borderTop: "1px solid var(--border)" }}>
+            <p className="section-label" style={{ marginBottom: 16, fontSize: 12 }}>
+              Writing
+            </p>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: 14, maxWidth: 720 }}>
+              <div style={{ paddingBottom: 14, borderBottom: "1px solid var(--border)" }}>
+                <a
+                  href="https://theuxcompany.substack.com/p/design-tokens-the-connective-tissue"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{ fontSize: 15, color: "var(--accent-orange)", textDecoration: "none" }}
+                >
+                  Design tokens: the connective tissue
+                </a>
+                <p style={{ marginTop: 6, fontSize: 12, color: "var(--fg-subtle)" }}>The UX Company — Substack</p>
+              </div>
+
+              <div style={{ paddingBottom: 14, borderBottom: "1px solid var(--border)" }}>
+                <p style={{ fontSize: 15, color: "var(--fg)", marginBottom: 0 }}>
+                  Designing for Failure: How High-Risk Digital Systems Really Fail
+                </p>
+                <p style={{ marginTop: 6, fontSize: 12, color: "var(--fg-subtle)" }}>TechCabal (forthcoming)</p>
+              </div>
+
+              <div>
+                <a
+                  href="https://techcabal.com/2026/02/13/john-ohio-quick-fire/"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{ fontSize: 15, color: "var(--accent-orange)", textDecoration: "none" }}
+                >
+                  Quick Fire — AI, enterprise design, and product craft
+                </a>
+                <p style={{ marginTop: 6, fontSize: 12, color: "var(--fg-subtle)" }}>TechCabal · Feb 2026</p>
+              </div>
+            </div>
+          </div>
+
+          <div style={{ marginTop: 40, paddingTop: 32, borderTop: "1px solid var(--border)" }}>
+            <p className="section-label" style={{ marginBottom: 16, fontSize: 12 }}>
+              Talks
+            </p>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: 14, maxWidth: 720 }}>
+              <div style={{ paddingBottom: 14, borderBottom: "1px solid var(--border)" }}>
+                <a
+                  href="https://www.youtube.com/watch?v=9NG7TWiyIjo"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{ fontSize: 15, color: "var(--accent-orange)", textDecoration: "none" }}
+                >
+                  Design Thinking for Problem Solving: Beyond UX
+                </a>
+                <p style={{ marginTop: 6, fontSize: 12, color: "var(--fg-subtle)" }}>GDG Lagos — DevFest 2024</p>
+              </div>
+
+              <div>
+                <a
+                  href="https://www.youtube.com/watch?v=k7KGv6FYIhM&t=1549s"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{ fontSize: 15, color: "var(--accent-orange)", textDecoration: "none" }}
+                >
+                  Embedding AI into Design Systems and Product Experiences
+                </a>
+                <p style={{ marginTop: 6, fontSize: 12, color: "var(--fg-subtle)" }}>AIDA 2025</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
