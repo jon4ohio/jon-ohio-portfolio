@@ -934,6 +934,11 @@ button:focus-visible {
 .grid-systems-group--wide   { grid-template-columns: 240px 1fr; }
 .grid-systems-group--narrow { grid-template-columns: 120px 1fr; }
 
+/* Leadership /leadership — philosophy lines: nicer line breaks where supported */
+.leadership-philosophy-item {
+  text-wrap: pretty;
+}
+
 /* ── Tablet  ≤ 900px ─────────────────────────────── */
 @media (max-width: 900px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
@@ -1047,6 +1052,19 @@ button:focus-visible {
   }
   .about-timeline-row {
     grid-template-columns: 80px 1fr !important;
+  }
+
+  /* Leadership /leadership — philosophy: slightly smaller type on narrow viewports to reduce orphans */
+  .leadership-philosophy-item {
+    font-size: clamp(18px, 4.8vw, 28px) !important;
+  }
+
+  /* Leadership /leadership — focus cards: stack full-width (override tablet 2-col !important) */
+  .leadership-focus-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .leadership-focus-grid > :last-child {
+    grid-column: auto;
   }
 
   .hide-mobile    { display: none !important; }
