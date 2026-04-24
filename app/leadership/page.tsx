@@ -161,6 +161,7 @@ export default function Leadership() {
           {philosophy.map((p, i) => (
             <li
               key={i}
+              className="leadership-philosophy-item"
               style={{
                 fontSize: "clamp(20px, 2.4vw, 28px)",
                 fontWeight: 500,
