@@ -47,7 +47,7 @@ const layers = [
   {
     label: "03",
     title: "Design Onboarding System",
-    body: "System-first onboarding (not tool-first). New designers learn the tokens, components, and patterns before tools — and contribute back into the system early as part of their ramp.",
+    body: "System-first onboarding (not tool-first). New designers learn the tokens, components, and patterns before tools — contributing back into the system within their first weeks. This approach reduced onboarding time by 30% and accelerated system literacy across every new hire.",
   },
   {
     label: "04",
@@ -71,25 +71,18 @@ const layers = [
   },
 ];
 
-const onboardingSteps = [
-  { step: "01", title: "System-first orientation", desc: "Tokens, components, and patterns before tools." },
-  { step: "02", title: "Guided contribution", desc: "First contribution into the system within the first weeks." },
-  { step: "03", title: "Standards alignment", desc: "Critique, accessibility, and governance baked in early." },
-  { step: "04", title: "Capability mapping", desc: "Role-gap framework defines next 90 days." },
-];
-
 const currentFocus = [
   {
-    label: "AI-Integrated Product Systems",
-    desc: "Defining AI-UX patterns, prompt frameworks, and interaction models adopted across SeamlessHR's product suite.",
+    label: "AI in enterprise workflows without eroding trust",
+    desc: "How do you embed AI decision-support into high-stakes HR workflows — hiring, performance, payroll — in ways teams will actually rely on? Trust, explainability, and human override are design problems, not just engineering ones.",
   },
   {
-    label: "Product-Led Growth",
-    desc: "Driving PLG transformation — shifting from sales-led to product-led. Enhancing adoption, onboarding, and self-service capability.",
+    label: "Governance at multi-product scale",
+    desc: "A contribution model that works for one product team starts breaking at twelve. The question isn't how to enforce standards — it's how to design governance that teams choose to use because it makes their work easier.",
   },
   {
-    label: "Enterprise Design Leadership",
-    desc: "Leading DesignOps across 8 designers. Strategy, governance, capability development, and cross-functional alignment.",
+    label: "Design systems as infrastructure for intelligent interfaces",
+    desc: "As AI becomes a product layer, design systems need to encode interaction patterns for AI — not just UI components. That means reusable prompt frameworks, trust states, and fallback patterns that behave consistently across products.",
   },
 ];
 
@@ -115,7 +108,7 @@ export default function Leadership() {
           Scaling design as a system, not a service.
         </h1>
         <p style={{ fontSize: 19, color: "var(--fg-body-muted)", maxWidth: 680, lineHeight: 1.65 }}>
-          Led DesignOps and system adoption across 12 product teams at SeamlessHR — operationalising design as infrastructure: how decisions are made, how knowledge compounds, and how teams stay coherent as the organisation scales.
+          Led DesignOps and system adoption across 12 product teams at SeamlessHR — operationalising design as infrastructure: how decisions are made, how knowledge compounds, and how teams stay coherent as the organisation scales. Principles built here are designed to hold beyond any single product organisation.
         </p>
       </section>
 
@@ -247,10 +240,10 @@ export default function Leadership() {
         </div>
       </section>
 
-      {/* ── 5. ONBOARDING DETAIL ────────────────────────────── */}
+      {/* ── 5. PROBLEMS I&apos;M WORKING THROUGH ────────────── */}
       <section style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px 96px" }}>
         <p className="section-label" style={{ marginBottom: 16 }}>
-          Design Onboarding System
+          Problems I&apos;m Working Through
         </p>
         <h2
           style={{
@@ -262,58 +255,7 @@ export default function Leadership() {
             marginBottom: 40,
           }}
         >
-          System-first, not tool-first.
-        </h2>
-        <div
-          className="stats-grid stats-grid--4"
-          style={{
-            border: "1px solid var(--border)",
-            borderRadius: 12,
-            overflow: "hidden",
-          }}
-        >
-          {onboardingSteps.map((s) => (
-            <div
-              key={s.step}
-              className="stats-cell"
-              style={{ background: "var(--bg)", padding: "32px 28px" }}
-            >
-              <p
-                style={{
-                  fontSize: 11,
-                  fontWeight: 500,
-                  color: "var(--fg-subtle)",
-                  letterSpacing: "0.06em",
-                  marginBottom: 16,
-                }}
-              >
-                {s.step}
-              </p>
-              <p style={{ fontSize: 16, fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 8 }}>
-                {s.title}
-              </p>
-              <p style={{ fontSize: 13, color: "var(--fg-muted)", lineHeight: 1.5 }}>{s.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── 6. CURRENT FOCUS ────────────────────────────────── */}
-      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px 96px" }}>
-        <p className="section-label" style={{ marginBottom: 16 }}>
-          Current Focus · SeamlessHR · Jan 2025 – Present
-        </p>
-        <h2
-          style={{
-            fontSize: "clamp(24px, 3vw, 36px)",
-            fontWeight: 600,
-            letterSpacing: "-0.02em",
-            lineHeight: 1.2,
-            maxWidth: 640,
-            marginBottom: 40,
-          }}
-        >
-          Where my work lives now.
+          Active questions at the intersection of systems and scale.
         </h2>
         <div className="grid-3 leadership-focus-grid" style={{ gap: 16 }}>
           {currentFocus.map((f, i) => (
@@ -332,7 +274,7 @@ export default function Leadership() {
         </div>
       </section>
 
-      {/* ── 7. RELATED CASE STUDIES ─────────────────────────── */}
+      {/* ── 6. RELATED CASE STUDIES ─────────────────────────── */}
       <section style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px 120px" }}>
         <div
           className="grid-2 pad-inset emphasis-block"
