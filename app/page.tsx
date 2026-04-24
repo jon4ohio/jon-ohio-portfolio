@@ -105,7 +105,7 @@ export default function Home() {
       {/* ── 3. OWNERSHIP ─────────────────────────────────────── */}
       <section style={{ maxWidth: 1240, margin: "0 auto", padding: "120px 24px 0" }}>
         <p className="section-label" style={{ marginBottom: 20 }}>
-          What I own
+          Systems I&apos;ve Shaped
         </p>
         <h2
           style={{
