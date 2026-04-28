@@ -42,7 +42,14 @@ export default function TensionCards({
               minWidth: 0,
             }}
           >
-            <div style={{ fontSize: 48, fontWeight: 800, color: "var(--border)", lineHeight: 1 }}>
+            <div
+              style={{
+                fontSize: 48,
+                fontWeight: 800,
+                color: "color-mix(in oklab, var(--border), var(--fg) 10%)",
+                lineHeight: 1,
+              }}
+            >
               {c.number}
             </div>
             <div style={{ marginTop: 12, fontSize: 15, fontWeight: 600, color: "var(--fg)" }}>{c.title}</div>

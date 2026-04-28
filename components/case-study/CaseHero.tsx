@@ -34,7 +34,7 @@ export default function CaseHero({
           fontSize: 11,
           textTransform: "uppercase",
           letterSpacing: "0.08em",
-          color: "var(--fg-subtle)",
+          color: "var(--fg-muted)",
         }}
       >
         {microLabel}
