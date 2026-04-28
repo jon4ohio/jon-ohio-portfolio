@@ -137,12 +137,6 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         ]}
         commercialShiftTop="₦150,000 add-on"
         commercialShiftBottom="→ $3,600/yr flagship module"
-        mobileSummary={[
-          { label: "Role", value: "Lead Product Designer" },
-          { label: "Timeline", value: "Mar 2022 – Mar 2025" },
-          { label: "Domain", value: "Enterprise SaaS / HR Tech / ATS" },
-          { label: "Impact", value: "↓50% support volume · 27→74 NPS · ~100% completion" },
-        ]}
       />
 
       <TensionCards
