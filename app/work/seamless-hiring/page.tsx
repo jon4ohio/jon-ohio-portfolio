@@ -6,6 +6,7 @@ import MetadataBrief from "@/components/case-study/MetadataBrief";
 import TensionCards from "@/components/case-study/TensionCards";
 import PhaseTimeline, { type Phase } from "@/components/case-study/PhaseTimeline";
 import EvidenceModule from "@/components/case-study/EvidenceModule";
+import AnnotatedFigure from "@/components/case-study/AnnotatedFigure";
 import DecisionAccordion from "@/components/case-study/DecisionAccordion";
 import OutcomeCards, { type OutcomeTier } from "@/components/case-study/OutcomeCards";
 import UnlockPanel from "@/components/case-study/UnlockPanel";
@@ -76,15 +77,12 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         @media (max-width: 640px) {
           .case-study-tension-grid { flex-direction: column !important; }
           .case-study-phase-desktop { display: none !important; }
-          .case-study-brief-rail { display: none !important; }
-          .case-study-brief-mobile { display: block !important; }
           .case-study-evidence-row--text-left { flex-direction: column-reverse !important; }
           .case-study-evidence-row--text-right { flex-direction: column !important; }
           .case-study-nextread { flex-direction: column !important; }
           .case-study-nextread-media { width: 100% !important; }
         }
         @media (min-width: 641px) {
-          .case-study-brief-mobile { display: none !important; }
           .case-study-phase-mobile { display: none !important; }
         }
       `}</style>
@@ -164,6 +162,20 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           },
         ]}
       />
+
+      <div style={{ maxWidth: 1240, margin: "32px auto 0", padding: "0 24px" }}>
+        <AnnotatedFigure
+          figure="B"
+          label="Before State — Faulty UI"
+          imageAlt="SeamlessHiring before redesign — broken application flow and navigation"
+          caption="The experience before redesign. Navigation misrouted core tasks, evaluation had no system surface, and permission models blocked enterprise use cases."
+          decisionNotes={[
+            "01 — Workflow collapse: 'Requests' button routed to application history, not the application form — the primary recruiter action was buried behind the wrong entry point",
+            "02 — Evaluation without structure: no scoring or assessment surface existed inside the system — evaluation happened in spreadsheets and email threads outside SeamlessHiring entirely",
+            "03 — Permission model: rigid access control could not accommodate multi-entity enterprise clients — every new onboarding required manual CS intervention",
+          ]}
+        />
+      </div>
 
       <section id="phases" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
         <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>

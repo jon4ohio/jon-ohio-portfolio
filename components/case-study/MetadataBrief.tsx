@@ -11,62 +11,81 @@ export type MetadataBriefProps = {
   commercialShiftBottom: string;
 };
 
-const cardSurface: React.CSSProperties = {
+const cardBase: React.CSSProperties = {
   background: "var(--surface)",
   border: "1px solid var(--border)",
-  borderRadius: 8,
+  borderRadius: 12,
+  padding: "20px 22px",
+};
+
+const mutedCardBase: React.CSSProperties = { ...cardBase, background: "var(--surface-subtle)" };
+
+const mobileCardBase: React.CSSProperties = {
+  background: "var(--surface)",
+  border: "1px solid var(--border)",
+  borderRadius: 12,
   padding: 20,
 };
 
-function MicroLabel({ children }: { children: React.ReactNode }) {
-  return (
-    <p
-      style={{
-        fontSize: 11,
-        textTransform: "uppercase",
-        letterSpacing: "0.08em",
-        color: "var(--fg-subtle)",
-        marginBottom: 4,
-      }}
-    >
-      {children}
-    </p>
-  );
-}
+const sectionLabelStyle: React.CSSProperties = {
+  fontSize: 10,
+  fontWeight: 500,
+  letterSpacing: "0.08em",
+  textTransform: "uppercase",
+  color: "var(--fg-subtle)",
+  display: "block",
+  marginBottom: 16,
+};
 
-function MicroLabelMuted({ children }: { children: React.ReactNode }) {
-  return (
-    <span
-      style={{
-        fontSize: 11,
-        textTransform: "uppercase",
-        letterSpacing: "0.08em",
-        color: "var(--fg-subtle)",
-        display: "block",
-        marginBottom: 12,
-      }}
-    >
-      {children}
-    </span>
-  );
-}
+const rowLabelStyle: React.CSSProperties = {
+  fontSize: 10,
+  letterSpacing: "0.06em",
+  textTransform: "uppercase",
+  color: "var(--fg-subtle)",
+  marginBottom: 3,
+};
 
-function ValueTextDesktop({ children }: { children: React.ReactNode }) {
-  return <div style={{ fontSize: 13, color: "var(--fg-body)", lineHeight: 1.6, marginBottom: 24 }}>{children}</div>;
-}
+const rowValueStyle: React.CSSProperties = {
+  fontSize: 13,
+  color: "var(--fg-body)",
+  lineHeight: 1.6,
+  marginBottom: 12,
+  overflowWrap: "anywhere",
+};
 
-function ValueMobile({ children }: { children: React.ReactNode }) {
-  return <div style={{ fontSize: 14, color: "var(--fg-body)", lineHeight: 1.6 }}>{children}</div>;
+const mobileImpactRow: React.CSSProperties = {
+  fontSize: 13,
+  color: "var(--fg-muted)",
+  lineHeight: 1.6,
+  overflowWrap: "anywhere",
+};
+
+const mobileImpactValue: React.CSSProperties = {
+  fontSize: 15,
+  fontWeight: 700,
+  color: "var(--fg)",
+};
+
+function RowValue({
+  children,
+  marginBottom = 12,
+}: {
+  children: React.ReactNode;
+  marginBottom?: number;
+}) {
+  return <div style={{ ...rowValueStyle, marginBottom }}>{children}</div>;
 }
 
 function getBlock(blocks: MetadataBlock[], label: string): MetadataBlock | undefined {
   return blocks.find((b) => b.label.toLowerCase() === label.toLowerCase());
 }
 
-function formatScope(blocks: MetadataBlock[]): string {
-  const s = getBlock(blocks, "Scope");
-  if (!s) return "";
-  return Array.isArray(s.value) ? s.value.join(" · ") : s.value;
+function impactStackDesc(rawLabel: string): string {
+  const label = rawLabel.toLowerCase();
+  if (label.includes("support")) return "Support volume";
+  if (label.includes("nps")) return "NPS";
+  if (label.includes("completion")) return "Completion rate";
+  return rawLabel;
 }
 
 export default function MetadataBrief({
@@ -77,182 +96,155 @@ export default function MetadataBrief({
   commercialShiftTop,
   commercialShiftBottom,
 }: MetadataBriefProps) {
-  const role = getBlock(blocks, "Role");
-  const scopeText = formatScope(blocks);
-  const timeline = getBlock(blocks, "Timeline");
-  const domain = getBlock(blocks, "Domain");
-
-  const basicsRows = (
-    <>
-      {role ? (
-        <div style={{ marginBottom: 16 }}>
-          <MicroLabel>Role</MicroLabel>
-          <ValueMobile>{typeof role.value === "string" ? role.value : role.value.join(", ")}</ValueMobile>
-        </div>
-      ) : null}
-      {scopeText ? (
-        <div style={{ marginBottom: 16 }}>
-          <MicroLabel>Scope</MicroLabel>
-          <ValueMobile>{scopeText}</ValueMobile>
-        </div>
-      ) : null}
-      {timeline ? (
-        <div style={{ marginBottom: 16 }}>
-          <MicroLabel>Timeline</MicroLabel>
-          <ValueMobile>{typeof timeline.value === "string" ? timeline.value : timeline.value.join(", ")}</ValueMobile>
-        </div>
-      ) : null}
-      {domain ? (
-        <div style={{ marginBottom: 0 }}>
-          <MicroLabel>Domain</MicroLabel>
-          <ValueMobile>{typeof domain.value === "string" ? domain.value : domain.value.join(", ")}</ValueMobile>
-        </div>
-      ) : null}
-    </>
-  );
-
+  const mobileBasicsBlocks = blocks.filter((b) => b.label.toLowerCase() !== "team");
+  const bottomLine = commercialShiftBottom.replace(/^→\s*/, "");
   const ledJoined = led.join(" · ");
   const partneredJoined = partneredOn.join(" · ");
 
   return (
-    <section id="brief" style={{ maxWidth: 1240, margin: "0 auto", padding: "60px 24px 0" }}>
-      <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-        01 Project Brief
-      </p>
-
-      {/* Mobile: four stacked cards — single representation on narrow viewports (hidden on desktop via page-scoped CSS) */}
-      <div className="case-study-brief-mobile" style={{ marginTop: 24 }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-          <div style={cardSurface}>
-            {basicsRows}
-          </div>
-
-          <div style={cardSurface}>
-            <MicroLabelMuted>Product Impact</MicroLabelMuted>
-            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              {productImpact.map((m) => (
-                <div key={m.label} style={{ fontSize: 13, color: "var(--fg-muted)", lineHeight: 1.6 }}>
-                  <span style={{ fontSize: 15, fontWeight: 700, color: "var(--fg)" }}>{m.value}</span>
-                  <span style={{ margin: "0 8px", color: "var(--fg-subtle)" }}>—</span>
-                  <span>{m.label}</span>
-                </div>
-              ))}
+    <section id="brief" style={{ maxWidth: 1240, margin: "0 auto", padding: "48px 24px 0" }}>
+      {/* Mobile (≤768px) */}
+      <div className="brief-mobile" style={{ marginTop: 24 }}>
+        <div style={{ ...mobileCardBase, width: "100%", minWidth: 0 }}>
+          <span style={sectionLabelStyle}>01 Executive Brief</span>
+          {mobileBasicsBlocks.map((b, i) => (
+            <div key={b.label}>
+              <div style={rowLabelStyle}>{b.label}</div>
+              <RowValue marginBottom={i === mobileBasicsBlocks.length - 1 ? 0 : 12}>
+                {Array.isArray(b.value) ? b.value.join(" · ") : b.value}
+              </RowValue>
             </div>
-          </div>
+          ))}
+        </div>
 
-          <div style={cardSurface}>
-            <MicroLabelMuted>Commercial Shift</MicroLabelMuted>
-            <div style={{ fontSize: 20, fontWeight: 700, color: "var(--fg)", lineHeight: 1.4 }}>{commercialShiftTop}</div>
-            <div style={{ fontSize: 20, fontWeight: 700, color: "var(--fg)", lineHeight: 1.4, marginTop: 4 }}>
-              {commercialShiftBottom}
-            </div>
+        <div style={{ ...mobileCardBase, width: "100%", minWidth: 0 }}>
+          <span style={sectionLabelStyle}>Product impact</span>
+          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+            {productImpact.map((m) => (
+              <div key={m.label} style={mobileImpactRow}>
+                <span style={mobileImpactValue}>{m.value}</span>
+                <span style={{ margin: "0 8px", color: "var(--fg-subtle)" }}>—</span>
+                <span>{impactStackDesc(m.label)}</span>
+              </div>
+            ))}
           </div>
+        </div>
 
-          <div style={cardSurface}>
-            <MicroLabel>Led</MicroLabel>
-            <ValueMobile>
-              <div style={{ marginBottom: 16 }}>{ledJoined}</div>
-            </ValueMobile>
-            <MicroLabel>Partnered on</MicroLabel>
-            <ValueMobile>{partneredJoined}</ValueMobile>
+        <div style={{ ...mobileCardBase, width: "100%", minWidth: 0 }}>
+          <span style={sectionLabelStyle}>Commercial shift</span>
+          <div style={{ fontSize: 20, fontWeight: 700, color: "var(--fg)", lineHeight: 1.4 }}>{commercialShiftTop}</div>
+          <div style={{ fontSize: 20, fontWeight: 700, color: "var(--fg)", lineHeight: 1.4, marginTop: 4 }}>
+            {bottomLine}
+          </div>
+        </div>
+
+        <div style={{ ...mobileCardBase, width: "100%", minWidth: 0 }}>
+          <span style={sectionLabelStyle}>Contribution scope</span>
+          <div style={{ marginBottom: 14 }}>
+            <div style={rowLabelStyle}>Led</div>
+            <div style={{ fontSize: 14, color: "var(--fg-body)", lineHeight: 1.6 }}>{ledJoined}</div>
+          </div>
+          <div>
+            <div style={rowLabelStyle}>Partnered on</div>
+            <div style={{ fontSize: 14, color: "var(--fg-body)", lineHeight: 1.6 }}>{partneredJoined}</div>
           </div>
         </div>
       </div>
 
-      {/* Desktop: two-column flex — entire row uses .case-study-brief-rail so page CSS hides it on mobile */}
+      {/* Desktop bento (≥769px) */}
       <div
-        className="case-study-brief-rail"
+        className="brief-bento"
         style={{
-          display: "flex",
-          flexDirection: "row",
-          gap: 64,
-          marginTop: 32,
-          alignItems: "flex-start",
+          display: "grid",
+          gridTemplateColumns: "minmax(280px, 1.15fr) 1fr 1fr",
+          gridTemplateRows: "auto auto",
+          gridTemplateAreas: "'basics impact commercial' 'basics contribution contribution'",
+          gap: 16,
+          marginTop: 24,
         }}
       >
-        <div style={{ width: 240, flexShrink: 0 }}>
+        <div style={{ gridArea: "basics", ...cardBase }}>
+          <span style={sectionLabelStyle}>01 Executive Brief</span>
+          {blocks.map((b, i) => (
+            <div key={b.label}>
+              <div style={rowLabelStyle}>{b.label}</div>
+              <RowValue marginBottom={i === blocks.length - 1 ? 0 : 12}>
+                {Array.isArray(b.value) ? b.value.join(" · ") : b.value}
+              </RowValue>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ gridArea: "impact", ...cardBase }}>
+          <span style={sectionLabelStyle}>Product impact</span>
+          {productImpact.map(({ value, label }, idx) => (
+            <div key={value} style={{ marginBottom: idx === productImpact.length - 1 ? 0 : 18 }}>
+              <div
+                style={{
+                  fontSize: 28,
+                  fontWeight: 600,
+                  color: "var(--fg)",
+                  lineHeight: 1.1,
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                {value}
+              </div>
+              <div
+                style={{
+                  fontSize: 11,
+                  color: "var(--fg-subtle)",
+                  marginTop: 2,
+                  letterSpacing: "0.01em",
+                }}
+              >
+                {impactStackDesc(label)}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ gridArea: "commercial", ...mutedCardBase }}>
+          <span style={sectionLabelStyle}>Commercial shift</span>
+          <div style={{ fontSize: 15, fontWeight: 500, color: "var(--fg)", lineHeight: 1.4 }}>{commercialShiftTop}</div>
           <div
             style={{
-              position: "sticky",
-              top: 100,
-              alignSelf: "flex-start",
+              fontSize: 34,
+              fontWeight: 600,
+              color: "var(--fg)",
+              lineHeight: 1,
+              margin: "10px 0 8px",
             }}
           >
-            {blocks.map((b) => (
-              <React.Fragment key={b.label}>
-                <MicroLabel>{b.label}</MicroLabel>
-                <ValueTextDesktop>
-                  {Array.isArray(b.value) ? (
-                    <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                      {b.value.map((v) => (
-                        <span key={v}>{v}</span>
-                      ))}
-                    </div>
-                  ) : (
-                    b.value
-                  )}
-                </ValueTextDesktop>
-              </React.Fragment>
-            ))}
+            →
+          </div>
+          <div style={{ fontSize: 15, fontWeight: 500, color: "var(--fg)", lineHeight: 1.4 }}>{bottomLine}</div>
+        </div>
 
-            <div style={{ borderTop: "1px solid var(--border)", margin: "20px 0" }} />
-
-            <MicroLabel>Led</MicroLabel>
-            <ValueTextDesktop>
-              <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                {led.map((v) => (
-                  <span key={v}>{v}</span>
-                ))}
-              </div>
-            </ValueTextDesktop>
-
-            <MicroLabel>Partnered on</MicroLabel>
-            <div style={{ fontSize: 13, color: "var(--fg-body)", lineHeight: 1.6, marginBottom: 0 }}>
-              <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                {partneredOn.map((v) => (
-                  <span key={v}>{v}</span>
+        <div style={{ gridArea: "contribution", ...mutedCardBase }}>
+          <span style={sectionLabelStyle}>Contribution scope</span>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+            <div>
+              <div style={rowLabelStyle}>Led</div>
+              <div style={{ fontSize: 12, color: "var(--fg-body)", lineHeight: 1.75 }}>
+                {led.map((line) => (
+                  <React.Fragment key={line}>
+                    {line}
+                    <br />
+                  </React.Fragment>
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-
-        <div style={{ flex: 1, minWidth: 0, maxWidth: 760 }}>
-          <MicroLabel>Product impact</MicroLabel>
-          <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 0 }}>
-            {productImpact.map((m) => (
-              <div key={m.label} style={{ fontSize: 13, color: "var(--fg-muted)", lineHeight: 1.6 }}>
-                <span style={{ fontSize: 15, fontWeight: 700, color: "var(--fg)" }}>{m.value}</span>
-                <span style={{ margin: "0 8px", color: "var(--fg-subtle)" }}>—</span>
-                <span>{m.label}</span>
+            <div>
+              <div style={rowLabelStyle}>Partnered on</div>
+              <div style={{ fontSize: 12, color: "var(--fg-body)", lineHeight: 1.75 }}>
+                {partneredOn.map((line) => (
+                  <React.Fragment key={line}>
+                    {line}
+                    <br />
+                  </React.Fragment>
+                ))}
               </div>
-            ))}
-          </div>
-
-          <div
-            style={{
-              background: "var(--surface)",
-              border: "1px solid var(--border)",
-              borderRadius: 8,
-              padding: "20px 24px",
-              marginTop: 32,
-            }}
-          >
-            <span
-              style={{
-                fontSize: 11,
-                textTransform: "uppercase",
-                letterSpacing: "0.08em",
-                color: "var(--fg-subtle)",
-                display: "block",
-                marginBottom: 12,
-              }}
-            >
-              Commercial Shift
-            </span>
-            <div style={{ fontSize: 22, fontWeight: 700, color: "var(--fg)", lineHeight: 1.4 }}>{commercialShiftTop}</div>
-            <div style={{ fontSize: 22, fontWeight: 700, color: "var(--fg)", lineHeight: 1.4, marginTop: 4 }}>
-              {commercialShiftBottom}
             </div>
           </div>
         </div>
