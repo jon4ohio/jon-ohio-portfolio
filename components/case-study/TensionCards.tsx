@@ -18,7 +18,7 @@ export default function TensionCards({
   cards: TensionCard[];
 }) {
   return (
-    <section id="tensions" style={{ maxWidth: 1240, margin: "0 auto", padding: "60px 24px 0" }}>
+    <section id="tensions" style={{ maxWidth: 1240, margin: "0 auto", padding: "48px 24px 0" }}>
       <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
         {label}
       </p>

@@ -4,7 +4,7 @@ import path from "node:path";
 import ArtifactPlaceholder from "@/components/case-study/ArtifactPlaceholder";
 
 export interface AnnotatedFigureProps {
-  figure: number; // 0 allowed for hero/next-read image-only mode
+  figure: number | string; // 0 allowed for hero/next-read image-only mode
   label: string;
   caption: string;
   decisionNotes: string[];
@@ -32,6 +32,7 @@ export default function AnnotatedFigure({
   imageOnly = false,
   borderless = false,
 }: AnnotatedFigureProps) {
+  const figureText = typeof figure === "number" ? String(figure).padStart(2, "0") : String(figure);
   const showImage = Boolean(imageSrc) && (() => {
     try {
       const rel = imageSrc!.startsWith("/") ? imageSrc!.slice(1) : imageSrc!;
@@ -74,7 +75,7 @@ export default function AnnotatedFigure({
             color: "var(--fg-subtle)",
           }}
         >
-          Figure {String(figure).padStart(2, "0")}
+          Figure {figureText}
         </span>
         <p
           style={{

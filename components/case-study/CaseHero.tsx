@@ -74,12 +74,12 @@ export default function CaseHero({
         {abstract}
       </p>
 
-      <div style={{ marginTop: 40, paddingTop: 32, borderTop: "1px solid var(--border)" }}>
+      <div style={{ marginTop: 40, paddingTop: 28, borderTop: "1px solid var(--border)" }}>
         <div className="stats-grid stats-grid--4" style={{ background: "var(--border)" }}>
           {impact.map(({ value, label }) => (
             <div key={label} className="stats-cell" style={{ background: "var(--bg)" }}>
-              <div style={{ fontSize: 36, fontWeight: 700, color: "var(--fg)" }}>{value}</div>
-              <div style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 4 }}>{label}</div>
+              <div style={{ fontSize: 35, fontWeight: 600, letterSpacing: "-0.03em", color: "var(--fg)" }}>{value}</div>
+              <div style={{ fontSize: 11.5, lineHeight: 1.45, color: "var(--fg-muted)", marginTop: 6 }}>{label}</div>
             </div>
           ))}
         </div>

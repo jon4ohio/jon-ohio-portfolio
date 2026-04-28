@@ -1,11 +1,12 @@
 import * as React from "react";
 
 export type ArtifactPlaceholderProps = {
-  figure: number;
+  figure: number | string;
   label: string;
 };
 
 export default function ArtifactPlaceholder({ figure, label }: ArtifactPlaceholderProps) {
+  const figureText = typeof figure === "number" ? String(figure).padStart(2, "0") : String(figure);
   return (
     <div
       style={{
@@ -31,7 +32,7 @@ export default function ArtifactPlaceholder({ figure, label }: ArtifactPlacehold
         {label}
       </span>
       <span style={{ fontSize: 13, color: "var(--fg-subtle)" }}>
-        Figure {String(figure).padStart(2, "0")} — Replaceable Placeholder
+        Figure {figureText} — Replaceable Placeholder
       </span>
     </div>
   );
