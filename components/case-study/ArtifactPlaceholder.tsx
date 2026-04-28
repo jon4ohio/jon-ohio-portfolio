@@ -25,7 +25,7 @@ export default function ArtifactPlaceholder({ figure, label }: ArtifactPlacehold
           fontSize: 11,
           textTransform: "uppercase",
           letterSpacing: "0.08em",
-          color: "var(--border)",
+          color: "var(--fg-subtle)",
         }}
       >
         {label}
