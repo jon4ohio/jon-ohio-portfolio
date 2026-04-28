@@ -891,7 +891,7 @@ button:focus-visible {
 }
 /* When the grid wraps (tablet widths), vertical rules look misaligned.
    Switch to row separators for cleaner rhythm and alignment. */
-@media (max-width: 1024px) and (min-width: 768px) {
+@media (max-width: 900px) and (min-width: 768px) {
   .hero-metrics {
     column-gap: 24px;
     row-gap: 18px;
