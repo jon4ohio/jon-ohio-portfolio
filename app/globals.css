@@ -421,6 +421,15 @@ body {
   overflow-x: hidden;
 }
 
+/* Typography: reduce orphans with better wrapping */
+h1, h2, h3 {
+  text-wrap: balance;
+}
+p, li {
+  text-wrap: pretty;
+  hyphens: auto;
+}
+
 .section-label {
   font-size: 12px;
   font-weight: 500;
@@ -877,6 +886,7 @@ button:focus-visible {
   letter-spacing: 0.02em;
   line-height: 1.35;
   white-space: normal;
+  hyphens: auto;
 }
 @media (min-width: 768px) {
   .hero-metric {
