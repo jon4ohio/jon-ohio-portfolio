@@ -1,0 +1,102 @@
+import Link from "next/link";
+import AnnotatedFigure from "@/components/case-study/AnnotatedFigure";
+
+export type CaseHeroMetric = { value: string; label: string };
+
+export type CaseHeroProps = {
+  microLabel: string;
+  title: string;
+  subtitle: string;
+  thesis: string;
+  abstract: string;
+  impact: CaseHeroMetric[];
+  heroImage: { src?: string; alt?: string };
+};
+
+export default function CaseHero({
+  microLabel,
+  title,
+  subtitle,
+  thesis,
+  abstract,
+  impact,
+  heroImage,
+}: CaseHeroProps) {
+  return (
+    <section style={{ maxWidth: 1240, margin: "0 auto", padding: "48px 24px 0" }}>
+      <Link href="/work" style={{ fontSize: 13, color: "var(--fg-muted)", textDecoration: "none" }}>
+        ← Work
+      </Link>
+
+      <p
+        style={{
+          marginTop: 32,
+          fontSize: 11,
+          textTransform: "uppercase",
+          letterSpacing: "0.08em",
+          color: "var(--fg-subtle)",
+        }}
+      >
+        {microLabel}
+      </p>
+
+      <h1
+        style={{
+          marginTop: 12,
+          fontSize: "clamp(40px, 5vw, 64px)",
+          fontWeight: 800,
+          letterSpacing: "-0.03em",
+          lineHeight: 1.1,
+          color: "var(--fg)",
+        }}
+      >
+        {title}
+      </h1>
+
+      <p style={{ marginTop: 8, fontSize: 22, fontWeight: 400, color: "var(--fg-muted)" }}>
+        {subtitle}
+      </p>
+
+      <p
+        style={{
+          marginTop: 24,
+          maxWidth: 640,
+          fontSize: 20,
+          lineHeight: 1.6,
+          fontWeight: 500,
+          color: "var(--fg-body)",
+        }}
+      >
+        {thesis}
+      </p>
+
+      <p style={{ marginTop: 16, maxWidth: 600, fontSize: 15, lineHeight: 1.75, color: "var(--fg-muted)" }}>
+        {abstract}
+      </p>
+
+      <div style={{ marginTop: 40, paddingTop: 32, borderTop: "1px solid var(--border)" }}>
+        <div className="stats-grid stats-grid--4" style={{ background: "var(--border)" }}>
+          {impact.map(({ value, label }) => (
+            <div key={label} className="stats-cell" style={{ background: "var(--bg)" }}>
+              <div style={{ fontSize: 36, fontWeight: 700, color: "var(--fg)" }}>{value}</div>
+              <div style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 4 }}>{label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div style={{ marginTop: 48 }}>
+        <AnnotatedFigure
+          figure={0}
+          label="Product Overview"
+          caption=""
+          decisionNotes={[]}
+          imageSrc={heroImage.src}
+          imageAlt={heroImage.alt}
+          imageOnly
+        />
+      </div>
+    </section>
+  );
+}
+
