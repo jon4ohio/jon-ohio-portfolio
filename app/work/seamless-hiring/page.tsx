@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { existsSync } from "node:fs";
+import path from "node:path";
 import StickyChapterNav from "@/components/case-study/StickyChapterNav";
 import ReadingProgressBar from "@/components/case-study/ReadingProgressBar";
 import CaseHero from "@/components/case-study/CaseHero";
@@ -26,7 +28,7 @@ const phases: Phase[] = [
   { id: "phase-II", number: "Phase II", name: "Streamline", description: "Application flow redesign" },
   { id: "phase-III", number: "Phase III", name: "Structure", description: "ATS + evaluation redesign" },
   { id: "phase-IV", number: "Phase IV", name: "Scale", description: "RBAC + enterprise permissions" },
-  { id: "phase-V", number: "Phase V", name: "Augment", description: "AI parsing, ranking, shortlisting" },
+  { id: "phase-V", number: "Phase V", name: "Augment (AI-assisted decision support)", description: "AI parsing, ranking, shortlisting" },
 ];
 
 const outcomeTiers: OutcomeTier[] = [
@@ -310,7 +312,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
 
         <EvidenceModule
           id="phase-V"
-          phase="Phase V — Augment"
+          phase="Phase V — Augment (AI-assisted decision support)"
           layout="text-left"
           accent
           pullQuote="AI was designed as decision support, not decision authority."
@@ -318,22 +320,48 @@ export default function SeamlessHiringFlagshipCaseStudy() {
             "Recruiters were spending disproportionate time on manual CV screening — a high-volume, low-judgment task the redesigned system was now stable enough to augment."
           }
           intervention={
-            "AI-assisted parsing, smart candidate ranking, and assisted shortlisting layered onto a workflow that had earned recruiter trust across Phases I–IV."
+            "AI-assisted parsing and ranking introduced with explainability cues and recruiter-controlled decision boundaries — layered onto a workflow that had earned recruiter trust across Phases I–IV."
           }
           figure={{
             figure: 5,
-            label: "AI Decision Support",
-            imageSrc: "/assets/work/seamless-hiring/block-cover.png",
-            imageAlt: "Phase V — AI-assisted hiring workflows",
+            label: "Pilot Review — AI in RMS",
+            imageSrc: existsSync(path.join(process.cwd(), "public", "assets/work/seamless-hiring/pilot-review-ai.png"))
+              ? "/assets/work/seamless-hiring/pilot-review-ai.png"
+              : undefined,
+            imageAlt: "Pilot Review — AI-assisted candidate ranking and explainable evaluation within recruitment workflows",
             caption:
-              "Layered AI-assisted parsing and smart ranking onto a stable recruitment workflow — improving decision signal quality and reducing manual screening effort without replacing recruiter judgment.",
+              "Pilot validation of AI-assisted candidate ranking and explainable evaluation within live recruitment workflows — the Smart Assessment Summary surfaces structured scoring rationale and sentiment signals for recruiter review.",
             decisionNotes: [
               "AI introduced in Phase V deliberately — augmenting a workflow only after trust in the core system was re-established. AI on top of a broken process inherits the broken process's failure modes",
               "Ranking logic calibrated against client hiring criteria rather than generic resume heuristics",
               "Ranking surfaces signal, shortlisting remains recruiter-owned — boundary set by design, not by default",
+              "AI outputs were surfaced as explainable recommendations rather than opaque scores, preserving recruiter agency while improving decision signal quality — the interface showed reasoning, not just results",
             ],
           }}
         />
+
+        <div style={{ padding: "0 24px 64px" }}>
+          <div style={{ maxWidth: 1240, margin: "0 auto" }}>
+            <div style={{ marginTop: 24, paddingTop: 16, borderTop: "1px solid var(--border-subtle)" }}>
+              <span
+                style={{
+                  fontSize: 10,
+                  fontWeight: 500,
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  color: "var(--fg-subtle)",
+                  display: "block",
+                  marginBottom: 6,
+                }}
+              >
+                Continuity
+              </span>
+              <p style={{ fontSize: 14, color: "var(--fg-muted)", fontStyle: "italic", margin: 0 }}>
+                Patterns piloted in SeamlessHiring later informed broader work on SeamlessAI's reusable enterprise AI interaction layer.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <section style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
