@@ -2,7 +2,7 @@
 
 ## Status
 <!-- One of: Draft | Proposed | Accepted | Deprecated | Superseded by ADR-NNN -->
-**Status:** Proposed
+**Status:** Accepted
 **Date:** 2026-04-29
 **Decision Maker(s):** John Ohio
 **Supersedes:** None
@@ -20,8 +20,8 @@ Recent refinements improved flagship structure and responsiveness, but key copy/
 
 This created avoidable inconsistency in narrative rhythm and evidence framing for the same case study.
 
-**In scope:** `CaseHero` prop values in `app/work/seamless-hiring/page.tsx` (subtitle, abstract, impact labels/order).
-**Out of scope:** Layout/styling changes; `lib/projects.ts`; shared `/work/[slug]` renderer; other case studies.
+**In scope:** `CaseHero` prop values in `app/work/seamless-hiring/page.tsx` (subtitle, thesis, abstract, impact labels/order) and the SeamlessHiring card summary in `lib/projects.ts`.
+**Out of scope:** Layout/spacing changes; shared `/work/[slug]` renderer; other case studies.
 
 ## Decision Drivers
 

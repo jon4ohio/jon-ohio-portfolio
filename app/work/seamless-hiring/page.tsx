@@ -93,16 +93,13 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         microLabel="SeamlessHR · Mar 2022 – Mar 2025"
         title="SeamlessHiring 2.0"
         subtitle="Recruitment Management System (RMS)"
-        thesis="Rebuilding fragmented recruiting workflows into an intelligent hiring operating system."
-        abstract={
-          "Rebuilt workflow trust, restored completion rates, and introduced structured " +
-          "AI-assisted decision points used by HR teams across the platform."
-        }
+        thesis="Rebuilding fragmented recruiting workflows into a scalable hiring operating system."
+        abstract="Restored workflow trust, reduced application drop-offs by 24%, and transformed recruitment into a flagship enterprise product."
         impact={[
-          { value: "↓50%", label: "Support tickets" },
-          { value: "↓24%", label: "Application drop-offs" },
+          { value: "↓50%", label: "Support volume" },
+          { value: "↓24%", label: "Drop-offs" },
           { value: "27→74", label: "NPS" },
-          { value: "$3,600/yr", label: "Flagship module pricing" },
+          { value: "$3,600/yr", label: "Flagship pricing" },
         ]}
         heroImage={{
           src: "/assets/work/seamless-hiring/preview-16x9.png",

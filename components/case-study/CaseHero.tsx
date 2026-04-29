@@ -70,7 +70,16 @@ export default function CaseHero({
         {thesis}
       </p>
 
-      <p style={{ marginTop: 16, maxWidth: 600, fontSize: 15, lineHeight: 1.75, color: "var(--fg-muted)" }}>
+      <p
+        style={{
+          marginTop: 16,
+          maxWidth: 600,
+          fontSize: 16,
+          lineHeight: 1.75,
+          fontWeight: 400,
+          color: "var(--fg-body)",
+        }}
+      >
         {abstract}
       </p>
 
