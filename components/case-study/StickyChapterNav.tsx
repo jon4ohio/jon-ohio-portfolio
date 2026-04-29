@@ -2,9 +2,9 @@
 
 import * as React from "react";
 
-type Chapter = { id: string; label: string };
+export type Chapter = { id: string; label: string };
 
-const CHAPTERS: Chapter[] = [
+const DEFAULT_CHAPTERS: Chapter[] = [
   { id: "brief", label: "01 Brief" },
   { id: "tensions", label: "02 Tensions" },
   { id: "phases", label: "03 Phases" },
@@ -13,11 +13,11 @@ const CHAPTERS: Chapter[] = [
   { id: "unlocks", label: "06 Unlocks" },
 ];
 
-export default function StickyChapterNav() {
-  const [active, setActive] = React.useState<string>(CHAPTERS[0]?.id ?? "brief");
+export default function StickyChapterNav({ chapters = DEFAULT_CHAPTERS }: { chapters?: Chapter[] }) {
+  const [active, setActive] = React.useState<string>(chapters[0]?.id ?? "brief");
 
   React.useEffect(() => {
-    const targets = CHAPTERS.map((c) => document.getElementById(c.id)).filter(Boolean) as HTMLElement[];
+    const targets = chapters.map((c) => document.getElementById(c.id)).filter(Boolean) as HTMLElement[];
     if (!targets.length) return;
 
     const obs = new IntersectionObserver(
@@ -37,7 +37,7 @@ export default function StickyChapterNav() {
 
     targets.forEach((t) => obs.observe(t));
     return () => obs.disconnect();
-  }, []);
+  }, [chapters]);
 
   return (
     <div
@@ -66,7 +66,7 @@ export default function StickyChapterNav() {
           overflowX: "auto",
         }}
       >
-        {CHAPTERS.map((c) => {
+        {chapters.map((c) => {
           const isActive = c.id === active;
           return (
             <a
