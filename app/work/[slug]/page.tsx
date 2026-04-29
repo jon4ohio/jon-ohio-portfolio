@@ -262,10 +262,10 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
 
         {(() => {
           const sections: { label: string; content: string }[] = [
-            { label: "Context", content: project.context },
-            { label: "Problem", content: project.problem },
-            { label: "Approach", content: project.action },
-            { label: "Outcomes", content: project.impact },
+            { label: project.sectionLabels?.context ?? "Context", content: project.context },
+            { label: project.sectionLabels?.problem ?? "Problem", content: project.problem },
+            { label: project.sectionLabels?.action ?? "Approach", content: project.action },
+            { label: project.sectionLabels?.impact ?? "Outcomes", content: project.impact },
           ];
           if (project.systemEvolution) sections.push({ label: "System Evolution", content: project.systemEvolution });
           if (project.systemImpact) sections.push({ label: "System Impact", content: project.systemImpact });

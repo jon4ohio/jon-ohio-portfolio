@@ -9,6 +9,7 @@ export interface Project {
   role: string;
   scope: string;
   metrics: { value: string; label: string }[];
+  sectionLabels?: { context?: string; problem?: string; action?: string; impact?: string };
   context: string;
   problem: string;
   action: string;
@@ -81,6 +82,158 @@ const placeholderHero: ImageAsset = {
 };
 
 export const projects: Project[] = [
+  {
+    slug: "seamkit",
+    title: "Seamkit",
+    subtitle: "Enterprise Design System Architecture",
+    category: "Design Systems",
+    company: "SeamlessHR",
+    period: "Dec 2023 – Present",
+    summary:
+      "Built the design system that aligned design and engineering across 12 product teams — replacing fragmented component libraries with a token-driven, governed architecture that became SeamlessHR's shared baseline for building at scale.",
+    role: "Design Systems Lead and DesignOps driver.",
+    scope:
+      "Token architecture, component foundations, governance model, documentation, adoption strategy, and system health across the product organisation.",
+    metrics: [
+      { value: "2.49M", label: "Token insertions (2025)" },
+      { value: "443K", label: "Component insertions" },
+      { value: "88.9", label: "Adoption score /100" },
+      { value: "91.1", label: "Trust score /100" },
+    ],
+    sectionLabels: {
+      context: "Opportunity",
+      problem: "Evidence That Shaped the System",
+      action: "Strategic Thesis",
+      impact: "Outcomes and Organisational Leverage",
+    },
+    context:
+      "SeamlessHR scaled from a single product into a multi-module HR platform — recruitment, payroll, performance management, leave, time management, and more — each built by a different product team, each with its own component library, naming conventions, and visual patterns.\n\n" +
+      "Fragmentation was no longer a visual inconsistency problem. It had become operational drag. Pushing a platform-wide change — a rebrand, a compliance update, a new product line — required coordinating separately with every team. Duplicated patterns meant duplicated effort. There was no single source of truth and no one responsible for building one.\n\n" +
+      "The opportunity was not to build another component library. It was to establish a governed design system that teams could build on independently without diverging from each other — and to solve the organisational problem that had made every previous attempt fail.",
+    problem:
+      "Three things became clear before a single token was defined.\n\n" +
+      "Fragmentation had become measurable drag. Design audits across the product suite surfaced duplicated patterns: multiple button variants solving the same problem differently, inconsistent spacing systems, colour values defined and redefined per product. The cost wasn't aesthetic — it was delivery. Every time a shared pattern needed updating, it required separate coordination with each product team. Not a scaling inefficiency. A structural ceiling.\n\n" +
+      "A component library without governance becomes the same problem. Shared libraries had been attempted before. They accumulated, diverged, and were abandoned. Components without lifecycle management become difficult to trust, and components teams don't trust get replaced with local alternatives. The root cause was never the library — it was the absence of a model for how things enter the system, evolve, and retire. Building another library without solving that would replicate the problem at a different layer.\n\n" +
+      "Teams would not adopt what they didn't help shape. Cross-team interviews showed a consistent posture: product teams were protective of their local patterns for legitimate reasons — delivery commitments, muscle memory, and genuine investment in decisions they'd made carefully. Top-down mandates had a track record of generating surface compliance and quiet workarounds. The adoption model would have to treat contribution as influence. That changed everything about how the system was built.",
+    action:
+      "The governing decision: architecture before components. The faster path was to ship components immediately — visible deliverables, early wins, teams see something working. The right path was to establish the token layer first, then the governance model, then components on foundations that could scale. That decision cost roughly six weeks of visible output. The payoff was a system where a brand update touches one layer and propagates across every product in a single release cycle. Without that decision, Seamkit would have become the same problem it was built to replace.\n\n" +
+      "Three structural decisions defined what Seamkit became.\n\n" +
+      "Layered token architecture. Tokens are organised in three tiers: primitive values (the raw design decisions — colour, spacing, typography, radius), semantic tokens (purpose-driven mappings that give primitives meaning in context), and component-level tokens (overrides scoped to specific components). This separation determines whether a design system can scale or collapses into exceptions. The final taxonomy: 581 primitives, 488 component tokens, 349 colour tokens, consumed by design and engineering through a Figma token sync and a Vue component library.\n\n" +
+      "Distributed governance. A design system without governance is a shared folder. Seamkit introduced a five-stage component lifecycle — proposal, draft, review, stable, deprecated — and three governance cadences: Token Council (bi-weekly), Component Review Board (monthly), Pattern Steering Group (quarterly). Every designer and engineer had a defined path to influence the system. The SeamKit Internal Toolkit — documentation covering tokens, components, patterns, and visual language guidelines — made governance self-serve. The 91.1/100 trust score did not come from a well-organised Figma library. It came from teams who could see how decisions were made and trusted the process.\n\n" +
+      "Adoption through co-creation. Rather than distribute standards and enforce them, each product team received a design audit of their existing patterns and a working session to surface real constraints before Seamkit's contribution model was finalised. Those constraints shaped the system. Each of the 12 teams received structured onboarding with Seamkit embedded as the default starting point for new work. Rollout was deliberately incremental — a forced migration at platform scale would have generated resentment rather than adoption. System health was tracked through Figma analytics: insertion volumes, component usage frequency, and detach behaviour. Detach rate remained low throughout, indicating the system held under real product pressure.\n\n" +
+      "Key tradeoffs. Every decision cost something. Prioritising token architecture over early component delivery delayed visible progress by six weeks — stakeholder pressure to show output was real, and the cost was carried. Choosing incremental rollout over full migration extended the coexistence period between Seamkit and legacy patterns; the benefit was a team that chose the system rather than one that was forced onto it. Running design audits per team before finalising contribution rules added months to the definition phase; the result was governance shaped by the people who would live with it. Standardisation versus product autonomy was never fully resolved, by design — the boundary between what belongs in shared infrastructure and what stays product-specific is an ongoing governance decision, not a fixed rule.",
+    impact:
+      "In 2025, Seamkit recorded 2,491,422 token insertions and 443,967 component insertions across 12 product teams — demonstrating sustained organisational reliance, not periodic usage. 80% of designers and engineers report Seamkit plays a role in their daily work. 70%+ of teams now begin new product work using Seamkit as their baseline, which means product consistency is no longer a coordination problem. It is a default.\n\n" +
+      "Before Seamkit, shipping a UI change to a shared pattern required coordinating separately with each product team — if it happened at all. Now a token update propagates across every product in a single release cycle. Engineers implement components without design involvement at each step, compressing the design-to-production handoff across the suite. The top adopting teams — Design System, Talent Management, Leave, RECO, Time Management — are among SeamlessHR's highest-volume delivery teams. Seamkit adoption reinforced delivery speed rather than slowing it. The mandate to lead the design system was confirmed at 100% by Head of Product Femisayo Olofintila in the 2024 annual performance cycle — an organisational signal that design infrastructure was treated as product infrastructure.\n\n" +
+      "Seamkit is not a concluded project. It is the layer the rest of the product is built on.\n\n" +
+      "The 2025 expansion into AI-native features required interaction patterns that didn't exist in the original system — AI disclosure states, confidence indicators, progressive disclosure for ML outputs. The layered token architecture absorbed these as new semantic categories rather than exceptions. A system built around token primitives can evolve without breaking what is already running.\n\n" +
+      "Consistent UI across the entire suite resolved a compounding risk: enterprise buyers associate visual inconsistency with system instability. Seamkit made the product feel like one product. The governance cadences, contribution workflow, and health monitoring became the operating model for how design and engineering collaborate at SeamlessHR — institutional knowledge, not personal knowledge.\n\n" +
+      "A design system that only designers trust is a Figma file. Seamkit became infrastructure.",
+    tags: ["Design Systems", "Token Architecture", "Design Governance", "Governance", "Vue", "Figma", "DesignOps"],
+    featured: true,
+    assets: {
+      thumbnails: [
+        {
+          src: "/assets/work/seamkit/preview-16x9.png",
+          alt: "SeamKit enterprise design system case study header",
+          width: 3024,
+          height: 1701,
+        },
+        {
+          src: "/assets/work/seamkit/thumb-2.png",
+          alt: "Design system screenshots and UI examples",
+          width: 2120,
+          height: 1110,
+        },
+      ],
+      hero: {
+        src: "/assets/work/seamkit/preview-16x9.png",
+        alt: "SeamKit enterprise design system case study header",
+        width: 3024,
+        height: 1701,
+      },
+      blocks: [
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/seamkit/block-hypothesis.png",
+            alt: "SeamKit opportunity framing — product suite fragmentation before the design system",
+            width: 3024,
+            height: 1136,
+            caption:
+              "The opportunity: SeamlessHR's multi-product suite before a shared design foundation existed — fragmented libraries, duplicated patterns, no single source of truth.",
+          },
+        },
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/_placeholders/hero.svg",
+            alt: "[Replace] Three-tier token hierarchy diagram — primitives, semantic tokens, component tokens",
+            width: 2400,
+            height: 1350,
+            caption:
+              "[Replace with token architecture diagram] Three-tier token hierarchy: primitive values → semantic tokens → component tokens. 581 primitives · 488 component tokens · 349 colour tokens.",
+          },
+        },
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/seamkit/block-approach.png",
+            alt: "SeamKit token taxonomy in Token Studio — 581 primitives, 488 component tokens, 349 colour tokens",
+            width: 2196,
+            height: 1864,
+            caption:
+              "Token Studio variables panel: the full Seamkit taxonomy consumed by design and engineering across the platform.",
+          },
+        },
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/_placeholders/hero.svg",
+            alt: "[Replace] Governance contribution workflow and cadence model",
+            width: 2400,
+            height: 1350,
+            caption:
+              "[Replace with governance diagram] Contribution workflow: identify need → proposal → community review → draft → stable release. Cadences: Token Council · Component Review Board · Pattern Steering Group.",
+          },
+        },
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/_placeholders/hero.svg",
+            alt: "[Replace] Figma analytics — SeamKit vs SHR Product DL v2.0 adoption across 12 product teams",
+            width: 2400,
+            height: 1350,
+            caption:
+              "[Replace with OC3 Artefact B screenshot] Adoption analytics: SeamKit insertion volumes vs former library (SHR Product DL v2.0), per-team data across 12 product teams.",
+          },
+        },
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/_placeholders/hero.svg",
+            alt: "[Replace] System health report — adoption score, trust score, sentiment survey results",
+            width: 2400,
+            height: 1350,
+            caption:
+              "[Replace with OC3 Artefact C screenshot] System health: adoption score 88.9/100 · trust score 91.1/100 · 80% daily usage · 70%+ teams using Seamkit as new-work baseline.",
+          },
+        },
+      ],
+    },
+  },
   {
     slug: "seamless-hiring",
     title: "SeamlessHiring 2.0",
@@ -187,83 +340,6 @@ export const projects: Project[] = [
             width: 2196,
             height: 788,
             caption: "Journey alignment as roadmap phases and governance landed.",
-          },
-        },
-      ],
-    },
-  },
-  {
-    slug: "seamkit",
-    title: "Seamkit",
-    subtitle: "Enterprise Design System",
-    category: "Structured Systems",
-    company: "SeamlessHR",
-    period: "Dec 2023 – Present",
-    summary:
-      "Designed and scaled a unified product system across 12 teams — from scattered component libraries to a governed, token-driven architecture embedded across every SeamlessHR product. Now the standard for how design and engineering ship together.",
-    role: "Design Systems Lead and DesignOps driver.",
-    scope:
-      "Token architecture, component foundations, governance, adoption strategy, documentation, and team enablement across the product organisation.",
-    metrics: [
-      { value: "12", label: "Teams onboarded" },
-      { value: "88.9", label: "Adoption score /100" },
-      { value: "91.1", label: "Trust score /100" },
-      { value: "+15%", label: "Efficiency uplift" },
-    ],
-    context:
-      "SeamlessHR runs multiple products across HR, payroll, recruitment, and performance management. Each product team had evolved its own component library, its own naming conventions, its own design patterns. The result was inconsistent interfaces across the suite, duplicated design and engineering effort, and no way to roll out platform-wide changes without touching every product individually. When the company needed to move fast — on a rebrand, a new product line, a compliance update — the fragmentation made it expensive. There was no single source of truth. There was also no one responsible for building one.",
-    problem:
-      "Getting 12 product teams onto a shared system is not a design problem. It's an organizational one, and it was harder than the architecture. Each team had legitimate reasons to resist: delivery timelines, engineering muscle memory around existing patterns, and designers who had made considered local decisions that a new shared system might overrule. A top-down mandate would have generated surface compliance — teams technically using Seamkit but routing around it for anything that required judgment. The adoption risk was the real project. Getting the token architecture right mattered; getting twelve teams to trust a system they didn't build mattered more. That required showing up in team rituals rather than sending documentation, fixing edge cases within the same sprint they were reported, and treating adoption metrics — not just component coverage — as the primary measure of whether Seamkit was actually working. The governance model had to feel like a service, not a constraint. Contribution had to feel like influence, not bureaucratic overhead. The 91.1/100 trust score reflects that. Trust at that level, across teams with different codebases and competing priorities, doesn't come from a good Figma library. It comes from the system being genuinely useful under real product pressure.",
-    action:
-      "I led Seamkit from concept to cross-product adoption. I defined the token hierarchy — a layered naming model separating primitive values, semantic roles, and component-level overrides. This wasn't cosmetic; it was the structural decision that determines whether a design system can scale or collapses into a pile of exceptions. Every downstream decision — how components are named, how themes work, how engineers consume the system — traces back to this architecture. A design system without governance becomes a dumping ground, so I wrote the contribution SOP, defined the component lifecycle stages (proposal, draft, review, stable, deprecated), and set the criteria for what enters the system versus what stays product-specific. This reduced arbitrary additions and gave teams a clear path to influence the system without breaking it. I ran structured onboarding per team, embedded Seamkit into the engineering workflow via a Vue component library and Figma token sync, and maintained adoption tracking across all 12 teams. The 88.9/100 adoption score and 91.1/100 trust score came from teams that were initially skeptical. Seamkit is not a project — it's an operating system for product work at SeamlessHR. I own its roadmap, its versioning, its documentation, and the decisions about what changes when new product directions require it. Key decisions and what they cost: I prioritised token architecture before components. The faster path was to ship components immediately — visible deliverables, early wins, teams see something working. I chose to establish the token layer first: primitive values, semantic mappings, component-level overrides, all defined and agreed before a single component was built. This delayed the moment when teams could see tangible output by roughly six weeks. The cost was real — early stakeholder pressure to show visible progress. The payoff was a system where a theme change or a brand update touches one layer and propagates everywhere, rather than requiring per-component edits across the suite. Without that architecture decision, Seamkit would have become the same problem it was built to replace. I chose incremental rollout over full migration. A full cut-over would have been cleaner to coordinate and easier to communicate, but a forced migration at platform scale, across teams with active delivery commitments, would have generated resentment rather than buy-in. The cost was a longer period of coexistence between Seamkit and legacy patterns, which created some inconsistency during the transition and required more sustained coordination than a clean cut-over would have. Teams that choose to adopt a system maintain it; teams that are forced onto one route around it at the first opportunity. I chose co-creation over enforcement. I could have written the system standards and distributed them; instead I ran design audits per product team, ran sessions where teams surfaced their real constraints, and let those constraints shape the contribution model. The cost was time — this process took significantly longer than a top-down approach. The outcome was a system that teams contribute to and defend, rather than one they tolerate.",
-    impact:
-      "Before Seamkit, shipping a UI change to a shared pattern meant coordinating separately with each product team — if it happened at all. Now, a token update propagates across every product in one release cycle. Before Seamkit, design and engineering worked from different references. Now they work from the same source. The 88.9/100 adoption score reflects consistent usage. The 91.1/100 trust score reflects something harder to achieve: teams that rely on the system, rather than routing around it. The technical side of a design system is solvable. The architecture decisions are consequential but learnable. What can't be templated is the organizational work — building trust with teams that had no reason to give it, making governance feel like a feature rather than a fence, and sustaining engagement long past the point when the initial momentum runs out. A design system that only designers trust is a Figma file. Seamkit became infrastructure.",
-    tags: ["Design Systems", "Tokens", "Governance", "Vue", "Figma"],
-    featured: true,
-    assets: {
-      thumbnails: [
-        {
-          src: "/assets/work/seamkit/preview-16x9.png",
-          alt: "SeamKit enterprise design system case study header",
-          width: 3024,
-          height: 1701,
-        },
-        {
-          src: "/assets/work/seamkit/thumb-2.png",
-          alt: "Design system screenshots and UI examples",
-          width: 2120,
-          height: 1110,
-        },
-      ],
-      hero: {
-        src: "/assets/work/seamkit/preview-16x9.png",
-        alt: "SeamKit enterprise design system case study header",
-        width: 3024,
-        height: 1701,
-      },
-      blocks: [
-        {
-          kind: "image",
-          layout: "wide",
-          treatment: "plain",
-          image: {
-            src: "/assets/work/seamkit/block-hypothesis.png",
-            alt: "Hypothesis and objective for consolidating SeamKit",
-            width: 3024,
-            height: 1136,
-            caption: "Why a unified design system was essential for PLG and global scale.",
-          },
-        },
-        {
-          kind: "image",
-          layout: "wide",
-          treatment: "plain",
-          image: {
-            src: "/assets/work/seamkit/block-approach.png",
-            alt: "Approach section — technology behind SeamKit",
-            width: 2196,
-            height: 1864,
-            caption: "Technology choices: tokens, components, and integration across design and engineering.",
           },
         },
       ],
