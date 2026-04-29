@@ -43,7 +43,7 @@ export default function CaseHero({
       <h1
         style={{
           marginTop: 12,
-          fontSize: "clamp(40px, 5vw, 64px)",
+          fontSize: "clamp(34px, 4.6vw, 60px)",
           fontWeight: 800,
           letterSpacing: "-0.03em",
           lineHeight: 1.1,
@@ -53,7 +53,7 @@ export default function CaseHero({
         {title}
       </h1>
 
-      <p style={{ marginTop: 8, fontSize: 22, fontWeight: 400, color: "var(--fg-muted)" }}>
+      <p style={{ marginTop: 8, fontSize: "clamp(16px, 4.2vw, 20px)", fontWeight: 400, color: "var(--fg-muted)" }}>
         {subtitle}
       </p>
 

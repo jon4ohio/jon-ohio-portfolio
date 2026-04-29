@@ -45,8 +45,10 @@ export default function EvidenceModule({
           border: "1px solid var(--border)",
           borderRadius: 999,
           padding: "4px 12px",
-          fontSize: 12,
-          color: "var(--fg-muted)",
+          fontSize: 12.5,
+          fontWeight: 600,
+          color: "var(--fg)",
+          letterSpacing: "0.01em",
           marginBottom: 16,
           background: "var(--surface)",
         }}
