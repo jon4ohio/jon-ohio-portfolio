@@ -340,7 +340,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
                 Continuity
               </span>
               <p style={{ fontSize: 14, color: "var(--fg-muted)", fontStyle: "italic", margin: 0 }}>
-                Patterns piloted in SeamlessHiring later informed broader work on SeamlessAI's reusable enterprise AI interaction layer.
+                Patterns piloted in SeamlessHiring later informed broader work on SeamlessAI&apos;s reusable enterprise AI interaction layer.
               </p>
             </div>
           </div>

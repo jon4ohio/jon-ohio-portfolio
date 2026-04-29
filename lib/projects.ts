@@ -390,13 +390,13 @@ export const projects: Project[] = [
       { value: "White-label", label: "Licensable engine" },
     ],
     context:
-      "Fetswallet’s mobile‑money operations relied on Huawei’s licensed engine — costly, inflexible, and struggling to keep up with growth. With expansion plans (including Congo), the team needed infrastructure we could customise instead of merely leasing.",
+      "Fetswallet's mobile money infrastructure ran on a Huawei-licensed engine — adequate at launch but ill-suited to a company planning cross-border expansion into markets like Congo. Licensing costs constrained the operating budget, and the vendor relationship blocked any meaningful customisation: no way to localise, extend for white-label use, or scale past the transaction ceilings the engine imposed.",
     problem:
-      "The vendor system limited scalability and localisation, and it blocked white‑label opportunities. Operational work stayed overly manual, and strategic product decisions were constrained by a third‑party dependency.",
+      "Transaction monitoring, agent reconciliation, and settlement workflows all ran through manual workarounds layered on top of a system not built for them. As the agent network grew, reconciliation errors multiplied and operational overhead scaled linearly. The vendor ceiling — 10k transactions per minute — was already becoming a bottleneck, and the licensing model made every growth decision more expensive than it needed to be.",
     action:
-      "Led strategy, operations, and product design for Fetsproza: a proprietary, white‑label‑ready IaaS platform powering a modular transaction engine, reporting, and an operator console. Worked directly with engineering to translate complex financial workflows into clear, auditable interfaces.",
+      "Led strategy, operations, and product design for Fetsproza from concept to launch — a proprietary, white-label-ready IaaS platform built to replace the vendor dependency entirely. Worked directly with engineering to map existing financial workflows before redesigning them: transaction engine, operator console, reconciliation tooling, and reporting. The design priority was auditability — every transaction state, error, and resolution needed to be traceable without engineering support.",
     impact:
-      "Saved the company $1M+ annually, streamlined operations, and laid the groundwork for licensing the engine to external fintechs. Transaction capacity doubled (10k → 20k/min) and settlement time halved (4s → 2s), unlocking a new white‑label revenue stream.",
+      "Fetswallet eliminated the vendor dependency and cut annual infrastructure costs by over $1M. Transaction capacity doubled from 10k to 20k per minute, settlement time halved from 4s to 2s, and reconciliation that previously required manual coordination became an auditable, self-service operation. The engine was architected for licensing — a white-label revenue stream that didn't exist under the vendor model.",
     tags: ["Fintech", "IaaS", "Mobile Money", "Infrastructure", "0→1"],
     featured: true,
     assets: {
@@ -614,13 +614,13 @@ export const projects: Project[] = [
       { value: "24–48h→mins", label: "Token/payment turnaround" },
     ],
     context:
-      "The Ibadan Electricity Distribution Company (IBEDC) is Nigeria’s largest distribution company by geographic coverage, serving five states. Its billing and payment operations relied heavily on manual processes and fragmented third‑party portals.",
+      "IBEDC is Nigeria's largest electricity distributor by geographic coverage, serving over 2.4 million customers across five states. Despite that scale, billing and payment remained almost entirely manual: walk-in centres ran on handwritten ledgers, and customers were routed through a fragmented stack of third-party portals — FETSwallet, Bypower, bank USSD — with no consistent experience across any of them.",
     problem:
-      "Customers bounced between third‑party portals (FETSwallet, Bypower, bank USSD…) or queued at walk‑in centres using handwritten ledgers. Token SMS often lagged 24–48 hours; revenue leaked; and support tickets doubled year‑on‑year.",
+      "Customers bounced between third-party portals or queued at walk-in centres using handwritten ledgers. Token SMS often lagged 24–48 hours; revenue leaked through unreconciled transactions; and support tickets doubled year-on-year. IBEDC had no unified channel — digital or in-person — that staff or customers could rely on.",
     action:
-      "Designed a friction‑free, end‑to‑end digital experience: IBEDC Care App (B2C + customer relations) and a bespoke POS terminal workflow for walk‑in centres. Digitised billing, payment, receipt verification, and reconciliation so both customers and staff could transact confidently and traceably.",
+      "Designed IBEDC Care App (B2C) and a bespoke POS terminal workflow for walk-in centres — two surfaces sharing a single design language, covering consumer self-service and agent-assisted payments. Worked with the Fets engineering team to map existing billing and token workflows before redesigning them end-to-end. Validated with field staff pre-rollout to ensure field assumptions matched the design. The goal was a system where customers could transact independently and staff could resolve any issue without escalating to a supervisor.",
     impact:
-      "IBEDC’s billing and payments shifted from paper and third‑party fragmentation to a unified digital system: customers transact in seconds, staff reconcile in minutes, and revenue leakage is materially reduced. The Care App passed 10,000+ downloads in its first six months, with a 4.6★ Play Store rating and 2,800+ reviews; fraud fell 80% with stronger verification, and call‑centre volume dropped ~30% as queue and token complaints eased. Token and payment turnaround moved from 24–48 hours to minutes. The POS template was adopted by three external utilities, proving scalability beyond IBEDC.",
+      "IBEDC's billing and payments moved from paper and third-party fragmentation to a unified digital system. In the first year, payment times dropped 30% and customer satisfaction increased 40%. The Care App earned a 4.6-star Play Store rating across 2,800+ reviews. Call-centre volume fell 30% as token delays vanished. The POS workflow, validated at IBEDC scale, was adopted by three external utilities — proving the template transferred beyond a single client.",
     tags: ["Fintech", "Utilities", "Mobile App", "POS", "Public Sector"],
     featured: true,
     assets: {
@@ -726,13 +726,13 @@ export const projects: Project[] = [
       { value: "30+", label: "Paying customers in 2 months" },
     ],
     context:
-      "An AI-powered scheduling platform built on wearable health data — energy-aware planning that adapts daily schedules based on biometric signals from Apple Health.",
+      "Rivva is an AI scheduling platform that uses biometric data from Apple Health to build energy-aware daily plans — not just calendars, but schedules informed by how the user actually feels. The product was in prototype when the founding team brought in design: a functional ML model existed, but no interaction layer, no onboarding, and no way for a user to understand or trust what the AI was suggesting.",
     problem:
-      "AI capability without usable interaction models. Most AI scheduling tools surface outputs without helping users understand or trust the underlying reasoning. The gap between ML capability and human trust was the core design challenge.",
+      "The ML model could generate a schedule. The design problem was that users had no reason to follow it. Biometric data creates a power asymmetry — the system knows something the user doesn't — and the first instinct in most AI tools is to hide that asymmetry rather than explain it. Early concept testing confirmed users would accept AI suggestions they could understand and reject ones they couldn't, regardless of the quality of the recommendation.",
     action:
-      "Designed AI-assisted planning workflows, an energy-aware scheduling model, and Apple Health onboarding from 0→1. Led web app design and shaped the AI-driven daily planning experience. Co-designed Nia (AI assistant) — translating ML outputs into actionable, trusted decisions — and established the cross-platform design system for seamless handoff between mobile and web.",
+      "Designed the full interaction layer from 0→1: Apple Health onboarding, energy-aware scheduling model, and the daily planning experience across iOS, Android, and web. Co-designed Nia, the AI assistant, as an explanation layer — translating ML outputs into language users could act on and disagree with. Built the cross-platform design system that unified the experience across mobile and web. Collaborated with the ML team on how the model's reasoning could be surfaced without overwhelming the interface.",
     impact:
-      "#4 Product of the Day on Product Hunt. 500+ downloads in the first month. 30+ paying customers within two months. A trusted, explainable AI assistant — not just automation.",
+      "Rivva launched from beta to full release and reached #4 Product of the Day on Product Hunt in its first week. 500+ downloads came in the first month, and 30+ paying customers converted within two months — without a paid marketing budget. The AI explainability layer held: post-launch user feedback consistently cited trust in Nia's recommendations as a reason for staying with the product.",
     tags: ["Product Design", "Web App", "0→1", "Consumer", "AI/ML", "Health Tech"],
     featured: true,
     assets: {
@@ -770,13 +770,13 @@ export const projects: Project[] = [
       { value: "Reusable", label: "AI interaction patterns" },
     ],
     context:
-      "SeamlessHR expanding from traditional SaaS into an AI-enabled platform — embedding intelligence into existing enterprise workflows across recruitment, HR, and operations.",
+      "In early 2025, SeamlessHR moved from traditional SaaS toward an AI-enabled platform — embedding intelligence into existing enterprise workflows across recruitment, HR, and operations rather than shipping AI as a standalone product. With multiple product teams building AI features independently, the company needed a shared design foundation for how AI would surface decisions, handle errors, and earn trust in high-stakes enterprise contexts.",
     problem:
-      "AI capability without a design system to support it. No shared patterns for AI interactions, no established framework for how AI surfaces decisions to enterprise users. Teams building AI features independently created inconsistency and eroded user trust.",
+      "AI capability without a design language to support it. Teams were building AI features independently — different patterns for surfacing recommendations, different error states, different levels of explainability. Users encountered AI behaviour that varied across the suite, which created unpredictability in high-trust workflows like recruitment and payroll. The inconsistency didn't just look wrong; it eroded user confidence in the features themselves.",
     action:
-      "Designed an AI-native UX layer across SeamlessHR’s suite: prompt-based workflows, agent behaviours, and AI-UX patterns. Partnered with AI/ML, product, and engineering to balance usability and performance. Defined scalable AI-UX patterns, prompt frameworks, and interaction models adopted across all product teams. Scoped analytics and reporting with ML/AI processing pipelines. Designed Smart CV Parsing, Smart Ranking, and Smart Assessment flows layered into recruitment.",
+      "Partnered with AI/ML, product, and engineering to define an AI-native UX layer across the SeamlessHR suite. Started with recruitment — where AI impact was most measurable — and worked backwards to a reusable pattern library. Defined prompt frameworks, agent behaviours, and interaction models that all product teams could implement consistently. Scoped analytics and reporting with the ML team to ensure the interface reflected what the model could actually deliver, not aspirational states the pipeline couldn't support. Designed Smart CV Parsing, Smart Ranking, and Smart Assessment flows as the first system-native AI features.",
     impact:
-      "Reusable AI interaction patterns established as a system — not one-off features. Faster shortlisting, improved quality, reduced bias. A foundation for AI-native enterprise design at scale.",
+      "AI features across SeamlessHR moved from individually designed one-offs to a governed system of reusable interaction patterns. Smart CV Parsing, Smart Ranking, and Smart Assessment — each built on the shared layer — reduced screening time while making the system's reasoning visible to recruiters. The pattern library became the foundation other product teams adopted when building their own AI features, compressing design time for each subsequent release. SeamlessHR now has an AI design system, not just AI features.",
     tags: ["AI/ML", "Enterprise SaaS", "Design Systems", "Recruitment", "UX Patterns"],
     featured: false,
     assets: {
@@ -802,13 +802,13 @@ export const projects: Project[] = [
       { value: "First", label: "Localised RevOps platform for Africa" },
     ],
     context:
-      "African SaaS founders were managing revenue operations manually or via costly global tools not built for local market constraints, currencies, and compliance requirements.",
+      "African SaaS founders were managing revenue operations in a structural gap: global billing tools like Stripe and Chargebee weren't built for local currencies, Nigerian tax requirements, or the pricing norms of early-stage African SaaS. The alternative was manual — invoicing in spreadsheets, tracking renewals in Notion, handling quotes over WhatsApp. ClearPrice was founded to close that gap with a localised, quote-to-cash system built for Africa.",
     problem:
-      "Undefined pricing workflows, no quote-to-cash system, no subscription management built for African market realities. A structural gap in the ecosystem for early-stage SaaS businesses.",
+      "No validated product definition existed to start from — the gap was real but uncharted. Early conversations with SaaS founders confirmed their workflows varied significantly from business to business. The design challenge was to define a system flexible enough to handle that variation without becoming too complex for a founder who was also managing sales, engineering, and customer success simultaneously.",
     action:
-      "Led product design from 0 → validated MVP. Defined system architecture and UX framework. Designed pricing configuration tools, quote-to-cash flows, and subscription dashboards. Led MVP validation workshops with founders and CFOs. Partnered with engineering for compliance and scalability.",
+      "Led product design from 0 → validated MVP, anchoring every decision in founder validation before building. Ran MVP definition workshops with African SaaS founders and CFOs — testing workflow assumptions before designing for them. Designed pricing configuration, quote generation, subscription management, and billing dashboards with compliance requirements (tax, FX, local currencies) embedded in the workflow rather than bolted on. Partnered with engineering on the data model and audit trail requirements for multi-currency operations.",
     impact:
-      "Soft launch pilot with African SaaS businesses. Scalable, compliance-ready billing infrastructure established. Positioned as the first localised RevOps platform for Africa's SaaS growth ecosystem.",
+      "ClearPrice launched a soft pilot with African SaaS businesses within nine months of product definition. The MVP validated a market position with no direct competitor: a quote-to-cash system built specifically for African SaaS operators, compliant with local tax and currency requirements, and scoped for founders without a dedicated RevOps function. Pilot feedback confirmed the validation-first approach — the product fit was high because the users who would buy it had shaped the design from the start.",
     tags: ["Fintech", "SaaS", "0→1", "Africa", "Billing Infrastructure"],
     featured: false,
     assets: {
@@ -834,13 +834,13 @@ export const projects: Project[] = [
       { value: "Unified", label: "Reconciliation across channels" },
     ],
     context:
-      "Agency banking operations were spread across spreadsheets, paper records, and disconnected mobile apps — leaving compliance, onboarding, and reconciliation as ongoing operational bottlenecks.",
+      "Fets operates an agency banking network — field-based payment infrastructure that extends financial services into communities without direct bank access. As the network grew, operations hit a structural ceiling: agent onboarding ran through manual approval chains, cash position monitoring required supervisor intervention, and reconciliation happened once a day from exported spreadsheets rather than in real time.",
     problem:
-      "No unified system for agent management, cash position monitoring, or dispute handling. Settlement delays and reconciliation errors compounded as the agent network grew.",
+      "Compliance was the critical risk. An agent network without real-time monitoring creates exposure: fraud goes undetected, float positions drift, and disputed transactions take days to resolve. The operational team was managing a growing network using tools not designed for it — the bottlenecks weren't a temporary scaling problem, they were structural. The network couldn't expand safely without a system built for it.",
     action:
-      "Led product design for an end-to-end agency banking management system: agent onboarding, KYC, transaction monitoring, float management, dispute workflows, and reconciliation. Worked with engineering on operational data models and audit trails.",
+      "Led product design for an end-to-end agency banking management system across the full operational lifecycle. Worked with operations and engineering to map the existing agent workflow before designing the replacement: tiered agent hierarchy, KYC-integrated onboarding, real-time transaction monitoring, float position management, dispute resolution workflow, and reconciliation reporting. Audit trail design was a core requirement — every action needed to be traceable for both compliance review and operational accountability.",
     impact:
-      "Operational reconciliation collapsed from days to minutes. Agent onboarding became a single guided workflow. The system became the operating backbone for the agency banking business unit.",
+      "Reconciliation moved from a daily batch process to a real-time operation, compressing multi-day resolution timelines significantly. Agent onboarding became a single guided flow with embedded KYC — removing the manual approval chains that had slowed network expansion. The system became the operational backbone of the Fets agency banking unit, providing the compliance infrastructure and monitoring capability required to scale the agent network with confidence.",
     tags: ["Fintech", "Agency Banking", "Operations", "Compliance"],
     featured: false,
     assets: {
@@ -872,7 +872,7 @@ export const projects: Project[] = [
     action:
       "Collaborated with a product lead to develop product strategy and MVP scope. Participated in an immersive design thinking workshop with a cross-functional group of industry leaders. Conducted field research in Kenya and Nigeria (30+ interviews, ethnographic visits). Mapped worker and employer journeys across hiring, payroll, scheduling, and benefits. Facilitated opportunity mapping and MVP scoping.",
     impact:
-      "Research-backed MVP scope defined with clear opportunity areas, journey maps, and validated workflow priorities to guide build and delivery.",
+      "Thirty field interviews and ethnographic visits across Kenya and Nigeria produced a validated MVP scope grounded in how blue-collar workers and employers actually operate — not assumptions mapped from white-collar HR analogues. The research surfaced consistent patterns across both markets that had not previously been documented at this level of specificity, giving the product team a defensible foundation without expensive course correction later. Africa's first HRM platform for the blue-collar workforce is being built on research that didn't exist before this project.",
     tags: ["HRTech", "0→1", "Field Research", "Africa", "Gates Foundation"],
     featured: false,
     assets: {
