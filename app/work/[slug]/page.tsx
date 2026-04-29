@@ -210,15 +210,27 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
 
         <p style={{ fontSize: 18, color: "var(--fg-body)", lineHeight: 1.7, maxWidth: 760, marginBottom: 16 }}>{project.summary}</p>
 
-        {/* Metric badges — below description; size/spacing from globals for responsive type */}
-        <div className="metric-badges metric-badges--hero" style={{ marginBottom: 36 }}>
-          {project.metrics.map((m, i) => (
-            <div key={i} className="metric-badge">
-              <span className="metric-badge__value">{m.value}</span>
-              <span className="metric-badge__label">{m.label}</span>
+        {project.brief ? (
+          <div style={{ marginTop: 40, marginBottom: 36, paddingTop: 32, borderTop: "1px solid var(--border)" }}>
+            <div className="stats-grid stats-grid--4" style={{ background: "var(--border)" }}>
+              {project.metrics.map(({ value, label }) => (
+                <div key={label} className="stats-cell" style={{ background: "var(--bg)" }}>
+                  <div style={{ fontSize: 35, fontWeight: 600, letterSpacing: "-0.03em", color: "var(--fg)" }}>{value}</div>
+                  <div style={{ fontSize: 11.5, lineHeight: 1.45, color: "var(--fg-muted)", marginTop: 8 }}>{label}</div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ) : (
+          <div className="metric-badges metric-badges--hero" style={{ marginBottom: 36 }}>
+            {project.metrics.map((m, i) => (
+              <div key={i} className="metric-badge">
+                <span className="metric-badge__value">{m.value}</span>
+                <span className="metric-badge__label">{m.label}</span>
+              </div>
+            ))}
+          </div>
+        )}
 
         {(() => {
           const lead = getPrimaryPreviewImage(project.assets);
