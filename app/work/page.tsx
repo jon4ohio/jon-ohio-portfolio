@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 };
 
 const CATEGORIES = [
+  "Design Systems",
   "Structured Systems",
   "Scalable Systems",
   "Intelligent Systems",
