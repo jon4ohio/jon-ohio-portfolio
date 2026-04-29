@@ -9,6 +9,21 @@ export type Phase = {
   description: string; // "Job creation foundations"
 };
 
+function PhaseName({ name }: { name: string }) {
+  const m = name.match(/^(.*?)\s*\((.+)\)\s*$/);
+  if (!m) {
+    return <>{name}</>;
+  }
+  const main = m[1] ?? name;
+  const aside = m[2];
+  return (
+    <>
+      {main}
+      <span style={{ fontWeight: 500, color: "var(--fg-subtle)" }}>{` (${aside})`}</span>
+    </>
+  );
+}
+
 export default function PhaseTimeline({ phases }: { phases: Phase[] }) {
   const [active, setActive] = React.useState<string>(phases[0]?.id ?? "");
 
@@ -58,7 +73,9 @@ export default function PhaseTimeline({ phases }: { phases: Phase[] }) {
                 <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
                   {p.number}
                 </div>
-                <div style={{ marginTop: 4, fontSize: 15, fontWeight: 600, color: "var(--fg)" }}>{p.name}</div>
+                <div style={{ marginTop: 4, fontSize: 15, fontWeight: 600, color: "var(--fg)" }}>
+                  <PhaseName name={p.name} />
+                </div>
                 <div style={{ marginTop: 4, fontSize: 13, color: "var(--fg-muted)" }}>{p.description}</div>
               </div>
               {idx < phases.length - 1 ? (
@@ -91,7 +108,9 @@ export default function PhaseTimeline({ phases }: { phases: Phase[] }) {
               <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
                 {p.number}
               </div>
-              <div style={{ marginTop: 4, fontSize: 15, fontWeight: 600, color: "var(--fg)" }}>{p.name}</div>
+              <div style={{ marginTop: 4, fontSize: 15, fontWeight: 600, color: "var(--fg)" }}>
+                <PhaseName name={p.name} />
+              </div>
               <div style={{ marginTop: 4, fontSize: 13, color: "var(--fg-muted)" }}>{p.description}</div>
             </a>
           );

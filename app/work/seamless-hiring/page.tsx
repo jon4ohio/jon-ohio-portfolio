@@ -28,7 +28,7 @@ const phases: Phase[] = [
   { id: "phase-II", number: "Phase II", name: "Streamline", description: "Application flow redesign" },
   { id: "phase-III", number: "Phase III", name: "Structure", description: "ATS + evaluation redesign" },
   { id: "phase-IV", number: "Phase IV", name: "Scale", description: "RBAC + enterprise permissions" },
-  { id: "phase-V", number: "Phase V", name: "Augment (AI-assisted decision support)", description: "AI parsing, ranking, shortlisting" },
+  { id: "phase-V", number: "Phase V", name: "Augment", description: "AI-powered ATS" },
 ];
 
 const outcomeTiers: OutcomeTier[] = [
@@ -312,7 +312,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
 
         <EvidenceModule
           id="phase-V"
-          phase="Phase V — Augment (AI-assisted decision support)"
+          phase="Phase V — Augment"
           layout="text-left"
           accent
           pullQuote="AI was designed as decision support, not decision authority."
