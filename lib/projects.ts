@@ -89,7 +89,7 @@ export const projects: Project[] = [
     company: "SeamlessHR",
     period: "Mar 2022 – Mar 2025",
     summary:
-      "Re-architected a core enterprise workflow from an underperforming add-on into a flagship hiring product. Rebuilt workflow trust, restored completion rates, and introduced structured AI-assisted decision points used by HR teams across the platform.",
+      "Re-architected a fragmented recruiting product into a flagship hiring platform that restored workflow trust and scaled enterprise hiring.",
     role: "Lead Product Designer across product strategy, UX, and phased rollout.",
     scope:
       "Applicant and recruiter workflows, research synthesis, roadmap definition, and cross-functional delivery with PM, engineering, CX, and sales.",
