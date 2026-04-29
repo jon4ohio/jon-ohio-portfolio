@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import ReadingProgressBar from "@/components/case-study/ReadingProgressBar";
 import StickyChapterNav, { type Chapter } from "@/components/case-study/StickyChapterNav";
-import CaseHero from "@/components/case-study/CaseHero";
-import MetadataBrief from "@/components/case-study/MetadataBrief";
+import FlagshipOpener from "@/components/case-study/FlagshipOpener";
 import TensionCards from "@/components/case-study/TensionCards";
-import PhaseTimeline, { type Phase } from "@/components/case-study/PhaseTimeline";
+import FlagshipSpine from "@/components/case-study/FlagshipSpine";
+import { type Phase } from "@/components/case-study/PhaseTimeline";
 import EvidenceModule from "@/components/case-study/EvidenceModule";
 import AnnotatedFigure from "@/components/case-study/AnnotatedFigure";
 import OutcomeCards, { type OutcomeTier } from "@/components/case-study/OutcomeCards";
@@ -67,7 +67,7 @@ const outcomeTiers: OutcomeTier[] = [
   {
     category: "RELIABILITY",
     items: [
-      "91.1/100 — Trust score (system confidence across teams)",
+      "91.1/100 — Trust score (system trust across teams)",
       "88.9/100 — Adoption score (sustained usage, not bursts)",
       "80% — Designers and engineers report daily reliance",
     ],
@@ -83,7 +83,7 @@ const outcomeTiers: OutcomeTier[] = [
   {
     category: "EVOLUTION",
     items: [
-      "AI-native patterns absorbed as new semantics (not exceptions)",
+      "The layered architecture establishes groundwork for emerging AI interaction patterns without requiring structural exceptions.",
       "System health monitored continuously (usage, detach behavior, sentiment)",
       "Foundations created for future products to start aligned",
     ],
@@ -116,7 +116,7 @@ export default function SeamkitFlagshipCaseStudy() {
         }
       `}</style>
 
-      <CaseHero
+      <FlagshipOpener
         microLabel="SeamlessHR · Dec 2023 – Present"
         title={project.title}
         subtitle={project.subtitle}
@@ -132,9 +132,8 @@ export default function SeamkitFlagshipCaseStudy() {
           src: project.assets?.hero?.src ?? project.assets?.thumbnails?.[0]?.src,
           alt: project.assets?.hero?.alt ?? project.assets?.thumbnails?.[0]?.alt,
         }}
+        executiveBrief={project.brief!}
       />
-
-      {project.brief ? <MetadataBrief {...project.brief} /> : null}
 
       <TensionCards
         label="02 Core Tensions"
@@ -177,17 +176,11 @@ export default function SeamkitFlagshipCaseStudy() {
         />
       </div>
 
-      <section id="phases" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
-        <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          03 Layered system spine
-        </p>
-        <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          How the system holds together
-        </h2>
-        <div style={{ marginTop: 28 }}>
-          <PhaseTimeline phases={layers} />
-        </div>
-      </section>
+      <FlagshipSpine
+        eyebrow="03 Layered system spine"
+        heading="How the system holds together"
+        phases={layers}
+      />
 
       <section id="evidence" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
         <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
@@ -271,7 +264,7 @@ export default function SeamkitFlagshipCaseStudy() {
           id="layer-4"
           phase="Layer 4 — Adoption & system health"
           layout="text-right"
-          challenge="Adoption is not a rollout event; it’s sustained reliance. The system needed instrumentation that could detect drift and confidence loss before it became fragmentation again."
+          challenge="Adoption is not a rollout event; it’s sustained reliance. The system needed instrumentation that could detect drift and trust loss before it became fragmentation again."
           intervention="Health tracked through Figma analytics (insertions, usage frequency, detach behavior) and sentiment signals — reinforcing adoption through co-creation and service-level responsiveness."
           figure={{
             figure: 4,
@@ -301,7 +294,7 @@ export default function SeamkitFlagshipCaseStudy() {
       <UnlockPanel
         items={[
           "A brand or compliance update now touches one layer and propagates across the suite — no per-team coordination as the default.",
-          "AI-native patterns (disclosure states, confidence indicators, progressive disclosure) were absorbed as semantic categories, not exceptions.",
+          "Because the system is token-driven and extensible, it establishes groundwork for emerging AI interaction patterns as those patterns mature across the suite.",
           "A shared operating model for design + engineering emerged: visible governance, contribution workflow, and system health as standard practice.",
         ]}
       />

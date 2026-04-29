@@ -3,10 +3,10 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import StickyChapterNav from "@/components/case-study/StickyChapterNav";
 import ReadingProgressBar from "@/components/case-study/ReadingProgressBar";
-import CaseHero from "@/components/case-study/CaseHero";
-import MetadataBrief from "@/components/case-study/MetadataBrief";
+import FlagshipOpener from "@/components/case-study/FlagshipOpener";
 import TensionCards from "@/components/case-study/TensionCards";
-import PhaseTimeline, { type Phase } from "@/components/case-study/PhaseTimeline";
+import FlagshipSpine from "@/components/case-study/FlagshipSpine";
+import { type Phase } from "@/components/case-study/PhaseTimeline";
 import EvidenceModule from "@/components/case-study/EvidenceModule";
 import AnnotatedFigure from "@/components/case-study/AnnotatedFigure";
 import DecisionAccordion from "@/components/case-study/DecisionAccordion";
@@ -89,7 +89,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         }
       `}</style>
 
-      <CaseHero
+      <FlagshipOpener
         microLabel="SeamlessHR · Mar 2022 – Mar 2025"
         title="SeamlessHiring 2.0"
         subtitle="Recruitment Management System (RMS)"
@@ -105,33 +105,27 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           src: "/assets/work/seamless-hiring/preview-16x9.png",
           alt: "SeamlessHiring 2.0 product overview",
         }}
-      />
-
-      <MetadataBrief
-        blocks={[
-          { label: "Role", value: "Lead Product Designer" },
-          {
-            label: "Scope",
-            value: ["UX Strategy", "Workflow Architecture", "AI-Assisted Decision Design", "Cross-Functional Delivery"],
-          },
-          { label: "Timeline", value: "Mar 2022 – Mar 2025" },
-          { label: "Team", value: ["PM · 3 Engineers", "CX · Sales · HR SMEs"] },
-          { label: "Domain", value: "Enterprise SaaS / HR Tech / ATS" },
-        ]}
-        led={[
-          "Research synthesis",
-          "UX strategy",
-          "Workflow architecture",
-          "AI-layered experience design",
-        ]}
-        partneredOn={["Engineering architecture", "Delivery implementation"]}
-        productImpact={[
-          { value: "↓50%", label: "Support ticket volume" },
-          { value: "27→74", label: "NPS (Net Promoter Score)" },
-          { value: "~100%", label: "Applicant completion rate" },
-        ]}
-        commercialShiftTop="₦150,000 add-on"
-        commercialShiftBottom="→ $3,600/yr flagship module"
+        executiveBrief={{
+          blocks: [
+            { label: "Role", value: "Lead Product Designer" },
+            {
+              label: "Scope",
+              value: ["UX Strategy", "Workflow Architecture", "AI-Assisted Decision Design", "Cross-Functional Delivery"],
+            },
+            { label: "Timeline", value: "Mar 2022 – Mar 2025" },
+            { label: "Team", value: ["PM · 3 Engineers", "CX · Sales · HR SMEs"] },
+            { label: "Domain", value: "Enterprise SaaS / HR Tech / ATS" },
+          ],
+          led: ["Research synthesis", "UX strategy", "Workflow architecture", "AI-layered experience design"],
+          partneredOn: ["Engineering architecture", "Delivery implementation"],
+          productImpact: [
+            { value: "↓50%", label: "Support ticket volume" },
+            { value: "27→74", label: "NPS (Net Promoter Score)" },
+            { value: "~100%", label: "Applicant completion rate" },
+          ],
+          commercialShiftTop: "₦150,000 add-on",
+          commercialShiftBottom: "→ $3,600/yr flagship module",
+        }}
       />
 
       <TensionCards
@@ -174,17 +168,11 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         />
       </div>
 
-      <section id="phases" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
-        <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          03 Transformation in Five Phases
-        </p>
-        <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          How the system evolved
-        </h2>
-        <div style={{ marginTop: 28 }}>
-          <PhaseTimeline phases={phases} />
-        </div>
-      </section>
+      <FlagshipSpine
+        eyebrow="03 Transformation in Five Phases"
+        heading="How the system evolved"
+        phases={phases}
+      />
 
       <section id="evidence" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
         <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
