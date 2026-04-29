@@ -79,7 +79,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         @media (max-width: 640px) {
           .case-study-tension-grid { flex-direction: column !important; }
           .case-study-phase-desktop { display: none !important; }
-          .case-study-evidence-row--text-left { flex-direction: column-reverse !important; }
+          .case-study-evidence-row--text-left { flex-direction: column !important; }
           .case-study-evidence-row--text-right { flex-direction: column !important; }
           .case-study-nextread { flex-direction: column !important; }
           .case-study-nextread-media { width: 100% !important; }
@@ -92,19 +92,17 @@ export default function SeamlessHiringFlagshipCaseStudy() {
       <CaseHero
         microLabel="SeamlessHR · Mar 2022 – Mar 2025"
         title="SeamlessHiring 2.0"
-        subtitle="Recruitment Management System"
+        subtitle="Recruitment Management System (RMS)"
         thesis="Rebuilding fragmented recruiting workflows into an intelligent hiring operating system."
         abstract={
-          "A phased redesign of an underperforming recruitment product that evolved " +
-          "into a flagship enterprise module — introducing AI-assisted hiring workflows, " +
-          "resolving enterprise permission complexity, and laying the organizational " +
-          "foundation for Seamkit."
+          "Rebuilt workflow trust, restored completion rates, and introduced structured " +
+          "AI-assisted decision points used by HR teams across the platform."
         }
         impact={[
-          { value: "↓50%", label: "Support load" },
+          { value: "↓50%", label: "Support tickets" },
+          { value: "↓24%", label: "Application drop-offs" },
           { value: "27→74", label: "NPS" },
-          { value: "~100%", label: "Completion rate" },
-          { value: "$3,600/yr", label: "Flagship module" },
+          { value: "$3,600/yr", label: "Flagship module pricing" },
         ]}
         heroImage={{
           src: "/assets/work/seamless-hiring/preview-16x9.png",
