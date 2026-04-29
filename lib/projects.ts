@@ -1,3 +1,5 @@
+import type { MetadataBriefProps } from "@/components/case-study/MetadataBrief";
+
 export interface Project {
   slug: string;
   title: string;
@@ -9,6 +11,7 @@ export interface Project {
   role: string;
   scope: string;
   metrics: { value: string; label: string }[];
+  brief?: MetadataBriefProps;
   sectionLabels?: { context?: string; problem?: string; action?: string; impact?: string };
   context: string;
   problem: string;
@@ -100,11 +103,34 @@ export const projects: Project[] = [
       { value: "88.9", label: "Adoption score /100" },
       { value: "91.1", label: "Trust score /100" },
     ],
+    brief: {
+      blocks: [
+        { label: "Role", value: "Design Systems Lead and DesignOps driver" },
+        { label: "Scope", value: ["Tokens", "Governance", "Component foundations", "DesignOps"] },
+        { label: "Timeline", value: "Dec 2023 – Present" },
+        { label: "Team", value: ["12 product teams", "Design + Engineering"] },
+        { label: "Domain", value: "Enterprise SaaS / Design Systems" },
+      ],
+      productImpact: [
+        { value: "2.49M", label: "Token insertions (2025)" },
+        { value: "443K", label: "Component insertions" },
+        { value: "70%+", label: "Teams using Seamkit as new-work baseline" },
+      ],
+      commercialShiftTop: "Fragmented, team-owned component libraries",
+      commercialShiftBottom: "→ Governed, shared enterprise design system",
+      led: [
+        "Token architecture and taxonomy",
+        "Governance model and contribution SOP",
+        "System health instrumentation and adoption tracking",
+        "Documentation platform (SeamKit Internal Toolkit)",
+      ],
+      partneredOn: ["Vue component library implementation", "Figma token sync and engineering integration"],
+    },
     sectionLabels: {
-      context: "Opportunity",
-      problem: "Evidence That Shaped the System",
-      action: "Strategic Thesis",
-      impact: "Outcomes and Organisational Leverage",
+      context: "02  Opportunity",
+      problem: "03  Evidence That Shaped the System",
+      action: "04  Strategic Thesis",
+      impact: "05  Outcomes and Organisational Leverage",
     },
     context:
       "SeamlessHR scaled from a single product into a multi-module HR platform — recruitment, payroll, performance management, leave, time management, and more — each built by a different product team, each with its own component library, naming conventions, and visual patterns.\n\n" +

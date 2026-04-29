@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getPrimaryPreviewImage, getProject, projects, type CaseStudyBlock } from "@/lib/projects";
 import AssetImage from "@/components/AssetImage";
+import MetadataBrief from "@/components/case-study/MetadataBrief";
 
 function BlockRenderer({ block }: { block: CaseStudyBlock }) {
   if (block.kind === "callout") {
@@ -241,21 +242,25 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
           );
         })()}
 
-        <div className="grid-2" style={{ gap: 16 }}>
-          <div style={{ border: "1px solid var(--border)", borderRadius: 12, padding: "20px 22px" }}>
-            <p style={{ fontSize: 11, fontWeight: 500, color: "var(--fg-subtle)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
-              Role
-            </p>
-            <p style={{ fontSize: 15, color: "var(--fg-strong)", lineHeight: 1.65 }}>{project.role}</p>
+        {!project.brief ? (
+          <div className="grid-2" style={{ gap: 16 }}>
+            <div style={{ border: "1px solid var(--border)", borderRadius: 12, padding: "20px 22px" }}>
+              <p style={{ fontSize: 11, fontWeight: 500, color: "var(--fg-subtle)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
+                Role
+              </p>
+              <p style={{ fontSize: 15, color: "var(--fg-strong)", lineHeight: 1.65 }}>{project.role}</p>
+            </div>
+            <div style={{ border: "1px solid var(--border)", borderRadius: 12, padding: "20px 22px" }}>
+              <p style={{ fontSize: 11, fontWeight: 500, color: "var(--fg-subtle)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
+                Scope
+              </p>
+              <p style={{ fontSize: 15, color: "var(--fg-strong)", lineHeight: 1.65 }}>{project.scope}</p>
+            </div>
           </div>
-          <div style={{ border: "1px solid var(--border)", borderRadius: 12, padding: "20px 22px" }}>
-            <p style={{ fontSize: 11, fontWeight: 500, color: "var(--fg-subtle)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>
-              Scope
-            </p>
-            <p style={{ fontSize: 15, color: "var(--fg-strong)", lineHeight: 1.65 }}>{project.scope}</p>
-          </div>
-        </div>
+        ) : null}
       </section>
+
+      {project.brief ? <MetadataBrief {...project.brief} /> : null}
 
       {/* ── Case Study Body ── */}
       <section style={{ maxWidth: 760, margin: "0 auto", padding: "0 24px 80px" }}>
