@@ -27,7 +27,7 @@ File: lib/projects.ts — a complete project object (abbreviated SeamlessHiring)
   context: "SeamlessHiring is SeamlessHR's pioneering Recruitment Management System...",
   problem: "The platform couldn't scale: user churn rose...",
   action: "Led a phased, user-centred rebuild...",
-  impact: "In two years, SeamlessHiring moved from a discounted add-on to $3,600/year...",
+  impact: "In two years, SeamlessHiring moved from a discounted add-on to a recurring flagship module...",
   tags: ["Design Systems", "ATS", "Enterprise SaaS"],
   featured: true,
   assets: {

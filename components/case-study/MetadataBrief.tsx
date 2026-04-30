@@ -98,6 +98,7 @@ export default function MetadataBrief({
 }: MetadataBriefProps) {
   const mobileBasicsBlocks = blocks.filter((b) => b.label.toLowerCase() !== "team");
   const bottomLine = commercialShiftBottom.replace(/^→\s*/, "");
+  const hasBottomLine = bottomLine.trim().length > 0;
   const ledJoined = led.join(" · ");
   const partneredJoined = partneredOn.join(" · ");
 
@@ -133,9 +134,9 @@ export default function MetadataBrief({
         <div style={{ ...mobileCardBase, width: "100%", minWidth: 0 }}>
           <span style={sectionLabelStyle}>Commercial shift</span>
           <div style={{ fontSize: 20, fontWeight: 700, color: "var(--fg)", lineHeight: 1.4 }}>{commercialShiftTop}</div>
-          <div style={{ fontSize: 20, fontWeight: 700, color: "var(--fg)", lineHeight: 1.4, marginTop: 4 }}>
-            {bottomLine}
-          </div>
+          {hasBottomLine ? (
+            <div style={{ fontSize: 20, fontWeight: 700, color: "var(--fg)", lineHeight: 1.4, marginTop: 4 }}>{bottomLine}</div>
+          ) : null}
         </div>
 
         <div style={{ ...mobileCardBase, width: "100%", minWidth: 0 }}>
@@ -207,18 +208,22 @@ export default function MetadataBrief({
         <div style={{ gridArea: "commercial", ...mutedCardBase }}>
           <span style={sectionLabelStyle}>Commercial shift</span>
           <div style={{ fontSize: 15, fontWeight: 500, color: "var(--fg)", lineHeight: 1.4 }}>{commercialShiftTop}</div>
-          <div
-            style={{
-              fontSize: 34,
-              fontWeight: 600,
-              color: "var(--fg)",
-              lineHeight: 1,
-              margin: "10px 0 8px",
-            }}
-          >
-            →
-          </div>
-          <div style={{ fontSize: 15, fontWeight: 500, color: "var(--fg)", lineHeight: 1.4 }}>{bottomLine}</div>
+          {hasBottomLine ? (
+            <>
+              <div
+                style={{
+                  fontSize: 34,
+                  fontWeight: 600,
+                  color: "var(--fg)",
+                  lineHeight: 1,
+                  margin: "10px 0 8px",
+                }}
+              >
+                →
+              </div>
+              <div style={{ fontSize: 15, fontWeight: 500, color: "var(--fg)", lineHeight: 1.4 }}>{bottomLine}</div>
+            </>
+          ) : null}
         </div>
 
         <div style={{ gridArea: "contribution", ...mutedCardBase }}>
