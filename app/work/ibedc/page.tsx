@@ -76,9 +76,9 @@ const outcomeTiers: OutcomeTier[] = [
   {
     category: "WHAT CHANGED",
     items: [
-      "Fragmented third-party portals → unified billing model",
-      "Handwritten ledgers → real-time operational records",
-      "Client-specific tool → transferable sector infrastructure",
+      "Portals — Fragmented third-party portals → unified billing model",
+      "Operations — Handwritten ledgers → real-time operational records",
+      "Transferability — Client-specific tool → transferable sector infrastructure",
     ],
   },
 ];
@@ -246,6 +246,7 @@ export default function IbedcFlagshipCaseStudy() {
       </section>
 
       <UnlockPanel
+        label="06 Foundations"
         items={[
           "The dual-surface model — validated at 2.4 million customer scale — established the template adopted by three external utilities without rebuilding from scratch.",
           "Shared transaction logic proved that digital and physical payment channels don't need separate systems. The same principle now applies to every utility operator that adopted the POS template.",
