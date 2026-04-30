@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { getContactMailtoHref } from "@/lib/contact";
 
 export default function Footer() {
+  const mailtoHref = getContactMailtoHref();
   return (
     <footer style={{ borderTop: "1px solid var(--border)", marginTop: 0 }}>
       <div
@@ -34,7 +36,7 @@ export default function Footer() {
         </nav>
 
         <div className="footer-contact-links" style={{ display: "flex", gap: 16 }}>
-          <a href="mailto:jon4ohio@gmail.com" style={{ fontSize: 13, color: "var(--accent-orange)", textDecoration: "none" }}>
+          <a href={mailtoHref} style={{ fontSize: 13, color: "var(--accent-orange)", textDecoration: "none" }}>
             jon4ohio@gmail.com
           </a>
           <a href="https://linkedin.com/in/jon4ohio" target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: "var(--fg-muted)", textDecoration: "none" }}>

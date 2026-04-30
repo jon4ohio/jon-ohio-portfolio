@@ -76,10 +76,6 @@ function RowValue({
   return <div style={{ ...rowValueStyle, marginBottom }}>{children}</div>;
 }
 
-function getBlock(blocks: MetadataBlock[], label: string): MetadataBlock | undefined {
-  return blocks.find((b) => b.label.toLowerCase() === label.toLowerCase());
-}
-
 function impactStackDesc(rawLabel: string): string {
   const label = rawLabel.toLowerCase();
   if (label.includes("support")) return "Support volume";
