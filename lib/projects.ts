@@ -274,18 +274,18 @@ export const projects: Project[] = [
       "Applicant and recruiter workflows, research synthesis, roadmap definition, and cross-functional delivery with PM, engineering, CX, and sales.",
     metrics: [
       { value: "↓50%", label: "Support tickets" },
-      { value: "100%", label: "Applicant completion" },
+      { value: "↓24%", label: "Application drop-offs" },
+      { value: "↑40%", label: "User satisfaction" },
       { value: "27→74", label: "NPS" },
-      { value: "$3,600/yr", label: "Flagship module pricing" },
     ],
     context:
-      "SeamlessHiring is SeamlessHR’s pioneering Recruitment Management System (RMS). Built on a legacy PHP‑Blade foundation, it became so burdened by inefficiencies that sales could only move it as a nominal add‑on priced at ₦150,000 (≈ US $190) — a steep discount that signalled sagging perceived value and stalled revenue growth.",
+      "SeamlessHiring is SeamlessHR’s Recruitment Management System (RMS). Over time, the legacy foundation and accumulated workflow debt turned it into a fragile add-on experience that eroded perceived value and stalled commercial momentum.",
     problem:
       "The platform couldn’t scale: user churn rose, applicants dropped mid‑flow, and revenue drag compounded. Research showed repetitive errors, broken links, mis‑sequenced steps, and reconciliation busywork that ate recruiter time and eroded trust in the hiring process.",
     action:
       "Led a phased, user‑centred rebuild anchored on restoring trust and eliminating systemic failure points. Partnered cross‑functionally (PM, engineering, CX, sales) to synthesize FullStory analytics, stakeholder interviews, and ticket audits into a five‑phase roadmap that delivered zero‑downtime improvements while modernising the end‑to‑end experience.",
     impact:
-      "In two years, SeamlessHiring moved from a discounted “add‑on” to a $3,600‑per‑year flagship module. Support tickets dropped 50%, applicant completion reached 100%, and NPS rose from 27 to 74 while saving clients an estimated ~$500k/year in admin overhead.",
+      "In two years, SeamlessHiring moved from a discounted add‑on to a recurring flagship module. Support tickets dropped 50%, application drop‑offs fell 24%, and NPS rose from 27 to 74 as workflow trust and enterprise readiness improved.",
     tags: ["Design Systems", "ATS", "Enterprise SaaS", "AI/ML", "DesignOps"],
     featured: true,
     assets: {
