@@ -97,15 +97,17 @@ export default function IbedcFlagshipCaseStudy() {
         @media (max-width: 768px) {
           .case-study-chapter-nav { display: none !important; }
         }
-        @media (max-width: 640px) {
-          .case-study-tension-grid { flex-direction: column !important; }
+        @media (max-width: 900px) {
           .case-study-phase-desktop { display: none !important; }
           .case-study-evidence-row--text-left { flex-direction: column !important; }
           .case-study-evidence-row--text-right { flex-direction: column !important; }
+        }
+        @media (max-width: 640px) {
+          .case-study-tension-grid { flex-direction: column !important; }
           .case-study-nextread { flex-direction: column !important; }
           .case-study-nextread-media { width: 100% !important; }
         }
-        @media (min-width: 641px) {
+        @media (min-width: 901px) {
           .case-study-phase-mobile { display: none !important; }
         }
       `}</style>
