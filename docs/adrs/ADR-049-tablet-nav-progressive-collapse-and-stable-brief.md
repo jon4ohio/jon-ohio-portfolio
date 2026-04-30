@@ -45,6 +45,8 @@ We already have a robust mobile navigation panel that contains both **links** an
 
 **We will use progressive collapse at tablet widths: collapse nav links and theme toggles into the hamburger panel at ≤900px, keep the CTA on one line, and render the Executive Brief using stacked cards (not bento) at ≤900px.**
 
+Note: navigation collapse is staged — **CTA + theme toggles collapse first on tablet**, while **primary links remain visible longer** and only collapse at the mobile breakpoint.
+
 ## Consequences
 
 ### Positive

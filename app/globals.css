@@ -1251,8 +1251,8 @@ button:focus-visible {
 
 /* Tablet: collapse links + move toggles into hamburger panel */
 @media (max-width: 900px) {
-  .nav-desktop-links { display: none !important; }
   .nav-desktop-toggle { display: none !important; }
+  .nav-desktop-cta { display: none !important; }
   .nav-hamburger { display: flex !important; }
   .nav-mobile-panel { display: flex; }
   .nav-inner { padding: 0 20px !important; }
