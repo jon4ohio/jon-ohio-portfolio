@@ -686,87 +686,13 @@ export const projects: Project[] = [
       impact: "05  Outcomes and Organisational Leverage",
     },
     context:
-      "IBEDC is Nigeria's largest electricity distributor by geographic coverage —\n" +
-      "serving over 2.4 million customers across five states. At that scale, a broken\n" +
-      "payment system isn't a UX problem. It's an infrastructure liability.\n\n" +
-      "Billing and payment remained almost entirely manual. Walk-in centres ran on\n" +
-      "handwritten ledgers. Customers were routed through a fragmented stack of\n" +
-      "third-party portals — FETSwallet, Bypower, bank USSD — with no consistent\n" +
-      "experience across any of them. Digital and physical channels operated\n" +
-      "independently, with no shared transaction logic and no way for either to\n" +
-      "compensate for the other's failures.\n\n" +
-      "The opportunity was to build a unified billing system — not just a better app,\n" +
-      "but a single operational model with multiple access points.",
+      "IBEDC is Nigeria's largest electricity distributor by geographic coverage, serving over 2.4 million customers across five states. Despite that scale, billing and payment remained almost entirely manual: walk-in centres ran on handwritten ledgers, and customers were routed through a fragmented stack of third-party portals — FETSwallet, Bypower, bank USSD — with no consistent experience across any of them.",
     problem:
-      "Three failure modes were compounding across every channel.\n\n" +
-      "Token delays were destroying trust. When a customer paid their electricity\n" +
-      "bill, token delivery via SMS lagged 24–48 hours. In communities where power is\n" +
-      "managed by prepaid token, that delay meant households sat in the dark after\n" +
-      "having paid — and called the support centre. Tickets doubled year-on-year\n" +
-      "without any change to the underlying system.\n\n" +
-      "Physical and digital channels were disconnected. Customers who couldn't\n" +
-      "navigate third-party portals queued at walk-in centres, where staff processed\n" +
-      "payments using handwritten ledgers and manually cross-referenced receipts.\n" +
-      "Neither channel had visibility into the other, so staff couldn't verify or\n" +
-      "continue a transaction started elsewhere.\n\n" +
-      "Revenue leakage was structural. Unreconciled transactions between channels\n" +
-      "meant payments were lost between systems. Fraud was difficult to detect\n" +
-      "because there was no unified record of what had been paid, by whom, and\n" +
-      "through which channel.",
+      "Customers bounced between third-party portals or queued at walk-in centres using handwritten ledgers. Token SMS often lagged 24–48 hours; revenue leaked through unreconciled transactions; and support tickets doubled year-on-year. IBEDC had no unified channel — digital or in-person — that staff or customers could rely on.",
     action:
-      "The core problem was fragmentation, not access. Adding a better app without\n" +
-      "resolving the underlying channel disconnect would improve one touchpoint while\n" +
-      "leaving the system broken. The solution required a unified billing model first,\n" +
-      "then two coordinated surfaces to express it.\n\n" +
-      "The Unified Billing & Payment System Model has three layers.\n\n" +
-      "Shared transaction logic. All payment flows — mobile app, POS terminal, and\n" +
-      "backend reconciliation — resolve through the same transaction structure. Token\n" +
-      "generation, validation, and settlement follow the same rules regardless of\n" +
-      "where the transaction originates. A payment made through an agent behaves\n" +
-      "exactly the same as one made through the app. This removes the inconsistencies\n" +
-      "between channels that had previously made cross-channel reconciliation\n" +
-      "impossible.\n\n" +
-      "Dual interaction surfaces. The system is expressed through two coordinated\n" +
-      "interfaces: the IBEDC Care App for self-service consumer transactions, and a\n" +
-      "bespoke POS terminal workflow for walk-in centres. Both surfaces are designed\n" +
-      "around the same underlying flow, adapted to different levels of user capability\n" +
-      "and context. Customers can operate independently. Agents can step in and\n" +
-      "continue any transaction without switching systems or reprocessing payments.\n\n" +
-      "Real-time operational visibility. Every transaction is immediately visible to\n" +
-      "both the system and operational staff. Token generation, payment confirmation,\n" +
-      "and error states surface in real time — eliminating the delays that had driven\n" +
-      "support volume, and enabling staff to resolve issues at the point of\n" +
-      "interaction rather than escalating through support chains.\n\n" +
-      "The design process started with field validation. Worked with the Fets\n" +
-      "engineering team to map existing billing and token workflows before redesigning\n" +
-      "them end-to-end. Validated with IBEDC staff ahead of rollout to confirm that\n" +
-      "the field reality matched the design assumptions. Then built the two surfaces\n" +
-      "as expressions of the shared model rather than as separate products.",
+      "Designed IBEDC Care App (B2C) and a bespoke POS terminal workflow for walk-in centres — two surfaces sharing a single design language, covering consumer self-service and agent-assisted payments. Worked with the Fets engineering team to map existing billing and token workflows before redesigning them end-to-end. Validated with field staff pre-rollout to ensure field assumptions matched the design. The goal was a system where customers could transact independently and staff could resolve any issue without escalating to a supervisor.",
     impact:
-      "IBEDC moved from fragmented payment channels to a unified billing system with\n" +
-      "shared transaction logic across all touchpoints. In the first year, payment\n" +
-      "times dropped 30% and customer satisfaction increased 40%. Token delivery,\n" +
-      "previously a 24–48 hour wait, became immediate.\n\n" +
-      "The Care App earned a 4.6-star Play Store rating across 2,800+ reviews —\n" +
-      "unusually high for a utility product in the market. Call-centre volume fell\n" +
-      "30% as token delay complaints vanished. Fraud reduction reached 80% as\n" +
-      "unified transaction records made reconciliation auditable across every channel.\n\n" +
-      "The system extended beyond IBEDC. The dual-surface POS template — validated\n" +
-      "at 2.4 million customer scale — was adopted by three external utility\n" +
-      "providers. That adoption proves the model is transferable, not\n" +
-      "client-specific. A utility billing architecture built for one organisation\n" +
-      "became a reusable infrastructure pattern for the sector.\n\n" +
-      "The Unified Billing & Payment System Model is the lasting output of this work\n" +
-      "— not the app, not the POS interface, but the architectural decision that both\n" +
-      "surfaces share the same transaction logic. That decision is what made three-\n" +
-      "utility replication possible without rebuilding from scratch.\n\n" +
-      "Before this system existed, utility providers in the market chose between\n" +
-      "digital-only solutions (that excluded walk-in customers) or manual-only\n" +
-      "operations (that couldn't scale). The dual-surface model resolves that\n" +
-      "constraint by treating digital and physical as coordinated access points to\n" +
-      "the same system, not separate products serving separate audiences.\n\n" +
-      "The operational model — shared logic, dual surfaces, real-time visibility —\n" +
-      "is the template. IBEDC was the first implementation.",
+      "IBEDC's billing and payments moved from paper and third-party fragmentation to a unified digital system. In the first year, payment times dropped 30% and customer satisfaction increased 40%. The Care App earned a 4.6-star Play Store rating across 2,800+ reviews. Call-centre volume fell 30% as token delays vanished. The POS workflow, validated at IBEDC scale, was adopted by three external utilities — proving the template transferred beyond a single client.",
     tags: ["FinTech", "Utilities", "Mobile App", "POS", "Public Sector", "Service Design", "0→1"],
     featured: true,
     assets: {
