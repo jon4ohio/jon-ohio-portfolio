@@ -384,11 +384,47 @@ export const projects: Project[] = [
     scope:
       "Transaction engine workflows, operator console, reporting, reconciliation, and direct collaboration with engineering on financial operations.",
     metrics: [
-      { value: "$1M+", label: "Saved annually" },
-      { value: "2×", label: "Transaction capacity" },
-      { value: "50%", label: "Faster settlement" },
-      { value: "White-label", label: "Licensable engine" },
+      { value: "↓50%", label: "Transaction processing time" },
+      { value: "2×", label: "Scalability (10k→20k tpm)" },
+      { value: "$1M+", label: "Annual cost savings" },
+      { value: "0→1", label: "Proprietary infrastructure" },
     ],
+    brief: {
+      blocks: [
+        { label: "Role", value: "Lead Product Designer — 0→1, no PM" },
+        {
+          label: "Scope",
+          value: ["Product definition", "System architecture", "UX framework", "Developer alignment"],
+        },
+        { label: "Timeline", value: "2021 – 2025" },
+        { label: "Team", value: "Engineering · CTO · Domain experts" },
+        { label: "Domain", value: "FinTech / Mobile Money / Infrastructure" },
+      ],
+      productImpact: [
+        { value: "↓50%", label: "Transaction processing time" },
+        { value: "2×", label: "Scalability improvement" },
+        { value: "$1M+", label: "Annual cost savings" },
+      ],
+      commercialShiftTop: "Third-party mobile money vendor dependency",
+      commercialShiftBottom: "→ Proprietary, white-label-ready mobile money infrastructure",
+      led: [
+        "Product definition (no PM — sole design and product owner)",
+        "System architecture and UX framework",
+        "Transaction engine and reconciliation flow design",
+        "Developer alignment and delivery coordination",
+      ],
+      partneredOn: [
+        "Engineering implementation",
+        "CTO-level architectural decisions",
+        "Domain expert validation (financial compliance)",
+      ],
+    },
+    sectionLabels: {
+      context: "02  What Made This Hard",
+      problem: "03  How the System Holds Together",
+      action: "04  Evidence in Practice",
+      impact: "05  What the System Delivered",
+    },
     context:
       "Fetswallet's mobile money infrastructure ran on a Huawei-licensed engine — adequate at launch but ill-suited to a company planning cross-border expansion into markets like Congo. Licensing costs constrained the operating budget, and the vendor relationship blocked any meaningful customisation: no way to localise, extend for white-label use, or scale past the transaction ceilings the engine imposed.",
     problem:
