@@ -325,7 +325,7 @@ export default function Hero() {
               marginBottom: 28,
             }}
           >
-            Product Designer focused on systems, scale, and intelligent experiences
+            Designing the systems products and teams run on
           </h1>
           <p
             className="animate-fade-up delay-3"
