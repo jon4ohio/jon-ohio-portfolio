@@ -529,10 +529,15 @@ p, li {
   flex-direction: column;
   gap: 8px;
 }
-.case-study-nav-link:hover p:last-child {
-  color: var(--fg);
-  text-decoration: underline;
-  text-underline-offset: 4px;
+.case-study-nav-link {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 10px;
+  transition: background 0.15s ease;
+}
+.case-study-nav-link:hover,
+.case-study-nav-link:focus-visible {
+  background: var(--surface-hover);
 }
 .nav-desktop-links a:hover {
   background: var(--surface-hover);
