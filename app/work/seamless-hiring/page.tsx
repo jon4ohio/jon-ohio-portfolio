@@ -5,7 +5,7 @@ import StickyChapterNav from "@/components/case-study/StickyChapterNav";
 import ReadingProgressBar from "@/components/case-study/ReadingProgressBar";
 import FlagshipOpener from "@/components/case-study/FlagshipOpener";
 import TensionCards from "@/components/case-study/TensionCards";
-import FlagshipSpine from "@/components/case-study/FlagshipSpine";
+import PhaseTimeline from "@/components/case-study/PhaseTimeline";
 import { type Phase } from "@/components/case-study/PhaseTimeline";
 import EvidenceModule from "@/components/case-study/EvidenceModule";
 import AnnotatedFigure from "@/components/case-study/AnnotatedFigure";
@@ -185,21 +185,13 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         />
       </div>
 
-      <FlagshipSpine
-        eyebrow="03 Transformation in Five Phases"
-        heading="Re-architecting the hiring workflow as a structured system"
-        subhead={
-          "The solution was a full re-architecture of the hiring workflow into a " +
-          "structured system — not a feature refresh. Each phase addressed a distinct " +
-          "layer of system failure."
-        }
-        phases={phases}
-      />
-
       <section id="evidence" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
         <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          04 Evidence in Practice
+          03 Evidence in Practice
         </p>
+        <div style={{ marginTop: 24 }}>
+          <PhaseTimeline phases={phases} />
+        </div>
       </section>
 
       <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 72 }}>
