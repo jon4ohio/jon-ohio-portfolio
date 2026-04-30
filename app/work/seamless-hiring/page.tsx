@@ -430,7 +430,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
             I chose phased delivery over a full redesign. The faster path was a clean-slate rebuild — one handoff, one
             launch, a coherent new system from day one. I chose not to do that. SeamlessHiring had active enterprise
             clients in production. A full cut-over would have required a coordinated migration window across multiple
-            organizations with live hiring pipelines. The cost of a failed migration wasn't a bad launch metric — it was
+            organizations with live hiring pipelines. The cost of a failed migration wasn&apos;t a bad launch metric — it was
             real hiring processes breaking for real companies. The phased approach meant a longer period of coexistence
             between old and new patterns, more complex QA, and a roadmap that had to deliver visible trust signals early
             rather than holding everything for a big reveal. The payoff was zero-downtime delivery and a client base
@@ -440,7 +440,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
             I chose to fix trust before adding features. There was product roadmap pressure to ship AI-assisted
             shortlisting and structured feedback tools — genuinely differentiating capabilities that sales wanted to
             lead with. I pushed back on sequencing. Applicant drop-off rates were at levels that made new features
-            irrelevant: if users weren't completing core flows, layering intelligence on top would accelerate churn, not
+            irrelevant: if users weren&apos;t completing core flows, layering intelligence on top would accelerate churn, not
             reverse it. The cost of this decision was a delayed AI feature narrative and some internal friction around
             roadmap priorities. The outcome was a product where completion reached 100% before intelligent features were
             introduced — which meant the AI layer landed on a workflow people actually trusted, not one they were still
@@ -453,7 +453,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
             production, not what users said was breaking. Interviews came after, to understand why behind what the data
             had already shown. The cost was an unconventional research sequence that required buy-in from stakeholders
             expecting a traditional discovery phase. The payoff was that by the time we interviewed users, we already
-            knew which problems were structural versus incidental — so we weren't designing for noise.
+            knew which problems were structural versus incidental — so we weren&apos;t designing for noise.
           </p>
         </div>
       </section>

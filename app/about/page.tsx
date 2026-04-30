@@ -16,6 +16,7 @@ import {
   communitySectionTitle,
 } from "@/lib/communityContribution";
 import AboutPressStrip from "@/components/AboutPressStrip";
+import { getContactMailtoHref } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "About",
@@ -64,6 +65,7 @@ function renderNarrativeBlock(block: NarrativeBlock, i: number) {
 }
 
 export default function About() {
+  const mailtoHref = getContactMailtoHref();
   return (
     <div style={{ paddingTop: 56 }}>
       <div
@@ -115,7 +117,7 @@ export default function About() {
 
           <div style={{ marginTop: 40, display: "flex", gap: 16, flexWrap: "wrap" }}>
             <a
-              href="mailto:jon4ohio@gmail.com"
+              href={mailtoHref}
               style={{
                 fontSize: 14,
                 fontWeight: 500,

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { startTransition, useEffect, useState } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
+import { getContactMailtoHref } from "@/lib/contact";
 
 const NAV_AVATAR_SRC = "/assets/nav/avatar.png";
 
@@ -17,6 +18,7 @@ const links = [
 export default function Nav() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const mailtoHref = getContactMailtoHref();
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -140,7 +142,7 @@ export default function Nav() {
               <ThemeToggle compact />
             </span>
             <a
-              href="mailto:jon4ohio@gmail.com"
+              href={mailtoHref}
               className="nav-cta-link"
               style={{
                 fontSize: 13,
@@ -255,7 +257,7 @@ export default function Nav() {
           <div className="nav-mobile-panel-footer">
             <ThemeToggle compact />
             <a
-              href="mailto:jon4ohio@gmail.com"
+              href={mailtoHref}
               onClick={() => setMenuOpen(false)}
               style={{
                 display: "flex",
