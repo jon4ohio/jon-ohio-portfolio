@@ -170,6 +170,12 @@ export default function About() {
                 <div style={{ minWidth: 0 }}>
                   <p style={{ fontSize: 14, fontWeight: 500 }}>{t.role}</p>
                   <p style={{ fontSize: 13, color: "var(--fg-muted)" }}>{t.org}</p>
+                  {t.org === "The UX Company" ? (
+                    <p style={{ fontSize: 13, color: "var(--fg-muted)", marginTop: 6, lineHeight: 1.6 }}>
+                      Independent practice. Product design, design systems, and UX strategy engagements across fintech,
+                      enterprise SaaS, and early-stage startups in Nigeria and remote markets.
+                    </p>
+                  ) : null}
                 </div>
               </div>
             ))}

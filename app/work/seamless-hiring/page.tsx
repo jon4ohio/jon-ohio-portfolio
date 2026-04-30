@@ -416,6 +416,46 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         </div>
       </section>
 
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
+        <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
+          Key decisions and what they cost
+        </p>
+        <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
+          Key decisions and what they cost
+        </h2>
+        <div style={{ marginTop: 28, maxWidth: 760 }}>
+          <p style={{ fontSize: 15, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
+            I chose phased delivery over a full redesign. The faster path was a clean-slate rebuild — one handoff, one
+            launch, a coherent new system from day one. I chose not to do that. SeamlessHiring had active enterprise
+            clients in production. A full cut-over would have required a coordinated migration window across multiple
+            organizations with live hiring pipelines. The cost of a failed migration wasn&apos;t a bad launch metric — it was
+            real hiring processes breaking for real companies. The phased approach meant a longer period of coexistence
+            between old and new patterns, more complex QA, and a roadmap that had to deliver visible trust signals early
+            rather than holding everything for a big reveal. The payoff was zero-downtime delivery and a client base
+            that experienced improvement continuously rather than absorbing a disruptive transition.
+          </p>
+          <p style={{ fontSize: 15, color: "var(--fg-body)", lineHeight: 1.75, margin: "18px 0 0" }}>
+            I chose to fix trust before adding features. There was product roadmap pressure to ship AI-assisted
+            shortlisting and structured feedback tools — genuinely differentiating capabilities that sales wanted to
+            lead with. I pushed back on sequencing. Applicant drop-off rates were at levels that made new features
+            irrelevant: if users weren&apos;t completing core flows, layering intelligence on top would accelerate churn, not
+            reverse it. The cost of this decision was a delayed AI feature narrative and some internal friction around
+            roadmap priorities. The outcome was a product where completion reached 100% before intelligent features were
+            introduced — which meant the AI layer landed on a workflow people actually trusted, not one they were still
+            abandoning.
+          </p>
+          <p style={{ fontSize: 15, color: "var(--fg-body)", lineHeight: 1.75, margin: "18px 0 0" }}>
+            I chose FullStory analytics and ticket audits over starting with user interviews. The default instinct in
+            redesigns is to begin with interviews and journey mapping. I inverted that. FullStory gave us behavioral
+            truth before anyone had a chance to rationalize their experience. Ticket audits told us what was breaking in
+            production, not what users said was breaking. Interviews came after, to understand why behind what the data
+            had already shown. The cost was an unconventional research sequence that required buy-in from stakeholders
+            expecting a traditional discovery phase. The payoff was that by the time we interviewed users, we already
+            knew which problems were structural versus incidental — so we weren&apos;t designing for noise.
+          </p>
+        </div>
+      </section>
+
       <section id="outcomes" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
         <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
           05 Outcomes
