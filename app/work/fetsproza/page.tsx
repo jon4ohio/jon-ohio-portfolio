@@ -8,8 +8,8 @@ import { type Phase } from "@/components/case-study/PhaseTimeline";
 import EvidenceModule from "@/components/case-study/EvidenceModule";
 import OutcomeCards, { type OutcomeTier } from "@/components/case-study/OutcomeCards";
 import UnlockPanel from "@/components/case-study/UnlockPanel";
-import NextReadCard from "@/components/case-study/NextReadCard";
-import { getProject } from "@/lib/projects";
+import PrevNextNav from "@/components/case-study/PrevNextNav";
+import { getProject, projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "FetsProza — John Ohio",
@@ -92,6 +92,10 @@ export default function FetsprozaFlagshipCaseStudy() {
   const project = getProject("fetsproza");
   if (!project) return null;
   if (!project.brief) return null;
+
+  const currentIndex = projects.findIndex((p) => p.slug === "fetsproza");
+  const prev = currentIndex > 0 ? projects[currentIndex - 1] : undefined;
+  const next = currentIndex >= 0 ? projects[currentIndex + 1] : undefined;
 
   return (
     <div style={{ paddingTop: 56 }}>
@@ -282,14 +286,7 @@ export default function FetsprozaFlagshipCaseStudy() {
         ]}
       />
 
-      <NextReadCard
-        microLabel="Next"
-        title="IBEDC — Unified Billing System"
-        body="A dual-surface service system: unified transaction logic across self-service and walk-in channels at public-sector scale."
-        href="/work/ibedc"
-        imageSrc="/assets/work/ibedc/preview-16x9.png"
-        imageAlt="IBEDC — unified billing system preview"
-      />
+      <PrevNextNav prev={prev} next={next} />
     </div>
   );
 }

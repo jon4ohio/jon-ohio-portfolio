@@ -12,7 +12,8 @@ import AnnotatedFigure from "@/components/case-study/AnnotatedFigure";
 import DecisionAccordion from "@/components/case-study/DecisionAccordion";
 import OutcomeCards, { type OutcomeTier } from "@/components/case-study/OutcomeCards";
 import UnlockPanel from "@/components/case-study/UnlockPanel";
-import NextReadCard from "@/components/case-study/NextReadCard";
+import PrevNextNav from "@/components/case-study/PrevNextNav";
+import { projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "SeamlessHiring 2.0 — John Ohio",
@@ -71,6 +72,10 @@ const outcomeTiers: OutcomeTier[] = [
 ];
 
 export default function SeamlessHiringFlagshipCaseStudy() {
+  const currentIndex = projects.findIndex((p) => p.slug === "seamless-hiring");
+  const prev = currentIndex > 0 ? projects[currentIndex - 1] : undefined;
+  const next = currentIndex >= 0 ? projects[currentIndex + 1] : undefined;
+
   return (
     <div style={{ paddingTop: 56 }}>
       <ReadingProgressBar />
@@ -486,14 +491,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         ]}
       />
 
-      <NextReadCard
-        microLabel="SeamlessHR · Design Systems"
-        title="Seamkit"
-        body="The system SeamlessHiring made necessary — scaling from one product's token architecture to an operating standard across 12 teams."
-        href="/work/seamkit"
-        imageSrc="/assets/work/seamkit/preview-16x9.png"
-        imageAlt="Seamkit — Enterprise Design System"
-      />
+      <PrevNextNav prev={prev} next={next} />
     </div>
   );
 }

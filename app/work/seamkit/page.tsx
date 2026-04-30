@@ -9,8 +9,8 @@ import EvidenceModule from "@/components/case-study/EvidenceModule";
 import AnnotatedFigure from "@/components/case-study/AnnotatedFigure";
 import OutcomeCards, { type OutcomeTier } from "@/components/case-study/OutcomeCards";
 import UnlockPanel from "@/components/case-study/UnlockPanel";
-import NextReadCard from "@/components/case-study/NextReadCard";
-import { getProject } from "@/lib/projects";
+import PrevNextNav from "@/components/case-study/PrevNextNav";
+import { getProject, projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Seamkit — John Ohio",
@@ -93,6 +93,10 @@ const outcomeTiers: OutcomeTier[] = [
 export default function SeamkitFlagshipCaseStudy() {
   const project = getProject("seamkit");
   if (!project) return null;
+
+  const currentIndex = projects.findIndex((p) => p.slug === "seamkit");
+  const prev = currentIndex > 0 ? projects[currentIndex - 1] : undefined;
+  const next = currentIndex >= 0 ? projects[currentIndex + 1] : undefined;
 
   return (
     <div style={{ paddingTop: 56 }}>
@@ -302,14 +306,7 @@ export default function SeamkitFlagshipCaseStudy() {
         ]}
       />
 
-      <NextReadCard
-        microLabel="Next"
-        title="SeamlessHiring 2.0"
-        body="A flagship workflow transformation story that seeded the need for a governed design system."
-        href="/work/seamless-hiring"
-        imageSrc="/assets/work/seamless-hiring/preview-16x9.png"
-        imageAlt="SeamlessHiring 2.0 product overview"
-      />
+      <PrevNextNav prev={prev} next={next} />
     </div>
   );
 }
