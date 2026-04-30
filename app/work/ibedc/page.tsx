@@ -8,8 +8,8 @@ import { type Phase } from "@/components/case-study/PhaseTimeline";
 import EvidenceModule from "@/components/case-study/EvidenceModule";
 import OutcomeCards, { type OutcomeTier } from "@/components/case-study/OutcomeCards";
 import UnlockPanel from "@/components/case-study/UnlockPanel";
-import NextReadCard from "@/components/case-study/NextReadCard";
-import { getProject } from "@/lib/projects";
+import PrevNextNav from "@/components/case-study/PrevNextNav";
+import { getProject, projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "IBEDC — Unified Billing System — John Ohio",
@@ -87,6 +87,10 @@ export default function IbedcFlagshipCaseStudy() {
   const project = getProject("ibedc");
   if (!project) return null;
   if (!project.brief) return null;
+
+  const currentIndex = projects.findIndex((p) => p.slug === "ibedc");
+  const prev = currentIndex > 0 ? projects[currentIndex - 1] : undefined;
+  const next = currentIndex >= 0 ? projects[currentIndex + 1] : undefined;
 
   return (
     <div style={{ paddingTop: 56 }}>
@@ -256,14 +260,7 @@ export default function IbedcFlagshipCaseStudy() {
         ]}
       />
 
-      <NextReadCard
-        microLabel="Next"
-        title="Seamkit"
-        body="A governed enterprise design system story — architecture, governance, adoption, and system health across 12 teams."
-        href="/work/seamkit"
-        imageSrc="/assets/work/seamkit/preview-16x9.png"
-        imageAlt="SeamKit enterprise design system case study header"
-      />
+      <PrevNextNav prev={prev} next={next} />
     </div>
   );
 }

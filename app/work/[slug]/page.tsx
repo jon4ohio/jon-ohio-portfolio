@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getPrimaryPreviewImage, getProject, projects, type CaseStudyBlock } from "@/lib/projects";
 import AssetImage from "@/components/AssetImage";
 import MetadataBrief from "@/components/case-study/MetadataBrief";
+import PrevNextNav from "@/components/case-study/PrevNextNav";
 
 function BlockRenderer({ block }: { block: CaseStudyBlock }) {
   if (block.kind === "callout") {
@@ -348,34 +349,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       </section>
 
       {/* ── Next / Prev ── */}
-      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px 120px" }}>
-        <div className="grid-2" style={{ borderTop: "1px solid var(--border)", paddingTop: 40, gap: 24 }}>
-          <div>
-            {prev && (
-              <Link
-                href={`/work/${prev.slug}`}
-                className="case-study-nav-link"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                <p style={{ fontSize: 12, color: "var(--fg-subtle)", marginBottom: 8 }}>← Previous</p>
-                <p style={{ fontSize: 16, fontWeight: 600, letterSpacing: "-0.01em" }}>{prev.title}</p>
-              </Link>
-            )}
-          </div>
-          <div className="next-item" style={{ textAlign: "right" }}>
-            {next && (
-              <Link
-                href={`/work/${next.slug}`}
-                className="case-study-nav-link"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                <p style={{ fontSize: 12, color: "var(--fg-subtle)", marginBottom: 8 }}>Next →</p>
-                <p style={{ fontSize: 16, fontWeight: 600, letterSpacing: "-0.01em" }}>{next.title}</p>
-              </Link>
-            )}
-          </div>
-        </div>
-      </section>
+      <PrevNextNav prev={prev} next={next} />
 
     </div>
   );
