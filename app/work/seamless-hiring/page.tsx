@@ -35,24 +35,26 @@ const outcomeTiers: OutcomeTier[] = [
   {
     category: "PRODUCT",
     items: [
-      "~100% — Applicant completion rate",
-      "27→74 — NPS (Net Promoter Score)",
-      "↓50% — Support ticket volume",
+      "↓24%   Application drop-offs",
+      "↑40%   User satisfaction",
+      "↑20%   Job-post engagement",
+      "27→74  NPS",
     ],
   },
   {
     category: "OPERATIONAL",
     items: [
-      "Estimated $500k+/yr — Admin overhead avoided across client orgs",
-      "↓50% — Engineering maintenance load post-Seamkit integration",
+      "45→11%    Recruiter churn",
+      "↓50%      Support volume",
+      "3.8m→1.6m Time-to-value (job creation)",
     ],
   },
   {
     category: "STRATEGIC",
     items: [
-      "₦150,000 add-on → $3,600/yr — Flagship module reposition",
+      "Generated Seamkit — enterprise design system now serving multiple products",
       "Became PLG reference product across SeamlessHR",
-      "Seeded Seamkit adoption across 12 teams",
+      "Established phased redesign model applied to subsequent enterprise products",
     ],
   },
   {
@@ -61,7 +63,7 @@ const outcomeTiers: OutcomeTier[] = [
       "AI-assisted CV parsing introduced",
       "Smart candidate ranking active",
       "Manual screening effort reduced",
-      "Decision signal quality improved",
+      "Structured evaluation improved decision consistency",
     ],
   },
 ];
@@ -94,12 +96,12 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         title="SeamlessHiring 2.0"
         subtitle="Recruitment Management System (RMS)"
         thesis="Rebuilding fragmented recruiting workflows into a scalable hiring operating system."
-        abstract="Restored workflow trust, reduced application drop-offs by 24%, and transformed recruitment into a flagship enterprise product."
+        abstract="Rebuilt workflow trust, restored completion rates, and introduced structured AI-assisted decision points used by HR teams across the platform."
         impact={[
+          { value: "↓24%", label: "Application drop-offs" },
+          { value: "↑40%", label: "User satisfaction" },
+          { value: "↑20%", label: "Job-post engagement" },
           { value: "↓50%", label: "Support volume" },
-          { value: "↓24%", label: "Drop-offs" },
-          { value: "27→74", label: "NPS" },
-          { value: "$3,600/yr", label: "Flagship pricing" },
         ]}
         heroImage={{
           src: "/assets/work/seamless-hiring/preview-16x9.png",
@@ -119,19 +121,19 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           led: ["Research synthesis", "UX strategy", "Workflow architecture", "AI-layered experience design"],
           partneredOn: ["Engineering architecture", "Delivery implementation"],
           productImpact: [
-            { value: "↓50%", label: "Support ticket volume" },
-            { value: "27→74", label: "NPS (Net Promoter Score)" },
-            { value: "~100%", label: "Applicant completion rate" },
+            { value: "↓24%", label: "Application drop-offs" },
+            { value: "↑40%", label: "User satisfaction" },
+            { value: "↓50%", label: "Support volume" },
           ],
-          commercialShiftTop: "₦150,000 add-on",
-          commercialShiftBottom: "→ $3,600/yr flagship module",
+          commercialShiftTop: "$200→$500/mo",
+          commercialShiftBottom: "₦150k flat-fee add-on → ~₦200k/month",
         }}
       />
 
       <TensionCards
         label="02 Core Tensions"
         heading="What was broken"
-        subhead="Three organizational failures that made redesign unavoidable."
+        subhead="A high-volume graduate hiring programme exposed systemic failures in the recruitment workflow — applications stalled, evaluation broke down, and support demand surged. The issue was not primarily interface design. It was a fragmented system that could not support enterprise scale."
         cards={[
           {
             number: "01",
@@ -170,7 +172,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
 
       <FlagshipSpine
         eyebrow="03 Transformation in Five Phases"
-        heading="How the system evolved"
+        heading="Re-architecting the hiring workflow as a structured system"
         phases={phases}
       />
 
@@ -303,7 +305,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
             "Recruiters were spending disproportionate time on manual CV screening — a high-volume, low-judgment task the redesigned system was now stable enough to augment."
           }
           intervention={
-            "AI-assisted parsing and ranking introduced with explainability cues and recruiter-controlled decision boundaries — layered onto a workflow that had earned recruiter trust across Phases I–IV."
+            "Structured decision points were introduced in the final phase, with AI-assisted recommendations supporting recruiter evaluation and shortlisting — augmenting judgment, not replacing it."
           }
           figure={{
             figure: 5,
@@ -394,8 +396,20 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
           Results across four dimensions
         </h2>
+        <p style={{ marginTop: 10, fontSize: 14, color: "var(--fg-muted)", fontStyle: "italic", maxWidth: 760, lineHeight: 1.7 }}>
+          RMS evolved from a ₦150k flat-fee add-on into a recurring product (~₦200k/month), while international pricing increased from $200 to up to $500/month depending on enterprise scale.
+        </p>
         <OutcomeCards tiers={outcomeTiers} />
       </section>
+
+      <div style={{ maxWidth: 1240, margin: "48px auto 0", padding: "0 24px" }}>
+        <p style={{ fontSize: 15, color: "var(--fg-muted)", fontStyle: "italic", lineHeight: 1.7, maxWidth: 760, margin: 0 }}>
+          &quot;The redesign transformed SeamlessHiring from a functional but frustrating tool into a scalable enterprise product.&quot;
+        </p>
+        <p style={{ marginTop: 10, fontSize: 12, color: "var(--fg-subtle)", maxWidth: 760 }}>
+          — Femisayo Olofintila, Head of Product Management, SeamlessHR
+        </p>
+      </div>
 
       <UnlockPanel
         items={[
