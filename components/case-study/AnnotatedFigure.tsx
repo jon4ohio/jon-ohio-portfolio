@@ -100,14 +100,23 @@ export default function AnnotatedFigure({
           >
             Decision notes
           </span>
-          <ul style={{ marginTop: 8, paddingLeft: 0, listStyle: "none" }}>
+          <ul
+            style={{
+              marginTop: 10,
+              paddingLeft: 0,
+              listStyle: "none",
+              display: "flex",
+              flexDirection: "column",
+              gap: 10,
+            }}
+          >
             {decisionNotes.map((note, i) => (
               <li
                 key={i}
                 style={{
                   fontSize: 14,
                   color: "var(--fg-body)",
-                  lineHeight: 1.7,
+                  lineHeight: 1.75,
                   paddingLeft: 16,
                   position: "relative",
                 }}
