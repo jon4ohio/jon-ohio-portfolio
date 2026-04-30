@@ -3,7 +3,7 @@ import ReadingProgressBar from "@/components/case-study/ReadingProgressBar";
 import StickyChapterNav, { type Chapter } from "@/components/case-study/StickyChapterNav";
 import FlagshipOpener from "@/components/case-study/FlagshipOpener";
 import TensionCards from "@/components/case-study/TensionCards";
-import FlagshipSpine from "@/components/case-study/FlagshipSpine";
+import PhaseTimeline from "@/components/case-study/PhaseTimeline";
 import { type Phase } from "@/components/case-study/PhaseTimeline";
 import EvidenceModule from "@/components/case-study/EvidenceModule";
 import OutcomeCards, { type OutcomeTier } from "@/components/case-study/OutcomeCards";
@@ -21,10 +21,9 @@ export const metadata: Metadata = {
 const chapters: Chapter[] = [
   { id: "brief", label: "01 Brief" },
   { id: "tensions", label: "02 Tensions" },
-  { id: "phases", label: "03 Model" },
-  { id: "evidence", label: "04 Evidence" },
-  { id: "outcomes", label: "05 Outcomes" },
-  { id: "unlocks", label: "06 Foundations" },
+  { id: "evidence", label: "03 Evidence" },
+  { id: "outcomes", label: "04 Outcomes" },
+  { id: "unlocks", label: "05 Foundations" },
 ];
 
 const model: Phase[] = [
@@ -163,12 +162,13 @@ export default function IbedcFlagshipCaseStudy() {
         </p>
       </div>
 
-      <FlagshipSpine eyebrow="03 System model" heading="How the system holds together" phases={model} />
-
       <section id="evidence" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
         <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          04 Evidence in practice
+          03 Evidence in practice
         </p>
+        <div style={{ marginTop: 24 }}>
+          <PhaseTimeline phases={model} />
+        </div>
       </section>
 
       <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 72 }}>

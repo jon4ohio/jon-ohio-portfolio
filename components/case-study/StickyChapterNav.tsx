@@ -7,10 +7,9 @@ export type Chapter = { id: string; label: string };
 const DEFAULT_CHAPTERS: Chapter[] = [
   { id: "brief", label: "01 Brief" },
   { id: "tensions", label: "02 Tensions" },
-  { id: "phases", label: "03 Phases" },
-  { id: "evidence", label: "04 Evidence" },
-  { id: "outcomes", label: "05 Outcomes" },
-  { id: "unlocks", label: "06 Unlocks" },
+  { id: "evidence", label: "03 Evidence" },
+  { id: "outcomes", label: "04 Outcomes" },
+  { id: "unlocks", label: "05 Unlocks" },
 ];
 
 export default function StickyChapterNav({ chapters = DEFAULT_CHAPTERS }: { chapters?: Chapter[] }) {
