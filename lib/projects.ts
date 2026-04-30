@@ -595,100 +595,202 @@ export const projects: Project[] = [
   },
   {
     slug: "ibedc",
-    title: "IBEDC Digital Transformation",
+    title: "IBEDC — Unified Billing System",
     subtitle: "Care App + POS System",
     category: "Scalable Systems",
     company: "Fets × IBEDC",
     period: "2022 – 2024",
     summary:
-      "Designed consumer and field payment tools for one of Nigeria's largest electricity distributors, translating complex utility infrastructure into usable workflows at public-sector scale. 10,000+ downloads in the first six months; 4.6 stars on the Play Store.",
+      "IBEDC moved from fragmented third-party portals and manual walk-in workflows to a unified billing system — shared transaction logic across every touchpoint.",
     role: "Lead Product Designer for customer and operational experiences.",
     scope:
-      "Consumer app flows, agent and POS workflows, reconciliation tooling, and service operations spanning digital and walk-in channels.",
+      "Consumer app design (IBEDC Care — B2C + customer relations), POS terminal workflow for walk-in centres, unified transaction architecture across channels, and operational visibility/reconciliation model.",
     metrics: [
       { value: "4.6★", label: "Play Store (2,800+ reviews)" },
-      { value: "10k+", label: "App downloads (first 6 mo)" },
-      { value: "↓80%", label: "Fraud reduction" },
       { value: "↓30%", label: "Call-centre volume" },
+      { value: "↓80%", label: "Fraud reduction" },
       { value: "3", label: "Utilities on POS template" },
-      { value: "24–48h→mins", label: "Token/payment turnaround" },
     ],
+    brief: {
+      blocks: [
+        { label: "Role", value: "Lead Product Designer" },
+        {
+          label: "Scope",
+          value: [
+            "Consumer app design (IBEDC Care)",
+            "POS workflow",
+            "Unified transaction logic",
+            "Operational reconciliation model",
+          ],
+        },
+        { label: "Timeline", value: "2022 – 2024" },
+        { label: "Team", value: "Fets Engineering · IBEDC Operations · Field Staff" },
+        { label: "Domain", value: "Utility / FinTech / Public Sector" },
+      ],
+      productImpact: [
+        { value: "4.6★", label: "Play Store rating (2,800+ reviews)" },
+        { value: "↓30%", label: "Call-centre volume" },
+        { value: "10k+", label: "App downloads in first 6 months" },
+      ],
+      commercialShiftTop: "Fragmented third-party portals, handwritten ledgers, 24–48h token delays",
+      commercialShiftBottom: "→ Unified billing system with shared transaction logic across all touchpoints",
+      led: [
+        "Consumer app design (IBEDC Care — B2C + customer relations)",
+        "POS terminal workflow for walk-in centres",
+        "Unified transaction architecture across digital and in-person channels",
+        "Operational visibility and reconciliation model",
+      ],
+      partneredOn: ["Engineering implementation (Fets)", "IBEDC operations validation and field staff testing"],
+    },
+    sectionLabels: {
+      context: "02  Opportunity",
+      problem: "03  Evidence That Shaped the System",
+      action: "04  System Architecture",
+      impact: "05  Outcomes and Organisational Leverage",
+    },
     context:
-      "IBEDC is Nigeria's largest electricity distributor by geographic coverage, serving over 2.4 million customers across five states. Despite that scale, billing and payment remained almost entirely manual: walk-in centres ran on handwritten ledgers, and customers were routed through a fragmented stack of third-party portals — FETSwallet, Bypower, bank USSD — with no consistent experience across any of them.",
+      "IBEDC is Nigeria's largest electricity distributor by geographic coverage —\n" +
+      "serving over 2.4 million customers across five states. At that scale, a broken\n" +
+      "payment system isn't a UX problem. It's an infrastructure liability.\n\n" +
+      "Billing and payment remained almost entirely manual. Walk-in centres ran on\n" +
+      "handwritten ledgers. Customers were routed through a fragmented stack of\n" +
+      "third-party portals — FETSwallet, Bypower, bank USSD — with no consistent\n" +
+      "experience across any of them. Digital and physical channels operated\n" +
+      "independently, with no shared transaction logic and no way for either to\n" +
+      "compensate for the other's failures.\n\n" +
+      "The opportunity was to build a unified billing system — not just a better app,\n" +
+      "but a single operational model with multiple access points.",
     problem:
-      "Customers bounced between third-party portals or queued at walk-in centres using handwritten ledgers. Token SMS often lagged 24–48 hours; revenue leaked through unreconciled transactions; and support tickets doubled year-on-year. IBEDC had no unified channel — digital or in-person — that staff or customers could rely on.",
+      "Three failure modes were compounding across every channel.\n\n" +
+      "Token delays were destroying trust. When a customer paid their electricity\n" +
+      "bill, token delivery via SMS lagged 24–48 hours. In communities where power is\n" +
+      "managed by prepaid token, that delay meant households sat in the dark after\n" +
+      "having paid — and called the support centre. Tickets doubled year-on-year\n" +
+      "without any change to the underlying system.\n\n" +
+      "Physical and digital channels were disconnected. Customers who couldn't\n" +
+      "navigate third-party portals queued at walk-in centres, where staff processed\n" +
+      "payments using handwritten ledgers and manually cross-referenced receipts.\n" +
+      "Neither channel had visibility into the other, so staff couldn't verify or\n" +
+      "continue a transaction started elsewhere.\n\n" +
+      "Revenue leakage was structural. Unreconciled transactions between channels\n" +
+      "meant payments were lost between systems. Fraud was difficult to detect\n" +
+      "because there was no unified record of what had been paid, by whom, and\n" +
+      "through which channel.",
     action:
-      "Designed IBEDC Care App (B2C) and a bespoke POS terminal workflow for walk-in centres — two surfaces sharing a single design language, covering consumer self-service and agent-assisted payments. Worked with the Fets engineering team to map existing billing and token workflows before redesigning them end-to-end. Validated with field staff pre-rollout to ensure field assumptions matched the design. The goal was a system where customers could transact independently and staff could resolve any issue without escalating to a supervisor.",
+      "The core problem was fragmentation, not access. Adding a better app without\n" +
+      "resolving the underlying channel disconnect would improve one touchpoint while\n" +
+      "leaving the system broken. The solution required a unified billing model first,\n" +
+      "then two coordinated surfaces to express it.\n\n" +
+      "The Unified Billing & Payment System Model has three layers.\n\n" +
+      "Shared transaction logic. All payment flows — mobile app, POS terminal, and\n" +
+      "backend reconciliation — resolve through the same transaction structure. Token\n" +
+      "generation, validation, and settlement follow the same rules regardless of\n" +
+      "where the transaction originates. A payment made through an agent behaves\n" +
+      "exactly the same as one made through the app. This removes the inconsistencies\n" +
+      "between channels that had previously made cross-channel reconciliation\n" +
+      "impossible.\n\n" +
+      "Dual interaction surfaces. The system is expressed through two coordinated\n" +
+      "interfaces: the IBEDC Care App for self-service consumer transactions, and a\n" +
+      "bespoke POS terminal workflow for walk-in centres. Both surfaces are designed\n" +
+      "around the same underlying flow, adapted to different levels of user capability\n" +
+      "and context. Customers can operate independently. Agents can step in and\n" +
+      "continue any transaction without switching systems or reprocessing payments.\n\n" +
+      "Real-time operational visibility. Every transaction is immediately visible to\n" +
+      "both the system and operational staff. Token generation, payment confirmation,\n" +
+      "and error states surface in real time — eliminating the delays that had driven\n" +
+      "support volume, and enabling staff to resolve issues at the point of\n" +
+      "interaction rather than escalating through support chains.\n\n" +
+      "The design process started with field validation. Worked with the Fets\n" +
+      "engineering team to map existing billing and token workflows before redesigning\n" +
+      "them end-to-end. Validated with IBEDC staff ahead of rollout to confirm that\n" +
+      "the field reality matched the design assumptions. Then built the two surfaces\n" +
+      "as expressions of the shared model rather than as separate products.",
     impact:
-      "IBEDC's billing and payments moved from paper and third-party fragmentation to a unified digital system. In the first year, payment times dropped 30% and customer satisfaction increased 40%. The Care App earned a 4.6-star Play Store rating across 2,800+ reviews. Call-centre volume fell 30% as token delays vanished. The POS workflow, validated at IBEDC scale, was adopted by three external utilities — proving the template transferred beyond a single client.",
-    tags: ["Fintech", "Utilities", "Mobile App", "POS", "Public Sector"],
+      "IBEDC moved from fragmented payment channels to a unified billing system with\n" +
+      "shared transaction logic across all touchpoints. In the first year, payment\n" +
+      "times dropped 30% and customer satisfaction increased 40%. Token delivery,\n" +
+      "previously a 24–48 hour wait, became immediate.\n\n" +
+      "The Care App earned a 4.6-star Play Store rating across 2,800+ reviews —\n" +
+      "unusually high for a utility product in the market. Call-centre volume fell\n" +
+      "30% as token delay complaints vanished. Fraud reduction reached 80% as\n" +
+      "unified transaction records made reconciliation auditable across every channel.\n\n" +
+      "The system extended beyond IBEDC. The dual-surface POS template — validated\n" +
+      "at 2.4 million customer scale — was adopted by three external utility\n" +
+      "providers. That adoption proves the model is transferable, not\n" +
+      "client-specific. A utility billing architecture built for one organisation\n" +
+      "became a reusable infrastructure pattern for the sector.\n\n" +
+      "The Unified Billing & Payment System Model is the lasting output of this work\n" +
+      "— not the app, not the POS interface, but the architectural decision that both\n" +
+      "surfaces share the same transaction logic. That decision is what made three-\n" +
+      "utility replication possible without rebuilding from scratch.\n\n" +
+      "Before this system existed, utility providers in the market chose between\n" +
+      "digital-only solutions (that excluded walk-in customers) or manual-only\n" +
+      "operations (that couldn't scale). The dual-surface model resolves that\n" +
+      "constraint by treating digital and physical as coordinated access points to\n" +
+      "the same system, not separate products serving separate audiences.\n\n" +
+      "The operational model — shared logic, dual surfaces, real-time visibility —\n" +
+      "is the template. IBEDC was the first implementation.",
+    tags: ["FinTech", "Utilities", "Mobile App", "POS", "Public Sector", "Service Design", "0→1"],
     featured: true,
     assets: {
       thumbnails: [
         {
           src: "/assets/work/ibedc/preview-16x9.png",
-          alt: "IBEDC Digital Transformation — project preview",
+          alt: "IBEDC — unified billing system preview",
           width: 2752,
           height: 1548,
         },
         {
           src: "/assets/work/ibedc/thumb-2.png",
-          alt: "Overview — north-star objective for IBEDC digital transformation",
+          alt: "Overview — unified billing model objective for IBEDC",
           width: 2196,
           height: 770,
         },
       ],
       hero: {
         src: "/assets/work/ibedc/preview-16x9.png",
-        alt: "IBEDC Digital Transformation case study header",
+        alt: "IBEDC — unified billing system case study header",
         width: 2752,
         height: 1548,
       },
       blocks: [
+        {
+          kind: "callout",
+          title: "Impact — first year in production",
+          body:
+            "4.6★ Play Store rating across 2,800+ reviews · ↓30% call-centre volume · ↓80% fraud reduction · POS template adopted by 3 external utilities.",
+        },
         {
           kind: "image",
           layout: "wide",
           treatment: "plain",
           image: {
             src: "/assets/work/ibedc/block-customer-journey.png",
-            alt: "Customer journey user flow — IBEDC digital touchpoints",
+            alt: "Customer journey user flow — IBEDC digital touchpoints across app and walk-in",
             width: 2197,
             height: 1487,
-            caption: "Customer journey user flow.",
-          },
-        },
-        {
-          kind: "image",
-          layout: "wide",
-          treatment: "plain",
-          image: {
-            src: "/assets/work/ibedc/block-pos-payment-flow.png",
-            alt: "POS payment user flow for walk-in centres",
-            width: 3024,
-            height: 1330,
-            caption: "POS payment user flow.",
+            caption: "Customer journey: self-service and agent-assisted flows sharing the same underlying transaction logic.",
           },
         },
         {
           kind: "gallery",
-          layout: "wide",
+          layout: "inline",
           columns: 2,
           treatment: "plain",
           images: [
+            {
+              src: "/assets/work/ibedc/block-pos-payment-flow.png",
+              alt: "POS payment user flow for walk-in centres",
+              width: 3024,
+              height: 1330,
+              caption: "POS payment flow — agent-assisted transactions in walk-in centres.",
+            },
             {
               src: "/assets/work/ibedc/block-pos-ui.png",
               alt: "POS terminal interface for in-person payments",
               width: 3024,
               height: 2071,
-              caption: "POS UI.",
-            },
-            {
-              src: "/assets/work/ibedc/block-care-app-ui.png",
-              alt: "IBEDC Care — Pay Bill flow with bank transfer, Quickteller, FETS, and payment success",
-              width: 1024,
-              height: 526,
-              caption: "A multi-payment channel that allows several payment options.",
-              backdropColor: "#ffffff",
+              caption: "POS terminal interface: same transaction logic, different surface.",
             },
           ],
         },
@@ -697,13 +799,32 @@ export const projects: Project[] = [
           layout: "wide",
           treatment: "plain",
           image: {
+            src: "/assets/work/ibedc/block-care-app-ui.png",
+            alt: "IBEDC Care App — multi-channel payment flow",
+            width: 1024,
+            height: 526,
+            caption:
+              "IBEDC Care App: bank transfer, Quickteller, FETS, and payment success — multiple payment channels unified under the same billing model.",
+            backdropColor: "#ffffff",
+          },
+        },
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
             src: "/assets/work/ibedc/block-additional-wins.png",
-            alt: "Additional wins — feedback, operations, and POS template adoption",
+            alt: "IBEDC additional outcomes — feedback, POS template adoption",
             width: 2432,
             height: 1883,
             caption:
-              "Additional wins: customer and staff feedback (Play Store 4.6★, Twitter), call-centre relief, and POS template reused by three utilities.",
+              "The POS template validated at IBEDC scale — adopted by three external utilities, proving the model transfers beyond a single implementation.",
           },
+        },
+        {
+          kind: "callout",
+          title: "IBEDC was the first implementation",
+          body: "The model is the lasting output.",
         },
       ],
     },
