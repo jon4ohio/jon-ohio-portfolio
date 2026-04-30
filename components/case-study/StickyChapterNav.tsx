@@ -55,6 +55,7 @@ export default function StickyChapterNav({ chapters = DEFAULT_CHAPTERS }: { chap
       }}
     >
       <div
+        className="case-study-chapter-nav-scroll"
         style={{
           maxWidth: 1240,
           margin: "0 auto",
@@ -64,6 +65,7 @@ export default function StickyChapterNav({ chapters = DEFAULT_CHAPTERS }: { chap
           alignItems: "center",
           gap: 6,
           overflowX: "auto",
+          WebkitOverflowScrolling: "touch",
         }}
       >
         {chapters.map((c) => {
