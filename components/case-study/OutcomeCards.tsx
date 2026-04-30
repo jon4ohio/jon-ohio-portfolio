@@ -3,6 +3,7 @@ import * as React from "react";
 export interface OutcomeTier {
   category: string;
   items: string[];
+  caption?: string;
 }
 
 function Micro({ children }: { children: React.ReactNode }) {
@@ -49,6 +50,21 @@ export default function OutcomeCards({ tiers }: { tiers: OutcomeTier[] }) {
               </div>
             ))}
           </div>
+          {t.caption ? (
+            <p
+              style={{
+                fontSize: 13,
+                color: "var(--fg-muted)",
+                fontStyle: "italic",
+                lineHeight: 1.6,
+                marginTop: 12,
+                paddingTop: 12,
+                borderTop: "1px solid var(--border-subtle)",
+              }}
+            >
+              {t.caption}
+            </p>
+          ) : null}
         </div>
       ))}
     </div>

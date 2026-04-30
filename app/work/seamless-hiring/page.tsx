@@ -56,6 +56,8 @@ const outcomeTiers: OutcomeTier[] = [
       "Became PLG reference product across SeamlessHR",
       "Established phased redesign model applied to subsequent enterprise products",
     ],
+    caption:
+      "RMS transitioned from a ₦150k one-time add-on into a recurring product (~₦200k/month), while international pricing increased from $200 to up to $500/month depending on enterprise scale.",
   },
   {
     category: "INTELLIGENCE",
@@ -96,7 +98,13 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         title="SeamlessHiring 2.0"
         subtitle="Recruitment Management System (RMS)"
         thesis="Rebuilding fragmented recruiting workflows into a scalable hiring operating system."
-        abstract="Rebuilt workflow trust, restored completion rates, and introduced structured AI-assisted decision points used by HR teams across the platform."
+        abstract={
+          "SeamlessHiring began as a fragmented recruitment add-on that broke " +
+          "under scale during a high-volume graduate hiring programme. The redesign " +
+          "focused on restoring workflow trust, restructuring the hiring lifecycle, and " +
+          "repositioning RMS from a low-cost add-on into a scalable, enterprise-priced " +
+          "product across local and international markets."
+        }
         impact={[
           { value: "↓24%", label: "Application drop-offs" },
           { value: "↑40%", label: "User satisfaction" },
@@ -133,7 +141,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
       <TensionCards
         label="02 Core Tensions"
         heading="What was broken"
-        subhead="A high-volume graduate hiring programme exposed systemic failures in the recruitment workflow — applications stalled, evaluation broke down, and support demand surged. The issue was not primarily interface design. It was a fragmented system that could not support enterprise scale."
+        subhead="Three systemic failures that made redesign unavoidable — not isolated interface issues, but structural breakdowns that prevented the system from supporting enterprise hiring at scale."
         cards={[
           {
             number: "01",
@@ -173,6 +181,11 @@ export default function SeamlessHiringFlagshipCaseStudy() {
       <FlagshipSpine
         eyebrow="03 Transformation in Five Phases"
         heading="Re-architecting the hiring workflow as a structured system"
+        subhead={
+          "The solution was a full re-architecture of the hiring workflow into a " +
+          "structured system — not a feature refresh. Each phase addressed a distinct " +
+          "layer of system failure."
+        }
         phases={phases}
       />
 
@@ -305,7 +318,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
             "Recruiters were spending disproportionate time on manual CV screening — a high-volume, low-judgment task the redesigned system was now stable enough to augment."
           }
           intervention={
-            "Structured decision points were introduced in the final phase, with AI-assisted recommendations supporting recruiter evaluation and shortlisting — augmenting judgment, not replacing it."
+            "AI-assisted recommendations were introduced in the final phase to support recruiter evaluation and shortlisting — augmenting structured recruiter decision-making rather than replacing it."
           }
           figure={{
             figure: 5,
@@ -348,6 +361,20 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           </div>
         </div>
       </div>
+
+      <p
+        style={{
+          fontSize: 15,
+          color: "var(--fg-muted)",
+          lineHeight: 1.75,
+          maxWidth: 640,
+          margin: "32px auto 0",
+          textAlign: "center",
+          padding: "0 24px",
+        }}
+      >
+        This shift in system design directly enabled improvements in workflow reliability, user adoption, and the commercial positioning of the product.
+      </p>
 
       <section style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
         <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
@@ -396,9 +423,6 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
           Results across four dimensions
         </h2>
-        <p style={{ marginTop: 10, fontSize: 14, color: "var(--fg-muted)", fontStyle: "italic", maxWidth: 760, lineHeight: 1.7 }}>
-          RMS evolved from a ₦150k flat-fee add-on into a recurring product (~₦200k/month), while international pricing increased from $200 to up to $500/month depending on enterprise scale.
-        </p>
         <OutcomeCards tiers={outcomeTiers} />
       </section>
 
