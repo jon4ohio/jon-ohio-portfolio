@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export default function UnlockPanel({ items }: { items: string[] }) {
+export default function UnlockPanel({ items, label = "06 What This Unlocked" }: { items: string[]; label?: string }) {
   return (
     <section
       id="unlocks"
@@ -13,7 +13,7 @@ export default function UnlockPanel({ items }: { items: string[] }) {
       <div style={{ maxWidth: 1240, margin: "0 auto" }}>
         <div style={{ maxWidth: 680 }}>
           <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-            06 What This Unlocked
+            {label}
           </p>
 
           <div style={{ marginTop: 24 }}>

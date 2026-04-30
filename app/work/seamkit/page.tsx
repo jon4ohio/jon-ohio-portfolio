@@ -292,6 +292,7 @@ export default function SeamkitFlagshipCaseStudy() {
       </section>
 
       <UnlockPanel
+        label="06 Foundations"
         items={[
           "A brand or compliance update now touches one layer and propagates across the suite — no per-team coordination as the default.",
           "Because the system is token-driven and extensible, it establishes groundwork for emerging AI interaction patterns as those patterns mature across the suite.",
