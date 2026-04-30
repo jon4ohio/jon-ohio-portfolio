@@ -240,6 +240,11 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
             : lead.alt;
           return (
             <div style={{ marginBottom: 28 }}>
+              {slug === "orchestrated-portfolio" && lead.src === "/assets/work/_placeholders/hero.svg" ? (
+                <>
+                  {/* TODO: Replace placeholder hero — needs real project preview image at /assets/work/orchestrated-portfolio/preview-16x9.png */}
+                </>
+              ) : null}
               <AssetImage
                 asset={{ ...lead, alt }}
                 sizes="(max-width: 900px) 92vw, 1240px"
