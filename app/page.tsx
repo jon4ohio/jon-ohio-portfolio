@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import SystemModel from "@/components/SystemModel";
 import AssetImage from "@/components/AssetImage";
 import { getPrimaryPreviewImage, projects } from "@/lib/projects";
+import { getContactMailtoHref } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "John Ohio — Senior Product Designer",
@@ -77,6 +78,7 @@ const ownershipItems = [
 ] as const;
 
 export default function Home() {
+  const mailtoHref = getContactMailtoHref();
   return (
     <div style={{ paddingTop: 56 }}>
       {/* ── 1. HERO ──────────────────────────────────────────── */}
@@ -388,7 +390,7 @@ export default function Home() {
           </p>
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap", alignItems: "center" }}>
             <a
-              href="mailto:jon4ohio@gmail.com"
+              href={mailtoHref}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
