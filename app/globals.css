@@ -852,6 +852,20 @@ button:focus-visible {
 @media (min-width: 769px) {
   .brief-mobile { display: none !important; }
 }
+/* Tablet/iPad: stacked brief is more stable than bento */
+@media (max-width: 900px) {
+  .brief-bento { display: none !important; }
+  .brief-mobile { display: flex !important; flex-direction: column; gap: 12px; }
+}
+
+/* Case study evidence: avoid cramped 2-col mid-state on tablet */
+@media (max-width: 900px) {
+  .case-study-evidence-row--text-left,
+  .case-study-evidence-row--text-right {
+    flex-direction: column !important;
+    gap: 32px !important;
+  }
+}
 .work-list-body {
   min-width: 0;
 }
@@ -860,9 +874,9 @@ button:focus-visible {
 .hero-metrics {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  column-gap: 28px;
+  column-gap: clamp(20px, 2.8vw, 28px);
   row-gap: 0;
-  padding: 48px 0;
+  padding: clamp(36px, 5vw, 48px) 0;
 }
 .hero-metric {
   border-left: 1px solid color-mix(in oklab, var(--border) 45%, transparent);
@@ -901,9 +915,9 @@ button:focus-visible {
 }
 /* When the grid wraps (tablet widths), vertical rules look misaligned.
    Switch to row separators for cleaner rhythm and alignment. */
-@media (max-width: 900px) and (min-width: 768px) {
+@media (max-width: 960px) and (min-width: 768px) {
   .hero-metrics {
-    column-gap: 24px;
+    column-gap: clamp(18px, 3vw, 24px);
     row-gap: 18px;
   }
   .hero-metric {
@@ -1233,6 +1247,15 @@ button:focus-visible {
   .nav-mobile-panel {
     transition: none;
   }
+}
+
+/* Tablet: collapse links + move toggles into hamburger panel */
+@media (max-width: 900px) {
+  .nav-desktop-links { display: none !important; }
+  .nav-desktop-toggle { display: none !important; }
+  .nav-hamburger { display: flex !important; }
+  .nav-mobile-panel { display: flex; }
+  .nav-inner { padding: 0 20px !important; }
 }
 
 @media (max-width: 640px) {

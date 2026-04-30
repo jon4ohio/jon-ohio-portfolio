@@ -59,6 +59,7 @@ export default function Nav() {
       >
         <nav
           aria-label="Primary"
+          className="nav-inner"
           style={{
             maxWidth: 1240,
             margin: "0 auto",
@@ -135,9 +136,12 @@ export default function Nav() {
 
           {/* Desktop actions: keep switcher tight to CTA and away from link cluster */}
           <div className="nav-desktop-cta" style={{ gap: 18, marginLeft: 12 }}>
-            <ThemeToggle compact />
+            <span className="nav-desktop-toggle">
+              <ThemeToggle compact />
+            </span>
             <a
               href="mailto:jon4ohio@gmail.com"
+              className="nav-cta-link"
               style={{
                 fontSize: 13,
                 fontWeight: 500,
@@ -147,6 +151,8 @@ export default function Nav() {
                 padding: "7px 16px",
                 borderRadius: 8,
                 transition: "background 0.15s, color 0.15s",
+                whiteSpace: "nowrap",
+                flexShrink: 0,
               }}
               onMouseEnter={(e) => {
                 (e.target as HTMLElement).style.background = "var(--surface-emphasis)";
