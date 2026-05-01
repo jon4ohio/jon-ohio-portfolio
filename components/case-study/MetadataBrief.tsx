@@ -131,7 +131,10 @@ export default function MetadataBrief({
           <span style={sectionLabelStyle}>Commercial shift</span>
           <div style={{ fontSize: 20, fontWeight: 700, color: "var(--fg)", lineHeight: 1.4 }}>{commercialShiftTop}</div>
           {hasBottomLine ? (
-            <div style={{ fontSize: 20, fontWeight: 700, color: "var(--fg)", lineHeight: 1.4, marginTop: 4 }}>{bottomLine}</div>
+            <>
+              <div style={{ opacity: 0.6, margin: "6px 0", fontSize: 18, fontWeight: 700, color: "var(--fg)" }}>→</div>
+              <div style={{ fontSize: 20, fontWeight: 700, color: "var(--fg)", lineHeight: 1.4, marginTop: 4 }}>{bottomLine}</div>
+            </>
           ) : null}
         </div>
 
