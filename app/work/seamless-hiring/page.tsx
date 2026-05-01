@@ -140,8 +140,8 @@ export default function SeamlessHiringFlagshipCaseStudy() {
             { value: "↑40%", label: "User satisfaction" },
             { value: "↓50%", label: "Support volume" },
           ],
-          commercialShiftTop: "Repositioned RMS from add-on pricing to a recurring enterprise product across markets.",
-          commercialShiftBottom: "",
+          commercialShiftTop: "₦150k add-on",
+          commercialShiftBottom: "$200–$500/month",
         }}
       />
 
