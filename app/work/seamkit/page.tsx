@@ -400,7 +400,7 @@ export default function SeamkitFlagshipCaseStudy() {
                     fontWeight: 600,
                     letterSpacing: "0.1em",
                     textTransform: "uppercase",
-                    color: "#6b7280",
+                    color: "var(--fg-subtle)",
                     marginBottom: 12,
                   }}
                 >
@@ -412,7 +412,7 @@ export default function SeamkitFlagshipCaseStudy() {
                     fontWeight: 500,
                     display: "block",
                     marginBottom: 20,
-                    color: "#111",
+                    color: "var(--fg)",
                     fontFamily: "monospace",
                   }}
                 >
@@ -420,14 +420,14 @@ export default function SeamkitFlagshipCaseStudy() {
                 </code>
                 <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
                   <thead>
-                    <tr style={{ borderBottom: "1px solid #e5e5e5" }}>
-                      <th style={{ textAlign: "left", paddingBottom: 8, fontWeight: 600, color: "#374151" }}>
+                    <tr style={{ borderBottom: "1px solid var(--border-subtle, #e5e5e5)" }}>
+                      <th style={{ textAlign: "left", paddingBottom: 8, fontWeight: 600, color: "var(--fg)" }}>
                         Segment
                       </th>
-                      <th style={{ textAlign: "left", paddingBottom: 8, fontWeight: 600, color: "#374151" }}>
+                      <th style={{ textAlign: "left", paddingBottom: 8, fontWeight: 600, color: "var(--fg)" }}>
                         Dimension
                       </th>
-                      <th style={{ textAlign: "left", paddingBottom: 8, fontWeight: 600, color: "#374151" }}>
+                      <th style={{ textAlign: "left", paddingBottom: 8, fontWeight: 600, color: "var(--fg)" }}>
                         Answers
                       </th>
                     </tr>
@@ -440,29 +440,29 @@ export default function SeamkitFlagshipCaseStudy() {
                       ["brand", "Intent", "What communicative purpose?"],
                       ["hover", "State", "In which interaction state?"],
                     ].map(([seg, dim, ans]) => (
-                      <tr key={seg} style={{ borderBottom: "1px solid #f3f4f6" }}>
-                        <td style={{ padding: "8px 0", fontFamily: "monospace", fontSize: 13, color: "#111" }}>
+                      <tr key={seg} style={{ borderBottom: "1px solid var(--border-subtle, #f3f4f6)" }}>
+                        <td style={{ padding: "8px 0", fontFamily: "monospace", fontSize: 13, color: "var(--fg)" }}>
                           {seg}
                         </td>
-                        <td style={{ padding: "8px 0", color: "#6b7280" }}>{dim}</td>
-                        <td style={{ padding: "8px 0", color: "#374151" }}>{ans}</td>
+                        <td style={{ padding: "8px 0", color: "var(--fg-subtle)" }}>{dim}</td>
+                        <td style={{ padding: "8px 0", color: "var(--fg-body)" }}>{ans}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
-                <p style={{ fontSize: 13, color: "#6b7280", marginTop: 16, lineHeight: 1.6 }}>
+                <p style={{ fontSize: 13, color: "var(--fg-subtle)", marginTop: 16, lineHeight: 1.6 }}>
                   One correct name per combination — removing discretion across teams.
                 </p>
               </div>
 
-              <p style={{ marginTop: 20, fontSize: 13, color: "#6b7280", lineHeight: 1.7 }}>
+              <p style={{ marginTop: 20, fontSize: 13, color: "var(--fg-subtle)", lineHeight: 1.7 }}>
                 The full token architecture framework — Decision Token model, Dual Naming Model, and governance
                 architecture — is documented separately.{" "}
                 <a
                   href="https://app.notion.com/p/johnohio/Scaling-Design-Systems-Layered-Token-Hierarchy-Dual-Naming-Model-3539c47d1f3e81179978cad3c97807f8?source=copy_link"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ color: "#111", textDecoration: "underline", textUnderlineOffset: 3 }}
+                  style={{ color: "var(--fg)", textDecoration: "underline", textUnderlineOffset: 3 }}
                 >
                   Scaling Design Systems: Token Hierarchy and Dual Naming Model →
                 </a>
@@ -475,7 +475,7 @@ export default function SeamkitFlagshipCaseStudy() {
                     fontWeight: 600,
                     letterSpacing: "0.1em",
                     textTransform: "uppercase",
-                    color: "#6b7280",
+                    color: "var(--fg-subtle)",
                     marginBottom: 12,
                   }}
                 >
@@ -488,7 +488,7 @@ export default function SeamkitFlagshipCaseStudy() {
                   height={500}
                   style={{ width: "100%", height: "auto", borderRadius: 6 }}
                 />
-                <figcaption style={{ fontSize: 13, color: "#6b7280", marginTop: 12, lineHeight: 1.6 }}>
+                <figcaption style={{ fontSize: 13, color: "var(--fg-subtle)", marginTop: 12, lineHeight: 1.6 }}>
                   Brand identity, tone of voice, and messaging patterns encoded into the system — ensuring product and
                   communication stayed consistent by default. These decisions are no longer guidelines. They are
                   enforced through tokens and components.
