@@ -182,8 +182,9 @@
   --jop-text-on-emphasis-muted: rgba(255, 255, 255, 0.6);
   --jop-text-on-emphasis-soft: rgba(255, 255, 255, 0.5);
 
-  --jop-border-default: #e5e7eb;
-  --jop-border-subtle: #d1d5db;
+  /* Borders: subtle should be lighter than default for hierarchy */
+  --jop-border-default: #d1d5db;
+  --jop-border-subtle: #e5e7eb;
   --jop-border-on-brand-subtle: rgba(255, 255, 255, 0.3);
   --jop-border-on-brand-faint: rgba(255, 255, 255, 0.1);
   --jop-border-on-emphasis-subtle: rgba(255, 255, 255, 0.3);
@@ -278,8 +279,9 @@
   --jop-text-on-emphasis-muted: rgba(248, 250, 252, 0.72);
   --jop-text-on-emphasis-soft: rgba(248, 250, 252, 0.5);
 
-  --jop-border-default: var(--jop-color-slate-30);
-  --jop-border-subtle: var(--jop-color-slate-20);
+  /* Borders: ensure lines remain visible over surfaces */
+  --jop-border-default: var(--jop-color-slate-40);
+  --jop-border-subtle: var(--jop-color-slate-30);
   --jop-border-on-brand-subtle: rgba(248, 250, 252, 0.36);
   --jop-border-on-brand-faint: rgba(248, 250, 252, 0.16);
   --jop-border-on-emphasis-subtle: rgba(248, 250, 252, 0.36);
