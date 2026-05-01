@@ -502,8 +502,7 @@ export const projects: Project[] = [
     company: "Self-directed",
     period: "2026",
     summary:
-      "Most designers treat AI tools as accelerators — faster output, same workflow. This project was built on a different premise: that a well-structured orchestration system could distribute execution across agents the way a DesignOps model distributes work across a team. The question wasn't 'how do I use AI to build faster?' It was 'how do I design a system where AI executes reliably within defined constraints?'\n\n" +
-      "The answer required the same instincts as any systems design problem: clear role boundaries, shared state management, decision memory, and governance over what gets human judgment versus what gets delegated. GitHub became the contract layer. ADRs preserved reasoning across sessions. Token budget pressure forced role specialization rather than generalisation — each agent optimized for a specific role rather than acting as a generalist. The constraint became the architecture.",
+      "An orchestration system for AI-assisted design execution.\n\nInstead of using AI as a tool, this project treats it as a system —\nwith defined roles, shared state, and governed decision boundaries.",
     role: "System designer, orchestrator, and decision-maker throughout. Every judgment call — what to build, in what order, and which tool to trust — was mine.",
     scope:
       "Workflow design, input synthesis, Figma integration, decision logging, multi-tool coordination, and live deployment.",

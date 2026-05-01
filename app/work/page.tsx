@@ -145,6 +145,10 @@ export default function WorkIndex() {
                             color: "var(--fg-body-muted)",
                             lineHeight: 1.65,
                             maxWidth: 720,
+                            display: "-webkit-box",
+                            WebkitLineClamp: 3,
+                            WebkitBoxOrient: "vertical",
+                            overflow: "hidden",
                             marginBottom: 12,
                           }}
                         >
