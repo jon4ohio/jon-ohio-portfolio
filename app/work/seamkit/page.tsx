@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import ReadingProgressBar from "@/components/case-study/ReadingProgressBar";
 import StickyChapterNav, { type Chapter } from "@/components/case-study/StickyChapterNav";
 import FlagshipOpener from "@/components/case-study/FlagshipOpener";
@@ -74,27 +75,6 @@ const outcomeTiers: OutcomeTier[] = [
     ],
   },
 ];
-
-function PlaceholderFigureFrame({ label }: { label: string }) {
-  return (
-    <div
-      aria-label={label}
-      style={{
-        width: "100%",
-        aspectRatio: "16 / 9",
-        border: "1px dashed var(--border-subtle, #e5e5e5)",
-        borderRadius: 8,
-        background: "var(--surface-subtle, #f9f9f9)",
-        display: "grid",
-        placeItems: "center",
-        color: "var(--fg-subtle)",
-        fontSize: 13,
-      }}
-    >
-      Visual incoming (replace with real artifact)
-    </div>
-  );
-}
 
 function Micro({ children }: { children: React.ReactNode }) {
   return (
@@ -312,7 +292,6 @@ export default function SeamkitFlagshipCaseStudy() {
             </div>
 
             <div style={{ flex: 1, minWidth: 0 }}>
-              <PlaceholderFigureFrame label="Figure 01 placeholder — Token hierarchy diagram" />
               <div style={{ marginTop: 16 }}>
                 <span
                   style={{
@@ -480,7 +459,7 @@ export default function SeamkitFlagshipCaseStudy() {
                 The full token architecture framework — Decision Token model, Dual Naming Model, and governance
                 architecture — is documented separately.{" "}
                 <a
-                  href="/assets/work/seamkit/scaling-design-systems-token-hierarchy-and-dual-naming-model.pdf"
+                  href="https://app.notion.com/p/johnohio/Scaling-Design-Systems-Layered-Token-Hierarchy-Dual-Naming-Model-3539c47d1f3e81179978cad3c97807f8?source=copy_link"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ color: "#111", textDecoration: "underline", textUnderlineOffset: 3 }}
@@ -488,6 +467,33 @@ export default function SeamkitFlagshipCaseStudy() {
                   Scaling Design Systems: Token Hierarchy and Dual Naming Model →
                 </a>
               </p>
+
+              <figure style={{ marginTop: 40 }}>
+                <p
+                  style={{
+                    fontSize: 11,
+                    fontWeight: 600,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    color: "#6b7280",
+                    marginBottom: 12,
+                  }}
+                >
+                  Encoding brand and communication into the system
+                </p>
+                <Image
+                  src="/assets/work/seamkit/brand-system.png"
+                  alt="SeamlessHR brand system — typography, colour palette, tone of voice, and messaging states aligned within SeamKit"
+                  width={900}
+                  height={500}
+                  style={{ width: "100%", height: "auto", borderRadius: 6 }}
+                />
+                <figcaption style={{ fontSize: 13, color: "#6b7280", marginTop: 12, lineHeight: 1.6 }}>
+                  Brand identity, tone of voice, and messaging patterns encoded into the system — ensuring product and
+                  communication stayed consistent by default. These decisions are no longer guidelines. They are
+                  enforced through tokens and components.
+                </figcaption>
+              </figure>
             </div>
 
             <div style={{ maxWidth: 460, minWidth: 0 }}>
@@ -566,7 +572,6 @@ export default function SeamkitFlagshipCaseStudy() {
             </div>
 
             <div style={{ flex: 1, minWidth: 0 }}>
-              <PlaceholderFigureFrame label="Figure 03 placeholder — Governance contribution workflow" />
               <div style={{ marginTop: 16 }}>
                 <span
                   style={{
@@ -647,7 +652,6 @@ export default function SeamkitFlagshipCaseStudy() {
             className="case-study-evidence-row case-study-evidence-row--text-right"
           >
             <div style={{ flex: 1, minWidth: 0 }}>
-              <PlaceholderFigureFrame label="Figure 04 placeholder — System health report" />
               <div style={{ marginTop: 16 }}>
                 <span
                   style={{
