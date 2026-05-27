@@ -31,7 +31,9 @@ function assertNoSeriousViolations(results: import("axe-core").AxeResults) {
 
 for (const path of staticPaths) {
   test(`axe wcag2a/aa (no serious/critical): ${path}`, async ({ page }) => {
-    await page.goto(path, { waitUntil: "networkidle" });
+    const response = await page.goto(path, { waitUntil: "networkidle" });
+    expect(response?.status(), `${path} response`).toBe(200);
+    expect(new URL(page.url()).pathname, `${path} should not redirect`).toBe(path);
     const results = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa"])
       .analyze();
