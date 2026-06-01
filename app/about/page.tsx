@@ -83,8 +83,8 @@ export default function About() {
           padding: "clamp(56px, 12vw, 80px) clamp(20px, 4vw, 24px) clamp(80px, 14vw, 120px)",
         }}
       >
-        {/* About Me — narrative left, intro illustration right (stacks below on mobile) */}
-        <div className="grid-2-lg" style={{ alignItems: "start" }}>
+        {/* About Me — 60% narrative left, 40% intro illustration right (stacks below on mobile) */}
+        <div className="about-intro-grid" style={{ alignItems: "start" }}>
           {/* Left: hook + body narrative + CTAs */}
           <div style={{ minWidth: 0 }}>
             <p className="section-label" style={{ marginBottom: 24 }}>
@@ -161,7 +161,7 @@ export default function About() {
           <div style={{ minWidth: 0 }}>
             <AssetImage
               asset={aboutIllustration}
-              sizes="(max-width: 640px) 100vw, (max-width: 900px) 92vw, 540px"
+              sizes="(max-width: 640px) 100vw, (max-width: 900px) 92vw, 460px"
               priority
               style={{ position: "sticky", top: 80 }}
             />
