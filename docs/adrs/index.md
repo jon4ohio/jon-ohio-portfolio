@@ -49,5 +49,6 @@
 | 046 | Enforce a 4pt/8pt spacing grid in code and design handoff | Accepted | 2026-04-29 | None |
 | 054 | About page intro illustration in a two-column narrative band | Accepted | 2026-06-01 | None |
 | 055 | Portfolio leadership signals — brief density without new sections | Accepted | 2026-06-01 | None |
+| 056 | Strategic Decisions — single judgment section per case study | Accepted | 2026-06-01 | None |
 
 Chronological audit notes: [`LOG.md`](./LOG.md).

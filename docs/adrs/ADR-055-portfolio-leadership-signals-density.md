@@ -79,6 +79,7 @@ The portfolio is content-rich but scans as execution-heavy: strong case study de
 - ADR-043 — flagship executive brief bento layout  
 - ADR-047 — SeamlessHiring narrative and metrics canonicalization  
 - ADR-048 — commercial shift vs. evidence in brief  
+- ADR-056 — supersedes brief `keyDecisions` strings with `strategicDecisions`; consolidates SeamlessHiring judgment sections  
 
 ## References
 

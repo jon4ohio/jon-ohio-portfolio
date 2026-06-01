@@ -1,4 +1,5 @@
 import * as React from "react";
+import type { StrategicDecision } from "@/lib/strategicDecisions";
 
 export type MetadataBlock = { label: string; value: string | string[] };
 
@@ -9,8 +10,8 @@ export type MetadataBriefProps = {
   productImpact: Array<{ value: string; label: string }>;
   commercialShiftTop: string;
   commercialShiftBottom: string;
-  /** Up to three judgment calls — surfaced as a scan card (ADR-055). */
-  keyDecisions?: string[];
+  /** Judgment calls — brief shows titles only; flagship case studies render full bodies (ADR-056). */
+  strategicDecisions?: StrategicDecision[];
 };
 
 const cardBase: React.CSSProperties = {
@@ -86,14 +87,17 @@ function impactStackDesc(rawLabel: string): string {
   return rawLabel;
 }
 
-function KeyDecisionsCard({ decisions }: { decisions: string[] }) {
+const BRIEF_STRATEGIC_DECISION_LIMIT = 3;
+
+function StrategicDecisionsCard({ decisions }: { decisions: StrategicDecision[] }) {
+  const scan = decisions.slice(0, BRIEF_STRATEGIC_DECISION_LIMIT);
   return (
     <div style={{ ...cardBase, width: "100%", minWidth: 0 }}>
-      <span style={sectionLabelStyle}>Key decisions</span>
+      <span style={sectionLabelStyle}>Strategic decisions</span>
       <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
-        {decisions.map((line) => (
+        {scan.map((d) => (
           <li
-            key={line}
+            key={d.title}
             style={{
               fontSize: 14,
               color: "var(--fg-body)",
@@ -103,7 +107,7 @@ function KeyDecisionsCard({ decisions }: { decisions: string[] }) {
             }}
           >
             <span style={{ position: "absolute", left: 0, color: "var(--accent-orange)", fontWeight: 600 }}>·</span>
-            {line}
+            {d.title}
           </li>
         ))}
       </ul>
@@ -118,7 +122,7 @@ export default function MetadataBrief({
   productImpact,
   commercialShiftTop,
   commercialShiftBottom,
-  keyDecisions,
+  strategicDecisions,
 }: MetadataBriefProps) {
   const mobileBasicsBlocks = blocks.filter((b) => b.label.toLowerCase() !== "team");
   const bottomLine = commercialShiftBottom.replace(/^→\s*/, "");
@@ -283,9 +287,9 @@ export default function MetadataBrief({
         </div>
       </div>
 
-      {keyDecisions?.length ? (
+      {strategicDecisions?.length ? (
         <div className="brief-signals" style={{ marginTop: 16 }}>
-          <KeyDecisionsCard decisions={keyDecisions} />
+          <StrategicDecisionsCard decisions={strategicDecisions} />
         </div>
       ) : null}
     </section>

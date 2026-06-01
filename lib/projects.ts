@@ -1,4 +1,5 @@
 import type { MetadataBriefProps } from "@/components/case-study/MetadataBrief";
+import { seamlessHiringStrategicDecisions } from "@/lib/seamlessHiringStrategicDecisions";
 
 export interface Project {
   slug: string;
@@ -124,10 +125,22 @@ export const projects: Project[] = [
       ],
       commercialShiftTop: "Fragmented, team-owned component libraries",
       commercialShiftBottom: "→ Governed, shared enterprise design system",
-      keyDecisions: [
-        "Introduced layered token architecture (primitives → semantic → component) before shipping a shared component library.",
-        "Standardized component lifecycle with contribution SOP and review cadences.",
-        "Established shared design–development workflows through co-created adoption, not top-down mandates.",
+      strategicDecisions: [
+        {
+          title: "Token architecture before components",
+          body:
+            "Introduced layered token architecture (primitives → semantic → component) before shipping a shared component library — trading six weeks of visible output for a system where brand updates propagate in one release cycle.",
+        },
+        {
+          title: "Lifecycle and contribution governance",
+          body:
+            "Standardized component lifecycle with contribution SOP and review cadences so teams could see how decisions were made and trust the process, not just the Figma file.",
+        },
+        {
+          title: "Co-created adoption",
+          body:
+            "Established shared design–development workflows through audits and working sessions before mandates — adoption through influence, not top-down enforcement.",
+        },
       ],
       led: [
         "Token architecture and taxonomy",
@@ -308,11 +321,7 @@ export const projects: Project[] = [
       ],
       commercialShiftTop: "₦150k add-on",
       commercialShiftBottom: "$200–$500/month",
-      keyDecisions: [
-        "Defined a five-phase rollout model (stabilize → augment) to ship without downtime while modernizing the full hiring lifecycle.",
-        "Introduced structured evaluation and RBAC before scaling AI-assisted screening — trust before automation.",
-        "Established workflow patterns that became the blueprint for subsequent legacy product modernization across SeamlessHR.",
-      ],
+      strategicDecisions: seamlessHiringStrategicDecisions,
       led: ["Research synthesis", "UX strategy", "Workflow architecture", "AI-layered experience design"],
       partneredOn: ["Engineering architecture", "Delivery implementation"],
     },
@@ -439,10 +448,22 @@ export const projects: Project[] = [
         { label: "Timeline", value: "2021 – 2025" },
         { label: "Domain", value: "FinTech / Mobile Money / Infrastructure" },
       ],
-      keyDecisions: [
-        "Replaced vendor-locked mobile money infrastructure with a proprietary, white-label-ready engine.",
-        "Prioritized auditability and reconciliation traceability over feature velocity in operator workflows.",
-        "Aligned transaction, reporting, and settlement UX to a single system map before visual polish.",
+      strategicDecisions: [
+        {
+          title: "Proprietary engine over vendor lock-in",
+          body:
+            "Replaced vendor-locked mobile money infrastructure with a proprietary, white-label-ready engine — unlocking scale past licensing ceilings and a new revenue model.",
+        },
+        {
+          title: "Auditability over feature velocity",
+          body:
+            "Prioritized auditability and reconciliation traceability in operator workflows so every transaction state could be resolved without engineering support.",
+        },
+        {
+          title: "System map before UI polish",
+          body:
+            "Aligned transaction, reporting, and settlement UX to a single system map before visual polish — 0→1 with engineering and domain experts, no PM buffer.",
+        },
       ],
       productImpact: [
         { value: "↓50%", label: "Transaction processing time" },
@@ -702,10 +723,22 @@ export const projects: Project[] = [
         { label: "Timeline", value: "2022 – 2024" },
         { label: "Domain", value: "Utility / FinTech / Public Sector" },
       ],
-      keyDecisions: [
-        "Unified transaction logic across consumer app and walk-in POS — one billing system, not channel silos.",
-        "Designed reconciliation and visibility for operations before scaling field rollout.",
-        "Translated utility infrastructure constraints into workflows field staff could run without engineering support.",
+      strategicDecisions: [
+        {
+          title: "One billing system across channels",
+          body:
+            "Unified transaction logic across consumer app and walk-in POS — one billing system, not channel silos.",
+        },
+        {
+          title: "Operations visibility before scale",
+          body:
+            "Designed reconciliation and visibility for operations before scaling field rollout.",
+        },
+        {
+          title: "Field-ready workflows",
+          body:
+            "Translated utility infrastructure constraints into workflows field staff could run without engineering support.",
+        },
       ],
       productImpact: [
         { value: "4.6★", label: "Play Store rating (2,800+ reviews)" },
