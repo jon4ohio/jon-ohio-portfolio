@@ -93,7 +93,7 @@ export const projects: Project[] = [
     company: "SeamlessHR",
     period: "Dec 2023 – Present",
     summary:
-      "Coordinated designers, engineers, and product stakeholders across 12 product teams to establish a governed, token-driven design system — replacing fragmented libraries with SeamlessHR's shared baseline for building at scale.",
+      "Coordinated designers, engineers, and product stakeholders across 12 product teams to establish a token-driven enterprise design system — replacing fragmented libraries with SeamlessHR's shared baseline for building at scale.",
     role: "Design Systems Lead · DesignOps",
     scope:
       "Token architecture, component foundations, governance model, documentation, adoption strategy, and system health across the product organisation.",
@@ -126,7 +126,7 @@ export const projects: Project[] = [
       commercialShiftBottom: "→ Governed, shared enterprise design system",
       keyDecisions: [
         "Introduced layered token architecture (primitives → semantic → component) before shipping a shared component library.",
-        "Standardized component governance with lifecycle stages, contribution SOP, and review cadences.",
+        "Standardized component lifecycle with contribution SOP and review cadences.",
         "Established shared design–development workflows through co-created adoption, not top-down mandates.",
       ],
       led: [
@@ -167,7 +167,7 @@ export const projects: Project[] = [
       "The 2025 expansion into AI-native features required interaction patterns that didn't exist in the original system — AI disclosure states, confidence indicators, progressive disclosure for ML outputs. The layered token architecture absorbed these as new semantic categories rather than exceptions. A system built around token primitives can evolve without breaking what is already running.\n\n" +
       "Consistent UI across the entire suite resolved a compounding risk: enterprise buyers associate visual inconsistency with system instability. Seamkit made the product feel like one product. The governance cadences, contribution workflow, and health monitoring became the operating model for how design and engineering collaborate at SeamlessHR — institutional knowledge, not personal knowledge.\n\n" +
       "A design system that only designers trust is a Figma file. Seamkit became infrastructure.",
-    tags: ["Design Systems", "Token Architecture", "Design Governance", "Governance", "Vue", "Figma", "DesignOps"],
+    tags: ["Design Systems", "Token Architecture", "Design Governance", "Vue", "Figma", "DesignOps"],
     featured: true,
     assets: {
       thumbnails: [

@@ -45,7 +45,7 @@ const ownershipItems = [
     name: "Seamkit",
     type: "Enterprise Design System",
     description:
-      "Coordinated designers, engineers, and product stakeholders across 12 teams to establish a governed, token-driven system embedded across every SeamlessHR product.",
+      "Coordinated designers, engineers, and product stakeholders across 12 teams to establish a token-driven system embedded across every SeamlessHR product.",
   },
   {
     slug: "seamless-hiring",
