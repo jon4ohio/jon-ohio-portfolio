@@ -3,6 +3,7 @@ import type { CSSProperties } from "react";
 import AssetImage from "@/components/AssetImage";
 import {
   aboutBodyBlocks,
+  aboutCredibilityLine,
   aboutHeadline,
   aboutHookBlocks,
   aboutTimeline,
@@ -10,6 +11,7 @@ import {
   operatingPrinciplesLabel,
   type NarrativeBlock,
 } from "@/lib/aboutNarrative";
+import { positioningLine } from "@/lib/sitePositioning";
 import {
   communityCards,
   communityPullQuote,
@@ -21,12 +23,12 @@ import { getContactMailtoHref } from "@/lib/contact";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "John Ohio — Product Design Lead. Systems-level design leadership across enterprise SaaS, fintech infrastructure, and AI-native products. Community: speaking, facilitation, and mentorship.",
+    "John Ohio — Lead Product Designer. Design systems, enterprise UX, AI-enabled experiences. Speaker, writer, and mentor.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About — John Ohio",
     description:
-      "Product Design Lead — enterprise SaaS, fintech infrastructure, design systems, and AI-native product work.",
+      "Lead Product Designer — design systems, enterprise UX, and AI-enabled product experiences.",
     url: "/about",
     type: "profile",
   },
@@ -96,11 +98,33 @@ export default function About() {
                 fontWeight: 600,
                 letterSpacing: "-0.03em",
                 lineHeight: 1.15,
-                marginBottom: 32,
+                marginBottom: 20,
               }}
             >
               {aboutHeadline}
             </h1>
+            <p
+              style={{
+                fontSize: 17,
+                lineHeight: 1.65,
+                color: "var(--fg-muted)",
+                marginBottom: 16,
+                maxWidth: 640,
+              }}
+            >
+              {positioningLine}
+            </p>
+            <p
+              style={{
+                fontSize: 15,
+                lineHeight: 1.65,
+                color: "var(--fg-body)",
+                marginBottom: 32,
+                maxWidth: 640,
+              }}
+            >
+              {aboutCredibilityLine}
+            </p>
             <div
               style={{
                 display: "flex",

@@ -1,6 +1,9 @@
-/** About lead line; often matches the homepage hero headline — update both when copy changes. */
-export const aboutHeadline =
-  "I design systems that evolve – from fragmented to intelligent";
+import { aboutHeadline as sharedAboutHeadline, aboutCredibilityLine } from "@/lib/sitePositioning";
+
+/** About H1 — kept in sync with homepage hero via `lib/sitePositioning.ts`. */
+export const aboutHeadline = sharedAboutHeadline;
+
+export { aboutCredibilityLine };
 
 export const operatingPrinciplesLabel = "Operating Principles";
 
@@ -41,7 +44,7 @@ export const aboutHookBlocks: NarrativeBlock[] = [
 export const aboutBodyBlocks: NarrativeBlock[] = [
   {
     kind: "paragraph",
-    text: "I'm a Product Design Lead working across enterprise SaaS, fintech infrastructure, and AI-native systems — turning fragmented products into structured, scalable systems that hold under real-world conditions.",
+    text: "I'm a Lead Product Designer working across enterprise SaaS, fintech infrastructure, and AI-native systems — turning fragmented products into structured, scalable systems that hold under real-world conditions.",
   },
   {
     kind: "paragraph",

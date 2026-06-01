@@ -6,14 +6,14 @@ import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import ThemeScript from "@/components/ThemeScript";
+import { siteDescription, siteTitle } from "@/lib/sitePositioning";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
   (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
 
-const defaultTitle = "John Ohio — Product Design Lead";
-const defaultDescription =
-  "John Ohio designs product systems that scale — from fragmented to intelligent. Design systems, DesignOps, enterprise SaaS, fintech infrastructure, and AI-native product work.";
+const defaultTitle = siteTitle;
+const defaultDescription = siteDescription;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   description: defaultDescription,
   keywords: [
     "John Ohio",
-    "Product Design Lead",
+    "Lead Product Designer",
     "Product Systems",
     "Design Systems",
     "DesignOps",
@@ -92,7 +92,7 @@ const personSchema = {
   "@type": "Person",
   name: "John Ohio",
   alternateName: "Jon Ohio",
-  jobTitle: "Product Design Lead",
+  jobTitle: "Lead Product Designer",
   description: defaultDescription,
   url: siteUrl,
   email: "mailto:jon4ohio@gmail.com",

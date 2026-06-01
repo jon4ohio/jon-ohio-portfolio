@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import { expertiseEyebrow, heroHeadline, positioningLine } from "@/lib/sitePositioning";
 
 function parseCssColorToRgb(inputRaw: string): [number, number, number] | null {
   const input = inputRaw.trim().toLowerCase();
@@ -312,7 +313,7 @@ export default function Hero() {
               marginBottom: "clamp(16px, 2.2vw, 24px)",
             }}
           >
-            PRODUCT DESIGNER · SYSTEMS · SCALE · AI
+            {expertiseEyebrow}
           </p>
           <h1
             className="animate-fade-up delay-2"
@@ -325,19 +326,19 @@ export default function Hero() {
               marginBottom: 28,
             }}
           >
-            Designing the systems products and teams run on
+            {heroHeadline}
           </h1>
           <p
             className="animate-fade-up delay-3"
             style={{
               fontSize: 20,
               color: "var(--fg-muted)",
-              maxWidth: 620,
+              maxWidth: 680,
               marginBottom: 24,
               lineHeight: 1.5,
             }}
           >
-            I design and scale product systems used across teams, platforms, and markets — spanning enterprise SaaS, financial infrastructure, and AI-assisted workflows.
+            {positioningLine}
           </p>
           <p
             className="animate-fade-up delay-4"

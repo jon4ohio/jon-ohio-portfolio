@@ -1,4 +1,6 @@
 import * as React from "react";
+import AssetImage from "@/components/AssetImage";
+import type { ImageAsset } from "@/lib/projects";
 
 export type MetadataBlock = { label: string; value: string | string[] };
 
@@ -9,6 +11,10 @@ export type MetadataBriefProps = {
   productImpact: Array<{ value: string; label: string }>;
   commercialShiftTop: string;
   commercialShiftBottom: string;
+  /** Up to three judgment calls — surfaced as a scan card (ADR-055). */
+  keyDecisions?: string[];
+  /** Optional governance / operating-model figure directly under the brief. */
+  governanceArtifact?: ImageAsset;
 };
 
 const cardBase: React.CSSProperties = {
@@ -84,6 +90,31 @@ function impactStackDesc(rawLabel: string): string {
   return rawLabel;
 }
 
+function KeyDecisionsCard({ decisions }: { decisions: string[] }) {
+  return (
+    <div style={{ ...cardBase, width: "100%", minWidth: 0 }}>
+      <span style={sectionLabelStyle}>Key decisions</span>
+      <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
+        {decisions.map((line) => (
+          <li
+            key={line}
+            style={{
+              fontSize: 14,
+              color: "var(--fg-body)",
+              lineHeight: 1.65,
+              paddingLeft: 14,
+              position: "relative",
+            }}
+          >
+            <span style={{ position: "absolute", left: 0, color: "var(--accent-orange)", fontWeight: 600 }}>·</span>
+            {line}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export default function MetadataBrief({
   blocks,
   led,
@@ -91,6 +122,8 @@ export default function MetadataBrief({
   productImpact,
   commercialShiftTop,
   commercialShiftBottom,
+  keyDecisions,
+  governanceArtifact,
 }: MetadataBriefProps) {
   const mobileBasicsBlocks = blocks.filter((b) => b.label.toLowerCase() !== "team");
   const bottomLine = commercialShiftBottom.replace(/^→\s*/, "");
@@ -149,6 +182,7 @@ export default function MetadataBrief({
             <div style={{ fontSize: 14, color: "var(--fg-body)", lineHeight: 1.6 }}>{partneredJoined}</div>
           </div>
         </div>
+
       </div>
 
       {/* Desktop bento (≥769px) */}
@@ -253,6 +287,30 @@ export default function MetadataBrief({
           </div>
         </div>
       </div>
+
+      {(keyDecisions?.length || governanceArtifact) && (
+        <div
+          className="brief-signals"
+          style={{ display: "flex", flexDirection: "column", gap: 16, marginTop: 16 }}
+        >
+          {keyDecisions?.length ? <KeyDecisionsCard decisions={keyDecisions} /> : null}
+          {governanceArtifact ? (
+            <div style={{ ...cardBase }}>
+              <span style={sectionLabelStyle}>Operating model</span>
+              <AssetImage
+                asset={governanceArtifact}
+                sizes="(max-width: 900px) 92vw, 1240px"
+                treatment="plain"
+              />
+              {governanceArtifact.caption ? (
+                <p style={{ fontSize: 12, color: "var(--fg-subtle)", lineHeight: 1.6, marginTop: 10 }}>
+                  {governanceArtifact.caption}
+                </p>
+              ) : null}
+            </div>
+          ) : null}
+        </div>
+      )}
     </section>
   );
 }
