@@ -1,20 +1,20 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
+import { siteDescription, siteTitle } from "@/lib/sitePositioning";
 import SystemModel from "@/components/SystemModel";
 import AssetImage from "@/components/AssetImage";
 import { getPrimaryPreviewImage, projects } from "@/lib/projects";
 import { getContactMailtoHref } from "@/lib/contact";
 
 export const metadata: Metadata = {
-  title: "John Ohio — Senior Product Designer",
-  description:
-    "Senior Product Designer specialising in systems at scale — enterprise SaaS, financial infrastructure, and AI-assisted workflows. Open to Senior / Staff IC and Lead roles globally.",
+  title: siteTitle,
+  description: `${siteDescription} Open to Lead / Staff IC roles globally.`,
   alternates: { canonical: "/" },
   openGraph: {
-    title: "John Ohio — Senior Product Designer",
+    title: siteTitle,
     description:
-      "Product systems designer. Enterprise SaaS · Fintech infrastructure · Design systems · AI UX. Based in Nigeria, open to remote (UK/EU/US).",
+      "Lead Product Designer — design systems, enterprise UX, AI product design. Based in Nigeria, open to remote (UK/EU/US).",
     url: "/",
     type: "website",
   },
@@ -45,14 +45,14 @@ const ownershipItems = [
     name: "Seamkit",
     type: "Enterprise Design System",
     description:
-      "Owned the design and rollout of a unified product system across 12 teams — governed, token-driven, and embedded across every SeamlessHR product.",
+      "Coordinated designers, engineers, and product stakeholders across 12 teams to establish a governed, token-driven system embedded across every SeamlessHR product.",
   },
   {
     slug: "seamless-hiring",
     name: "SeamlessHiring 2.0",
     type: "Recruitment Management System",
     description:
-      "Owned the redesign of a core enterprise hiring system — transforming an underperforming add-on into a flagship product with AI-assisted decision support.",
+      "Led a phased rebuild with PM, engineering, and GTM — transforming an underperforming add-on into a flagship module and blueprint for suite-wide modernization.",
   },
   {
     slug: "fetsproza",
@@ -376,7 +376,7 @@ export default function Home() {
               marginBottom: 20,
             }}
           >
-            Senior Product Designer with experience leading systems across enterprise SaaS, fintech infrastructure, and platform products.
+            Lead Product Designer — design systems, enterprise UX, and AI-enabled experiences across SaaS, fintech, and platform products.
           </p>
           <p
             style={{

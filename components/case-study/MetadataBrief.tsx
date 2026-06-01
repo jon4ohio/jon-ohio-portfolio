@@ -9,6 +9,8 @@ export type MetadataBriefProps = {
   productImpact: Array<{ value: string; label: string }>;
   commercialShiftTop: string;
   commercialShiftBottom: string;
+  /** Up to three judgment calls — surfaced as a scan card (ADR-055). */
+  keyDecisions?: string[];
 };
 
 const cardBase: React.CSSProperties = {
@@ -84,6 +86,31 @@ function impactStackDesc(rawLabel: string): string {
   return rawLabel;
 }
 
+function KeyDecisionsCard({ decisions }: { decisions: string[] }) {
+  return (
+    <div style={{ ...cardBase, width: "100%", minWidth: 0 }}>
+      <span style={sectionLabelStyle}>Key decisions</span>
+      <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
+        {decisions.map((line) => (
+          <li
+            key={line}
+            style={{
+              fontSize: 14,
+              color: "var(--fg-body)",
+              lineHeight: 1.65,
+              paddingLeft: 14,
+              position: "relative",
+            }}
+          >
+            <span style={{ position: "absolute", left: 0, color: "var(--accent-orange)", fontWeight: 600 }}>·</span>
+            {line}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export default function MetadataBrief({
   blocks,
   led,
@@ -91,6 +118,7 @@ export default function MetadataBrief({
   productImpact,
   commercialShiftTop,
   commercialShiftBottom,
+  keyDecisions,
 }: MetadataBriefProps) {
   const mobileBasicsBlocks = blocks.filter((b) => b.label.toLowerCase() !== "team");
   const bottomLine = commercialShiftBottom.replace(/^→\s*/, "");
@@ -149,6 +177,7 @@ export default function MetadataBrief({
             <div style={{ fontSize: 14, color: "var(--fg-body)", lineHeight: 1.6 }}>{partneredJoined}</div>
           </div>
         </div>
+
       </div>
 
       {/* Desktop bento (≥769px) */}
@@ -253,6 +282,12 @@ export default function MetadataBrief({
           </div>
         </div>
       </div>
+
+      {keyDecisions?.length ? (
+        <div className="brief-signals" style={{ marginTop: 16 }}>
+          <KeyDecisionsCard decisions={keyDecisions} />
+        </div>
+      ) : null}
     </section>
   );
 }

@@ -13,7 +13,7 @@ import DecisionAccordion from "@/components/case-study/DecisionAccordion";
 import OutcomeCards, { type OutcomeTier } from "@/components/case-study/OutcomeCards";
 import UnlockPanel from "@/components/case-study/UnlockPanel";
 import PrevNextNav from "@/components/case-study/PrevNextNav";
-import { projects } from "@/lib/projects";
+import { getProject, projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "SeamlessHiring 2.0 — John Ohio",
@@ -72,6 +72,9 @@ const outcomeTiers: OutcomeTier[] = [
 ];
 
 export default function SeamlessHiringFlagshipCaseStudy() {
+  const project = getProject("seamless-hiring");
+  if (!project?.brief) return null;
+
   const currentIndex = projects.findIndex((p) => p.slug === "seamless-hiring");
   const prev = currentIndex > 0 ? projects[currentIndex - 1] : undefined;
   const next = currentIndex >= 0 ? projects[currentIndex + 1] : undefined;
@@ -122,27 +125,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           src: "/assets/work/seamless-hiring/preview-16x9.png",
           alt: "SeamlessHiring 2.0 product overview",
         }}
-        executiveBrief={{
-          blocks: [
-            { label: "Role", value: "Lead Product Designer" },
-            {
-              label: "Scope",
-              value: ["UX Strategy", "Workflow Architecture", "AI-Assisted Decision Design", "Cross-Functional Delivery"],
-            },
-            { label: "Timeline", value: "Mar 2022 – Mar 2025" },
-            { label: "Team", value: ["PM · 3 Engineers", "CX · Sales · HR SMEs"] },
-            { label: "Domain", value: "Enterprise SaaS / HR Tech / ATS" },
-          ],
-          led: ["Research synthesis", "UX strategy", "Workflow architecture", "AI-layered experience design"],
-          partneredOn: ["Engineering architecture", "Delivery implementation"],
-          productImpact: [
-            { value: "↓24%", label: "Application drop-offs" },
-            { value: "↑40%", label: "User satisfaction" },
-            { value: "↓50%", label: "Support volume" },
-          ],
-          commercialShiftTop: "₦150k add-on",
-          commercialShiftBottom: "$200–$500/month",
-        }}
+        executiveBrief={project.brief}
       />
 
       <TensionCards

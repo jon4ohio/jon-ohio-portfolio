@@ -19,7 +19,7 @@ export default function Footer() {
       >
         <div>
           <p style={{ fontWeight: 600, fontSize: 15, marginBottom: 4 }}>John Ohio</p>
-          <p style={{ fontSize: 13, color: "var(--fg-muted)" }}>Product Design Lead · Abuja, Nigeria</p>
+          <p style={{ fontSize: 13, color: "var(--fg-muted)" }}>Lead Product Designer · Abuja, Nigeria</p>
         </div>
 
         <nav aria-label="Footer navigation" className="footer-nav" style={{ display: "flex", gap: 32 }}>

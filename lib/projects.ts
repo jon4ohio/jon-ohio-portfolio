@@ -93,8 +93,8 @@ export const projects: Project[] = [
     company: "SeamlessHR",
     period: "Dec 2023 – Present",
     summary:
-      "Built the design system that aligned design and engineering across 12 product teams — replacing fragmented component libraries with a token-driven, governed architecture that became SeamlessHR's shared baseline for building at scale.",
-    role: "Design Systems Lead and DesignOps driver.",
+      "Coordinated designers, engineers, and product stakeholders across 12 product teams to establish a governed, token-driven design system — replacing fragmented libraries with SeamlessHR's shared baseline for building at scale.",
+    role: "Design Systems Lead · DesignOps",
     scope:
       "Token architecture, component foundations, governance model, documentation, adoption strategy, and system health across the product organisation.",
     metrics: [
@@ -105,10 +105,16 @@ export const projects: Project[] = [
     ],
     brief: {
       blocks: [
-        { label: "Role", value: "Design Systems Lead and DesignOps driver" },
-        { label: "Scope", value: ["Tokens", "Governance", "Component foundations", "DesignOps"] },
+        { label: "Role", value: "Design Systems Lead · DesignOps" },
+        {
+          label: "Team",
+          value: "2 Product Designers · 8 Engineers · 2 Product Managers · 12 product teams onboarded",
+        },
+        {
+          label: "Responsibility",
+          value: "Design Direction · Design Governance · Stakeholder Alignment · Adoption Strategy",
+        },
         { label: "Timeline", value: "Dec 2023 – Present" },
-        { label: "Team", value: ["12 product teams", "Design + Engineering"] },
         { label: "Domain", value: "Enterprise SaaS / Design Systems" },
       ],
       productImpact: [
@@ -118,6 +124,11 @@ export const projects: Project[] = [
       ],
       commercialShiftTop: "Fragmented, team-owned component libraries",
       commercialShiftBottom: "→ Governed, shared enterprise design system",
+      keyDecisions: [
+        "Introduced layered token architecture (primitives → semantic → component) before shipping a shared component library.",
+        "Standardized component governance with lifecycle stages, contribution SOP, and review cadences.",
+        "Established shared design–development workflows through co-created adoption, not top-down mandates.",
+      ],
       led: [
         "Token architecture and taxonomy",
         "Governance model and contribution SOP",
@@ -149,6 +160,7 @@ export const projects: Project[] = [
       "Adoption through co-creation. Rather than distribute standards and enforce them, each product team received a design audit of their existing patterns and a working session to surface real constraints before Seamkit's contribution model was finalised. Those constraints shaped the system. Each of the 12 teams received structured onboarding with Seamkit embedded as the default starting point for new work. Rollout was deliberately incremental — a forced migration at platform scale would have generated resentment rather than adoption. System health was tracked through Figma analytics: insertion volumes, component usage frequency, and detach behaviour. Detach rate remained low throughout, indicating the system held under real product pressure.\n\n" +
       "Key tradeoffs. Every decision cost something. Prioritising token architecture over early component delivery delayed visible progress by six weeks — stakeholder pressure to show output was real, and the cost was carried. Choosing incremental rollout over full migration extended the coexistence period between Seamkit and legacy patterns; the benefit was a team that chose the system rather than one that was forced onto it. Running design audits per team before finalising contribution rules added months to the definition phase; the result was governance shaped by the people who would live with it. Standardisation versus product autonomy was never fully resolved, by design — the boundary between what belongs in shared infrastructure and what stays product-specific is an ongoing governance decision, not a fixed rule.",
     impact:
+      "Established the foundation for enterprise-wide product consistency and product-led growth initiatives across the SeamlessHR suite — unified design and development, with governance as operating infrastructure, not a Figma file.\n\n" +
       "In 2025, Seamkit recorded 2,491,422 token insertions and 443,967 component insertions across 12 product teams — demonstrating sustained organisational reliance, not periodic usage. 80% of designers and engineers report Seamkit plays a role in their daily work. 70%+ of teams now begin new product work using Seamkit as their baseline, which means product consistency is no longer a coordination problem. It is a default.\n\n" +
       "Before Seamkit, shipping a UI change to a shared pattern required coordinating separately with each product team — if it happened at all. Now a token update propagates across every product in a single release cycle. Engineers implement components without design involvement at each step, compressing the design-to-production handoff across the suite. The top adopting teams — Design System, Talent Management, Leave, RECO, Time Management — are among SeamlessHR's highest-volume delivery teams. Seamkit adoption reinforced delivery speed rather than slowing it. The mandate to lead the design system was confirmed at 100% by Head of Product Femisayo Olofintila in the 2024 annual performance cycle — an organisational signal that design infrastructure was treated as product infrastructure.\n\n" +
       "Seamkit is not a concluded project. It is the layer the rest of the product is built on.\n\n" +
@@ -268,8 +280,8 @@ export const projects: Project[] = [
     company: "SeamlessHR",
     period: "Mar 2022 – Mar 2025",
     summary:
-      "Re-architected a fragmented recruiting product into a flagship hiring platform that restored workflow trust and scaled enterprise hiring.",
-    role: "Lead Product Designer across product strategy, UX, and phased rollout.",
+      "Led a phased rebuild of SeamlessHR's recruitment product — coordinating PM, engineering, CX, and sales to restore workflow trust and reposition RMS as a flagship enterprise module.",
+    role: "Lead Product Designer",
     scope:
       "Applicant and recruiter workflows, research synthesis, roadmap definition, and cross-functional delivery with PM, engineering, CX, and sales.",
     metrics: [
@@ -278,6 +290,32 @@ export const projects: Project[] = [
       { value: "↑40%", label: "User satisfaction" },
       { value: "27→74", label: "NPS" },
     ],
+    brief: {
+      blocks: [
+        { label: "Role", value: "Lead Product Designer" },
+        { label: "Team", value: "1 PM · 3 Engineers · CX · Sales · HR SMEs" },
+        {
+          label: "Responsibility",
+          value: "UX Strategy · Workflow Architecture · Phased Rollout · AI-Assisted Decision Design",
+        },
+        { label: "Timeline", value: "Mar 2022 – Mar 2025" },
+        { label: "Domain", value: "Enterprise SaaS / HR Tech / ATS" },
+      ],
+      productImpact: [
+        { value: "↓24%", label: "Application drop-offs" },
+        { value: "↑40%", label: "User satisfaction" },
+        { value: "↓50%", label: "Support volume" },
+      ],
+      commercialShiftTop: "₦150k add-on",
+      commercialShiftBottom: "$200–$500/month",
+      keyDecisions: [
+        "Defined a five-phase rollout model (stabilize → augment) to ship without downtime while modernizing the full hiring lifecycle.",
+        "Introduced structured evaluation and RBAC before scaling AI-assisted screening — trust before automation.",
+        "Established workflow patterns that became the blueprint for subsequent legacy product modernization across SeamlessHR.",
+      ],
+      led: ["Research synthesis", "UX strategy", "Workflow architecture", "AI-layered experience design"],
+      partneredOn: ["Engineering architecture", "Delivery implementation"],
+    },
     context:
       "SeamlessHiring is SeamlessHR’s Recruitment Management System (RMS). Over time, the legacy foundation and accumulated workflow debt turned it into a fragile add-on experience that eroded perceived value and stalled commercial momentum.",
     problem:
@@ -285,7 +323,8 @@ export const projects: Project[] = [
     action:
       "Led a phased, user‑centred rebuild anchored on restoring trust and eliminating systemic failure points. Partnered cross‑functionally (PM, engineering, CX, sales) to synthesize FullStory analytics, stakeholder interviews, and ticket audits into a five‑phase roadmap that delivered zero‑downtime improvements while modernising the end‑to‑end experience.",
     impact:
-      "In two years, SeamlessHiring moved from a discounted add‑on to a recurring flagship module. Support tickets dropped 50%, application drop‑offs fell 24%, and NPS rose from 27 to 74 as workflow trust and enterprise readiness improved.",
+      "Became the blueprint for subsequent legacy product modernization efforts across the SeamlessHR product ecosystem — not only improved satisfaction, but a repeatable model for enterprise redesign at scale.\n\n" +
+      "In two years, SeamlessHiring moved from a discounted add‑on to a recurring flagship module and PLG reference product. Support tickets dropped 50%, application drop‑offs fell 24%, and NPS rose from 27 to 74 as workflow trust and enterprise readiness improved. The programme generated Seamkit — the enterprise design system now serving multiple products.",
     tags: ["Design Systems", "ATS", "Enterprise SaaS", "AI/ML", "DesignOps"],
     featured: true,
     assets: {
@@ -392,13 +431,18 @@ export const projects: Project[] = [
     brief: {
       blocks: [
         { label: "Role", value: "Lead Product Designer — 0→1, no PM" },
+        { label: "Team", value: "Engineering squad · CTO · Financial domain experts" },
         {
-          label: "Scope",
-          value: ["Product definition", "System architecture", "UX framework", "Developer alignment"],
+          label: "Responsibility",
+          value: "Product Definition · System Architecture · Operational UX · Engineering Alignment",
         },
         { label: "Timeline", value: "2021 – 2025" },
-        { label: "Team", value: "Engineering · CTO · Domain experts" },
         { label: "Domain", value: "FinTech / Mobile Money / Infrastructure" },
+      ],
+      keyDecisions: [
+        "Replaced vendor-locked mobile money infrastructure with a proprietary, white-label-ready engine.",
+        "Prioritized auditability and reconciliation traceability over feature velocity in operator workflows.",
+        "Aligned transaction, reporting, and settlement UX to a single system map before visual polish.",
       ],
       productImpact: [
         { value: "↓50%", label: "Transaction processing time" },
@@ -650,18 +694,18 @@ export const projects: Project[] = [
     brief: {
       blocks: [
         { label: "Role", value: "Lead Product Designer" },
+        { label: "Team", value: "Fets Engineering · IBEDC Operations · Field staff" },
         {
-          label: "Scope",
-          value: [
-            "Consumer app design (IBEDC Care)",
-            "POS workflow",
-            "Unified transaction logic",
-            "Operational reconciliation model",
-          ],
+          label: "Responsibility",
+          value: "Consumer + Field UX · Unified Transaction Model · Operational Reconciliation",
         },
         { label: "Timeline", value: "2022 – 2024" },
-        { label: "Team", value: "Fets Engineering · IBEDC Operations · Field Staff" },
         { label: "Domain", value: "Utility / FinTech / Public Sector" },
+      ],
+      keyDecisions: [
+        "Unified transaction logic across consumer app and walk-in POS — one billing system, not channel silos.",
+        "Designed reconciliation and visibility for operations before scaling field rollout.",
+        "Translated utility infrastructure constraints into workflows field staff could run without engineering support.",
       ],
       productImpact: [
         { value: "4.6★", label: "Play Store rating (2,800+ reviews)" },
