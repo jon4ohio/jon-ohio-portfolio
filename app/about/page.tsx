@@ -42,6 +42,14 @@ const bodyStyle: CSSProperties = {
 const sectionGap = "clamp(48px, 8vw, 64px)";
 const sectionGapAfterNarrative = "clamp(56px, 10vw, 80px)";
 
+/** Intro illustration — beside the About Me narrative on desktop, stacked below on mobile. */
+const aboutIllustration = {
+  src: "/assets/about/intro-illustration.jpg",
+  alt: "Illustrated portrait of John Ohio — product designer and design leader — surrounded by his tools, values, current mission, and selected projects (SeamlessHR, SeamKit, ClearPrice).",
+  width: 1028,
+  height: 1120,
+} as const;
+
 function renderNarrativeBlock(block: NarrativeBlock, i: number) {
   if (block.kind === "paragraph") {
     return (
@@ -75,77 +83,101 @@ export default function About() {
           padding: "clamp(56px, 12vw, 80px) clamp(20px, 4vw, 24px) clamp(80px, 14vw, 120px)",
         }}
       >
-        {/* Hook */}
-        <p className="section-label" style={{ marginBottom: 24 }}>
-          About Me
-        </p>
-        <h1
-          style={{
-            fontSize: "clamp(28px, 4vw, 44px)",
-            fontWeight: 600,
-            letterSpacing: "-0.03em",
-            lineHeight: 1.15,
-            marginBottom: 32,
-            maxWidth: "min(100%, 640px)",
-          }}
-        >
-          {aboutHeadline}
-        </h1>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "clamp(20px, 3vw, 28px)",
-            maxWidth: "min(100%, 620px)",
-          }}
-        >
-          {aboutHookBlocks.map((block, i) => renderNarrativeBlock(block, i))}
-        </div>
+        {/* About Me — 60% narrative left, 40% intro illustration right (stacks below on mobile) */}
+        <div className="about-intro-grid" style={{ alignItems: "start" }}>
+          {/* Left: hook + body narrative + CTAs */}
+          <div style={{ minWidth: 0 }}>
+            <p className="section-label" style={{ marginBottom: 24 }}>
+              About Me
+            </p>
+            <h1
+              style={{
+                fontSize: "clamp(28px, 4vw, 44px)",
+                fontWeight: 600,
+                letterSpacing: "-0.03em",
+                lineHeight: 1.15,
+                marginBottom: 32,
+              }}
+            >
+              {aboutHeadline}
+            </h1>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "clamp(20px, 3vw, 28px)",
+              }}
+            >
+              {aboutHookBlocks.map((block, i) => renderNarrativeBlock(block, i))}
+            </div>
 
-        {/* Body narrative + CTAs */}
-        <div style={{ marginTop: sectionGap }}>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "clamp(20px, 3vw, 28px)",
-              maxWidth: "min(100%, 620px)",
-            }}
-          >
-            {aboutBodyBlocks.map((block, i) => renderNarrativeBlock(block, i))}
+            <div style={{ marginTop: sectionGap }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "clamp(20px, 3vw, 28px)",
+                }}
+              >
+                {aboutBodyBlocks.map((block, i) => renderNarrativeBlock(block, i))}
+              </div>
+
+              <div style={{ marginTop: 40, display: "flex", gap: 16, flexWrap: "wrap" }}>
+                <a
+                  href={mailtoHref}
+                  style={{
+                    fontSize: 14,
+                    fontWeight: 500,
+                    color: "var(--fg)",
+                    textDecoration: "none",
+                    border: "1px solid var(--fg)",
+                    padding: "10px 20px",
+                    borderRadius: 8,
+                  }}
+                >
+                  Get in touch
+                </a>
+                <a
+                  href="https://linkedin.com/in/jon4ohio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    fontSize: 14,
+                    fontWeight: 500,
+                    color: "var(--fg-muted)",
+                    textDecoration: "none",
+                    border: "1px solid var(--border)",
+                    padding: "10px 20px",
+                    borderRadius: 8,
+                  }}
+                >
+                  LinkedIn ↗
+                </a>
+              </div>
+            </div>
           </div>
 
-          <div style={{ marginTop: 40, display: "flex", gap: 16, flexWrap: "wrap" }}>
-            <a
-              href={mailtoHref}
-              style={{
-                fontSize: 14,
-                fontWeight: 500,
-                color: "var(--fg)",
-                textDecoration: "none",
-                border: "1px solid var(--fg)",
-                padding: "10px 20px",
-                borderRadius: 8,
-              }}
-            >
-              Get in touch
-            </a>
-            <a
-              href="https://linkedin.com/in/jon4ohio"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                fontSize: 14,
-                fontWeight: 500,
-                color: "var(--fg-muted)",
-                textDecoration: "none",
-                border: "1px solid var(--border)",
-                padding: "10px 20px",
-                borderRadius: 8,
-              }}
-            >
-              LinkedIn ↗
-            </a>
+          {/* Right: intro illustration + caption (sticky on desktop) */}
+          <div style={{ minWidth: 0 }}>
+            <figure style={{ margin: 0, position: "sticky", top: 80 }}>
+              <AssetImage
+                asset={aboutIllustration}
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 92vw, 460px"
+                priority
+              />
+              <figcaption
+                style={{
+                  marginTop: 12,
+                  fontSize: 12,
+                  lineHeight: 1.5,
+                  color: "var(--fg-subtle)",
+                  fontStyle: "italic",
+                }}
+              >
+                A fun experiment imagining what an illustrator might capture after observing my work,
+                thoughts, habits, and design philosophy over the years.
+              </figcaption>
+            </figure>
           </div>
         </div>
 

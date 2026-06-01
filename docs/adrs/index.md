@@ -47,5 +47,6 @@
 | 044 | Phase V pilot-review artifact and AI narrative boundary (SeamlessHiring) | Proposed | 2026-04-26 | None |
 | 045 | Align SeamlessHiring flagship hero copy with slug-card voice | Proposed | 2026-04-28 | None |
 | 046 | Enforce a 4pt/8pt spacing grid in code and design handoff | Accepted | 2026-04-29 | None |
+| 054 | About page intro illustration in a two-column narrative band | Accepted | 2026-06-01 | None |
 
 Chronological audit notes: [`LOG.md`](./LOG.md).
