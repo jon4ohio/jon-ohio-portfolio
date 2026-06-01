@@ -19,7 +19,7 @@ The portfolio is content-rich but scans as execution-heavy: strong case study de
 - Increase information density per pixel — no new nav sections  
 - Single source of truth for positioning (hero, About, OG, JSON-LD)  
 - Case study cards and `/work/[slug]` must inherit the same brief signals as flagship pages  
-- Surface judgment (key decisions) and governance proof above the fold on Seamkit  
+- Surface judgment (key decisions) above the fold; governance stays in Responsibility metadata and case study body (no duplicate brief figure)  
 
 ## Options Considered
 
@@ -33,7 +33,7 @@ The portfolio is content-rich but scans as execution-heavy: strong case study de
 
 ### Option B: Embed signals in executive brief + shared positioning module (chosen)
 
-- **Description:** Extend `MetadataBriefProps` with `keyDecisions` and optional `governanceArtifact`; standardize Role / Team / Responsibility rows; centralize hero copy in `lib/sitePositioning.ts`.  
+- **Description:** Extend `MetadataBriefProps` with `keyDecisions`; standardize Role / Team / Responsibility rows (governance in Responsibility + `led`, not a second brief artifact); centralize hero copy in `lib/sitePositioning.ts`.  
 - **Pros:** Reuses bento brief; works on generic and flagship routes; copy changes propagate to metadata and cards.  
 - **Cons:** Requires accurate team counts and disciplined copy edits in `projects.ts`.  
 - **Effort:** Low–Medium  
@@ -49,24 +49,23 @@ The portfolio is content-rich but scans as execution-heavy: strong case study de
 
 - Hero, About, layout metadata, and JSON-LD share one positioning line  
 - Every brief-backed case study exposes Team + Responsibility + optional Key decisions  
-- Seamkit brief shows governance artifact and three decision bullets immediately after the bento  
+- Seamkit brief shows three decision bullets immediately after the bento; governance signal lives in Responsibility row and flagship Layer 3 narrative  
 - SeamlessHiring `impact` in `lib/projects.ts` matches flagship STRATEGIC narrative for cards and OG  
 
 ### Negative / Trade-offs
 
 - Team headcounts are static strings — must be updated manually when org structure changes  
-- `brand-system.png` is a stand-in operating-model figure until a dedicated lifecycle diagram ships  
 
 ### Operational Impact
 
 - Future copy changes: edit `lib/sitePositioning.ts` first, then project briefs in `lib/projects.ts`  
-- **Migration / rollback:** Revert ADR-055 commit; remove `keyDecisions` / `governanceArtifact` props if brief UI feels crowded on tablet  
+- **Migration / rollback:** Revert ADR-055 commit; remove `keyDecisions` prop if brief UI feels crowded on tablet  
 
 ### Risks
 
 | Risk | Likelihood | Impact | Mitigation | Owner/Role | Review Trigger |
 |------|-----------|--------|------------|------------|----------------|
-| Brief bento grows too tall on mobile with Key decisions + artifact | Med | Med | Signals stack in `.brief-signals` below bento; tablet rules unchanged (ADR-049) | Maintainer | Mobile QA on `/work/seamkit` after brief edits |
+| Brief bento grows too tall on mobile with Key decisions card | Med | Med | Single card in `.brief-signals` below bento; tablet rules unchanged (ADR-049) | Maintainer | Mobile QA on `/work/seamkit` after brief edits |
 | Inflated team counts if copied without verification | Low | High | Source counts from performance/org context; review before next promotion cycle | John Ohio | HR or role change at SeamlessHR |
 
 ## Review Schedule

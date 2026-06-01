@@ -129,14 +129,6 @@ export const projects: Project[] = [
         "Standardized component governance with lifecycle stages, contribution SOP, and review cadences.",
         "Established shared design–development workflows through co-created adoption, not top-down mandates.",
       ],
-      governanceArtifact: {
-        src: "/assets/work/seamkit/brand-system.png",
-        alt: "Seamkit visual language and component foundations — shared baseline across the SeamlessHR product suite",
-        width: 2196,
-        height: 1847,
-        caption:
-          "Component lifecycle and contribution model: proposal → draft → review → stable → deprecated. Cadences: Token Council · Component Review Board · Pattern Steering Group.",
-      },
       led: [
         "Token architecture and taxonomy",
         "Governance model and contribution SOP",

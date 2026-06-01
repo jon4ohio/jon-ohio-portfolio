@@ -1,6 +1,4 @@
 import * as React from "react";
-import AssetImage from "@/components/AssetImage";
-import type { ImageAsset } from "@/lib/projects";
 
 export type MetadataBlock = { label: string; value: string | string[] };
 
@@ -13,8 +11,6 @@ export type MetadataBriefProps = {
   commercialShiftBottom: string;
   /** Up to three judgment calls — surfaced as a scan card (ADR-055). */
   keyDecisions?: string[];
-  /** Optional governance / operating-model figure directly under the brief. */
-  governanceArtifact?: ImageAsset;
 };
 
 const cardBase: React.CSSProperties = {
@@ -123,7 +119,6 @@ export default function MetadataBrief({
   commercialShiftTop,
   commercialShiftBottom,
   keyDecisions,
-  governanceArtifact,
 }: MetadataBriefProps) {
   const mobileBasicsBlocks = blocks.filter((b) => b.label.toLowerCase() !== "team");
   const bottomLine = commercialShiftBottom.replace(/^→\s*/, "");
@@ -288,29 +283,11 @@ export default function MetadataBrief({
         </div>
       </div>
 
-      {(keyDecisions?.length || governanceArtifact) && (
-        <div
-          className="brief-signals"
-          style={{ display: "flex", flexDirection: "column", gap: 16, marginTop: 16 }}
-        >
-          {keyDecisions?.length ? <KeyDecisionsCard decisions={keyDecisions} /> : null}
-          {governanceArtifact ? (
-            <div style={{ ...cardBase }}>
-              <span style={sectionLabelStyle}>Operating model</span>
-              <AssetImage
-                asset={governanceArtifact}
-                sizes="(max-width: 900px) 92vw, 1240px"
-                treatment="plain"
-              />
-              {governanceArtifact.caption ? (
-                <p style={{ fontSize: 12, color: "var(--fg-subtle)", lineHeight: 1.6, marginTop: 10 }}>
-                  {governanceArtifact.caption}
-                </p>
-              ) : null}
-            </div>
-          ) : null}
+      {keyDecisions?.length ? (
+        <div className="brief-signals" style={{ marginTop: 16 }}>
+          <KeyDecisionsCard decisions={keyDecisions} />
         </div>
-      )}
+      ) : null}
     </section>
   );
 }
