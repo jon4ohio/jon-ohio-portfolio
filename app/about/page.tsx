@@ -157,14 +157,27 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right: intro illustration (sticky on desktop) */}
+          {/* Right: intro illustration + caption (sticky on desktop) */}
           <div style={{ minWidth: 0 }}>
-            <AssetImage
-              asset={aboutIllustration}
-              sizes="(max-width: 640px) 100vw, (max-width: 900px) 92vw, 460px"
-              priority
-              style={{ position: "sticky", top: 80 }}
-            />
+            <figure style={{ margin: 0, position: "sticky", top: 80 }}>
+              <AssetImage
+                asset={aboutIllustration}
+                sizes="(max-width: 640px) 100vw, (max-width: 900px) 92vw, 460px"
+                priority
+              />
+              <figcaption
+                style={{
+                  marginTop: 12,
+                  fontSize: 12,
+                  lineHeight: 1.5,
+                  color: "var(--fg-subtle)",
+                  fontStyle: "italic",
+                }}
+              >
+                A fun experiment imagining what an illustrator might capture after observing my work,
+                thoughts, habits, and design philosophy over the years.
+              </figcaption>
+            </figure>
           </div>
         </div>
 
