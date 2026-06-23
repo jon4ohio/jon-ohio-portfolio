@@ -1009,35 +1009,277 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "blualliance",
-    title: "BluAlliance",
-    subtitle: "Blue-Collar HRM Platform",
-    category: "0→1 Systems",
+    slug: "workforce-ecosystem",
+    title: "Workforce Ecosystem",
+    subtitle: "Designing for Africa's Frontline Workforce",
+    category: "Structured Systems",
     company: "Gates Foundation × SeamlessHR",
-    period: "Jun 2025 – Present",
+    period: "2025 – Present",
     summary:
-      "Co-led product discovery for Africa’s first HRM platform for the blue-collar workforce — field research across Kenya and Nigeria, journey mapping, and MVP scoping.",
-    role: "UX Research Lead for product discovery and MVP definition.",
+      "Led multi-country research and service design to map Africa's frontline workforce ecosystem — from field insights through lifecycle frameworks, service blueprints, and capability architecture.",
+    role:
+      "Design Lead — Research Leadership, Service Design, Systems Mapping, Experience Architecture, Workshop Facilitation, Stakeholder Alignment, Strategic Synthesis",
     scope:
-      "Field research, ethnographic visits, worker and employer journey mapping, opportunity mapping, and MVP scoping across hiring, payroll, scheduling, and benefits.",
+      "Multi-country research (Nigeria, Kenya), ecosystem modelling, lifecycle framework design, service blueprinting, capability architecture, and cross-functional synthesis workshops.",
     metrics: [
-      { value: "30+", label: "Field interviews" },
-      { value: "2", label: "Markets researched (Kenya, Nigeria)" },
-      { value: "0→1", label: "MVP scoped" },
+      { value: "150+", label: "Research participants" },
+      { value: "2", label: "Markets (Nigeria, Kenya)" },
+      { value: "7", label: "Lifecycle stages" },
+      { value: "8", label: "Capability areas" },
     ],
+    brief: {
+      blocks: [
+        { label: "Role", value: "Design Lead — Research & Service Design" },
+        {
+          label: "Team",
+          value: "Gates Foundation programme · SeamlessHR product & research · Field research partners · Employer & worker participants",
+        },
+        {
+          label: "Responsibility",
+          value:
+            "Research Leadership · Service Design · Systems Mapping · Experience Architecture · Workshop Facilitation · Stakeholder Alignment · Strategic Synthesis",
+        },
+        { label: "Timeline", value: "2025 – Present" },
+        { label: "Domain", value: "Frontline Workforce / HRTech / Service Design" },
+      ],
+      productImpact: [
+        { value: "150+", label: "Research participants" },
+        { value: "7", label: "Lifecycle stages defined" },
+        { value: "8", label: "Capability areas mapped" },
+      ],
+      commercialShiftTop: "Assumption-led HR product thinking",
+      commercialShiftBottom: "→ Evidence-based workforce ecosystem model",
+      strategicDecisions: [
+        {
+          title: "Research before product definition",
+          body:
+            "Committed to multi-country field research across Nigeria and Kenya before scoping product surfaces — trading speed-to-MVP for a defensible ecosystem model that could survive cross-market variation.",
+        },
+        {
+          title: "Lifecycle as the organising spine",
+          body:
+            "Structured findings around a seven-stage workforce lifecycle (Discover → Thrive) rather than feature categories — so service design, platform strategy, and employer/worker experiences shared one narrative frame.",
+        },
+        {
+          title: "Capability architecture as the handoff layer",
+          body:
+            "Ended the research programme at capability architecture — eight interconnected domains — deliberately stopping before UI so platform teams could prioritise opportunities without re-litigating the research foundation.",
+        },
+      ],
+      led: [
+        "Multi-country research design and synthesis",
+        "Workforce Ecosystem Blueprint and lifecycle framework",
+        "Service blueprinting (high-level and detailed)",
+        "Capability architecture across eight domains",
+        "Cross-functional workshop facilitation",
+      ],
+      partneredOn: [
+        "Gates Foundation programme strategy",
+        "SeamlessHR product and engineering discovery",
+        "Field research execution in Nigeria and Kenya",
+      ],
+    },
     context:
-      "BluAlliance is a 0→1 HRM platform for Africa’s blue-collar workforce, co-led by SeamlessHR in partnership with the Gates Foundation. The goal was to build an HRM product tailored to the realities of field-based, shift-based, and informal work — with employer needs spanning hiring, payroll, scheduling, and benefits.",
+      "Africa's frontline workforce — field-based, shift-based, and informal — operates inside ecosystems that standard HR software was never designed for. Employers, supervisors, workers, and informal intermediaries coordinate through channels, tools, and trust relationships that don't appear in white-collar HR analogues.\n\n" +
+      "In partnership with the Gates Foundation, SeamlessHR initiated a programme to understand and design for this workforce at ecosystem scale — not as a single product brief, but as a multi-country research and service design effort spanning Nigeria and Kenya.",
     problem:
-      "Existing HR tools were not built for the operational constraints of blue-collar workforces across African markets. The team needed to validate jobs-to-be-done, map real-world workflows, and define an MVP that could earn trust quickly on both employer and worker sides.",
+      "The team lacked a shared model of how frontline work actually happens: who coordinates whom, where employment visibility breaks down, and how prosperity extends beyond the paycheck. Without that model, any product scope risked importing assumptions from enterprise HR tools that don't fit frontline operational reality.",
     action:
-      "Collaborated with a product lead to develop product strategy and MVP scope. Participated in an immersive design thinking workshop with a cross-functional group of industry leaders. Conducted field research in Kenya and Nigeria (30+ interviews, ethnographic visits). Mapped worker and employer journeys across hiring, payroll, scheduling, and benefits. Facilitated opportunity mapping and MVP scoping.",
+      "Led research and service design from multi-country fieldwork through strategic artefacts. Synthesised 150+ participant conversations into key insights, mapped the Workforce Ecosystem Blueprint, defined a seven-stage lifecycle framework, produced high-level and detailed service blueprints, and established a capability architecture across eight domains — stopping at architecture so platform work could proceed on a shared foundation.",
     impact:
-      "Thirty field interviews and ethnographic visits across Kenya and Nigeria produced a validated MVP scope grounded in how blue-collar workers and employers actually operate — not assumptions mapped from white-collar HR analogues. The research surfaced consistent patterns across both markets that had not previously been documented at this level of specificity, giving the product team a defensible foundation without expensive course correction later. Africa's first HRM platform for the blue-collar workforce is being built on research that didn't exist before this project.",
-    tags: ["HRTech", "0→1", "Field Research", "Africa", "Gates Foundation"],
+      "Established the research-backed models, shared language, and capability map that enabled platform exploration — giving product teams a defensible foundation without expensive course correction. The lifecycle framework and service blueprints created alignment across Gates Foundation stakeholders, SeamlessHR product leadership, and field partners before any product UI was scoped.",
+    tags: ["HRTech", "Service Design", "Field Research", "Africa", "Gates Foundation", "Systems Mapping"],
     featured: false,
     assets: {
-      thumbnails: [placeholderHero, placeholderThumbB],
-      hero: placeholderHero,
+      thumbnails: [
+        {
+          ...placeholderHero,
+          alt: "[Replace] Workforce Ecosystem case study hero",
+        },
+        placeholderThumbB,
+      ],
+      hero: {
+        ...placeholderHero,
+        alt: "[Replace] Workforce Ecosystem case study hero — research and service design artefacts",
+      },
+      blocks: [
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/_placeholders/hero.svg",
+            alt: "[Replace] Research Overview Board — multi-country synthesis",
+            width: 2400,
+            height: 1350,
+            caption:
+              "[Replace: /assets/work/workforce-ecosystem/research-overview-board.png] Research overview board synthesising findings across Nigeria and Kenya.",
+          },
+        },
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/_placeholders/hero.svg",
+            alt: "[Replace] Workforce Ecosystem Blueprint",
+            width: 2400,
+            height: 1350,
+            caption:
+              "[Replace: /assets/work/workforce-ecosystem/ecosystem-blueprint.png] Workforce Ecosystem Blueprint — actors, channels, and coordination layers.",
+          },
+        },
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/_placeholders/hero.svg",
+            alt: "[Replace] Lifecycle Framework — Discover through Thrive",
+            width: 2400,
+            height: 1350,
+            caption:
+              "[Replace: /assets/work/workforce-ecosystem/lifecycle-framework.png] Seven-stage lifecycle: Discover, Join, Show Up, Do Work, Get Rewarded, Grow, Thrive.",
+          },
+        },
+      ],
+    },
+  },
+  {
+    slug: "blualliance",
+    title: "BluAlliance",
+    subtitle: "Building for Africa's Frontline Workforce",
+    category: "0→1 Systems",
+    company: "Gates Foundation × SeamlessHR",
+    period: "2025 – Present",
+    summary:
+      "Translating workforce ecosystem research into platform strategy and experience design — prioritising opportunities across Breeze, WhatsApp ESS, frontline productivity, and financial wellbeing.",
+    role:
+      "Design Lead — Product Strategy, Platform Design, Experience Architecture, Information Architecture, Opportunity Prioritization, Cross-functional Alignment",
+    scope:
+      "Platform vision, opportunity prioritisation, experience portfolio design (Breeze IA, WhatsApp ESS, supervisor workflows, benefits & financial wellbeing), and future-state architecture.",
+    metrics: [
+      { value: "6", label: "Opportunity areas" },
+      { value: "2", label: "Markets (Nigeria, Kenya)" },
+      { value: "4+", label: "Experience streams" },
+      { value: "8", label: "Capability domains" },
+    ],
+    brief: {
+      blocks: [
+        { label: "Role", value: "Design Lead — Product Strategy & Platform Design" },
+        {
+          label: "Team",
+          value: "Gates Foundation programme · SeamlessHR product, engineering & CX · Cross-functional squad leads",
+        },
+        {
+          label: "Responsibility",
+          value:
+            "Product Strategy · Platform Design · Experience Architecture · Information Architecture · Opportunity Prioritization · Cross-functional Alignment",
+        },
+        { label: "Timeline", value: "2025 – Present" },
+        { label: "Domain", value: "Frontline Workforce Platform / 0→1 HRTech" },
+      ],
+      productImpact: [
+        { value: "6", label: "Opportunity areas prioritised" },
+        { value: "4+", label: "Experience streams in portfolio" },
+        { value: "2", label: "Markets in scope" },
+      ],
+      commercialShiftTop: "Research artefacts without product direction",
+      commercialShiftBottom: "→ Prioritised platform portfolio with shared architecture",
+      strategicDecisions: [
+        {
+          title: "Platform over isolated products",
+          body:
+            "Framed BluAlliance as a platform portfolio sharing capability domains — not a single MVP feature set — so Breeze, WhatsApp ESS, and supervisor workflows could evolve independently while staying architecturally coherent.",
+        },
+        {
+          title: "Channel-native experiences",
+          body:
+            "Prioritised WhatsApp as a first-class ESS channel alongside web (Breeze) — accepting dual interaction models rather than forcing frontline workers through desktop-first HR patterns.",
+        },
+        {
+          title: "Honest maturity framing",
+          body:
+            "Documented experience streams by delivery state (in development, UAT, roadmap) — trading polished launch narrative for stakeholder trust and realistic cross-functional prioritisation.",
+        },
+      ],
+      led: [
+        "Platform vision and opportunity prioritisation",
+        "Breeze information architecture",
+        "WhatsApp ESS experience flows",
+        "Frontline productivity and supervisor workflow frameworks",
+        "Workforce prosperity and benefits experience design",
+        "Future-state platform architecture",
+      ],
+      partneredOn: [
+        "Engineering platform architecture",
+        "Product management roadmap prioritisation",
+        "Gates Foundation programme alignment",
+        "CX and field rollout planning",
+      ],
+    },
+    context:
+      "BluAlliance is SeamlessHR's frontline workforce platform initiative, co-developed with the Gates Foundation. It builds directly on the Workforce Ecosystem research programme — translating capability architecture into prioritised product experiences across web, mobile, and messaging channels.",
+    problem:
+      "Research identified eight capability domains and dozens of opportunity areas, but the team faced hard prioritisation questions: which opportunities to pursue first, which channels to invest in, and whether to build a unified platform or isolated products. Without clear platform vision and experience architecture, parallel workstreams risked diverging before anything reached frontline users.",
+    action:
+      "Led product strategy and platform design from capability map through experience portfolio. Defined platform vision, prioritised six opportunity areas, designed Breeze information architecture, WhatsApp ESS flows, frontline productivity frameworks, and workforce prosperity models — with honest framing of what is in development, in UAT, or on the roadmap.",
+    impact:
+      "Established a prioritised platform portfolio with shared architecture — enabling parallel experience streams (Breeze, WhatsApp ESS, supervisor workflows, benefits & financial wellbeing) to progress without re-litigating research foundations. Cross-functional teams gained a common platform vision and maturity-aware roadmap for Africa's frontline workforce.",
+    tags: ["HRTech", "0→1", "Platform Design", "Africa", "Gates Foundation", "Frontline Workforce"],
+    featured: false,
+    assets: {
+      thumbnails: [
+        {
+          ...placeholderHero,
+          alt: "[Replace] BluAlliance platform case study hero",
+        },
+        placeholderThumbA,
+      ],
+      hero: {
+        ...placeholderHero,
+        alt: "[Replace] BluAlliance platform case study hero — experience portfolio overview",
+      },
+      blocks: [
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/_placeholders/hero.svg",
+            alt: "[Replace] Opportunity & Capability Map",
+            width: 2400,
+            height: 1350,
+            caption:
+              "[Replace: /assets/work/blualliance/opportunity-capability-map.png] Opportunity map aligned to eight capability domains from ecosystem research.",
+          },
+        },
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/_placeholders/hero.svg",
+            alt: "[Replace] Platform Vision",
+            width: 2400,
+            height: 1350,
+            caption:
+              "[Replace: /assets/work/blualliance/platform-vision.png] BluAlliance platform vision — shared services across experience streams.",
+          },
+        },
+        {
+          kind: "image",
+          layout: "wide",
+          treatment: "plain",
+          image: {
+            src: "/assets/work/_placeholders/hero.svg",
+            alt: "[Replace] Breeze Information Architecture",
+            width: 2400,
+            height: 1350,
+            caption: "[Replace: /assets/work/blualliance/breeze-ia.png] Breeze web platform information architecture.",
+          },
+        },
+      ],
     },
   },
 ];
