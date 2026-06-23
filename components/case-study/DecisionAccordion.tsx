@@ -2,12 +2,11 @@
 
 import * as React from "react";
 
-export interface DecisionEntry {
-  title: string;
-  body: string;
-}
+import type { StrategicDecision } from "@/lib/strategicDecisions";
 
-export default function DecisionAccordion({ entries }: { entries: DecisionEntry[] }) {
+export type DecisionEntry = StrategicDecision;
+
+export default function DecisionAccordion({ entries }: { entries: StrategicDecision[] }) {
   const [open, setOpen] = React.useState<number | null>(null);
   const contentRefs = React.useRef<Array<HTMLDivElement | null>>([]);
   const [heights, setHeights] = React.useState<Record<number, number>>({});

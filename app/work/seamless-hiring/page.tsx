@@ -358,83 +358,26 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         This shift in system design directly enabled improvements in workflow reliability, user adoption, and the commercial positioning of the product.
       </p>
 
-      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
+      <section id="strategic-decisions" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
         <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          Decision Log
+          04 Strategic Decisions
         </p>
         <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          Key decisions
+          Judgment, trade-offs, and outcomes
         </h2>
-        <div style={{ marginTop: 28, maxWidth: 760 }}>
-          <DecisionAccordion
-            entries={[
-              {
-                title: "Phased rollout over full rewrite",
-                body:
-                  "A full rewrite would have been cleaner architecturally. It would also have broken continuity for every active enterprise client. Phased delivery kept the system usable while we fixed it — and gave teams time to build confidence in new patterns before old ones were fully retired.",
-              },
-              {
-                title: "Research synthesis before wireframes",
-                body:
-                  "FullStory analytics, support ticket audits, and recruiter interviews ran concurrently and were synthesised before any design work began. The five-phase prioritisation framework came from that synthesis, not from stakeholder instinct.",
-              },
-              {
-                title: "Single decision surface for recruiters",
-                body:
-                  "Every candidate action was previously distributed across multiple views and tabs. Consolidation was a direct response to the context-switching pattern generating the majority of mid-task abandonment in session recordings — not a visual preference.",
-              },
-              {
-                title: "AI introduced in Phase V, not Phase I",
-                body:
-                  "Structured evaluation support was held until the core workflow had earned recruiter trust. AI layered onto a broken workflow doesn't fix the workflow — it accelerates the broken parts.",
-              },
-              {
-                title: "Pattern architecture before isolated screens",
-                body:
-                  "Shared interface patterns — form structure, action hierarchy, state communication — were designed system-first to avoid solving the same workflow problem per screen. This was the structural precursor to Seamkit.",
-              },
-            ]}
-          />
-        </div>
-      </section>
-
-      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
-        <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          Key decisions and what they cost
+        <p
+          style={{
+            marginTop: 12,
+            fontSize: 15,
+            color: "var(--fg-muted)",
+            lineHeight: 1.7,
+            maxWidth: 640,
+          }}
+        >
+          Five choices that shaped the programme — alternatives considered, costs accepted, and what each unlocked.
         </p>
-        <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          Key decisions and what they cost
-        </h2>
         <div style={{ marginTop: 28, maxWidth: 760 }}>
-          <p style={{ fontSize: 15, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
-            I chose phased delivery over a full redesign. The faster path was a clean-slate rebuild — one handoff, one
-            launch, a coherent new system from day one. I chose not to do that. SeamlessHiring had active enterprise
-            clients in production. A full cut-over would have required a coordinated migration window across multiple
-            organizations with live hiring pipelines. The cost of a failed migration wasn&apos;t a bad launch metric — it was
-            real hiring processes breaking for real companies. The phased approach meant a longer period of coexistence
-            between old and new patterns, more complex QA, and a roadmap that had to deliver visible trust signals early
-            rather than holding everything for a big reveal. The payoff was zero-downtime delivery and a client base
-            that experienced improvement continuously rather than absorbing a disruptive transition.
-          </p>
-          <p style={{ fontSize: 15, color: "var(--fg-body)", lineHeight: 1.75, margin: "18px 0 0" }}>
-            I chose to fix trust before adding features. There was product roadmap pressure to ship AI-assisted
-            shortlisting and structured feedback tools — genuinely differentiating capabilities that sales wanted to
-            lead with. I pushed back on sequencing. Applicant drop-off rates were at levels that made new features
-            irrelevant: if users weren&apos;t completing core flows, layering intelligence on top would accelerate churn, not
-            reverse it. The cost of this decision was a delayed AI feature narrative and some internal friction around
-            roadmap priorities. The outcome was a product where completion reached 100% before intelligent features were
-            introduced — which meant the AI layer landed on a workflow people actually trusted, not one they were still
-            abandoning.
-          </p>
-          <p style={{ fontSize: 15, color: "var(--fg-body)", lineHeight: 1.75, margin: "18px 0 0" }}>
-            I chose FullStory analytics and ticket audits over starting with user interviews. The default instinct in
-            redesigns is to begin with interviews and journey mapping. I inverted that. FullStory gave us behavioral
-            truth before anyone had a chance to rationalize their experience. Ticket audits told us what was breaking in
-            production, not what users said was breaking. Interviews came after, to understand why behind what the data
-            had already shown. The cost was an unconventional research sequence that required buy-in from stakeholders
-            expecting a traditional discovery phase. The payoff was that by the time we interviewed users, we already
-            knew which problems were structural versus incidental — so we weren&apos;t designing for noise.
-          </p>
+          <DecisionAccordion entries={project.brief.strategicDecisions ?? []} />
         </div>
       </section>
 
