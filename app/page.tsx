@@ -59,7 +59,7 @@ const ownershipItems = [
     name: "FetsProza",
     type: "Infrastructure-as-a-Service Platform",
     description:
-      "Owned the design of infrastructure interfaces for a mobile money engine that eliminated a costly vendor dependency, doubled transaction capacity, and saves over $1M annually.",
+      "Led product definition and UX for operational tooling that replaced a $1M+ vendor dependency, doubled transaction capacity, and gave finance and ops teams production-scale visibility.",
   },
   {
     slug: "ibedc",

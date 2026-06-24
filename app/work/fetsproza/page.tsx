@@ -12,9 +12,9 @@ import PrevNextNav from "@/components/case-study/PrevNextNav";
 import { getProject, projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
-  title: "FetsProza — John Ohio",
+  title: "FetsProza",
   description:
-    "Replaced a third-party mobile money vendor dependency with proprietary, white-label-ready infrastructure — built from the product layer down.",
+    "Led product definition and UX for FetsProza — operational tooling that replaced a $1M+ vendor dependency, doubled throughput, and gave finance and ops teams visibility into transactions at production scale.",
   alternates: { canonical: "/work/fetsproza" },
 };
 
@@ -26,30 +26,36 @@ const chapters: Chapter[] = [
   { id: "unlocks", label: "05 Foundations" },
 ];
 
-const layers: Phase[] = [
+const modules: Phase[] = [
   {
-    id: "layer-1",
-    number: "Layer 1",
-    name: "Transaction engine",
-    description: "Processing, routing, execution — replaces the vendor ceiling",
+    id: "module-monitoring",
+    number: "01",
+    name: "Transaction monitoring",
+    description: "See what happened — status, bottlenecks, re-query",
   },
   {
-    id: "layer-2",
-    number: "Layer 2",
-    name: "Financial logic",
-    description: "Settlement, reconciliation, ledger behavior, fee calculation",
+    id: "module-reconciliation",
+    number: "02",
+    name: "Reconciliation",
+    description: "Understand what happened — matched and unmatched flows",
   },
   {
-    id: "layer-3",
-    number: "Layer 3",
-    name: "Integration layer",
-    description: "APIs/connectors for banks, agents, external services (white-label)",
+    id: "module-payment",
+    number: "03",
+    name: "Payment processing",
+    description: "Act on it — accounts, products, refunds",
   },
   {
-    id: "layer-4",
-    number: "Layer 4",
-    name: "Product layer",
-    description: "Operator console, agent flows, reporting surfaces for real users",
+    id: "module-merchant",
+    number: "04",
+    name: "Merchant & agent management",
+    description: "Scale operations — onboarding and team admin",
+  },
+  {
+    id: "module-outcomes",
+    number: "05",
+    name: "Platform outcomes",
+    description: "Business results — cost, scale, operator experience",
   },
 ];
 
@@ -59,33 +65,43 @@ const outcomeTiers: OutcomeTier[] = [
     items: [
       "2× — Transaction throughput (10k → 20k per minute)",
       "↓50% — Settlement time (4s → 2s)",
-      "Immediate — Reconciliation visibility (was daily batch)",
+      "Improved — Transaction monitoring across ops teams",
     ],
   },
   {
-    category: "OPERATIONAL",
+    category: "OPERATOR EXPERIENCE",
     items: [
-      "$1M+ — Annual infrastructure cost reduction",
-      "Vendor — Licensing and margin dependency eliminated",
-      "3+ — Markets enabled for expansion (Congo and others)",
+      "80% — Task success on ops dashboard usability testing",
+      "NPS 3.4→4.6 — Internal operator satisfaction",
+      "↓40% — Onboarding time for internal teams",
+      "↓30% — Support interventions",
     ],
   },
   {
-    category: "SYSTEM",
+    category: "BUSINESS IMPACT",
     items: [
-      "Proprietary — Transaction engine now internally owned",
-      "White-label ready — Infrastructure designed for licensing",
-      "Auditable — Transaction states traceable without engineering",
+      "$1M+ — Annual savings from vendor elimination",
+      "↓30% — OpEx ($500k → $350k)",
+      "Faster — Partner onboarding through unified workflows",
     ],
   },
   {
-    category: "WHAT CHANGED",
+    category: "PLATFORM SCALE",
     items: [
-      "From — Vendor-dependent, ceiling-constrained mobile money operations",
-      "To — Owned financial infrastructure platform built for scale and licensing",
+      "₦89.7B+ — Processed in last financial year (production dashboard)",
+      "Fetswallet Congo — White-label deployment",
+      "Licensing — Opportunities from external fintechs",
     ],
   },
 ];
+
+function SectionDivider() {
+  return (
+    <div style={{ padding: "0 24px" }}>
+      <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
+    </div>
+  );
+}
 
 export default function FetsprozaFlagshipCaseStudy() {
   const project = getProject("fetsproza");
@@ -124,8 +140,8 @@ export default function FetsprozaFlagshipCaseStudy() {
         microLabel={`${project.company} · ${project.period}`}
         title={project.title}
         subtitle={project.subtitle}
-        thesis="Replacing vendor dependency with infrastructure the company owned."
-        abstract="Built from the product layer down: a transaction engine, financial logic, integrations, and operator surfaces designed to scale and license."
+        thesis="Operators shouldn't need engineering to answer what happened to this transaction."
+        abstract="Fetswallet's operations depended on an expensive third-party platform that was difficult to customize and increasingly constrained growth. I led product definition and UX for FetsProza — a new operational platform that gave finance, operations, and support teams visibility into transactions, reconciliation, merchant management, and reporting workflows. The result was a platform that reduced costs, doubled throughput, improved operator efficiency, and processed ₦89.7B+ in production transaction volume."
         impact={project.metrics}
         heroImage={{
           src: project.assets?.hero?.src ?? project.assets?.thumbnails?.[0]?.src,
@@ -137,33 +153,34 @@ export default function FetsprozaFlagshipCaseStudy() {
       <TensionCards
         label="02 Core Tensions"
         heading="What made this hard"
-        subhead="Three constraints that made infrastructure replacement a product problem, not just an engineering one."
+        subhead="Three constraints that made replacing the vendor a product problem — not just a procurement decision."
         cards={[
           {
             number: "01",
             title: "Vendor dependency",
             body:
-              "The company relied on a third-party mobile money engine for all transaction processing. That dependency constrained margins, blocked customisation, and imposed a hard ceiling on throughput — 10k per minute — that the business was already approaching.",
+              "The company relied on a third-party mobile money platform for all transaction processing. That dependency constrained margins, blocked customisation, and imposed a hard ceiling on throughput — 10k per minute — that the business was already approaching.",
           },
           {
             number: "02",
-            title: "Infrastructure complexity without a product model",
+            title: "Operations invisible in the old platform",
             body:
-              "Transaction orchestration, settlement, reconciliation, and compliance weren't UX problems. They were system design problems. Engineering was driving architecture without a cohesive product model to align decisions against — creating technical choices that would have been expensive to undo.",
+              "Reconciliation, settlement, and transaction monitoring lived in manual workarounds because the vendor UI wasn't built for how finance and ops teams actually worked. Errors surfaced at end-of-day review — too late to fix at source — and operators had no self-service path to answer basic questions about transaction status.",
           },
           {
             number: "03",
             title: "No PM — product definition was unowned",
             body:
-              "There was no product manager. Engineering was building and design had no formal brief. The risk was a technically sound system with no coherent user model, no audit trail design, and no product layer that operators could actually use.",
+              "There was no product manager. Engineering was building and design had no formal brief. The risk was a technically capable platform with no coherent operator workflows, no visibility into transaction states, and no tooling that finance and support teams could run day to day.",
           },
         ]}
       />
 
       <div style={{ maxWidth: 1240, margin: "32px auto 0", padding: "0 24px" }}>
         <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 760 }}>
-          The answer was not to replace the vendor with a better vendor. It was to build infrastructure the company owned — designed
-          from the product layer down, not the transaction engine up.
+          The answer was not to replace the vendor with a better vendor. It was to design operational tooling that let the
+          business own and scale its mobile-money operations — starting with what operators needed to see, understand, and
+          act on every day.
         </p>
       </div>
 
@@ -171,96 +188,122 @@ export default function FetsprozaFlagshipCaseStudy() {
         <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
           03 Evidence in practice
         </p>
+        <p style={{ marginTop: 8, fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.6, maxWidth: 680 }}>
+          See what happened → understand it → act on it → scale operations → platform outcomes.
+        </p>
         <div style={{ marginTop: 24 }}>
-          <PhaseTimeline phases={layers} />
+          <PhaseTimeline phases={modules} />
         </div>
       </section>
 
       <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 72 }}>
         <EvidenceModule
-          id="layer-1"
-          phase="Layer 1 — Transaction engine"
+          id="module-monitoring"
+          phase="01 — Transaction monitoring"
           layout="text-left"
-          challenge="The vendor's 10k transaction-per-minute ceiling was the most visible constraint. The replacement engine was designed to double that from day one — but throughput alone wasn't the design problem. State visibility was. Every transaction needed a clear, auditable state model: initiated, processing, settled, failed, reversed."
-          intervention="Transaction flow architecture with explicit state transitions — every state visible to operators without engineering access."
+          challenge="Finance and ops teams couldn't see transaction status without engineering — stuck, pending, and failed payments had no self-service path."
+          intervention="Transaction tracker and bottleneck view — status breakdown, re-query actions, and a production dashboard used at scale."
           figure={{
             figure: 1,
-            label: "Transaction state model",
-            imageSrc: "/assets/work/_placeholders/hero.svg",
-            imageAlt: "Transaction state model: initiated → processing → settled, with error and reversal paths",
-            caption: "Transaction state model: initiated → processing → settled, with error and reversal paths.",
+            label: "Transaction tracker",
+            imageSrc: "/assets/work/fetsproza/thumb-2.png",
+            imageAlt: "Transaction tracker and bottleneck view with status breakdown and re-query actions",
+            caption:
+              "Transaction monitoring: all-transactions view and bottleneck resolution — operators can see status and re-query without engineering support.",
             decisionNotes: [
-              "State visibility designed as an operator feature, not an engineering-only concern",
-              "Auditability treated as a first-order constraint (not a reporting afterthought)",
+              "Visibility treated as the primary operator job — not a reporting afterthought",
+              "Re-query at row level so stuck transactions are actionable where operators work",
+              "Production-proven at scale — referenced in live operational use",
             ],
           }}
         />
 
-        <div style={{ padding: "0 24px" }}>
-          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
-        </div>
+        <SectionDivider />
 
         <EvidenceModule
-          id="layer-2"
-          phase="Layer 2 — Financial logic"
+          id="module-reconciliation"
+          phase="02 — Reconciliation"
           layout="text-right"
-          challenge="Reconciliation was the operational risk. The old system required manual coordination across teams to close the books daily. Settlement errors multiplied as agent network volume grew. The financial logic layer was designed so reconciliation happened continuously — not as an end-of-day batch."
-          intervention="Real-time reconciliation model replacing daily manual process — errors surfaced at transaction level, not discovered in batch review."
+          challenge="Closing the books required manual coordination across teams; errors surfaced at end-of-day, not at source."
+          intervention="Reconciliation dashboard — matched and unmatched transactions, settlement reports, and export for finance teams."
           figure={{
             figure: 2,
-            label: "Reconciliation workflow",
-            imageSrc: "/assets/work/_placeholders/hero.svg",
-            imageAlt: "Reconciliation workflow: real-time settlement tracking and operator-facing error resolution",
-            caption: "Reconciliation workflow: real-time settlement tracking and operator-facing error resolution.",
+            label: "Reconciliation dashboard",
+            imageSrc: "/assets/work/fetsproza/hero.png",
+            imageAlt: "Reconciliation dashboard showing matched and unmatched transaction breakdown",
+            caption:
+              "Reconciliation dashboard: matched and unmatched transactions with settlement reporting — continuous visibility instead of end-of-day batch review.",
             decisionNotes: [
-              "Continuous reconciliation reduced operational overhead and prevented error accumulation",
-              "Errors surfaced where they occurred — at transaction level — not at end-of-day review",
+              "Continuous visibility chosen over batch review — errors actionable where operators work",
+              "Matched vs unmatched breakdown gives finance teams a single place to close the books",
             ],
           }}
         />
 
-        <div style={{ padding: "0 24px" }}>
-          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
-        </div>
+        <SectionDivider />
 
         <EvidenceModule
-          id="layer-3"
-          phase="Layer 3 — Integration layer"
+          id="module-payment"
+          phase="03 — Payment processing"
           layout="text-left"
-          challenge="The integration layer was designed for licensing from the start — not as an afterthought. APIs and connectors needed to be clean enough for external operators to build on without Fets engineering involvement at each integration."
-          intervention="API-first integration design enabling white-label deployment — the commercial model that made the $1M+ cost saving realisable."
+          challenge="Peak periods exposed lag in the operator experience; refunds and disputes lacked guided workflows."
+          intervention="Account profiles and product configuration — real-time status, refund and dispute prompts, and category management."
           figure={{
             figure: 3,
-            label: "Integration layer",
-            imageSrc: "/assets/work/_placeholders/hero.svg",
-            imageAlt: "Integration layer: connectors for banks, agents, and external services built for white-label licensing",
-            caption: "Integration layer: connectors for banks, agents, and external services built for white-label licensing.",
+            label: "Payment processing",
+            imageSrc: "/assets/work/fetsproza/block-module-payment.png",
+            imageAlt: "Payment processing — account profiles and product configuration",
+            caption:
+              "Payment processing: account profiles with wallet visibility and product configuration for categories, charges, and payment methods.",
             decisionNotes: [
-              "White-label constraints shaped connector design early (not retrofitted for licensing)",
-              "Integration surfaces designed for external operators, reducing dependence on internal engineering",
+              "Operator control over products and accounts — not a backend-only configuration exercise",
+              "Peak-load performance treated as an operator experience requirement",
             ],
           }}
         />
 
-        <div style={{ padding: "0 24px" }}>
-          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
-        </div>
+        <SectionDivider />
 
         <EvidenceModule
-          id="layer-4"
-          phase="Layer 4 — Product layer"
+          id="module-merchant"
+          phase="04 — Merchant & agent management"
           layout="text-right"
-          challenge="Infrastructure is only as useful as the product layer that makes it operable. The operator console, agent management dashboard, and reporting tools were the surfaces through which finance teams, operations managers, and field agents actually used the system — without ever seeing the engine underneath."
-          intervention="Operator console, agent dashboards, and reporting surfaces — the product layer that made infrastructure legible to non-technical operators."
+          challenge="Onboarding merchants and admin teams was error-prone without guided setup and clear role definitions."
+          intervention="User management with clear roles and contextual help embedded across forms."
           figure={{
             figure: 4,
-            label: "Operator console",
-            imageSrc: "/assets/work/_placeholders/hero.svg",
-            imageAlt: "Operator console: transaction monitoring, agent management, and reconciliation reporting",
-            caption: "Operator console: transaction monitoring, agent management, and reconciliation reporting.",
+            label: "Merchant & agent management",
+            imageSrc: "/assets/work/fetsproza/block-module-merchant.png",
+            imageAlt: "Merchant and agent management — user management and team admin",
+            caption:
+              "Merchant and agent management: team admin with role clarity and guided onboarding for operations staff.",
             decisionNotes: [
-              "Product layer treated as the primary interface to infrastructure (operators first)",
-              "Surfaces designed to make system state visible without technical translation",
+              "Onboarding designed for ops admins — not engineers configuring the system",
+              "Unified workflows enabling faster partner onboarding across the agent network",
+            ],
+          }}
+        />
+
+        <SectionDivider />
+
+        <EvidenceModule
+          id="module-outcomes"
+          phase="05 — Platform outcomes"
+          layout="text-left"
+          accent
+          challenge="Vendor dependency made it hard to prove the redesign worked — cost, scale, and operator experience all needed defensible evidence."
+          intervention="Before/after outcomes across product performance, operator experience, business impact, and platform scale."
+          figure={{
+            figure: 5,
+            label: "Platform outcomes",
+            imageSrc: "/assets/work/fetsproza/block-outcome.png",
+            imageAlt: "Platform outcomes — product, operator experience, business impact, and scale metrics",
+            caption:
+              "Platform outcomes: before/after metrics across cost, throughput, operator experience, and production volume at scale.",
+            decisionNotes: [
+              "₦89.7B+ processed in production — verified on live dashboard",
+              "NPS and task success from usability testing treated as first-class design evidence",
+              "Fetswallet Congo demonstrates white-label deployment beyond the core market",
             ],
           }}
         />
@@ -268,21 +311,31 @@ export default function FetsprozaFlagshipCaseStudy() {
 
       <section id="outcomes" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
         <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          05 Outcomes
+          04 Outcomes
         </p>
         <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          What the system delivered
+          Results across four dimensions
         </h2>
         <OutcomeCards tiers={outcomeTiers} />
       </section>
 
+      <div style={{ maxWidth: 1240, margin: "48px auto 0", padding: "0 24px" }}>
+        <p style={{ fontSize: 15, color: "var(--fg-muted)", fontStyle: "italic", lineHeight: 1.7, maxWidth: 760, margin: 0 }}>
+          &quot;John demonstrated deep systems thinking and product leadership throughout FetsProza&apos;s redesign,
+          translating complex financial infrastructure into intuitive, scalable systems.&quot;
+        </p>
+        <p style={{ marginTop: 10, fontSize: 12, color: "var(--fg-subtle)", maxWidth: 760 }}>
+          — Clement Asibeluo, Chief Technology Officer, Fets
+        </p>
+      </div>
+
       <UnlockPanel
-        label="06 Foundations"
+        label="05 Foundations"
         items={[
-          "The infrastructure was built white-label-ready from the start — not retrofitted. That architectural decision created a licensing revenue stream that didn't exist under the vendor model.",
-          "Fetsproza established the internal capability for Fets to own its financial infrastructure across markets — Congo expansion and beyond — without returning to vendor dependency.",
-          "The product layer design — operator console, reconciliation tooling, agent management — became the internal standard for how Fets builds operator-facing financial tools.",
-          "Cutting annual infrastructure costs by over $1M proved that proprietary infrastructure was not just a technical preference but a commercial one.",
+          "Product definition without a PM — sole design and product owner from concept through launch, working directly with engineering and domain experts.",
+          "Visibility-first ops tooling became the internal standard for how Fets builds operator-facing financial products.",
+          "The operator console pattern — transaction monitoring, reconciliation, merchant admin — established a reusable model across markets.",
+          "Replacing a $1M+ vendor dependency proved that operational UX redesign was a commercial decision, not just a technical one.",
         ]}
       />
 
@@ -290,4 +343,3 @@ export default function FetsprozaFlagshipCaseStudy() {
     </div>
   );
 }
-
