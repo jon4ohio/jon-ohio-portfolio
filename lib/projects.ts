@@ -422,7 +422,7 @@ export const projects: Project[] = [
   {
     slug: "fetsproza",
     title: "FetsProza",
-    subtitle: "Infrastructure‑as‑a‑Service (IaaS) Platform",
+    subtitle: "Operational platform for mobile-money teams",
     category: "Scalable Systems",
     company: "Funds and Electronic Transfer Solutions (Fets) · Nigeria",
     period: "2021 – 2025",
@@ -435,7 +435,7 @@ export const projects: Project[] = [
       { value: "↓50%", label: "Transaction processing time" },
       { value: "2×", label: "Scalability (10k→20k tpm)" },
       { value: "$1M+", label: "Annual cost savings" },
-      { value: "0→1", label: "Proprietary infrastructure" },
+      { value: "₦89.7B+", label: "Production volume processed" },
     ],
     brief: {
       blocks: [
@@ -443,26 +443,26 @@ export const projects: Project[] = [
         { label: "Team", value: "Engineering squad · CTO · Financial domain experts" },
         {
           label: "Responsibility",
-          value: "Product Definition · System Architecture · Operational UX · Engineering Alignment",
+          value: "Product Definition · Operator UX · Workflow Design · Engineering Alignment",
         },
         { label: "Timeline", value: "2021 – 2025" },
-        { label: "Domain", value: "FinTech / Mobile Money / Infrastructure" },
+        { label: "Domain", value: "FinTech / Mobile Money / Operations" },
       ],
       strategicDecisions: [
         {
-          title: "Proprietary engine over vendor lock-in",
+          title: "Visibility before feature velocity",
           body:
-            "Replaced vendor-locked mobile money infrastructure with a proprietary, white-label-ready engine — unlocking scale past licensing ceilings and a new revenue model.",
+            "Prioritized transaction visibility and reconciliation traceability in operator workflows so every state could be resolved without engineering support.",
         },
         {
-          title: "Auditability over feature velocity",
+          title: "Owned platform over vendor lock-in",
           body:
-            "Prioritized auditability and reconciliation traceability in operator workflows so every transaction state could be resolved without engineering support.",
+            "Replaced vendor-locked operations with tooling Fets owned — unlocking scale past licensing ceilings and a white-label revenue model.",
         },
         {
-          title: "System map before UI polish",
+          title: "Workflow map before UI polish",
           body:
-            "Aligned transaction, reporting, and settlement UX to a single system map before visual polish — 0→1 with engineering and domain experts, no PM buffer.",
+            "Aligned transaction, reporting, and settlement UX to a single operator workflow map before visual polish — 0→1 with engineering and domain experts, no PM buffer.",
         },
       ],
       productImpact: [
@@ -471,16 +471,16 @@ export const projects: Project[] = [
         { value: "$1M+", label: "Annual cost savings" },
       ],
       commercialShiftTop: "Third-party mobile money vendor dependency",
-      commercialShiftBottom: "→ Proprietary, white-label-ready mobile money infrastructure",
+      commercialShiftBottom: "→ Owned operational platform for finance, ops, and support teams",
       led: [
         "Product definition (no PM — sole design and product owner)",
-        "System architecture and UX framework",
-        "Transaction engine and reconciliation flow design",
+        "Operator UX and workflow architecture",
+        "Transaction monitoring and reconciliation flow design",
         "Developer alignment and delivery coordination",
       ],
       partneredOn: [
         "Engineering implementation",
-        "CTO-level architectural decisions",
+        "CTO-level product decisions",
         "Domain expert validation (financial compliance)",
       ],
     },
