@@ -23,9 +23,6 @@ const nextConfig: NextConfig = {
     // and resolve correctly when running from a git worktree.
     root: findPackageRoot(__dirname),
   },
-  async redirects() {
-    return [{ source: "/thinking", destination: "/", permanent: true }];
-  },
   images: {
     remotePatterns: [
       {
