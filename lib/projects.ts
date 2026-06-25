@@ -422,15 +422,15 @@ export const projects: Project[] = [
   {
     slug: "fetsproza",
     title: "FetsProza",
-    subtitle: "Operational platform for mobile-money teams",
+    subtitle: "Enterprise operations workspace for FETS",
     category: "Scalable Systems",
     company: "Funds and Electronic Transfer Solutions (Fets) · Nigeria",
     period: "2021 – 2025",
     summary:
-      "Designed the interfaces for a mobile money engine that eliminated a costly external vendor dependency. The system now handles double the original transaction capacity and enables white-label revenue — saving over $1M annually.",
-    role: "Lead Product Designer across platform strategy and operational UX.",
+      "Redesigned operational experience for a mobile money business — eliminating $1M+ vendor dependency, doubling throughput, and giving operational teams production-scale visibility.",
+    role: "Product Design Lead — product definition and operational UX (0→1, no PM).",
     scope:
-      "Transaction engine workflows, operator console, reporting, reconciliation, and direct collaboration with engineering on financial operations.",
+      "Eleven connected operational workflows: transaction monitoring, reconciliation, product configuration, team administration, and reporting.",
     metrics: [
       { value: "↓50%", label: "Transaction processing time" },
       { value: "2×", label: "Scalability (10k→20k tpm)" },
@@ -439,30 +439,35 @@ export const projects: Project[] = [
     ],
     brief: {
       blocks: [
-        { label: "Role", value: "Lead Product Designer — 0→1, no PM" },
+        { label: "Role", value: "Product Design Lead — 0→1, no PM" },
         { label: "Team", value: "Engineering squad · CTO · Financial domain experts" },
         {
           label: "Responsibility",
           value: "Product Definition · Operator UX · Workflow Design · Engineering Alignment",
         },
         { label: "Timeline", value: "2021 – 2025" },
-        { label: "Domain", value: "FinTech / Mobile Money / Operations" },
+        { label: "Scope", value: "11 operational workflows across financial operations" },
       ],
       strategicDecisions: [
         {
-          title: "Visibility before feature velocity",
+          title: "Configuration over engineering",
           body:
-            "Prioritized transaction visibility and reconciliation traceability in operator workflows so every state could be resolved without engineering support.",
+            "Business teams configure products, charges, and payment methods through structured self-service workflows — not development tickets.",
         },
         {
-          title: "Owned platform over vendor lock-in",
+          title: "Visibility over investigation",
           body:
-            "Replaced vendor-locked operations with tooling Fets owned — unlocking scale past licensing ceilings and a white-label revenue model.",
+            "Operators see transaction health, bottlenecks, and failure patterns in real time — not through end-of-day investigation.",
         },
         {
-          title: "Workflow map before UI polish",
+          title: "Dense doesn't mean difficult",
           body:
-            "Aligned transaction, reporting, and settlement UX to a single operator workflow map before visual polish — 0→1 with engineering and domain experts, no PM buffer.",
+            "Information density supports scan speed for operational teams processing hundreds of records daily.",
+        },
+        {
+          title: "Consistency across roles",
+          body:
+            "Shared navigation, validation, and status language across configuration, monitoring, reconciliation, and administration.",
         },
       ],
       productImpact: [
@@ -471,7 +476,7 @@ export const projects: Project[] = [
         { value: "$1M+", label: "Annual cost savings" },
       ],
       commercialShiftTop: "Third-party mobile money vendor dependency",
-      commercialShiftBottom: "→ Owned operational platform for finance, ops, and support teams",
+      commercialShiftBottom: "→ Owned operational platform for operational teams",
       led: [
         "Product definition (no PM — sole design and product owner)",
         "Operator UX and workflow architecture",
@@ -485,26 +490,26 @@ export const projects: Project[] = [
       ],
     },
     sectionLabels: {
-      context: "02  What Made This Hard",
-      problem: "03  How the System Holds Together",
-      action: "04  Evidence in Practice",
-      impact: "05  What the System Delivered",
+      context: "02  Business Challenge",
+      problem: "03  Design Strategy",
+      action: "04  How We Redesigned Operations",
+      impact: "05  Business Impact",
     },
     context:
-      "Fetswallet's mobile money infrastructure ran on a Huawei-licensed engine — adequate at launch but ill-suited to a company planning cross-border expansion into markets like Congo. Licensing costs constrained the operating budget, and the vendor relationship blocked any meaningful customisation: no way to localise, extend for white-label use, or scale past the transaction ceilings the engine imposed.",
+      "FETS ran mobile money operations on a third-party platform that constrained margins, blocked customization, and capped throughput at 10k transactions per minute — a ceiling the business was already approaching.",
     problem:
-      "Transaction monitoring, agent reconciliation, and settlement workflows all ran through manual workarounds layered on top of a system not built for them. As the agent network grew, reconciliation errors multiplied and operational overhead scaled linearly. The vendor ceiling — 10k transactions per minute — was already becoming a bottleneck, and the licensing model made every growth decision more expensive than it needed to be.",
+      "Operational teams managed transactions, reconciliation, and administration through manual workarounds. Configuration depended on engineering. Visibility required investigation. The vendor model made every growth decision more expensive.",
     action:
-      "Led strategy, operations, and product design for Fetsproza from concept to launch — a proprietary, white-label-ready IaaS platform built to replace the vendor dependency entirely. Worked directly with engineering to map existing financial workflows before redesigning them: transaction engine, operator console, reconciliation tooling, and reporting. The design priority was auditability — every transaction state, error, and resolution needed to be traceable without engineering support.",
+      "Led product definition and operational UX for FetsProza from concept through launch — mapping existing financial workflows before redesigning them for operational teams. Priority: auditability and self-service at every transaction state.",
     impact:
-      "Fetswallet eliminated the vendor dependency and cut annual infrastructure costs by over $1M. Transaction capacity doubled from 10k to 20k per minute, settlement time halved from 4s to 2s, and reconciliation that previously required manual coordination became an auditable, self-service operation. The engine was architected for licensing — a white-label revenue stream that didn't exist under the vendor model.",
-    tags: ["Fintech", "IaaS", "Mobile Money", "Infrastructure", "0→1"],
+      "FETS eliminated vendor dependency and cut annual costs by over $1M. Transaction capacity doubled, settlement time halved, and reconciliation became a daily operational workflow. The platform processed ₦89.7B+ in production volume and enabled white-label expansion.",
+    tags: ["Fintech", "Mobile Money", "Financial Operations", "0→1"],
     featured: true,
     assets: {
       thumbnails: [
         {
           src: "/assets/work/fetsproza/preview-16x9.png",
-          alt: "FetsProza IaaS platform case study header",
+          alt: "FetsProza reconciliation dashboard — operational workspace for mobile money teams",
           width: 3024,
           height: 1701,
         },
@@ -517,7 +522,7 @@ export const projects: Project[] = [
       ],
       hero: {
         src: "/assets/work/fetsproza/preview-16x9.png",
-        alt: "FetsProza IaaS platform case study header",
+        alt: "FetsProza reconciliation dashboard — operational workspace for mobile money teams",
         width: 3024,
         height: 1701,
       },
@@ -530,14 +535,14 @@ export const projects: Project[] = [
           images: [
             {
               src: "/assets/work/fetsproza/block-module-payment.png",
-              alt: "FetsProza platform — payment processing module in context",
+              alt: "FetsProza product configuration — self-service workflows with validation",
               width: 2196,
               height: 1742,
               caption: "Payment processing: real-time flows, refunds, and peak-load performance.",
             },
             {
               src: "/assets/work/fetsproza/block-module-merchant.png",
-              alt: "FetsProza platform — merchant and agent management",
+              alt: "FetsProza team administration — roles and guided onboarding for operational teams",
               width: 2196,
               height: 1742,
               caption: "Merchant and agent management: onboarding and reconciliation.",

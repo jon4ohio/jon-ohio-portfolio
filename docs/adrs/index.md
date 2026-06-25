@@ -51,5 +51,6 @@
 | 055 | Portfolio leadership signals — brief density without new sections | Accepted | 2026-06-01 | None |
 | 056 | Strategic Decisions — single judgment section per case study | Accepted | 2026-06-01 | None |
 | 057 | FetsProza operator-first evidence spine and narrative reframe | Accepted | 2026-06-24 | None |
+| 058 | Canonical flagship case-study template (portfolio v1.0) | Accepted | 2026-06-24 | None |
 
 Chronological audit notes: [`LOG.md`](./LOG.md).

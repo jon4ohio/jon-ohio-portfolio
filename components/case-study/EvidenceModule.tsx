@@ -10,6 +10,14 @@ export interface EvidenceModuleProps {
   layout: "text-left" | "text-right";
   accent?: boolean;
   pullQuote?: string;
+  /** Flagship decision spine — Context / Decision / Reasoning / Evidence / Outcome */
+  challengeLabel?: string;
+  interventionLabel?: string;
+  reasoning?: string;
+  reasoningLabel?: string;
+  outcome?: string;
+  outcomeLabel?: string;
+  evidenceLabel?: string;
 }
 
 function Micro({ children }: { children: React.ReactNode }) {
@@ -36,7 +44,16 @@ export default function EvidenceModule({
   layout,
   accent = false,
   pullQuote,
+  challengeLabel,
+  interventionLabel = "Intervention",
+  reasoning,
+  reasoningLabel = "Reasoning",
+  outcome,
+  outcomeLabel = "Outcome",
+  evidenceLabel = "Evidence",
 }: EvidenceModuleProps) {
+  const isFlagshipDecision = Boolean(reasoning);
+
   const text = (
     <div style={{ maxWidth: accent ? 560 : 460, minWidth: 0 }}>
       <div
@@ -56,16 +73,24 @@ export default function EvidenceModule({
         {phase}
       </div>
 
-      <p style={{ fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>
+      {challengeLabel ? <Micro>{challengeLabel}</Micro> : null}
+      <p style={{ marginTop: challengeLabel ? 10 : 0, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>
         {challenge}
       </p>
 
       <div style={{ marginTop: 18 }}>
-        <Micro>Intervention</Micro>
+        <Micro>{interventionLabel}</Micro>
         <p style={{ marginTop: 10, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>
           {intervention}
         </p>
       </div>
+
+      {reasoning ? (
+        <div style={{ marginTop: 18 }}>
+          <Micro>{reasoningLabel}</Micro>
+          <p style={{ marginTop: 10, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>{reasoning}</p>
+        </div>
+      ) : null}
 
       {pullQuote ? (
         <blockquote
@@ -88,7 +113,22 @@ export default function EvidenceModule({
 
   const fig = (
     <div style={{ flex: 1, minWidth: 0 }}>
-      <AnnotatedFigure {...figure} />
+      {isFlagshipDecision ? (
+        <>
+          <Micro>{evidenceLabel}</Micro>
+          <div style={{ marginTop: 10 }}>
+            <AnnotatedFigure {...figure} caption="" decisionNotes={[]} imageOnly />
+          </div>
+          {outcome ? (
+            <div style={{ marginTop: 18 }}>
+              <Micro>{outcomeLabel}</Micro>
+              <p style={{ marginTop: 10, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>{outcome}</p>
+            </div>
+          ) : null}
+        </>
+      ) : (
+        <AnnotatedFigure {...figure} />
+      )}
     </div>
   );
 
