@@ -425,9 +425,9 @@ export const projects: Project[] = [
     subtitle: "Enterprise operating platform for FETS",
     category: "Scalable Systems",
     company: "Funds and Electronic Transfer Solutions (Fets) · Nigeria",
-    period: "2021 – 2025",
+    period: "2024 · 8 months",
     summary:
-      "Solved enterprise payment orchestration for FETS by designing the operating platform that unified a fragmented vendor ecosystem — at production scale.",
+      "Designed the operating platform that unified a fragmented payment ecosystem—replacing vendor dependency with an owned financial operating model at production scale.",
     role: "Product Design Lead — workflow prioritization, operating model, CTO alignment (0→1, no dedicated PM).",
     scope:
       "Eleven operational workflows; four decisions that changed how the business ran.",
@@ -445,7 +445,7 @@ export const projects: Project[] = [
           label: "Responsibility",
           value: "Workflow Prioritization · Operating Model · Engineering Trade-off Alignment",
         },
-        { label: "Timeline", value: "2021 – 2025" },
+        { label: "Timeline", value: "2024 · 8 months" },
         { label: "Scope", value: "11 operational workflows across financial operations" },
       ],
       strategicDecisions: [

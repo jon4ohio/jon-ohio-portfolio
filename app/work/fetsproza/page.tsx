@@ -11,14 +11,17 @@ import OutcomeCards, { type OutcomeTier } from "@/components/case-study/OutcomeC
 import PrevNextNav from "@/components/case-study/PrevNextNav";
 import { getProject, projects } from "@/lib/projects";
 
-const STORY_TITLE = "Designing the operating platform that unified a fragmented payment ecosystem";
+const STORY_TITLE = "FetsProza";
 const SECTION_PAD = "56px 24px 0";
 
+const SNAPSHOT_THESIS_LEAD =
+  "Designing the operating platform that unified a fragmented payment ecosystem.";
+
 const SNAPSHOT_THESIS =
-  "FETS wasn't struggling because it lacked payment capabilities. It was struggling because every payment depended on multiple disconnected vendor platforms working together as one.";
+  "FETS wasn't constrained by missing payment capabilities—it was constrained by fragmented infrastructure. Every customer transaction depended on multiple vendor-managed systems working together, making failures expensive, difficult to diagnose, and increasingly costly to operate.";
 
 const SNAPSHOT_ABSTRACT =
-  "Customer wallets, authentication, bill payments, bank transfers, and notifications lived on independent systems. A single failed handshake could debit customers without delivering service, break reconciliation, and inflate operational cost. FetsProza wasn't created to build another wallet — it was designed to become the operational platform that unified the financial ecosystem. With no dedicated Product Manager, I owned product definition for FetsProza — prioritizing workflows, trade-offs, and engineering alignment with the CTO before any interface work.";
+  "FetsProza became the operational platform that unified those services into a single transaction lifecycle. With no dedicated Product Manager, I led product definition alongside the CTO, translating distributed financial infrastructure into workflows business teams could operate at scale.";
 
 export const metadata: Metadata = {
   title: STORY_TITLE,
@@ -86,7 +89,7 @@ const outcomeTiers: OutcomeTier[] = [
     category: "STRATEGIC",
     items: [
       "₦89.7B+ — Verified production volume (last financial year)",
-      "Owned operating capability — no third-party platform dependency",
+      "Unified financial infrastructure — no third-party platform dependency",
       "Fetswallet Congo — White-label deployment",
       "Licensing opportunities from external fintechs",
     ],
@@ -129,11 +132,11 @@ function EcosystemShiftDiagram() {
 
   return (
     <section
-      aria-label="Before and after: fragmented vendor responsibility versus unified FetsProza platform"
+      aria-label="Before and after: fragmented payment orchestration versus unified FetsProza operating platform"
       style={{ maxWidth: 960, margin: "0 auto", padding: "40px 24px 0" }}
     >
       <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)", margin: 0 }}>
-        From fragmented vendors to owned platform
+        From fragmented payment orchestration to a unified operating platform
       </p>
       <div className="case-study-ecosystem-diagram" style={{ marginTop: 20, display: "flex", gap: 20 }}>
         <div style={panelStyle}>
@@ -203,7 +206,7 @@ function EcosystemShiftDiagram() {
               </p>
             </div>
             <p style={{ marginTop: 12, fontSize: 13, color: "var(--fg-body)", textAlign: "center", lineHeight: 1.5, fontWeight: 500 }}>
-              Business owns the system
+              Business controls the financial operating system
             </p>
           </div>
         </div>
@@ -245,9 +248,6 @@ export default function FetsprozaFlagshipCaseStudy() {
         @media (min-width: 901px) {
           .case-study-phase-mobile { display: none !important; }
         }
-        #snapshot h1 {
-          font-size: clamp(34px, 4.2vw, 52px);
-        }
         .case-study-evidence-scan img {
           width: 100%;
           height: auto;
@@ -260,6 +260,7 @@ export default function FetsprozaFlagshipCaseStudy() {
         microLabel={`${project.company} · ${project.period}`}
         title={STORY_TITLE}
         subtitle="Enterprise operating platform for FETS."
+        thesisLead={SNAPSHOT_THESIS_LEAD}
         thesis={SNAPSHOT_THESIS}
         abstract={SNAPSHOT_ABSTRACT}
         impact={project.metrics}
@@ -280,7 +281,7 @@ export default function FetsprozaFlagshipCaseStudy() {
           02 Challenge
         </p>
         <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          Why growth stalled on fragmented infrastructure
+          Why fragmented infrastructure blocked growth
         </h2>
         <div style={{ marginTop: 20, maxWidth: 760 }}>
           <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
@@ -288,12 +289,9 @@ export default function FetsprozaFlagshipCaseStudy() {
             handshake could debit customers without delivering service, break reconciliation across platforms, and inflate
             operational cost with every new integration.
           </p>
-          <p style={{ marginTop: 18, fontSize: 17, color: "var(--fg)", lineHeight: 1.75, fontWeight: 500 }}>
-            The challenge wasn&apos;t designing payment experiences. It was coordinating how an entire financial business
-            operated.
-          </p>
           <p style={{ marginTop: 18, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75 }}>
-            The challenge was not replacing software — it was redesigning how the business operated through software.
+            The challenge wasn&apos;t designing payment experiences or replacing software—it was coordinating how an entire
+            financial business operated through one platform.
           </p>
         </div>
 
@@ -345,13 +343,13 @@ export default function FetsprozaFlagshipCaseStudy() {
           03 Strategy
         </p>
         <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          Operating principles for the redesign
+          Principles for unifying the operating model
         </h2>
         <div style={{ marginTop: 24, maxWidth: 760, display: "flex", flexDirection: "column", gap: 16 }}>
           <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
             Rather than continuing to integrate independent platforms, we designed FetsProza around a unified orchestration
-            model. Every operational workflow — from configuration to reconciliation — would operate on a single source of
-            transaction truth.
+            model. Every operational workflow — from configuration to reconciliation — would operate on a{" "}
+            <strong style={{ color: "var(--fg)" }}>single source of transaction truth</strong>.
           </p>
           <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
             <strong style={{ color: "var(--fg)" }}>Configuration over engineering.</strong> Business-team ownership of
@@ -377,7 +375,7 @@ export default function FetsprozaFlagshipCaseStudy() {
           04 Decisions
         </p>
         <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          How we redesigned operations
+          The decisions that changed how the business operated
         </h2>
         <p style={{ marginTop: 8, fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.6, maxWidth: 680 }}>
           Four judgments that changed how the business ran — not what we shipped.
@@ -396,12 +394,12 @@ export default function FetsprozaFlagshipCaseStudy() {
           decisionHeadline="Enable business teams to configure products independently"
           challenge="Business configuration depended on engineering for routine changes."
           intervention="Give business teams governed self-service configuration with validation and guardrails — rejecting minimal forms that failed in production."
-          outcome="Business teams owned routine product changes while governance stayed intact."
+          outcome="Routine configuration became a business capability instead of an engineering dependency."
           figure={{
             figure: 1,
             label: "Product configuration",
             imageSrc: "/assets/work/fetsproza/block-module-payment.png",
-            imageAlt: "Evidence: business teams configure products with validation — no engineering queue",
+            imageAlt: "Evidence: routine configuration became a business capability — not an engineering queue",
             caption: "",
             decisionNotes: [],
           }}
@@ -417,12 +415,12 @@ export default function FetsprozaFlagshipCaseStudy() {
           decisionHeadline="Give operators real-time visibility into transaction health"
           challenge="Stuck and failed transactions required engineering escalation."
           intervention="Put transaction health and re-query where operators work — rejecting simplified views that hid the density they scan daily."
-          outcome="Operators resolved transaction issues at production scale without engineering support."
+          outcome="Transaction investigation moved from engineering queues to frontline operations."
           figure={{
             figure: 2,
             label: "Transaction monitoring",
             imageSrc: "/assets/work/fetsproza/thumb-2.png",
-            imageAlt: "Evidence: operators resolve stuck transactions in context — without a support ticket",
+            imageAlt: "Evidence: transaction investigation moved to frontline operations — without engineering escalation",
             caption: "",
             decisionNotes: [],
           }}
@@ -438,12 +436,12 @@ export default function FetsprozaFlagshipCaseStudy() {
           decisionHeadline="Make reconciliation part of daily operations"
           challenge="Closing the books required coordinating across teams and tools."
           intervention="Embed matched and unmatched flows into daily operations — rejecting batch reconciliation at period close."
-          outcome="The business closed books from a single operational view instead of manual handoffs."
+          outcome="Reconciliation shifted from period-close coordination to a continuous operational capability."
           figure={{
             figure: 3,
             label: "Reconciliation dashboard",
             imageSrc: "/assets/work/fetsproza/hero.png",
-            imageAlt: "Evidence: matched and unmatched flows reconcile in one view — errors fixed at source",
+            imageAlt: "Evidence: reconciliation became a continuous capability — not a period-close fire drill",
             caption: "",
             decisionNotes: [],
           }}
@@ -459,12 +457,12 @@ export default function FetsprozaFlagshipCaseStudy() {
           decisionHeadline="Create a scalable operating model for administration"
           challenge="Partner onboarding broke down as the agent network grew."
           intervention="Standardize roles and guided onboarding for the network — rejecting feature breadth that added training burden."
-          outcome="Partner onboarding accelerated through one administration model at network scale."
+          outcome="Partner onboarding scaled through one administration model instead of ad hoc process sprawl."
           figure={{
             figure: 4,
             label: "Team administration",
             imageSrc: "/assets/work/fetsproza/block-module-merchant.png",
-            imageAlt: "Evidence: partners onboard through role clarity and guided workflows — not feature sprawl",
+            imageAlt: "Evidence: partner onboarding scaled through one administration model — not process sprawl",
             caption: "",
             decisionNotes: [],
           }}
@@ -479,8 +477,8 @@ export default function FetsprozaFlagshipCaseStudy() {
           What improved — and what it unlocked
         </h2>
         <p style={{ marginTop: 20, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 760 }}>
-          FETS replaced fragmented vendor orchestration with an owned operating platform — cutting $1M+ in annual vendor
-          cost while improving self-service operations, transaction reliability, and customer trust at production scale.
+          FETS replaced fragmented vendor orchestration with a unified operating platform—cutting $1M+ in annual vendor
+          cost while improving operational reliability and enabling business teams to own day-to-day financial operations.
         </p>
 
         <div style={{ marginTop: 28 }}>
@@ -500,8 +498,8 @@ export default function FetsprozaFlagshipCaseStudy() {
         </div>
 
         <p style={{ marginTop: 28, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 760 }}>
-          Together, these improvements enabled FETS to own and evolve its operational capabilities rather than depend on
-          a third-party platform.
+          Together, these improvements enabled FETS to evolve its financial operations on a unified enterprise platform
+          rather than depend on fragmented vendor systems.
         </p>
 
         <blockquote
@@ -532,8 +530,8 @@ export default function FetsprozaFlagshipCaseStudy() {
         </h2>
         <div style={{ marginTop: 24, maxWidth: 760 }}>
           <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
-            The hardest work was mapping how the business actually ran, then deciding which workflows to own, simplify,
-            or cut — with engineering and the CTO aligned on trade-offs before screens existed.
+            The hardest work wasn&apos;t designing interfaces—it was understanding how the business actually operated
+            before deciding what to simplify, standardize, or remove.
           </p>
           <p style={{ marginTop: 24, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75 }}>
             This project taught me that enterprise design isn&apos;t about making complex systems look simple. It&apos;s

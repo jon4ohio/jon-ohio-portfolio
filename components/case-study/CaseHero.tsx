@@ -7,6 +7,8 @@ export type CaseHeroProps = {
   microLabel: string;
   title: string;
   subtitle: string;
+  /** Bold narrative hook rendered before thesis (flagship case studies). */
+  thesisLead?: string;
   thesis: string;
   abstract: string;
   impact: CaseHeroMetric[];
@@ -17,6 +19,7 @@ export default function CaseHero({
   microLabel,
   title,
   subtitle,
+  thesisLead,
   thesis,
   abstract,
   impact,
@@ -57,9 +60,24 @@ export default function CaseHero({
         {subtitle}
       </p>
 
+      {thesisLead ? (
+        <p
+          style={{
+            marginTop: 24,
+            maxWidth: 640,
+            fontSize: 20,
+            lineHeight: 1.6,
+            fontWeight: 600,
+            color: "var(--fg-body)",
+          }}
+        >
+          {thesisLead}
+        </p>
+      ) : null}
+
       <p
         style={{
-          marginTop: 24,
+          marginTop: thesisLead ? 16 : 24,
           maxWidth: 640,
           fontSize: 20,
           lineHeight: 1.6,
