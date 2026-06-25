@@ -1,14 +1,10 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/lib/projects";
-
-function getSiteUrl() {
-  const envUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : undefined);
-  return envUrl ?? "http://localhost:3000";
-}
+import { getSiteUrl, isIndexableDeployment } from "@/lib/siteUrl";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  if (!isIndexableDeployment()) return [];
+
   const baseUrl = getSiteUrl();
   const now = new Date();
 
@@ -26,4 +22,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 }
-
