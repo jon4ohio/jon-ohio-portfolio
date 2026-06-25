@@ -422,12 +422,12 @@ export const projects: Project[] = [
   {
     slug: "fetsproza",
     title: "FetsProza",
-    subtitle: "Enterprise operations workspace for FETS",
+    subtitle: "Enterprise operating platform for FETS",
     category: "Scalable Systems",
     company: "Funds and Electronic Transfer Solutions (Fets) · Nigeria",
     period: "2021 – 2025",
     summary:
-      "Owned product definition for a mobile money operating platform — replacing vendor dependency with an owned operating model at production scale.",
+      "Solved enterprise payment orchestration for FETS by designing the operating platform that unified a fragmented vendor ecosystem — at production scale.",
     role: "Product Design Lead — workflow prioritization, operating model, CTO alignment (0→1, no dedicated PM).",
     scope:
       "Eleven operational workflows; four decisions that changed how the business ran.",

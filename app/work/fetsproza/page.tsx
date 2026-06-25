@@ -11,13 +11,19 @@ import OutcomeCards, { type OutcomeTier } from "@/components/case-study/OutcomeC
 import PrevNextNav from "@/components/case-study/PrevNextNav";
 import { getProject, projects } from "@/lib/projects";
 
-const STORY_TITLE = "Designing the operating system behind a mobile money business";
+const STORY_TITLE = "Designing the operating platform that unified a fragmented payment ecosystem";
 const SECTION_PAD = "56px 24px 0";
+
+const SNAPSHOT_THESIS =
+  "FETS wasn't struggling because it lacked payment capabilities. It was struggling because every payment depended on multiple disconnected vendor platforms working together as one.";
+
+const SNAPSHOT_ABSTRACT =
+  "Customer wallets, authentication, bill payments, bank transfers, and notifications lived on independent systems. A single failed handshake could debit customers without delivering service, break reconciliation, and inflate operational cost. FetsProza wasn't created to build another wallet — it was designed to become the operational platform that unified the financial ecosystem. With no dedicated Product Manager, I owned product definition for FetsProza — prioritizing workflows, trade-offs, and engineering alignment with the CTO before any interface work.";
 
 export const metadata: Metadata = {
   title: STORY_TITLE,
   description:
-    "Helping FETS eliminate $1M+ vendor dependency by redesigning operational experience — financial operations case study by John Ohio.",
+    "Enterprise payment orchestration case study: designing the operating platform that unified FETS's fragmented ecosystem — $1M+ vendor savings at production scale. By John Ohio.",
   alternates: { canonical: "/work/fetsproza" },
 };
 
@@ -95,6 +101,117 @@ function SectionDivider() {
   );
 }
 
+function EcosystemShiftDiagram() {
+  const panelStyle = {
+    flex: 1,
+    minWidth: 0,
+    padding: "24px 20px",
+    borderRadius: 8,
+    border: "1px solid var(--border)",
+    background: "var(--surface-subtle)",
+  } as const;
+
+  const labelStyle = {
+    fontSize: 11,
+    fontWeight: 600,
+    textTransform: "uppercase" as const,
+    letterSpacing: "0.08em",
+    color: "var(--fg-subtle)",
+    margin: 0,
+  };
+
+  const nodeStyle = {
+    fontSize: 14,
+    color: "var(--fg-body)",
+    lineHeight: 1.5,
+    textAlign: "center" as const,
+  };
+
+  return (
+    <section
+      aria-label="Before and after: fragmented vendor responsibility versus unified FetsProza platform"
+      style={{ maxWidth: 960, margin: "0 auto", padding: "40px 24px 0" }}
+    >
+      <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)", margin: 0 }}>
+        From fragmented vendors to owned platform
+      </p>
+      <div className="case-study-ecosystem-diagram" style={{ marginTop: 20, display: "flex", gap: 20 }}>
+        <div style={panelStyle}>
+          <p style={labelStyle}>Before</p>
+          <div style={{ marginTop: 20, display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+            <p style={{ ...nodeStyle, fontWeight: 600, color: "var(--fg)" }}>Customer</p>
+            <p style={{ fontSize: 18, color: "var(--fg-muted)", lineHeight: 1, margin: 0 }} aria-hidden>
+              │
+            </p>
+            <p style={{ fontSize: 18, color: "var(--fg-muted)", lineHeight: 1, margin: 0 }} aria-hidden>
+              ▼
+            </p>
+            <div style={{ width: "100%", display: "flex", flexDirection: "column", gap: 6, marginTop: 4 }}>
+              {["Vendor A", "Vendor B", "Vendor C", "Vendor D"].map((vendor) => (
+                <div
+                  key={vendor}
+                  style={{
+                    padding: "10px 12px",
+                    borderRadius: 6,
+                    border: "1px dashed var(--border)",
+                    background: "var(--bg)",
+                    fontSize: 13,
+                    color: "var(--fg-muted)",
+                    textAlign: "center",
+                  }}
+                >
+                  {vendor}
+                </div>
+              ))}
+            </div>
+            <p style={{ marginTop: 12, fontSize: 13, color: "var(--fg-muted)", textAlign: "center", lineHeight: 1.5 }}>
+              Business struggles to operate
+            </p>
+          </div>
+        </div>
+        <div style={{ display: "flex", alignItems: "center", color: "var(--fg-subtle)", fontSize: 20 }} aria-hidden>
+          →
+        </div>
+        <div style={panelStyle}>
+          <p style={labelStyle}>After</p>
+          <div style={{ marginTop: 20, display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+            <p style={{ ...nodeStyle, fontWeight: 600, color: "var(--fg)" }}>Customer</p>
+            <p style={{ fontSize: 18, color: "var(--fg-muted)", lineHeight: 1, margin: 0 }} aria-hidden>
+              │
+            </p>
+            <p style={{ fontSize: 18, color: "var(--fg-muted)", lineHeight: 1, margin: 0 }} aria-hidden>
+              ▼
+            </p>
+            <div
+              style={{
+                width: "100%",
+                marginTop: 4,
+                padding: "16px 14px",
+                borderRadius: 6,
+                border: "1px solid var(--border)",
+                background: "var(--bg)",
+                textAlign: "center",
+              }}
+            >
+              <p style={{ margin: 0, fontSize: 15, fontWeight: 600, color: "var(--fg)" }}>FetsProza</p>
+              <p style={{ margin: "10px 0 0", fontSize: 13, color: "var(--fg-body)", lineHeight: 1.55 }}>
+                One operational platform
+                <br />
+                One transaction lifecycle
+                <br />
+                One operational model
+              </p>
+            </div>
+            <p style={{ marginTop: 12, fontSize: 13, color: "var(--fg-body)", textAlign: "center", lineHeight: 1.5, fontWeight: 500 }}>
+              Business owns the system
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function FetsprozaFlagshipCaseStudy() {
   const project = getProject("fetsproza");
   if (!project) return null;
@@ -122,9 +239,14 @@ export default function FetsprozaFlagshipCaseStudy() {
           .case-study-tension-grid { flex-direction: column !important; }
           .case-study-nextread { flex-direction: column !important; }
           .case-study-nextread-media { width: 100% !important; }
+          .case-study-ecosystem-diagram { flex-direction: column !important; }
+          .case-study-ecosystem-diagram > div:nth-child(2) { transform: rotate(90deg); align-self: center; }
         }
         @media (min-width: 901px) {
           .case-study-phase-mobile { display: none !important; }
+        }
+        #snapshot h1 {
+          font-size: clamp(34px, 4.2vw, 52px);
         }
         .case-study-evidence-scan img {
           width: 100%;
@@ -137,9 +259,9 @@ export default function FetsprozaFlagshipCaseStudy() {
         sectionId="snapshot"
         microLabel={`${project.company} · ${project.period}`}
         title={STORY_TITLE}
-        subtitle="FetsProza — enterprise operations workspace for FETS"
-        thesis="Helping FETS eliminate $1M+ vendor dependency by redesigning operational experience."
-        abstract="FETS was approaching a vendor throughput ceiling that constrained margins and blocked customization. With no dedicated Product Manager, I owned product definition for FetsProza — prioritizing workflows, trade-offs, and engineering alignment with the CTO before any interface work."
+        subtitle="Enterprise operating platform for FETS."
+        thesis={SNAPSHOT_THESIS}
+        abstract={SNAPSHOT_ABSTRACT}
         impact={project.metrics}
         heroImage={{
           src: "/assets/work/fetsproza/preview-16x9.png",
@@ -151,17 +273,24 @@ export default function FetsprozaFlagshipCaseStudy() {
         }}
       />
 
+      <EcosystemShiftDiagram />
+
       <section id="challenge" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
         <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
           02 Challenge
         </p>
         <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          Why growth stalled on vendor tooling
+          Why growth stalled on fragmented infrastructure
         </h2>
         <div style={{ marginTop: 20, maxWidth: 760 }}>
           <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
-            Operating teams managed product configuration, settlements, merchant administration, and transaction
-            support across fragmented tools that had evolved around a third-party platform.
+            Behind every customer transaction were four to five independent systems built by different vendors. A failed
+            handshake could debit customers without delivering service, break reconciliation across platforms, and inflate
+            operational cost with every new integration.
+          </p>
+          <p style={{ marginTop: 18, fontSize: 17, color: "var(--fg)", lineHeight: 1.75, fontWeight: 500 }}>
+            The challenge wasn&apos;t designing payment experiences. It was coordinating how an entire financial business
+            operated.
           </p>
           <p style={{ marginTop: 18, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75 }}>
             The challenge was not replacing software — it was redesigning how the business operated through software.
@@ -171,7 +300,7 @@ export default function FetsprozaFlagshipCaseStudy() {
         <TensionCards
           embedded
           heading="What blocked scale"
-          subhead="Four constraints surfaced across operational teams."
+          subhead="Four constraints the fragmented stack created for the business."
           cards={[
             {
               number: "01",
@@ -219,6 +348,11 @@ export default function FetsprozaFlagshipCaseStudy() {
           Operating principles for the redesign
         </h2>
         <div style={{ marginTop: 24, maxWidth: 760, display: "flex", flexDirection: "column", gap: 16 }}>
+          <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
+            Rather than continuing to integrate independent platforms, we designed FetsProza around a unified orchestration
+            model. Every operational workflow — from configuration to reconciliation — would operate on a single source of
+            transaction truth.
+          </p>
           <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
             <strong style={{ color: "var(--fg)" }}>Configuration over engineering.</strong> Business-team ownership of
             product setup over engineering throughput — longer guided forms to prevent costly production mistakes.
@@ -345,8 +479,8 @@ export default function FetsprozaFlagshipCaseStudy() {
           What improved — and what it unlocked
         </h2>
         <p style={{ marginTop: 20, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 760 }}>
-          FETS replaced vendor dependency with an owned operating capability — running at production volume while
-          cutting annual infrastructure cost.
+          FETS replaced fragmented vendor orchestration with an owned operating platform — cutting $1M+ in annual vendor
+          cost while improving self-service operations, transaction reliability, and customer trust at production scale.
         </p>
 
         <div style={{ marginTop: 28 }}>
@@ -400,6 +534,10 @@ export default function FetsprozaFlagshipCaseStudy() {
           <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
             The hardest work was mapping how the business actually ran, then deciding which workflows to own, simplify,
             or cut — with engineering and the CTO aligned on trade-offs before screens existed.
+          </p>
+          <p style={{ marginTop: 24, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75 }}>
+            This project taught me that enterprise design isn&apos;t about making complex systems look simple. It&apos;s
+            about making complex businesses operate simply.
           </p>
           <p style={{ marginTop: 28, fontSize: 20, fontWeight: 600, color: "var(--fg)", lineHeight: 1.5 }}>
             Since then, I&apos;ve approached every enterprise product the same way: designing operational models, not
