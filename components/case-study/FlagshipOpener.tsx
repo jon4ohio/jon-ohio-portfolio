@@ -11,6 +11,8 @@ export type FlagshipOpenerProps = {
   impact: CaseHeroMetric[];
   heroImage: { src?: string; alt?: string };
   executiveBrief: MetadataBriefProps;
+  /** When set, wraps hero + brief in one anchored section (e.g. `snapshot`). */
+  sectionId?: string;
 };
 
 export default function FlagshipOpener({
@@ -22,8 +24,9 @@ export default function FlagshipOpener({
   impact,
   heroImage,
   executiveBrief,
+  sectionId,
 }: FlagshipOpenerProps) {
-  return (
+  const content = (
     <>
       <CaseHero
         microLabel={microLabel}
@@ -34,8 +37,14 @@ export default function FlagshipOpener({
         impact={impact}
         heroImage={heroImage}
       />
-      <MetadataBrief {...executiveBrief} />
+      <MetadataBrief {...executiveBrief} omitSectionId={Boolean(sectionId)} />
     </>
   );
+
+  if (sectionId) {
+    return <section id={sectionId}>{content}</section>;
+  }
+
+  return content;
 }
 

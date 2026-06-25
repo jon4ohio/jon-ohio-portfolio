@@ -12,6 +12,10 @@ export type MetadataBriefProps = {
   commercialShiftBottom: string;
   /** Judgment calls — brief shows titles only; flagship case studies render full bodies (ADR-056). */
   strategicDecisions?: StrategicDecision[];
+  /** When parent provides `sectionId` on FlagshipOpener, omit duplicate anchor. */
+  omitSectionId?: boolean;
+  /** Bento card micro label — default Executive Brief. */
+  sectionLabel?: string;
 };
 
 const cardBase: React.CSSProperties = {
@@ -123,6 +127,8 @@ export default function MetadataBrief({
   commercialShiftTop,
   commercialShiftBottom,
   strategicDecisions,
+  omitSectionId = false,
+  sectionLabel = "01 Executive Brief",
 }: MetadataBriefProps) {
   const mobileBasicsBlocks = blocks.filter((b) => b.label.toLowerCase() !== "team");
   const bottomLine = commercialShiftBottom.replace(/^→\s*/, "");
@@ -130,12 +136,17 @@ export default function MetadataBrief({
   const ledJoined = led.join(" · ");
   const partneredJoined = partneredOn.join(" · ");
 
+  const Wrapper = omitSectionId ? "div" : "section";
+  const wrapperProps = omitSectionId
+    ? { style: { maxWidth: 1240, margin: "0 auto", padding: "48px 24px 0" } }
+    : { id: "brief" as const, style: { maxWidth: 1240, margin: "0 auto", padding: "48px 24px 0" } };
+
   return (
-    <section id="brief" style={{ maxWidth: 1240, margin: "0 auto", padding: "48px 24px 0" }}>
+    <Wrapper {...wrapperProps}>
       {/* Mobile (≤768px) */}
       <div className="brief-mobile" style={{ marginTop: 24 }}>
         <div style={{ ...mobileCardBase, width: "100%", minWidth: 0 }}>
-          <span style={sectionLabelStyle}>01 Executive Brief</span>
+          <span style={sectionLabelStyle}>{sectionLabel}</span>
           {mobileBasicsBlocks.map((b, i) => (
             <div key={b.label}>
               <div style={rowLabelStyle}>{b.label}</div>
@@ -197,7 +208,7 @@ export default function MetadataBrief({
         }}
       >
         <div style={{ gridArea: "basics", ...cardBase }}>
-          <span style={sectionLabelStyle}>01 Executive Brief</span>
+          <span style={sectionLabelStyle}>{sectionLabel}</span>
           {blocks.map((b, i) => (
             <div key={b.label}>
               <div style={rowLabelStyle}>{b.label}</div>
@@ -292,6 +303,6 @@ export default function MetadataBrief({
           <StrategicDecisionsCard decisions={strategicDecisions} />
         </div>
       ) : null}
-    </section>
+    </Wrapper>
   );
 }
