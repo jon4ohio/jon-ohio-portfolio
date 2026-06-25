@@ -59,7 +59,7 @@ const ownershipItems = [
     name: "FetsProza",
     type: "Financial Operations",
     description:
-      "Helping FETS eliminate $1M+ vendor dependency by redesigning operational experience — doubled throughput and production-scale visibility for operational teams.",
+      "Owned product definition for FetsProza — replacing vendor dependency with an owned mobile money operating model.",
   },
   {
     slug: "ibedc",

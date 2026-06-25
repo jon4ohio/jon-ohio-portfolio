@@ -427,10 +427,10 @@ export const projects: Project[] = [
     company: "Funds and Electronic Transfer Solutions (Fets) · Nigeria",
     period: "2021 – 2025",
     summary:
-      "Redesigned operational experience for a mobile money business — eliminating $1M+ vendor dependency, doubling throughput, and giving operational teams production-scale visibility.",
-    role: "Product Design Lead — product definition and operational UX (0→1, no PM).",
+      "Owned product definition for a mobile money operating platform — replacing vendor dependency with an owned operating model at production scale.",
+    role: "Product Design Lead — workflow prioritization, operating model, engineering alignment (0→1, no PM).",
     scope:
-      "Eleven connected operational workflows: transaction monitoring, reconciliation, product configuration, team administration, and reporting.",
+      "Eleven operational workflows; four decisions that changed how the business ran.",
     metrics: [
       { value: "↓50%", label: "Transaction processing time" },
       { value: "2×", label: "Scalability (10k→20k tpm)" },
@@ -443,7 +443,7 @@ export const projects: Project[] = [
         { label: "Team", value: "Engineering squad · CTO · Financial domain experts" },
         {
           label: "Responsibility",
-          value: "Product Definition · Operator UX · Workflow Design · Engineering Alignment",
+          value: "Workflow Prioritization · Operating Model · Engineering Trade-off Alignment",
         },
         { label: "Timeline", value: "2021 – 2025" },
         { label: "Scope", value: "11 operational workflows across financial operations" },
@@ -451,23 +451,19 @@ export const projects: Project[] = [
       strategicDecisions: [
         {
           title: "Configuration over engineering",
-          body:
-            "Business teams configure products, charges, and payment methods through structured self-service workflows — not development tickets.",
+          body: "Business-team ownership of product setup over engineering throughput.",
         },
         {
           title: "Visibility over investigation",
-          body:
-            "Operators see transaction health, bottlenecks, and failure patterns in real time — not through end-of-day investigation.",
+          body: "Real-time transaction health at the point of work over simplified dashboards.",
         },
         {
           title: "Dense doesn't mean difficult",
-          body:
-            "Information density supports scan speed for operational teams processing hundreds of records daily.",
+          body: "Scan-friendly density over stripped-down views that hide daily operator work.",
         },
         {
           title: "Consistency across roles",
-          body:
-            "Shared navigation, validation, and status language across configuration, monitoring, reconciliation, and administration.",
+          body: "One operating model across workflows — not eleven disconnected modules.",
         },
       ],
       productImpact: [
@@ -478,14 +474,13 @@ export const projects: Project[] = [
       commercialShiftTop: "Third-party mobile money vendor dependency",
       commercialShiftBottom: "→ Owned operational platform for operational teams",
       led: [
-        "Product definition (no PM — sole design and product owner)",
-        "Operator UX and workflow architecture",
+        "Product definition and workflow prioritization (no PM)",
+        "Operating model and engineering trade-off alignment with CTO",
         "Transaction monitoring and reconciliation flow design",
-        "Developer alignment and delivery coordination",
       ],
       partneredOn: [
-        "Engineering implementation",
-        "CTO-level product decisions",
+        "Engineering implementation and delivery",
+        "CTO-level product and infrastructure decisions",
         "Domain expert validation (financial compliance)",
       ],
     },
@@ -496,20 +491,20 @@ export const projects: Project[] = [
       impact: "05  Business Impact",
     },
     context:
-      "FETS ran mobile money operations on a third-party platform that constrained margins, blocked customization, and capped throughput at 10k transactions per minute — a ceiling the business was already approaching.",
+      "FETS approached a vendor throughput ceiling that constrained margins and blocked customization as the agent network scaled.",
     problem:
-      "Operational teams managed transactions, reconciliation, and administration through manual workarounds. Configuration depended on engineering. Visibility required investigation. The vendor model made every growth decision more expensive.",
+      "Operational overhead grew linearly on tooling not built for how the business ran. Configuration, visibility, and reconciliation all depended on workarounds.",
     action:
-      "Led product definition and operational UX for FetsProza from concept through launch — mapping existing financial workflows before redesigning them for operational teams. Priority: auditability and self-service at every transaction state.",
+      "Owned product definition for FetsProza 0→1 — mapping workflows, prioritizing trade-offs, and aligning engineering before interface design.",
     impact:
-      "FETS eliminated vendor dependency and cut annual costs by over $1M. Transaction capacity doubled, settlement time halved, and reconciliation became a daily operational workflow. The platform processed ₦89.7B+ in production volume and enabled white-label expansion.",
+      "FETS replaced vendor dependency with owned operating capability at production volume — $1M+ annual savings, 2× throughput, and daily reconciliation.",
     tags: ["Fintech", "Mobile Money", "Financial Operations", "0→1"],
     featured: true,
     assets: {
       thumbnails: [
         {
           src: "/assets/work/fetsproza/preview-16x9.png",
-          alt: "FetsProza reconciliation dashboard — operational workspace for mobile money teams",
+          alt: "Daily reconciliation at scale — matched and unmatched transaction flows in one operational view",
           width: 3024,
           height: 1701,
         },
@@ -522,7 +517,7 @@ export const projects: Project[] = [
       ],
       hero: {
         src: "/assets/work/fetsproza/preview-16x9.png",
-        alt: "FetsProza reconciliation dashboard — operational workspace for mobile money teams",
+        alt: "Daily reconciliation at scale — matched and unmatched transaction flows in one operational view",
         width: 3024,
         height: 1701,
       },
@@ -535,14 +530,14 @@ export const projects: Project[] = [
           images: [
             {
               src: "/assets/work/fetsproza/block-module-payment.png",
-              alt: "FetsProza product configuration — self-service workflows with validation",
+              alt: "Evidence: business teams configure products with validation — no engineering queue",
               width: 2196,
               height: 1742,
               caption: "Payment processing: real-time flows, refunds, and peak-load performance.",
             },
             {
               src: "/assets/work/fetsproza/block-module-merchant.png",
-              alt: "FetsProza team administration — roles and guided onboarding for operational teams",
+              alt: "Evidence: partners onboard through role clarity and guided workflows",
               width: 2196,
               height: 1742,
               caption: "Merchant and agent management: onboarding and reconciliation.",
@@ -555,7 +550,7 @@ export const projects: Project[] = [
           treatment: "plain",
           image: {
             src: "/assets/work/fetsproza/block-outcome.png",
-            alt: "Outcome — quantitative, UX, and strategic impact for FetsProza",
+            alt: "Verified production metrics — cost, throughput, and volume at scale",
             width: 3024,
             height: 2254,
             caption: "Measurable impact: cost savings, throughput, and white-label positioning.",
