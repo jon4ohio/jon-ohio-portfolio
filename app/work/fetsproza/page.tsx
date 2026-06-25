@@ -60,30 +60,27 @@ const outcomeTiers: OutcomeTier[] = [
   {
     category: "OPERATIONAL",
     items: [
-      "Engineering dependency reduced — routine configuration owned by business teams",
-      "Transaction visibility improved across operational teams",
-      "Standardized workflows for monitoring, reconciliation, and administration",
-      "80% task success on ops dashboard usability testing",
-      "NPS 3.4 → 4.6 — internal operator satisfaction",
-      "↓40% onboarding time · ↓30% support interventions",
+      "Routine configuration owned by business teams — not engineering queues",
+      "Self-service transaction visibility at production scale",
+      "Unified workflows across monitoring, reconciliation, and administration",
+      "80% task success · NPS 3.4 → 4.6 · ↓40% onboarding · ↓30% support interventions",
     ],
   },
   {
     category: "BUSINESS",
     items: [
       "$1M+ — Annual savings from vendor elimination",
-      "↓50% — Settlement time (4s → 2s)",
       "2× — Transaction throughput (10k → 20k per minute)",
+      "↓50% — Settlement time (4s → 2s)",
       "↓30% — OpEx ($500k → $350k)",
-      "Faster partner onboarding through unified workflows",
     ],
   },
   {
     category: "STRATEGIC",
     items: [
-      "₦89.7B+ — Processed in last financial year (production dashboard)",
+      "₦89.7B+ — Verified production volume (last financial year)",
+      "Owned operating capability — no third-party platform dependency",
       "Fetswallet Congo — White-label deployment",
-      "Owned operational capability — no third-party platform dependency",
       "Licensing opportunities from external fintechs",
     ],
   },
@@ -136,11 +133,11 @@ export default function FetsprozaFlagshipCaseStudy() {
         title={STORY_TITLE}
         subtitle="FetsProza — enterprise operations workspace for FETS"
         thesis="Helping FETS eliminate $1M+ vendor dependency by redesigning operational experience."
-        abstract="FETS ran mobile money operations on a third-party platform that constrained margins, blocked customization, and capped throughput. As Product Design Lead, I defined the operational experience for FetsProza — giving operational teams visibility into transactions, reconciliation, and administration without engineering dependency. The redesign eliminated vendor costs, doubled throughput, and established an owned operational foundation at production scale."
+        abstract="FETS was approaching a vendor throughput ceiling that constrained margins and blocked customization. As Product Design Lead with no PM, I owned product definition for FetsProza — prioritizing workflows, trade-offs, and engineering alignment with the CTO before any interface work."
         impact={project.metrics}
         heroImage={{
           src: "/assets/work/fetsproza/preview-16x9.png",
-          alt: "FetsProza reconciliation dashboard — operational workspace for mobile money teams",
+          alt: "Daily reconciliation at scale — matched and unmatched transaction flows in one operational view",
         }}
         executiveBrief={{
           ...project.brief,
@@ -153,15 +150,13 @@ export default function FetsprozaFlagshipCaseStudy() {
           02 Challenge
         </p>
         <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          Business challenge
+          Why growth stalled on vendor tooling
         </h2>
         <div style={{ marginTop: 20, maxWidth: 760 }}>
           <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
-            Operational teams managed mobile money at scale through manual workarounds layered on a vendor platform
-            not built for how they worked. Reconciliation errors surfaced at end-of-day review. Transaction status
-            required engineering to investigate. Product configuration waited on development cycles. As the agent
-            network grew, operational overhead scaled linearly — and a 10k-per-minute throughput ceiling was already
-            becoming a bottleneck.
+            As FETS scaled its agent network, operational overhead grew linearly on a platform built for someone
+            else&apos;s roadmap. Every growth decision carried vendor licensing cost — and a hard throughput ceiling the
+            business was already brushing against.
           </p>
           <p style={{ marginTop: 18, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75 }}>
             The challenge was not replacing software — it was redesigning how the business operated through software.
@@ -170,40 +165,35 @@ export default function FetsprozaFlagshipCaseStudy() {
 
         <TensionCards
           embedded
-          heading="What we learned"
-          subhead="Research across operational teams surfaced four constraints that shaped the redesign."
+          heading="What blocked scale"
+          subhead="Four constraints surfaced across operational teams."
           cards={[
             {
               number: "01",
               title: "Configuration dependency",
-              body:
-                "Routine business configuration — products, charges, payment methods — depended on engineering. Every change queued behind development capacity.",
+              body: "Business changes queued behind engineering — every product update waited on development capacity.",
             },
             {
               number: "02",
               title: "Visibility gaps",
-              body:
-                "Operators could not see transaction status, bottlenecks, or failure patterns without engineering support. Investigation was reactive, not operational.",
+              body: "Operators could not diagnose transaction failures without escalating to engineering.",
             },
             {
               number: "03",
               title: "Financial oversight burden",
-              body:
-                "Reconciliation and settlement lived in manual coordination. Errors surfaced too late to fix at source — finance teams closed books through workarounds.",
+              body: "Settlement and reconciliation required manual coordination across disconnected tools.",
             },
             {
               number: "04",
               title: "Growth complexity",
-              body:
-                "Merchant onboarding, role administration, and partner workflows did not scale with the agent network. Each new market added operational friction.",
+              body: "Partner onboarding and role administration did not scale with the agent network.",
             },
           ]}
         />
 
         <p style={{ marginTop: 40, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 760 }}>
-          The redesign ultimately spanned eleven connected workflows. Rather than documenting every module
-          individually, this case study focuses on the <strong>four decisions</strong> that changed how the business
-          operated.
+          Eleven workflows existed across the platform. Rather than documenting every module individually, this case
+          study focuses on the <strong>four decisions</strong> that changed how the business operated.
         </p>
 
         <div style={{ marginTop: 32, maxWidth: 960 }}>
@@ -221,25 +211,25 @@ export default function FetsprozaFlagshipCaseStudy() {
           03 Strategy
         </p>
         <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          Design strategy
+          Operating principles for the redesign
         </h2>
         <div style={{ marginTop: 24, maxWidth: 760, display: "flex", flexDirection: "column", gap: 20 }}>
           <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
-            <strong style={{ color: "var(--fg)" }}>Configuration over engineering.</strong> Business teams should
-            manage products, charges, and payment methods through structured workflows — not development tickets.
+            <strong style={{ color: "var(--fg)" }}>Configuration over engineering.</strong> We chose business-team
+            ownership of product setup over engineering throughput — accepting longer guided forms to prevent costly
+            production mistakes.
           </p>
           <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
-            <strong style={{ color: "var(--fg)" }}>Visibility over investigation.</strong> Operators need real-time
-            transaction health at the point of work — not end-of-day reports assembled from multiple systems.
+            <strong style={{ color: "var(--fg)" }}>Visibility over investigation.</strong> We prioritized real-time
+            transaction health at the point of work over simplified dashboards that hid the data operators scan daily.
           </p>
           <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
-            <strong style={{ color: "var(--fg)" }}>Dense doesn&apos;t mean difficult.</strong> Operational teams scan
-            hundreds of records daily. Information density is a feature when hierarchy and status are clear.
+            <strong style={{ color: "var(--fg)" }}>Dense doesn&apos;t mean difficult.</strong> We kept information
+            density high for scan speed — rejecting stripped-down views that forced operators into extra navigation.
           </p>
           <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
-            <strong style={{ color: "var(--fg)" }}>Consistency across roles.</strong> The same navigation patterns,
-            validation logic, and status language should work whether you configure products, monitor transactions, or
-            administer teams.
+            <strong style={{ color: "var(--fg)" }}>Consistency across roles.</strong> We aligned navigation, validation,
+            and status language across workflows — so the operating model felt like one system, not eleven modules.
           </p>
         </div>
       </section>
@@ -252,7 +242,7 @@ export default function FetsprozaFlagshipCaseStudy() {
           How we redesigned operations
         </h2>
         <p style={{ marginTop: 8, fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.6, maxWidth: 680 }}>
-          Four decisions that changed how operational teams ran the business — not what modules we shipped.
+          Four judgments that changed how the business ran — not what we shipped.
         </p>
         <div style={{ marginTop: 24 }}>
           <PhaseTimeline phases={decisions} />
@@ -266,15 +256,15 @@ export default function FetsprozaFlagshipCaseStudy() {
           layout="text-left"
           challengeLabel="Context"
           interventionLabel="Decision"
-          challenge="Routine business configuration — products, charges, and payment methods — depended on engineering. Every operational change queued behind development capacity."
-          intervention="Structured self-service workflows with validation and operational guardrails — business teams configure products without engineering tickets."
-          reasoning="Longer forms increased completion time slightly, but validation dramatically reduced costly configuration mistakes. Progressive disclosure kept complex setups manageable without hiding critical controls."
-          outcome="Business teams could manage products independently while maintaining governance."
+          challenge="Every product change waited on engineering capacity — slowing the business more than the platform."
+          intervention="Give business teams governed self-service configuration — validation and guardrails instead of development tickets."
+          reasoning="We rejected minimal forms that shipped faster but failed in production. Longer guided flows with inline validation cut costly configuration errors more than they added completion time."
+          outcome="Business teams owned routine product changes while governance stayed intact."
           figure={{
             figure: 1,
             label: "Product configuration",
             imageSrc: "/assets/work/fetsproza/block-module-payment.png",
-            imageAlt: "Product configuration — self-service workflows with validation and operational guardrails",
+            imageAlt: "Evidence: business teams configure products with validation — no engineering queue",
             caption: "",
             decisionNotes: [],
           }}
@@ -288,15 +278,15 @@ export default function FetsprozaFlagshipCaseStudy() {
           layout="text-right"
           challengeLabel="Context"
           interventionLabel="Decision"
-          challenge="Operators could not see transaction status, bottlenecks, or failure patterns without engineering support. Investigation was reactive — stuck at end-of-day review."
-          intervention="Transaction tracker with status breakdown, bottleneck view, and re-query actions at the row level — visibility where operators already work."
-          reasoning="Persistent navigation and information density prioritized scan speed over simplified views. Operators process hundreds of records daily; reducing clicks mattered more than reducing fields."
-          outcome="Operational teams gained self-service visibility into transaction health at production scale."
+          challenge="Stuck and failed transactions required engineering escalation — investigation was never self-service."
+          intervention="Put transaction health, bottlenecks, and re-query where operators already work — not in a separate reporting layer."
+          reasoning="We rejected simplified views that hid the density operators need. Persistent navigation and scan-friendly layouts beat fewer fields when hundreds of records move daily."
+          outcome="Operators resolved transaction issues at production scale without engineering support."
           figure={{
             figure: 2,
             label: "Transaction monitoring",
             imageSrc: "/assets/work/fetsproza/thumb-2.png",
-            imageAlt: "Transaction tracker with status breakdown, bottleneck view, and re-query actions",
+            imageAlt: "Evidence: operators resolve stuck transactions in context — without a support ticket",
             caption: "",
             decisionNotes: [],
           }}
@@ -310,15 +300,15 @@ export default function FetsprozaFlagshipCaseStudy() {
           layout="text-left"
           challengeLabel="Context"
           interventionLabel="Decision"
-          challenge="Closing the books required manual coordination across teams. Matched and unmatched transactions surfaced at end-of-day — too late to resolve at source."
-          intervention="Reconciliation dashboard with matched and unmatched breakdown, settlement reports, and export — continuous visibility instead of batch review."
-          reasoning="Batch reconciliation was familiar but expensive. Embedding reconciliation into daily operations meant errors were actionable where operators work, not in a separate end-of-day process."
-          outcome="Finance teams closed books through a single operational view instead of manual coordination."
+          challenge="Closing the books required coordinating across teams and tools — errors surfaced too late to fix at source."
+          intervention="Embed matched and unmatched flows into daily operations instead of batch reconciliation at period close."
+          reasoning="Batch review was familiar but expensive. We rejected keeping reconciliation as a separate process — continuous visibility let operators act where errors originated."
+          outcome="The business closed books from a single operational view instead of manual handoffs."
           figure={{
             figure: 3,
             label: "Reconciliation dashboard",
             imageSrc: "/assets/work/fetsproza/hero.png",
-            imageAlt: "Reconciliation dashboard showing matched and unmatched transaction breakdown",
+            imageAlt: "Evidence: matched and unmatched flows reconcile in one view — errors fixed at source",
             caption: "",
             decisionNotes: [],
           }}
@@ -332,15 +322,15 @@ export default function FetsprozaFlagshipCaseStudy() {
           layout="text-right"
           challengeLabel="Context"
           interventionLabel="Decision"
-          challenge="Merchant onboarding and team administration were error-prone without guided setup and clear role definitions. Each new partner added operational friction."
-          intervention="User management with defined roles, contextual help across forms, and guided onboarding for operational admins — not engineers configuring the system."
-          reasoning="Role clarity and guided workflows reduced onboarding errors more than feature breadth. A scalable admin model had to work for the agent network, not just headquarters staff."
-          outcome="Partner onboarding accelerated through unified administration workflows at network scale."
+          challenge="Partner onboarding and role administration broke down as the agent network grew."
+          intervention="Standardize roles, guided onboarding, and contextual help — an admin model built for the network, not headquarters only."
+          reasoning="We rejected feature breadth that added training burden. Role clarity and guided workflows reduced onboarding errors more than adding capabilities."
+          outcome="Partner onboarding accelerated through one administration model at network scale."
           figure={{
             figure: 4,
             label: "Team administration",
             imageSrc: "/assets/work/fetsproza/block-module-merchant.png",
-            imageAlt: "Team administration — user management with role clarity and guided onboarding",
+            imageAlt: "Evidence: partners onboard through role clarity and guided workflows — not feature sprawl",
             caption: "",
             decisionNotes: [],
           }}
@@ -352,27 +342,27 @@ export default function FetsprozaFlagshipCaseStudy() {
           05 Impact
         </p>
         <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          Business impact
+          What improved — and what it unlocked
         </h2>
         <p style={{ marginTop: 20, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 760 }}>
-          The redesign improved operational efficiency, reduced costs, and established a scalable operational foundation
-          for future growth.
+          FETS replaced vendor dependency with an owned operating capability — running at production volume while
+          cutting annual infrastructure cost.
         </p>
+
+        <div style={{ marginTop: 32 }}>
+          <OutcomeCards tiers={outcomeTiers} />
+        </div>
 
         <div style={{ marginTop: 32 }}>
           <AnnotatedFigure
             figure={0}
-            label="Platform outcomes"
+            label="Verified production outcomes"
             imageSrc="/assets/work/fetsproza/block-outcome.png"
-            imageAlt="Platform outcomes — operational, business, and strategic impact metrics"
-            caption="Before/after metrics across cost, throughput, operator experience, and production volume."
+            imageAlt="Verified production metrics — cost, throughput, operator experience, and volume at scale"
+            caption="Production dashboard metrics across operational, business, and strategic outcomes."
             decisionNotes={[]}
             imageOnly
           />
-        </div>
-
-        <div style={{ marginTop: 32 }}>
-          <OutcomeCards tiers={outcomeTiers} />
         </div>
 
         <p style={{ marginTop: 40, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 760 }}>
@@ -404,19 +394,17 @@ export default function FetsprozaFlagshipCaseStudy() {
           06 Reflection
         </p>
         <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          Reflection
+          What this changed about how I design at scale
         </h2>
         <div style={{ marginTop: 24, maxWidth: 760 }}>
           <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
-            FetsProza was product definition without a PM — sole design and product owner from concept through launch,
-            working directly with engineering and domain experts. The hardest work was not interface design. It was
-            mapping how operational teams actually ran the business, then deciding which workflows to own, simplify, or
-            eliminate.
+            The hardest work was not interface design. It was mapping how the business actually ran, then deciding which
+            workflows to own, simplify, or cut — with engineering and the CTO aligned on trade-offs before screens
+            existed.
           </p>
           <p style={{ marginTop: 18, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75 }}>
-            Replacing a $1M+ vendor dependency proved that operational experience redesign is a commercial decision — not
-            just a technical one. The visibility-first pattern established here became the model for how FETS builds
-            operator-facing financial products.
+            Operating-model design is a commercial lever. When the business can run on its own tooling, product decisions
+            and infrastructure decisions become the same conversation.
           </p>
           <p style={{ marginTop: 28, fontSize: 20, fontWeight: 600, color: "var(--fg)", lineHeight: 1.5 }}>
             Designing operational models, not just interfaces.
