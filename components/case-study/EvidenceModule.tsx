@@ -18,6 +18,9 @@ export interface EvidenceModuleProps {
   outcome?: string;
   outcomeLabel?: string;
   evidenceLabel?: string;
+  /** Stacked scan layout: headline → problem → decision → screenshot → outcome */
+  decisionLayout?: "default" | "scan";
+  decisionHeadline?: string;
 }
 
 function Micro({ children }: { children: React.ReactNode }) {
@@ -51,8 +54,47 @@ export default function EvidenceModule({
   outcome,
   outcomeLabel = "Outcome",
   evidenceLabel = "Evidence",
+  decisionLayout = "default",
+  decisionHeadline,
 }: EvidenceModuleProps) {
-  const isFlagshipDecision = Boolean(reasoning);
+  const isFlagshipDecision = Boolean(reasoning) || decisionLayout === "scan";
+
+  if (decisionLayout === "scan" && decisionHeadline) {
+    return (
+      <section
+        id={id}
+        style={{
+          padding: accent ? "48px 24px" : "0 24px",
+          background: accent ? "var(--surface-subtle)" : "transparent",
+        }}
+      >
+        <div style={{ maxWidth: 960, margin: "0 auto" }} className="case-study-evidence-scan">
+          <h3
+            style={{
+              fontSize: 22,
+              fontWeight: 700,
+              letterSpacing: "-0.02em",
+              color: "var(--fg)",
+              lineHeight: 1.3,
+              margin: 0,
+            }}
+          >
+            {decisionHeadline}
+          </h3>
+          <p style={{ marginTop: 14, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>{challenge}</p>
+          <p style={{ marginTop: 12, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>{intervention}</p>
+          <div style={{ marginTop: 24 }}>
+            <AnnotatedFigure {...figure} caption="" decisionNotes={[]} imageOnly />
+          </div>
+          {outcome ? (
+            <p style={{ marginTop: 18, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75, fontWeight: 500 }}>
+              {outcome}
+            </p>
+          ) : null}
+        </div>
+      </section>
+    );
+  }
 
   const text = (
     <div style={{ maxWidth: accent ? 560 : 460, minWidth: 0 }}>
@@ -163,4 +205,3 @@ export default function EvidenceModule({
     </section>
   );
 }
-

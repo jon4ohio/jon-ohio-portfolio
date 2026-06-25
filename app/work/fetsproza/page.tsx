@@ -12,6 +12,7 @@ import PrevNextNav from "@/components/case-study/PrevNextNav";
 import { getProject, projects } from "@/lib/projects";
 
 const STORY_TITLE = "Designing the operating system behind a mobile money business";
+const SECTION_PAD = "56px 24px 0";
 
 export const metadata: Metadata = {
   title: STORY_TITLE,
@@ -125,6 +126,11 @@ export default function FetsprozaFlagshipCaseStudy() {
         @media (min-width: 901px) {
           .case-study-phase-mobile { display: none !important; }
         }
+        .case-study-evidence-scan img {
+          width: 100%;
+          height: auto;
+          display: block;
+        }
       `}</style>
 
       <FlagshipOpener
@@ -133,7 +139,7 @@ export default function FetsprozaFlagshipCaseStudy() {
         title={STORY_TITLE}
         subtitle="FetsProza — enterprise operations workspace for FETS"
         thesis="Helping FETS eliminate $1M+ vendor dependency by redesigning operational experience."
-        abstract="FETS was approaching a vendor throughput ceiling that constrained margins and blocked customization. As Product Design Lead with no PM, I owned product definition for FetsProza — prioritizing workflows, trade-offs, and engineering alignment with the CTO before any interface work."
+        abstract="FETS was approaching a vendor throughput ceiling that constrained margins and blocked customization. With no dedicated Product Manager, I owned product definition for FetsProza — prioritizing workflows, trade-offs, and engineering alignment with the CTO before any interface work."
         impact={project.metrics}
         heroImage={{
           src: "/assets/work/fetsproza/preview-16x9.png",
@@ -145,7 +151,7 @@ export default function FetsprozaFlagshipCaseStudy() {
         }}
       />
 
-      <section id="challenge" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
+      <section id="challenge" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
         <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
           02 Challenge
         </p>
@@ -154,9 +160,8 @@ export default function FetsprozaFlagshipCaseStudy() {
         </h2>
         <div style={{ marginTop: 20, maxWidth: 760 }}>
           <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
-            As FETS scaled its agent network, operational overhead grew linearly on a platform built for someone
-            else&apos;s roadmap. Every growth decision carried vendor licensing cost — and a hard throughput ceiling the
-            business was already brushing against.
+            Operating teams managed product configuration, settlements, merchant administration, and transaction
+            support across fragmented tools that had evolved around a third-party platform.
           </p>
           <p style={{ marginTop: 18, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75 }}>
             The challenge was not replacing software — it was redesigning how the business operated through software.
@@ -191,12 +196,12 @@ export default function FetsprozaFlagshipCaseStudy() {
           ]}
         />
 
-        <p style={{ marginTop: 40, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 760 }}>
-          Eleven workflows existed across the platform. Rather than documenting every module individually, this case
-          study focuses on the <strong>four decisions</strong> that changed how the business operated.
+        <p style={{ marginTop: 28, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 760 }}>
+          The redesign ultimately spanned eleven connected workflows. Rather than documenting every screen, this case
+          study focuses on the <strong>four decisions</strong> that fundamentally changed how the business operated.
         </p>
 
-        <div style={{ marginTop: 32, maxWidth: 960 }}>
+        <div style={{ marginTop: 24, maxWidth: 960 }}>
           <AnnotatedFigure
             figure={0}
             label="Platform scope — eleven operational workflows"
@@ -206,35 +211,34 @@ export default function FetsprozaFlagshipCaseStudy() {
         </div>
       </section>
 
-      <section id="strategy" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
+      <section id="strategy" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
         <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
           03 Strategy
         </p>
         <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
           Operating principles for the redesign
         </h2>
-        <div style={{ marginTop: 24, maxWidth: 760, display: "flex", flexDirection: "column", gap: 20 }}>
+        <div style={{ marginTop: 24, maxWidth: 760, display: "flex", flexDirection: "column", gap: 16 }}>
           <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
-            <strong style={{ color: "var(--fg)" }}>Configuration over engineering.</strong> We chose business-team
-            ownership of product setup over engineering throughput — accepting longer guided forms to prevent costly
-            production mistakes.
+            <strong style={{ color: "var(--fg)" }}>Configuration over engineering.</strong> Business-team ownership of
+            product setup over engineering throughput — longer guided forms to prevent costly production mistakes.
           </p>
           <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
-            <strong style={{ color: "var(--fg)" }}>Visibility over investigation.</strong> We prioritized real-time
-            transaction health at the point of work over simplified dashboards that hid the data operators scan daily.
+            <strong style={{ color: "var(--fg)" }}>Visibility over investigation.</strong> Real-time transaction health at
+            the point of work — not simplified dashboards that hide daily operator work.
           </p>
           <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
-            <strong style={{ color: "var(--fg)" }}>Dense doesn&apos;t mean difficult.</strong> We kept information
-            density high for scan speed — rejecting stripped-down views that forced operators into extra navigation.
+            <strong style={{ color: "var(--fg)" }}>Dense doesn&apos;t mean difficult.</strong> Scan-friendly density over
+            stripped-down views that force extra navigation.
           </p>
           <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
-            <strong style={{ color: "var(--fg)" }}>Consistency across roles.</strong> We aligned navigation, validation,
-            and status language across workflows — so the operating model felt like one system, not eleven modules.
+            <strong style={{ color: "var(--fg)" }}>Consistency across roles.</strong> One operating model across
+            workflows — not eleven disconnected modules.
           </p>
         </div>
       </section>
 
-      <section id="decisions" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
+      <section id="decisions" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
         <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
           04 Decisions
         </p>
@@ -249,16 +253,15 @@ export default function FetsprozaFlagshipCaseStudy() {
         </div>
       </section>
 
-      <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 72 }}>
+      <div style={{ marginTop: 24, display: "flex", flexDirection: "column", gap: 48 }}>
         <EvidenceModule
           id="decision-config"
-          phase="01 — Enable business teams to configure products independently"
+          phase=""
           layout="text-left"
-          challengeLabel="Context"
-          interventionLabel="Decision"
-          challenge="Every product change waited on engineering capacity — slowing the business more than the platform."
-          intervention="Give business teams governed self-service configuration — validation and guardrails instead of development tickets."
-          reasoning="We rejected minimal forms that shipped faster but failed in production. Longer guided flows with inline validation cut costly configuration errors more than they added completion time."
+          decisionLayout="scan"
+          decisionHeadline="Enable business teams to configure products independently"
+          challenge="Business configuration depended on engineering for routine changes."
+          intervention="Give business teams governed self-service configuration with validation and guardrails — rejecting minimal forms that failed in production."
           outcome="Business teams owned routine product changes while governance stayed intact."
           figure={{
             figure: 1,
@@ -274,13 +277,12 @@ export default function FetsprozaFlagshipCaseStudy() {
 
         <EvidenceModule
           id="decision-visibility"
-          phase="02 — Give operators real-time visibility into transaction health"
-          layout="text-right"
-          challengeLabel="Context"
-          interventionLabel="Decision"
-          challenge="Stuck and failed transactions required engineering escalation — investigation was never self-service."
-          intervention="Put transaction health, bottlenecks, and re-query where operators already work — not in a separate reporting layer."
-          reasoning="We rejected simplified views that hid the density operators need. Persistent navigation and scan-friendly layouts beat fewer fields when hundreds of records move daily."
+          phase=""
+          layout="text-left"
+          decisionLayout="scan"
+          decisionHeadline="Give operators real-time visibility into transaction health"
+          challenge="Stuck and failed transactions required engineering escalation."
+          intervention="Put transaction health and re-query where operators work — rejecting simplified views that hid the density they scan daily."
           outcome="Operators resolved transaction issues at production scale without engineering support."
           figure={{
             figure: 2,
@@ -296,13 +298,12 @@ export default function FetsprozaFlagshipCaseStudy() {
 
         <EvidenceModule
           id="decision-reconciliation"
-          phase="03 — Make reconciliation part of daily operations"
+          phase=""
           layout="text-left"
-          challengeLabel="Context"
-          interventionLabel="Decision"
-          challenge="Closing the books required coordinating across teams and tools — errors surfaced too late to fix at source."
-          intervention="Embed matched and unmatched flows into daily operations instead of batch reconciliation at period close."
-          reasoning="Batch review was familiar but expensive. We rejected keeping reconciliation as a separate process — continuous visibility let operators act where errors originated."
+          decisionLayout="scan"
+          decisionHeadline="Make reconciliation part of daily operations"
+          challenge="Closing the books required coordinating across teams and tools."
+          intervention="Embed matched and unmatched flows into daily operations — rejecting batch reconciliation at period close."
           outcome="The business closed books from a single operational view instead of manual handoffs."
           figure={{
             figure: 3,
@@ -318,13 +319,12 @@ export default function FetsprozaFlagshipCaseStudy() {
 
         <EvidenceModule
           id="decision-administration"
-          phase="04 — Create a scalable operating model for administration"
-          layout="text-right"
-          challengeLabel="Context"
-          interventionLabel="Decision"
-          challenge="Partner onboarding and role administration broke down as the agent network grew."
-          intervention="Standardize roles, guided onboarding, and contextual help — an admin model built for the network, not headquarters only."
-          reasoning="We rejected feature breadth that added training burden. Role clarity and guided workflows reduced onboarding errors more than adding capabilities."
+          phase=""
+          layout="text-left"
+          decisionLayout="scan"
+          decisionHeadline="Create a scalable operating model for administration"
+          challenge="Partner onboarding broke down as the agent network grew."
+          intervention="Standardize roles and guided onboarding for the network — rejecting feature breadth that added training burden."
           outcome="Partner onboarding accelerated through one administration model at network scale."
           figure={{
             figure: 4,
@@ -337,7 +337,7 @@ export default function FetsprozaFlagshipCaseStudy() {
         />
       </div>
 
-      <section id="impact" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
+      <section id="impact" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
         <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
           05 Impact
         </p>
@@ -349,11 +349,11 @@ export default function FetsprozaFlagshipCaseStudy() {
           cutting annual infrastructure cost.
         </p>
 
-        <div style={{ marginTop: 32 }}>
+        <div style={{ marginTop: 28 }}>
           <OutcomeCards tiers={outcomeTiers} />
         </div>
 
-        <div style={{ marginTop: 32 }}>
+        <div style={{ marginTop: 28 }}>
           <AnnotatedFigure
             figure={0}
             label="Verified production outcomes"
@@ -365,14 +365,14 @@ export default function FetsprozaFlagshipCaseStudy() {
           />
         </div>
 
-        <p style={{ marginTop: 40, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 760 }}>
+        <p style={{ marginTop: 28, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 760 }}>
           Together, these improvements enabled FETS to own and evolve its operational capabilities rather than depend on
           a third-party platform.
         </p>
 
         <blockquote
           style={{
-            marginTop: 32,
+            marginTop: 28,
             marginBottom: 0,
             padding: 0,
             border: "none",
@@ -389,7 +389,7 @@ export default function FetsprozaFlagshipCaseStudy() {
         </blockquote>
       </section>
 
-      <section id="reflection" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 64px" }}>
+      <section id="reflection" style={{ maxWidth: 1240, margin: "0 auto", padding: "56px 24px 48px" }}>
         <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
           06 Reflection
         </p>
@@ -398,16 +398,12 @@ export default function FetsprozaFlagshipCaseStudy() {
         </h2>
         <div style={{ marginTop: 24, maxWidth: 760 }}>
           <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
-            The hardest work was not interface design. It was mapping how the business actually ran, then deciding which
-            workflows to own, simplify, or cut — with engineering and the CTO aligned on trade-offs before screens
-            existed.
-          </p>
-          <p style={{ marginTop: 18, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75 }}>
-            Operating-model design is a commercial lever. When the business can run on its own tooling, product decisions
-            and infrastructure decisions become the same conversation.
+            The hardest work was mapping how the business actually ran, then deciding which workflows to own, simplify,
+            or cut — with engineering and the CTO aligned on trade-offs before screens existed.
           </p>
           <p style={{ marginTop: 28, fontSize: 20, fontWeight: 600, color: "var(--fg)", lineHeight: 1.5 }}>
-            Designing operational models, not just interfaces.
+            Since then, I&apos;ve approached every enterprise product the same way: designing operational models, not
+            just interfaces.
           </p>
         </div>
       </section>
