@@ -6,6 +6,7 @@ export type FlagshipOpenerProps = {
   microLabel: string;
   title: string;
   subtitle: string;
+  thesisLead?: string;
   thesis: string;
   abstract: string;
   impact: CaseHeroMetric[];
@@ -19,6 +20,7 @@ export default function FlagshipOpener({
   microLabel,
   title,
   subtitle,
+  thesisLead,
   thesis,
   abstract,
   impact,
@@ -32,6 +34,7 @@ export default function FlagshipOpener({
         microLabel={microLabel}
         title={title}
         subtitle={subtitle}
+        thesisLead={thesisLead}
         thesis={thesis}
         abstract={abstract}
         impact={impact}

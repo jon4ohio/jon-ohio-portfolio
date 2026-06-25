@@ -52,5 +52,7 @@
 | 056 | Strategic Decisions — single judgment section per case study | Accepted | 2026-06-01 | None |
 | 057 | FetsProza operator-first evidence spine and narrative reframe | Accepted | 2026-06-24 | None |
 | 058 | Canonical flagship case-study template (portfolio v1.0) | Accepted | 2026-06-24 | None |
+| 059 | FetsProza orchestration-first narrative and editorial polish | Accepted | 2026-06-25 | None |
+| 060 | Stable production origin for indexable SEO surfaces | Accepted | 2026-06-25 | None |
 
 Chronological audit notes: [`LOG.md`](./LOG.md).
