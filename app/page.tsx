@@ -59,7 +59,7 @@ const ownershipItems = [
     name: "FetsProza",
     type: "Financial Operations",
     description:
-      "Owned product definition for FetsProza — replacing vendor dependency with an owned mobile money operating model.",
+      "Designed the operating platform that unified a fragmented payment ecosystem—replacing vendor dependency with an owned financial operating model.",
   },
   {
     slug: "ibedc",
