@@ -54,5 +54,6 @@
 | 058 | Canonical flagship case-study template (portfolio v1.0) | Accepted | 2026-06-24 | None |
 | 059 | FetsProza orchestration-first narrative and editorial polish | Accepted | 2026-06-25 | None |
 | 060 | Stable production origin for indexable SEO surfaces | Accepted | 2026-06-25 | None |
+| 061 | SeamKit executive evidence narrative and Figma asset sync | Accepted | 2026-06-25 | ADR-052 |
 
 Chronological audit notes: [`LOG.md`](./LOG.md).

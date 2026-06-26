@@ -187,21 +187,21 @@ export const projects: Project[] = [
         {
           src: "/assets/work/seamkit/preview-16x9.png",
           alt: "SeamKit enterprise design system case study header",
-          width: 3024,
-          height: 1701,
+          width: 2560,
+          height: 1544,
         },
         {
-          src: "/assets/work/seamkit/thumb-2.png",
-          alt: "Design system screenshots and UI examples",
-          width: 2120,
-          height: 1110,
+          src: "/assets/work/seamkit/block-token-hierarchy.png",
+          alt: "SeamKit three-tier token hierarchy — Core, Decision, Component",
+          width: 1360,
+          height: 650,
         },
       ],
       hero: {
         src: "/assets/work/seamkit/preview-16x9.png",
         alt: "SeamKit enterprise design system case study header",
-        width: 3024,
-        height: 1701,
+        width: 2560,
+        height: 1544,
       },
       blocks: [
         {
@@ -209,12 +209,11 @@ export const projects: Project[] = [
           layout: "wide",
           treatment: "plain",
           image: {
-            src: "/assets/work/seamkit/block-hypothesis.png",
-            alt: "SeamKit opportunity framing — product suite fragmentation before the design system",
-            width: 3024,
-            height: 1136,
-            caption:
-              "The opportunity: SeamlessHR's multi-product suite before a shared design foundation existed — fragmented libraries, duplicated patterns, no single source of truth.",
+            src: "/assets/work/seamkit/block-research-figjam.png",
+            alt: "Collaborative workshop UI audit session on FigJam",
+            width: 2256,
+            height: 1270,
+            caption: "Evidence behind the decision — workshop audit of fragmented libraries.",
           },
         },
         {
@@ -222,12 +221,12 @@ export const projects: Project[] = [
           layout: "wide",
           treatment: "plain",
           image: {
-            src: "/assets/work/_placeholders/hero.svg",
-            alt: "[Replace] Three-tier token hierarchy diagram — primitives, semantic tokens, component tokens",
-            width: 2400,
-            height: 1350,
+            src: "/assets/work/seamkit/block-token-hierarchy.png",
+            alt: "Three-tier token hierarchy — primitives, semantic tokens, component tokens",
+            width: 1360,
+            height: 650,
             caption:
-              "[Replace with token architecture diagram] Three-tier token hierarchy: primitive values → semantic tokens → component tokens. 581 primitives · 488 component tokens · 349 colour tokens.",
+              "Three-tier token hierarchy: Core → Decision → Component. 581 primitives · 488 component tokens · 349 colour tokens.",
           },
         },
         {
@@ -235,51 +234,45 @@ export const projects: Project[] = [
           layout: "wide",
           treatment: "plain",
           image: {
-            src: "/assets/work/seamkit/block-approach.png",
-            alt: "SeamKit token taxonomy in Token Studio — 581 primitives, 488 component tokens, 349 colour tokens",
-            width: 2196,
-            height: 1864,
-            caption:
-              "Token Studio variables panel: the full Seamkit taxonomy consumed by design and engineering across the platform.",
+            src: "/assets/work/seamkit/block-token-studio.png",
+            alt: "SeamKit token taxonomy in Token Studio",
+            width: 1336,
+            height: 802,
+            caption: "Token Studio variables panel consumed by design and engineering.",
           },
+        },
+        {
+          kind: "gallery",
+          layout: "inline",
+          columns: 2,
+          treatment: "plain",
+          images: [
+            {
+              src: "/assets/work/seamkit/block-governance.png",
+              alt: "SeamKit governance workflow and contribution model",
+              width: 1336,
+              height: 858,
+              caption: "Governance workflow — lifecycle, review, and contribution cadences.",
+            },
+            {
+              src: "/assets/work/seamkit/block-adoption-analytics.png",
+              alt: "Seamkit adoption vs SHR Product v2",
+              width: 1336,
+              height: 1044,
+              caption: "Adoption analytics vs legacy fragmented library baseline.",
+            },
+          ],
         },
         {
           kind: "image",
           layout: "wide",
           treatment: "plain",
           image: {
-            src: "/assets/work/_placeholders/hero.svg",
-            alt: "[Replace] Governance contribution workflow and cadence model",
-            width: 2400,
-            height: 1350,
-            caption:
-              "[Replace with governance diagram] Contribution workflow: identify need → proposal → community review → draft → stable release. Cadences: Token Council · Component Review Board · Pattern Steering Group.",
-          },
-        },
-        {
-          kind: "image",
-          layout: "wide",
-          treatment: "plain",
-          image: {
-            src: "/assets/work/_placeholders/hero.svg",
-            alt: "[Replace] Figma analytics — SeamKit vs SHR Product DL v2.0 adoption across 12 product teams",
-            width: 2400,
-            height: 1350,
-            caption:
-              "[Replace with OC3 Artefact B screenshot] Adoption analytics: SeamKit insertion volumes vs former library (SHR Product DL v2.0), per-team data across 12 product teams.",
-          },
-        },
-        {
-          kind: "image",
-          layout: "wide",
-          treatment: "plain",
-          image: {
-            src: "/assets/work/_placeholders/hero.svg",
-            alt: "[Replace] System health report — adoption score, trust score, sentiment survey results",
-            width: 2400,
-            height: 1350,
-            caption:
-              "[Replace with OC3 Artefact C screenshot] System health: adoption score 88.9/100 · trust score 91.1/100 · 80% daily usage · 70%+ teams using Seamkit as new-work baseline.",
+            src: "/assets/work/seamkit/block-component-library.png",
+            alt: "Seamkit component library snapshot",
+            width: 1336,
+            height: 802,
+            caption: "Component foundations built on the token taxonomy.",
           },
         },
       ],

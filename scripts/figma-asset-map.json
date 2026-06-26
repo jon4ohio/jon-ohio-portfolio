@@ -54,34 +54,76 @@
       "slug": "seamkit",
       "assets": [
         {
+          "id": "29582:31330",
+          "out": "preview-16x9.png",
+          "designWidth": 1280,
+          "designHeight": 772
+        },
+        {
           "id": "2496:10214",
           "out": "hero.png",
           "designWidth": 1512,
           "designHeight": 1049
         },
         {
-          "id": "2555:21937",
-          "out": "thumb-1.png",
-          "designWidth": 1512,
-          "designHeight": 604
+          "id": "29632:48786",
+          "out": "block-research-figjam.png",
+          "designWidth": 1128,
+          "designHeight": 635
         },
         {
-          "id": "2591:16830",
-          "out": "thumb-2.png",
-          "designWidth": 1060,
-          "designHeight": 555
+          "id": "29654:25767",
+          "out": "block-token-hierarchy.png",
+          "designWidth": 680,
+          "designHeight": 325
         },
         {
-          "id": "2555:21842",
-          "out": "block-hypothesis.png",
-          "designWidth": 1512,
-          "designHeight": 568
+          "id": "29654:25774",
+          "out": "block-token-studio.png",
+          "designWidth": 668,
+          "designHeight": 401
         },
         {
-          "id": "2559:22284",
-          "out": "block-approach.png",
-          "designWidth": 1098,
-          "designHeight": 932
+          "id": "29654:25761",
+          "out": "block-token-intro.png",
+          "designWidth": 688,
+          "designHeight": 206
+        },
+        {
+          "id": "29654:25741",
+          "out": "brand-system.png",
+          "designWidth": 732,
+          "designHeight": 615
+        },
+        {
+          "id": "29659:24990",
+          "out": "block-governance.png",
+          "designWidth": 668,
+          "designHeight": 429
+        },
+        {
+          "id": "29632:48693",
+          "out": "block-adoption-analytics.png",
+          "designWidth": 668,
+          "designHeight": 522
+        },
+        {
+          "id": "29571:31862",
+          "out": "block-component-library.png",
+          "designWidth": 668,
+          "designHeight": 401
+        },
+        {
+          "id": "29654:25782",
+          "out": "block-library-analytics.png",
+          "designWidth": 668,
+          "designHeight": 401
+        },
+        {
+          "id": "29654:25788",
+          "out": "block-docs-platform.png",
+          "designWidth": 732,
+          "designHeight": 618
         }
       ]
     },
