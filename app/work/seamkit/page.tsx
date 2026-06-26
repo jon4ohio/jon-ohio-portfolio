@@ -629,6 +629,16 @@ export default function SeamkitFlagshipCaseStudy() {
                   decisionLabel="Decision"
                 />
               </div>
+              <div style={{ marginTop: 20 }}>
+                <AnnotatedFigure
+                  figure={9}
+                  label="System health survey"
+                  imageSrc="/assets/work/seamkit/block-system-health-survey.png"
+                  imageAlt="SeamKit system health survey — NPS 57, improvement priorities, team feedback"
+                  caption="System health survey validating sustained reliance — NPS 57 with no detractors; improvement requests point to scale (variants, alignment), not abandonment."
+                  hideDecisionNotes
+                />
+              </div>
             </div>
 
             <div style={{ maxWidth: 460, minWidth: 0 }}>
