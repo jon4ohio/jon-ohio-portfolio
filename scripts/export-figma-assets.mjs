@@ -29,6 +29,7 @@ async function downloadFromFigma({ map, token, scale }) {
 
   for (const project of map.projects) {
     for (const asset of project.assets) {
+      if (asset.status === "stale-node") continue;
       if (!idToJobs.has(asset.id)) idToJobs.set(asset.id, []);
       idToJobs.get(asset.id).push({ slug: project.slug, ...asset });
     }
@@ -58,9 +59,15 @@ async function downloadFromFigma({ map, token, scale }) {
     await new Promise((r) => setTimeout(r, 300));
   }
 
+  let skipped = 0;
   for (const [nodeId, jobs] of idToJobs) {
     const url = urlMap.get(nodeId);
-    if (!url) throw new Error(`No image URL for node ${nodeId}`);
+    if (!url) {
+      skipped += jobs.length;
+      console.warn(`skip ${nodeId} — no image URL (node missing or not exportable)`);
+      for (const job of jobs) console.warn(`  skipped ${job.slug}/${job.out}`);
+      continue;
+    }
     const imgRes = await fetch(url);
     if (!imgRes.ok) throw new Error(`Failed to download raster for ${nodeId}`);
     const buf = Buffer.from(await imgRes.arrayBuffer());
@@ -70,6 +77,9 @@ async function downloadFromFigma({ map, token, scale }) {
       await fs.writeFile(outPath, buf);
       console.log("exported", outPath);
     }
+  }
+  if (skipped > 0) {
+    console.warn(`Skipped ${skipped} asset(s) — update scripts/figma-asset-map.json node IDs.`);
   }
 }
 
@@ -126,6 +136,18 @@ async function main() {
   await loadEnvLocal();
   const mapPath = path.join(__dirname, "figma-asset-map.json");
   const map = JSON.parse(await fs.readFile(mapPath, "utf8"));
+  const slugFilter = process.argv[2]?.trim();
+  if (slugFilter) {
+    map.projects = map.projects.filter((p) => p.slug === slugFilter);
+    if (map.projects.length === 0) {
+      console.error(`No project slug "${slugFilter}" in figma-asset-map.json`);
+      process.exit(1);
+    }
+    console.log(`Export scope: ${slugFilter} (${map.projects[0].assets.length} assets)`);
+    const active = map.projects[0].assets.filter((a) => a.status !== "stale-node").length;
+    const stale = map.projects[0].assets.length - active;
+    if (stale > 0) console.log(`  ${stale} stale-node entries skipped (re-map in figma-asset-map.json)`);
+  }
   const scale = map.scale ?? 2;
   const token = process.env.FIGMA_TOKEN?.trim();
 
@@ -140,8 +162,19 @@ async function main() {
       return;
     } catch (e) {
       console.error(e);
+      if (slugFilter) {
+        console.error(
+          `Export failed for slug "${slugFilter}" — existing PNGs were not modified. Fix node IDs in figma-asset-map.json.`,
+        );
+        process.exit(1);
+      }
       await writePlaceholders(map, scale);
     }
+  } else if (slugFilter) {
+    console.error(
+      `FIGMA_TOKEN required for slug "${slugFilter}" — existing PNGs were not modified.`,
+    );
+    process.exit(1);
   } else {
     await writePlaceholders(map, scale);
   }

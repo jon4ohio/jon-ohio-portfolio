@@ -193,8 +193,8 @@ export const projects: Project[] = [
         {
           src: "/assets/work/seamkit/block-token-hierarchy.png",
           alt: "SeamKit three-tier token hierarchy — Core, Decision, Component",
-          width: 1360,
-          height: 650,
+          width: 1472,
+          height: 778,
         },
       ],
       hero: {
@@ -211,8 +211,8 @@ export const projects: Project[] = [
           image: {
             src: "/assets/work/seamkit/block-research-figjam.png",
             alt: "Collaborative workshop UI audit session on FigJam",
-            width: 2256,
-            height: 1270,
+            width: 2384,
+            height: 1397,
             caption: "Evidence behind the decision — workshop audit of fragmented libraries.",
           },
         },
@@ -223,8 +223,8 @@ export const projects: Project[] = [
           image: {
             src: "/assets/work/seamkit/block-token-hierarchy.png",
             alt: "Three-tier token hierarchy — primitives, semantic tokens, component tokens",
-            width: 1360,
-            height: 650,
+            width: 1472,
+            height: 778,
             caption:
               "Three-tier token hierarchy: Core → Decision → Component. 581 primitives · 488 component tokens · 349 colour tokens.",
           },
@@ -236,8 +236,8 @@ export const projects: Project[] = [
           image: {
             src: "/assets/work/seamkit/block-token-studio.png",
             alt: "SeamKit token taxonomy in Token Studio",
-            width: 1336,
-            height: 802,
+            width: 1464,
+            height: 930,
             caption: "Token Studio variables panel consumed by design and engineering.",
           },
         },
@@ -250,15 +250,15 @@ export const projects: Project[] = [
             {
               src: "/assets/work/seamkit/block-governance.png",
               alt: "SeamKit governance workflow and contribution model",
-              width: 1336,
-              height: 858,
+              width: 1464,
+              height: 986,
               caption: "Governance workflow — lifecycle, review, and contribution cadences.",
             },
             {
               src: "/assets/work/seamkit/block-adoption-analytics.png",
               alt: "Seamkit adoption vs SHR Product v2",
-              width: 1336,
-              height: 1044,
+              width: 1464,
+              height: 1172,
               caption: "Adoption analytics vs legacy fragmented library baseline.",
             },
           ],
@@ -270,8 +270,8 @@ export const projects: Project[] = [
           image: {
             src: "/assets/work/seamkit/block-component-library.png",
             alt: "Seamkit component library snapshot",
-            width: 1336,
-            height: 802,
+            width: 1464,
+            height: 930,
             caption: "Component foundations built on the token taxonomy.",
           },
         },

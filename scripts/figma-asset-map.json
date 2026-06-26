@@ -52,13 +52,8 @@
     },
     {
       "slug": "seamkit",
+      "notes": "2026-06-26 alignment review: nodes 29654:257*, 29582:31330, 29659:24990, 29571:31862 removed in Figma file reorg. On-disk PNGs remain canonical until nodes are re-mapped in Section 1.",
       "assets": [
-        {
-          "id": "29582:31330",
-          "out": "preview-16x9.png",
-          "designWidth": 1280,
-          "designHeight": 772
-        },
         {
           "id": "2496:10214",
           "out": "hero.png",
@@ -69,7 +64,8 @@
           "id": "29632:48786",
           "out": "block-research-figjam.png",
           "designWidth": 1128,
-          "designHeight": 635
+          "designHeight": 635,
+          "status": "stale-node"
         },
         {
           "id": "29654:25767",
