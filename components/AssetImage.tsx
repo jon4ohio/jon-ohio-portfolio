@@ -81,7 +81,7 @@ export default function AssetImage({
             gap: 8,
             padding: "0 14px",
             borderBottom: "1px solid var(--border)",
-            background: "var(--asset-chrome-bg)",
+            background: "var(--asset-chrome-gradient)",
           }}
         >
           <span aria-hidden="true" style={{ width: 10, height: 10, borderRadius: 999, background: "var(--accent-orange)" }} />
@@ -113,7 +113,7 @@ export default function AssetImage({
           borderRadius: 16,
           overflow: "hidden",
           border: "1px solid var(--border)",
-          background: "var(--surface)",
+          background: "var(--asset-chrome-gradient)",
           ...style,
         }}
       >

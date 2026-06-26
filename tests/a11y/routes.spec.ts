@@ -5,15 +5,15 @@ import { THEME_STORAGE_KEY } from "@/components/theme";
 
 const staticPaths = ["/", "/work", "/thinking", "/about", "/leadership"];
 
-/** Pin warm theme so axe runs are deterministic (layout default; avoids time-of-day fallback). */
+/** Pin light theme so axe runs are deterministic (layout default; avoids time-of-day fallback). */
 test.beforeEach(async ({ page }) => {
   await page.addInitScript((key) => {
     try {
-      window.localStorage.setItem(key, "warm");
+      window.localStorage.setItem(key, "light");
     } catch {
       /* private mode */
     }
-    document.documentElement.dataset.theme = "warm";
+    document.documentElement.dataset.theme = "light";
   }, THEME_STORAGE_KEY);
 });
 
@@ -68,8 +68,29 @@ test("axe wcag2a/aa (no serious/critical): mobile viewport with menu open — /"
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  await page.evaluate(() => window.scrollTo(0, 0));
+  const menuButton = page.getByRole("button", { name: /open menu/i });
+  await menuButton.scrollIntoViewIfNeeded();
+  await expect(menuButton).toBeVisible();
+  await menuButton.click({ force: true });
+  await expect(page.locator("#nav-mobile-panel.open")).toBeVisible();
+  const results = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa"])
+    .analyze();
+  assertNoSeriousViolations(results);
+});
+
+test("axe wcag2a/aa (no serious/critical): dark theme — /", async ({ page }) => {
+  await page.addInitScript((key) => {
+    try {
+      window.localStorage.setItem(key, "dark");
+    } catch {
+      /* private mode */
+    }
+    document.documentElement.dataset.theme = "dark";
+  }, THEME_STORAGE_KEY);
   await page.goto("/", { waitUntil: "networkidle" });
-  await page.getByRole("button", { name: /open menu/i }).click();
   const results = await new AxeBuilder({ page })
     .withTags(["wcag2a", "wcag2aa"])
     .analyze();

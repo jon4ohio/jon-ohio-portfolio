@@ -2,7 +2,7 @@
 
 ## Status
 
-**Status:** Accepted  
+**Status:** Superseded by ADR-070 (warm theme removed; `--surface-hover` pattern retained)  
 **Date:** 2026-04-10  
 **Decision Maker(s):** Jon Ohio (Product Design Lead)  
 **Supersedes:** None  

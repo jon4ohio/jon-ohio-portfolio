@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test:a11y": "playwright test tests/a11y",
-    "test:a11y:ci": "npm run build && playwright test tests/a11y",
+    "test:a11y:ci": "npm run build && CI=true playwright test tests/a11y",
     "export:figma-assets": "node scripts/export-figma-assets.mjs",
     "check:adr-major-push": "node scripts/check-adr-major-push.mjs",
     "check:spacing-grid": "node scripts/check-spacing-grid.mjs",

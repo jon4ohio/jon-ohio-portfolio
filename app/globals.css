@@ -31,24 +31,25 @@
   --jop-color-teal-70: #4f9eba;
   --jop-color-teal-80: #077597;
 
-  /* Warm-only primitives (Claude-aligned warm gray scale; see docs/theme-tokens.md) */
-  --jop-color-sand-5: #ffffff;
-  --jop-color-sand-10: #f8f8f6;
-  --jop-color-sand-20: #f3f2ef;
-  --jop-color-sand-30: #efeeeb;
-  --jop-color-sand-40: #e8e7e3;
-  --jop-color-sand-50: #d8d7d3;
-  --jop-color-sand-60: #b5b3ae;
-  --jop-color-sand-70: #7b7974;
-  --jop-color-sand-80: #5a5855;
-  --jop-color-sand-90: #454342;
-  --jop-color-sand-100: #373734;
+  /* Light theme: sage / cream / lavender / forest (Framer-inspired; see docs/theme-tokens.md) */
+  --jop-color-sage-5: #f7faf8;
+  --jop-color-sage-20: #edf4ef;
+  --jop-color-sage-30: #f1f6e7;
+  --jop-color-sage-40: #e8f0ee;
+  --jop-color-sage-60: #b5d7d1;
+  --jop-color-sage-80: #55695b;
 
-  /* Neutral warm grays for subtle gradients (primary brand/interactive use coral in warm theme block) */
-  --jop-color-clay-60: #9e9c98;
-  --jop-color-clay-70: #7b7974;
-  --jop-color-clay-80: #4a4947;
-  --jop-color-clay-90: #373734;
+  --jop-color-cream-20: #eff0e8;
+  --jop-color-cream-30: #f0eee8;
+
+  --jop-color-lavender-10: #f7f7fc;
+  --jop-color-lavender-30: #e0e1eb;
+  --jop-color-lavender-50: #bec3da;
+  --jop-color-lavender-70: #9aa3c4;
+
+  --jop-color-forest-70: #55695b;
+  --jop-color-forest-80: #415046;
+  --jop-color-forest-90: #445d4c;
 
   /* Dark-only surface primitives */
   --jop-color-slate-5: #1e2228;
@@ -59,207 +60,114 @@
 }
 
 :root,
-:root[data-theme="warm"] {
-  color-scheme: light;
-
-  /* Decision tokens */
-  --jop-bg-canvas: var(--jop-color-sand-10);
-  --jop-bg-surface: var(--jop-color-sand-10);
-  --jop-bg-surface-subtle: var(--jop-color-sand-40);
-
-  --jop-text-primary: #121212;
-  --jop-text-strong: #121212;
-  --jop-text-body: #121212;
-  /* #5a5855 (sand-80): AA on canvas (#f8f8f6) and surface-subtle (#e8e7e3); #6f6c66 fails on sand-40 (~4.22:1) */
-  --jop-text-muted: #5a5855;
-  --jop-text-subtle: #5a5855;
-  --jop-text-body-muted: rgba(18, 18, 18, 0.78);
-
-  --jop-text-on-brand: rgba(248, 248, 246, 0.95);
-  --jop-text-on-brand-strong: rgba(248, 248, 246, 0.85);
-  --jop-text-on-brand-muted: rgba(248, 248, 246, 0.6);
-  --jop-text-on-brand-soft: rgba(248, 248, 246, 0.4);
-  --jop-text-on-emphasis: rgba(248, 248, 246, 0.95);
-  --jop-text-on-emphasis-strong: rgba(248, 248, 246, 0.85);
-  --jop-text-on-emphasis-muted: rgba(248, 248, 246, 0.6);
-  /* ≥4.5:1 on --jop-bg-emphasis (#121212) for small uppercase labels (axe color-contrast) */
-  --jop-text-on-emphasis-soft: rgba(248, 248, 246, 0.5);
-
-  --jop-border-default: #e8e7e3;
-  --jop-border-subtle: #e8e7e3;
-  --jop-border-on-brand-subtle: rgba(248, 248, 246, 0.3);
-  --jop-border-on-brand-faint: rgba(248, 248, 246, 0.1);
-  --jop-border-on-emphasis-subtle: rgba(248, 248, 246, 0.3);
-  --jop-border-on-emphasis-faint: rgba(248, 248, 246, 0.1);
-
-  --jop-accent-brand: #d97757;
-  --jop-accent-orange: #9b553d;
-  --jop-accent-blue: #6a9bcc;
-  --jop-accent-green: #788c5d;
-
-  --jop-bg-emphasis: #121212;
-
-  /* Primary brand + interactive: coral (Claude accent); subtle/neutral gradients stay on sand/clay */
-  --jop-fill-brand-gradient: linear-gradient(
-    135deg,
-    var(--jop-accent-brand) 0%,
-    var(--jop-accent-orange) 100%
-  );
-  --jop-fill-brand-gradient-subtle: linear-gradient(
-    135deg,
-    var(--jop-color-sand-30) 0%,
-    var(--jop-color-sand-50) 100%
-  );
-  --jop-fill-accent-gradient: linear-gradient(
-    135deg,
-    var(--jop-color-clay-60) 0%,
-    var(--jop-color-sand-60) 100%
-  );
-  --jop-fill-neutral-gradient: linear-gradient(
-    135deg,
-    var(--jop-color-sand-10) 0%,
-    var(--jop-color-sand-30) 100%
-  );
-  --jop-text-brand-gradient: linear-gradient(
-    135deg,
-    var(--jop-color-clay-70) 0%,
-    var(--jop-color-clay-90) 100%
-  );
-  --jop-text-accent-gradient: linear-gradient(
-    135deg,
-    var(--jop-color-clay-60) 0%,
-    var(--jop-color-sand-70) 100%
-  );
-  --jop-border-brand-gradient: linear-gradient(
-    135deg,
-    var(--jop-color-clay-60) 0%,
-    var(--jop-color-sand-50) 100%
-  );
-  --jop-border-subtle-gradient: linear-gradient(
-    135deg,
-    var(--jop-color-sand-20) 0%,
-    var(--jop-color-sand-40) 100%
-  );
-  --jop-interactive-gradient: var(--jop-fill-brand-gradient);
-  --jop-interactive-gradient-hover: linear-gradient(
-    135deg,
-    color-mix(in oklab, var(--jop-accent-brand) 82%, #ffffff 18%) 0%,
-    color-mix(in oklab, var(--jop-accent-orange) 90%, #121212 10%) 100%
-  );
-  --jop-interactive-gradient-pressed: linear-gradient(
-    135deg,
-    color-mix(in oklab, var(--jop-accent-brand) 72%, #121212 28%) 0%,
-    color-mix(in oklab, var(--jop-accent-orange) 85%, #121212 15%) 100%
-  );
-
-  --jop-overlay-hero-strong: rgba(248, 248, 246, 0.96);
-  --jop-overlay-hero-soft: rgba(248, 248, 246, 0.6);
-  --jop-backdrop-nav: rgba(248, 248, 246, 0.9);
-  --jop-backdrop-panel: rgba(248, 248, 246, 0.97);
-  --jop-bg-asset-chrome: rgba(248, 248, 246, 0.75);
-
-  --jop-figjam-embed-bg: var(--jop-color-violet-20);
-  --jop-figjam-embed-border: color-mix(in oklab, var(--jop-color-violet-40) 45%, var(--jop-border-subtle));
-}
-
 :root[data-theme="light"] {
   color-scheme: light;
 
-  --jop-bg-canvas: #ffffff;
-  --jop-bg-surface: #f9fafb;
-  --jop-bg-surface-subtle: #f3f4f6;
+  /* Decision tokens — soft sage/lavender light palette */
+  --jop-bg-canvas: var(--jop-color-sage-5);
+  --jop-bg-surface: var(--jop-color-cream-20);
+  --jop-bg-surface-subtle: var(--jop-color-sage-40);
 
-  --jop-text-primary: #0a0a0a;
-  --jop-text-strong: #1f2937;
-  --jop-text-body: #374151;
-  --jop-text-muted: #6b7280;
-  --jop-text-subtle: #6b7280;
-  --jop-text-body-muted: #4b5563;
+  --jop-text-primary: #1a1a1a;
+  --jop-text-strong: #1a1a1a;
+  --jop-text-body: #2a2f2c;
+  /* #55695b (sage-80): AA on canvas (#f7faf8) and surface-subtle (#e8f0ee) */
+  --jop-text-muted: var(--jop-color-sage-80);
+  --jop-text-subtle: var(--jop-color-sage-80);
+  --jop-text-body-muted: rgba(26, 26, 26, 0.78);
 
-  --jop-text-on-brand: rgba(255, 255, 255, 0.96);
-  --jop-text-on-brand-strong: rgba(255, 255, 255, 0.85);
-  --jop-text-on-brand-muted: rgba(255, 255, 255, 0.6);
-  --jop-text-on-brand-soft: rgba(255, 255, 255, 0.4);
-  --jop-text-on-emphasis: rgba(255, 255, 255, 0.96);
-  --jop-text-on-emphasis-strong: rgba(255, 255, 255, 0.85);
-  --jop-text-on-emphasis-muted: rgba(255, 255, 255, 0.6);
-  --jop-text-on-emphasis-soft: rgba(255, 255, 255, 0.5);
+  --jop-text-on-brand: rgba(247, 250, 248, 0.96);
+  --jop-text-on-brand-strong: rgba(247, 250, 248, 0.85);
+  --jop-text-on-brand-muted: rgba(247, 250, 248, 0.65);
+  --jop-text-on-brand-soft: rgba(247, 250, 248, 0.45);
+  --jop-text-on-emphasis: rgba(247, 250, 248, 0.96);
+  --jop-text-on-emphasis-strong: rgba(247, 250, 248, 0.85);
+  --jop-text-on-emphasis-muted: rgba(247, 250, 248, 0.65);
+  --jop-text-on-emphasis-soft: rgba(247, 250, 248, 0.5);
 
-  /* Borders: subtle should be lighter than default for hierarchy */
-  --jop-border-default: #d1d5db;
-  --jop-border-subtle: #e5e7eb;
-  --jop-border-on-brand-subtle: rgba(255, 255, 255, 0.3);
-  --jop-border-on-brand-faint: rgba(255, 255, 255, 0.1);
-  --jop-border-on-emphasis-subtle: rgba(255, 255, 255, 0.3);
-  --jop-border-on-emphasis-faint: rgba(255, 255, 255, 0.1);
+  --jop-border-default: #d4ddd8;
+  --jop-border-subtle: #e8ebe9;
+  --jop-border-on-brand-subtle: rgba(247, 250, 248, 0.32);
+  --jop-border-on-brand-faint: rgba(247, 250, 248, 0.12);
+  --jop-border-on-emphasis-subtle: rgba(247, 250, 248, 0.32);
+  --jop-border-on-emphasis-faint: rgba(247, 250, 248, 0.12);
 
-  --jop-accent-brand: #0a0a0a;
-  --jop-accent-orange: #b45309;
-  --jop-accent-blue: #1d4ed8;
-  --jop-accent-green: #15803d;
+  --jop-accent-brand: var(--jop-color-forest-80);
+  --jop-accent-orange: var(--jop-color-forest-70);
+  --jop-accent-blue: var(--jop-color-lavender-70);
+  --jop-accent-green: var(--jop-color-sage-80);
 
-  --jop-bg-emphasis: #0a0a0a;
+  --jop-bg-emphasis: linear-gradient(
+    135deg,
+    var(--jop-color-forest-80) 0%,
+    var(--jop-color-forest-90) 100%
+  );
 
   --jop-fill-brand-gradient: linear-gradient(
     135deg,
-    var(--jop-color-violet-60) 0%,
-    var(--jop-color-violet-80) 100%
+    var(--jop-color-forest-80) 0%,
+    var(--jop-color-forest-90) 100%
   );
   --jop-fill-brand-gradient-subtle: linear-gradient(
     135deg,
-    var(--jop-color-violet-20) 0%,
-    var(--jop-color-violet-40) 100%
+    var(--jop-color-cream-20) 0%,
+    var(--jop-color-sage-40) 100%
   );
   --jop-fill-accent-gradient: linear-gradient(
     135deg,
-    var(--jop-color-teal-60) 0%,
-    var(--jop-color-violet-60) 100%
+    var(--jop-color-lavender-30) 0%,
+    var(--jop-color-lavender-50) 100%
   );
   --jop-fill-neutral-gradient: linear-gradient(
     135deg,
-    var(--jop-color-grey-10) 0%,
-    var(--jop-color-grey-30) 100%
+    var(--jop-color-sage-5) 0%,
+    var(--jop-color-sage-30) 100%
+  );
+  --jop-fill-impact-gradient: linear-gradient(
+    177deg,
+    var(--jop-color-sage-20) 0%,
+    var(--jop-color-sage-30) 100%
   );
   --jop-text-brand-gradient: linear-gradient(
     135deg,
-    var(--jop-color-violet-70) 0%,
-    var(--jop-color-violet-90) 100%
+    var(--jop-color-forest-70) 0%,
+    var(--jop-color-forest-90) 100%
   );
   --jop-text-accent-gradient: linear-gradient(
     135deg,
-    var(--jop-color-teal-70) 0%,
-    var(--jop-color-violet-70) 100%
+    var(--jop-color-lavender-50) 0%,
+    var(--jop-color-lavender-70) 100%
   );
   --jop-border-brand-gradient: linear-gradient(
     135deg,
-    var(--jop-color-violet-40) 0%,
-    var(--jop-color-violet-60) 100%
+    var(--jop-color-sage-60) 0%,
+    var(--jop-color-lavender-50) 100%
   );
   --jop-border-subtle-gradient: linear-gradient(
     135deg,
-    var(--jop-color-grey-20) 0%,
-    var(--jop-color-grey-40) 100%
+    var(--jop-color-sage-20) 0%,
+    var(--jop-color-sage-40) 100%
   );
   --jop-interactive-gradient: var(--jop-fill-brand-gradient);
   --jop-interactive-gradient-hover: linear-gradient(
     135deg,
-    var(--jop-color-violet-70) 0%,
-    var(--jop-color-violet-90) 100%
+    color-mix(in oklab, var(--jop-color-forest-80) 88%, #ffffff 12%) 0%,
+    color-mix(in oklab, var(--jop-color-forest-90) 92%, #1a1a1a 8%) 100%
   );
   --jop-interactive-gradient-pressed: linear-gradient(
     135deg,
-    var(--jop-color-violet-80) 0%,
-    var(--jop-color-violet-100) 100%
+    color-mix(in oklab, var(--jop-color-forest-80) 78%, #1a1a1a 22%) 0%,
+    color-mix(in oklab, var(--jop-color-forest-90) 85%, #1a1a1a 15%) 100%
   );
 
-  --jop-overlay-hero-strong: rgba(255, 255, 255, 0.96);
-  --jop-overlay-hero-soft: rgba(255, 255, 255, 0.6);
-  --jop-backdrop-nav: rgba(255, 255, 255, 0.9);
-  --jop-backdrop-panel: rgba(255, 255, 255, 0.97);
-  --jop-bg-asset-chrome: rgba(255, 255, 255, 0.75);
+  --jop-overlay-hero-strong: rgba(247, 247, 252, 0.92);
+  --jop-overlay-hero-soft: rgba(237, 244, 239, 0.55);
+  --jop-backdrop-nav: rgba(247, 250, 248, 0.9);
+  --jop-backdrop-panel: rgba(247, 250, 248, 0.97);
+  --jop-bg-asset-chrome: var(--jop-fill-accent-gradient);
 
-  --jop-figjam-embed-bg: var(--jop-color-violet-20);
-  --jop-figjam-embed-border: color-mix(in oklab, var(--jop-color-violet-40) 45%, var(--jop-border-subtle));
+  --jop-figjam-embed-bg: var(--jop-color-lavender-10);
+  --jop-figjam-embed-border: color-mix(in oklab, var(--jop-color-lavender-30) 45%, var(--jop-border-subtle));
 }
 
 :root[data-theme="dark"] {
@@ -317,6 +225,11 @@
   );
   --jop-fill-neutral-gradient: linear-gradient(
     135deg,
+    var(--jop-color-slate-10) 0%,
+    var(--jop-color-slate-20) 100%
+  );
+  --jop-fill-impact-gradient: linear-gradient(
+    177deg,
     var(--jop-color-slate-10) 0%,
     var(--jop-color-slate-20) 100%
   );
@@ -394,9 +307,9 @@
 
   --surface: var(--jop-bg-surface);
   --surface-subtle: var(--jop-bg-surface-subtle);
-  /** Hover/focus wash for rows and links on canvas (warm theme: canvas === surface, so never use --surface alone for hover). */
+  /** Hover/focus wash for rows and links on canvas. */
   --surface-hover: var(--jop-bg-surface-subtle);
-  /** Theme switcher active segment (defaults to hover wash; warm overrides to a lighter mix). */
+  /** Theme switcher active segment. */
   --theme-toggle-active-bg: var(--surface-hover);
   --theme-toggle-active-shadow: inset 0 0 0 1px var(--border);
   --surface-emphasis: var(--jop-bg-emphasis);
@@ -406,15 +319,15 @@
   --nav-backdrop: var(--jop-backdrop-nav);
   --panel-backdrop: var(--jop-backdrop-panel);
   --asset-chrome-bg: var(--jop-bg-asset-chrome);
+  --asset-chrome-gradient: var(--jop-fill-accent-gradient);
   --figjam-embed-bg: var(--jop-figjam-embed-bg);
   --figjam-embed-border: var(--jop-figjam-embed-border);
 }
 
-/* Warm theme: softer hover wash than full surface-subtle (sand-40), closer to light/dark subtlety */
-:root[data-theme="warm"] {
-  --surface-hover: color-mix(in oklab, var(--jop-bg-canvas) 82%, var(--jop-bg-surface-subtle) 18%);
-  /* sand-30 (#efeeeb) gives a visible but non-heavy active step (canvas===surface in warm, so near-canvas mixes are invisible) */
-  --theme-toggle-active-bg: var(--jop-color-sand-30);
+/* Light theme: softer hover + toggle active step on sage canvas */
+:root[data-theme="light"] {
+  --surface-hover: color-mix(in oklab, var(--jop-bg-canvas) 78%, var(--jop-bg-surface-subtle) 22%);
+  --theme-toggle-active-bg: var(--jop-color-sage-40);
   --theme-toggle-active-shadow: inset 0 0 0 1px var(--border);
 }
 
@@ -427,7 +340,7 @@ html {
 }
 
 body {
-  background: var(--bg);
+  background: var(--jop-fill-neutral-gradient);
   color: var(--fg);
   font-size: 16px;
   line-height: 1.6;
@@ -671,6 +584,10 @@ button:focus-visible {
   font-size: clamp(9px, 0.15rem + 2vw, 10.5px);
   line-height: 1.35;
   color: var(--fg-muted);
+}
+:root[data-theme="light"] .metric-badge {
+  background: var(--jop-fill-impact-gradient);
+  border-color: color-mix(in oklab, var(--border) 65%, var(--jop-color-sage-40) 35%);
 }
 @media (max-width: 640px) {
   .metric-badges {
@@ -1298,4 +1215,59 @@ button:focus-visible {
   .nav-desktop-cta   { display: none !important; }
   .nav-hamburger     { display: flex !important; }
   .nav-mobile-panel  { display: flex; }
+}
+
+/* Evidence review — ADR-069 */
+.evidence-image-affordance {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: var(--fg);
+  opacity: 0;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  padding: 4px 8px;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.evidence-image-trigger:hover .evidence-image-affordance,
+.evidence-image-trigger:focus-within .evidence-image-affordance {
+  opacity: 0.7;
+}
+
+.evidence-review-backdrop {
+  animation: evidence-backdrop-in 180ms ease forwards;
+}
+
+@keyframes evidence-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.evidence-review-esc-hint {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  margin: 0;
+  font-size: 11px;
+  color: color-mix(in srgb, var(--jop-color-sage-5) 65%, transparent);
+  display: none;
+}
+
+@media (min-width: 641px) {
+  .evidence-review-esc-hint {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .evidence-review-backdrop {
+    animation: none;
+  }
 }

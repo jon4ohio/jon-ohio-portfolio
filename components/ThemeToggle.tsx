@@ -5,7 +5,6 @@ import { coerceTheme, DEFAULT_THEME, THEME_STORAGE_KEY, THEMES, type ThemeName }
 
 const labels: Record<ThemeName, string> = {
   light: "Light",
-  warm: "Warm",
   dark: "Dark",
 };
 
