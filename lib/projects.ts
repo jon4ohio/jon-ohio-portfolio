@@ -94,7 +94,7 @@ export const projects: Project[] = [
     company: "SeamlessHR",
     period: "Dec 2023 – Present",
     summary:
-      "Coordinated designers, engineers, and product stakeholders across 12 product teams to establish a token-driven enterprise design system — replacing fragmented libraries with SeamlessHR's shared baseline for building at scale.",
+      "Enabled a growing enterprise organization to scale product delivery through a shared operating foundation — aligning 12 product teams on a common way to build, evolve, and ship.",
     role: "Design Systems Lead · DesignOps",
     scope:
       "Token architecture, component foundations, governance model, documentation, adoption strategy, and system health across the product organisation.",
