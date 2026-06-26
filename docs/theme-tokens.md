@@ -14,7 +14,7 @@ The **warm** theme is tuned to a warm-gray palette consistent with Claude’s pr
 
 - **Sand primitives** (`--jop-color-sand-*`) define that warm-gray ramp. Interpolated steps between scraped swatches exist so gradients and hovers have enough stops.
 - **Clay primitives** (`--jop-color-clay-*`) are neutral warm grays for **subtle** gradients (dividers, quiet fills, text gradients). **Primary brand and interactive** gradients use `--jop-accent-brand` → `--jop-accent-orange` (coral) in `app/globals.css` under `:root, :root[data-theme="warm"]`.
-- **Muted text:** Scraped `#7b7974` on `#f8f8f6` is below **WCAG 2.1 AA** (~4.1:1) for normal text. `--jop-text-muted` / `--jop-text-subtle` use **`#6f6c66`** (~4.9:1) so secondary body copy meets AA while staying warm-gray.
+- **Muted text:** Scraped `#7b7974` on `#f8f8f6` is below **WCAG 2.1 AA** (~4.1:1) for normal text. `--jop-text-muted` / `--jop-text-subtle` use **`#5a5855`** (sand-80) so secondary copy meets AA on both canvas and `--jop-bg-surface-subtle` (`#e8e7e3`).
 - **Browser UI chrome:** `viewport.themeColor` for light scheme uses `#f8f8f6` to match `--jop-color-sand-10` / canvas (`app/layout.tsx`).
 
 `light` and `dark` themes do not use sand/clay for their main surfaces; they keep their own decision-token overrides.

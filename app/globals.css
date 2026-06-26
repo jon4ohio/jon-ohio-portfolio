@@ -70,9 +70,9 @@
   --jop-text-primary: #121212;
   --jop-text-strong: #121212;
   --jop-text-body: #121212;
-  /* #6f6c66: WCAG AA vs canvas (#7b7974 scraped from Claude is ~4.09:1 on #f8f8f6) */
-  --jop-text-muted: #6f6c66;
-  --jop-text-subtle: #6f6c66;
+  /* #5a5855 (sand-80): AA on canvas (#f8f8f6) and surface-subtle (#e8e7e3); #6f6c66 fails on sand-40 (~4.22:1) */
+  --jop-text-muted: #5a5855;
+  --jop-text-subtle: #5a5855;
   --jop-text-body-muted: rgba(18, 18, 18, 0.78);
 
   --jop-text-on-brand: rgba(248, 248, 246, 0.95);

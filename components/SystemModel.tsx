@@ -45,15 +45,18 @@ export default function SystemModel() {
                 fontSize: 18,
                 fontWeight: stage.titleWeight,
                 letterSpacing: "-0.01em",
-                opacity: stage.titleOpacity,
               }}
             >
               <span style={{ fontSize: 11, color: "var(--fg-subtle)", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase" }}>
                 {stageNumber}
               </span>
-              <span style={{ minWidth: 0 }}>{stage.title}</span>
+              <span style={{ minWidth: 0, opacity: stage.titleOpacity }}>{stage.title}</span>
               {index < stages.length - 1 ? (
-                <span className="system-model-arrow" aria-hidden="true" style={{ color: "var(--fg-muted)", fontWeight: 500, marginLeft: 2 }}>
+                <span
+                  className="system-model-arrow"
+                  aria-hidden="true"
+                  style={{ color: "var(--fg-muted)", fontWeight: 500, marginLeft: 2, opacity: stage.titleOpacity }}
+                >
                   →
                 </span>
               ) : null}

@@ -57,5 +57,6 @@
 | 061 | SeamKit executive evidence narrative and Figma asset sync | Accepted | 2026-06-25 | ADR-052 |
 | 062 | SeamKit grouped validation findings block | Accepted | 2026-06-26 | None |
 | 063 | SeamKit system health survey evidence figure | Accepted | 2026-06-26 | None |
+| 064 | AnnotatedFigure inline figure label and caption | Accepted | 2026-06-26 | None |
 
 Chronological audit notes: [`LOG.md`](./LOG.md).

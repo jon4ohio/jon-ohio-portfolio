@@ -34,10 +34,12 @@ export default function TensionCards({
           }}
         >
           <div
+            aria-hidden="true"
             style={{
               fontSize: 48,
               fontWeight: 800,
-              color: "color-mix(in oklab, var(--border), var(--fg) 10%)",
+              /* sand-70 / fg-muted: ≥3:1 on surface for large decorative index (axe color-contrast) */
+              color: "var(--fg-muted)",
               lineHeight: 1,
             }}
           >
