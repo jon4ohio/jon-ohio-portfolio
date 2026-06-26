@@ -20,34 +20,35 @@ export const metadata: Metadata = {
 
 const chapters: Chapter[] = [
   { id: "brief", label: "01 Brief" },
-  { id: "tensions", label: "02 Tensions" },
-  { id: "evidence", label: "03 Evidence" },
-  { id: "outcomes", label: "04 Outcomes" },
-  { id: "unlocks", label: "05 Foundations" },
+  { id: "validation", label: "02 Evidence" },
+  { id: "tensions", label: "03 Tensions" },
+  { id: "evidence", label: "04 Evidence in Practice" },
+  { id: "outcomes", label: "05 Outcomes" },
+  { id: "unlocks", label: "06 Designed to Evolve" },
 ];
 
 const layers: Phase[] = [
   {
     id: "layer-1",
-    number: "Layer 1",
+    number: "Layer 01",
     name: "Foundations",
     description: "Primitive → semantic → component tokens",
   },
   {
     id: "layer-2",
-    number: "Layer 2",
+    number: "Layer 02",
     name: "Components",
     description: "Shared primitives, patterns, and reusable building blocks",
   },
   {
     id: "layer-3",
-    number: "Layer 3",
+    number: "Layer 03",
     name: "Governance",
     description: "Lifecycle + contribution + review cadences",
   },
   {
     id: "layer-4",
-    number: "Layer 4",
+    number: "Layer 04",
     name: "Adoption",
     description: "Instrumentation, trust, usage, and evolution under load",
   },
@@ -55,7 +56,7 @@ const layers: Phase[] = [
 
 const outcomeTiers: OutcomeTier[] = [
   {
-    category: "Delivery Impact",
+    category: "Business Impact",
     items: [
       "30% faster feature delivery",
       "40% fewer frontend bugs",
@@ -64,7 +65,7 @@ const outcomeTiers: OutcomeTier[] = [
     ],
   },
   {
-    category: "Design Health",
+    category: "System Health",
     items: [
       "2.49M  — Token insertions (2025)",
       "443K   — Component insertions",
@@ -74,6 +75,13 @@ const outcomeTiers: OutcomeTier[] = [
       "12     — Product teams aligned on a shared baseline",
     ],
   },
+];
+
+const validationFindings = [
+  "The audit revealed 30+ duplicate core components (buttons, inputs) across fragmented libraries.",
+  "Sprint metrics exposed an average 14-day feature hand-off — with 7 days allocated solely to UI fixes.",
+  "Engineering feedback showed 62% citing style churn as the primary delivery blocker.",
+  "Brand review confirmed the new visual identity absent on 70% of live screens.",
 ];
 
 function Micro({ children }: { children: React.ReactNode }) {
@@ -88,6 +96,126 @@ function Micro({ children }: { children: React.ReactNode }) {
     >
       {children}
     </span>
+  );
+}
+
+function LayerChip({ label }: { label: string }) {
+  return (
+    <div
+      style={{
+        display: "inline-block",
+        border: "1px solid var(--border)",
+        borderRadius: 999,
+        padding: "4px 12px",
+        fontSize: 12.5,
+        fontWeight: 600,
+        color: "var(--fg)",
+        letterSpacing: "0.01em",
+        marginBottom: 16,
+        background: "var(--surface)",
+      }}
+    >
+      {label}
+    </div>
+  );
+}
+
+function RhythmBlock({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div style={{ marginTop: label === "Problem" ? 0 : 18 }}>
+      <Micro>{label}</Micro>
+      <div style={{ marginTop: 10, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>{children}</div>
+    </div>
+  );
+}
+
+function DecisionBlocks({ items, label = "Decision" }: { items: string[]; label?: string }) {
+  return (
+    <div style={{ marginTop: 24, display: "flex", flexDirection: "column", gap: 14 }}>
+      {items.map((item) => (
+        <div
+          key={item}
+          style={{
+            borderLeft: "2px solid var(--border)",
+            padding: "12px 16px",
+            background: "var(--surface)",
+            borderRadius: 6,
+          }}
+        >
+          <Micro>{label}</Micro>
+          <p style={{ marginTop: 8, fontSize: 15, fontWeight: 500, color: "var(--fg-body)", lineHeight: 1.75, margin: "8px 0 0" }}>
+            {item}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function SectionDivider() {
+  return (
+    <div style={{ padding: "0 24px" }}>
+      <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
+    </div>
+  );
+}
+
+function TransformationStrip() {
+  const cellStyle: React.CSSProperties = {
+    border: "1px solid var(--border)",
+    borderRadius: 6,
+    padding: "12px 16px",
+    fontSize: 14,
+    color: "var(--fg-body)",
+    background: "var(--surface)",
+  };
+
+  return (
+    <div style={{ maxWidth: 1240, margin: "40px auto 0", padding: "0 24px" }}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr auto 1fr",
+          gap: 24,
+          alignItems: "stretch",
+        }}
+        className="case-study-transformation-strip"
+      >
+        <div>
+          <Micro>Before</Micro>
+          <div style={{ marginTop: 12, display: "flex", flexDirection: "column", gap: 8 }}>
+            <div style={cellStyle}>3 Design Libraries</div>
+            <div style={cellStyle}>3 Vue Libraries</div>
+            <div style={cellStyle}>No Governance</div>
+          </div>
+        </div>
+        <div style={{ display: "flex", alignItems: "center", fontSize: 24, color: "var(--fg-subtle)", paddingTop: 28 }}>
+          →
+        </div>
+        <div>
+          <Micro>After</Micro>
+          <div style={{ marginTop: 12, display: "flex", flexDirection: "column", gap: 8 }}>
+            {["Tokens", "Components", "Governance", "Teams", "Analytics"].map((item) => (
+              <div key={item} style={cellStyle}>
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <style>{`
+        @media (max-width: 640px) {
+          .case-study-transformation-strip {
+            grid-template-columns: 1fr !important;
+          }
+          .case-study-transformation-strip > div:nth-child(2) {
+            justify-content: center;
+            padding: 0 !important;
+            transform: rotate(90deg);
+          }
+        }
+      `}</style>
+    </div>
   );
 }
 
@@ -124,6 +252,7 @@ export default function SeamkitFlagshipCaseStudy() {
       `}</style>
 
       <FlagshipOpener
+        sectionId="brief"
         microLabel="SeamlessHR · Dec 2023 – Present"
         title={project.title}
         subtitle={project.subtitle}
@@ -142,9 +271,51 @@ export default function SeamkitFlagshipCaseStudy() {
         executiveBrief={project.brief!}
       />
 
-      <section id="tensions" style={{ maxWidth: 1240, margin: "0 auto", padding: "48px 24px 0" }}>
+      <section id="validation" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
         <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          02 Core Tensions
+          02 Evidence Behind the Decision
+        </p>
+        <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
+          Evidence Behind the Decision
+        </h2>
+        <p style={{ marginTop: 12, fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.7, maxWidth: 720 }}>
+          The goal was clear: unify fragmented UI systems into a governed enterprise design system. Stakeholder
+          interviews confirmed that local libraries had become delivery drag — not a component shortage.
+        </p>
+        <ul
+          style={{
+            marginTop: 20,
+            paddingLeft: 20,
+            fontSize: 15,
+            color: "var(--fg-body)",
+            lineHeight: 1.75,
+            maxWidth: 720,
+          }}
+        >
+          <li>User testing exposed pain points in the legacy ecosystem before any token was defined.</li>
+          <li>Library analysis across SHR DS V1, V2, and Web systems prioritized what to refactor first.</li>
+          <li>Stakeholder interviews confirmed buy-in requirements across design, engineering, and product leadership.</li>
+        </ul>
+
+        <div style={{ marginTop: 32 }}>
+          <AnnotatedFigure
+            figure={1}
+            label="Research workshop"
+            imageSrc="/assets/work/seamkit/block-research-figjam.png"
+            imageAlt="Collaborative workshop UI audit session on FigJam"
+            caption="Snapshot of the collaborative workshop UI audit session on FigJam."
+            hideDecisionNotes
+          />
+        </div>
+
+        <DecisionBlocks items={validationFindings} label="Finding" />
+      </section>
+
+      <TransformationStrip />
+
+      <section id="tensions" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
+        <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
+          03 Core Tensions
         </p>
         <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
           What had to change
@@ -154,13 +325,14 @@ export default function SeamkitFlagshipCaseStudy() {
         </p>
 
         <p style={{ marginTop: 18, fontSize: 15, color: "var(--fg-body)", lineHeight: 1.7, maxWidth: 780 }}>
-          Before SeamKit, three separate libraries operated with no shared logic. Delivery slowed to 14 days per feature —
-          half of it spent fixing UI inconsistencies. 62% of engineers identified style churn as the primary blocker, and
-          70% of screens failed to reflect the new brand identity.
+          Before SeamKit, designers maintained three separate Figma libraries and engineers maintained three fragmented
+          Vue UI libraries — with no shared logic between them. Delivery slowed to 14 days per feature, half of it spent
+          fixing UI inconsistencies. Engineering feedback showed 62% identifying style churn as the primary blocker, and
+          brand review confirmed 70% of screens failed to reflect the new identity.
           <br />
           <br />
-          The problem wasn't a shortage of components. It was that design decisions had no structure that could travel
-          across teams.
+          The problem wasn&apos;t a shortage of components. It was that design decisions had no structure that could
+          travel across teams.
         </p>
 
         <div className="case-study-tension-grid" style={{ display: "flex", gap: 16, marginTop: 28 }}>
@@ -224,24 +396,9 @@ export default function SeamkitFlagshipCaseStudy() {
         </div>
       </section>
 
-      <div style={{ maxWidth: 1240, margin: "32px auto 0", padding: "0 24px" }}>
-        <AnnotatedFigure
-          figure="B"
-          label="Before State — Fragmented system"
-          imageAlt="Before SeamKit — fragmented libraries and duplicated UI patterns across the product suite"
-          caption="Before a governed baseline, each product team maintained its own library and rules — duplication, drift, and rework compounded with every platform-wide change."
-          decisionNotes={[
-            "01 — Duplicate UI patterns: the same problem solved differently across products, multiplying maintenance effort",
-            "02 — No single source of truth: platform-wide updates required coordination per team, per library",
-            "03 — Governance gap: prior shared-library attempts diverged and were abandoned without lifecycle rules",
-          ]}
-          imageSrc="/assets/work/seamkit/block-hypothesis.png"
-        />
-      </div>
-
       <section id="evidence" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
         <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          03 Evidence in practice
+          04 Evidence in Practice
         </p>
         <div style={{ marginTop: 24 }}>
           <PhaseTimeline phases={layers} />
@@ -255,117 +412,82 @@ export default function SeamkitFlagshipCaseStudy() {
             className="case-study-evidence-row case-study-evidence-row--text-left"
           >
             <div style={{ maxWidth: 460, minWidth: 0 }}>
-              <div
-                style={{
-                  display: "inline-block",
-                  border: "1px solid var(--border)",
-                  borderRadius: 999,
-                  padding: "4px 12px",
-                  fontSize: 12.5,
-                  fontWeight: 600,
-                  color: "var(--fg)",
-                  letterSpacing: "0.01em",
-                  marginBottom: 16,
-                  background: "var(--surface)",
-                }}
-              >
-                Layer 1 — Foundations
-              </div>
-
-              <p style={{ fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>
-                The shortcut was shipping components. The right call was establishing the token layer first — so that
-                brand updates, spacing shifts, and semantic meaning could propagate without per-component rewrites.
-              </p>
-              <p style={{ marginTop: 16, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>
-                Token architecture is a governance problem before it is a naming problem. When tokens don't carry shared
-                meaning, contributors fill the gaps with judgment calls. Those decisions compound — creating interpretive
-                debt that documentation alone cannot fix.
-              </p>
-
-              <div style={{ marginTop: 18 }}>
-                <Micro>Intervention</Micro>
-                <p style={{ marginTop: 10, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>
-                  A three-tier token architecture: primitive values → semantic tokens → component tokens, consumed
-                  through Figma token sync and engineering integration.
-                </p>
-              </div>
+              <LayerChip label="Layer 01 — Foundations" />
+              <RhythmBlock label="Problem">
+                The shortcut was shipping components. Token chaos and components-first delivery would have reproduced
+                fragmentation at a different layer — interpretive debt compounds when tokens carry no shared meaning.
+              </RhythmBlock>
+              <RhythmBlock label="Decision">
+                Token architecture before components — trading early visible output for a system where brand and
+                compliance updates propagate through one layer.
+              </RhythmBlock>
+              <RhythmBlock label="Intervention">
+                A three-tier token architecture: primitive values → semantic tokens → component tokens, consumed through
+                Figma token sync and engineering integration.
+              </RhythmBlock>
             </div>
 
             <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ marginTop: 16 }}>
-                <span
-                  style={{
-                    fontSize: 11,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.08em",
-                    color: "var(--fg-subtle)",
-                  }}
-                >
-                  Figure 01
-                </span>
-                <p
-                  style={{
-                    fontSize: 13,
-                    color: "var(--fg-muted)",
-                    lineHeight: 1.6,
-                    fontStyle: "italic",
-                    marginTop: 4,
-                  }}
-                >
-                  Three-tier token hierarchy: Core (primitive values) → Decision (intent + constraint + mapping) →
-                  Component (CAVIS-governed attributes). 581 primitives · 488 component tokens · 349 colour tokens.
-                </p>
-
-                <div style={{ marginTop: 16 }}>
-                  <span
-                    style={{
-                      fontSize: 11,
-                      textTransform: "uppercase",
-                      letterSpacing: "0.08em",
-                      color: "var(--fg-subtle)",
-                    }}
-                  >
-                    Decision notes
-                  </span>
-                  <ul
-                    style={{
-                      marginTop: 10,
-                      paddingLeft: 0,
-                      listStyle: "none",
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 10,
-                    }}
-                  >
-                    {[
-                      "Token architecture preceded components, trading early visible output for long-term scalability",
-                      "Semantic tier separated meaning from raw values, reducing exception-driven drift",
-                      "The Decision layer is the theming surface. Brand or compliance changes update one layer and propagate across every component that references it — core values stay stable, components stay untouched.",
-                    ].map((note, i) => (
-                      <li
-                        key={i}
-                        style={{
-                          fontSize: 14,
-                          color: "var(--fg-body)",
-                          lineHeight: 1.75,
-                          paddingLeft: 16,
-                          position: "relative",
-                        }}
-                      >
-                        <span style={{ position: "absolute", left: 0, color: "var(--fg-subtle)" }}>·</span>
-                        {note}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <Micro>Evidence</Micro>
+              <div style={{ marginTop: 12 }}>
+                <AnnotatedFigure
+                  figure={2}
+                  label="Token hierarchy"
+                  imageSrc="/assets/work/seamkit/block-token-hierarchy.png"
+                  imageAlt="Three-tier token hierarchy — Core, Decision, Component"
+                  caption="Three-tier token hierarchy: Core (primitive values) → Decision (Semantic) → Component. 581 primitives · 488 component tokens · 349 colour tokens."
+                  decisionNotes={[
+                    "Token architecture preceded components, trading early visible output for long-term scalability",
+                    "Semantic tier separated meaning from raw values, reducing exception-driven drift",
+                    "The Decision layer is the theming surface. Brand or compliance changes update one layer and propagate across every component that references it — core values stay stable, components stay untouched.",
+                  ]}
+                  decisionLabel="Decision"
+                />
+              </div>
+              <div style={{ marginTop: 32, maxWidth: 520 }}>
+                <AnnotatedFigure
+                  figure={3}
+                  label="Token Studio"
+                  imageSrc="/assets/work/seamkit/block-token-studio.png"
+                  imageAlt="Token Studio variables panel — Seamkit taxonomy"
+                  caption="Token Studio variables panel: the taxonomy consumed by design and engineering across the platform."
+                  hideDecisionNotes
+                />
               </div>
             </div>
           </div>
+
+          <div style={{ maxWidth: 1240, margin: "40px auto 0" }}>
+            <figure>
+              <p
+                style={{
+                  fontSize: 11,
+                  fontWeight: 600,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  color: "var(--fg-subtle)",
+                  marginBottom: 12,
+                }}
+              >
+                Encoding brand and communication into the system
+              </p>
+              <Image
+                src="/assets/work/seamkit/brand-system.png"
+                alt="SeamlessHR brand system — typography, colour palette, tone of voice, and messaging states aligned within SeamKit"
+                width={900}
+                height={500}
+                style={{ width: "100%", height: "auto", borderRadius: 6 }}
+              />
+              <figcaption style={{ fontSize: 13, color: "var(--fg-subtle)", marginTop: 12, lineHeight: 1.6 }}>
+                Brand identity, tone of voice, and messaging patterns encoded into the system — ensuring product and
+                communication stayed consistent by default. These decisions are no longer guidelines. They are enforced
+                through tokens and components.
+              </figcaption>
+            </figure>
+          </div>
         </section>
 
-        <div style={{ padding: "0 24px" }}>
-          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
-        </div>
+        <SectionDivider />
 
         <section id="layer-2" style={{ padding: "0 24px" }}>
           <div
@@ -373,166 +495,58 @@ export default function SeamkitFlagshipCaseStudy() {
             className="case-study-evidence-row case-study-evidence-row--text-right"
           >
             <div style={{ flex: 1, minWidth: 0 }}>
-              <AnnotatedFigure
-                figure={2}
-                label="Token taxonomy (Token Studio)"
-                imageSrc="/assets/work/seamkit/block-approach.png"
-                imageAlt="SeamKit token taxonomy in Token Studio — 581 primitives, 488 component tokens, 349 colour tokens"
-                caption="Token Studio variables panel: the taxonomy consumed by design and engineering across the platform."
-                decisionNotes={[
-                  "Component-level overrides were scoped explicitly, preventing semantic tokens from becoming exceptions",
-                  "Foundations designed to support multiple product teams without needing bespoke variants per team",
-                ]}
-              />
-
-              <div
-                style={{
-                  background: "var(--surface-subtle, #f9f9f9)",
-                  border: "1px solid var(--border-subtle, #e5e5e5)",
-                  borderRadius: 8,
-                  padding: "24px 28px",
-                  marginTop: 32,
-                }}
-              >
-                <p
-                  style={{
-                    fontSize: 11,
-                    fontWeight: 600,
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                    color: "var(--fg-subtle)",
-                    marginBottom: 12,
-                  }}
-                >
-                  Token naming — CAVIS grammar
-                </p>
-                <code
-                  style={{
-                    fontSize: 15,
-                    fontWeight: 500,
-                    display: "block",
-                    marginBottom: 20,
-                    color: "var(--fg)",
-                    fontFamily: "monospace",
-                  }}
-                >
-                  button · background · primary · brand · hover
-                </code>
-                <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
-                  <thead>
-                    <tr style={{ borderBottom: "1px solid var(--border-subtle, #e5e5e5)" }}>
-                      <th style={{ textAlign: "left", paddingBottom: 8, fontWeight: 600, color: "var(--fg)" }}>
-                        Segment
-                      </th>
-                      <th style={{ textAlign: "left", paddingBottom: 8, fontWeight: 600, color: "var(--fg)" }}>
-                        Dimension
-                      </th>
-                      <th style={{ textAlign: "left", paddingBottom: 8, fontWeight: 600, color: "var(--fg)" }}>
-                        Answers
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {[
-                      ["button", "Context", "Which component?"],
-                      ["background", "Attribute", "Which visual property?"],
-                      ["primary", "Variant", "Which stylistic variant?"],
-                      ["brand", "Intent", "What communicative purpose?"],
-                      ["hover", "State", "In which interaction state?"],
-                    ].map(([seg, dim, ans]) => (
-                      <tr key={seg} style={{ borderBottom: "1px solid var(--border-subtle, #f3f4f6)" }}>
-                        <td style={{ padding: "8px 0", fontFamily: "monospace", fontSize: 13, color: "var(--fg)" }}>
-                          {seg}
-                        </td>
-                        <td style={{ padding: "8px 0", color: "var(--fg-subtle)" }}>{dim}</td>
-                        <td style={{ padding: "8px 0", color: "var(--fg-body)" }}>{ans}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-                <p style={{ fontSize: 13, color: "var(--fg-subtle)", marginTop: 16, lineHeight: 1.6 }}>
-                  One correct name per combination — removing discretion across teams.
-                </p>
-              </div>
-
-              <p style={{ marginTop: 20, fontSize: 13, color: "var(--fg-subtle)", lineHeight: 1.7 }}>
-                The full token architecture framework — Decision Token model, Dual Naming Model, and governance
-                architecture — is documented separately.{" "}
-                <a
-                  href="https://app.notion.com/p/johnohio/Scaling-Design-Systems-Layered-Token-Hierarchy-Dual-Naming-Model-3539c47d1f3e81179978cad3c97807f8?source=copy_link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: "var(--fg)", textDecoration: "underline", textUnderlineOffset: 3 }}
-                >
-                  Scaling Design Systems: Token Hierarchy and Dual Naming Model →
-                </a>
-              </p>
-
-              <figure style={{ marginTop: 40 }}>
-                <p
-                  style={{
-                    fontSize: 11,
-                    fontWeight: 600,
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                    color: "var(--fg-subtle)",
-                    marginBottom: 12,
-                  }}
-                >
-                  Encoding brand and communication into the system
-                </p>
-                <Image
-                  src="/assets/work/seamkit/brand-system.png"
-                  alt="SeamlessHR brand system — typography, colour palette, tone of voice, and messaging states aligned within SeamKit"
-                  width={900}
-                  height={500}
-                  style={{ width: "100%", height: "auto", borderRadius: 6 }}
+              <Micro>Evidence</Micro>
+              <div style={{ marginTop: 12, display: "flex", flexDirection: "column", gap: 40 }}>
+                <AnnotatedFigure
+                  figure={4}
+                  label="Component library"
+                  imageSrc="/assets/work/seamkit/block-component-library.png"
+                  imageAlt="Snapshot of Seamkit component file"
+                  caption="Snapshot of the Seamkit component file."
+                  decisionNotes={[
+                    "Component-level overrides were scoped explicitly, preventing semantic tokens from becoming exceptions",
+                    "Foundations designed to support multiple product teams without needing bespoke variants per team",
+                  ]}
+                  decisionLabel="Decision"
                 />
-                <figcaption style={{ fontSize: 13, color: "var(--fg-subtle)", marginTop: 12, lineHeight: 1.6 }}>
-                  Brand identity, tone of voice, and messaging patterns encoded into the system — ensuring product and
-                  communication stayed consistent by default. These decisions are no longer guidelines. They are
-                  enforced through tokens and components.
-                </figcaption>
-              </figure>
+                <AnnotatedFigure
+                  figure={5}
+                  label="Library analytics"
+                  imageSrc="/assets/work/seamkit/block-library-analytics.png"
+                  imageAlt="Library analytics — components, usage, and activities"
+                  caption="Library analytics showing total number of components, usage and activities."
+                  hideDecisionNotes
+                />
+                <AnnotatedFigure
+                  figure={6}
+                  label="Documentation platform"
+                  imageSrc="/assets/work/seamkit/block-docs-platform.png"
+                  imageAlt="Seamkit documentation platform and Design at SeamlessHR"
+                  caption="Seamkit documentation platform for components and perspective into Design at SeamlessHR."
+                  hideDecisionNotes
+                />
+              </div>
             </div>
 
             <div style={{ maxWidth: 460, minWidth: 0 }}>
-              <div
-                style={{
-                  display: "inline-block",
-                  border: "1px solid var(--border)",
-                  borderRadius: 999,
-                  padding: "4px 12px",
-                  fontSize: 12.5,
-                  fontWeight: 600,
-                  color: "var(--fg)",
-                  letterSpacing: "0.01em",
-                  marginBottom: 16,
-                  background: "var(--surface)",
-                }}
-              >
-                Layer 2 — Components
-              </div>
-
-              <p style={{ fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>
-                Shared components had to sit on stable foundations; otherwise they would accumulate edge-case overrides
-                and become the same divergence problem at a different layer.
-              </p>
-
-              <div style={{ marginTop: 18 }}>
-                <Micro>Intervention</Micro>
-                <p style={{ marginTop: 10, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>
-                  Component foundations built on the token taxonomy and aligned patterns, enabling teams to ship
-                  independently while staying visually and structurally consistent.
-                </p>
-              </div>
+              <LayerChip label="Layer 02 — Components" />
+              <RhythmBlock label="Problem">
+                Shared components without stable foundations accumulate edge-case overrides and become the same
+                divergence problem at a different layer.
+              </RhythmBlock>
+              <RhythmBlock label="Decision">
+                Shared primitives on the token taxonomy — teams ship independently while staying visually and structurally
+                consistent.
+              </RhythmBlock>
+              <RhythmBlock label="Intervention">
+                Component foundations built on aligned patterns and governed token consumption, not per-team library
+                forks.
+              </RhythmBlock>
             </div>
           </div>
         </section>
 
-        <div style={{ padding: "0 24px" }}>
-          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
-        </div>
+        <SectionDivider />
 
         <section id="layer-3" style={{ padding: "0 24px" }}>
           <div
@@ -540,111 +554,42 @@ export default function SeamkitFlagshipCaseStudy() {
             className="case-study-evidence-row case-study-evidence-row--text-left"
           >
             <div style={{ maxWidth: 460, minWidth: 0 }}>
-              <div
-                style={{
-                  display: "inline-block",
-                  border: "1px solid var(--border)",
-                  borderRadius: 999,
-                  padding: "4px 12px",
-                  fontSize: 12.5,
-                  fontWeight: 600,
-                  color: "var(--fg)",
-                  letterSpacing: "0.01em",
-                  marginBottom: 16,
-                  background: "var(--surface)",
-                }}
-              >
-                Layer 3 — Governance
-              </div>
-
-              <p style={{ fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>
+              <LayerChip label="Layer 03 — Governance" />
+              <RhythmBlock label="Problem">
                 A shared library without governance becomes a dumping ground. Trust drops, and teams route around the
                 system the moment it slows delivery.
-              </p>
-
-              <div style={{ marginTop: 18 }}>
-                <Micro>Intervention</Micro>
-                <p style={{ marginTop: 10, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>
-                  A five-stage component lifecycle (proposal → draft → review → stable → deprecated) with clear cadences:
-                  Token Council (bi-weekly), Component Review Board (monthly), Pattern Steering Group (quarterly).
-                </p>
-              </div>
+              </RhythmBlock>
+              <RhythmBlock label="Decision">
+                Lifecycle stages and review cadences as the operating model — review, approval, ownership, and
+                deprecation are part of governance, not a side process.
+              </RhythmBlock>
+              <RhythmBlock label="Intervention">
+                A five-stage component lifecycle (proposal → draft → review → stable → deprecated) with clear cadences:
+                Token Council (bi-weekly), Component Review Board (monthly), Pattern Steering Group (quarterly).
+              </RhythmBlock>
             </div>
 
             <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ marginTop: 16 }}>
-                <span
-                  style={{
-                    fontSize: 11,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.08em",
-                    color: "var(--fg-subtle)",
-                  }}
-                >
-                  Figure 03
-                </span>
-                <p
-                  style={{
-                    fontSize: 13,
-                    color: "var(--fg-muted)",
-                    lineHeight: 1.6,
-                    fontStyle: "italic",
-                    marginTop: 4,
-                  }}
-                >
-                  Contribution workflow: identify need → proposal → community review → draft → stable release. Cadences:
-                  Token Council · Component Review Board · Pattern Steering Group.
-                </p>
-
-                <div style={{ marginTop: 16 }}>
-                  <span
-                    style={{
-                      fontSize: 11,
-                      textTransform: "uppercase",
-                      letterSpacing: "0.08em",
-                      color: "var(--fg-subtle)",
-                    }}
-                  >
-                    Decision notes
-                  </span>
-                  <ul
-                    style={{
-                      marginTop: 10,
-                      paddingLeft: 0,
-                      listStyle: "none",
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 10,
-                    }}
-                  >
-                    {[
-                      "Lifecycle stages created a shared definition of stability and deprecation (no silent drift)",
-                      "Cadences made governance visible and predictable, increasing trust across teams",
-                    ].map((note, i) => (
-                      <li
-                        key={i}
-                        style={{
-                          fontSize: 14,
-                          color: "var(--fg-body)",
-                          lineHeight: 1.75,
-                          paddingLeft: 16,
-                          position: "relative",
-                        }}
-                      >
-                        <span style={{ position: "absolute", left: 0, color: "var(--fg-subtle)" }}>·</span>
-                        {note}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <Micro>Evidence</Micro>
+              <div style={{ marginTop: 12 }}>
+                <AnnotatedFigure
+                  figure={7}
+                  label="Governance workflow"
+                  imageSrc="/assets/work/seamkit/block-governance.png"
+                  imageAlt="Seamkit governance workflow — lifecycle and contribution model"
+                  caption="Governance workflow: identify need → proposal → community review → draft → stable release. Cadences: Token Council · Component Review Board · Pattern Steering Group."
+                  decisionNotes={[
+                    "Lifecycle stages created a shared definition of stability and deprecation (no silent drift)",
+                    "Cadences made governance visible and predictable, increasing trust across teams",
+                  ]}
+                  decisionLabel="Decision"
+                />
               </div>
             </div>
           </div>
         </section>
 
-        <div style={{ padding: "0 24px" }}>
-          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
-        </div>
+        <SectionDivider />
 
         <section id="layer-4" style={{ padding: "0 24px" }}>
           <div
@@ -652,104 +597,49 @@ export default function SeamkitFlagshipCaseStudy() {
             className="case-study-evidence-row case-study-evidence-row--text-right"
           >
             <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ marginTop: 16 }}>
-                <span
-                  style={{
-                    fontSize: 11,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.08em",
-                    color: "var(--fg-subtle)",
-                  }}
-                >
-                  Figure 04
-                </span>
-                <p
-                  style={{
-                    fontSize: 13,
-                    color: "var(--fg-muted)",
-                    lineHeight: 1.6,
-                    fontStyle: "italic",
-                    marginTop: 4,
-                  }}
-                >
-                  System health: adoption score 88.9/100 · trust score 91.1/100 · 80% daily usage · 70%+ teams using
-                  Seamkit as new-work baseline.
-                </p>
-
-                <div style={{ marginTop: 16 }}>
-                  <span
-                    style={{
-                      fontSize: 11,
-                      textTransform: "uppercase",
-                      letterSpacing: "0.08em",
-                      color: "var(--fg-subtle)",
-                    }}
-                  >
-                    Decision notes
-                  </span>
-                  <ul
-                    style={{
-                      marginTop: 10,
-                      paddingLeft: 0,
-                      listStyle: "none",
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: 10,
-                    }}
-                  >
-                    {[
-                      "Adoption was designed as an influence model — audits + working sessions before governance hardening",
-                      "Detach rate became a leading indicator of system trust — signalling when teams were routing around the system rather than through it.",
-                    ].map((note, i) => (
-                      <li
-                        key={i}
-                        style={{
-                          fontSize: 14,
-                          color: "var(--fg-body)",
-                          lineHeight: 1.75,
-                          paddingLeft: 16,
-                          position: "relative",
-                        }}
-                      >
-                        <span style={{ position: "absolute", left: 0, color: "var(--fg-subtle)" }}>·</span>
-                        {note}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <Micro>Evidence</Micro>
+              <p
+                style={{
+                  marginTop: 12,
+                  fontSize: 16,
+                  color: "var(--fg-body)",
+                  lineHeight: 1.75,
+                  fontStyle: "italic",
+                  maxWidth: 640,
+                }}
+              >
+                Healthy systems aren&apos;t measured by migration—they&apos;re measured by continued voluntary use.
+              </p>
+              <div style={{ marginTop: 20 }}>
+                <AnnotatedFigure
+                  figure={8}
+                  label="Adoption analytics"
+                  imageSrc="/assets/work/seamkit/block-adoption-analytics.png"
+                  imageAlt="Seamkit adoption analytics compared to SHR Product v2"
+                  caption="Seamkit adoption in comparison to the most active fragmented library (SHR Product v2)."
+                  decisionNotes={[
+                    "Adoption was designed as an influence model — audits + working sessions before governance hardening",
+                    "Detach rate became a leading indicator of system trust — signalling when teams were routing around the system rather than through it.",
+                  ]}
+                  decisionLabel="Decision"
+                />
               </div>
             </div>
 
             <div style={{ maxWidth: 460, minWidth: 0 }}>
-              <div
-                style={{
-                  display: "inline-block",
-                  border: "1px solid var(--border)",
-                  borderRadius: 999,
-                  padding: "4px 12px",
-                  fontSize: 12.5,
-                  fontWeight: 600,
-                  color: "var(--fg)",
-                  letterSpacing: "0.01em",
-                  marginBottom: 16,
-                  background: "var(--surface)",
-                }}
-              >
-                Layer 4 — Adoption & system health
-              </div>
-
-              <p style={{ fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>
-                Adoption is not a rollout event; it’s sustained reliance. The system needed instrumentation that could
-                detect drift and trust loss before it became fragmentation again.
-              </p>
-
-              <div style={{ marginTop: 18 }}>
-                <Micro>Intervention</Micro>
-                <p style={{ marginTop: 10, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>
-                  Health tracked through Figma analytics (insertions, usage frequency, detach behavior) and sentiment
-                  signals — reinforcing adoption through co-creation and service-level responsiveness.
-                </p>
-              </div>
+              <LayerChip label="Layer 04 — Adoption & system health" />
+              <RhythmBlock label="Problem">
+                Adoption is not a rollout event; it&apos;s sustained reliance. The system needed instrumentation that
+                could detect drift and trust loss before it became fragmentation again.
+              </RhythmBlock>
+              <RhythmBlock label="Decision">
+                Instrumentation plus an influence model — co-creation before mandates, with detach rate as a leading
+                trust signal.
+              </RhythmBlock>
+              <RhythmBlock label="Intervention">
+                Health tracked through Figma analytics (insertions, usage frequency, detach behavior) and sentiment
+                signals — reinforcing adoption through co-creation and service-level responsiveness.
+              </RhythmBlock>
             </div>
           </div>
         </section>
@@ -770,7 +660,7 @@ export default function SeamkitFlagshipCaseStudy() {
       </section>
 
       <UnlockPanel
-        label="06 Foundations"
+        label="06 Designed to Evolve"
         items={[
           "A brand or compliance update now touches one layer and propagates across the suite — no per-team coordination as the default.",
           "Because the system is token-driven and extensible, it establishes groundwork for emerging AI interaction patterns as those patterns mature across the suite.",
@@ -782,4 +672,3 @@ export default function SeamkitFlagshipCaseStudy() {
     </div>
   );
 }
-

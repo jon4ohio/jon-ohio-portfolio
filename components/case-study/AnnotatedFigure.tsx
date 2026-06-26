@@ -7,9 +7,13 @@ export interface AnnotatedFigureProps {
   figure: number | string; // 0 allowed for hero/next-read image-only mode
   label: string;
   caption: string;
-  decisionNotes: string[];
+  decisionNotes?: string[];
   imageSrc?: string;
   imageAlt?: string;
+  /** Label above decision list — default "Decision notes" */
+  decisionLabel?: string;
+  /** When true, omit decision list even if notes are provided */
+  hideDecisionNotes?: boolean;
   /**
    * When true, render only the image/placeholder with no caption/notes section.
    * Used for hero image and next-read thumbnail.
@@ -26,9 +30,11 @@ export default function AnnotatedFigure({
   figure,
   label,
   caption,
-  decisionNotes,
+  decisionNotes = [],
   imageSrc,
   imageAlt,
+  decisionLabel = "Decision notes",
+  hideDecisionNotes = false,
   imageOnly = false,
   borderless = false,
 }: AnnotatedFigureProps) {
@@ -89,6 +95,7 @@ export default function AnnotatedFigure({
           {caption}
         </p>
 
+        {decisionNotes.length > 0 && !hideDecisionNotes ? (
         <div style={{ marginTop: 16 }}>
           <span
             style={{
@@ -96,9 +103,10 @@ export default function AnnotatedFigure({
               textTransform: "uppercase",
               letterSpacing: "0.08em",
               color: "var(--fg-subtle)",
+              fontWeight: decisionLabel === "Decision" ? 600 : 400,
             }}
           >
-            Decision notes
+            {decisionLabel}
           </span>
           <ul
             style={{
@@ -107,26 +115,37 @@ export default function AnnotatedFigure({
               listStyle: "none",
               display: "flex",
               flexDirection: "column",
-              gap: 10,
+              gap: decisionLabel === "Decision" ? 14 : 10,
             }}
           >
             {decisionNotes.map((note, i) => (
               <li
                 key={i}
                 style={{
-                  fontSize: 14,
+                  fontSize: decisionLabel === "Decision" ? 15 : 14,
+                  fontWeight: decisionLabel === "Decision" ? 500 : 400,
                   color: "var(--fg-body)",
                   lineHeight: 1.75,
-                  paddingLeft: 16,
+                  paddingLeft: decisionLabel === "Decision" ? 0 : 16,
                   position: "relative",
+                  borderLeft:
+                    decisionLabel === "Decision" ? "2px solid var(--border)" : undefined,
+                  padding:
+                    decisionLabel === "Decision" ? "12px 16px" : undefined,
+                  background:
+                    decisionLabel === "Decision" ? "var(--surface)" : undefined,
+                  borderRadius: decisionLabel === "Decision" ? 6 : undefined,
                 }}
               >
-                <span style={{ position: "absolute", left: 0, color: "var(--fg-subtle)" }}>·</span>
+                {decisionLabel !== "Decision" ? (
+                  <span style={{ position: "absolute", left: 0, color: "var(--fg-subtle)" }}>·</span>
+                ) : null}
                 {note}
               </li>
             ))}
           </ul>
         </div>
+        ) : null}
       </div>
     </div>
   );

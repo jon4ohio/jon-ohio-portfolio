@@ -2,7 +2,7 @@
 
 ## Status
 <!-- One of: Draft | Proposed | Accepted | Deprecated | Superseded by ADR-NNN -->
-**Status:** Draft
+**Status:** Superseded by ADR-061
 **Date:** 2026-05-01
 **Decision Maker(s):** Unknown (required before Accepted)
 **Supersedes:** None
@@ -90,7 +90,7 @@ Missing-figure slots will render a neutral dashed-frame container, and the assoc
 
 ## Related ADRs
 
-- N/A — no known relationships.
+- ADR-061 — superseded by: real Figma evidence exports and executive narrative reorder on `/work/seamkit`
 
 ## References
 
