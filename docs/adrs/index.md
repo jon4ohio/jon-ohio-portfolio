@@ -59,5 +59,8 @@
 | 063 | SeamKit system health survey evidence figure | Accepted | 2026-06-26 | None |
 | 064 | AnnotatedFigure inline figure label and caption | Accepted | 2026-06-26 | None |
 | 065 | SeamKit FigJam live embed for Evidence Figure 01 | Accepted | 2026-06-26 | None |
+| 066 | SeamKit Token Studio figure — full evidence column width | Accepted | 2026-06-26 | None |
+| 067 | SeamKit preview hero filename rename for `next/image` cache invalidation | Accepted | 2026-06-26 | None |
+| 068 | FigJam embed static snapshot loading placeholder | Accepted | 2026-06-26 | None |
 
 Chronological audit notes: [`LOG.md`](./LOG.md).

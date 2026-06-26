@@ -2,6 +2,8 @@ import * as React from "react";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import ArtifactPlaceholder from "@/components/case-study/ArtifactPlaceholder";
+import FigJamChrome from "@/components/case-study/FigJamChrome";
+import FigJamEmbedFrame from "@/components/case-study/FigJamEmbedFrame";
 
 export interface AnnotatedFigureProps {
   figure: number | string; // 0 allowed for hero/next-read image-only mode
@@ -44,65 +46,32 @@ function publicAssetExists(assetSrc: string | undefined): boolean {
   }
 }
 
-function FigJamChrome({ children }: { children: React.ReactNode }) {
-  return (
-    <div
-      style={{
-        background: "var(--figjam-embed-bg)",
-        border: "1px solid var(--figjam-embed-border)",
-        borderRadius: 8,
-        padding: 24,
-      }}
-    >
-      <div
-        style={{
-          borderRadius: 6,
-          overflow: "hidden",
-          background: "#ffffff",
-        }}
-      >
-        {children}
-      </div>
-    </div>
-  );
-}
-
 function EmbedFrame({
   embedSrc,
   embedTitle,
   label,
-  embedChrome,
 }: {
   embedSrc: string;
   embedTitle?: string;
   label: string;
-  embedChrome?: "figjam";
 }) {
-  const iframe = (
-    <div style={{ position: "relative", width: "100%", aspectRatio: "16 / 9" }}>
-      <iframe
-        src={embedSrc}
-        title={embedTitle ?? label}
-        allowFullScreen
-        style={{
-          position: "absolute",
-          inset: 0,
-          width: "100%",
-          height: "100%",
-          border: 0,
-          display: "block",
-        }}
-      />
-    </div>
-  );
-
-  if (embedChrome === "figjam") {
-    return <FigJamChrome>{iframe}</FigJamChrome>;
-  }
-
   return (
     <div style={{ borderRadius: 8, overflow: "hidden", border: "1px solid var(--border)" }}>
-      {iframe}
+      <div style={{ position: "relative", width: "100%", aspectRatio: "16 / 9" }}>
+        <iframe
+          src={embedSrc}
+          title={embedTitle ?? label}
+          allowFullScreen
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            border: 0,
+            display: "block",
+          }}
+        />
+      </div>
     </div>
   );
 }
@@ -170,12 +139,17 @@ export default function AnnotatedFigure({
 
   const frame = embedSrc ? (
         <>
-          <EmbedFrame
-            embedSrc={embedSrc}
-            embedTitle={embedTitle}
-            label={label}
-            embedChrome={embedChrome}
-          />
+          {embedChrome === "figjam" ? (
+            <FigJamEmbedFrame
+              embedSrc={embedSrc}
+              embedTitle={embedTitle}
+              label={label}
+              fallbackImageSrc={showFallback ? fallbackImageSrc : undefined}
+              fallbackImageAlt={fallbackImageAlt}
+            />
+          ) : (
+            <EmbedFrame embedSrc={embedSrc} embedTitle={embedTitle} label={label} />
+          )}
           {showFallback ? (
             <noscript>
               <StaticImageFrame

@@ -71,6 +71,7 @@ Figure 01 previously showed a static PNG (`block-research-figjam.png`) of the co
 ### Operational Impact
 
 - Verify FigJam share settings before each major deploy touching Evidence.
+- Static snapshot (`fallbackImageSrc`) displays as the loading placeholder until the iframe fires `onLoad` and at least 500ms have elapsed, then cross-fades to the live board.
 - **Migration / rollback:** Revert Figure 01 to `imageSrc` only and remove embed props; tokens can remain unused.
 
 ### Risks
@@ -87,6 +88,7 @@ Figure 01 previously showed a static PNG (`block-research-figjam.png`) of the co
 
 ## Related ADRs
 
+- [ADR-068](./ADR-068-figjam-embed-loading-placeholder.md) — static snapshot loading placeholder until iframe ready
 - [ADR-061](./ADR-061-seamkit-executive-evidence-narrative.md) — Evidence section narrative
 - [ADR-064](./ADR-064-annotated-figure-inline-caption.md) — Figure caption layout
 - [ADR-023](./ADR-023-figma-mcp-handoff-jop-tokens.md) — JOP token usage
