@@ -469,6 +469,55 @@ export default function FetsprozaFlagshipCaseStudy() {
         />
       </div>
 
+      <div style={{ marginTop: 64 }}>
+        <SectionDivider />
+      </div>
+
+      <div
+        id="operational-walkthrough"
+        style={{ maxWidth: 1240, margin: "40px auto 96px", padding: "0 24px" }}
+      >
+        <h3
+          style={{
+            fontSize: 22,
+            fontWeight: 700,
+            letterSpacing: "-0.02em",
+            color: "var(--fg)",
+            lineHeight: 1.3,
+            margin: 0,
+          }}
+        >
+          Seeing the redesign in practice
+        </h3>
+        <p style={{ marginTop: 16, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 760 }}>
+          The four decisions above changed how operators configured, monitored, and managed the platform. The
+          walkthrough below brings those decisions together, showing how operational teams could move from understanding
+          transaction health to investigating issues and monitoring business performance—all within a single workspace,
+          without relying on engineering support.
+        </p>
+        <div style={{ marginTop: 28, borderRadius: 8, overflow: "hidden", border: "1px solid var(--border)" }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/assets/work/fetsproza/demo-transaction-visibility.gif"
+            alt="FetsProza operational walkthrough — transaction health, investigation, and business performance in one workspace"
+            style={{ width: "100%", height: "auto", display: "block" }}
+          />
+        </div>
+        <p
+          style={{
+            marginTop: 14,
+            fontSize: 14,
+            color: "var(--fg-muted)",
+            fontStyle: "italic",
+            lineHeight: 1.6,
+            maxWidth: 760,
+          }}
+        >
+          Operators could move from transaction health to investigation and operational oversight without switching
+          tools or involving engineering.
+        </p>
+      </div>
+
       <section id="impact" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
         <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
           05 Impact
