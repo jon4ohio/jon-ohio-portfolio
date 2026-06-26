@@ -11,7 +11,7 @@
 
 Project: `jon-ohio-portfolio` — SeamKit flagship case study (`app/work/seamkit/page.tsx`), Evidence section `#validation`.
 
-Figure 01 previously showed a static PNG (`block-research-figjam.png`) of the collaborative Design Jam UI audit on FigJam. The snapshot includes FigJam’s lavender workspace margin around the white board. A live embed of the same board (`etsjuf6BXGRbrGWIiI1Aqb`) was available with public link-share.
+Figure 01 previously showed a static PNG (`block-research-figjam.png`) of the collaborative Design Jam UI audit on FigJam. The snapshot includes FigJam’s lavender workspace margin around the white board. A live embed of the same board (`BY9DCmOCYTrV1GoQVY6O5V`) was available with public link-share.
 
 **In scope:** Figure 01 embed + violet chrome wrapper; `AnnotatedFigure` embed props; theme tokens for FigJam chrome; static PNG fallback link and `<noscript>` image.
 **Out of scope:** Other SeamKit figures, iframe `onError` client detection, removing PNG from `lib/projects.ts` blocks.
@@ -96,4 +96,4 @@ Figure 01 previously showed a static PNG (`block-research-figjam.png`) of the co
 - [`components/case-study/AnnotatedFigure.tsx`](../../components/case-study/AnnotatedFigure.tsx)
 - [`app/work/seamkit/page.tsx`](../../app/work/seamkit/page.tsx) — `#validation` Figure 01
 - [`app/globals.css`](../../app/globals.css) — `--jop-figjam-embed-*` tokens
-- FigJam board: `https://www.figma.com/board/etsjuf6BXGRbrGWIiI1Aqb/Design-Jam---DS-Components`
+- FigJam board: `https://www.figma.com/board/BY9DCmOCYTrV1GoQVY6O5V/Design-Jam---DS-Components`
