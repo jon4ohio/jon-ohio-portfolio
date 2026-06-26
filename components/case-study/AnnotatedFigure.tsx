@@ -10,6 +10,14 @@ export interface AnnotatedFigureProps {
   decisionNotes?: string[];
   imageSrc?: string;
   imageAlt?: string;
+  embedSrc?: string;
+  embedTitle?: string;
+  /** When set with embedSrc, applies FigJam lavender chrome wrapper */
+  embedChrome?: "figjam";
+  fallbackImageSrc?: string;
+  fallbackImageAlt?: string;
+  /** Optional link to open the live board in a new tab */
+  embedBoardHref?: string;
   /** Label above decision list — default "Decision notes" */
   decisionLabel?: string;
   /** When true, omit decision list even if notes are provided */
@@ -26,6 +34,118 @@ export interface AnnotatedFigureProps {
   borderless?: boolean;
 }
 
+function publicAssetExists(assetSrc: string | undefined): boolean {
+  if (!assetSrc) return false;
+  try {
+    const rel = assetSrc.startsWith("/") ? assetSrc.slice(1) : assetSrc;
+    return existsSync(path.join(process.cwd(), "public", rel));
+  } catch {
+    return false;
+  }
+}
+
+function FigJamChrome({ children }: { children: React.ReactNode }) {
+  return (
+    <div
+      style={{
+        background: "var(--figjam-embed-bg)",
+        border: "1px solid var(--figjam-embed-border)",
+        borderRadius: 8,
+        padding: 24,
+      }}
+    >
+      <div
+        style={{
+          borderRadius: 6,
+          overflow: "hidden",
+          background: "#ffffff",
+        }}
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function EmbedFrame({
+  embedSrc,
+  embedTitle,
+  label,
+  embedChrome,
+}: {
+  embedSrc: string;
+  embedTitle?: string;
+  label: string;
+  embedChrome?: "figjam";
+}) {
+  const iframe = (
+    <div style={{ position: "relative", width: "100%", aspectRatio: "16 / 9" }}>
+      <iframe
+        src={embedSrc}
+        title={embedTitle ?? label}
+        allowFullScreen
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          border: 0,
+          display: "block",
+        }}
+      />
+    </div>
+  );
+
+  if (embedChrome === "figjam") {
+    return <FigJamChrome>{iframe}</FigJamChrome>;
+  }
+
+  return (
+    <div style={{ borderRadius: 8, overflow: "hidden", border: "1px solid var(--border)" }}>
+      {iframe}
+    </div>
+  );
+}
+
+function StaticImageFrame({
+  imageSrc,
+  imageAlt,
+  label,
+  borderless,
+  embedChrome,
+}: {
+  imageSrc: string;
+  imageAlt?: string;
+  label: string;
+  borderless: boolean;
+  embedChrome?: "figjam";
+}) {
+  const image = (
+    /* eslint-disable-next-line @next/next/no-img-element */
+    <img
+      src={imageSrc}
+      alt={imageAlt ?? label}
+      style={{
+        width: "100%",
+        height: "auto",
+        display: "block",
+        borderRadius: embedChrome === "figjam" ? 0 : borderless ? 0 : 8,
+        border: embedChrome === "figjam" || borderless ? "none" : "1px solid var(--border)",
+      }}
+    />
+  );
+
+  if (embedChrome === "figjam") {
+    return <FigJamChrome>{image}</FigJamChrome>;
+  }
+
+  return (
+    <div style={{ borderRadius: borderless ? 0 : 8, overflow: "hidden" }}>
+      {image}
+    </div>
+  );
+}
+
 export default function AnnotatedFigure({
   figure,
   label,
@@ -33,39 +153,52 @@ export default function AnnotatedFigure({
   decisionNotes = [],
   imageSrc,
   imageAlt,
+  embedSrc,
+  embedTitle,
+  embedChrome,
+  fallbackImageSrc,
+  fallbackImageAlt,
+  embedBoardHref,
   decisionLabel = "Decision notes",
   hideDecisionNotes = false,
   imageOnly = false,
   borderless = false,
 }: AnnotatedFigureProps) {
   const figureText = typeof figure === "number" ? String(figure).padStart(2, "0") : String(figure);
-  const showImage = Boolean(imageSrc) && (() => {
-    try {
-      const rel = imageSrc!.startsWith("/") ? imageSrc!.slice(1) : imageSrc!;
-      return existsSync(path.join(process.cwd(), "public", rel));
-    } catch {
-      return false;
-    }
-  })();
+  const showImage = publicAssetExists(imageSrc);
+  const showFallback = publicAssetExists(fallbackImageSrc);
 
-  const frame = showImage ? (
-    <div style={{ borderRadius: borderless ? 0 : 8, overflow: "hidden" }}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={imageSrc}
-        alt={imageAlt ?? label}
-        style={{
-          width: "100%",
-          height: "auto",
-          display: "block",
-          borderRadius: borderless ? 0 : 8,
-          border: borderless ? "none" : "1px solid var(--border)",
-        }}
-      />
-    </div>
-  ) : (
-    <ArtifactPlaceholder figure={figure} label={label} />
-  );
+  const frame = embedSrc ? (
+        <>
+          <EmbedFrame
+            embedSrc={embedSrc}
+            embedTitle={embedTitle}
+            label={label}
+            embedChrome={embedChrome}
+          />
+          {showFallback ? (
+            <noscript>
+              <StaticImageFrame
+                imageSrc={fallbackImageSrc!}
+                imageAlt={fallbackImageAlt}
+                label={label}
+                borderless={borderless}
+                embedChrome={embedChrome}
+              />
+            </noscript>
+          ) : null}
+        </>
+      ) : showImage ? (
+        <StaticImageFrame
+          imageSrc={imageSrc!}
+          imageAlt={imageAlt}
+          label={label}
+          borderless={borderless}
+          embedChrome={embedChrome}
+        />
+      ) : (
+        <ArtifactPlaceholder figure={figure} label={label} />
+      );
 
   if (imageOnly) return frame;
 
@@ -91,6 +224,34 @@ export default function AnnotatedFigure({
             </>
           ) : null}
         </p>
+
+        {embedSrc && (showFallback || embedBoardHref) ? (
+          <p style={{ margin: "8px 0 0", fontSize: 13, lineHeight: 1.6, color: "var(--fg-muted)" }}>
+            {showFallback ? (
+              <>
+                <a
+                  href={fallbackImageSrc}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "var(--fg-muted)", textDecoration: "underline", textUnderlineOffset: 2 }}
+                >
+                  View static snapshot
+                </a>
+                {embedBoardHref ? " · " : null}
+              </>
+            ) : null}
+            {embedBoardHref ? (
+              <a
+                href={embedBoardHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "var(--fg-muted)", textDecoration: "underline", textUnderlineOffset: 2 }}
+              >
+                Open full board in FigJam
+              </a>
+            ) : null}
+          </p>
+        ) : null}
 
         {decisionNotes.length > 0 && !hideDecisionNotes ? (
         <div style={{ marginTop: 16 }}>
@@ -147,4 +308,3 @@ export default function AnnotatedFigure({
     </div>
   );
 }
-

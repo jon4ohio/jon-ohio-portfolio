@@ -157,6 +157,9 @@
   --jop-backdrop-nav: rgba(248, 248, 246, 0.9);
   --jop-backdrop-panel: rgba(248, 248, 246, 0.97);
   --jop-bg-asset-chrome: rgba(248, 248, 246, 0.75);
+
+  --jop-figjam-embed-bg: var(--jop-color-violet-20);
+  --jop-figjam-embed-border: var(--jop-color-violet-40);
 }
 
 :root[data-theme="light"] {
@@ -254,6 +257,9 @@
   --jop-backdrop-nav: rgba(255, 255, 255, 0.9);
   --jop-backdrop-panel: rgba(255, 255, 255, 0.97);
   --jop-bg-asset-chrome: rgba(255, 255, 255, 0.75);
+
+  --jop-figjam-embed-bg: var(--jop-color-violet-20);
+  --jop-figjam-embed-border: var(--jop-color-violet-40);
 }
 
 :root[data-theme="dark"] {
@@ -351,6 +357,9 @@
   --jop-backdrop-nav: rgba(30, 34, 40, 0.9);
   --jop-backdrop-panel: rgba(30, 34, 40, 0.96);
   --jop-bg-asset-chrome: rgba(35, 40, 48, 0.78);
+
+  --jop-figjam-embed-bg: color-mix(in oklab, var(--jop-color-violet-100) 35%, var(--jop-color-slate-10));
+  --jop-figjam-embed-border: var(--jop-color-violet-80);
 }
 
 /* Compatibility aliases for existing components */
@@ -397,6 +406,8 @@
   --nav-backdrop: var(--jop-backdrop-nav);
   --panel-backdrop: var(--jop-backdrop-panel);
   --asset-chrome-bg: var(--jop-bg-asset-chrome);
+  --figjam-embed-bg: var(--jop-figjam-embed-bg);
+  --figjam-embed-border: var(--jop-figjam-embed-border);
 }
 
 /* Warm theme: softer hover wash than full surface-subtle (sand-40), closer to light/dark subtlety */
