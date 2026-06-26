@@ -7,7 +7,6 @@ import PhaseTimeline from "@/components/case-study/PhaseTimeline";
 import { type Phase } from "@/components/case-study/PhaseTimeline";
 import EvidenceModule from "@/components/case-study/EvidenceModule";
 import AnnotatedFigure from "@/components/case-study/AnnotatedFigure";
-import OutcomeCards, { type OutcomeTier } from "@/components/case-study/OutcomeCards";
 import PrevNextNav from "@/components/case-study/PrevNextNav";
 import { getProject, projects } from "@/lib/projects";
 
@@ -63,36 +62,6 @@ const decisions: Phase[] = [
     number: "04",
     name: "Create a scalable operating model for administration",
     description: "Roles, onboarding, and team admin at network scale",
-  },
-];
-
-const outcomeTiers: OutcomeTier[] = [
-  {
-    category: "OPERATIONAL",
-    items: [
-      "Routine configuration owned by business teams — not engineering queues",
-      "Self-service transaction visibility at production scale",
-      "Unified workflows across monitoring, reconciliation, and administration",
-      "80% task success · NPS 3.4 → 4.6 · ↓40% onboarding · ↓30% support interventions",
-    ],
-  },
-  {
-    category: "BUSINESS",
-    items: [
-      "$1M+ — Annual savings from vendor elimination",
-      "2× — Transaction throughput (10k → 20k per minute)",
-      "↓50% — Settlement time (4s → 2s)",
-      "↓30% — OpEx ($500k → $350k)",
-    ],
-  },
-  {
-    category: "STRATEGIC",
-    items: [
-      "₦89.7B+ — Verified production volume (last financial year)",
-      "Unified financial infrastructure — no third-party platform dependency",
-      "Fetswallet Congo — White-label deployment",
-      "Licensing opportunities from external fintechs",
-    ],
   },
 ];
 
@@ -482,16 +451,12 @@ export default function FetsprozaFlagshipCaseStudy() {
         </p>
 
         <div style={{ marginTop: 28 }}>
-          <OutcomeCards tiers={outcomeTiers} />
-        </div>
-
-        <div style={{ marginTop: 28 }}>
           <AnnotatedFigure
             figure={0}
-            label="Verified production outcomes"
+            label="Impact outcomes"
             imageSrc="/assets/work/fetsproza/block-outcome.png"
-            imageAlt="Verified production metrics — cost, throughput, operator experience, and volume at scale"
-            caption="Production dashboard metrics across operational, business, and strategic outcomes."
+            imageAlt="FetsProza impact — operational, business, and strategic outcomes with CTO validation"
+            caption=""
             decisionNotes={[]}
             imageOnly
           />
@@ -501,24 +466,6 @@ export default function FetsprozaFlagshipCaseStudy() {
           Together, these improvements enabled FETS to evolve its financial operations on a unified enterprise platform
           rather than depend on fragmented vendor systems.
         </p>
-
-        <blockquote
-          style={{
-            marginTop: 28,
-            marginBottom: 0,
-            padding: 0,
-            border: "none",
-            maxWidth: 760,
-          }}
-        >
-          <p style={{ fontSize: 15, color: "var(--fg-muted)", fontStyle: "italic", lineHeight: 1.7, margin: 0 }}>
-            &quot;John demonstrated deep systems thinking and product leadership throughout FetsProza&apos;s redesign,
-            translating complex financial operations into intuitive, scalable systems.&quot;
-          </p>
-          <footer style={{ marginTop: 10, fontSize: 12, color: "var(--fg-subtle)" }}>
-            — Clement Asibeluo, Chief Technology Officer, Fets
-          </footer>
-        </blockquote>
       </section>
 
       <section id="reflection" style={{ maxWidth: 1240, margin: "0 auto", padding: "56px 24px 48px" }}>
