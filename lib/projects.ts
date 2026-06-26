@@ -187,8 +187,8 @@ export const projects: Project[] = [
         {
           src: "/assets/work/seamkit/preview-16x9.png",
           alt: "SeamKit enterprise design system case study header",
-          width: 2560,
-          height: 1544,
+          width: 1024,
+          height: 608,
         },
         {
           src: "/assets/work/seamkit/block-token-hierarchy.png",
@@ -200,8 +200,8 @@ export const projects: Project[] = [
       hero: {
         src: "/assets/work/seamkit/preview-16x9.png",
         alt: "SeamKit enterprise design system case study header",
-        width: 2560,
-        height: 1544,
+        width: 1024,
+        height: 608,
       },
       blocks: [
         {
