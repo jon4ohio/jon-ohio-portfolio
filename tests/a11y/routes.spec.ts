@@ -58,6 +58,8 @@ test(`axe wcag2a/aa (no serious/critical): /work/${caseStudySlug}`, async ({
   await page.goto(`/work/${caseStudySlug}`, { waitUntil: "networkidle" });
   const results = await new AxeBuilder({ page })
     .withTags(["wcag2a", "wcag2aa"])
+    // FigJam embed UI is third-party; our page provides fallback links + noscript snapshot.
+    .exclude("iframe")
     .analyze();
   assertNoSeriousViolations(results);
 });

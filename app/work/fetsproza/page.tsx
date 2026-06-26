@@ -502,9 +502,9 @@ export default function FetsprozaFlagshipCaseStudy() {
         <div style={{ marginTop: 28 }}>
           <AnnotatedFigure
             figure={0}
-            label="Impact outcomes"
+            label="Verified production outcomes"
             imageSrc="/assets/work/fetsproza/block-outcome.png"
-            imageAlt="FetsProza impact — operational, business, and strategic outcomes with CTO validation"
+            imageAlt="Verified production metrics — cost, throughput, and volume at scale"
             caption=""
             decisionNotes={[]}
             imageOnly
