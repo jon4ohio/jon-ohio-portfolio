@@ -313,9 +313,13 @@ export default function SeamkitFlagshipCaseStudy() {
           <AnnotatedFigure
             figure={1}
             label="Research workshop"
-            imageSrc="/assets/work/seamkit/block-research-figjam.png"
-            imageAlt="Collaborative workshop UI audit session on FigJam"
-            caption="Snapshot of the collaborative workshop UI audit session on FigJam."
+            embedSrc="https://embed.figma.com/board/BY9DCmOCYTrV1GoQVY6O5V/Design-Jam---DS-Components?node-id=0-1&embed-host=share"
+            embedTitle="Design Jam — DS Components collaborative UI audit on FigJam"
+            embedChrome="figjam"
+            fallbackImageSrc="/assets/work/seamkit/block-research-figjam.png"
+            fallbackImageAlt="Collaborative workshop UI audit session on FigJam"
+            embedBoardHref="https://www.figma.com/board/BY9DCmOCYTrV1GoQVY6O5V/Design-Jam---DS-Components"
+            caption="Collaborative UI audit workshop on FigJam — pan and zoom to explore the session."
             hideDecisionNotes
           />
         </div>
