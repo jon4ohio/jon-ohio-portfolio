@@ -1,8 +1,21 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { projects } from "@/lib/projects";
+import { THEME_STORAGE_KEY } from "@/components/theme";
 
 const staticPaths = ["/", "/work", "/thinking", "/about", "/leadership"];
+
+/** Pin warm theme so axe runs are deterministic (layout default; avoids time-of-day fallback). */
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript((key) => {
+    try {
+      window.localStorage.setItem(key, "warm");
+    } catch {
+      /* private mode */
+    }
+    document.documentElement.dataset.theme = "warm";
+  }, THEME_STORAGE_KEY);
+});
 
 const caseStudySlug = projects[0]?.slug;
 if (!caseStudySlug) {

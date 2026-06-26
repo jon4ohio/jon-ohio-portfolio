@@ -385,10 +385,11 @@ export default function SeamkitFlagshipCaseStudy() {
               }}
             >
               <div
+                aria-hidden="true"
                 style={{
                   fontSize: 48,
                   fontWeight: 800,
-                  color: "color-mix(in oklab, var(--border), var(--fg) 10%)",
+                  color: "var(--fg-muted)",
                   lineHeight: 1,
                 }}
               >
