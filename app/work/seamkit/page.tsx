@@ -7,14 +7,13 @@ import PhaseTimeline from "@/components/case-study/PhaseTimeline";
 import { type Phase } from "@/components/case-study/PhaseTimeline";
 import AnnotatedFigure from "@/components/case-study/AnnotatedFigure";
 import OutcomeCards, { type OutcomeTier } from "@/components/case-study/OutcomeCards";
-import UnlockPanel from "@/components/case-study/UnlockPanel";
 import PrevNextNav from "@/components/case-study/PrevNextNav";
 import { getProject, projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Seamkit — John Ohio",
   description:
-    "Built fragmented UI libraries into a governed enterprise design system — scaling consistency across 12 product teams through token architecture, governance, and shared system adoption.",
+    "How SeamKit gave a growing enterprise product organization a shared operating foundation — scaling design and engineering delivery across 12 teams without fragmenting.",
   alternates: { canonical: "/work/seamkit" },
 };
 
@@ -24,7 +23,7 @@ const chapters: Chapter[] = [
   { id: "tensions", label: "03 Tensions" },
   { id: "evidence", label: "04 Evidence in Practice" },
   { id: "outcomes", label: "05 Outcomes" },
-  { id: "unlocks", label: "06 Designed to Evolve" },
+  { id: "unlocks", label: "06 Reflection" },
 ];
 
 const layers: Phase[] = [
@@ -71,6 +70,7 @@ const outcomeTiers: OutcomeTier[] = [
       "443K   — Component insertions",
       "88.9   — Adoption score (sustained usage, not bursts)",
       "91.1   — Trust score (system trust across teams)",
+      "57     — NPS (no detractors)",
       "80%    — Designers and engineers report daily reliance",
       "12     — Product teams aligned on a shared baseline",
     ],
@@ -172,6 +172,9 @@ function TransformationStrip() {
 
   return (
     <div style={{ maxWidth: 1240, margin: "40px auto 0", padding: "0 24px" }}>
+      <p style={{ fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.7, maxWidth: 720, marginBottom: 24 }}>
+        At the system level, six parallel libraries became one governed stack.
+      </p>
       <div
         style={{
           display: "grid",
@@ -256,8 +259,9 @@ export default function SeamkitFlagshipCaseStudy() {
         microLabel="SeamlessHR · Dec 2023 – Present"
         title={project.title}
         subtitle={project.subtitle}
-        thesis="Unifying fragmented UI systems into a governed enterprise design system."
-        abstract=""
+        thesisLead="The organization could scale product delivery without fragmenting — through a shared operating foundation for design and engineering."
+        thesis="As SeamlessHR's suite grew, local libraries turned every platform change into a coordination problem. Design and engineering decisions needed a structure that could travel across teams."
+        abstract="I led SeamKit as the shared operating foundation for product teams, creating a common way for design and engineering to build, evolve, and scale together."
         impact={[
           { value: "12", label: "Teams aligned" },
           { value: "2.49M", label: "Token insertions" },
@@ -279,23 +283,9 @@ export default function SeamkitFlagshipCaseStudy() {
           Evidence Behind the Decision
         </h2>
         <p style={{ marginTop: 12, fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.7, maxWidth: 720 }}>
-          The goal was clear: unify fragmented UI systems into a governed enterprise design system. Stakeholder
-          interviews confirmed that local libraries had become delivery drag — not a component shortage.
+          Before any architecture was defined, user testing, library analysis, and stakeholder interviews documented
+          what the legacy ecosystem was costing delivery.
         </p>
-        <ul
-          style={{
-            marginTop: 20,
-            paddingLeft: 20,
-            fontSize: 15,
-            color: "var(--fg-body)",
-            lineHeight: 1.75,
-            maxWidth: 720,
-          }}
-        >
-          <li>User testing exposed pain points in the legacy ecosystem before any token was defined.</li>
-          <li>Library analysis across SHR DS V1, V2, and Web systems prioritized what to refactor first.</li>
-          <li>Stakeholder interviews confirmed buy-in requirements across design, engineering, and product leadership.</li>
-        </ul>
 
         <div style={{ marginTop: 32 }}>
           <AnnotatedFigure
@@ -325,14 +315,7 @@ export default function SeamkitFlagshipCaseStudy() {
         </p>
 
         <p style={{ marginTop: 18, fontSize: 15, color: "var(--fg-body)", lineHeight: 1.7, maxWidth: 780 }}>
-          Before SeamKit, designers maintained three separate Figma libraries and engineers maintained three fragmented
-          Vue UI libraries — with no shared logic between them. Delivery slowed to 14 days per feature, half of it spent
-          fixing UI inconsistencies. Engineering feedback showed 62% identifying style churn as the primary blocker, and
-          brand review confirmed 70% of screens failed to reflect the new identity.
-          <br />
-          <br />
-          The problem wasn&apos;t a shortage of components. It was that design decisions had no structure that could
-          travel across teams.
+          The problem wasn&apos;t component shortage — design decisions had no structure that could travel across teams.
         </p>
 
         <div className="case-study-tension-grid" style={{ display: "flex", gap: 16, marginTop: 28 }}>
@@ -502,7 +485,7 @@ export default function SeamkitFlagshipCaseStudy() {
                   label="Component library"
                   imageSrc="/assets/work/seamkit/block-component-library.png"
                   imageAlt="Snapshot of Seamkit component file"
-                  caption="Snapshot of the Seamkit component file."
+                  caption="Shared component foundations consumed across product teams."
                   decisionNotes={[
                     "Component-level overrides were scoped explicitly, preventing semantic tokens from becoming exceptions",
                     "Foundations designed to support multiple product teams without needing bespoke variants per team",
@@ -514,7 +497,7 @@ export default function SeamkitFlagshipCaseStudy() {
                   label="Library analytics"
                   imageSrc="/assets/work/seamkit/block-library-analytics.png"
                   imageAlt="Library analytics — components, usage, and activities"
-                  caption="Library analytics showing total number of components, usage and activities."
+                  caption="Library analytics validating production reuse."
                   hideDecisionNotes
                 />
                 <AnnotatedFigure
@@ -522,7 +505,7 @@ export default function SeamkitFlagshipCaseStudy() {
                   label="Documentation platform"
                   imageSrc="/assets/work/seamkit/block-docs-platform.png"
                   imageAlt="Seamkit documentation platform and Design at SeamlessHR"
-                  caption="Seamkit documentation platform for components and perspective into Design at SeamlessHR."
+                  caption="Documentation as the operational source of truth."
                   hideDecisionNotes
                 />
               </div>
@@ -652,21 +635,64 @@ export default function SeamkitFlagshipCaseStudy() {
         <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
           What the system enabled
         </h2>
-        <OutcomeCards tiers={outcomeTiers} />
-        <p style={{ marginTop: 18, fontSize: 14, color: "var(--fg-body)", lineHeight: 1.7, maxWidth: 780 }}>
-          Platform-wide updates — brand identity, accessibility compliance — now propagate through one layer.
-          Coordination overhead dropped to exception handling.
+        <p
+          style={{
+            marginTop: 12,
+            fontSize: 16,
+            fontWeight: 600,
+            color: "var(--fg-body)",
+            lineHeight: 1.75,
+            maxWidth: 720,
+          }}
+        >
+          The operating model had become the default starting point for new product work.
         </p>
+        <div style={{ marginTop: 24 }}>
+          <OutcomeCards tiers={outcomeTiers} />
+        </div>
       </section>
 
-      <UnlockPanel
-        label="06 Designed to Evolve"
-        items={[
-          "A brand or compliance update now touches one layer and propagates across the suite — no per-team coordination as the default.",
-          "Because the system is token-driven and extensible, it establishes groundwork for emerging AI interaction patterns as those patterns mature across the suite.",
-          "The system absorbs change without structural rewrites — whether brand updates, accessibility requirements, or new interaction models as they mature across the suite.",
-        ]}
-      />
+      <section
+        id="unlocks"
+        style={{
+          marginTop: 80,
+          background: "var(--surface-subtle)",
+          padding: "80px 24px",
+        }}
+      >
+        <div style={{ maxWidth: 1240, margin: "0 auto" }}>
+          <div style={{ maxWidth: 680 }}>
+            <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
+              06 Reflection
+            </p>
+            <p
+              style={{
+                marginTop: 24,
+                fontSize: 16,
+                color: "var(--fg-body)",
+                lineHeight: 1.75,
+                marginBottom: 0,
+              }}
+            >
+              Design systems become infrastructure when organizations stop thinking about them as libraries and start
+              relying on them as operating foundations. At that point, growth no longer tests whether the system works —
+              it reveals where it needs to evolve.
+            </p>
+            <p
+              style={{
+                marginTop: 32,
+                fontSize: 18,
+                fontWeight: 600,
+                color: "var(--fg)",
+                lineHeight: 1.6,
+                marginBottom: 0,
+              }}
+            >
+              The system was being stretched because it worked.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <PrevNextNav prev={prev} next={next} />
     </div>
