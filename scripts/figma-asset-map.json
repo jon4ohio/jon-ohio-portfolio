@@ -52,12 +52,14 @@
     },
     {
       "slug": "seamkit",
+      "notes": "2026-06-26 alignment review: nodes 29654:257*, 29582:31330, 29659:24990, 29571:31862 removed in Figma file reorg. On-disk PNGs remain canonical until nodes are re-mapped in Section 1.",
       "assets": [
         {
           "id": "29582:31330",
           "out": "preview-16x9.png",
           "designWidth": 1280,
-          "designHeight": 772
+          "designHeight": 772,
+          "status": "stale-node"
         },
         {
           "id": "2496:10214",
@@ -69,61 +71,71 @@
           "id": "29632:48786",
           "out": "block-research-figjam.png",
           "designWidth": 1128,
-          "designHeight": 635
+          "designHeight": 635,
+          "status": "stale-node"
         },
         {
           "id": "29654:25767",
           "out": "block-token-hierarchy.png",
           "designWidth": 680,
-          "designHeight": 325
+          "designHeight": 325,
+          "status": "stale-node"
         },
         {
           "id": "29654:25774",
           "out": "block-token-studio.png",
           "designWidth": 668,
-          "designHeight": 401
+          "designHeight": 401,
+          "status": "stale-node"
         },
         {
           "id": "29654:25761",
           "out": "block-token-intro.png",
           "designWidth": 688,
-          "designHeight": 206
+          "designHeight": 206,
+          "status": "stale-node"
         },
         {
           "id": "29654:25741",
           "out": "brand-system.png",
           "designWidth": 732,
-          "designHeight": 615
+          "designHeight": 615,
+          "status": "stale-node"
         },
         {
           "id": "29659:24990",
           "out": "block-governance.png",
           "designWidth": 668,
-          "designHeight": 429
+          "designHeight": 429,
+          "status": "stale-node"
         },
         {
           "id": "29632:48693",
           "out": "block-adoption-analytics.png",
           "designWidth": 668,
-          "designHeight": 522
+          "designHeight": 522,
+          "status": "stale-node"
         },
         {
           "id": "29571:31862",
           "out": "block-component-library.png",
           "designWidth": 668,
-          "designHeight": 401
+          "designHeight": 401,
+          "status": "stale-node"
         },
         {
           "id": "29654:25782",
           "out": "block-library-analytics.png",
           "designWidth": 668,
-          "designHeight": 401
+          "designHeight": 401,
+          "status": "stale-node"
         },
         {
           "id": "29654:25788",
           "out": "block-docs-platform.png",
           "designWidth": 732,
-          "designHeight": 618
+          "designHeight": 618,
+          "status": "stale-node"
         }
       ]
     },
