@@ -130,24 +130,46 @@ function RhythmBlock({ label, children }: { label: string; children: React.React
 }
 
 function DecisionBlocks({ items, label = "Decision" }: { items: string[]; label?: string }) {
+  if (items.length === 0) return null;
+
   return (
-    <div style={{ marginTop: 24, display: "flex", flexDirection: "column", gap: 14 }}>
-      {items.map((item) => (
-        <div
-          key={item}
-          style={{
-            borderLeft: "2px solid var(--border)",
-            padding: "12px 16px",
-            background: "var(--surface)",
-            borderRadius: 6,
-          }}
-        >
-          <Micro>{label}</Micro>
-          <p style={{ marginTop: 8, fontSize: 15, fontWeight: 500, color: "var(--fg-body)", lineHeight: 1.75, margin: "8px 0 0" }}>
+    <div
+      style={{
+        marginTop: 24,
+        borderLeft: "2px solid var(--border)",
+        padding: "12px 16px",
+        background: "var(--surface)",
+        borderRadius: 6,
+      }}
+    >
+      <Micro>{label}</Micro>
+      <ul
+        style={{
+          marginTop: 12,
+          paddingLeft: 0,
+          listStyle: "none",
+          display: "flex",
+          flexDirection: "column",
+          gap: 10,
+        }}
+      >
+        {items.map((item, i) => (
+          <li
+            key={`${label}-${i}`}
+            style={{
+              fontSize: 15,
+              fontWeight: 500,
+              color: "var(--fg-body)",
+              lineHeight: 1.75,
+              paddingLeft: 16,
+              position: "relative",
+            }}
+          >
+            <span style={{ position: "absolute", left: 0, color: "var(--fg-subtle)" }}>·</span>
             {item}
-          </p>
-        </div>
-      ))}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

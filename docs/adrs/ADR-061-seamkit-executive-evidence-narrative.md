@@ -85,6 +85,7 @@ Chapter nav: `01 Brief · 02 Evidence · 03 Tensions · 04 Evidence in Practice 
 ## Related ADRs
 
 - ADR-052 — superseded (placeholder containers no longer needed)
+- ADR-062 — follow-up: validation findings grouped in one labeled block (presentation only; stats unchanged)
 - ADR-028 — depends on: PNG evidence asset pattern
 - ADR-042 — depends on: static route override for flagship case studies
 - ADR-058 — constrains: future SeamKit chapter relabel migration
