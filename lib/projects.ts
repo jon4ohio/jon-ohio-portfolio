@@ -185,7 +185,7 @@ export const projects: Project[] = [
     assets: {
       thumbnails: [
         {
-          src: "/assets/work/seamkit/preview-16x9.png",
+          src: "/assets/work/seamkit/preview-hero.png",
           alt: "SeamKit enterprise design system case study header",
           width: 1024,
           height: 608,
@@ -198,7 +198,7 @@ export const projects: Project[] = [
         },
       ],
       hero: {
-        src: "/assets/work/seamkit/preview-16x9.png",
+        src: "/assets/work/seamkit/preview-hero.png",
         alt: "SeamKit enterprise design system case study header",
         width: 1024,
         height: 608,

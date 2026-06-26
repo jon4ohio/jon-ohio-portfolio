@@ -454,7 +454,7 @@ export default function SeamkitFlagshipCaseStudy() {
                   decisionLabel="Decision"
                 />
               </div>
-              <div style={{ marginTop: 32, maxWidth: 520 }}>
+              <div style={{ marginTop: 32 }}>
                 <AnnotatedFigure
                   figure={3}
                   label="Token Studio"

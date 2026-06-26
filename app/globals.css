@@ -159,7 +159,7 @@
   --jop-bg-asset-chrome: rgba(248, 248, 246, 0.75);
 
   --jop-figjam-embed-bg: var(--jop-color-violet-20);
-  --jop-figjam-embed-border: var(--jop-color-violet-40);
+  --jop-figjam-embed-border: color-mix(in oklab, var(--jop-color-violet-40) 45%, var(--jop-border-subtle));
 }
 
 :root[data-theme="light"] {
@@ -259,7 +259,7 @@
   --jop-bg-asset-chrome: rgba(255, 255, 255, 0.75);
 
   --jop-figjam-embed-bg: var(--jop-color-violet-20);
-  --jop-figjam-embed-border: var(--jop-color-violet-40);
+  --jop-figjam-embed-border: color-mix(in oklab, var(--jop-color-violet-40) 45%, var(--jop-border-subtle));
 }
 
 :root[data-theme="dark"] {
@@ -359,7 +359,7 @@
   --jop-bg-asset-chrome: rgba(35, 40, 48, 0.78);
 
   --jop-figjam-embed-bg: color-mix(in oklab, var(--jop-color-violet-100) 35%, var(--jop-color-slate-10));
-  --jop-figjam-embed-border: var(--jop-color-violet-80);
+  --jop-figjam-embed-border: color-mix(in oklab, var(--jop-color-violet-80) 30%, var(--jop-border-subtle));
 }
 
 /* Compatibility aliases for existing components */

@@ -56,7 +56,7 @@
       "assets": [
         {
           "id": "29582:31330",
-          "out": "preview-16x9.png",
+          "out": "preview-hero.png",
           "designWidth": 1280,
           "designHeight": 772,
           "status": "stale-node"
