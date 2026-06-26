@@ -73,26 +73,23 @@ export default function AnnotatedFigure({
     <div>
       {frame}
       <div style={{ marginTop: 16 }}>
-        <span
-          style={{
-            fontSize: 11,
-            textTransform: "uppercase",
-            letterSpacing: "0.08em",
-            color: "var(--fg-subtle)",
-          }}
-        >
-          Figure {figureText}
-        </span>
-        <p
-          style={{
-            fontSize: 13,
-            color: "var(--fg-muted)",
-            lineHeight: 1.6,
-            fontStyle: "italic",
-            marginTop: 4,
-          }}
-        >
-          {caption}
+        <p style={{ margin: 0, fontSize: 13, lineHeight: 1.6 }}>
+          <span
+            style={{
+              fontSize: 11,
+              textTransform: "uppercase",
+              letterSpacing: "0.08em",
+              color: "var(--fg-subtle)",
+            }}
+          >
+            Figure {figureText}
+          </span>
+          {caption ? (
+            <>
+              {" — "}
+              <span style={{ color: "var(--fg-muted)", fontStyle: "italic" }}>{caption}</span>
+            </>
+          ) : null}
         </p>
 
         {decisionNotes.length > 0 && !hideDecisionNotes ? (
