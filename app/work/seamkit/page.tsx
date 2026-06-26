@@ -13,7 +13,7 @@ import { getProject, projects } from "@/lib/projects";
 export const metadata: Metadata = {
   title: "Seamkit — John Ohio",
   description:
-    "How SeamKit gave a growing enterprise product organization a shared operating foundation — scaling design and engineering delivery across 12 teams without fragmenting.",
+    "How SeamKit became the operating foundation that let a growing enterprise product suite scale design and engineering decisions across products, platforms, and releases — without fragmenting.",
   alternates: { canonical: "/work/seamkit" },
 };
 
@@ -130,24 +130,46 @@ function RhythmBlock({ label, children }: { label: string; children: React.React
 }
 
 function DecisionBlocks({ items, label = "Decision" }: { items: string[]; label?: string }) {
+  if (items.length === 0) return null;
+
   return (
-    <div style={{ marginTop: 24, display: "flex", flexDirection: "column", gap: 14 }}>
-      {items.map((item) => (
-        <div
-          key={item}
-          style={{
-            borderLeft: "2px solid var(--border)",
-            padding: "12px 16px",
-            background: "var(--surface)",
-            borderRadius: 6,
-          }}
-        >
-          <Micro>{label}</Micro>
-          <p style={{ marginTop: 8, fontSize: 15, fontWeight: 500, color: "var(--fg-body)", lineHeight: 1.75, margin: "8px 0 0" }}>
+    <div
+      style={{
+        marginTop: 24,
+        borderLeft: "2px solid var(--border)",
+        padding: "12px 16px",
+        background: "var(--surface)",
+        borderRadius: 6,
+      }}
+    >
+      <Micro>{label}</Micro>
+      <ul
+        style={{
+          marginTop: 12,
+          paddingLeft: 0,
+          listStyle: "none",
+          display: "flex",
+          flexDirection: "column",
+          gap: 10,
+        }}
+      >
+        {items.map((item, i) => (
+          <li
+            key={`${label}-${i}`}
+            style={{
+              fontSize: 15,
+              fontWeight: 500,
+              color: "var(--fg-body)",
+              lineHeight: 1.75,
+              paddingLeft: 16,
+              position: "relative",
+            }}
+          >
+            <span style={{ position: "absolute", left: 0, color: "var(--fg-subtle)" }}>·</span>
             {item}
-          </p>
-        </div>
-      ))}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -259,9 +281,9 @@ export default function SeamkitFlagshipCaseStudy() {
         microLabel="SeamlessHR · Dec 2023 – Present"
         title={project.title}
         subtitle={project.subtitle}
-        thesisLead="The organization could scale product delivery without fragmenting — through a shared operating foundation for design and engineering."
-        thesis="As SeamlessHR's suite grew, local libraries turned every platform change into a coordination problem. Design and engineering decisions needed a structure that could travel across teams."
-        abstract="I led SeamKit as the shared operating foundation for product teams, creating a common way for design and engineering to build, evolve, and scale together."
+        thesisLead="Designing the operating foundation that allowed a growing enterprise product suite to scale without fragmenting design and engineering decisions."
+        thesis="As SeamlessHR's product suite expanded, locally managed design and engineering libraries turned every change into a coordination problem. Teams needed a shared operating foundation that could scale design decisions consistently across products, platforms, and releases."
+        abstract="As Design Systems Lead, I led the creation of SeamKit—establishing a common operating foundation that enabled product teams to build, evolve, and scale together."
         impact={[
           { value: "12", label: "Teams aligned" },
           { value: "2.49M", label: "Token insertions" },

@@ -94,7 +94,7 @@ export const projects: Project[] = [
     company: "SeamlessHR",
     period: "Dec 2023 – Present",
     summary:
-      "Enabled a growing enterprise organization to scale product delivery through a shared operating foundation — aligning 12 product teams on a common way to build, evolve, and ship.",
+      "Designed the operating foundation that enabled a growing enterprise product suite to scale without fragmenting design and engineering decisions.",
     role: "Design Systems Lead · DesignOps",
     scope:
       "Token architecture, component foundations, governance model, documentation, adoption strategy, and system health across the product organisation.",

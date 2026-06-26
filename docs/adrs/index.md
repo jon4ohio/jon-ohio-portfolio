@@ -55,5 +55,6 @@
 | 059 | FetsProza orchestration-first narrative and editorial polish | Accepted | 2026-06-25 | None |
 | 060 | Stable production origin for indexable SEO surfaces | Accepted | 2026-06-25 | None |
 | 061 | SeamKit executive evidence narrative and Figma asset sync | Accepted | 2026-06-25 | ADR-052 |
+| 062 | SeamKit grouped validation findings block | Accepted | 2026-06-26 | None |
 
 Chronological audit notes: [`LOG.md`](./LOG.md).
