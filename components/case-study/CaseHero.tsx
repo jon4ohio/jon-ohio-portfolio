@@ -1,6 +1,9 @@
 import Link from "next/link";
 import AnnotatedFigure from "@/components/case-study/AnnotatedFigure";
 
+/** Flagship hero prose measure — aligns with ADR-042 1240/760 layout band. */
+const NARRATIVE_MAX_WIDTH = 760;
+
 export type CaseHeroMetric = { value: string; label: string };
 
 export type CaseHeroProps = {
@@ -64,7 +67,7 @@ export default function CaseHero({
         <p
           style={{
             marginTop: 24,
-            maxWidth: 640,
+            maxWidth: NARRATIVE_MAX_WIDTH,
             fontSize: 20,
             lineHeight: 1.6,
             fontWeight: 600,
@@ -78,7 +81,7 @@ export default function CaseHero({
       <p
         style={{
           marginTop: thesisLead ? 16 : 24,
-          maxWidth: 640,
+          maxWidth: NARRATIVE_MAX_WIDTH,
           fontSize: 20,
           lineHeight: 1.6,
           fontWeight: 500,
@@ -91,7 +94,7 @@ export default function CaseHero({
       <p
         style={{
           marginTop: 16,
-          maxWidth: 600,
+          maxWidth: NARRATIVE_MAX_WIDTH,
           fontSize: 16,
           lineHeight: 1.75,
           fontWeight: 400,
