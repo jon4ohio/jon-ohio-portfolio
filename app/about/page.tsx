@@ -11,7 +11,7 @@ import {
   operatingPrinciplesLabel,
   type NarrativeBlock,
 } from "@/lib/aboutNarrative";
-import { positioningLine } from "@/lib/sitePositioning";
+import { aboutPositioningLine } from "@/lib/sitePositioning";
 import {
   communityCards,
   communityPullQuote,
@@ -112,7 +112,7 @@ export default function About() {
                 maxWidth: 640,
               }}
             >
-              {positioningLine}
+              {aboutPositioningLine}
             </p>
             <p
               style={{

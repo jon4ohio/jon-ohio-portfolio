@@ -335,25 +335,26 @@ export const projects: Project[] = [
     tags: ["Design Systems", "ATS", "Enterprise SaaS", "AI/ML", "DesignOps"],
     featured: true,
     assets: {
+      previewFlat: true,
       thumbnails: [
         {
-          src: "/assets/work/seamless-hiring/preview-16x9.png",
+          src: "/assets/work/seamless-hiring/preview-hero.png",
           alt: "SeamlessHiring 2.0 case study header with RMS dashboard preview",
-          width: 3024,
-          height: 1701,
+          width: 2384,
+          height: 1440,
         },
         {
           src: "/assets/work/seamless-hiring/thumb-2.png",
           alt: "Product screenshots from the SeamlessHiring case study",
-          width: 2196,
-          height: 1304,
+          width: 1464,
+          height: 871,
         },
       ],
       hero: {
-        src: "/assets/work/seamless-hiring/preview-16x9.png",
+        src: "/assets/work/seamless-hiring/preview-hero.png",
         alt: "SeamlessHiring 2.0 case study header with RMS dashboard preview",
-        width: 3024,
-        height: 1701,
+        width: 2384,
+        height: 1440,
       },
       blocks: [
         {
@@ -363,8 +364,8 @@ export const projects: Project[] = [
           image: {
             src: "/assets/work/seamless-hiring/block-cover.png",
             alt: "Slide from the SeamlessHiring portfolio presentation",
-            width: 2196,
-            height: 1002,
+            width: 2384,
+            height: 990,
             caption: "Portfolio narrative slide from the SeamlessHiring rebuild.",
           },
         },
@@ -375,8 +376,8 @@ export const projects: Project[] = [
           image: {
             src: "/assets/work/seamless-hiring/block-pain-points.png",
             alt: "Pain point discovery — interviews, synthesis, and key insights",
-            width: 2196,
-            height: 2312,
+            width: 1464,
+            height: 1651,
             caption: "Research-led problem framing: what broke down for recruiters and applicants.",
           },
         },
@@ -389,15 +390,15 @@ export const projects: Project[] = [
             {
               src: "/assets/work/seamless-hiring/block-gallery-1.png",
               alt: "TL;DR metrics table — SeamlessHiring measurable impact",
-              width: 2196,
-              height: 966,
+              width: 1464,
+              height: 647,
               caption: "Impact snapshot (TL;DR section).",
             },
             {
               src: "/assets/work/seamless-hiring/thumb-2.png",
               alt: "Overlapping mobile and desktop UI from the case study",
-              width: 2196,
-              height: 1304,
+              width: 1464,
+              height: 871,
               caption: "Key UI explorations from the phased rollout.",
             },
           ],
@@ -409,8 +410,8 @@ export const projects: Project[] = [
           image: {
             src: "/assets/work/seamless-hiring/block-journey.png",
             alt: "Revisiting the customer journey map after research and phased delivery",
-            width: 2196,
-            height: 788,
+            width: 1464,
+            height: 528,
             caption: "Journey alignment as roadmap phases and governance landed.",
           },
         },

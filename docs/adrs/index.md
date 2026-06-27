@@ -65,5 +65,6 @@
 | 069 | Evidence review experience | Accepted | 2026-06-26 | None |
 | 070 | Soft light theme (Framer-inspired palette, warm removal) | Accepted | 2026-06-26 | None |
 | 071 | FetsProza evidence shader chrome and flat preview thumbnail | Accepted | 2026-06-27 | None |
+| 072 | About page narrative refresh and decoupled headline | Accepted | 2026-06-27 | None |
 
 Chronological audit notes: [`LOG.md`](./LOG.md).

@@ -122,8 +122,10 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           { value: "↓50%", label: "Support volume" },
         ]}
         heroImage={{
-          src: "/assets/work/seamless-hiring/preview-16x9.png",
+          src: "/assets/work/seamless-hiring/preview-hero-media.png",
           alt: "SeamlessHiring 2.0 product overview",
+          embedChrome: "evidence",
+          chromeSize: "hero",
         }}
         executiveBrief={project.brief}
       />
@@ -158,6 +160,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         <AnnotatedFigure
           figure="B"
           label="Before State — Faulty UI"
+          imageSrc="/assets/work/seamless-hiring/block-before-state.png"
           imageAlt="SeamlessHiring before redesign — broken application flow and navigation"
           caption="The experience before redesign. Navigation misrouted core tasks, evaluation had no system surface, and permission models blocked enterprise use cases."
           decisionNotes={[

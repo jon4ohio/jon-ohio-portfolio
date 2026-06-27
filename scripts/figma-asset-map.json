@@ -5,48 +5,104 @@
   "projects": [
     {
       "slug": "seamless-hiring",
+      "notes": "2026-06-27 alignment: frame 29697:38302 (SeamlessHiring — John Ohio). No GIF fills.",
       "assets": [
         {
           "id": "2476:15705",
           "out": "hero.png",
           "designWidth": 1512,
-          "designHeight": 1049
+          "designHeight": 1049,
+          "status": "stale-node"
         },
         {
           "id": "2476:14136",
           "out": "thumb-1.png",
           "designWidth": 1512,
-          "designHeight": 717
+          "designHeight": 717,
+          "status": "stale-node"
         },
         {
           "id": "2528:11461",
           "out": "thumb-2.png",
           "designWidth": 1098,
-          "designHeight": 652
+          "designHeight": 652,
+          "status": "stale-node"
         },
         {
           "id": "2528:12042",
           "out": "block-cover.png",
           "designWidth": 1098,
-          "designHeight": 501
+          "designHeight": 501,
+          "status": "stale-node"
         },
         {
           "id": "2476:14137",
           "out": "block-gallery-1.png",
           "designWidth": 1098,
-          "designHeight": 483
+          "designHeight": 483,
+          "status": "stale-node"
         },
         {
           "id": "2476:14269",
           "out": "block-pain-points.png",
           "designWidth": 1098,
-          "designHeight": 1156
+          "designHeight": 1156,
+          "status": "stale-node"
         },
         {
           "id": "2476:14320",
           "out": "block-journey.png",
           "designWidth": 1098,
-          "designHeight": 394
+          "designHeight": 394,
+          "status": "stale-node"
+        },
+        {
+          "id": "29744:55549",
+          "out": "preview-hero.png",
+          "designWidth": 1192,
+          "designHeight": 720
+        },
+        {
+          "id": "29744:55555",
+          "out": "preview-hero-media.png",
+          "designWidth": 1060,
+          "designHeight": 686
+        },
+        {
+          "id": "29744:57621",
+          "out": "block-before-state.png",
+          "designWidth": 1192,
+          "designHeight": 785
+        },
+        {
+          "id": "29697:39097",
+          "out": "block-pain-points.png",
+          "designWidth": 732,
+          "designHeight": 825
+        },
+        {
+          "id": "29697:39119",
+          "out": "thumb-2.png",
+          "designWidth": 732,
+          "designHeight": 435
+        },
+        {
+          "id": "29697:39163",
+          "out": "block-gallery-1.png",
+          "designWidth": 732,
+          "designHeight": 323
+        },
+        {
+          "id": "29697:39185",
+          "out": "block-journey.png",
+          "designWidth": 732,
+          "designHeight": 264
+        },
+        {
+          "id": "29744:57652",
+          "out": "block-cover.png",
+          "designWidth": 1192,
+          "designHeight": 495
         }
       ]
     },
