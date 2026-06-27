@@ -1,6 +1,6 @@
 import { aboutHeadline as sharedAboutHeadline, aboutCredibilityLine } from "@/lib/sitePositioning";
 
-/** About H1 — kept in sync with homepage hero via `lib/sitePositioning.ts`. */
+/** About H1 — sourced from `lib/sitePositioning.ts` (`aboutHeadline`; decoupled from homepage hero per ADR-072). */
 export const aboutHeadline = sharedAboutHeadline;
 
 export { aboutCredibilityLine };
