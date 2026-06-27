@@ -25,15 +25,6 @@ export default function FigJamEmbedFrame({
   const revealTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [embedReady, setEmbedReady] = useState(false);
 
-  useEffect(() => {
-    mountTimeRef.current = Date.now();
-    return () => {
-      if (revealTimerRef.current) {
-        clearTimeout(revealTimerRef.current);
-      }
-    };
-  }, []);
-
   const scheduleReveal = useCallback(() => {
     const mountTime = mountTimeRef.current || Date.now();
     const elapsed = Date.now() - mountTime;
@@ -48,12 +39,26 @@ export default function FigJamEmbedFrame({
     }, delay);
   }, []);
 
+  useEffect(() => {
+    mountTimeRef.current = Date.now();
+    const fallbackReveal = setTimeout(() => {
+      scheduleReveal();
+    }, 4000);
+    return () => {
+      clearTimeout(fallbackReveal);
+      if (revealTimerRef.current) {
+        clearTimeout(revealTimerRef.current);
+      }
+    };
+  }, [scheduleReveal]);
+
   const showPlaceholder = Boolean(fallbackImageSrc) && !embedReady;
 
   const stageStyle = {
     position: "relative" as const,
     width: "100%",
     aspectRatio: "16 / 9",
+    background: "#ffffff",
   };
 
   const layerTransition = `opacity ${FADE_MS}ms ease`;
@@ -72,11 +77,11 @@ export default function FigJamEmbedFrame({
               inset: 0,
               width: "100%",
               height: "100%",
-              objectFit: "cover",
+              objectFit: "contain",
               display: "block",
               opacity: showPlaceholder ? 1 : 0,
               transition: layerTransition,
-              pointerEvents: showPlaceholder ? "auto" : "none",
+              pointerEvents: "none",
             }}
           />
         ) : null}
@@ -93,6 +98,7 @@ export default function FigJamEmbedFrame({
             border: 0,
             display: "block",
             opacity: embedReady ? 1 : 0,
+            pointerEvents: embedReady ? "auto" : "none",
             transition: layerTransition,
           }}
         />

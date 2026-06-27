@@ -5,7 +5,6 @@ import { coerceTheme, DEFAULT_THEME, THEME_STORAGE_KEY, THEMES, type ThemeName }
 
 const labels: Record<ThemeName, string> = {
   light: "Light",
-  warm: "Warm",
   dark: "Dark",
 };
 
@@ -17,25 +16,30 @@ function persistUserTheme(next: ThemeName) {
   }
 }
 
+function readThemeFromDom(): ThemeName {
+  const rootTheme = document.documentElement.dataset.theme;
+  try {
+    const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
+    return coerceTheme(storedTheme ?? rootTheme);
+  } catch {
+    return coerceTheme(rootTheme);
+  }
+}
+
 export default function ThemeToggle({ compact = false }: { compact?: boolean }) {
-  // Keep initial client render identical to SSR to avoid hydration mismatch.
   const [theme, setTheme] = useState<ThemeName>(DEFAULT_THEME);
+  const [mounted, setMounted] = useState(false);
 
   const chooseUserTheme = (next: ThemeName) => {
     setTheme(next);
     persistUserTheme(next);
   };
 
-  // Sync to `data-theme` set by ThemeScript (runs before React); must run before paint to avoid toggle flash.
+  // ThemeScript sets data-theme before hydration; defer active toggle UI until synced.
   /* eslint-disable react-hooks/set-state-in-effect -- one-shot read of DOM/localStorage after blocking head script (external system) */
   useLayoutEffect(() => {
-    const rootTheme = document.documentElement.dataset.theme;
-    try {
-      const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY);
-      setTheme(coerceTheme(storedTheme ?? rootTheme));
-    } catch {
-      setTheme(coerceTheme(rootTheme));
-    }
+    setTheme(readThemeFromDom());
+    setMounted(true);
   }, []);
   /* eslint-enable react-hooks/set-state-in-effect */
 
@@ -95,16 +99,16 @@ export default function ThemeToggle({ compact = false }: { compact?: boolean }) 
       }}
     >
       {THEMES.map((item) => {
-        const active = item === theme;
+        const active = mounted && item === theme;
         return (
           <button
             key={item}
             type="button"
             role="radio"
             className="theme-toggle-segment"
-            aria-checked={active}
+            aria-checked={mounted ? item === theme : false}
             aria-label={`Theme ${labels[item]}`}
-            tabIndex={active ? 0 : -1}
+            tabIndex={mounted ? (active ? 0 : -1) : item === DEFAULT_THEME ? 0 : -1}
             onClick={() => chooseUserTheme(item)}
             style={{
               border: "none",

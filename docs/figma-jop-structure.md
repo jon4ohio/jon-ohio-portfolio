@@ -8,8 +8,8 @@ The live file is **Portfolio_ John Ohio** (`fileKey` in [`scripts/figma-asset-ma
 
 | Collection | Modes | Contents |
 |------------|-------|----------|
-| **JOP / Primitives / Color** | `default` | `jop/primitive/color/...` — sand, grey, violet, teal, clay, slate ramps (aligned with `:root` primitives in `app/globals.css`). |
-| **JOP / Decision / Theme** | `warm`, `light`, `dark` | `jop/decision/...` — canvas, surfaces, text, borders, accents, overlays, backdrops, etc., aligned to `data-theme`. |
+| **JOP / Primitives / Color** | `default` | `jop/primitive/color/...` — sage, cream, lavender, forest, grey, violet, teal, slate ramps (aligned with `:root` primitives in `app/globals.css`). |
+| **JOP / Decision / Theme** | `light`, `dark` | `jop/decision/...` — canvas, surfaces, text, borders, accents, overlays, backdrops, etc., aligned to `data-theme`. |
 | **JOP / Layout / Space** | `default` | `jop/space/1`–`7` → 4–48 px for gap and padding (see §3). |
 
 Apply **explicit variable mode** on frames when previewing non-default themes (Figma: variable mode picker per frame).
@@ -18,13 +18,13 @@ Slash-separated variable paths align with CSS:
 
 | Tier | CSS example | Figma path pattern |
 |------|----------------|-------------------|
-| Primitives | `--jop-color-sand-40` | `jop/primitive/color/sand/40` |
+| Primitives | `--jop-color-sage-40` | `jop/primitive/color/sage/40` |
 | Primitives | `--jop-color-violet-80` | `jop/primitive/color/violet/80` |
 | Decision | `--jop-text-primary` | `jop/decision/text/primary` |
 | Decision | `--jop-border-default` | `jop/decision/border/default` |
 | Decision | `--jop-accent-brand` | `jop/decision/accent/brand` |
 
-**Modes:** Create variable modes **light**, **warm**, **dark** to match `data-theme` in the app. Decision tokens change per mode; primitive ramps stay in shared collections where possible.
+**Modes:** Create variable modes **light** and **dark** to match `data-theme` in the app. Decision tokens change per mode; primitive ramps stay in shared collections where possible.
 
 **Gradients:** Store as Figma styles or variables per product policy; code uses `--jop-fill-brand-gradient` and related decision tokens—name Figma entries `jop/decision/fill/brand-gradient`, etc.
 
@@ -106,7 +106,7 @@ When moving **from Figma to code** (e.g. after **`get_design_context`** or any g
 - [ ] Color and text use **JOP** variables (primitive or decision), not one-off hex.
 - [ ] Sections and pages use **auto layout** with gap/padding from **space** variables.
 - [ ] Layers follow **Atom / Mol / Org / Section / Page** naming.
-- [ ] Light / warm / dark modes defined for decision tokens where the site differs.
+- [ ] Light / dark modes defined for decision tokens where the site differs.
 - [ ] Max content width **1240** respected for main editorial columns.
 
 **Repository (after MCP or manual handoff)**

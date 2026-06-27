@@ -16,7 +16,7 @@ import PrevNextNav from "@/components/case-study/PrevNextNav";
 import { getProject, projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
-  title: "SeamlessHiring 2.0 — John Ohio",
+  title: "SeamlessHiring 2.0",
   description:
     "A phased redesign of an underperforming recruitment product that evolved " +
     "into a flagship enterprise module — introducing AI-assisted hiring workflows " +

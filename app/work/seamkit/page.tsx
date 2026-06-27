@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import ReadingProgressBar from "@/components/case-study/ReadingProgressBar";
 import StickyChapterNav, { type Chapter } from "@/components/case-study/StickyChapterNav";
 import FlagshipOpener from "@/components/case-study/FlagshipOpener";
 import PhaseTimeline from "@/components/case-study/PhaseTimeline";
 import { type Phase } from "@/components/case-study/PhaseTimeline";
 import AnnotatedFigure from "@/components/case-study/AnnotatedFigure";
+import EvidenceImage from "@/components/case-study/evidence/EvidenceImage";
 import OutcomeCards, { type OutcomeTier } from "@/components/case-study/OutcomeCards";
 import PrevNextNav from "@/components/case-study/PrevNextNav";
 import { getProject, projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
-  title: "Seamkit — John Ohio",
+  title: "Seamkit",
   description:
     "How SeamKit became the operating foundation that let a growing enterprise product suite scale design and engineering decisions across products, platforms, and releases — without fragmenting.",
   alternates: { canonical: "/work/seamkit" },
@@ -481,12 +481,13 @@ export default function SeamkitFlagshipCaseStudy() {
               >
                 Encoding brand and communication into the system
               </p>
-              <Image
+              <EvidenceImage
                 src="/assets/work/seamkit/brand-system.png"
                 alt="SeamlessHR brand system — typography, colour palette, tone of voice, and messaging states aligned within SeamKit"
-                width={900}
-                height={500}
-                style={{ width: "100%", height: "auto", borderRadius: 6 }}
+                title="Encoding brand and communication into the system"
+                description="Brand identity, tone of voice, and messaging patterns encoded into the system — ensuring product and communication stayed consistent by default. These decisions are no longer guidelines. They are enforced through tokens and components."
+                borderless
+                imageStyle={{ borderRadius: 6 }}
               />
               <figcaption style={{ fontSize: 13, color: "var(--fg-subtle)", marginTop: 12, lineHeight: 1.6 }}>
                 Brand identity, tone of voice, and messaging patterns encoded into the system — ensuring product and

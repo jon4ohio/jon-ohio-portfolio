@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "Writing on design systems and tokens, press and interviews across African tech, and conversations on enterprise UX and AI.",
   alternates: { canonical: "/thinking" },
   openGraph: {
-    title: "Thinking — John Ohio",
+    title: "Thinking",
     description:
       "Design systems writing, media, and conversations — Substack, TechCabal, Tribune, Connected Awards, and more.",
     url: "/thinking",

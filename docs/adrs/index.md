@@ -12,7 +12,7 @@
 | 008 | ADR update gate for major pushes | Accepted | 2026-04-10 | None |
 | 009 | Full-viewport hero grid background layering | Accepted | 2026-04-10 | None |
 | 010 | Homepage hero and metrics evidence hierarchy | Accepted | 2026-04-10 | None |
-| 011 | Surface-hover token for perceptible warm-theme hovers | Accepted | 2026-04-10 | None |
+| 011 | Surface-hover token for perceptible warm-theme hovers | Superseded by ADR-070 | 2026-04-10 | ADR-070 |
 | 012 | Homepage hero headline natural wrap and decoupled About copy | Accepted | 2026-04-11 | None |
 | 013 | Playwright and axe page-level accessibility tests | Accepted | 2026-04-11 | None |
 | 014 | SystemModel Fragmented stage copy for narrow-column line breaks | Accepted | 2026-04-10 | None |
@@ -62,5 +62,8 @@
 | 066 | SeamKit Token Studio figure — full evidence column width | Accepted | 2026-06-26 | None |
 | 067 | SeamKit preview hero filename rename for `next/image` cache invalidation | Accepted | 2026-06-26 | None |
 | 068 | FigJam embed static snapshot loading placeholder | Accepted | 2026-06-26 | None |
+| 069 | Evidence review experience | Accepted | 2026-06-26 | None |
+| 070 | Soft light theme (Framer-inspired palette, warm removal) | Accepted | 2026-06-26 | None |
+| 071 | FetsProza evidence shader chrome and flat preview thumbnail | Accepted | 2026-06-27 | None |
 
 Chronological audit notes: [`LOG.md`](./LOG.md).

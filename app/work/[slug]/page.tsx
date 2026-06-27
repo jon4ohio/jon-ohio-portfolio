@@ -215,7 +215,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
           <div style={{ marginTop: 40, marginBottom: 36, paddingTop: 32, borderTop: "1px solid var(--border)" }}>
             <div className="stats-grid stats-grid--4" style={{ background: "var(--border)" }}>
               {project.metrics.map(({ value, label }) => (
-                <div key={label} className="stats-cell" style={{ background: "var(--bg)" }}>
+                <div key={label} className="stats-cell" style={{ background: "var(--surface)" }}>
                   <div style={{ fontSize: 35, fontWeight: 600, letterSpacing: "-0.03em", color: "var(--fg)" }}>{value}</div>
                   <div style={{ fontSize: 11.5, lineHeight: 1.45, color: "var(--fg-muted)", marginTop: 8 }}>{label}</div>
                 </div>

@@ -87,7 +87,7 @@ export const viewport: Viewport = {
   maximumScale: 5,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f8f8f6" },
+    { media: "(prefers-color-scheme: light)", color: "#f7faf8" },
     { media: "(prefers-color-scheme: dark)", color: "#1e2228" },
   ],
   colorScheme: "light dark",
@@ -134,7 +134,7 @@ const websiteSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-theme="warm" suppressHydrationWarning>
+    <html lang="en" data-theme="light" suppressHydrationWarning>
       <head>
         <ThemeScript />
         <script

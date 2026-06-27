@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     "Scaling design as a system, not a service. DesignOps at SeamlessHR: 12 teams aligned, 88.9 adoption, 91.1 trust, 2.49M token insertions. Governance, contribution, onboarding, capability, AI-UX layer.",
   alternates: { canonical: "/leadership" },
   openGraph: {
-    title: "Leadership & DesignOps — John Ohio",
+    title: "Leadership & DesignOps",
     description:
       "Scaling design as a system, not a service. 12 teams · 8 designers · 88.9 adoption · 91.1 trust · 2.49M token insertions.",
     url: "/leadership",

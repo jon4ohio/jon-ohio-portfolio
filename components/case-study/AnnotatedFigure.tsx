@@ -2,6 +2,14 @@ import * as React from "react";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import ArtifactPlaceholder from "@/components/case-study/ArtifactPlaceholder";
+import EvidenceChrome, {
+  mediaChromeToVariant,
+  type EvidenceChromeSize,
+  type EvidenceMediaChrome,
+} from "@/components/case-study/EvidenceChrome";
+import EvidenceGif from "@/components/case-study/evidence/EvidenceGif";
+import { isGifSrc } from "@/components/case-study/evidence/gif-utils";
+import EvidenceImage from "@/components/case-study/evidence/EvidenceImage";
 import FigJamChrome from "@/components/case-study/FigJamChrome";
 import FigJamEmbedFrame from "@/components/case-study/FigJamEmbedFrame";
 
@@ -14,8 +22,11 @@ export interface AnnotatedFigureProps {
   imageAlt?: string;
   embedSrc?: string;
   embedTitle?: string;
-  /** When set with embedSrc, applies FigJam lavender chrome wrapper */
-  embedChrome?: "figjam";
+  /** When set with embedSrc, applies FigJam lavender chrome wrapper; evidence/neutral for asset chrome */
+  embedChrome?: EvidenceMediaChrome;
+  chromeSize?: EvidenceChromeSize;
+  /** Restart GIF play sequence when scrolled into view (hero / walkthrough) */
+  restartGifOnVisible?: boolean;
   fallbackImageSrc?: string;
   fallbackImageAlt?: string;
   /** Optional link to open the live board in a new tab */
@@ -34,6 +45,11 @@ export interface AnnotatedFigureProps {
    * Useful when the parent container already provides framing.
    */
   borderless?: boolean;
+  /**
+   * When true, inline image opens the evidence review overlay on inspect.
+   * Defaults to !imageOnly — evidence figures yes; hero/next-read no.
+   */
+  reviewable?: boolean;
 }
 
 function publicAssetExists(assetSrc: string | undefined): boolean {
@@ -76,20 +92,75 @@ function EmbedFrame({
   );
 }
 
+function wrapEvidenceChromeFrame(
+  children: React.ReactNode,
+  embedChrome: EvidenceMediaChrome | undefined,
+  chromeSize: EvidenceChromeSize,
+) {
+  if (embedChrome === "evidence" || embedChrome === "neutral") {
+    return (
+      <EvidenceChrome variant={mediaChromeToVariant(embedChrome)} size={chromeSize}>
+        {children}
+      </EvidenceChrome>
+    );
+  }
+  return children;
+}
+
 function StaticImageFrame({
   imageSrc,
   imageAlt,
   label,
+  caption,
   borderless,
   embedChrome,
+  chromeSize,
+  restartGifOnVisible,
+  reviewable,
 }: {
   imageSrc: string;
   imageAlt?: string;
   label: string;
+  caption?: string;
   borderless: boolean;
-  embedChrome?: "figjam";
+  embedChrome?: EvidenceMediaChrome;
+  chromeSize: EvidenceChromeSize;
+  restartGifOnVisible: boolean;
+  reviewable: boolean;
 }) {
-  const image = (
+  const usesEvidenceChrome = embedChrome === "evidence" || embedChrome === "neutral";
+  const innerBorderless = borderless || embedChrome === "figjam" || usesEvidenceChrome;
+
+  if (reviewable) {
+    return (
+      <EvidenceImage
+        src={imageSrc}
+        alt={imageAlt ?? label}
+        title={label}
+        description={caption || undefined}
+        borderless={borderless}
+        embedChrome={embedChrome}
+        chromeSize={chromeSize}
+        restartGifOnVisible={restartGifOnVisible}
+      />
+    );
+  }
+
+  const gif = isGifSrc(imageSrc);
+  const media = gif ? (
+    <EvidenceGif
+      src={imageSrc}
+      alt={imageAlt ?? label}
+      restartOnVisible={restartGifOnVisible}
+      style={{
+        width: "100%",
+        height: "auto",
+        display: "block",
+        borderRadius: innerBorderless ? 0 : 8,
+        border: innerBorderless ? "none" : "1px solid var(--border)",
+      }}
+    />
+  ) : (
     /* eslint-disable-next-line @next/next/no-img-element */
     <img
       src={imageSrc}
@@ -98,19 +169,23 @@ function StaticImageFrame({
         width: "100%",
         height: "auto",
         display: "block",
-        borderRadius: embedChrome === "figjam" ? 0 : borderless ? 0 : 8,
-        border: embedChrome === "figjam" || borderless ? "none" : "1px solid var(--border)",
+        borderRadius: innerBorderless ? 0 : 8,
+        border: innerBorderless ? "none" : "1px solid var(--border)",
       }}
     />
   );
 
   if (embedChrome === "figjam") {
-    return <FigJamChrome>{image}</FigJamChrome>;
+    return <FigJamChrome>{media}</FigJamChrome>;
+  }
+
+  if (usesEvidenceChrome) {
+    return wrapEvidenceChromeFrame(media, embedChrome, chromeSize);
   }
 
   return (
     <div style={{ borderRadius: borderless ? 0 : 8, overflow: "hidden" }}>
-      {image}
+      {media}
     </div>
   );
 }
@@ -125,6 +200,8 @@ export default function AnnotatedFigure({
   embedSrc,
   embedTitle,
   embedChrome,
+  chromeSize = "evidence",
+  restartGifOnVisible = true,
   fallbackImageSrc,
   fallbackImageAlt,
   embedBoardHref,
@@ -132,7 +209,9 @@ export default function AnnotatedFigure({
   hideDecisionNotes = false,
   imageOnly = false,
   borderless = false,
+  reviewable: reviewableProp,
 }: AnnotatedFigureProps) {
+  const reviewable = reviewableProp ?? !imageOnly;
   const figureText = typeof figure === "number" ? String(figure).padStart(2, "0") : String(figure);
   const showImage = publicAssetExists(imageSrc);
   const showFallback = publicAssetExists(fallbackImageSrc);
@@ -156,8 +235,12 @@ export default function AnnotatedFigure({
                 imageSrc={fallbackImageSrc!}
                 imageAlt={fallbackImageAlt}
                 label={label}
+                caption={caption}
                 borderless={borderless}
                 embedChrome={embedChrome}
+                chromeSize={chromeSize}
+                restartGifOnVisible={restartGifOnVisible}
+                reviewable={false}
               />
             </noscript>
           ) : null}
@@ -167,8 +250,12 @@ export default function AnnotatedFigure({
           imageSrc={imageSrc!}
           imageAlt={imageAlt}
           label={label}
+          caption={caption}
           borderless={borderless}
           embedChrome={embedChrome}
+          chromeSize={chromeSize}
+          restartGifOnVisible={restartGifOnVisible}
+          reviewable={reviewable}
         />
       ) : (
         <ArtifactPlaceholder figure={figure} label={label} />

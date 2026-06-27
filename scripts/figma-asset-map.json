@@ -141,44 +141,119 @@
     },
     {
       "slug": "fetsproza",
+      "notes": "2026-06-27 alignment: frame 29737:53418 (FetsProza — John Ohio). GIF fills on hero + Decision 01 pulled separately via gifRef.",
       "assets": [
         {
           "id": "2481:15315",
           "out": "hero.png",
           "designWidth": 1512,
-          "designHeight": 1049
+          "designHeight": 1049,
+          "status": "stale-node"
         },
         {
           "id": "2481:13744",
           "out": "thumb-1.png",
           "designWidth": 1512,
-          "designHeight": 717
+          "designHeight": 717,
+          "status": "stale-node"
         },
         {
           "id": "2528:26164",
           "out": "thumb-2.png",
           "designWidth": 1098,
-          "designHeight": 611
+          "designHeight": 611,
+          "status": "stale-node"
         },
         {
           "id": "2528:26177",
           "out": "block-module-payment.png",
           "designWidth": 1098,
-          "designHeight": 871
+          "designHeight": 871,
+          "status": "stale-node"
         },
         {
           "id": "2528:26186",
           "out": "block-module-merchant.png",
           "designWidth": 1098,
-          "designHeight": 871
+          "designHeight": 871,
+          "status": "stale-node"
         },
         {
           "id": "2528:26329",
           "out": "block-outcome.png",
           "designWidth": 1512,
-          "designHeight": 1127
+          "designHeight": 1127,
+          "status": "stale-node"
+        },
+        {
+          "id": "29737:53463",
+          "out": "preview-hero.png",
+          "designWidth": 1192,
+          "designHeight": 671
+        },
+        {
+          "id": "29737:53901",
+          "out": "block-platform-scope.png",
+          "designWidth": 960,
+          "designHeight": 468
+        },
+        {
+          "id": "29737:54017",
+          "out": "block-module-payment.png",
+          "designWidth": 960,
+          "designHeight": 580
+        },
+        {
+          "id": "29737:54022",
+          "out": "thumb-2.png",
+          "designWidth": 960,
+          "designHeight": 580
+        },
+        {
+          "id": "29737:54026",
+          "out": "hero.png",
+          "designWidth": 960,
+          "designHeight": 580
+        },
+        {
+          "id": "29740:54543",
+          "out": "block-module-merchant.png",
+          "designWidth": 960,
+          "designHeight": 580
+        },
+        {
+          "id": "29737:53795",
+          "out": "block-outcome.png",
+          "designWidth": 1192,
+          "designHeight": 889
+        },
+        {
+          "id": "29740:54540",
+          "out": "block-walkthrough.png",
+          "designWidth": 1192,
+          "designHeight": 584
         }
-      ]
+      ],
+      "gifs": [
+        {
+          "imageNodeId": "29737:53896",
+          "out": "preview-hero.gif",
+          "posterOut": "preview-hero-poster.png"
+        },
+        {
+          "imageNodeId": "29737:54018",
+          "out": "block-module-payment.gif"
+        }
+      ],
+      "replaceGifFrame": {
+        "gif": "preview-hero.gif",
+        "posterOut": "preview-hero-poster.png",
+        "frame": 3,
+        "source": "sources/preview-hero-frame-3.png",
+        "frameWidth": 1920,
+        "frameHeight": 1147,
+        "delayMs": 1500
+      }
     },
     {
       "slug": "ibedc",

@@ -73,13 +73,12 @@ Process-only mirror with sanitized ADRs/snippets — **not** the full app: [jon-
 
 ## Theme system (code-level)
 
-The site supports three themes through CSS custom properties:
+The site supports two themes through CSS custom properties:
 
-- `light`
-- `warm` (default fallback)
+- `light` (default)
 - `dark`
 
-Theme is applied on the root `<html data-theme="...">` and persisted with `localStorage`.
+Theme is applied on the root `<html data-theme="...">` and persisted with `localStorage`. Legacy `warm` values migrate to `light`.
 
 - Pre-hydration initialization: `components/ThemeScript.tsx`
 - Runtime control UI: `components/ThemeToggle.tsx` (rendered in `components/Nav.tsx`)
