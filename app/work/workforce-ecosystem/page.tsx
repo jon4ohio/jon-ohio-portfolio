@@ -16,7 +16,7 @@ import PrevNextNav from "@/components/case-study/PrevNextNav";
 import { getProject, projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
-  title: "Workforce Ecosystem — John Ohio",
+  title: "Workforce Ecosystem",
   description:
     "Multi-country research and service design for Africa's frontline workforce — evidence base, design principles, ecosystem models, service blueprints, and capability architecture.",
   alternates: { canonical: "/work/workforce-ecosystem" },

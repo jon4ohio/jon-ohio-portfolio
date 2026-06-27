@@ -1,5 +1,6 @@
 import Link from "next/link";
 import AnnotatedFigure from "@/components/case-study/AnnotatedFigure";
+import type { EvidenceChromeSize, EvidenceMediaChrome } from "@/components/case-study/EvidenceChrome";
 
 /** Flagship hero prose measure — aligns with ADR-042 1240/760 layout band. */
 const NARRATIVE_MAX_WIDTH = 760;
@@ -15,7 +16,13 @@ export type CaseHeroProps = {
   thesis: string;
   abstract: string;
   impact: CaseHeroMetric[];
-  heroImage: { src?: string; alt?: string };
+  heroImage: {
+    src?: string;
+    alt?: string;
+    embedChrome?: EvidenceMediaChrome;
+    chromeSize?: EvidenceChromeSize;
+    restartGifOnVisible?: boolean;
+  };
 };
 
 export default function CaseHero({
@@ -123,6 +130,9 @@ export default function CaseHero({
           decisionNotes={[]}
           imageSrc={heroImage.src}
           imageAlt={heroImage.alt}
+          embedChrome={heroImage.embedChrome}
+          chromeSize={heroImage.chromeSize}
+          restartGifOnVisible={heroImage.restartGifOnVisible}
           imageOnly
         />
       </div>

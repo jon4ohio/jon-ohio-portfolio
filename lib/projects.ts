@@ -62,6 +62,11 @@ export type ProjectAssets = {
   thumbnails?: [ImageAsset, ImageAsset?];
   hero?: ImageAsset;
   blocks?: CaseStudyBlock[];
+  /** Optional lavender/neutral inset on `/work` and homepage listing thumbnails. */
+  previewChrome?: "evidence" | "neutral";
+  previewChromeSize?: "card" | "hero" | "evidence" | "neutral";
+  /** Baked Figma composite (shader + media in PNG). Listing renders flat — no CSS chrome wrapper. */
+  previewFlat?: boolean;
 };
 
 const placeholderThumbA: ImageAsset = {
@@ -494,25 +499,26 @@ export const projects: Project[] = [
     tags: ["Fintech", "Mobile Money", "Financial Operations", "0→1"],
     featured: true,
     assets: {
+      previewFlat: true,
       thumbnails: [
         {
-          src: "/assets/work/fetsproza/preview-16x9.png",
-          alt: "Daily reconciliation at scale — matched and unmatched transaction flows in one operational view",
-          width: 3024,
-          height: 1701,
+          src: "/assets/work/fetsproza/preview-hero.png",
+          alt: "FetsProza operating platform — product overview and operator workflows at production scale",
+          width: 2384,
+          height: 1343,
         },
         {
           src: "/assets/work/fetsproza/thumb-2.png",
-          alt: "Operator console and platform screenshots",
-          width: 2196,
-          height: 1222,
+          alt: "Transaction monitoring — operator visibility into transaction health without engineering escalation",
+          width: 1920,
+          height: 1034,
         },
       ],
       hero: {
-        src: "/assets/work/fetsproza/preview-16x9.png",
-        alt: "Daily reconciliation at scale — matched and unmatched transaction flows in one operational view",
-        width: 3024,
-        height: 1701,
+        src: "/assets/work/fetsproza/preview-hero.png",
+        alt: "FetsProza operating platform — product overview and operator workflows at production scale",
+        width: 2384,
+        height: 1343,
       },
       blocks: [
         {
@@ -524,16 +530,16 @@ export const projects: Project[] = [
             {
               src: "/assets/work/fetsproza/block-module-payment.png",
               alt: "Evidence: business teams configure products with validation — no engineering queue",
-              width: 2196,
-              height: 1742,
-              caption: "Payment processing: real-time flows, refunds, and peak-load performance.",
+              width: 1920,
+              height: 1034,
+              caption: "Product configuration: governed self-service setup with validation and guardrails.",
             },
             {
               src: "/assets/work/fetsproza/block-module-merchant.png",
               alt: "Evidence: partners onboard through role clarity and guided workflows",
-              width: 2196,
-              height: 1742,
-              caption: "Merchant and agent management: onboarding and reconciliation.",
+              width: 1920,
+              height: 1034,
+              caption: "Team administration: roles, onboarding, and network-scale partner management.",
             },
           ],
         },
@@ -544,8 +550,8 @@ export const projects: Project[] = [
           image: {
             src: "/assets/work/fetsproza/block-outcome.png",
             alt: "Verified production metrics — cost, throughput, and volume at scale",
-            width: 3024,
-            height: 2254,
+            width: 2384,
+            height: 1778,
             caption: "Measurable impact: cost savings, throughput, and white-label positioning.",
           },
         },

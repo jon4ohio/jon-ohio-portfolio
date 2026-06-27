@@ -15,7 +15,7 @@ import PrevNextNav from "@/components/case-study/PrevNextNav";
 import { getProject, projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
-  title: "BluAlliance — John Ohio",
+  title: "BluAlliance",
   description:
     "Platform strategy for Africa's frontline workforce — prioritisation matrix, platform vision, Breeze, WhatsApp ESS, supervisor workflows, and future-state architecture.",
   alternates: { canonical: "/work/blualliance" },

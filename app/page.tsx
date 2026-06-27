@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import { siteDescription, siteTitle } from "@/lib/sitePositioning";
 import SystemModel from "@/components/SystemModel";
-import AssetImage from "@/components/AssetImage";
-import { getPrimaryPreviewImage, projects } from "@/lib/projects";
+import ProjectListingPreview from "@/components/ProjectListingPreview";
+import { projects } from "@/lib/projects";
 import { getContactMailtoHref } from "@/lib/contact";
 
 export const metadata: Metadata = {
@@ -128,7 +128,6 @@ export default function Home() {
             if (!p) return null;
             const copy = ownershipItems.find((o) => o.slug === item.slug);
             if (!copy) return null;
-            const preview = getPrimaryPreviewImage(p.assets);
             return (
               <div key={p.slug} className="work-list-item work-list-item--no-idx">
                 <Link
@@ -137,20 +136,7 @@ export default function Home() {
                   aria-label={`${copy.name} — ${copy.type}`}
                 >
                   <div className="work-list-thumb">
-                    {preview ? (
-                      <AssetImage
-                        asset={{
-                          ...preview,
-                          alt: preview.src.includes("/assets/work/_placeholders/")
-                            ? `${copy.name} — project preview`
-                            : preview.alt,
-                        }}
-                        sizes="(max-width: 640px) 92vw, (max-width: 900px) 356px, 427px"
-                        aspectCover="16 / 9"
-                        aspectFit={p.slug === "orchestrated-portfolio" ? "contain" : "auto"}
-                        style={{}}
-                      />
-                    ) : null}
+                    <ProjectListingPreview slug={p.slug} title={copy.name} assets={p.assets} />
                   </div>
 
                   <div className="work-list-body">

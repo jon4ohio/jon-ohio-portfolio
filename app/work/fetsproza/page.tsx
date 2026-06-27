@@ -234,8 +234,11 @@ export default function FetsprozaFlagshipCaseStudy() {
         abstract={SNAPSHOT_ABSTRACT}
         impact={project.metrics}
         heroImage={{
-          src: "/assets/work/fetsproza/preview-16x9.png",
-          alt: "Daily reconciliation at scale — matched and unmatched transaction flows in one operational view",
+          src: "/assets/work/fetsproza/preview-hero.gif",
+          alt: "FetsProza operating platform — product overview and operator workflows at production scale",
+          embedChrome: "evidence",
+          chromeSize: "hero",
+          restartGifOnVisible: true,
         }}
         executiveBrief={{
           ...project.brief,
@@ -302,6 +305,8 @@ export default function FetsprozaFlagshipCaseStudy() {
             figure={0}
             label="Platform scope — eleven operational workflows"
             caption="Login · Users · Accounts · Products · Configuration · Transactions · Settlements"
+            imageSrc="/assets/work/fetsproza/block-platform-scope.png"
+            imageAlt="Platform overview — eleven operational workflows across access, accounts, products, and operations"
             decisionNotes={[]}
           />
         </div>
@@ -367,9 +372,12 @@ export default function FetsprozaFlagshipCaseStudy() {
           figure={{
             figure: 1,
             label: "Product configuration",
-            imageSrc: "/assets/work/fetsproza/block-module-payment.png",
+            imageSrc: "/assets/work/fetsproza/block-module-payment.gif",
             imageAlt: "Evidence: routine configuration became a business capability — not an engineering queue",
             caption: "",
+            embedChrome: "evidence",
+            chromeSize: "evidence",
+            restartGifOnVisible: true,
             decisionNotes: [],
           }}
         />
@@ -391,6 +399,8 @@ export default function FetsprozaFlagshipCaseStudy() {
             imageSrc: "/assets/work/fetsproza/thumb-2.png",
             imageAlt: "Evidence: transaction investigation moved to frontline operations — without engineering escalation",
             caption: "",
+            embedChrome: "evidence",
+            chromeSize: "evidence",
             decisionNotes: [],
           }}
         />
@@ -412,6 +422,8 @@ export default function FetsprozaFlagshipCaseStudy() {
             imageSrc: "/assets/work/fetsproza/hero.png",
             imageAlt: "Evidence: reconciliation became a continuous capability — not a period-close fire drill",
             caption: "",
+            embedChrome: "evidence",
+            chromeSize: "evidence",
             decisionNotes: [],
           }}
         />
@@ -433,6 +445,8 @@ export default function FetsprozaFlagshipCaseStudy() {
             imageSrc: "/assets/work/fetsproza/block-module-merchant.png",
             imageAlt: "Evidence: partner onboarding scaled through one administration model — not process sprawl",
             caption: "",
+            embedChrome: "evidence",
+            chromeSize: "evidence",
             decisionNotes: [],
           }}
         />
@@ -464,12 +478,17 @@ export default function FetsprozaFlagshipCaseStudy() {
           transaction health to investigating issues and monitoring business performance—all within a single workspace,
           without relying on engineering support.
         </p>
-        <div style={{ marginTop: 28, borderRadius: 8, overflow: "hidden", border: "1px solid var(--border)" }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/assets/work/fetsproza/demo-transaction-visibility.gif"
-            alt="FetsProza operational walkthrough — transaction health, investigation, and business performance in one workspace"
-            style={{ width: "100%", height: "auto", display: "block" }}
+        <div style={{ marginTop: 28, borderRadius: 24, overflow: "hidden", border: "1px solid var(--border)" }}>
+          <AnnotatedFigure
+            figure={0}
+            label="Operational workflow"
+            caption=""
+            imageSrc="/assets/work/fetsproza/demo-transaction-visibility.gif"
+            imageAlt="FetsProza operational walkthrough — transaction health, investigation, and business performance in one workspace"
+            restartGifOnVisible
+            imageOnly
+            reviewable={false}
+            borderless
           />
         </div>
         <p

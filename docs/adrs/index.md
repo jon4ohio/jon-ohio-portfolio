@@ -62,6 +62,8 @@
 | 066 | SeamKit Token Studio figure — full evidence column width | Accepted | 2026-06-26 | None |
 | 067 | SeamKit preview hero filename rename for `next/image` cache invalidation | Accepted | 2026-06-26 | None |
 | 068 | FigJam embed static snapshot loading placeholder | Accepted | 2026-06-26 | None |
+| 069 | Evidence review experience | Accepted | 2026-06-26 | None |
 | 070 | Soft light theme (Framer-inspired palette, warm removal) | Accepted | 2026-06-26 | None |
+| 071 | FetsProza evidence shader chrome and flat preview thumbnail | Accepted | 2026-06-27 | None |
 
 Chronological audit notes: [`LOG.md`](./LOG.md).

@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     "John Ohio — Lead Product Designer. Design systems, enterprise UX, AI-enabled experiences. Speaker, writer, and mentor.",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About — John Ohio",
+    title: "About",
     description:
       "Lead Product Designer — design systems, enterprise UX, and AI-enabled product experiences.",
     url: "/about",

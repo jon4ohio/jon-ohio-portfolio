@@ -47,6 +47,14 @@
   --jop-color-lavender-50: #bec3da;
   --jop-color-lavender-70: #9aa3c4;
 
+  /* Evidence shader chrome — fixed lavender (same in light + dark) */
+  --jop-asset-chrome-lavender-gradient: linear-gradient(
+    135deg,
+    var(--jop-color-lavender-30) 0%,
+    var(--jop-color-lavender-50) 100%
+  );
+  --jop-asset-chrome-lavender-inner-bg: var(--jop-color-lavender-10);
+
   --jop-color-forest-70: #55695b;
   --jop-color-forest-80: #415046;
   --jop-color-forest-90: #445d4c;
@@ -168,6 +176,7 @@
 
   --jop-figjam-embed-bg: var(--jop-color-lavender-10);
   --jop-figjam-embed-border: color-mix(in oklab, var(--jop-color-lavender-30) 45%, var(--jop-border-subtle));
+  --jop-asset-chrome-inner-bg: var(--jop-color-lavender-10);
 }
 
 :root[data-theme="dark"] {
@@ -273,6 +282,7 @@
 
   --jop-figjam-embed-bg: color-mix(in oklab, var(--jop-color-violet-100) 35%, var(--jop-color-slate-10));
   --jop-figjam-embed-border: color-mix(in oklab, var(--jop-color-violet-80) 30%, var(--jop-border-subtle));
+  --jop-asset-chrome-inner-bg: color-mix(in oklab, var(--jop-color-violet-100) 18%, var(--jop-color-slate-10));
 }
 
 /* Compatibility aliases for existing components */
@@ -319,7 +329,8 @@
   --nav-backdrop: var(--jop-backdrop-nav);
   --panel-backdrop: var(--jop-backdrop-panel);
   --asset-chrome-bg: var(--jop-bg-asset-chrome);
-  --asset-chrome-gradient: var(--jop-fill-accent-gradient);
+  --asset-chrome-gradient: var(--jop-asset-chrome-lavender-gradient);
+  --asset-chrome-inner-bg: var(--jop-asset-chrome-lavender-inner-bg);
   --figjam-embed-bg: var(--jop-figjam-embed-bg);
   --figjam-embed-border: var(--jop-figjam-embed-border);
 }
@@ -413,6 +424,9 @@ p, li {
 
 /* Case study listing thumbnails — subtle zoom + micro-lift (AssetImage aspect box) */
 .work-list-thumb > div,
+.work-list-thumb [data-shader-asset],
+.work-list-thumb [data-preview-chrome],
+.work-list-thumb [data-preview-flat],
 .system-project-thumb > div {
   transition:
     transform 0.45s cubic-bezier(0.33, 1, 0.68, 1),
@@ -423,11 +437,15 @@ p, li {
   transition: transform 0.45s cubic-bezier(0.33, 1, 0.68, 1);
 }
 .work-list-row:hover .work-list-thumb > div,
+.work-list-row:hover .work-list-thumb [data-shader-asset],
+.work-list-row:hover .work-list-thumb [data-preview-chrome],
 .system-project-link:hover .system-project-thumb > div {
   transform: translateY(-1px);
   border-color: color-mix(in oklab, var(--border), var(--fg) 12%);
 }
 .work-list-row:hover .work-list-thumb img,
+.work-list-row:hover .work-list-thumb [data-shader-asset] img,
+.work-list-row:hover .work-list-thumb [data-preview-chrome] img,
 .system-project-link:hover .system-project-thumb img {
   transform: scale(1.04);
 }

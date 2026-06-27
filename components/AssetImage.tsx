@@ -50,6 +50,8 @@ type Props = {
    * How the image sits in the aspect box. `auto` picks cover vs contain from asset vs box aspect ratio.
    */
   aspectFit?: "auto" | "cover" | "contain";
+  /** Baked Figma composite — 8px clip radius; same hover zoom as other listing thumbs. */
+  previewFlat?: boolean;
 };
 
 export default function AssetImage({
@@ -61,6 +63,7 @@ export default function AssetImage({
   aspectCover,
   aspectFit = "auto",
   borderless = false,
+  previewFlat = false,
 }: Props) {
   if (treatment === "device") {
     return (
@@ -104,16 +107,18 @@ export default function AssetImage({
 
   if (aspectCover) {
     const objectFit = resolveAspectObjectFit(asset, aspectCover, aspectFit);
+    const frameRadius = previewFlat ? 8 : borderless ? 0 : 16;
     return (
       <div
+        data-preview-flat={previewFlat ? "" : undefined}
         style={{
           position: "relative",
           width: "100%",
           aspectRatio: aspectCover,
-          borderRadius: 16,
+          borderRadius: frameRadius,
           overflow: "hidden",
-          border: "1px solid var(--border)",
-          background: "var(--asset-chrome-gradient)",
+          border: borderless ? "none" : "1px solid var(--border)",
+          background: borderless ? "transparent" : "var(--asset-chrome-gradient)",
           ...style,
         }}
       >

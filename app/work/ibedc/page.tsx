@@ -12,7 +12,7 @@ import PrevNextNav from "@/components/case-study/PrevNextNav";
 import { getProject, projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
-  title: "IBEDC — Unified Billing System — John Ohio",
+  title: "IBEDC — Unified Billing System",
   description:
     "Built a unified billing system for Nigeria's largest electricity distributor by geographic coverage — shared transaction logic across digital and walk-in channels.",
   alternates: { canonical: "/work/ibedc" },

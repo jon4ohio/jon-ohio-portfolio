@@ -1,5 +1,6 @@
 import * as React from "react";
 import CaseHero, { type CaseHeroMetric } from "@/components/case-study/CaseHero";
+import type { EvidenceChromeSize, EvidenceMediaChrome } from "@/components/case-study/EvidenceChrome";
 import MetadataBrief, { type MetadataBriefProps } from "@/components/case-study/MetadataBrief";
 
 export type FlagshipOpenerProps = {
@@ -10,7 +11,13 @@ export type FlagshipOpenerProps = {
   thesis: string;
   abstract: string;
   impact: CaseHeroMetric[];
-  heroImage: { src?: string; alt?: string };
+  heroImage: {
+    src?: string;
+    alt?: string;
+    embedChrome?: EvidenceMediaChrome;
+    chromeSize?: EvidenceChromeSize;
+    restartGifOnVisible?: boolean;
+  };
   executiveBrief: MetadataBriefProps;
   /** When set, wraps hero + brief in one anchored section (e.g. `snapshot`). */
   sectionId?: string;
