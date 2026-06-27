@@ -3,14 +3,8 @@
  * Composite a chosen GIF frame into the media slot of a flat preview-hero PNG.
  * Layout in lib/projects.ts / AssetImage is unchanged — only the raster is updated.
  *
- * Configure per project in scripts/figma-asset-map.json:
- *   "composePreview": {
- *     "target": "preview-hero.png",
- *     "gif": "preview-hero.gif",
- *     "frame": 3,
- *     "designSize": { "width": 1192, "height": 671 },
- *     "mediaRect": { "left": 79, "top": 65, "width": 1034, "height": 618, "radius": 12 }
- *   }
+ * FetsProza listing uses pure Figma export (29737:53463) — no composePreview.
+ * Refresh order: export:figma-assets → pull:figma-gifs → replace:preview-hero-frame (optional).
  */
 
 import fs from "fs/promises";

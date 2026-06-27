@@ -245,12 +245,14 @@
           "out": "block-module-payment.gif"
         }
       ],
-      "composePreview": {
-        "target": "preview-hero.png",
+      "replaceGifFrame": {
         "gif": "preview-hero.gif",
+        "posterOut": "preview-hero-poster.png",
         "frame": 3,
-        "designSize": { "width": 1192, "height": 671 },
-        "mediaRect": { "left": 79, "top": 65, "width": 1034, "height": 618, "radius": 12 }
+        "source": "sources/preview-hero-frame-3.png",
+        "frameWidth": 1920,
+        "frameHeight": 1147,
+        "delayMs": 1500
       }
     },
     {
