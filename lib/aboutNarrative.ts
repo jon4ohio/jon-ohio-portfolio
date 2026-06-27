@@ -31,44 +31,45 @@ export type NarrativeBlock =
   | { kind: "lead"; text: string }
   | { kind: "closing"; text: string };
 
-/** Problem framing + punch line (above Operating Principles band). */
+/** Problem framing + punch line (intro band, above body narrative). */
 export const aboutHookBlocks: NarrativeBlock[] = [
   {
     kind: "paragraph",
-    text: "Most products don't fail at the interface level. They fail at the system level — where workflows break, decisions don't compound, and teams can't scale what they build.",
+    text: "Most products don't fail at the interface. They fail when the systems behind them can't support growth. Workflows break down, teams diverge, and complexity compounds faster than value.",
   },
-  { kind: "lead", text: "That's the problem I solve." },
+  { kind: "lead", text: "That's where I work." },
+  {
+    kind: "paragraph",
+    text: "I design the foundations that help products, teams, and organizations scale—from enterprise platforms and design systems to AI-powered experiences that embed intelligence into everyday work.",
+  },
 ];
 
-/** Proof, edge, and close (below Operating Principles). */
+/** Proof, edge, and close (below hook narrative). */
 export const aboutBodyBlocks: NarrativeBlock[] = [
   {
     kind: "paragraph",
-    text: "I'm a Lead Product Designer working across enterprise SaaS, fintech infrastructure, and AI-native systems — turning fragmented products into structured, scalable systems that hold under real-world conditions.",
+    text: "Most products don't fail because of the interface. They fail because the systems behind them can't support growth, adapt to change, or help teams work effectively.",
+  },
+  { kind: "lead", text: "That's the challenge I enjoy solving." },
+  {
+    kind: "paragraph",
+    text: "Over the past five years, I've led product design across enterprise HR, fintech infrastructure, digital public services, and AI-powered products, helping organizations simplify complex workflows, modernize legacy platforms, and create foundations that scale.",
   },
   {
     kind: "paragraph",
-    text: "Over the past five years, I've led design across complex environments — from a 12-team enterprise HR platform to fintech infrastructure serving millions of users across Africa.",
+    text: "At SeamlessHR, I built Seamkit as more than a design system. It became the shared foundation for how products are designed and delivered—bringing together token architecture, component governance, and collaboration workflows across 12 product teams, achieving an 88.9% adoption score and approximately 80% daily usage across design and engineering.",
   },
   {
     kind: "paragraph",
-    text: "This thinking shaped Seamkit — built not as a component library, but as an operating system for product teams. Token architecture, naming logic, contribution pipelines, and governance rituals. It now supports 12 teams with an 88.9 adoption score and roughly 80% daily usage across design and engineering.",
+    text: "I've also led product transformation initiatives like SeamlessHiring, modernized fintech infrastructure through FetsProza, and helped define new products such as Rivva and ClearPrice, where success depended as much on product strategy and system design as interface design.",
   },
   {
     kind: "paragraph",
-    text: "I've also shaped products at the 0→1 edge — Rivva and ClearPrice — where the challenge isn't just usability, but defining systems worth scaling in the first place.",
-  },
-  {
-    kind: "paragraph",
-    text: "Today, my focus is on how intelligence becomes part of the system — embedding AI into enterprise workflows as reusable, trusted patterns, not isolated features.",
-  },
-  {
-    kind: "paragraph",
-    text: "I design for environments where scale, constraints, and complexity are real — across Africa and similar markets.",
+    text: "Today, I'm focused on designing AI-enabled products where intelligence becomes a trusted part of everyday workflows—not as standalone features, but as capabilities embedded into the products people rely on.",
   },
   {
     kind: "closing",
-    text: "Because at scale, good design isn't about screens. It's about systems that work.",
+    text: "I design for complexity, scale, and long-term evolution, creating products that are easier to build, easier to use, and easier to grow.",
   },
 ];
 
