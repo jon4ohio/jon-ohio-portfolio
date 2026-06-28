@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import { existsSync } from "node:fs";
-import path from "node:path";
-import StickyChapterNav from "@/components/case-study/StickyChapterNav";
+import StickyChapterNav, { type Chapter } from "@/components/case-study/StickyChapterNav";
 import ReadingProgressBar from "@/components/case-study/ReadingProgressBar";
 import FlagshipOpener from "@/components/case-study/FlagshipOpener";
 import TensionCards from "@/components/case-study/TensionCards";
@@ -30,6 +28,15 @@ const phases: Phase[] = [
   { id: "phase-III", number: "Phase III", name: "Structure", description: "ATS + evaluation redesign" },
   { id: "phase-IV", number: "Phase IV", name: "Scale", description: "RBAC + enterprise permissions" },
   { id: "phase-V", number: "Phase V", name: "Augment", description: "AI-powered ATS" },
+];
+
+const chapters: Chapter[] = [
+  { id: "brief", label: "01 Brief" },
+  { id: "tensions", label: "02 Tensions" },
+  { id: "evidence", label: "03 Evidence" },
+  { id: "strategic-decisions", label: "04 Decisions" },
+  { id: "outcomes", label: "05 Outcomes" },
+  { id: "unlocks", label: "06 Unlocks" },
 ];
 
 const outcomeTiers: OutcomeTier[] = [
@@ -82,7 +89,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
   return (
     <div style={{ paddingTop: 56 }}>
       <ReadingProgressBar />
-      <StickyChapterNav />
+      <StickyChapterNav chapters={chapters} />
 
       <style>{`
         @media (max-width: 768px) {
@@ -156,18 +163,34 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         ]}
       />
 
-      <div style={{ maxWidth: 1240, margin: "32px auto 0", padding: "0 24px" }}>
+      <div style={{ maxWidth: 1240, margin: "32px auto 0", padding: "0 24px", display: "flex", flexDirection: "column", gap: 48 }}>
         <AnnotatedFigure
           figure="B"
-          label="Before State — Faulty UI"
+          label="The experience before redesign"
           imageSrc="/assets/work/seamless-hiring/block-before-state.png"
           imageAlt="SeamlessHiring before redesign — broken application flow and navigation"
-          caption="The experience before redesign. Navigation misrouted core tasks, evaluation had no system surface, and permission models blocked enterprise use cases."
+          caption="Navigation misrouted core tasks, evaluation had no system surface, and permission models blocked enterprise use cases."
           decisionNotes={[
             "01 — Workflow collapse: 'Requests' button routed to application history, not the application form — the primary recruiter action was buried behind the wrong entry point",
             "02 — Evaluation without structure: no scoring or assessment surface existed inside the system — evaluation happened in spreadsheets and email threads outside SeamlessHiring entirely",
             "03 — Permission model: rigid access control could not accommodate multi-entity enterprise clients — every new onboarding required manual CS intervention",
           ]}
+        />
+        <AnnotatedFigure
+          figure="C"
+          label="Information Architecture Restructure"
+          imageSrc="/assets/work/seamless-hiring/block-ia-restructure.png"
+          imageAlt="Information architecture restructure — legacy PHP platform mapped to a scalable hiring workflow model"
+          caption="Restructured the product around recruiter and applicant journeys before interface work — separating legacy constraints from the target hiring lifecycle."
+          hideDecisionNotes
+        />
+        <AnnotatedFigure
+          figure="D"
+          label="Phased Redesign Roadmap"
+          imageSrc="/assets/work/seamless-hiring/block-redesign-phases.png"
+          imageAlt="Five-phase SeamlessHiring redesign roadmap spanning stabilization through AI augmentation"
+          caption="The redesign spanned three years across five phases — with an AI-powered layer added only after workflow trust was restored."
+          hideDecisionNotes
         />
       </div>
 
@@ -189,7 +212,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
             "Job creation was inconsistent across hiring managers — no shared templates, no structured input model, and errors compounding downstream in the pipeline before a role even reached applicants."
           }
           intervention={
-            "Guided job creation templates standardizing inputs and enforcing required fields before a role was published to the applicant-facing system."
+            "Introduced guided job creation templates that standardize inputs and enforce required fields before a role was published to the applicant-facing system."
           }
           figure={{
             figure: 1,
@@ -242,7 +265,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           phase="Phase III — Structure"
           layout="text-left"
           challenge={
-            "Interview scoring was informal and undocumented. Evaluation lived in spreadsheets and email threads outside the system, leaving hiring decisions without a defensible trail."
+            "Recruiters were still context-switching between tools for evaluation — the structural gap from tension 02 had not yet been resolved inside the product."
           }
           intervention={
             "Structured evaluation workflows with a shared scoring rubric, documentation trail, and consolidated recruiter action surface."
@@ -308,9 +331,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           figure={{
             figure: 5,
             label: "Pilot Review — AI in RMS",
-            imageSrc: existsSync(path.join(process.cwd(), "public", "assets/work/seamless-hiring/pilot-review-ai.png"))
-              ? "/assets/work/seamless-hiring/pilot-review-ai.png"
-              : undefined,
+            imageSrc: "/assets/work/seamless-hiring/pilot-review-ai.png",
             imageAlt: "Pilot Review — AI-assisted candidate ranking and explainable evaluation within recruitment workflows",
             caption:
               "Pilot validation of AI-assisted candidate ranking and explainable evaluation within live recruitment workflows — the Smart Assessment Summary surfaces structured scoring rationale and sentiment signals for recruiter review.",
@@ -358,7 +379,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           padding: "0 24px",
         }}
       >
-        This shift in system design directly enabled improvements in workflow reliability, user adoption, and the commercial positioning of the product.
+        Those structural fixes restored workflow trust first — the judgments below explain what we traded off to get there.
       </p>
 
       <section id="strategic-decisions" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
@@ -400,6 +421,39 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         </p>
         <p style={{ marginTop: 10, fontSize: 12, color: "var(--fg-subtle)", maxWidth: 760 }}>
           — Femisayo Olofintila, Head of Product Management, SeamlessHR
+        </p>
+      </div>
+
+      <div style={{ maxWidth: 1240, margin: "80px auto 0", padding: "0 24px" }}>
+        <a
+          href="https://www.youtube.com/watch?v=uHZ1-KpyJyo"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/assets/work/seamless-hiring/promo-video-poster.png"
+            alt="SeamlessHiring promotional video on YouTube"
+            style={{
+              width: "100%",
+              height: "auto",
+              display: "block",
+              borderRadius: 8,
+              border: "1px solid var(--border)",
+            }}
+          />
+        </a>
+        <p style={{ marginTop: 16, fontSize: 13, lineHeight: 1.6, color: "var(--fg-muted)" }}>
+          The promotional video on YouTube can be accessed{" "}
+          <a
+            href="https://www.youtube.com/watch?v=uHZ1-KpyJyo"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "var(--accent)", textDecoration: "underline" }}
+          >
+            here
+          </a>
+          .
         </p>
       </div>
 
