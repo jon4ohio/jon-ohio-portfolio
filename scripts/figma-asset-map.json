@@ -66,13 +66,39 @@
           "id": "29744:55555",
           "out": "preview-hero-media.png",
           "designWidth": 1060,
+          "designHeight": 686,
+          "status": "stale-node"
+        },
+        {
+          "id": "29760:30839",
+          "out": "preview-hero-media.png",
+          "designWidth": 1060,
           "designHeight": 686
         },
         {
           "id": "29744:57621",
           "out": "block-before-state.png",
           "designWidth": 1192,
-          "designHeight": 785
+          "designHeight": 785,
+          "status": "stale-node"
+        },
+        {
+          "id": "29758:501",
+          "out": "block-before-state.png",
+          "designWidth": 1192,
+          "designHeight": 786
+        },
+        {
+          "id": "29760:23622",
+          "out": "block-ia-restructure.png",
+          "designWidth": 1192,
+          "designHeight": 580
+        },
+        {
+          "id": "29760:23630",
+          "out": "block-redesign-phases.png",
+          "designWidth": 1192,
+          "designHeight": 805
         },
         {
           "id": "29697:39097",
@@ -84,7 +110,14 @@
           "id": "29697:39119",
           "out": "thumb-2.png",
           "designWidth": 732,
-          "designHeight": 435
+          "designHeight": 435,
+          "status": "stale-node"
+        },
+        {
+          "id": "29758:680",
+          "out": "thumb-2.png",
+          "designWidth": 732,
+          "designHeight": 436
         },
         {
           "id": "29697:39163",
@@ -96,7 +129,26 @@
           "id": "29697:39185",
           "out": "block-journey.png",
           "designWidth": 732,
-          "designHeight": 264
+          "designHeight": 264,
+          "status": "stale-node"
+        },
+        {
+          "id": "29760:30288",
+          "out": "block-journey.png",
+          "designWidth": 732,
+          "designHeight": 442
+        },
+        {
+          "id": "29760:30777",
+          "out": "pilot-review-ai.png",
+          "designWidth": 732,
+          "designHeight": 442
+        },
+        {
+          "id": "29760:30830",
+          "out": "promo-video-poster.png",
+          "designWidth": 1192,
+          "designHeight": 596
         },
         {
           "id": "29744:57652",

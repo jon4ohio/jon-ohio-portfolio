@@ -296,7 +296,7 @@ export const projects: Project[] = [
     scope:
       "Applicant and recruiter workflows, research synthesis, roadmap definition, and cross-functional delivery with PM, engineering, CX, and sales.",
     metrics: [
-      { value: "↓50%", label: "Support tickets" },
+      { value: "↓50%", label: "Support volume" },
       { value: "↓24%", label: "Application drop-offs" },
       { value: "↑40%", label: "User satisfaction" },
       { value: "27→74", label: "NPS" },
