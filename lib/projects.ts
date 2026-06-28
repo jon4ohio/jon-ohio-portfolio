@@ -307,8 +307,7 @@ export const projects: Project[] = [
         { label: "Team", value: "1 PM · 3 Engineers · CX · Sales · HR SMEs" },
         {
           label: "Responsibility",
-          value:
-            "UX Strategy · Workflow Architecture · Phased Rollout · AI-Assisted Decision Design",
+          value: "UX Strategy · Workflow Architecture · Phased Rollout · AI-Assisted Decision Design",
         },
         { label: "Timeline", value: "Mar 2022 – Mar 2025" },
         { label: "Domain", value: "Enterprise SaaS / HR Tech / ATS" },

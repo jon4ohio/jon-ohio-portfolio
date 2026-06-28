@@ -5,7 +5,7 @@
   "projects": [
     {
       "slug": "seamless-hiring",
-      "notes": "2026-06-28 alignment: frame 29697:38302. Section nodes: hero 29697:38306, brief 29697:38887, tensions 29697:38975, before 29744:57621, evidence 29697:39028, outcomes 29697:39310. Brief labels: Role, Team, Responsibility, Timeline, Domain.",
+      "notes": "2026-06-27 alignment: frame 29697:38302 (SeamlessHiring — John Ohio). No GIF fills.",
       "assets": [
         {
           "id": "2476:15705",
@@ -75,10 +75,10 @@
           "designHeight": 785
         },
         {
-          "id": "29697:39096",
+          "id": "29697:39097",
           "out": "block-pain-points.png",
           "designWidth": 732,
-          "designHeight": 463
+          "designHeight": 825
         },
         {
           "id": "29697:39119",
@@ -87,57 +87,22 @@
           "designHeight": 435
         },
         {
-          "id": "29749:26894",
+          "id": "29697:39163",
           "out": "block-gallery-1.png",
           "designWidth": 732,
-          "designHeight": 412
+          "designHeight": 323
         },
         {
-          "id": "29749:28519",
+          "id": "29697:39185",
           "out": "block-journey.png",
           "designWidth": 732,
-          "designHeight": 419
+          "designHeight": 264
         },
         {
           "id": "29744:57652",
           "out": "block-cover.png",
           "designWidth": 1192,
           "designHeight": 495
-        },
-        {
-          "id": "29697:39096",
-          "out": "phase-job-creation.png",
-          "designWidth": 732,
-          "designHeight": 463,
-          "notes": "Phase I — job creation image container"
-        },
-        {
-          "id": "29697:39119",
-          "out": "phase-application.png",
-          "designWidth": 732,
-          "designHeight": 435,
-          "notes": "Phase II — application flow redesign"
-        },
-        {
-          "id": "29749:26894",
-          "out": "phase-ats.png",
-          "designWidth": 732,
-          "designHeight": 412,
-          "notes": "Phase III — assessment dossier cover slide"
-        },
-        {
-          "id": "29749:28519",
-          "out": "phase-rbac.png",
-          "designWidth": 732,
-          "designHeight": 419,
-          "notes": "Phase IV — RBAC permissions"
-        },
-        {
-          "id": "29749:28992",
-          "out": "pilot-review-ai.png",
-          "designWidth": 732,
-          "designHeight": 442,
-          "notes": "Phase V — pilot review AI ranking"
         }
       ]
     },

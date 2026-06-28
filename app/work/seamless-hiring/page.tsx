@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { existsSync } from "node:fs";
+import path from "node:path";
 import StickyChapterNav from "@/components/case-study/StickyChapterNav";
 import ReadingProgressBar from "@/components/case-study/ReadingProgressBar";
 import FlagshipOpener from "@/components/case-study/FlagshipOpener";
@@ -8,8 +10,6 @@ import { type Phase } from "@/components/case-study/PhaseTimeline";
 import EvidenceModule from "@/components/case-study/EvidenceModule";
 import AnnotatedFigure from "@/components/case-study/AnnotatedFigure";
 import DecisionAccordion from "@/components/case-study/DecisionAccordion";
-import JudgmentCallout from "@/components/case-study/JudgmentCallout";
-import WorkflowTransformationDiagram from "@/components/case-study/WorkflowTransformationDiagram";
 import OutcomeCards, { type OutcomeTier } from "@/components/case-study/OutcomeCards";
 import UnlockPanel from "@/components/case-study/UnlockPanel";
 import PrevNextNav from "@/components/case-study/PrevNextNav";
@@ -23,14 +23,6 @@ export const metadata: Metadata = {
     "and laying the foundation for Seamkit.",
   alternates: { canonical: "/work/seamless-hiring" },
 };
-
-const chapters = [
-  { id: "brief", label: "01 Brief" },
-  { id: "tensions", label: "02 Tensions" },
-  { id: "evidence", label: "03 Evidence" },
-  { id: "outcomes", label: "04 Outcomes" },
-  { id: "unlocks", label: "05 Lasting Impact" },
-];
 
 const phases: Phase[] = [
   { id: "phase-I", number: "Phase I", name: "Stabilize", description: "Job creation foundations" },
@@ -47,32 +39,34 @@ const outcomeTiers: OutcomeTier[] = [
       "↓24%   Application drop-offs",
       "↑40%   User satisfaction",
       "↑20%   Job-post engagement",
+      "27→74  NPS",
     ],
   },
   {
-    category: "OPERATIONS",
+    category: "OPERATIONAL",
     items: [
-      "↓50%      Support requests",
-      "Faster recruiter workflows",
-      "Lower onboarding effort",
+      "45→11%    Recruiter churn",
+      "↓50%      Support volume",
+      "3.8m→1.6m Time-to-value (job creation)",
     ],
   },
   {
-    category: "BUSINESS",
+    category: "STRATEGIC",
     items: [
-      "Premium enterprise pricing",
-      "PLG reference product",
-      "Foundation for SeamKit",
+      "Generated Seamkit — enterprise design system now serving multiple products",
+      "Became PLG reference product across SeamlessHR",
+      "Established phased redesign model applied to subsequent enterprise products",
     ],
     caption:
       "RMS transitioned from a ₦150k one-time add-on into a recurring product (~₦200k/month), while international pricing increased from $200 to up to $500/month depending on enterprise scale.",
   },
   {
-    category: "PLATFORM",
+    category: "INTELLIGENCE",
     items: [
-      "AI-ready recruitment workflows",
-      "Reusable enterprise patterns",
-      "Design system foundation",
+      "AI-assisted CV parsing introduced",
+      "Smart candidate ranking active",
+      "Manual screening effort reduced",
+      "Structured evaluation improved decision consistency",
     ],
   },
 ];
@@ -88,7 +82,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
   return (
     <div style={{ paddingTop: 56 }}>
       <ReadingProgressBar />
-      <StickyChapterNav chapters={chapters} />
+      <StickyChapterNav />
 
       <style>{`
         @media (max-width: 768px) {
@@ -96,6 +90,8 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         }
         @media (max-width: 900px) {
           .case-study-phase-desktop { display: none !important; }
+          .case-study-evidence-row--text-left { flex-direction: column !important; }
+          .case-study-evidence-row--text-right { flex-direction: column !important; }
         }
         @media (max-width: 640px) {
           .case-study-tension-grid { flex-direction: column !important; }
@@ -108,43 +104,30 @@ export default function SeamlessHiringFlagshipCaseStudy() {
       `}</style>
 
       <FlagshipOpener
-        sectionId="brief"
-        microLabel={`${project.company} · ${project.period}`}
+        microLabel="SeamlessHR · Mar 2022 – Mar 2025"
         title="SeamlessHiring 2.0"
         subtitle="Recruitment Management System (RMS)"
-        thesisLead="Rebuilding fragmented recruiting workflows into a scalable hiring operating system."
-        thesis="A high-volume graduate hiring programme exposed how badly the legacy RMS broke under scale — recruiters lost trust in core workflows long before interface polish could matter."
-        abstract="SeamlessHiring began as a fragmented recruitment add-on that broke under scale during a high-volume graduate hiring programme. The redesign focused on restoring workflow trust, restructuring the hiring lifecycle, and repositioning RMS from a low-cost add-on into a scalable, enterprise-priced product across local and international markets."
-        impact={project.metrics}
-        impactGroups={[
-          {
-            label: "Business Impact",
-            metrics: [
-              { value: "↑", label: "Premium pricing" },
-              { value: "↓50%", label: "Support volume" },
-              { value: "↑20%", label: "Job engagement" },
-            ],
-          },
-          {
-            label: "User Impact",
-            metrics: [
-              { value: "↓24%", label: "Application drop-offs" },
-              { value: "↑40%", label: "Satisfaction" },
-            ],
-          },
+        thesis="Rebuilding fragmented recruiting workflows into a scalable hiring operating system."
+        abstract={
+          "SeamlessHiring began as a fragmented recruitment add-on that broke " +
+          "under scale during a high-volume graduate hiring programme. The redesign " +
+          "focused on restoring workflow trust, restructuring the hiring lifecycle, and " +
+          "repositioning RMS from a low-cost add-on into a scalable, enterprise-priced " +
+          "product across local and international markets."
+        }
+        impact={[
+          { value: "↓24%", label: "Application drop-offs" },
+          { value: "↑40%", label: "User satisfaction" },
+          { value: "↑20%", label: "Job-post engagement" },
+          { value: "↓50%", label: "Support volume" },
         ]}
-        showHeroImage={false}
         heroImage={{
           src: "/assets/work/seamless-hiring/preview-hero-media.png",
           alt: "SeamlessHiring 2.0 product overview",
           embedChrome: "evidence",
           chromeSize: "hero",
         }}
-        executiveBrief={{
-          ...project.brief,
-          variant: "engagement",
-          sectionLabel: "01 Executive Brief",
-        }}
+        executiveBrief={project.brief}
       />
 
       <TensionCards
@@ -154,19 +137,19 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         cards={[
           {
             number: "01",
-            title: "Recruitment workflows no longer scaled",
+            title: "Workflow collapse under scale",
             body:
               "Recruiters were abandoning core tasks mid-flow and coordinating outside the system — creating invisible work and audit gaps that compounded with every new hire.",
           },
           {
             number: "02",
-            title: "Hiring decisions lacked consistency",
+            title: "Evaluation without structure",
             body:
               "Interview scoring was informal and undocumented, leaving hiring decisions without a defensible trail — a consistency and legal exposure risk at enterprise scale.",
           },
           {
             number: "03",
-            title: "Permissions became a bottleneck for enterprise growth",
+            title: "Enterprise complexity exceeding the permission model",
             body:
               "Legacy RBAC could not support multi-entity client realities, forcing manual CS workarounds and capping how large the platform could sell.",
           },
@@ -176,34 +159,14 @@ export default function SeamlessHiringFlagshipCaseStudy() {
       <div style={{ maxWidth: 1240, margin: "32px auto 0", padding: "0 24px" }}>
         <AnnotatedFigure
           figure="B"
-          label="Before State"
+          label="Before State — Faulty UI"
           imageSrc="/assets/work/seamless-hiring/block-before-state.png"
           imageAlt="SeamlessHiring before redesign — broken application flow and navigation"
-          caption="Navigation misrouted core tasks, evaluation had no system surface, and permission models blocked enterprise use cases."
-          decisionNotes={[]}
-          hideDecisionNotes
-        />
-      </div>
-
-      <div style={{ padding: "0 24px" }}>
-        <WorkflowTransformationDiagram
-          intro="The redesign wasn't a UI refresh — it replaced a fragmented manual operating model with a structured hiring system."
-          beforeLabel="Before"
-          afterLabel="After"
-          beforeSteps={[
-            "Job Creation",
-            "Spreadsheet Reviews",
-            "Interview Notes",
-            "Email Coordination",
-            "Offer",
-          ]}
-          afterSteps={[
-            "Structured Job Creation",
-            "Applicant Tracking",
-            "Assessment Dossier",
-            "Enterprise Permissions",
-            "AI Recommendations",
-            "Offer",
+          caption="The experience before redesign. Navigation misrouted core tasks, evaluation had no system surface, and permission models blocked enterprise use cases."
+          decisionNotes={[
+            "01 — Workflow collapse: 'Requests' button routed to application history, not the application form — the primary recruiter action was buried behind the wrong entry point",
+            "02 — Evaluation without structure: no scoring or assessment surface existed inside the system — evaluation happened in spreadsheets and email threads outside SeamlessHiring entirely",
+            "03 — Permission model: rigid access control could not accommodate multi-entity enterprise clients — every new onboarding required manual CS intervention",
           ]}
         />
       </div>
@@ -217,168 +180,219 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         </div>
       </section>
 
-      <div style={{ marginTop: 48, display: "flex", flexDirection: "column", gap: 64 }}>
+      <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 72 }}>
         <EvidenceModule
           id="phase-I"
           phase="Phase I — Stabilize"
           layout="text-left"
-          layoutVariant="problem-first"
-          challenge="Job creation was inconsistent across hiring managers — no shared templates, no structured input model, and errors compounding downstream before a role even reached applicants."
-          intervention="Guided job creation templates standardizing inputs and enforcing required fields before a role was published."
-          outcome="Reduced setup friction and improved consistency across hiring teams before roles entered the pipeline."
+          challenge={
+            "Job creation was inconsistent across hiring managers — no shared templates, no structured input model, and errors compounding downstream in the pipeline before a role even reached applicants."
+          }
+          intervention={
+            "Guided job creation templates standardizing inputs and enforcing required fields before a role was published to the applicant-facing system."
+          }
           figure={{
             figure: 1,
-            label: "Job Creation",
-            imageSrc: "/assets/work/seamless-hiring/phase-job-creation.png",
+            label: "Workflow Artifact",
+            imageSrc: "/assets/work/seamless-hiring/block-pain-points.png",
             imageAlt: "Phase I — Job creation workflow redesign",
-            caption: "Standardized job creation through guided templates.",
+            caption:
+              "Standardized job creation through guided templates that reduced setup friction and improved consistency across hiring teams before a role enters the pipeline.",
+            decisionNotes: [
+              "Template-first approach chosen over form validation alone — structure at entry prevents downstream reconciliation work",
+              "Required fields enforced at creation stage, not mid-application — eliminating a class of errors that only surfaced after applicant submission",
+            ],
           }}
         />
+
+        <div style={{ padding: "0 24px" }}>
+          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
+        </div>
 
         <EvidenceModule
           id="phase-II"
           phase="Phase II — Streamline"
           layout="text-right"
-          layoutVariant="image-first"
-          challenge="Applicants were abandoning mid-flow with no recovery path and no visibility into what would be required until they were already partially through the application."
-          intervention="Application journey reframed around completion confidence — required documents surfaced at the start, persistent progress state visible throughout."
-          outcome="Application drop-offs fell 24% as surprise abandonment patterns were removed from the flow."
-          judgment={
-            <JudgmentCallout kind="Trade-off">
-              We prioritised workflow confidence over interface simplicity — surfacing progress and required documents
-              early reduced abandonment despite introducing additional UI elements.
-            </JudgmentCallout>
+          challenge={
+            "Applicants were abandoning mid-flow with no recovery path and no visibility into what would be required of them until they were already partially through the application."
+          }
+          intervention={
+            "Application journey reframed around completion confidence — required documents surfaced at the start, persistent progress state visible throughout."
           }
           figure={{
             figure: 2,
             label: "Application Flow",
-            imageSrc: "/assets/work/seamless-hiring/phase-application.png",
+            imageSrc: "/assets/work/seamless-hiring/thumb-2.png",
             imageAlt: "Phase II — Application flow redesign",
-            caption: "Completion confidence reframed the applicant journey.",
+            caption:
+              "Reframed the application journey to eliminate abandonment and support higher-volume candidate processing without recruiter intervention.",
+            decisionNotes: [
+              "Progress indicator placed at top of flow, not in sidebar — reduces cognitive load without adding navigation complexity",
+              "Required documents shown at start, not mid-application — directly removing the surprise abandonment pattern visible in FullStory session recordings",
+            ],
           }}
         />
+
+        <div style={{ padding: "0 24px" }}>
+          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
+        </div>
 
         <EvidenceModule
           id="phase-III"
           phase="Phase III — Structure"
           layout="text-left"
-          layoutVariant="compact"
-          challenge="Interview scoring was informal and undocumented. Evaluation lived in spreadsheets and email threads outside the system, leaving hiring decisions without a defensible trail."
-          intervention="Structured evaluation workflows with a shared scoring rubric, documentation trail, and consolidated recruiter action surface."
-          outcome="Hiring decisions moved back inside the system with a defensible evaluation trail."
+          challenge={
+            "Interview scoring was informal and undocumented. Evaluation lived in spreadsheets and email threads outside the system, leaving hiring decisions without a defensible trail."
+          }
+          intervention={
+            "Structured evaluation workflows with a shared scoring rubric, documentation trail, and consolidated recruiter action surface."
+          }
           figure={{
             figure: 3,
             label: "Evaluation System",
-            imageSrc: "/assets/work/seamless-hiring/phase-ats.png",
+            imageSrc: "/assets/work/seamless-hiring/block-gallery-1.png",
             imageAlt: "Phase III — ATS and evaluation redesign",
-            caption: "Structured evaluation replaced informal scoring.",
+            caption:
+              "Introduced structured evaluation workflows that improved decision quality, reduced recruiter context switching, and brought hiring decisions back inside the system.",
+            decisionNotes: [
+              "Consolidated fragmented recruiter actions into a single decision surface — direct response to context-switching patterns generating mid-task abandonment in FullStory sessions",
+              "Scoring rubric developed collaboratively with HR SMEs, not imposed from the design side — adoption required co-authorship, not mandate",
+            ],
           }}
         />
+
+        <div style={{ padding: "0 24px" }}>
+          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
+        </div>
 
         <EvidenceModule
           id="phase-IV"
           phase="Phase IV — Scale"
           layout="text-right"
-          layoutVariant="problem-first"
-          challenge="RBAC configuration was too rigid for multi-entity enterprise clients. Every new onboarding required CS workarounds, creating a ceiling on how large the platform could sell."
-          intervention="Permission model redesigned to support role inheritance, entity-level overrides, and self-service admin assignment."
-          outcome="Enterprise onboarding no longer depended on manual CS intervention for every new client."
-          judgment={
-            <JudgmentCallout kind="Judgment">
-              We redesigned RBAC for enterprise scalability — role inheritance and entity-level overrides replaced flat
-              permissions that blocked multi-entity growth.
-            </JudgmentCallout>
+          challenge={
+            "RBAC configuration was too rigid for multi-entity enterprise clients. Every new onboarding required CS workarounds, creating a ceiling on how large the platform could sell."
+          }
+          intervention={
+            "Permission model redesigned to support role inheritance, entity-level overrides, and self-service admin assignment."
           }
           figure={{
             figure: 4,
             label: "Permission Architecture",
-            imageSrc: "/assets/work/seamless-hiring/phase-rbac.png",
+            imageSrc: "/assets/work/seamless-hiring/block-journey.png",
             imageAlt: "Phase IV — RBAC and permission model redesign",
-            caption: "Permissions became a growth enabler, not an onboarding tax.",
+            caption:
+              "Permission patterns transformed access control from operational friction into scalable enterprise administration — removing the CS dependency from every new client onboarding.",
+            decisionNotes: [
+              "Role inheritance model chosen over flat permissions — supports multi-entity clients without permission explosion",
+              "Self-service admin assignment eliminated a recurring CS ticket category that scaled with every new enterprise onboarding",
+            ],
           }}
         />
+
+        <div style={{ padding: "0 24px" }}>
+          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
+        </div>
 
         <EvidenceModule
           id="phase-V"
           phase="Phase V — Augment"
           layout="text-left"
-          layoutVariant="climax"
           accent
-          intro="AI wasn't our starting point. It became possible only after rebuilding the recruitment workflow around trust, structured evaluation, and consistent data."
           pullQuote="AI was designed as decision support, not decision authority."
-          judgment={
-            <JudgmentCallout kind="Judgment">
-              We deliberately delayed AI until Phase V because automation compounds broken workflows rather than fixing
-              them — intelligence had to augment a system recruiters already trusted.
-            </JudgmentCallout>
+          challenge={
+            "Recruiters were spending disproportionate time on manual CV screening — a high-volume, low-judgment task the redesigned system was now stable enough to augment."
           }
-          challenge="Recruiters were spending disproportionate time on manual CV screening — a high-volume, low-judgment task the redesigned system was now stable enough to augment."
-          intervention="AI-assisted recommendations introduced to support recruiter evaluation and shortlisting — augmenting structured decision-making rather than replacing it."
-          outcome="Ranking surfaces signal; shortlisting remains recruiter-owned — with explainable recommendations, not opaque scores."
+          intervention={
+            "AI-assisted recommendations were introduced in the final phase to support recruiter evaluation and shortlisting — augmenting structured recruiter decision-making rather than replacing it."
+          }
           figure={{
             figure: 5,
             label: "Pilot Review — AI in RMS",
-            imageSrc: "/assets/work/seamless-hiring/pilot-review-ai.png",
-            imageAlt: "Pilot Review — AI-assisted candidate ranking within recruitment workflows",
-            caption: "AI-assisted ranking inside a trusted workflow.",
+            imageSrc: existsSync(path.join(process.cwd(), "public", "assets/work/seamless-hiring/pilot-review-ai.png"))
+              ? "/assets/work/seamless-hiring/pilot-review-ai.png"
+              : undefined,
+            imageAlt: "Pilot Review — AI-assisted candidate ranking and explainable evaluation within recruitment workflows",
+            caption:
+              "Pilot validation of AI-assisted candidate ranking and explainable evaluation within live recruitment workflows — the Smart Assessment Summary surfaces structured scoring rationale and sentiment signals for recruiter review.",
+            decisionNotes: [
+              "AI introduced in Phase V deliberately — augmenting a workflow only after trust in the core system was re-established. AI on top of a broken process inherits the broken process's failure modes",
+              "Ranking logic calibrated against client hiring criteria rather than generic resume heuristics",
+              "Ranking surfaces signal, shortlisting remains recruiter-owned — boundary set by design, not by default",
+              "AI outputs were surfaced as explainable recommendations rather than opaque scores, preserving recruiter agency while improving decision signal quality — the interface showed reasoning, not just results",
+            ],
           }}
         />
 
-        <div style={{ padding: "0 24px 32px" }}>
-          <div style={{ maxWidth: 960, margin: "0 auto" }}>
-            <p style={{ fontSize: 13, color: "var(--fg-muted)", fontStyle: "italic", margin: 0, lineHeight: 1.6 }}>
-              Patterns piloted in SeamlessHiring later informed broader work on SeamlessAI&apos;s reusable enterprise AI
-              interaction layer.
-            </p>
+        <div style={{ padding: "0 24px 64px" }}>
+          <div style={{ maxWidth: 1240, margin: "0 auto" }}>
+            <div style={{ marginTop: 24, paddingTop: 16, borderTop: "1px solid var(--border-subtle)" }}>
+              <span
+                style={{
+                  fontSize: 10,
+                  fontWeight: 500,
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  color: "var(--fg-subtle)",
+                  display: "block",
+                  marginBottom: 6,
+                }}
+              >
+                Continuity
+              </span>
+              <p style={{ fontSize: 14, color: "var(--fg-muted)", fontStyle: "italic", margin: 0 }}>
+                Patterns piloted in SeamlessHiring later informed broader work on SeamlessAI&apos;s reusable enterprise AI interaction layer.
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
+      <p
+        style={{
+          fontSize: 15,
+          color: "var(--fg-muted)",
+          lineHeight: 1.75,
+          maxWidth: 640,
+          margin: "32px auto 0",
+          textAlign: "center",
+          padding: "0 24px",
+        }}
+      >
+        This shift in system design directly enabled improvements in workflow reliability, user adoption, and the commercial positioning of the product.
+      </p>
+
+      <section id="strategic-decisions" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
+        <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
+          04 Strategic Decisions
+        </p>
+        <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
+          Judgment, trade-offs, and outcomes
+        </h2>
+        <p
+          style={{
+            marginTop: 12,
+            fontSize: 15,
+            color: "var(--fg-muted)",
+            lineHeight: 1.7,
+            maxWidth: 640,
+          }}
+        >
+          Five choices that shaped the programme — alternatives considered, costs accepted, and what each unlocked.
+        </p>
+        <div style={{ marginTop: 28, maxWidth: 760 }}>
+          <DecisionAccordion entries={project.brief.strategicDecisions ?? []} />
+        </div>
+      </section>
+
       <section id="outcomes" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
         <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          04 Outcomes
+          05 Outcomes
         </p>
         <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
           Results across four dimensions
         </h2>
         <OutcomeCards tiers={outcomeTiers} />
-
-        <div style={{ marginTop: 56, maxWidth: 760 }}>
-          <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-            Strategic decisions
-          </p>
-          <h3
-            style={{
-              marginTop: 14,
-              fontSize: 22,
-              fontWeight: 700,
-              letterSpacing: "-0.02em",
-              color: "var(--fg)",
-            }}
-          >
-            Judgment before execution
-          </h3>
-          <p style={{ marginTop: 10, fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.7 }}>
-            Five choices that shaped the programme — alternatives considered, costs accepted, and what each unlocked.
-          </p>
-          <JudgmentCallout kind="Judgment">
-            We chose phased modernization over a full rewrite because active enterprise hiring pipelines could not
-            tolerate a disruptive cut-over — trust had to be rebuilt while the product remained operational.
-          </JudgmentCallout>
-          <div style={{ marginTop: 24 }}>
-            <DecisionAccordion entries={project.brief.strategicDecisions ?? []} />
-          </div>
-        </div>
       </section>
-
-      <UnlockPanel
-        label="05 Lasting Impact"
-        items={[
-          "Established the phased redesign model applied to every subsequent enterprise product — including IBEDC and FetsProza.",
-          "Seeded the organizational case for Seamkit. SeamlessHiring was the first product migrated to the unified design system, and the proof-of-concept that made cross-team adoption credible.",
-          "Helped reposition design from delivery support into a pricing and retention lever — changing how sales framed the product category.",
-        ]}
-      />
 
       <div style={{ maxWidth: 1240, margin: "48px auto 0", padding: "0 24px" }}>
         <p style={{ fontSize: 15, color: "var(--fg-muted)", fontStyle: "italic", lineHeight: 1.7, maxWidth: 760, margin: 0 }}>
@@ -389,35 +403,17 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         </p>
       </div>
 
-      <div style={{ maxWidth: 1240, margin: "56px auto 0", padding: "0 24px 80px" }}>
-        <blockquote
-          style={{
-            margin: 0,
-            padding: 0,
-            border: "none",
-            maxWidth: 720,
-          }}
-        >
-          <p
-            style={{
-              margin: 0,
-              fontSize: "clamp(20px, 3vw, 26px)",
-              fontWeight: 600,
-              lineHeight: 1.45,
-              letterSpacing: "-0.02em",
-              color: "var(--fg)",
-            }}
-          >
-            The biggest lesson wasn&apos;t about interfaces. It was about operating models.
-          </p>
-          <p style={{ marginTop: 14, fontSize: 16, lineHeight: 1.75, color: "var(--fg-body)" }}>
-            Once the system changed, better interfaces became a consequence rather than the objective. That philosophy
-            later shaped SeamKit and FetsProza — and how I approach enterprise product strategy today.
-          </p>
-        </blockquote>
-      </div>
+      <UnlockPanel
+        items={[
+          "Established the phased redesign model applied to every subsequent enterprise product — including IBEDC and FetsProza.",
+          "Seeded the organizational case for Seamkit. SeamlessHiring was the first product migrated to the unified design system, and the proof-of-concept that made cross-team adoption credible.",
+          "Helped reposition design from delivery support into a pricing and retention lever — changing how sales framed the product category.",
+          "Defined how I approach AI integration: as a Phase V decision, not a Phase I feature.",
+        ]}
+      />
 
       <PrevNextNav prev={prev} next={next} />
     </div>
   );
 }
+
