@@ -46,7 +46,7 @@ export default function OutcomeCards({ tiers }: { tiers: OutcomeTier[] }) {
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {t.items.map((item) => (
               <div key={item} style={{ fontSize: 14, color: "var(--fg-body)", lineHeight: 1.7 }}>
-                {t.category === "INTELLIGENCE" ? item : renderItem(item)}
+                {t.category === "INTELLIGENCE" || t.category === "CAPABILITY" ? item : renderItem(item)}
               </div>
             ))}
           </div>

@@ -304,13 +304,13 @@ export const projects: Project[] = [
     brief: {
       blocks: [
         { label: "Role", value: "Lead Product Designer" },
-        { label: "Team", value: "1 PM · 3 Engineers · CX · Sales · HR SMEs" },
         {
-          label: "Responsibility",
-          value: "UX Strategy · Workflow Architecture · Phased Rollout · AI-Assisted Decision Design",
+          label: "Scope",
+          value:
+            "Product Strategy · Workflow Architecture · UX Research · Enterprise UX · AI Experience Design",
         },
-        { label: "Timeline", value: "Mar 2022 – Mar 2025" },
-        { label: "Domain", value: "Enterprise SaaS / HR Tech / ATS" },
+        { label: "Collaborators", value: "PM · Engineering · HR SMEs · Customer Success" },
+        { label: "Duration", value: "2022–2025" },
       ],
       productImpact: [
         { value: "↓24%", label: "Application drop-offs" },

@@ -103,6 +103,34 @@
           "out": "block-cover.png",
           "designWidth": 1192,
           "designHeight": 495
+        },
+        {
+          "id": "29697:39097",
+          "out": "phase-job-creation.png",
+          "designWidth": 732,
+          "designHeight": 825,
+          "notes": "Editorial refine alias of block-pain-points — re-export from frame 29697:38302 when nodes split"
+        },
+        {
+          "id": "29697:39119",
+          "out": "phase-application.png",
+          "designWidth": 732,
+          "designHeight": 435,
+          "notes": "Editorial refine alias of thumb-2"
+        },
+        {
+          "id": "29697:39163",
+          "out": "phase-ats.png",
+          "designWidth": 732,
+          "designHeight": 323,
+          "notes": "Editorial refine alias of block-gallery-1"
+        },
+        {
+          "id": "29697:39185",
+          "out": "phase-rbac.png",
+          "designWidth": 732,
+          "designHeight": 264,
+          "notes": "Editorial refine alias of block-journey"
         }
       ]
     },
