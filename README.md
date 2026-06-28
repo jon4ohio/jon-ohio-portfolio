@@ -1,4 +1,8 @@
 # jon-ohio-portfolio
+
+**Start here:** [Project Entry](docs/project/entry.md) — orientation, priorities, and contract index.  
+Session continuity: [Handoff](ai/handoff.md).
+
 John Ohio’s portfolio site.
 
 - **Stack**: Next.js App Router, React, TypeScript
