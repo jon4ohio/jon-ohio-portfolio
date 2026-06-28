@@ -76,7 +76,7 @@ export default function WorkflowTransformationDiagram({
       style={{
         maxWidth: 1240,
         margin: "48px auto 0",
-        padding: "48px 24px",
+        padding: "48px 32px",
         background: "var(--surface-subtle)",
         borderRadius: 12,
         border: "1px solid var(--border-subtle)",
@@ -92,7 +92,7 @@ export default function WorkflowTransformationDiagram({
         style={{
           display: "grid",
           gridTemplateColumns: "1fr auto 1fr",
-          gap: 32,
+          gap: 40,
           alignItems: "start",
         }}
         className="case-study-transformation-strip"

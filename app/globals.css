@@ -922,13 +922,19 @@ button:focus-visible {
   background: var(--border);
 }
 .stats-grid--4 { grid-template-columns: repeat(4, 1fr); }
+.stats-grid--count-3 { grid-template-columns: repeat(3, 1fr); }
+.stats-grid--count-2 { grid-template-columns: repeat(2, 1fr); }
 .stats-cell { padding: 28px 24px; }
 @media (max-width: 900px) {
-  .stats-grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid--4,
+  .stats-grid--count-3 { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid--count-2 { grid-template-columns: repeat(2, 1fr); }
   .stats-cell { padding: 24px 18px; }
 }
 @media (max-width: 640px) {
-  .stats-grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid--4,
+  .stats-grid--count-3,
+  .stats-grid--count-2 { grid-template-columns: repeat(2, 1fr); }
   .stats-cell { padding: 20px 16px; }
 }
 

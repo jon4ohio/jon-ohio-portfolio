@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { existsSync } from "node:fs";
-import path from "node:path";
 import StickyChapterNav from "@/components/case-study/StickyChapterNav";
 import ReadingProgressBar from "@/components/case-study/ReadingProgressBar";
 import FlagshipOpener from "@/components/case-study/FlagshipOpener";
@@ -70,7 +68,7 @@ const outcomeTiers: OutcomeTier[] = [
       "RMS transitioned from a ₦150k one-time add-on into a recurring product (~₦200k/month), while international pricing increased from $200 to up to $500/month depending on enterprise scale.",
   },
   {
-    category: "CAPABILITY",
+    category: "PLATFORM",
     items: [
       "AI-ready recruitment workflows",
       "Reusable enterprise patterns",
@@ -78,10 +76,6 @@ const outcomeTiers: OutcomeTier[] = [
     ],
   },
 ];
-
-const PHASE_AI_IMAGE = existsSync(path.join(process.cwd(), "public", "assets/work/seamless-hiring/pilot-review-ai.png"))
-  ? "/assets/work/seamless-hiring/pilot-review-ai.png"
-  : "/assets/work/seamless-hiring/block-gallery-1.png";
 
 export default function SeamlessHiringFlagshipCaseStudy() {
   const project = getProject("seamless-hiring");
@@ -118,21 +112,21 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         microLabel={`${project.company} · ${project.period}`}
         title="SeamlessHiring 2.0"
         subtitle="Recruitment Management System (RMS)"
-        thesisLead="Transforming a fragmented recruitment tool into an enterprise hiring platform that scaled globally."
+        thesisLead="Rebuilding fragmented recruiting workflows into a scalable hiring operating system."
         thesis="A high-volume graduate hiring programme exposed how badly the legacy RMS broke under scale — recruiters lost trust in core workflows long before interface polish could matter."
-        abstract="A three-year redesign that restored workflow reliability, reduced recruiter friction, introduced AI-assisted hiring, and repositioned SeamlessHiring from a low-cost add-on into a premium enterprise product."
+        abstract="SeamlessHiring began as a fragmented recruitment add-on that broke under scale during a high-volume graduate hiring programme. The redesign focused on restoring workflow trust, restructuring the hiring lifecycle, and repositioning RMS from a low-cost add-on into a scalable, enterprise-priced product across local and international markets."
         impact={project.metrics}
         impactGroups={[
           {
-            label: "Business Outcomes",
+            label: "Business Impact",
             metrics: [
-              { value: "Premium", label: "pricing" },
+              { value: "↑", label: "Premium pricing" },
               { value: "↓50%", label: "Support volume" },
               { value: "↑20%", label: "Job engagement" },
             ],
           },
           {
-            label: "User Outcomes",
+            label: "User Impact",
             metrics: [
               { value: "↓24%", label: "Application drop-offs" },
               { value: "↑40%", label: "Satisfaction" },
@@ -324,7 +318,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           figure={{
             figure: 5,
             label: "Pilot Review — AI in RMS",
-            imageSrc: PHASE_AI_IMAGE,
+            imageSrc: "/assets/work/seamless-hiring/pilot-review-ai.png",
             imageAlt: "Pilot Review — AI-assisted candidate ranking within recruitment workflows",
             caption: "AI-assisted ranking inside a trusted workflow.",
           }}

@@ -55,7 +55,18 @@ All layout and visual styles use **inline `style` props** — not Tailwind class
 
 ## Figma MCP (optional)
 
-Use the **official Figma MCP** (`plugin-figma-figma` in Cursor) for a two-way loop in chat: read tools pull design context from Figma; write/capture tools push or edit the canvas. The **Figma desktop MCP** is mainly read + Code Connect — use the official server for `use_figma` and `generate_figma_design`. If `whoami` succeeds, the session is authenticated.
+Use the **remote Figma MCP** at `https://mcp.figma.com/mcp` for a two-way loop in chat: read tools pull design context from Figma; write/capture tools (`use_figma`, `generate_figma_design`) push or edit the canvas. This repo uses **remote-only** — do not configure `figma-desktop` / `localhost:3845`.
+
+### MCP setup
+
+1. Copy [`docs/mcp.json.example`](docs/mcp.json.example) to `.cursor/mcp.json` (project root).
+2. **Restart Cursor** so MCP config reloads.
+3. Open **Cursor Settings → MCP**, find **`figma`**, and complete **Connect** / **Login with Figma** (OAuth).
+4. Verify: `whoami` on the `figma` server should return your Figma user/plan.
+
+If both the Figma plugin and `.cursor/mcp.json` register a server named `figma`, keep only one entry in MCP settings to avoid duplicates.
+
+`FIGMA_TOKEN` in `.env.local` is for `npm run export:figma-assets` (REST API) — separate from MCP OAuth.
 
 ### Site URLs (for capture into Figma)
 

@@ -31,16 +31,17 @@ export type CaseHeroProps = {
 };
 
 function MetricsGrid({ metrics }: { metrics: CaseHeroMetric[] }) {
+  const columnCount = Math.min(metrics.length, 4);
   return (
     <div
-      className="stats-grid stats-grid--4"
+      className={`stats-grid stats-grid--4 stats-grid--count-${columnCount}`}
       style={{
         background: "var(--border)",
-        gridTemplateColumns: `repeat(${Math.min(metrics.length, 4)}, 1fr)`,
+        gridTemplateColumns: `repeat(${columnCount}, 1fr)`,
       }}
     >
       {metrics.map(({ value, label }) => (
-        <div key={label} className="stats-cell" style={{ background: "var(--bg)" }}>
+        <div key={`${value}-${label}`} className="stats-cell" style={{ background: "var(--bg)" }}>
           <div style={{ fontSize: 35, fontWeight: 600, letterSpacing: "-0.03em", color: "var(--fg)" }}>{value}</div>
           <div style={{ fontSize: 11.5, lineHeight: 1.45, color: "var(--fg-muted)", marginTop: 8 }}>{label}</div>
         </div>
@@ -139,17 +140,17 @@ export default function CaseHero({
 
       <div style={{ marginTop: 40, paddingTop: 32, borderTop: "1px solid var(--border)" }}>
         {impactGroups?.length ? (
-          <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
             {impactGroups.map((group) => (
               <div key={group.label}>
                 <p
                   style={{
-                    margin: "0 0 12px",
-                    fontSize: 11,
+                    margin: "0 0 14px",
+                    fontSize: 10,
                     textTransform: "uppercase",
                     letterSpacing: "0.08em",
                     color: "var(--fg-subtle)",
-                    fontWeight: 600,
+                    fontWeight: 500,
                   }}
                 >
                   {group.label}

@@ -14,8 +14,8 @@ export default function JudgmentCallout({ kind, children, emphasis = "standard" 
       style={{
         marginTop: emphasis === "quiet" ? 16 : 20,
         marginBottom: emphasis === "quiet" ? 0 : 4,
-        padding: emphasis === "quiet" ? "12px 14px" : "14px 18px",
-        borderLeft: "2px solid var(--accent-orange)",
+        padding: emphasis === "quiet" ? "14px 16px" : "16px 20px",
+        borderLeft: "3px solid var(--accent-orange)",
         background: "var(--surface)",
         borderRadius: 6,
         maxWidth: 720,
