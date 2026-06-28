@@ -1,16 +1,20 @@
 import * as React from "react";
 import AnnotatedFigure, { type AnnotatedFigureProps } from "@/components/case-study/AnnotatedFigure";
 
+export type EvidenceLayoutVariant = "default" | "problem-first" | "image-first" | "compact" | "climax";
+
 export interface EvidenceModuleProps {
-  id: string; // "phase-I"
-  phase: string; // "Phase I — Stabilize"
+  id: string;
+  phase: string;
   challenge: string;
   intervention: string;
   figure: Omit<AnnotatedFigureProps, "imageOnly">;
   layout: "text-left" | "text-right";
+  layoutVariant?: EvidenceLayoutVariant;
   accent?: boolean;
   pullQuote?: string;
-  /** Flagship decision spine — Context / Decision / Reasoning / Evidence / Outcome */
+  intro?: string;
+  judgment?: React.ReactNode;
   challengeLabel?: string;
   interventionLabel?: string;
   reasoning?: string;
@@ -18,7 +22,6 @@ export interface EvidenceModuleProps {
   outcome?: string;
   outcomeLabel?: string;
   evidenceLabel?: string;
-  /** Stacked scan layout: headline → problem → decision → screenshot → outcome */
   decisionLayout?: "default" | "scan";
   decisionHeadline?: string;
 }
@@ -38,6 +41,51 @@ function Micro({ children }: { children: React.ReactNode }) {
   );
 }
 
+function PhaseChip({ phase }: { phase: string }) {
+  return (
+    <div
+      style={{
+        display: "inline-block",
+        border: "1px solid var(--border)",
+        borderRadius: 999,
+        padding: "4px 12px",
+        fontSize: 12.5,
+        fontWeight: 600,
+        color: "var(--fg)",
+        letterSpacing: "0.01em",
+        marginBottom: 16,
+        background: "var(--surface)",
+      }}
+    >
+      {phase}
+    </div>
+  );
+}
+
+function QuietCaption({ caption }: { caption: string }) {
+  if (!caption.trim()) return null;
+  return (
+    <p style={{ margin: "10px 0 0", fontSize: 13, lineHeight: 1.5, color: "var(--fg-muted)", fontStyle: "italic" }}>
+      {caption}
+    </p>
+  );
+}
+
+function FigureBlock({
+  figure,
+  quietCaption = true,
+}: {
+  figure: Omit<AnnotatedFigureProps, "imageOnly">;
+  quietCaption?: boolean;
+}) {
+  return (
+    <div style={{ marginTop: 24 }}>
+      <AnnotatedFigure {...figure} decisionNotes={[]} hideDecisionNotes imageOnly />
+      {quietCaption ? <QuietCaption caption={figure.caption} /> : null}
+    </div>
+  );
+}
+
 export default function EvidenceModule({
   id,
   phase,
@@ -45,10 +93,13 @@ export default function EvidenceModule({
   intervention,
   figure,
   layout,
+  layoutVariant = "default",
   accent = false,
   pullQuote,
-  challengeLabel,
-  interventionLabel = "Intervention",
+  intro,
+  judgment,
+  challengeLabel = "Problem",
+  interventionLabel = "Design move",
   reasoning,
   reasoningLabel = "Reasoning",
   outcome,
@@ -58,6 +109,124 @@ export default function EvidenceModule({
   decisionHeadline,
 }: EvidenceModuleProps) {
   const isFlagshipDecision = Boolean(reasoning) || decisionLayout === "scan";
+
+  if (layoutVariant !== "default") {
+    const sectionPad = layoutVariant === "climax" ? "80px 24px" : accent ? "48px 24px" : "0 24px";
+    const maxW = layoutVariant === "climax" ? 960 : 840;
+
+    return (
+      <section
+        id={id}
+        style={{
+          padding: sectionPad,
+          background: layoutVariant === "climax" || accent ? "var(--surface-subtle)" : "transparent",
+        }}
+      >
+        <div style={{ maxWidth: maxW, margin: "0 auto" }}>
+          <PhaseChip phase={phase} />
+
+          {layoutVariant === "climax" && intro ? (
+            <p style={{ marginTop: 8, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 720 }}>{intro}</p>
+          ) : null}
+
+          {layoutVariant === "climax" ? judgment : null}
+
+          {layoutVariant === "image-first" ? (
+            <>
+              <FigureBlock figure={figure} />
+              <div style={{ marginTop: 24 }}>
+                <Micro>{challengeLabel}</Micro>
+                <p style={{ marginTop: 10, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>{challenge}</p>
+              </div>
+              {judgment}
+              {outcome ? (
+                <div style={{ marginTop: 20 }}>
+                  <Micro>{outcomeLabel}</Micro>
+                  <p style={{ marginTop: 10, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75, fontWeight: 500 }}>
+                    {outcome}
+                  </p>
+                </div>
+              ) : null}
+            </>
+          ) : null}
+
+          {layoutVariant === "problem-first" ? (
+            <>
+              <Micro>{challengeLabel}</Micro>
+              <p style={{ marginTop: 10, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>{challenge}</p>
+              <div style={{ marginTop: 18 }}>
+                <Micro>{interventionLabel}</Micro>
+                <p style={{ marginTop: 10, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>{intervention}</p>
+              </div>
+              {judgment}
+              {outcome ? (
+                <div style={{ marginTop: 18 }}>
+                  <Micro>{outcomeLabel}</Micro>
+                  <p style={{ marginTop: 10, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75, fontWeight: 500 }}>
+                    {outcome}
+                  </p>
+                </div>
+              ) : null}
+              <FigureBlock figure={figure} />
+            </>
+          ) : null}
+
+          {layoutVariant === "climax" ? (
+            <>
+              <Micro>{challengeLabel}</Micro>
+              <p style={{ marginTop: 10, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>{challenge}</p>
+              <div style={{ marginTop: 18 }}>
+                <Micro>{interventionLabel}</Micro>
+                <p style={{ marginTop: 10, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>{intervention}</p>
+              </div>
+              <FigureBlock figure={figure} />
+              {outcome ? (
+                <div style={{ marginTop: 18 }}>
+                  <Micro>{outcomeLabel}</Micro>
+                  <p style={{ marginTop: 10, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75, fontWeight: 500 }}>
+                    {outcome}
+                  </p>
+                </div>
+              ) : null}
+            </>
+          ) : null}
+
+          {layoutVariant === "compact" ? (
+            <>
+              <Micro>{challengeLabel}</Micro>
+              <p style={{ marginTop: 10, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>{challenge}</p>
+              <FigureBlock figure={figure} />
+              {outcome ? (
+                <div style={{ marginTop: 18 }}>
+                  <Micro>{outcomeLabel}</Micro>
+                  <p style={{ marginTop: 10, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75, fontWeight: 500 }}>
+                    {outcome}
+                  </p>
+                </div>
+              ) : null}
+            </>
+          ) : null}
+
+          {pullQuote ? (
+            <blockquote
+              style={{
+                fontSize: 22,
+                fontWeight: 600,
+                fontStyle: "italic",
+                color: "var(--fg)",
+                borderLeft: "3px solid var(--fg)",
+                paddingLeft: 24,
+                margin: "32px 0 0",
+                maxWidth: 640,
+              }}
+            >
+              {pullQuote}
+            </blockquote>
+          ) : null}
+        </div>
+      </section>
+    );
+  }
 
   if (decisionLayout === "scan" && decisionHeadline) {
     return (
@@ -83,9 +252,7 @@ export default function EvidenceModule({
           </h3>
           <p style={{ marginTop: 14, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>{challenge}</p>
           <p style={{ marginTop: 12, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>{intervention}</p>
-          <div style={{ marginTop: 24 }}>
-            <AnnotatedFigure {...figure} caption="" decisionNotes={[]} imageOnly />
-          </div>
+          <FigureBlock figure={figure} />
           {outcome ? (
             <p style={{ marginTop: 18, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75, fontWeight: 500 }}>
               {outcome}
@@ -98,22 +265,7 @@ export default function EvidenceModule({
 
   const text = (
     <div style={{ maxWidth: accent ? 560 : 460, minWidth: 0 }}>
-      <div
-        style={{
-          display: "inline-block",
-          border: "1px solid var(--border)",
-          borderRadius: 999,
-          padding: "4px 12px",
-          fontSize: 12.5,
-          fontWeight: 600,
-          color: "var(--fg)",
-          letterSpacing: "0.01em",
-          marginBottom: 16,
-          background: "var(--surface)",
-        }}
-      >
-        {phase}
-      </div>
+      <PhaseChip phase={phase} />
 
       {challengeLabel ? <Micro>{challengeLabel}</Micro> : null}
       <p style={{ marginTop: challengeLabel ? 10 : 0, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>
@@ -169,7 +321,7 @@ export default function EvidenceModule({
           ) : null}
         </>
       ) : (
-        <AnnotatedFigure {...figure} />
+        <AnnotatedFigure {...figure} hideDecisionNotes />
       )}
     </div>
   );

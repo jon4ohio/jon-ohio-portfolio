@@ -16,6 +16,8 @@ export type MetadataBriefProps = {
   omitSectionId?: boolean;
   /** Bento card micro label — default Executive Brief. */
   sectionLabel?: string;
+  /** `engagement` — single scope card only (flagship leadership narrative). */
+  variant?: "full" | "engagement";
 };
 
 const cardBase: React.CSSProperties = {
@@ -119,6 +121,28 @@ function StrategicDecisionsCard({ decisions }: { decisions: StrategicDecision[] 
   );
 }
 
+function EngagementBriefCard({
+  sectionLabel,
+  blocks,
+}: {
+  sectionLabel: string;
+  blocks: MetadataBlock[];
+}) {
+  return (
+    <div style={{ ...cardBase, width: "100%", minWidth: 0, marginTop: 24, maxWidth: 560 }}>
+      <span style={sectionLabelStyle}>{sectionLabel}</span>
+      {blocks.map((b, i) => (
+        <div key={b.label}>
+          <div style={rowLabelStyle}>{b.label}</div>
+          <RowValue marginBottom={i === blocks.length - 1 ? 0 : 12}>
+            {Array.isArray(b.value) ? b.value.join(" · ") : b.value}
+          </RowValue>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function MetadataBrief({
   blocks,
   led,
@@ -129,6 +153,7 @@ export default function MetadataBrief({
   strategicDecisions,
   omitSectionId = false,
   sectionLabel = "01 Executive Brief",
+  variant = "full",
 }: MetadataBriefProps) {
   const mobileBasicsBlocks = blocks.filter((b) => b.label.toLowerCase() !== "team");
   const bottomLine = commercialShiftBottom.replace(/^→\s*/, "");
@@ -140,6 +165,14 @@ export default function MetadataBrief({
   const wrapperProps = omitSectionId
     ? { style: { maxWidth: 1240, margin: "0 auto", padding: "48px 24px 0" } }
     : { id: "brief" as const, style: { maxWidth: 1240, margin: "0 auto", padding: "48px 24px 0" } };
+
+  if (variant === "engagement") {
+    return (
+      <Wrapper {...wrapperProps}>
+        <EngagementBriefCard sectionLabel={sectionLabel} blocks={blocks} />
+      </Wrapper>
+    );
+  }
 
   return (
     <Wrapper {...wrapperProps}>

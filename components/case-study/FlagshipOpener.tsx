@@ -1,5 +1,5 @@
 import * as React from "react";
-import CaseHero, { type CaseHeroMetric } from "@/components/case-study/CaseHero";
+import CaseHero, { type CaseHeroImpactGroup, type CaseHeroMetric } from "@/components/case-study/CaseHero";
 import type { EvidenceChromeSize, EvidenceMediaChrome } from "@/components/case-study/EvidenceChrome";
 import MetadataBrief, { type MetadataBriefProps } from "@/components/case-study/MetadataBrief";
 
@@ -11,6 +11,8 @@ export type FlagshipOpenerProps = {
   thesis: string;
   abstract: string;
   impact: CaseHeroMetric[];
+  impactGroups?: CaseHeroImpactGroup[];
+  showHeroImage?: boolean;
   heroImage: {
     src?: string;
     alt?: string;
@@ -19,7 +21,6 @@ export type FlagshipOpenerProps = {
     restartGifOnVisible?: boolean;
   };
   executiveBrief: MetadataBriefProps;
-  /** When set, wraps hero + brief in one anchored section (e.g. `snapshot`). */
   sectionId?: string;
 };
 
@@ -31,6 +32,8 @@ export default function FlagshipOpener({
   thesis,
   abstract,
   impact,
+  impactGroups,
+  showHeroImage,
   heroImage,
   executiveBrief,
   sectionId,
@@ -45,6 +48,8 @@ export default function FlagshipOpener({
         thesis={thesis}
         abstract={abstract}
         impact={impact}
+        impactGroups={impactGroups}
+        showHeroImage={showHeroImage}
         heroImage={heroImage}
       />
       <MetadataBrief {...executiveBrief} omitSectionId={Boolean(sectionId)} />
@@ -57,4 +62,3 @@ export default function FlagshipOpener({
 
   return content;
 }
-
