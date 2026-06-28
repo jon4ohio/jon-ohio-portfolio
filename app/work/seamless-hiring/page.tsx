@@ -10,6 +10,7 @@ import AnnotatedFigure from "@/components/case-study/AnnotatedFigure";
 import DecisionAccordion from "@/components/case-study/DecisionAccordion";
 import OutcomeCards, { type OutcomeTier } from "@/components/case-study/OutcomeCards";
 import UnlockPanel from "@/components/case-study/UnlockPanel";
+import YouTubePosterPlayer from "@/components/case-study/YouTubePosterPlayer";
 import PrevNextNav from "@/components/case-study/PrevNextNav";
 import { getProject, projects } from "@/lib/projects";
 
@@ -344,28 +345,6 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           }}
         />
 
-        <div style={{ padding: "0 24px 64px" }}>
-          <div style={{ maxWidth: 1240, margin: "0 auto" }}>
-            <div style={{ marginTop: 24, paddingTop: 16, borderTop: "1px solid var(--border-subtle)" }}>
-              <span
-                style={{
-                  fontSize: 10,
-                  fontWeight: 500,
-                  letterSpacing: "0.08em",
-                  textTransform: "uppercase",
-                  color: "var(--fg-subtle)",
-                  display: "block",
-                  marginBottom: 6,
-                }}
-              >
-                Continuity
-              </span>
-              <p style={{ fontSize: 14, color: "var(--fg-muted)", fontStyle: "italic", margin: 0 }}>
-                Patterns piloted in SeamlessHiring later informed broader work on SeamlessAI&apos;s reusable enterprise AI interaction layer.
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
 
       <p
@@ -425,35 +404,13 @@ export default function SeamlessHiringFlagshipCaseStudy() {
       </div>
 
       <div style={{ maxWidth: 1240, margin: "80px auto 0", padding: "0 24px" }}>
-        <a
-          href="https://www.youtube.com/watch?v=uHZ1-KpyJyo"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/assets/work/seamless-hiring/promo-video-poster.png"
-            alt="SeamlessHiring promotional video on YouTube"
-            style={{
-              width: "100%",
-              height: "auto",
-              display: "block",
-              borderRadius: 8,
-              border: "1px solid var(--border)",
-            }}
-          />
-        </a>
+        <YouTubePosterPlayer
+          videoId="uHZ1-KpyJyo"
+          posterSrc="/assets/work/seamless-hiring/promo-video-poster.png"
+          title="SeamlessHiring promotional video"
+        />
         <p style={{ marginTop: 16, fontSize: 13, lineHeight: 1.6, color: "var(--fg-muted)" }}>
-          The promotional video on YouTube can be accessed{" "}
-          <a
-            href="https://www.youtube.com/watch?v=uHZ1-KpyJyo"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "var(--accent)", textDecoration: "underline" }}
-          >
-            here
-          </a>
-          .
+          Promotional overview of SeamlessHiring 2.0.
         </p>
       </div>
 
