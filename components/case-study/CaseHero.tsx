@@ -7,8 +7,6 @@ const NARRATIVE_MAX_WIDTH = 760;
 
 export type CaseHeroMetric = { value: string; label: string };
 
-export type CaseHeroImpactGroup = { label: string; metrics: CaseHeroMetric[] };
-
 export type CaseHeroProps = {
   microLabel: string;
   title: string;
@@ -18,9 +16,6 @@ export type CaseHeroProps = {
   thesis: string;
   abstract: string;
   impact: CaseHeroMetric[];
-  /** When set, renders labeled outcome rows instead of a single stats grid. */
-  impactGroups?: CaseHeroImpactGroup[];
-  showHeroImage?: boolean;
   heroImage: {
     src?: string;
     alt?: string;
@@ -30,25 +25,6 @@ export type CaseHeroProps = {
   };
 };
 
-function MetricsGrid({ metrics }: { metrics: CaseHeroMetric[] }) {
-  return (
-    <div
-      className="stats-grid stats-grid--4"
-      style={{
-        background: "var(--border)",
-        gridTemplateColumns: `repeat(${Math.min(metrics.length, 4)}, 1fr)`,
-      }}
-    >
-      {metrics.map(({ value, label }) => (
-        <div key={label} className="stats-cell" style={{ background: "var(--bg)" }}>
-          <div style={{ fontSize: 35, fontWeight: 600, letterSpacing: "-0.03em", color: "var(--fg)" }}>{value}</div>
-          <div style={{ fontSize: 11.5, lineHeight: 1.45, color: "var(--fg-muted)", marginTop: 8 }}>{label}</div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
 export default function CaseHero({
   microLabel,
   title,
@@ -57,8 +33,6 @@ export default function CaseHero({
   thesis,
   abstract,
   impact,
-  impactGroups,
-  showHeroImage = true,
   heroImage,
 }: CaseHeroProps) {
   return (
@@ -138,47 +112,31 @@ export default function CaseHero({
       </p>
 
       <div style={{ marginTop: 40, paddingTop: 32, borderTop: "1px solid var(--border)" }}>
-        {impactGroups?.length ? (
-          <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
-            {impactGroups.map((group) => (
-              <div key={group.label}>
-                <p
-                  style={{
-                    margin: "0 0 12px",
-                    fontSize: 11,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.08em",
-                    color: "var(--fg-subtle)",
-                    fontWeight: 600,
-                  }}
-                >
-                  {group.label}
-                </p>
-                <MetricsGrid metrics={group.metrics} />
-              </div>
-            ))}
-          </div>
-        ) : (
-          <MetricsGrid metrics={impact} />
-        )}
+        <div className="stats-grid stats-grid--4" style={{ background: "var(--border)" }}>
+          {impact.map(({ value, label }) => (
+            <div key={label} className="stats-cell" style={{ background: "var(--bg)" }}>
+              <div style={{ fontSize: 35, fontWeight: 600, letterSpacing: "-0.03em", color: "var(--fg)" }}>{value}</div>
+              <div style={{ fontSize: 11.5, lineHeight: 1.45, color: "var(--fg-muted)", marginTop: 8 }}>{label}</div>
+            </div>
+          ))}
+        </div>
       </div>
 
-      {showHeroImage ? (
-        <div style={{ marginTop: 48 }}>
-          <AnnotatedFigure
-            figure={0}
-            label="Product Overview"
-            caption=""
-            decisionNotes={[]}
-            imageSrc={heroImage.src}
-            imageAlt={heroImage.alt}
-            embedChrome={heroImage.embedChrome}
-            chromeSize={heroImage.chromeSize}
-            restartGifOnVisible={heroImage.restartGifOnVisible}
-            imageOnly
-          />
-        </div>
-      ) : null}
+      <div style={{ marginTop: 48 }}>
+        <AnnotatedFigure
+          figure={0}
+          label="Product Overview"
+          caption=""
+          decisionNotes={[]}
+          imageSrc={heroImage.src}
+          imageAlt={heroImage.alt}
+          embedChrome={heroImage.embedChrome}
+          chromeSize={heroImage.chromeSize}
+          restartGifOnVisible={heroImage.restartGifOnVisible}
+          imageOnly
+        />
+      </div>
     </section>
   );
 }
+

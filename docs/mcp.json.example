@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"]
+    },
+    "figma": {
+      "url": "https://mcp.figma.com/mcp"
+    }
+  }
+}
