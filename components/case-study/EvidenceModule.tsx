@@ -7,6 +7,7 @@ export interface EvidenceModuleProps {
   challenge: string;
   intervention: string;
   figure: Omit<AnnotatedFigureProps, "imageOnly">;
+  secondaryFigure?: Omit<AnnotatedFigureProps, "imageOnly">;
   layout: "text-left" | "text-right";
   accent?: boolean;
   pullQuote?: string;
@@ -44,6 +45,7 @@ export default function EvidenceModule({
   challenge,
   intervention,
   figure,
+  secondaryFigure,
   layout,
   accent = false,
   pullQuote,
@@ -169,7 +171,12 @@ export default function EvidenceModule({
           ) : null}
         </>
       ) : (
-        <AnnotatedFigure {...figure} />
+        <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
+          <AnnotatedFigure {...figure} />
+          {secondaryFigure ? (
+            <AnnotatedFigure {...secondaryFigure} hideDecisionNotes={secondaryFigure.hideDecisionNotes ?? true} />
+          ) : null}
+        </div>
       )}
     </div>
   );
