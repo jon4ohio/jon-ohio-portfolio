@@ -4,6 +4,7 @@ import { getPrimaryPreviewImage, getProject, projects, type CaseStudyBlock } fro
 import AssetImage from "@/components/AssetImage";
 import MetadataBrief from "@/components/case-study/MetadataBrief";
 import PrevNextNav from "@/components/case-study/PrevNextNav";
+import WorkInProgressBadge from "@/components/WorkInProgressBadge";
 
 function BlockRenderer({ block }: { block: CaseStudyBlock }) {
   if (block.kind === "callout") {
@@ -203,6 +204,12 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
           <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{project.company}</span>
           <span aria-hidden="true" style={{ fontSize: 11, color: "var(--accent-orange)" }}>·</span>
           <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{project.period}</span>
+          {project.workInProgress ? (
+            <>
+              <span aria-hidden="true" style={{ fontSize: 11, color: "var(--accent-orange)" }}>·</span>
+              <WorkInProgressBadge />
+            </>
+          ) : null}
         </div>
         <h1 style={{ fontSize: "clamp(32px, 5vw, 60px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.05, marginBottom: 16, maxWidth: 800 }}>
           {project.title}
