@@ -1,6 +1,5 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
 import EvidenceChrome, {
   mediaChromeToVariant,
   type EvidenceChromeSize,
@@ -8,7 +7,8 @@ import EvidenceChrome, {
 } from "@/components/case-study/EvidenceChrome";
 import EvidenceGif from "@/components/case-study/evidence/EvidenceGif";
 import { isGifSrc } from "@/components/case-study/evidence/gif-utils";
-import EvidenceReviewOverlay from "@/components/case-study/evidence/EvidenceReviewOverlay";
+import MediaViewTrigger from "@/components/case-study/evidence/MediaViewTrigger";
+import { overlayMediaStyle } from "@/components/case-study/evidence/overlay-media-styles";
 
 export type { EvidenceMediaChrome } from "@/components/case-study/EvidenceChrome";
 
@@ -62,6 +62,16 @@ function wrapEvidenceChrome(
   );
 }
 
+function OverlayMedia({ src, alt, gif }: { src: string; alt: string; gif: boolean }) {
+  if (gif) {
+    return <EvidenceGif src={src} alt={alt} restartOnVisible={false} style={overlayMediaStyle} />;
+  }
+  return (
+    /* eslint-disable-next-line @next/next/no-img-element */
+    <img src={src} alt={alt} style={overlayMediaStyle} />
+  );
+}
+
 export default function EvidenceImage({
   src,
   alt,
@@ -82,28 +92,9 @@ export default function EvidenceImage({
 }: EvidenceImageProps) {
   void _priority;
 
-  const [open, setOpen] = useState(false);
-  const triggerRef = useRef<HTMLDivElement>(null);
   const gif = isGifSrc(src);
   const usesEvidenceChrome = embedChrome === "evidence" || embedChrome === "neutral";
   const innerBorderless = borderless || embedChrome === "figjam" || usesEvidenceChrome;
-
-  const openReview = useCallback(() => {
-    if (disabled) return;
-    setOpen(true);
-  }, [disabled]);
-
-  const closeReview = useCallback(() => {
-    setOpen(false);
-  }, []);
-
-  const onTriggerKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    if (disabled) return;
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      openReview();
-    }
-  };
 
   const inlineImgStyle: React.CSSProperties =
     layout === "fill"
@@ -161,67 +152,18 @@ export default function EvidenceImage({
     content = wrapEvidenceChrome(media, embedChrome, chromeSize);
   }
 
-  const affordanceClassName = usesEvidenceChrome
-    ? "evidence-image-affordance evidence-image-affordance--chrome"
-    : "evidence-image-affordance";
-
   return (
-    <>
-      <div
-        ref={triggerRef}
-        role={disabled ? undefined : "button"}
-        tabIndex={disabled ? undefined : 0}
-        aria-label={disabled ? undefined : `Inspect evidence: ${title}`}
-        aria-hidden={ariaHidden || undefined}
-        className={disabled ? undefined : "evidence-image-trigger"}
-        onClick={disabled ? undefined : openReview}
-        onKeyDown={onTriggerKeyDown}
-        style={triggerStyle}
-      >
-        {content}
-        {disabled ? null : (
-          <span className={affordanceClassName} aria-hidden="true">
-            ↗ Inspect
-          </span>
-        )}
-      </div>
-      <EvidenceReviewOverlay
-        open={open}
-        onClose={closeReview}
-        title={title}
-        description={description}
-        context={context}
-        returnFocusRef={triggerRef}
-      >
-        {gif ? (
-          <EvidenceGif
-            src={src}
-            alt={alt}
-            restartOnVisible={false}
-            style={{
-              display: "block",
-              maxWidth: "min(92vw, 1600px)",
-              maxHeight: "88vh",
-              width: "auto",
-              height: "auto",
-            }}
-          />
-        ) : (
-          /* eslint-disable-next-line @next/next/no-img-element */
-          <img
-            src={src}
-            alt={alt}
-            style={{
-              display: "block",
-              maxWidth: "min(92vw, 1600px)",
-              maxHeight: "88vh",
-              width: "auto",
-              height: "auto",
-              objectFit: "contain",
-            }}
-          />
-        )}
-      </EvidenceReviewOverlay>
-    </>
+    <MediaViewTrigger
+      title={title}
+      description={description}
+      context={context}
+      disabled={disabled}
+      ariaHidden={ariaHidden}
+      affordanceVariant={usesEvidenceChrome ? "chrome" : "default"}
+      triggerStyle={triggerStyle}
+      overlayChildren={<OverlayMedia src={src} alt={alt} gif={gif} />}
+    >
+      {content}
+    </MediaViewTrigger>
   );
 }

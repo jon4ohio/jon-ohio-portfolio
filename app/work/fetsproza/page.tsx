@@ -487,7 +487,6 @@ export default function FetsprozaFlagshipCaseStudy() {
             imageAlt="FetsProza operational walkthrough — transaction health, investigation, and business performance in one workspace"
             restartGifOnVisible
             imageOnly
-            reviewable={false}
             borderless
           />
         </div>
@@ -527,6 +526,7 @@ export default function FetsprozaFlagshipCaseStudy() {
             caption=""
             decisionNotes={[]}
             imageOnly
+            reviewable={true}
           />
         </div>
 
