@@ -1,106 +1,11 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getPrimaryPreviewImage, getProject, projects, type CaseStudyBlock } from "@/lib/projects";
+import { getPrimaryPreviewImage, getProject, projects } from "@/lib/projects";
 import AssetImage from "@/components/AssetImage";
+import CaseStudyBlockRenderer from "@/components/case-study/CaseStudyBlockRenderer";
 import MetadataBrief from "@/components/case-study/MetadataBrief";
 import PrevNextNav from "@/components/case-study/PrevNextNav";
 import WorkInProgressBadge from "@/components/WorkInProgressBadge";
-
-function BlockRenderer({ block }: { block: CaseStudyBlock }) {
-  if (block.kind === "callout") {
-    return (
-      <div style={{ border: "1px solid var(--border)", borderRadius: 14, padding: "20px 22px", background: "var(--surface)" }}>
-        <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: "-0.01em", marginBottom: 8 }}>{block.title}</p>
-        <p style={{ fontSize: 14, color: "var(--fg-muted)", lineHeight: 1.7 }}>{block.body}</p>
-      </div>
-    );
-  }
-
-  if (block.kind === "image") {
-    const wrap = block.image.backdropColor ? (
-      <div
-        style={{
-          background: block.image.backdropColor,
-          borderRadius: 16,
-          border: "1px solid var(--border)",
-          overflow: "hidden",
-        }}
-      >
-        <AssetImage
-          asset={block.image}
-          sizes={block.layout === "wide" ? "(max-width: 900px) 92vw, 1240px" : "(max-width: 900px) 92vw, 720px"}
-          treatment={block.treatment}
-          borderless
-        />
-      </div>
-    ) : (
-      <AssetImage
-        asset={block.image}
-        sizes={block.layout === "wide" ? "(max-width: 900px) 92vw, 1240px" : "(max-width: 900px) 92vw, 720px"}
-        treatment={block.treatment}
-      />
-    );
-    return (
-      <div>
-        {wrap}
-        {block.image.caption ? (
-          <p style={{ fontSize: 12, color: "var(--fg-subtle)", lineHeight: 1.6, marginTop: 10 }}>{block.image.caption}</p>
-        ) : null}
-      </div>
-    );
-  }
-
-  // gallery — 2 columns: single column below 641px; 3 columns: fixed grid
-  const columns = block.columns ?? 2;
-  const galleryWideSizes = "(max-width: 640px) 92vw, (max-width: 900px) 44vw, 520px";
-  const galleryInlineSizes = "(max-width: 640px) 92vw, (max-width: 900px) 44vw, 340px";
-  const isTwoCol = columns === 2;
-  return (
-    <div>
-      <div
-        className={isTwoCol ? "case-study-gallery case-study-gallery--cols-2" : undefined}
-        style={
-          isTwoCol
-            ? undefined
-            : {
-                display: "grid",
-                gridTemplateColumns: columns === 3 ? "repeat(3, 1fr)" : "repeat(2, 1fr)",
-                gap: 12,
-              }
-        }
-      >
-        {block.images.map((img, idx) => (
-          <div key={`${img.src}-${idx}`}>
-            {img.backdropColor ? (
-              <div
-                style={{
-                  background: img.backdropColor,
-                  borderRadius: 16,
-                  border: "1px solid var(--border)",
-                  overflow: "hidden",
-                }}
-              >
-                <AssetImage
-                  asset={img}
-                  sizes={block.layout === "wide" ? galleryWideSizes : galleryInlineSizes}
-                  treatment={block.treatment}
-                  borderless
-                />
-              </div>
-            ) : (
-              <AssetImage
-                asset={img}
-                sizes={block.layout === "wide" ? galleryWideSizes : galleryInlineSizes}
-                treatment={block.treatment}
-              />
-            )}
-            {img.caption ? <p className="case-study-gallery-caption">{img.caption}</p> : null}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export async function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -343,7 +248,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
         <section style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px 80px" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
             {project.assets.blocks.map((block, idx) => (
-              <BlockRenderer key={idx} block={block} />
+              <CaseStudyBlockRenderer key={idx} block={block} />
             ))}
           </div>
         </section>

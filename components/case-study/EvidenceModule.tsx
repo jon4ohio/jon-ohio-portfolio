@@ -86,7 +86,7 @@ export default function EvidenceModule({
           <p style={{ marginTop: 14, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>{challenge}</p>
           <p style={{ marginTop: 12, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>{intervention}</p>
           <div style={{ marginTop: 24 }}>
-            <AnnotatedFigure {...figure} caption="" decisionNotes={[]} imageOnly />
+            <AnnotatedFigure {...figure} caption="" decisionNotes={[]} imageOnly reviewable={true} />
           </div>
           {outcome ? (
             <p style={{ marginTop: 18, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75, fontWeight: 500 }}>
@@ -161,7 +161,7 @@ export default function EvidenceModule({
         <>
           <Micro>{evidenceLabel}</Micro>
           <div style={{ marginTop: 10 }}>
-            <AnnotatedFigure {...figure} caption="" decisionNotes={[]} imageOnly />
+            <AnnotatedFigure {...figure} caption="" decisionNotes={[]} imageOnly reviewable={true} />
           </div>
           {outcome ? (
             <div style={{ marginTop: 18 }}>
