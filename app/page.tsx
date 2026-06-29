@@ -120,7 +120,7 @@ export default function Home() {
             maxWidth: 720,
           }}
         >
-          I operate at the system level — designing structures that scale across products, teams, and organizations.
+          I design systems that scale.
         </h2>
 
         <div className="work-list-stack">
