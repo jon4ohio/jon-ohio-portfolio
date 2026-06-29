@@ -50,6 +50,8 @@ export interface AnnotatedFigureProps {
    * Defaults to !imageOnly — evidence figures yes; hero/next-read no.
    */
   reviewable?: boolean;
+  /** Caption and decision notes relative to the image frame — default below */
+  captionPlacement?: "above" | "below";
 }
 
 function publicAssetExists(assetSrc: string | undefined): boolean {
@@ -210,13 +212,14 @@ export default function AnnotatedFigure({
   imageOnly = false,
   borderless = false,
   reviewable: reviewableProp,
+  captionPlacement = "below",
 }: AnnotatedFigureProps) {
   const reviewable = reviewableProp ?? !imageOnly;
   const figureText = typeof figure === "number" ? String(figure).padStart(2, "0") : String(figure);
   const showImage = publicAssetExists(imageSrc);
   const showFallback = publicAssetExists(fallbackImageSrc);
 
-  const frame = embedSrc ? (
+  const mediaFrame = embedSrc ? (
         <>
           {embedChrome === "figjam" ? (
             <FigJamEmbedFrame
@@ -261,60 +264,58 @@ export default function AnnotatedFigure({
         <ArtifactPlaceholder figure={figure} label={label} />
       );
 
-  if (imageOnly) return frame;
+  if (imageOnly) return mediaFrame;
 
-  return (
+  const annotation = (
     <div>
-      {frame}
-      <div style={{ marginTop: 16 }}>
-        <p style={{ margin: 0, fontSize: 13, lineHeight: 1.6 }}>
-          <span
-            style={{
-              fontSize: 11,
-              textTransform: "uppercase",
-              letterSpacing: "0.08em",
-              color: "var(--fg-subtle)",
-            }}
-          >
-            Figure {figureText}
-          </span>
-          {caption ? (
-            <>
-              {" — "}
-              <span style={{ color: "var(--fg-muted)", fontStyle: "italic" }}>{caption}</span>
-            </>
-          ) : null}
-        </p>
+      <p style={{ margin: 0, fontSize: 13, lineHeight: 1.6 }}>
+        <span
+          style={{
+            fontSize: 11,
+            textTransform: "uppercase",
+            letterSpacing: "0.08em",
+            color: "var(--fg-subtle)",
+          }}
+        >
+          Figure {figureText}
+        </span>
+        {caption ? (
+          <>
+            {" — "}
+            <span style={{ color: "var(--fg-muted)", fontStyle: "italic" }}>{caption}</span>
+          </>
+        ) : null}
+      </p>
 
-        {embedSrc && (showFallback || embedBoardHref) ? (
-          <p style={{ margin: "8px 0 0", fontSize: 13, lineHeight: 1.6, color: "var(--fg-muted)" }}>
-            {showFallback ? (
-              <>
-                <a
-                  href={fallbackImageSrc}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: "var(--fg-muted)", textDecoration: "underline", textUnderlineOffset: 2 }}
-                >
-                  View static snapshot
-                </a>
-                {embedBoardHref ? " · " : null}
-              </>
-            ) : null}
-            {embedBoardHref ? (
+      {embedSrc && (showFallback || embedBoardHref) ? (
+        <p style={{ margin: "8px 0 0", fontSize: 13, lineHeight: 1.6, color: "var(--fg-muted)" }}>
+          {showFallback ? (
+            <>
               <a
-                href={embedBoardHref}
+                href={fallbackImageSrc}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: "var(--fg-muted)", textDecoration: "underline", textUnderlineOffset: 2 }}
               >
-                Open full board in FigJam
+                View static snapshot
               </a>
-            ) : null}
-          </p>
-        ) : null}
+              {embedBoardHref ? " · " : null}
+            </>
+          ) : null}
+          {embedBoardHref ? (
+            <a
+              href={embedBoardHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "var(--fg-muted)", textDecoration: "underline", textUnderlineOffset: 2 }}
+            >
+              Open full board in FigJam
+            </a>
+          ) : null}
+        </p>
+      ) : null}
 
-        {decisionNotes.length > 0 && !hideDecisionNotes ? (
+      {decisionNotes.length > 0 && !hideDecisionNotes ? (
         <div style={{ marginTop: 16 }}>
           <span
             style={{
@@ -364,8 +365,23 @@ export default function AnnotatedFigure({
             ))}
           </ul>
         </div>
-        ) : null}
+      ) : null}
+    </div>
+  );
+
+  if (captionPlacement === "above") {
+    return (
+      <div>
+        {annotation}
+        <div style={{ marginTop: 16 }}>{mediaFrame}</div>
       </div>
+    );
+  }
+
+  return (
+    <div>
+      {mediaFrame}
+      <div style={{ marginTop: 16 }}>{annotation}</div>
     </div>
   );
 }
