@@ -135,8 +135,9 @@ export default function EvidenceImage({
         }
       : {
           position: "relative",
-          borderRadius: innerBorderless ? 0 : 8,
-          overflow: usesEvidenceChrome ? "visible" : "hidden",
+          width: usesEvidenceChrome || embedChrome === "figjam" ? "100%" : undefined,
+          borderRadius: usesEvidenceChrome || embedChrome === "figjam" ? 0 : innerBorderless ? 0 : 8,
+          overflow: usesEvidenceChrome || embedChrome === "figjam" ? "visible" : "hidden",
           cursor: disabled ? "default" : "pointer",
           ...frameStyle,
         };
@@ -153,37 +154,37 @@ export default function EvidenceImage({
     <img src={src} alt={alt} style={inlineImgStyle} />
   );
 
-  const trigger = (
-    <div
-      ref={triggerRef}
-      role={disabled ? undefined : "button"}
-      tabIndex={disabled ? undefined : 0}
-      aria-label={disabled ? undefined : `Inspect evidence: ${title}`}
-      aria-hidden={ariaHidden || undefined}
-      className={disabled ? undefined : "evidence-image-trigger"}
-      onClick={disabled ? undefined : openReview}
-      onKeyDown={onTriggerKeyDown}
-      style={triggerStyle}
-    >
-      {media}
-      {disabled ? null : (
-        <span className="evidence-image-affordance" aria-hidden="true">
-          ↗ Inspect
-        </span>
-      )}
-    </div>
-  );
-
-  let framed = trigger;
+  let content: React.ReactNode = media;
   if (embedChrome === "figjam") {
-    framed = wrapFigJam(trigger);
+    content = wrapFigJam(media);
   } else if (embedChrome === "evidence" || embedChrome === "neutral") {
-    framed = wrapEvidenceChrome(trigger, embedChrome, chromeSize);
+    content = wrapEvidenceChrome(media, embedChrome, chromeSize);
   }
+
+  const affordanceClassName = usesEvidenceChrome
+    ? "evidence-image-affordance evidence-image-affordance--chrome"
+    : "evidence-image-affordance";
 
   return (
     <>
-      {framed}
+      <div
+        ref={triggerRef}
+        role={disabled ? undefined : "button"}
+        tabIndex={disabled ? undefined : 0}
+        aria-label={disabled ? undefined : `Inspect evidence: ${title}`}
+        aria-hidden={ariaHidden || undefined}
+        className={disabled ? undefined : "evidence-image-trigger"}
+        onClick={disabled ? undefined : openReview}
+        onKeyDown={onTriggerKeyDown}
+        style={triggerStyle}
+      >
+        {content}
+        {disabled ? null : (
+          <span className={affordanceClassName} aria-hidden="true">
+            ↗ Inspect
+          </span>
+        )}
+      </div>
       <EvidenceReviewOverlay
         open={open}
         onClose={closeReview}

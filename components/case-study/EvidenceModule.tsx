@@ -7,7 +7,7 @@ export interface EvidenceModuleProps {
   challenge: string;
   intervention: string;
   figure: Omit<AnnotatedFigureProps, "imageOnly">;
-  secondaryFigure?: Omit<AnnotatedFigureProps, "imageOnly">;
+  secondaryFigure?: AnnotatedFigureProps;
   layout: "text-left" | "text-right";
   accent?: boolean;
   pullQuote?: string;

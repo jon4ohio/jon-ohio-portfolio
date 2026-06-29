@@ -185,6 +185,14 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           caption="Restructured the product around recruiter and applicant journeys before interface work — separating legacy constraints from the target hiring lifecycle."
           hideDecisionNotes
         />
+        <AnnotatedFigure
+          figure="D"
+          label="Phased Redesign Roadmap"
+          imageSrc="/assets/work/seamless-hiring/block-redesign-phases.png"
+          imageAlt="Five-phase SeamlessHiring redesign roadmap spanning stabilization through AI augmentation"
+          caption="The redesign spanned three years across five phases — with an AI-powered layer added only after workflow trust was restored."
+          hideDecisionNotes
+        />
       </div>
 
       <section id="evidence" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
@@ -222,12 +230,13 @@ export default function SeamlessHiringFlagshipCaseStudy() {
             ],
           }}
           secondaryFigure={{
-            figure: "D",
-            label: "Phased Redesign Roadmap",
-            imageSrc: "/assets/work/seamless-hiring/block-redesign-phases.png",
-            imageAlt: "Five-phase SeamlessHiring redesign roadmap spanning stabilization through AI augmentation",
-            caption:
-              "The redesign spanned three years across five phases — with an AI-powered layer added only after workflow trust was restored.",
+            figure: 1,
+            label: "ATS Application Management",
+            imageSrc: "/assets/work/seamless-hiring/block-phase-i-cover-slide.png",
+            imageAlt: "Phase I — ATS application management cover slide",
+            caption: "",
+            imageOnly: true,
+            reviewable: true,
           }}
         />
 
@@ -282,6 +291,8 @@ export default function SeamlessHiringFlagshipCaseStudy() {
             label: "Evaluation System",
             imageSrc: "/assets/work/seamless-hiring/block-gallery-1.png",
             imageAlt: "Phase III — ATS and evaluation redesign",
+            embedChrome: "evidence",
+            chromeSize: "evidence",
             caption:
               "Introduced structured evaluation workflows that improved decision quality, reduced recruiter context switching, and brought hiring decisions back inside the system.",
             decisionNotes: [

@@ -102,9 +102,22 @@
           "status": "stale-node"
         },
         {
-          "id": "29760:15692",
+          "id": "29760:15595",
           "out": "block-redesign-phases.png",
+          "designWidth": 1192,
+          "designHeight": 720
+        },
+        {
+          "id": "29760:15692",
+          "out": "block-phase-i-cover-slide.png",
           "designWidth": 730,
+          "designHeight": 419,
+          "status": "stale-node"
+        },
+        {
+          "id": "29774:34677",
+          "out": "block-phase-i-cover-slide.png",
+          "designWidth": 732,
           "designHeight": 419
         },
         {
