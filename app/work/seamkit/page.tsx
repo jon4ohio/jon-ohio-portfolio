@@ -487,7 +487,7 @@ export default function SeamkitFlagshipCaseStudy() {
                 title="Encoding brand and communication into the system"
                 description="Brand identity, tone of voice, and messaging patterns encoded into the system — ensuring product and communication stayed consistent by default. These decisions are no longer guidelines. They are enforced through tokens and components."
                 borderless
-                imageStyle={{ borderRadius: 6 }}
+                imageStyle={{ borderRadius: 22 }}
               />
               <figcaption style={{ fontSize: 13, color: "var(--fg-subtle)", marginTop: 12, lineHeight: 1.6 }}>
                 Brand identity, tone of voice, and messaging patterns encoded into the system — ensuring product and

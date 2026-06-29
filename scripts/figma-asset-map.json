@@ -259,11 +259,10 @@
           "status": "stale-node"
         },
         {
-          "id": "29654:25741",
+          "id": "29808:14090",
           "out": "brand-system.png",
-          "designWidth": 732,
-          "designHeight": 615,
-          "status": "stale-node"
+          "designWidth": 1240,
+          "designHeight": 843
         },
         {
           "id": "29659:24990",
