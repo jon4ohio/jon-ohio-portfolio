@@ -15,7 +15,7 @@ export default function WorkInProgressBadge() {
         whiteSpace: "nowrap",
       }}
     >
-      Work in progress
+      Case study in progress
     </span>
   );
 }
