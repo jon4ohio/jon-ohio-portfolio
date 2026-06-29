@@ -82,7 +82,8 @@ export default function EvidenceReviewOverlay({
         alignItems: "center",
         justifyContent: "center",
         padding: "24px",
-        backgroundColor: "color-mix(in srgb, var(--jop-color-grey-120) 72%, transparent)",
+        backgroundColor: "color-mix(in srgb, var(--jop-color-grey-120) 92%, transparent)",
+        backdropFilter: "blur(8px)",
       }}
     >
       <div
@@ -95,6 +96,9 @@ export default function EvidenceReviewOverlay({
           flexDirection: "column",
           width: "min(92vw, 1600px)",
           maxHeight: "100%",
+          background: "color-mix(in srgb, var(--jop-color-grey-120) 96%, transparent)",
+          borderRadius: 8,
+          padding: "20px 24px 24px",
         }}
       >
         <header
