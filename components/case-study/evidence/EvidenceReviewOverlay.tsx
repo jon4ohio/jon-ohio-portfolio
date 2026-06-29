@@ -59,6 +59,20 @@ export default function EvidenceReviewOverlay({
     };
   }, [open, handleClose]);
 
+  useEffect(() => {
+    if (!open) return;
+
+    const onNavigate = () => {
+      handleClose();
+    };
+
+    window.addEventListener("hashchange", onNavigate);
+
+    return () => {
+      window.removeEventListener("hashchange", onNavigate);
+    };
+  }, [open, handleClose]);
+
   if (!open || typeof document === "undefined") {
     return null;
   }

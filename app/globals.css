@@ -1255,6 +1255,11 @@ button:focus-visible {
   opacity: 0.7;
 }
 
+.evidence-image-affordance--chrome {
+  color: var(--jop-color-sage-5);
+  background: color-mix(in srgb, var(--jop-color-grey-120) 82%, transparent);
+}
+
 .evidence-review-backdrop {
   animation: evidence-backdrop-in 180ms ease forwards;
 }
