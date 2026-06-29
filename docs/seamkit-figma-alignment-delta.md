@@ -33,3 +33,18 @@
 
 - Re-map seamkit node IDs in `scripts/figma-asset-map.json` when Section 1 evidence frames are re-published in Figma.
 - Optional: re-capture live `/work/seamkit` to Portfolio file after this pass.
+
+---
+
+## Sectional pass — Layer 01 brand figure (29784:13739)
+
+**Date:** 2026-06-29  
+**Figma frame:** `29784:13739` — [Brand system figure](https://www.figma.com/design/HNS3VdAyubm38nx5aYVZOR/Portfolio_-John-Ohio?node-id=29784-13739)  
+**Export node:** `29808:14090` → `brand-system.png`
+
+| Section | Type | Intent | Files | Result |
+|---------|------|--------|-------|--------|
+| Layer 01 — brand system figure | Asset | Re-export refreshed "Brand and Communication Guideline" board at full 1240×843 | `public/assets/work/seamkit/brand-system.png`, `scripts/figma-asset-map.json` | **Shipped** — @2x export 2480×1686 |
+| Layer 01 — brand system figure | Layout | Match Figma corner radius (~22px) | `app/work/seamkit/page.tsx` | **Shipped** — `imageStyle={{ borderRadius: 22 }}` |
+
+Copy, eyebrow, and figcaption unchanged. No new ADR — IA unchanged.
