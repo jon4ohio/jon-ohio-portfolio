@@ -2,8 +2,8 @@
 
 ## Scope
 This project uses a 2-theme token system for visual consistency across:
-- `light` (default) — soft sage/lavender pastels with subtle gradients
-- `dark`
+- `dark` (default) — slate + violet decision tokens
+- `light` — soft sage/lavender pastels with subtle gradients
 
 The active theme is applied via `data-theme` on the root html element. Legacy `warm` storage values migrate to `light`.
 

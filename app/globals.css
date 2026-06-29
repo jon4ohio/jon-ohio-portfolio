@@ -67,7 +67,6 @@
   --jop-color-slate-40: #3c4550;
 }
 
-:root,
 :root[data-theme="light"] {
   color-scheme: light;
 
@@ -179,6 +178,7 @@
   --jop-asset-chrome-inner-bg: var(--jop-color-lavender-10);
 }
 
+:root,
 :root[data-theme="dark"] {
   color-scheme: dark;
 

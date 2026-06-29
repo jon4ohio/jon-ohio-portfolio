@@ -5,7 +5,7 @@ import { THEME_STORAGE_KEY } from "@/components/theme";
 
 const staticPaths = ["/", "/work", "/thinking", "/about", "/leadership"];
 
-/** Pin light theme so axe runs are deterministic (layout default; avoids time-of-day fallback). */
+/** Pin light theme so axe runs are deterministic (avoids site default dark). */
 test.beforeEach(async ({ page }) => {
   await page.addInitScript((key) => {
     try {
