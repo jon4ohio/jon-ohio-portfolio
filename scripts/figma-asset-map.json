@@ -98,13 +98,27 @@
           "id": "29760:23630",
           "out": "block-redesign-phases.png",
           "designWidth": 1192,
-          "designHeight": 805
+          "designHeight": 805,
+          "status": "stale-node"
+        },
+        {
+          "id": "29760:15692",
+          "out": "block-redesign-phases.png",
+          "designWidth": 730,
+          "designHeight": 419
         },
         {
           "id": "29697:39097",
           "out": "block-pain-points.png",
           "designWidth": 732,
-          "designHeight": 825
+          "designHeight": 825,
+          "status": "stale-node"
+        },
+        {
+          "id": "29760:15669",
+          "out": "block-pain-points.png",
+          "designWidth": 732,
+          "designHeight": 463
         },
         {
           "id": "29697:39119",
@@ -117,13 +131,27 @@
           "id": "29758:680",
           "out": "thumb-2.png",
           "designWidth": 732,
-          "designHeight": 436
+          "designHeight": 436,
+          "status": "stale-node"
+        },
+        {
+          "id": "29760:16470",
+          "out": "thumb-2.png",
+          "designWidth": 732,
+          "designHeight": 435
         },
         {
           "id": "29697:39163",
           "out": "block-gallery-1.png",
           "designWidth": 732,
-          "designHeight": 323
+          "designHeight": 323,
+          "status": "stale-node"
+        },
+        {
+          "id": "29760:16513",
+          "out": "block-gallery-1.png",
+          "designWidth": 732,
+          "designHeight": 412
         },
         {
           "id": "29697:39185",
@@ -136,10 +164,24 @@
           "id": "29760:30288",
           "out": "block-journey.png",
           "designWidth": 732,
+          "designHeight": 442,
+          "status": "stale-node"
+        },
+        {
+          "id": "29760:17291",
+          "out": "block-journey.png",
+          "designWidth": 732,
           "designHeight": 442
         },
         {
           "id": "29760:30777",
+          "out": "pilot-review-ai.png",
+          "designWidth": 732,
+          "designHeight": 442,
+          "status": "stale-node"
+        },
+        {
+          "id": "29760:17537",
           "out": "pilot-review-ai.png",
           "designWidth": 732,
           "designHeight": 442

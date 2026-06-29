@@ -185,14 +185,6 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           caption="Restructured the product around recruiter and applicant journeys before interface work — separating legacy constraints from the target hiring lifecycle."
           hideDecisionNotes
         />
-        <AnnotatedFigure
-          figure="D"
-          label="Phased Redesign Roadmap"
-          imageSrc="/assets/work/seamless-hiring/block-redesign-phases.png"
-          imageAlt="Five-phase SeamlessHiring redesign roadmap spanning stabilization through AI augmentation"
-          caption="The redesign spanned three years across five phases — with an AI-powered layer added only after workflow trust was restored."
-          hideDecisionNotes
-        />
       </div>
 
       <section id="evidence" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
@@ -209,11 +201,13 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           id="phase-I"
           phase="Phase I — Stabilize"
           layout="text-left"
+          challengeLabel=""
+          interventionLabel="Intervention"
           challenge={
             "Job creation was inconsistent across hiring managers — no shared templates, no structured input model, and errors compounding downstream in the pipeline before a role even reached applicants."
           }
           intervention={
-            "Introduced guided job creation templates that standardize inputs and enforce required fields before a role was published to the applicant-facing system."
+            "Guided job creation templates standardizing inputs and enforcing required fields before a role was published to the applicant-facing system."
           }
           figure={{
             figure: 1,
@@ -227,6 +221,14 @@ export default function SeamlessHiringFlagshipCaseStudy() {
               "Required fields enforced at creation stage, not mid-application — eliminating a class of errors that only surfaced after applicant submission",
             ],
           }}
+          secondaryFigure={{
+            figure: "D",
+            label: "Phased Redesign Roadmap",
+            imageSrc: "/assets/work/seamless-hiring/block-redesign-phases.png",
+            imageAlt: "Five-phase SeamlessHiring redesign roadmap spanning stabilization through AI augmentation",
+            caption:
+              "The redesign spanned three years across five phases — with an AI-powered layer added only after workflow trust was restored.",
+          }}
         />
 
         <div style={{ padding: "0 24px" }}>
@@ -237,6 +239,8 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           id="phase-II"
           phase="Phase II — Streamline"
           layout="text-right"
+          challengeLabel=""
+          interventionLabel="Intervention"
           challenge={
             "Applicants were abandoning mid-flow with no recovery path and no visibility into what would be required of them until they were already partially through the application."
           }
@@ -265,8 +269,10 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           id="phase-III"
           phase="Phase III — Structure"
           layout="text-left"
+          challengeLabel=""
+          interventionLabel="Intervention"
           challenge={
-            "Recruiters were still context-switching between tools for evaluation — the structural gap from tension 02 had not yet been resolved inside the product."
+            "Interview scoring was informal and undocumented. Evaluation lived in spreadsheets and email threads outside the system, leaving hiring decisions without a defensible trail."
           }
           intervention={
             "Structured evaluation workflows with a shared scoring rubric, documentation trail, and consolidated recruiter action surface."
@@ -293,6 +299,8 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           id="phase-IV"
           phase="Phase IV — Scale"
           layout="text-right"
+          challengeLabel=""
+          interventionLabel="Intervention"
           challenge={
             "RBAC configuration was too rigid for multi-entity enterprise clients. Every new onboarding required CS workarounds, creating a ceiling on how large the platform could sell."
           }
@@ -321,6 +329,8 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           id="phase-V"
           phase="Phase V — Augment"
           layout="text-left"
+          challengeLabel=""
+          interventionLabel="Intervention"
           accent
           pullQuote="AI was designed as decision support, not decision authority."
           challenge={
