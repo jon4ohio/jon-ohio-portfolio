@@ -66,4 +66,5 @@
 | 070 | Soft light theme (Framer-inspired palette, warm removal) | Accepted | 2026-06-26 | None |
 | 071 | FetsProza evidence shader chrome and flat preview thumbnail | Accepted | 2026-06-27 | None |
 | 072 | About page narrative refresh and decoupled headline | Accepted | 2026-06-27 | None |
+| 073 | Case study progress status, dark default theme, and homepage systems headline | Accepted | 2026-06-29 | None |
 Chronological audit notes: [`LOG.md`](./LOG.md).
