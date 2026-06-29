@@ -1,6 +1,7 @@
 import Link from "next/link";
 import AnnotatedFigure from "@/components/case-study/AnnotatedFigure";
 import type { EvidenceChromeSize, EvidenceMediaChrome } from "@/components/case-study/EvidenceChrome";
+import WorkInProgressBadge from "@/components/WorkInProgressBadge";
 
 /** Flagship hero prose measure — aligns with ADR-042 1240/760 layout band. */
 const NARRATIVE_MAX_WIDTH = 760;
@@ -23,6 +24,7 @@ export type CaseHeroProps = {
     chromeSize?: EvidenceChromeSize;
     restartGifOnVisible?: boolean;
   };
+  workInProgress?: boolean;
 };
 
 export default function CaseHero({
@@ -34,6 +36,7 @@ export default function CaseHero({
   abstract,
   impact,
   heroImage,
+  workInProgress,
 }: CaseHeroProps) {
   return (
     <section style={{ maxWidth: 1240, margin: "0 auto", padding: "48px 24px 0" }}>
@@ -52,6 +55,12 @@ export default function CaseHero({
       >
         {microLabel}
       </p>
+
+      {workInProgress ? (
+        <div style={{ marginTop: 6 }}>
+          <WorkInProgressBadge />
+        </div>
+      ) : null}
 
       <h1
         style={{

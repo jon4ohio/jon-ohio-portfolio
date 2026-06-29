@@ -156,6 +156,7 @@ export default function WorkforceEcosystemFlagshipCaseStudy() {
           alt: project.assets?.hero?.alt,
         }}
         executiveBrief={project.brief}
+        workInProgress={project.workInProgress}
       />
 
       <TensionCards

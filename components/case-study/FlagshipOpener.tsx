@@ -21,6 +21,7 @@ export type FlagshipOpenerProps = {
   executiveBrief: MetadataBriefProps;
   /** When set, wraps hero + brief in one anchored section (e.g. `snapshot`). */
   sectionId?: string;
+  workInProgress?: boolean;
 };
 
 export default function FlagshipOpener({
@@ -34,6 +35,7 @@ export default function FlagshipOpener({
   heroImage,
   executiveBrief,
   sectionId,
+  workInProgress,
 }: FlagshipOpenerProps) {
   const content = (
     <>
@@ -46,6 +48,7 @@ export default function FlagshipOpener({
         abstract={abstract}
         impact={impact}
         heroImage={heroImage}
+        workInProgress={workInProgress}
       />
       <MetadataBrief {...executiveBrief} omitSectionId={Boolean(sectionId)} />
     </>

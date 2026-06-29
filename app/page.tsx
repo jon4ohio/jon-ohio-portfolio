@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import { siteDescription, siteTitle } from "@/lib/sitePositioning";
 import SystemModel from "@/components/SystemModel";
 import ProjectListingPreview from "@/components/ProjectListingPreview";
+import WorkInProgressBadge from "@/components/WorkInProgressBadge";
 import { projects } from "@/lib/projects";
 import { getContactMailtoHref } from "@/lib/contact";
 
@@ -146,6 +147,14 @@ export default function Home() {
                         ·
                       </span>
                       <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{p.period}</span>
+                      {p.workInProgress ? (
+                        <>
+                          <span aria-hidden="true" style={{ fontSize: 11, color: "var(--accent-orange)" }}>
+                            ·
+                          </span>
+                          <WorkInProgressBadge />
+                        </>
+                      ) : null}
                     </div>
                     <h3
                       style={{

@@ -24,6 +24,8 @@ export interface Project {
   keyInsight?: string;
   tags: string[];
   featured: boolean;
+  /** When true, listings and case study heroes show a Work in progress status badge. */
+  workInProgress?: boolean;
   assets?: ProjectAssets;
 }
 
@@ -187,6 +189,7 @@ export const projects: Project[] = [
       "A design system that only designers trust is a Figma file. Seamkit became infrastructure.",
     tags: ["Design Systems", "Token Architecture", "Design Governance", "Vue", "Figma", "DesignOps"],
     featured: true,
+    workInProgress: false,
     assets: {
       thumbnails: [
         {
@@ -334,6 +337,7 @@ export const projects: Project[] = [
       "In two years, SeamlessHiring moved from a discounted add‑on to a recurring flagship module and PLG reference product. Support tickets dropped 50%, application drop‑offs fell 24%, and NPS rose from 27 to 74 as workflow trust and enterprise readiness improved. The programme generated Seamkit — the enterprise design system now serving multiple products.",
     tags: ["Design Systems", "ATS", "Enterprise SaaS", "AI/ML", "DesignOps"],
     featured: true,
+    workInProgress: false,
     assets: {
       previewFlat: true,
       thumbnails: [
@@ -499,6 +503,7 @@ export const projects: Project[] = [
       "FETS replaced vendor dependency with owned operating capability at production volume — $1M+ annual savings, 2× throughput, and daily reconciliation.",
     tags: ["Fintech", "Mobile Money", "Financial Operations", "0→1"],
     featured: true,
+    workInProgress: false,
     assets: {
       previewFlat: true,
       thumbnails: [
@@ -593,6 +598,7 @@ export const projects: Project[] = [
       "Keeping the design file in sync with the codebase changed what design feedback felt like. Changes didn't have to wait for a developer to interpret them — they moved directly into the build. The gap between design and engineering didn't close — but it became something you could cross in either direction. That changes what design is allowed to do.",
     tags: ["DesignOps", "AI/ML", "Systems", "Workflow", "0→1"],
     featured: false,
+    workInProgress: true,
     assets: {
       thumbnails: [
         {
@@ -771,6 +777,7 @@ export const projects: Project[] = [
       "IBEDC's billing and payments moved from paper and third-party fragmentation to a unified digital system. In the first year, payment times dropped 30% and customer satisfaction increased 40%. The Care App earned a 4.6-star Play Store rating across 2,800+ reviews. Call-centre volume fell 30% as token delays vanished. The POS workflow, validated at IBEDC scale, was adopted by three external utilities — proving the template transferred beyond a single client.",
     tags: ["FinTech", "Utilities", "Mobile App", "POS", "Public Sector", "Service Design", "0→1"],
     featured: true,
+    workInProgress: true,
     assets: {
       thumbnails: [
         {
@@ -895,6 +902,7 @@ export const projects: Project[] = [
       "Rivva launched from beta to full release and reached #4 Product of the Day on Product Hunt in its first week. 500+ downloads came in the first month, and 30+ paying customers converted within two months — without a paid marketing budget. The AI explainability layer held: post-launch user feedback consistently cited trust in Nia's recommendations as a reason for staying with the product.",
     tags: ["Product Design", "Web App", "0→1", "Consumer", "AI/ML", "Health Tech"],
     featured: true,
+    workInProgress: true,
     assets: {
       thumbnails: [
         {
@@ -939,6 +947,7 @@ export const projects: Project[] = [
       "AI features across SeamlessHR moved from individually designed one-offs to a governed system of reusable interaction patterns. Smart CV Parsing, Smart Ranking, and Smart Assessment — each built on the shared layer — reduced screening time while making the system's reasoning visible to recruiters. The pattern library became the foundation other product teams adopted when building their own AI features, compressing design time for each subsequent release. SeamlessHR now has an AI design system, not just AI features.",
     tags: ["AI/ML", "Enterprise SaaS", "Design Systems", "Recruitment", "UX Patterns"],
     featured: false,
+    workInProgress: true,
     assets: {
       thumbnails: [placeholderHero, placeholderThumbA],
       hero: placeholderHero,
@@ -971,6 +980,7 @@ export const projects: Project[] = [
       "ClearPrice launched a soft pilot with African SaaS businesses within nine months of product definition. The MVP validated a market position with no direct competitor: a quote-to-cash system built specifically for African SaaS operators, compliant with local tax and currency requirements, and scoped for founders without a dedicated RevOps function. Pilot feedback confirmed the validation-first approach — the product fit was high because the users who would buy it had shaped the design from the start.",
     tags: ["Fintech", "SaaS", "0→1", "Africa", "Billing Infrastructure"],
     featured: false,
+    workInProgress: true,
     assets: {
       thumbnails: [placeholderHero, placeholderThumbB],
       hero: placeholderHero,
@@ -1003,6 +1013,7 @@ export const projects: Project[] = [
       "Reconciliation moved from a daily batch process to a real-time operation, compressing multi-day resolution timelines significantly. Agent onboarding became a single guided flow with embedded KYC — removing the manual approval chains that had slowed network expansion. The system became the operational backbone of the Fets agency banking unit, providing the compliance infrastructure and monitoring capability required to scale the agent network with confidence.",
     tags: ["Fintech", "Agency Banking", "Operations", "Compliance"],
     featured: false,
+    workInProgress: true,
     assets: {
       thumbnails: [placeholderHero, placeholderThumbA],
       hero: placeholderHero,
@@ -1090,6 +1101,7 @@ export const projects: Project[] = [
       "Established the research-backed models, shared language, and capability map that enabled platform exploration — giving product teams a defensible foundation without expensive course correction. The lifecycle framework and service blueprints created alignment across Gates Foundation stakeholders, SeamlessHR product leadership, and field partners before any product UI was scoped.",
     tags: ["HRTech", "Service Design", "Field Research", "Africa", "Gates Foundation", "Systems Mapping"],
     featured: false,
+    workInProgress: true,
     assets: {
       thumbnails: [
         {
@@ -1228,6 +1240,7 @@ export const projects: Project[] = [
       "Established a prioritised platform portfolio with shared architecture — enabling parallel experience streams (Breeze, WhatsApp ESS, supervisor workflows, benefits & financial wellbeing) to progress without re-litigating research foundations. Cross-functional teams gained a common platform vision and maturity-aware roadmap for Africa's frontline workforce.",
     tags: ["HRTech", "0→1", "Platform Design", "Africa", "Gates Foundation", "Frontline Workforce"],
     featured: false,
+    workInProgress: true,
     assets: {
       thumbnails: [
         {
