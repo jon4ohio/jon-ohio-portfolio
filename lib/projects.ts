@@ -24,7 +24,7 @@ export interface Project {
   keyInsight?: string;
   tags: string[];
   featured: boolean;
-  /** When true, listings and case study heroes show a Work in progress status badge. */
+  /** When true, listings and case study heroes show a Case study in progress status badge. */
   workInProgress?: boolean;
   assets?: ProjectAssets;
 }
