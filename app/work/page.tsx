@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { projects } from "@/lib/projects";
 import ProjectListingPreview from "@/components/ProjectListingPreview";
+import WorkInProgressBadge from "@/components/WorkInProgressBadge";
 
 export const metadata: Metadata = {
   title: "Selected Systems",
@@ -109,6 +110,14 @@ export default function WorkIndex() {
                             ·
                           </span>
                           <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{p.period}</span>
+                          {p.workInProgress ? (
+                            <>
+                              <span aria-hidden="true" style={{ fontSize: 11, color: "var(--accent-orange)" }}>
+                                ·
+                              </span>
+                              <WorkInProgressBadge />
+                            </>
+                          ) : null}
                         </div>
                         <h3
                           style={{

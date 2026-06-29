@@ -154,6 +154,7 @@ export default function BluallianceFlagshipCaseStudy() {
           alt: project.assets?.hero?.alt,
         }}
         executiveBrief={project.brief}
+        workInProgress={project.workInProgress}
       />
 
       <div style={{ maxWidth: 1240, margin: "0 auto", padding: "32px 24px 0" }}>

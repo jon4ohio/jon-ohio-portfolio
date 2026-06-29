@@ -127,6 +127,7 @@ export default function IbedcFlagshipCaseStudy() {
           alt: project.assets?.hero?.alt ?? project.assets?.thumbnails?.[0]?.alt,
         }}
         executiveBrief={project.brief}
+        workInProgress={project.workInProgress}
       />
 
       <TensionCards
