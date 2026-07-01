@@ -2,68 +2,57 @@
 
 **Contract:** Handoff  
 **Problem coordinated:** What changed recently? What's next?  
-**Updated:** 2026-06-28
+**Updated:** 2026-07-01
+
+---
 
 ## Delta
 
-- Pass 1 adoption: added Project Entry and Handoff
-
-## Adoption Context
-
-This project is adopting Anchor during normal development. Existing ADRs remain at `docs/adrs/` — no migration.
-
-**Hypothesis under test:** Can two lightweight coordination contracts (Entry + Handoff) eliminate most session reorientation on an existing project?
-
-**Anti-goal:** Do not try to prove Anchor works. Use the portfolio normally and allow evidence to determine whether additional coordination is needed.
+- **ADR-073** accepted (merged #181): WIP badge (`workInProgress` + `WorkInProgressBadge`), static dark theme default, homepage headline → *I design systems that scale.*
+- **ADR-074** accepted: shared `MediaViewTrigger` for inspectable case study images; SeamKit brand figure sync.
+- **Context arbitration:** controlled experiment complete (maintainer); observational phase open — `ai/session-arbitration.md` + `.cursor/rules/anchor-session-arbitration.mdc` (see Anchor meta-repo `releases/v0.2/context-arbitration-experiment.md`).
+- **Uncommitted (local):** FigJam embed reset view + dual-gate placeholder timing (`FigJamEmbedFrame.tsx`); AnnotatedFigure footer cleanup; ADR LOG entries for FigJam amendments.
 
 ## Horizon
 
-- Normal portfolio work (case studies, quality, storytelling)
-- Validation: start Cursor sessions without re-explaining the portfolio
+1. **Observational phase** — use adapter during normal work; log field observations in Anchor experiment worksheet
+2. FigJam embed work — commit when ready
+3. Normal portfolio work on `cursor/wip-badge-95593-adr`
+
+## Next
+
+- FigJam uncommitted changes — review and commit
+- Record observational sessions (adapter feel, overrides, Observation outcomes) in Anchor meta-repo experiment log
 
 ## Blocked
 
-None
+None.
 
-## Session Protocol (validation week)
+## Branch / PR
 
-1. Read `docs/project/entry.md`
-2. Read this Handoff
-3. Build portfolio — do not "use Anchor" ceremonially
+- **Branch:** `cursor/wip-badge-95593-adr` (up to date with origin)
+- **Latest merge:** origin/main + ADR-074 docs
 
-When friction appears, ask: which contract owns this?
+## Session coordination
 
-- Entry / Handoff → update them
-- New significant decision → write ADR in `docs/adrs/` (existing convention)
-- Repeated workflow / explanation → friction log below
-- None → friction log
+Pass 1 manual protocol replaced by **session arbitration** adapter. See `ai/session-arbitration.md`.
 
-## Pass 1 Exit Criteria
-
-Pass 1 completes when (roughly ten meaningful sessions):
-
-- Entry is updated only when project identity changes
-- Handoff is updated after each meaningful work session
-- No duplicate project explanations emerge
-- No additional Anchor contracts were created unless the work naturally required them
-
-Otherwise, record the friction rather than extending Pass 1.
-
-## Validation Questions
-
-Track per session:
-
-| Question | Pass? |
-|---|---|
-| Did I reopen old chats to remember context? | |
-| Did Entry answer orientation questions? | |
-| Did Handoff answer "what next?" | |
-| Did I create unnecessary documentation? | |
-
-**Primary measure:** Did I have to explain my portfolio less today than yesterday?
+At session start: Orientation → resolve responsibility → Session → minimum context bundle.  
+At session end: Observation → update Handoff only if responsibility moved.
 
 ## Friction Log
 
 | Date | Repeated explanation | Contract | Root cause | Action |
-|---|---|---|---|---|
-| | | | | |
+|------|---------------------|----------|------------|--------|
+| 2026-07-01 | AI reconstructed from git instead of Handoff | Handoff | No delegated responsibility resolution; Handoff stale | Session arbitration adapter + experiment |
+
+**Graduation rule:** Unchanged items after three cycles promote or delete.
+
+---
+
+## Pointers
+
+- Entry: `docs/project/entry.md`
+- ADR-073: `docs/adrs/ADR-073-case-study-progress-status-dark-default-homepage-headline.md`
+- ADR-074: `docs/adrs/ADR-074-shared-media-view-trigger-inspectable-images.md`
+- Experiment (meta-repo): Anchor `releases/v0.2/context-arbitration-experiment.md`
