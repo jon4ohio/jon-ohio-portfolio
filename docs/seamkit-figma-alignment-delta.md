@@ -48,3 +48,17 @@
 | Layer 01 — brand system figure | Layout | Match Figma corner radius (~22px) | `app/work/seamkit/page.tsx` | **Shipped** — `imageStyle={{ borderRadius: 22 }}` |
 
 Copy, eyebrow, and figcaption unchanged. No new ADR — IA unchanged.
+
+---
+
+## Sectional pass — Transformation consolidation visual (29784:14060)
+
+**Date:** 2026-06-29  
+**Figma frame:** `29784:14060` — [Transformation consolidation](https://www.figma.com/design/HNS3VdAyubm38nx5aYVZOR/Portfolio_-John-Ohio?node-id=29784-14060)  
+**Export node:** `29811:14315` → `block-consolidation-visual.png`
+
+| Section | Type | Intent | Files | Result |
+|---------|------|--------|-------|--------|
+| Transformation (between Evidence and Tensions) | Asset + layout | Replace code-only Before/After strip with Figma consolidation infographic | `public/assets/work/seamkit/block-consolidation-visual.png`, `scripts/figma-asset-map.json`, `app/work/seamkit/page.tsx` | **Shipped** — @2x export 2384×1588; headline baked into PNG; supporting caption below |
+
+No chapter nav or IA changes. No new ADR — LOG entry only per ADR-061 v1 upgrade pattern.
