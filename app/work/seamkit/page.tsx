@@ -182,68 +182,6 @@ function SectionDivider() {
   );
 }
 
-function TransformationStrip() {
-  const cellStyle: React.CSSProperties = {
-    border: "1px solid var(--border)",
-    borderRadius: 6,
-    padding: "12px 16px",
-    fontSize: 14,
-    color: "var(--fg-body)",
-    background: "var(--surface)",
-  };
-
-  return (
-    <div style={{ maxWidth: 1240, margin: "40px auto 0", padding: "0 24px" }}>
-      <p style={{ fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.7, maxWidth: 720, marginBottom: 24 }}>
-        At the system level, six parallel libraries became one governed stack.
-      </p>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr auto 1fr",
-          gap: 24,
-          alignItems: "stretch",
-        }}
-        className="case-study-transformation-strip"
-      >
-        <div>
-          <Micro>Before</Micro>
-          <div style={{ marginTop: 12, display: "flex", flexDirection: "column", gap: 8 }}>
-            <div style={cellStyle}>3 Design Libraries</div>
-            <div style={cellStyle}>3 Vue Libraries</div>
-            <div style={cellStyle}>No Governance</div>
-          </div>
-        </div>
-        <div style={{ display: "flex", alignItems: "center", fontSize: 24, color: "var(--fg-subtle)", paddingTop: 28 }}>
-          →
-        </div>
-        <div>
-          <Micro>After</Micro>
-          <div style={{ marginTop: 12, display: "flex", flexDirection: "column", gap: 8 }}>
-            {["Tokens", "Components", "Governance", "Teams", "Analytics"].map((item) => (
-              <div key={item} style={cellStyle}>
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-      <style>{`
-        @media (max-width: 640px) {
-          .case-study-transformation-strip {
-            grid-template-columns: 1fr !important;
-          }
-          .case-study-transformation-strip > div:nth-child(2) {
-            justify-content: center;
-            padding: 0 !important;
-            transform: rotate(90deg);
-          }
-        }
-      `}</style>
-    </div>
-  );
-}
-
 export default function SeamkitFlagshipCaseStudy() {
   const project = getProject("seamkit");
   if (!project) return null;
@@ -327,7 +265,17 @@ export default function SeamkitFlagshipCaseStudy() {
         <DecisionBlocks items={validationFindings} label="Finding" />
       </section>
 
-      <TransformationStrip />
+      <div style={{ maxWidth: 1240, margin: "40px auto 0", padding: "0 24px" }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/work/seamkit/block-consolidation-visual.png"
+          alt="Fragmented design and Vue libraries consolidating into a unified governed stack — tokens, components, governance, teams, and analytics"
+          style={{ width: "100%", height: "auto", display: "block", borderRadius: 24 }}
+        />
+        <p style={{ marginTop: 12, fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.7, maxWidth: 720 }}>
+          At the system level, six parallel libraries became one governed stack.
+        </p>
+      </div>
 
       <section id="tensions" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
         <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>

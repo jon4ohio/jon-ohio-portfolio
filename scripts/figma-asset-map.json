@@ -265,6 +265,12 @@
           "designHeight": 843
         },
         {
+          "id": "29811:14315",
+          "out": "block-consolidation-visual.png",
+          "designWidth": 1192,
+          "designHeight": 794
+        },
+        {
           "id": "29659:24990",
           "out": "block-governance.png",
           "designWidth": 668,
