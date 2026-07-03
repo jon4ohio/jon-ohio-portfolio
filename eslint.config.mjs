@@ -5,6 +5,35 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  {
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          paths: [
+            {
+              name: "@astryxdesign/core",
+              message: "Import @jedi/* only (ADR-075). Astryx is JEDI-internal.",
+            },
+            {
+              name: "@astryxdesign/theme-gothic",
+              message: "Import @jedi/themes only (ADR-075).",
+            },
+            {
+              name: "@astryxdesign/theme-neutral",
+              message: "Import @jedi/themes only (ADR-075).",
+            },
+          ],
+          patterns: [
+            {
+              group: ["@astryxdesign/*", "@jedi/internal/*"],
+              message: "Import @jedi/* public APIs only (ADR-075).",
+            },
+          ],
+        },
+      ],
+    },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:

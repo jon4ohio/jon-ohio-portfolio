@@ -68,4 +68,6 @@
 | 072 | About page narrative refresh and decoupled headline | Accepted | 2026-06-27 | None |
 | 073 | Case study progress status, dark default theme, and homepage systems headline | Accepted | 2026-06-29 | None |
 | 074 | Shared MediaViewTrigger and reviewable generic block assets | Accepted | 2026-06-29 | None |
+| 075 | JEDI platform migration (preservation-first) | Accepted | 2026-07-03 | None |
+| 077 | Knowledge graph model (Portfolio V2.2) | Accepted | 2026-07-03 | None |
 Chronological audit notes: [`LOG.md`](./LOG.md).

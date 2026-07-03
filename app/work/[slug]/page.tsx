@@ -5,6 +5,8 @@ import AssetImage from "@/components/AssetImage";
 import CaseStudyBlockRenderer from "@/components/case-study/CaseStudyBlockRenderer";
 import MetadataBrief from "@/components/case-study/MetadataBrief";
 import PrevNextNav from "@/components/case-study/PrevNextNav";
+import ReadingProgress from "@/components/ReadingProgress";
+import RelatedContent from "@/components/RelatedContent";
 import WorkInProgressBadge from "@/components/WorkInProgressBadge";
 
 export async function generateStaticParams() {
@@ -29,6 +31,11 @@ export async function generateMetadata({
       description: project.summary,
       url,
       type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description: project.summary,
     },
   };
 }
@@ -77,6 +84,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
 
   return (
     <div style={{ paddingTop: 56 }}>
+      <ReadingProgress />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudySchema) }}
@@ -266,6 +274,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
       </section>
 
       {/* ── Next / Prev ── */}
+      <RelatedContent slug={slug} />
       <PrevNextNav prev={prev} next={next} />
 
     </div>

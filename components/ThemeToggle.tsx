@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useState, type KeyboardEvent } from "react";
+import { Button } from "@jedi/react";
 import { coerceTheme, DEFAULT_THEME, THEME_STORAGE_KEY, THEMES, type ThemeName } from "@/components/theme";
 
 const labels: Record<ThemeName, string> = {
@@ -101,7 +102,7 @@ export default function ThemeToggle({ compact = false }: { compact?: boolean }) 
       {THEMES.map((item) => {
         const active = mounted && item === theme;
         return (
-          <button
+          <Button
             key={item}
             type="button"
             role="radio"
@@ -110,22 +111,18 @@ export default function ThemeToggle({ compact = false }: { compact?: boolean }) 
             aria-label={`Theme ${labels[item]}`}
             tabIndex={mounted ? (active ? 0 : -1) : item === DEFAULT_THEME ? 0 : -1}
             onClick={() => chooseUserTheme(item)}
+            variant={active ? "primary" : "ghost"}
+            size="sm"
+            label={labels[item]}
             style={{
-              border: "none",
               borderRadius: 999,
               padding: compact ? "5px 8px" : "6px 10px",
-              background: active ? "var(--theme-toggle-active-bg)" : "transparent",
-              color: active ? "var(--fg)" : "var(--fg-muted)",
               fontSize: compact ? 11 : 12,
               fontWeight: 500,
               letterSpacing: "0.01em",
-              cursor: "pointer",
               boxShadow: active ? "var(--theme-toggle-active-shadow)" : "none",
-              transition: "background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease",
             }}
-          >
-            {labels[item]}
-          </button>
+          />
         );
       })}
     </div>

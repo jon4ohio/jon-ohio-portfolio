@@ -1,0 +1,9 @@
+{
+  "id": "project:seamkit",
+  "slug": "seamkit",
+  "title": "SeamKit",
+  "tags": ["design-systems", "tokens", "governance", "SeamlessHR"],
+  "href": "/work/seamkit",
+  "source": "lib/projects.ts",
+  "extractedAt": "2026-07-03"
+}

@@ -287,31 +287,16 @@ export default function AnnotatedFigure({
         ) : null}
       </p>
 
-      {embedSrc && (showFallback || embedBoardHref) ? (
+      {embedSrc && embedBoardHref ? (
         <p style={{ margin: "8px 0 0", fontSize: 13, lineHeight: 1.6, color: "var(--fg-muted)" }}>
-          {showFallback ? (
-            <>
-              <a
-                href={fallbackImageSrc}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "var(--fg-muted)", textDecoration: "underline", textUnderlineOffset: 2 }}
-              >
-                View static snapshot
-              </a>
-              {embedBoardHref ? " · " : null}
-            </>
-          ) : null}
-          {embedBoardHref ? (
-            <a
-              href={embedBoardHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "var(--fg-muted)", textDecoration: "underline", textUnderlineOffset: 2 }}
-            >
-              Open full board in FigJam
-            </a>
-          ) : null}
+          <a
+            href={embedBoardHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "var(--fg-muted)", textDecoration: "underline", textUnderlineOffset: 2 }}
+          >
+            Open full board in FigJam
+          </a>
         </p>
       ) : null}
 
