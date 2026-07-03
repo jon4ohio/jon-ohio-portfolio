@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3000",
+    "dev": "next dev --port 3000 --webpack",
     "dev:clean": "lsof -ti:3000 | xargs kill -9 2>/dev/null || true; next dev --port 3000",
     "build": "next build --webpack",
     "postbuild": "npx --yes tsx scripts/generate-content-index.ts",
