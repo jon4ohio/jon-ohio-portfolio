@@ -8,36 +8,32 @@
 
 ## Delta
 
-- **Portfolio V2 preservation migration** implemented per frozen plan:
-  - **V2.0:** `@jedi/*` wired (`JediRoot`, token bridge, chrome via `@jedi/react`); build uses `--webpack`; ESLint blocks `@astryxdesign/*`.
-  - **ADR-075** accepted (JEDI adoption, preservation-first).
-  - **V2.1:** `ReadingProgress`, related-content metadata/OG hardening, `ThemeToggle` via JEDI `Button`.
-  - **V2.2:** `lib/graph.ts`, `RelatedContent`, `content/` scaffold, **ADR-077** accepted.
-  - **V2.3:** `lib/search.ts`, `CommandPalette` (⌘K), `/playground`, `public/content-index.json` (postbuild).
-- **JEDI v0.1** published from `jon4ohio/jedi` (`2d74253`, `8408160` — exports, theme CSS wrappers, bridge comment fix).
-- **QA:** `npm run build` + `CI=true npm run test:a11y` — 9/9 pass.
+- **PR #183** opened: `feat/portfolio-v2-jedi-migration` — Portfolio V2 preservation-first JEDI migration.
+- **JEDI v0.1.0** published to GitHub Packages (`@jon4ohio/jedi-*`); release tagged [jedi-v0.1.0](https://github.com/jon4ohio/jedi/releases/tag/jedi-v0.1.0).
+- Portfolio consumes via **npm aliases** (`@jedi/*` → `npm:@jon4ohio/jedi-*@0.1.0`); imports unchanged.
+- **QA:** `npm run build`, `CI=true npm run test:a11y` — 9/9 pass; local browser preview verified (webpack dev).
+- **Vercel blocker:** project needs `NPM_TOKEN` (GitHub PAT, `read:packages`) for PR preview build.
 
 ## Horizon
 
-1. Visual QA vs production V1 (recognition check).
-2. Deploy to Vercel when ready (push + promote).
-3. Incremental `content/projects/` extraction; curate `lib/graph.ts` manual edges.
-4. JEDI **v0.2** package release (interaction primitives) when upstream Astryx cadence allows.
+1. Set Vercel `NPM_TOKEN` and confirm PR #183 preview URL.
+2. Merge PR → production deploy → **observation window (2–4 weeks)** before V2.1 planning.
+3. Side-by-side visual QA vs johnohio.vercel.app.
 
 ## Next
 
-- Push portfolio branch and deploy preview.
-- Refine `--ax-*` token bridge mappings after side-by-side visual compare with johnohio.vercel.app.
-- Turbopack resolution for `@jedi/*` (optional; webpack is the V2.0 build path).
+- Configure Vercel env `NPM_TOKEN` for `jon-ohio-portfolio`.
+- Reviewer smoke test on preview: nav, routes, theme, ⌘K, playground invisibility.
 
 ## Blocked
 
-None.
+- Vercel PR preview until `NPM_TOKEN` is set on the project.
 
 ## Branch / PR
 
-- **Branch:** local (Portfolio V2 work — commit/deploy pending maintainer)
-- **JEDI:** `main` on `jon4ohio/jedi` through `8408160`
+- **Branch:** `feat/portfolio-v2-jedi-migration`
+- **PR:** https://github.com/jon4ohio/jon-ohio-portfolio/pull/183
+- **JEDI:** `main` on `jon4ohio/jedi` through `f63912d`; [jedi-v0.1.0](https://github.com/jon4ohio/jedi/releases/tag/jedi-v0.1.0)
 
 ## Session coordination
 

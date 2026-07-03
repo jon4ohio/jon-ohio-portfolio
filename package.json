@@ -6,7 +6,7 @@
     "dev": "next dev --port 3000 --webpack",
     "dev:clean": "lsof -ti:3000 | xargs kill -9 2>/dev/null || true; next dev --port 3000",
     "build": "next build --webpack",
-    "postbuild": "npx --yes tsx scripts/generate-content-index.ts",
+    "postbuild": "tsx scripts/generate-content-index.ts",
     "start": "next start",
     "lint": "eslint",
     "test:a11y": "playwright test tests/a11y",
@@ -43,6 +43,7 @@
     "eslint-config-next": "16.2.2",
     "sharp": "^0.34.5",
     "tailwindcss": "^4",
+    "tsx": "^4.19.0",
     "typescript": "^5"
   }
 }
