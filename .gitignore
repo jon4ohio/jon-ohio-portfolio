@@ -37,12 +37,9 @@ yarn-error.log*
 .env*
 !.env.example
 
-# vendored jedi (CI / Vercel install script)
+# vendored jedi clone (install script only; slim packages are committed)
 /vendor/jedi
-/vendor/jedi-core
-/vendor/jedi-react
-/vendor/jedi-themes
-/vendor/jedi-tokens
+/vendor/**/node_modules
 
 # editor / agent state (keep local)
 .cursor
