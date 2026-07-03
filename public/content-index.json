@@ -1,0 +1,206 @@
+{
+  "version": "2.3.0",
+  "generatedAt": "2026-07-03T16:49:43.404Z",
+  "items": [
+    {
+      "id": "page:home",
+      "kind": "page",
+      "title": "Home",
+      "subtitle": "John Ohio — Lead Product Designer",
+      "href": "/",
+      "keywords": "home portfolio john ohio"
+    },
+    {
+      "id": "page:work",
+      "kind": "page",
+      "title": "Work",
+      "subtitle": "Case studies and systems work",
+      "href": "/work",
+      "keywords": "work case studies projects"
+    },
+    {
+      "id": "page:leadership",
+      "kind": "page",
+      "title": "Leadership",
+      "subtitle": "Design leadership and operating principles",
+      "href": "/leadership",
+      "keywords": "leadership designops principles"
+    },
+    {
+      "id": "page:about",
+      "kind": "page",
+      "title": "About",
+      "subtitle": "Background and approach",
+      "href": "/about",
+      "keywords": "about bio background"
+    },
+    {
+      "id": "page:thinking",
+      "kind": "page",
+      "title": "Thinking",
+      "subtitle": "Writing, press, and conversations",
+      "href": "/thinking",
+      "keywords": "thinking writing press conversations"
+    },
+    {
+      "id": "page:playground",
+      "kind": "page",
+      "title": "Playground",
+      "subtitle": "JEDI component experiments",
+      "href": "/playground",
+      "keywords": "playground jedi components experiments"
+    },
+    {
+      "id": "project:seamkit",
+      "kind": "project",
+      "title": "Seamkit",
+      "subtitle": "Enterprise Design System Architecture",
+      "href": "/work/seamkit",
+      "keywords": "seamkit enterprise design system architecture design systems seamlesshr designed the operating foundation that enabled a growing enterprise product suite to scale without fragmenting design and engineering decisions. design systems token architecture design governance vue figma designops"
+    },
+    {
+      "id": "project:seamless-hiring",
+      "kind": "project",
+      "title": "SeamlessHiring 2.0",
+      "subtitle": "Recruitment Management System (RMS)",
+      "href": "/work/seamless-hiring",
+      "keywords": "seamlesshiring 2.0 recruitment management system (rms) structured systems seamlesshr led a phased rebuild of seamlesshr's recruitment product — coordinating pm, engineering, cx, and sales to restore workflow trust and reposition rms as a flagship enterprise module. design systems ats enterprise saas ai/ml designops"
+    },
+    {
+      "id": "project:fetsproza",
+      "kind": "project",
+      "title": "FetsProza",
+      "subtitle": "Enterprise operating platform for FETS",
+      "href": "/work/fetsproza",
+      "keywords": "fetsproza enterprise operating platform for fets scalable systems funds and electronic transfer solutions (fets) · nigeria designed the operating platform that unified a fragmented payment ecosystem—replacing vendor dependency with an owned financial operating model at production scale. fintech mobile money financial operations 0→1"
+    },
+    {
+      "id": "project:orchestrated-portfolio",
+      "kind": "project",
+      "title": "Agentic Portfolio",
+      "subtitle": "Designing the system that built the system",
+      "href": "/work/orchestrated-portfolio",
+      "keywords": "agentic portfolio designing the system that built the system intelligent systems self-directed an orchestration system for ai-assisted design execution.\n\ninstead of using ai as a tool, this project treats it as a system —\nwith defined roles, shared state, and governed decision boundaries. designops ai/ml systems workflow 0→1"
+    },
+    {
+      "id": "project:ibedc",
+      "kind": "project",
+      "title": "IBEDC — Unified Billing System",
+      "subtitle": "Care App + POS System",
+      "href": "/work/ibedc",
+      "keywords": "ibedc — unified billing system care app + pos system scalable systems fets × ibedc ibedc moved from fragmented third-party portals and manual walk-in workflows to a unified billing system — shared transaction logic across every touchpoint. fintech utilities mobile app pos public sector service design 0→1"
+    },
+    {
+      "id": "project:rivva",
+      "kind": "project",
+      "title": "Rivva",
+      "subtitle": "AI Scheduling Platform",
+      "href": "/work/rivva",
+      "keywords": "rivva ai scheduling platform intelligent systems rivva · nigeria co-led design for an ai scheduling product shipped from beta to full release — reaching #4 on product hunt in its first week and surpassing 500 downloads within the first month. owned the web app end-to-end and contributed to mobile. product design web app 0→1 consumer ai/ml health tech"
+    },
+    {
+      "id": "project:seamless-ai",
+      "kind": "project",
+      "title": "SeamlessAI",
+      "subtitle": "AI-Native Enterprise Layer",
+      "href": "/work/seamless-ai",
+      "keywords": "seamlessai ai-native enterprise layer intelligent systems seamlesshr established reusable ai interaction patterns for enterprise workflows so teams could ship ai features as a system instead of one-offs. ai/ml enterprise saas design systems recruitment ux patterns"
+    },
+    {
+      "id": "project:clearprice",
+      "kind": "project",
+      "title": "ClearPrice",
+      "subtitle": "Quote-to-Cash RevOps",
+      "href": "/work/clearprice",
+      "keywords": "clearprice quote-to-cash revops 0→1 systems founding team · african saas defined a localised quote-to-cash product for african saas operators where global billing tools were a poor fit. fintech saas 0→1 africa billing infrastructure"
+    },
+    {
+      "id": "project:abms",
+      "kind": "project",
+      "title": "ABMS",
+      "subtitle": "Agency Banking Management System",
+      "href": "/work/abms",
+      "keywords": "abms agency banking management system scalable systems funds and electronic transfer solutions (fets) designed the operational backbone for an agency banking network — onboarding, transaction monitoring, and reconciliation across thousands of agents. fintech agency banking operations compliance"
+    },
+    {
+      "id": "project:workforce-ecosystem",
+      "kind": "project",
+      "title": "Workforce Ecosystem",
+      "subtitle": "Designing for Africa's Frontline Workforce",
+      "href": "/work/workforce-ecosystem",
+      "keywords": "workforce ecosystem designing for africa's frontline workforce structured systems gates foundation × seamlesshr led multi-country research and service design to map africa's frontline workforce ecosystem — from field insights through lifecycle frameworks, service blueprints, and capability architecture. hrtech service design field research africa gates foundation systems mapping"
+    },
+    {
+      "id": "project:blualliance",
+      "kind": "project",
+      "title": "BluAlliance",
+      "subtitle": "Building for Africa's Frontline Workforce",
+      "href": "/work/blualliance",
+      "keywords": "blualliance building for africa's frontline workforce 0→1 systems gates foundation × seamlesshr translating workforce ecosystem research into platform strategy and experience design — prioritising opportunities across breeze, whatsapp ess, frontline productivity, and financial wellbeing. hrtech 0→1 platform design africa gates foundation frontline workforce"
+    },
+    {
+      "id": "writing:design-tokens",
+      "kind": "writing",
+      "title": "Design tokens: the connective tissue",
+      "subtitle": "Writing",
+      "href": "https://theuxcompany.substack.com/p/design-tokens-the-connective-tissue",
+      "keywords": "design tokens: the connective tissue writing substack"
+    },
+    {
+      "id": "writing:cards-modals-tables",
+      "kind": "writing",
+      "title": "Rethinking cards, modals, and tables",
+      "subtitle": "Writing",
+      "href": "https://theuxcompany.substack.com/p/rethinking-cards-modals-and-tables",
+      "keywords": "rethinking cards, modals, and tables writing substack"
+    },
+    {
+      "id": "writing:ux-designer-2025",
+      "kind": "writing",
+      "title": "How to become a UX designer in 2025",
+      "subtitle": "Writing",
+      "href": "https://theuxcompany.substack.com/p/how-to-become-a-ux-designer-in-2025",
+      "keywords": "how to become a ux designer in 2025 writing substack"
+    },
+    {
+      "id": "press:techcabal-quick-fire",
+      "kind": "press",
+      "title": "Quick Fire",
+      "subtitle": "TechCabal",
+      "href": "https://techcabal.com/2026/02/13/john-ohio-quick-fire/",
+      "keywords": "quick fire techcabal interview on ai, enterprise design, and product craft — feb 2026."
+    },
+    {
+      "id": "press:tribune-future-of-work",
+      "kind": "press",
+      "title": "The future of work in Nigeria",
+      "subtitle": "Tribune Online",
+      "href": "https://tribuneonlineng.com/the-future-of-work-in-nigeria-preparing-todays-youth-for-tomorrows-opportunities/",
+      "keywords": "the future of work in nigeria tribune online youth, opportunity, and preparing for what comes next in tech and work."
+    },
+    {
+      "id": "press:connected-awards",
+      "kind": "press",
+      "title": "Connected Awards — Global Tech Hero",
+      "subtitle": "Leadership.ng",
+      "href": "https://leadership.ng/the-connected-awards-certifies-john-ohio-119th-global-tech-hero/",
+      "keywords": "connected awards — global tech hero leadership.ng certified as the 119th global tech hero by the connected awards."
+    },
+    {
+      "id": "conversation:youtube-devfest",
+      "kind": "conversation",
+      "title": "Design Thinking for Problem Solving: Beyond UX by John Ohio",
+      "subtitle": "GDG Lagos (DevFest)",
+      "href": "https://www.youtube.com/watch?v=9NG7TWiyIjo&list=PLzIthozLDW280eWfYTKxqe2Lu-uvCU7T7&index=13",
+      "keywords": "design thinking for problem solving: beyond ux by john ohio gdg lagos (devfest) conversation"
+    },
+    {
+      "id": "conversation:youtube-aida",
+      "kind": "conversation",
+      "title": "Embedding AI into Design Systems and Product Experiences / John Ohio",
+      "subtitle": "AIDA",
+      "href": "https://www.youtube.com/watch?v=k7KGv6FYIhM&t=1549s",
+      "keywords": "embedding ai into design systems and product experiences / john ohio aida conversation"
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { startTransition, useEffect, useState } from "react";
+import { Link } from "@jedi/react";
 import ThemeToggle from "@/components/ThemeToggle";
 import { getContactMailtoHref } from "@/lib/contact";
 

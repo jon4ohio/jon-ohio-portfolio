@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev --port 3000",
     "dev:clean": "lsof -ti:3000 | xargs kill -9 2>/dev/null || true; next dev --port 3000",
-    "build": "next build",
+    "build": "next build --webpack",
+    "postbuild": "npx --yes tsx scripts/generate-content-index.ts",
     "start": "next start",
     "lint": "eslint",
     "test:a11y": "playwright test tests/a11y",
@@ -21,6 +22,10 @@
     "hooks:install": "node scripts/install-hooks.mjs"
   },
   "dependencies": {
+    "@jedi/core": "npm:@jon4ohio/jedi-core@0.1.0",
+    "@jedi/react": "npm:@jon4ohio/jedi-react@0.1.0",
+    "@jedi/themes": "npm:@jon4ohio/jedi-themes@0.1.0",
+    "@jedi/tokens": "npm:@jon4ohio/jedi-tokens@0.1.0",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "next": "16.2.2",

@@ -2,27 +2,33 @@
 
 **Contract:** Handoff  
 **Problem coordinated:** What changed recently? What's next?  
-**Updated:** 2026-07-01
+**Updated:** 2026-07-03
 
 ---
 
 ## Delta
 
-- **ADR-073** accepted (merged #181): WIP badge (`workInProgress` + `WorkInProgressBadge`), static dark theme default, homepage headline → *I design systems that scale.*
-- **ADR-074** accepted: shared `MediaViewTrigger` for inspectable case study images; SeamKit brand figure sync.
-- **Context arbitration:** controlled experiment complete (maintainer); observational phase open — `ai/session-arbitration.md` + `.cursor/rules/anchor-session-arbitration.mdc` (see Anchor meta-repo `releases/v0.2/context-arbitration-experiment.md`).
-- **Uncommitted (local):** FigJam embed reset view + dual-gate placeholder timing (`FigJamEmbedFrame.tsx`); AnnotatedFigure footer cleanup; ADR LOG entries for FigJam amendments.
+- **Portfolio V2 preservation migration** implemented per frozen plan:
+  - **V2.0:** `@jedi/*` wired (`JediRoot`, token bridge, chrome via `@jedi/react`); build uses `--webpack`; ESLint blocks `@astryxdesign/*`.
+  - **ADR-075** accepted (JEDI adoption, preservation-first).
+  - **V2.1:** `ReadingProgress`, related-content metadata/OG hardening, `ThemeToggle` via JEDI `Button`.
+  - **V2.2:** `lib/graph.ts`, `RelatedContent`, `content/` scaffold, **ADR-077** accepted.
+  - **V2.3:** `lib/search.ts`, `CommandPalette` (⌘K), `/playground`, `public/content-index.json` (postbuild).
+- **JEDI v0.1** published from `jon4ohio/jedi` (`2d74253`, `8408160` — exports, theme CSS wrappers, bridge comment fix).
+- **QA:** `npm run build` + `CI=true npm run test:a11y` — 9/9 pass.
 
 ## Horizon
 
-1. **Observational phase** — use adapter during normal work; log field observations in Anchor experiment worksheet
-2. FigJam embed work — commit when ready
-3. Normal portfolio work on `cursor/wip-badge-95593-adr`
+1. Visual QA vs production V1 (recognition check).
+2. Deploy to Vercel when ready (push + promote).
+3. Incremental `content/projects/` extraction; curate `lib/graph.ts` manual edges.
+4. JEDI **v0.2** package release (interaction primitives) when upstream Astryx cadence allows.
 
 ## Next
 
-- FigJam uncommitted changes — review and commit
-- Record observational sessions (adapter feel, overrides, Observation outcomes) in Anchor meta-repo experiment log
+- Push portfolio branch and deploy preview.
+- Refine `--ax-*` token bridge mappings after side-by-side visual compare with johnohio.vercel.app.
+- Turbopack resolution for `@jedi/*` (optional; webpack is the V2.0 build path).
 
 ## Blocked
 
@@ -30,29 +36,23 @@ None.
 
 ## Branch / PR
 
-- **Branch:** `cursor/wip-badge-95593-adr` (up to date with origin)
-- **Latest merge:** origin/main + ADR-074 docs
+- **Branch:** local (Portfolio V2 work — commit/deploy pending maintainer)
+- **JEDI:** `main` on `jon4ohio/jedi` through `8408160`
 
 ## Session coordination
 
-Pass 1 manual protocol replaced by **session arbitration** adapter. See `ai/session-arbitration.md`.
-
-At session start: Orientation → resolve responsibility → Session → minimum context bundle.  
-At session end: Observation → update Handoff only if responsibility moved.
+See `ai/session-arbitration.md`.
 
 ## Friction Log
 
 | Date | Repeated explanation | Contract | Root cause | Action |
 |------|---------------------|----------|------------|--------|
-| 2026-07-01 | AI reconstructed from git instead of Handoff | Handoff | No delegated responsibility resolution; Handoff stale | Session arbitration adapter + experiment |
-
-**Graduation rule:** Unchanged items after three cycles promote or delete.
+| 2026-07-03 | Turbopack could not resolve `file:` `@jedi/*` siblings | Implementation | Monorepo-adjacent packages outside turbopack root | `next build --webpack` for V2.0 |
 
 ---
 
 ## Pointers
 
-- Entry: `docs/project/entry.md`
-- ADR-073: `docs/adrs/ADR-073-case-study-progress-status-dark-default-homepage-headline.md`
-- ADR-074: `docs/adrs/ADR-074-shared-media-view-trigger-inspectable-images.md`
-- Experiment (meta-repo): Anchor `releases/v0.2/context-arbitration-experiment.md`
+- ADR-075: `docs/adrs/ADR-075-jedi-platform-migration-preservation-first.md`
+- ADR-077: `docs/adrs/ADR-077-knowledge-graph-model.md`
+- Plan: `.cursor/plans/portfolio_v2_preservation_bac27d55.plan.md` (do not edit)
