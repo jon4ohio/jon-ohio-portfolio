@@ -10,7 +10,7 @@
 
 - **Portfolio V2.0 shipped to `main`** — PR #183 merged (`075f177`); deploy fix pushed (file: JEDI deps + clone/build install).
 - **Root cause:** GitHub Packages v0.1.0 ships `workspace:*` in `jedi-core`; npm registry install fails. Lockfile npm aliases triggered registry resolution on every install.
-- **Fix:** [`package.json`](package.json) uses `file:../jedi/packages/*`; [`scripts/vercel-install.mjs`](scripts/vercel-install.mjs) clones `jedi-v0.1.0`, runs `pnpm build:jedi`, then `npm install`. No `NPM_TOKEN` required for public jedi repo.
+- **Fix (v2):** `file:vendor/jedi-*` slim packages; install script clones `jedi-v0.1.0`, builds, copies dist only (avoids webpack scanning full monorepo). No `NPM_TOKEN` required.
 - **QA:** `npm run build`, `CI=true npm run test:a11y` — 9/9 pass; SeamKit a11y flake fixed (`domcontentloaded`).
 
 ## Horizon
