@@ -8,31 +8,29 @@
 
 ## Delta
 
-- **Portfolio V2.0 shipped to `main`** — PR #183 merged (`075f177`); deploy fix pushed (file: JEDI deps + clone/build install).
-- **Root cause:** GitHub Packages v0.1.0 ships `workspace:*` in `jedi-core`; npm registry install fails. Lockfile npm aliases triggered registry resolution on every install.
-- **Fix (v2):** `file:vendor/jedi-*` slim packages; install script clones `jedi-v0.1.0`, builds, copies dist only (avoids webpack scanning full monorepo). No `NPM_TOKEN` required.
-- **QA:** `npm run build`, `CI=true npm run test:a11y` — 9/9 pass; SeamKit a11y flake fixed (`domcontentloaded`).
+- **Portfolio V2.0 — Preservation Migration Complete.** PR #184 merged (`c1fd437`); Production verified on [johnohio.vercel.app](https://johnohio.vercel.app).
+- **Deploy fix:** Committed slim `vendor/jedi-*` dist packages; `npm ci` on Vercel (removed `vercel-install.mjs` clone/build workaround).
+- **Root cause (historical):** GitHub Packages v0.1.0 ships `workspace:*` in `jedi-core`; external npm install fails.
+- **Production smoke:** all primary routes 200; `/content-index.json` 200; `/playground` 200 (noindex, absent from sitemap); preservation content intact.
 
 ## Horizon
 
-1. Confirm Vercel **Production** deployment succeeds after push (watch `/content-index.json` → 200).
-2. Post-deploy smoke on [johnohio.vercel.app](https://johnohio.vercel.app).
-3. **Observation window (2–4 weeks)** — defer V2.1 until evidence from hiring/networking use.
+1. **Observation window (2–4 weeks)** — use portfolio in hiring/networking; defer V2.1 until evidence-driven priorities emerge.
+2. **JEDI repo (optional):** publish **0.1.1** with pinned deps → restore npm aliases, remove committed vendor, pure `npm ci`.
 
 ## Next
 
-- Verify production shows V2 (`/content-index.json`, `/playground` noindex).
-- **JEDI repo:** publish **0.1.1** with pinned deps (`write:packages` PAT) → restore npm aliases + `npm ci` on Vercel (remove clone step).
+- None blocking. Monitor production; collect recruiter/interview feedback.
 
 ## Blocked
 
-- None (deploy should proceed without NPM_TOKEN).
+- None.
 
 ## Branch / PR
 
-- **Main:** latest deploy-fix commit on `main`
-- **Production:** https://johnohio.vercel.app
-- **Tag:** Portfolio V2.0 — Preservation Migration Complete (pending production verify)
+- **Main:** `c1fd437` — fix: V2 production deploy — vendor JEDI + npm ci (#184)
+- **Production:** https://johnohio.vercel.app (V2 live)
+- **Observation start:** 2026-07-03
 
 ## Session coordination
 
@@ -43,8 +41,8 @@ See `ai/session-arbitration.md`.
 | Date | Repeated explanation | Contract | Root cause | Action |
 |------|---------------------|----------|------------|--------|
 | 2026-07-03 | Turbopack could not resolve `@jedi/*` | Implementation | npm aliases outside turbopack root | `next build --webpack` |
-| 2026-07-03 | Vercel build missing `@jedi/*` | Implementation | lockfile file symlinks + broken GH Packages 0.1.0 | file: deps + clone/build install |
-| 2026-07-03 | npm ci EUNSUPPORTEDPROTOCOL workspace:* | Implementation | lockfile nested jedi-core + published package metadata | file: package.json + clean lockfile |
+| 2026-07-03 | Vercel build missing `@jedi/*` | Implementation | lockfile symlinks + broken GH Packages 0.1.0 | committed vendor + `npm ci` |
+| 2026-07-03 | npm ci EUNSUPPORTEDPROTOCOL workspace:* | Implementation | published package metadata | vendor dist in-repo (#184) |
 
 ---
 
