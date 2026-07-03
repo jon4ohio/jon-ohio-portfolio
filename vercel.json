@@ -2,5 +2,5 @@
   "framework": "nextjs",
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
-  "installCommand": "node scripts/vercel-install.mjs"
+  "installCommand": "npm ci"
 }
