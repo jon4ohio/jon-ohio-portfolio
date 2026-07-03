@@ -22,10 +22,10 @@
     "hooks:install": "node scripts/install-hooks.mjs"
   },
   "dependencies": {
-    "@jedi/core": "npm:@jon4ohio/jedi-core@0.1.0",
-    "@jedi/react": "npm:@jon4ohio/jedi-react@0.1.0",
-    "@jedi/themes": "npm:@jon4ohio/jedi-themes@0.1.0",
-    "@jedi/tokens": "npm:@jon4ohio/jedi-tokens@0.1.0",
+    "@jedi/core": "file:../jedi/packages/jedi-core",
+    "@jedi/react": "file:../jedi/packages/jedi-react",
+    "@jedi/themes": "file:../jedi/packages/jedi-themes",
+    "@jedi/tokens": "file:../jedi/packages/jedi-tokens",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "next": "16.2.2",

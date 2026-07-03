@@ -55,7 +55,8 @@ for (const path of staticPaths) {
 test(`axe wcag2a/aa (no serious/critical): /work/${caseStudySlug}`, async ({
   page,
 }) => {
-  await page.goto(`/work/${caseStudySlug}`, { waitUntil: "networkidle" });
+  await page.goto(`/work/${caseStudySlug}`, { waitUntil: "domcontentloaded" });
+  await page.locator("main").waitFor({ state: "visible" });
   const results = await new AxeBuilder({ page })
     .withTags(["wcag2a", "wcag2aa"])
     // FigJam embed UI is third-party; our page provides fallback links + noscript snapshot.
