@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@jedi/react";
+import { Link } from "@/components/ui/Link";
 import { getRelatedProjects } from "@/lib/graph";
 import { getProject } from "@/lib/projects";
 

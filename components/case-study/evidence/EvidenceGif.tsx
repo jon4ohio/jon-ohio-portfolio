@@ -21,7 +21,9 @@ export default function EvidenceGif({
   const baseSrc = stripGifQuery(src);
 
   useEffect(() => {
+    /* eslint-disable react-hooks/set-state-in-effect -- keep internal gif state synced to src prop */
     setActiveSrc(src);
+    /* eslint-enable react-hooks/set-state-in-effect */
   }, [src]);
 
   useEffect(() => {

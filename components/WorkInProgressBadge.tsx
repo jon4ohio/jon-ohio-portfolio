@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge } from "@jedi/react";
+import { Badge } from "@/components/ui/Badge";
 
 export default function WorkInProgressBadge() {
   return (

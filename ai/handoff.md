@@ -2,21 +2,19 @@
 
 **Contract:** Handoff  
 **Problem coordinated:** What changed recently? What's next?  
-**Updated:** 2026-07-03
+**Updated:** 2026-07-04
 
 ---
 
 ## Delta
 
-- **Portfolio V2.0 — Preservation Migration Complete.** PR #184 merged (`c1fd437`); Production verified on [johnohio.vercel.app](https://johnohio.vercel.app).
-- **Deploy fix:** Committed slim `vendor/jedi-*` dist packages; `npm ci` on Vercel (removed `vercel-install.mjs` clone/build workaround).
-- **Root cause (historical):** GitHub Packages v0.1.0 ships `workspace:*` in `jedi-core`; external npm install fails.
-- **Production smoke:** all primary routes 200; `/content-index.json` 200; `/playground` 200 (noindex, absent from sitemap); preservation content intact.
+- **Web preview system hardened:** `dev:clean` now uses `--webpack` (parity with `dev`); added `preview:local` / `preview:local:clean`; `.vscode/tasks.json` + `remote.autoForwardPorts`; README/CLAUDE/docs aligned to vendor-first workflow.
+- **Preview verification:** local dev + production preview smoke (incl. `/work/rivva` WIP) — all 200; `CI=true npm run test:a11y` — 9/9; production [johnohio.vercel.app](https://johnohio.vercel.app) — all primary routes 200.
+- **Production smoke:** all primary routes 200; `/content-index.json` 200.
 
 ## Horizon
 
 1. **Observation window (2–4 weeks)** — use portfolio in hiring/networking; defer V2.1 until evidence-driven priorities emerge.
-2. **JEDI repo (optional):** publish **0.1.1** with pinned deps → restore npm aliases, remove committed vendor, pure `npm ci`.
 
 ## Next
 
@@ -28,8 +26,8 @@
 
 ## Branch / PR
 
-- **Main:** `c1fd437` — fix: V2 production deploy — vendor JEDI + npm ci (#184)
-- **Production:** https://johnohio.vercel.app (V2 live)
+- **Main:** `c1fd437`
+- **Production:** https://johnohio.vercel.app
 - **Observation start:** 2026-07-03
 
 ## Session coordination
@@ -40,13 +38,10 @@ See `ai/session-arbitration.md`.
 
 | Date | Repeated explanation | Contract | Root cause | Action |
 |------|---------------------|----------|------------|--------|
-| 2026-07-03 | Turbopack could not resolve `@jedi/*` | Implementation | npm aliases outside turbopack root | `next build --webpack` |
-| 2026-07-03 | Vercel build missing `@jedi/*` | Implementation | lockfile symlinks + broken GH Packages 0.1.0 | committed vendor + `npm ci` |
-| 2026-07-03 | npm ci EUNSUPPORTEDPROTOCOL workspace:* | Implementation | published package metadata | vendor dist in-repo (#184) |
+| 2026-07-04 | `dev:clean` broke preview (Turbopack) | Implementation | missing `--webpack` on dev:clean | aligned dev:clean + preview scripts |
 
 ---
 
 ## Pointers
 
 - ADR-075: `docs/adrs/ADR-075-jedi-platform-migration-preservation-first.md`
-- Vercel + JEDI: `docs/vercel-github-packages.md`

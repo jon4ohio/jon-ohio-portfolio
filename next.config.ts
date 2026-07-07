@@ -18,7 +18,6 @@ function findPackageRoot(dir: string): string {
 }
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["@jedi/core", "@jedi/react", "@jedi/themes"],
   turbopack: {
     // Prevent Next.js from inferring the wrong root when multiple lockfiles exist,
     // and resolve correctly when running from a git worktree.

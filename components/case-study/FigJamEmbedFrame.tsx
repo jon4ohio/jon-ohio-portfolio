@@ -65,7 +65,9 @@ export default function FigJamEmbedFrame({
   useEffect(() => {
     mountTimeRef.current = Date.now();
     loadCompletedAtRef.current = 0;
+    /* eslint-disable react-hooks/set-state-in-effect -- reset embed readiness when the embed key changes (external system: iframe load + timers) */
     setEmbedReady(false);
+    /* eslint-enable react-hooks/set-state-in-effect */
 
     const fallbackReveal = setTimeout(() => {
       if (loadCompletedAtRef.current === 0) {

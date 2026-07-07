@@ -1,8 +1,3 @@
-@import "@jedi/themes/reset.css";
-@import "@jedi/themes/base.css";
-@import "@jedi/themes/gothic.css";
-@import "@jedi/themes/neutral.css";
-@import "@jedi/tokens/bridge.css";
 @import "tailwindcss";
 
 :root {

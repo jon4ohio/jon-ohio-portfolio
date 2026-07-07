@@ -2,7 +2,7 @@
 
 ## Status
 
-**Status:** Accepted  
+**Status:** Superseded by ADR-078  
 **Date:** 2026-07-03  
 **Decision Maker(s):** John Ohio (Owner/Maintainer)  
 **Supersedes:** None (amends ADR-001, ADR-023 in scope noted below)
@@ -107,6 +107,7 @@ The existing portfolio at johnohio.vercel.app is the source of truth for narrati
 - [ADR-001](ADR-001-inline-styles-for-layout-and-visuals.md) — amended in scope
 - [ADR-023](ADR-023-figma-mcp-handoff-jop-tokens.md) — amended in scope
 - [ADR-042](ADR-042-flagship-case-study-static-route-override.md) — preserved
+- [ADR-078](ADR-078-remove-jedi-astryx-from-portfolio.md) — supersedes
 - JEDI-001, JEDI-002, JEDI-003 (jedi repo)
 
 ## References
@@ -114,3 +115,4 @@ The existing portfolio at johnohio.vercel.app is the source of truth for narrati
 - [JEDI VISION](https://github.com/jon4ohio/jedi/blob/main/docs/VISION.md)
 - [JEDI PUBLIC_API](https://github.com/jon4ohio/jedi/blob/main/docs/PUBLIC_API.md) — distribution aliases for GitHub Packages
 - Portfolio V2 Preservation plan (2026-07-03)
+- ADR-078: `docs/adrs/ADR-078-remove-jedi-astryx-from-portfolio.md`

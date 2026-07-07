@@ -24,6 +24,21 @@ npm run dev
 
 Open `http://localhost:3000`.
 
+Both `dev` and `build` use **webpack** (`--webpack`) for stability and parity. If port 3000 is in use, run `npm run dev:clean` instead.
+
+## Preview
+
+| Goal | Command | URL |
+|------|---------|-----|
+| Dev (hot reload) | `npm run dev` | http://localhost:3000 |
+| Dev (free port 3000 first) | `npm run dev:clean` | http://localhost:3000 |
+| Production-like local | `npm run preview:local` | http://localhost:3000 |
+| Production-like (free port first) | `npm run preview:local:clean` | http://localhost:3000 |
+
+**Cursor / VS Code:** Run **Tasks: Run Task → Dev: Next.js** (or start `npm run dev`), then open http://localhost:3000 via the **Ports** view, **Simple Browser: Show** (Command Palette), or your system browser. [`.vscode/settings.json`](.vscode/settings.json) auto-forwards port 3000 and can open the browser when the dev server starts.
+
+**Vercel:** PR previews and production deploy via `npm ci`.
+
 ## Useful commands
 
 ```bash

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useState, type KeyboardEvent } from "react";
-import { Button } from "@jedi/react";
+import { Button } from "@/components/ui/Button";
 import { coerceTheme, DEFAULT_THEME, THEME_STORAGE_KEY, THEMES, type ThemeName } from "@/components/theme";
 
 const labels: Record<ThemeName, string> = {

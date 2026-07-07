@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev --port 3000 --webpack",
-    "dev:clean": "lsof -ti:3000 | xargs kill -9 2>/dev/null || true; next dev --port 3000",
+    "dev:clean": "lsof -ti:3000 | xargs kill -9 2>/dev/null || true; next dev --port 3000 --webpack",
     "build": "next build --webpack",
     "postbuild": "tsx scripts/generate-content-index.ts",
     "start": "next start",
+    "preview:local": "npm run build && next start --port 3000",
+    "preview:local:clean": "lsof -ti:3000 | xargs kill -9 2>/dev/null || true; npm run preview:local",
     "lint": "eslint",
     "test:a11y": "playwright test tests/a11y",
     "test:a11y:ci": "npm run build && CI=true playwright test tests/a11y",
@@ -22,10 +24,6 @@
     "hooks:install": "node scripts/install-hooks.mjs"
   },
   "dependencies": {
-    "@jedi/core": "file:vendor/jedi-core",
-    "@jedi/react": "file:vendor/jedi-react",
-    "@jedi/themes": "file:vendor/jedi-themes",
-    "@jedi/tokens": "file:vendor/jedi-tokens",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "next": "16.2.2",
