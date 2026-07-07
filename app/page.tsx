@@ -289,6 +289,14 @@ export default function Home() {
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 14, maxWidth: 720 }}>
+              {/* Placeholder: fill platform, URL, date once essay is live — do not fabricate a link */}
+              <div style={{ paddingBottom: 14, borderBottom: "1px solid var(--border)" }}>
+                <p style={{ fontSize: 15, color: "var(--fg)", marginBottom: 0 }}>
+                  Scaling design as a system, not a service
+                </p>
+                <p style={{ marginTop: 6, fontSize: 12, color: "var(--fg-subtle)" }}>[Platform TBD] (forthcoming)</p>
+              </div>
+
               <div style={{ paddingBottom: 14, borderBottom: "1px solid var(--border)" }}>
                 <a
                   href="https://theuxcompany.substack.com/p/design-tokens-the-connective-tissue"

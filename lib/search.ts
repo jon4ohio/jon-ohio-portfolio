@@ -1,5 +1,5 @@
 /**
- * Client-side search index (V2.3) — projects, thinking, and leadership surfaces.
+ * Client-side search index (V2.3) — projects, thinking, and static pages.
  */
 
 import { projects } from "@/lib/projects";
@@ -36,14 +36,6 @@ const STATIC_PAGES: SearchResult[] = [
     subtitle: "Case studies and systems work",
     href: "/work",
     keywords: "work case studies projects",
-  },
-  {
-    id: "page:leadership",
-    kind: "page",
-    title: "Leadership",
-    subtitle: "Design leadership and operating principles",
-    href: "/leadership",
-    keywords: "leadership designops principles",
   },
   {
     id: "page:about",

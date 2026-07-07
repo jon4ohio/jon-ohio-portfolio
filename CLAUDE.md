@@ -38,7 +38,6 @@ All project/case study data lives in **`lib/projects.ts`** as a static typed arr
 | `/work/[slug]` | `app/work/[slug]/page.tsx` | Case study; uses `generateStaticParams` for SSG |
 | `/thinking` | `app/thinking/page.tsx` | Press, writing (Substack), conversations; data in `lib/thinking.ts` |
 | `/about` | `app/about/page.tsx` | |
-| `/leadership` | `app/leadership/page.tsx` | |
 | `/robots.txt` | `app/robots.ts` | Auto-generated via Next.js Metadata API |
 | `/sitemap.xml` | `app/sitemap.ts` | Auto-generated via Next.js Metadata API |
 
@@ -78,7 +77,7 @@ With `npm run dev`, pass the **full URL including path** to tools like `generate
 | Homepage | `http://localhost:3000/` |
 | Work index | `http://localhost:3000/work` |
 | Case study | `http://localhost:3000/work/<slug>` (slug from `lib/projects.ts`) |
-| Other pages | `http://localhost:3000/about`, `/leadership` |
+| Other pages | `http://localhost:3000/about` |
 
 For production capture, use the deployed origin instead of localhost.
 

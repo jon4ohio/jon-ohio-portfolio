@@ -25,8 +25,6 @@ export default function Footer() {
         <nav aria-label="Footer navigation" className="footer-nav" style={{ display: "flex", gap: 32 }}>
           {[
             { label: "Work", href: "/work" },
-            { label: "Thinking", href: "/thinking" },
-            { label: "Leadership", href: "/leadership" },
             { label: "About", href: "/about" },
           ].map((l) => (
             <Link key={l.href} href={l.href} style={{ fontSize: 14, color: "var(--fg-muted)", textDecoration: "none" }}>
