@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" fill="none" role="img" aria-label="HumanAI decision architecture">
+  <rect width="1200" height="320" fill="#fafafa"/>
+  <text x="600" y="36" text-anchor="middle" fill="#1a1a1a" font-family="system-ui, sans-serif" font-size="14" font-weight="700" letter-spacing="0.06em">HUMANAI DECISION ARCHITECTURE</text>
+  <g font-family="system-ui, sans-serif" font-size="11" fill="#444">
+    <circle cx="100" cy="160" r="44" fill="#e8f0fe" stroke="#5b7fd4" stroke-width="1.5"/>
+    <text x="100" y="156" text-anchor="middle" font-weight="600" fill="#1a1a1a">Human</text>
+    <text x="100" y="172" text-anchor="middle" font-weight="600" fill="#1a1a1a">Intent</text>
+    <path d="M148 160 H168" stroke="#999" stroke-width="1.5" marker-end="url(#arr)"/>
+    <circle cx="260" cy="160" r="44" fill="#ede8fe" stroke="#7b5bd4" stroke-width="1.5"/>
+    <text x="260" y="156" text-anchor="middle" font-weight="600" fill="#1a1a1a">AI</text>
+    <text x="260" y="172" text-anchor="middle" font-weight="600" fill="#1a1a1a">Interpretation</text>
+    <path d="M308 160 H328" stroke="#999" stroke-width="1.5" marker-end="url(#arr)"/>
+    <circle cx="420" cy="160" r="44" fill="#e8f4fe" stroke="#5ba8d4" stroke-width="1.5"/>
+    <text x="420" y="156" text-anchor="middle" font-weight="600" fill="#1a1a1a">Decision</text>
+    <text x="420" y="172" text-anchor="middle" font-weight="600" fill="#1a1a1a">Engine</text>
+    <path d="M468 160 H488" stroke="#999" stroke-width="1.5" marker-end="url(#arr)"/>
+    <circle cx="580" cy="160" r="44" fill="#e8fef4" stroke="#5bd4a8" stroke-width="1.5"/>
+    <text x="580" y="156" text-anchor="middle" font-weight="600" fill="#1a1a1a">Explanation</text>
+    <text x="580" y="172" text-anchor="middle" font-weight="600" fill="#1a1a1a">Layer</text>
+    <path d="M628 160 H648" stroke="#999" stroke-width="1.5" marker-end="url(#arr)"/>
+    <circle cx="740" cy="160" r="44" fill="#fef8e8" stroke="#d4b85b" stroke-width="1.5"/>
+    <text x="740" y="156" text-anchor="middle" font-weight="600" fill="#1a1a1a">User</text>
+    <text x="740" y="172" text-anchor="middle" font-weight="600" fill="#1a1a1a">Confirmation</text>
+    <path d="M788 160 H808" stroke="#999" stroke-width="1.5" marker-end="url(#arr)"/>
+    <circle cx="900" cy="160" r="44" fill="#f0e8fe" stroke="#9b5bd4" stroke-width="1.5"/>
+    <text x="900" y="148" text-anchor="middle" font-weight="600" fill="#1a1a1a">Continuous</text>
+    <text x="900" y="164" text-anchor="middle" font-weight="600" fill="#1a1a1a">Learning</text>
+    <path d="M944 200 Q600 280 156 200" stroke="#bbb" stroke-width="1.5" stroke-dasharray="6 4" fill="none"/>
+    <text x="600" y="268" text-anchor="middle" font-size="10" fill="#666" font-style="italic">Trust is built through a transparent, repeatable loop</text>
+  </g>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#999"/>
+    </marker>
+  </defs>
+</svg>
