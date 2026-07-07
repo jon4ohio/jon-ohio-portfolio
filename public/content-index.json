@@ -1,6 +1,6 @@
 {
   "version": "2.3.0",
-  "generatedAt": "2026-07-07T08:41:46.833Z",
+  "generatedAt": "2026-07-07T20:26:30.051Z",
   "items": [
     {
       "id": "page:home",
@@ -17,14 +17,6 @@
       "subtitle": "Case studies and systems work",
       "href": "/work",
       "keywords": "work case studies projects"
-    },
-    {
-      "id": "page:leadership",
-      "kind": "page",
-      "title": "Leadership",
-      "subtitle": "Design leadership and operating principles",
-      "href": "/leadership",
-      "keywords": "leadership designops principles"
     },
     {
       "id": "page:about",
@@ -88,7 +80,7 @@
       "title": "Rivva",
       "subtitle": "AI Scheduling Platform",
       "href": "/work/rivva",
-      "keywords": "rivva ai scheduling platform intelligent systems rivva · nigeria helped rivva turn a promising ai beta into a production-ready product by making ai scheduling understandable and trustworthy — #4 product hunt, 500+ downloads, 30+ paying customers. product design ai interaction design cross-platform ux consumer health tech"
+      "keywords": "rivva ai scheduling platform intelligent systems rivva · nigeria co-led design for an ai scheduling product shipped from beta to full release — reaching #4 on product hunt in its first week and surpassing 500 downloads within the first month. owned the web app end-to-end and contributed to mobile. product design web app 0→1 consumer ai/ml health tech"
     },
     {
       "id": "project:seamless-ai",

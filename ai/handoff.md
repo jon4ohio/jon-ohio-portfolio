@@ -2,15 +2,15 @@
 
 **Contract:** Handoff  
 **Problem coordinated:** What changed recently? What's next?  
-**Updated:** 2026-07-04
+**Updated:** 2026-07-07
 
 ---
 
 ## Delta
 
-- **Web preview system hardened:** `dev:clean` now uses `--webpack` (parity with `dev`); added `preview:local` / `preview:local:clean`; `.vscode/tasks.json` + `remote.autoForwardPorts`; README/CLAUDE/docs aligned to vendor-first workflow.
-- **Preview verification:** local dev + production preview smoke (incl. `/work/rivva` WIP) — all 200; `CI=true npm run test:a11y` — 9/9; production [johnohio.vercel.app](https://johnohio.vercel.app) — all primary routes 200.
-- **Production smoke:** all primary routes 200; `/content-index.json` 200.
+- **`/leadership` retired (ADR-078):** Route deleted; nav/footer/sitemap/search/graph/a11y references removed. Leadership thesis staged as forthcoming homepage Writing entry ("Scaling design as a system, not a service").
+- **Footer aligned with primary nav:** Thinking and Leadership footer links removed → Work · About.
+- **ADR-078 accepted;** ADR-041 superseded.
 
 ## Horizon
 
@@ -18,7 +18,7 @@
 
 ## Next
 
-- None blocking. Monitor production; collect recruiter/interview feedback.
+- **Publish leadership essay:** Fill platform, URL, and date in homepage Writing row (`app/page.tsx`); convert forthcoming plain title to linked `<a>` when live. Not a blocker for deploy.
 
 ## Blocked
 
@@ -26,7 +26,7 @@
 
 ## Branch / PR
 
-- **Main:** `c1fd437`
+- **Branch:** `cursor/retire-leadership-route`
 - **Production:** https://johnohio.vercel.app
 - **Observation start:** 2026-07-03
 
@@ -44,4 +44,5 @@ See `ai/session-arbitration.md`.
 
 ## Pointers
 
+- ADR-078: `docs/adrs/ADR-078-retire-leadership-route-essay-relocation.md`
 - ADR-075: `docs/adrs/ADR-075-jedi-platform-migration-preservation-first.md`

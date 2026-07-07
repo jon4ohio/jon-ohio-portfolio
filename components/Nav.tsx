@@ -11,7 +11,6 @@ const NAV_AVATAR_SRC = "/assets/nav/avatar.png";
 const links = [
   { href: "/", label: "Home" },
   { href: "/work", label: "Work" },
-  { href: "/leadership", label: "Leadership" },
   { href: "/about", label: "About" },
 ];
 

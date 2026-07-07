@@ -71,7 +71,6 @@ Failures report **critical** and **serious** WCAG 2 A/AA-tagged violations only;
   - `/work` → `app/work/page.tsx`
   - `/work/[slug]` → `app/work/[slug]/page.tsx`
   - `/about` → `app/about/page.tsx`
-  - `/leadership` → `app/leadership/page.tsx`
 
 ## Deploying
 

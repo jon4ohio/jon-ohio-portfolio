@@ -46,13 +46,6 @@ const TOPIC_NODES: GraphNode[] = [
     href: "/work",
     tags: ["enterprise", "platform", "scale"],
   },
-  {
-    id: "topic:leadership",
-    kind: "topic",
-    title: "Design leadership",
-    href: "/leadership",
-    tags: ["leadership", "designops"],
-  },
 ];
 
 function projectNodes(): GraphNode[] {
@@ -119,7 +112,6 @@ const MANUAL_EDGES: GraphEdge[] = [
   { from: "project:seamless-hiring", to: "topic:enterprise-ux", relation: "related" },
   { from: "project:ibedc", to: "topic:enterprise-ux", relation: "related" },
   { from: "writing:design-tokens", to: "project:seamkit", relation: "extends" },
-  { from: "topic:leadership", to: "project:seamkit", relation: "governance" },
 ];
 
 let cached: KnowledgeGraph | null = null;
