@@ -48,8 +48,8 @@ export default function WorkIndex() {
         <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.1, maxWidth: 640, marginBottom: 20 }}>
           Building products that scale.
         </h1>
-        <p style={{ fontSize: 17, color: "var(--fg-muted)", maxWidth: 520, lineHeight: 1.6 }}>
-          Explore selected case studies spanning enterprise SaaS, fintech, AI, and design systems. Each one focuses on the product decisions, systems thinking, and collaboration behind solving complex problems at scale.
+        <p style={{ fontSize: 17, color: "var(--fg-muted)", maxWidth: "min(100%, 760px)", lineHeight: 1.6 }}>
+          Explore selected case studies spanning enterprise SaaS, fintech, AI, and design systems.
         </p>
       </section>
 
