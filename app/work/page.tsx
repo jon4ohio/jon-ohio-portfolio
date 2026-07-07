@@ -49,7 +49,7 @@ export default function WorkIndex() {
           Building products that scale.
         </h1>
         <p style={{ fontSize: 17, color: "var(--fg-muted)", maxWidth: "min(100%, 760px)", lineHeight: 1.6 }}>
-          Explore selected case studies spanning enterprise SaaS, fintech, AI, and design systems.
+          Explore selected case studies across enterprise SaaS, fintech, AI, and design systems. Each highlights the problem, the approach, and the impact.
         </p>
       </section>
 
