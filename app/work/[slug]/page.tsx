@@ -72,7 +72,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "/" },
-      { "@type": "ListItem", position: 2, name: "Work", item: "/work" },
+      { "@type": "ListItem", position: 2, name: "Case Studies", item: "/work" },
       {
         "@type": "ListItem",
         position: 3,
@@ -103,7 +103,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
           href="/work"
           style={{ fontSize: 13, color: "var(--fg-muted)", textDecoration: "none" }}
         >
-          ← Work
+          ← Case Studies
         </Link>
       </nav>
 

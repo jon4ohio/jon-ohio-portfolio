@@ -1,6 +1,6 @@
 {
   "version": "2.3.0",
-  "generatedAt": "2026-07-07T20:26:30.051Z",
+  "generatedAt": "2026-07-07T23:18:30.742Z",
   "items": [
     {
       "id": "page:home",
@@ -13,10 +13,10 @@
     {
       "id": "page:work",
       "kind": "page",
-      "title": "Work",
+      "title": "Case Studies",
       "subtitle": "Case studies and systems work",
       "href": "/work",
-      "keywords": "work case studies projects"
+      "keywords": "case studies projects systems"
     },
     {
       "id": "page:about",

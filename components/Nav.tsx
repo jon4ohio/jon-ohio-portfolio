@@ -10,7 +10,7 @@ const NAV_AVATAR_SRC = "/assets/nav/avatar.png";
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/work", label: "Work" },
+  { href: "/work", label: "Case Studies" },
   { href: "/about", label: "About" },
 ];
 

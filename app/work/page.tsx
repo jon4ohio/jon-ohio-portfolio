@@ -43,13 +43,13 @@ export default function WorkIndex() {
     <div style={{ paddingTop: 56 }}>
       <section style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 64px" }}>
         <p className="section-label" style={{ marginBottom: 20 }}>
-          Selected Work
+          Case Studies
         </p>
         <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.1, maxWidth: 640, marginBottom: 20 }}>
-          Case studies in product systems, not isolated screens.
+          Building products that scale.
         </h1>
         <p style={{ fontSize: 17, color: "var(--fg-muted)", maxWidth: 520, lineHeight: 1.6 }}>
-          I usually come in when the workflow is broken, the platform is fragmented, or the team needs a system it can actually scale.
+          Explore selected case studies spanning enterprise SaaS, fintech, AI, and design systems. Each one focuses on the product decisions, systems thinking, and collaboration behind solving complex problems at scale.
         </p>
       </section>
 

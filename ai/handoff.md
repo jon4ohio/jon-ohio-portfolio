@@ -2,14 +2,15 @@
 
 **Contract:** Handoff  
 **Problem coordinated:** What changed recently? What's next?  
-**Updated:** 2026-07-07
+**Updated:** 2026-07-08
 
 ---
 
 ## Delta
 
+- **Work → Case Studies (label-only IA):** Primary nav, footer, search, case study back links, breadcrumb schema, and 404 CTA relabeled to **Case Studies**; `/work` URLs unchanged. `/work` index hero refreshed (label, H1, body).
 - **`/leadership` retired (ADR-078):** Route deleted; nav/footer/sitemap/search/graph/a11y references removed. Leadership thesis staged as forthcoming homepage Writing entry ("Scaling design as a system, not a service").
-- **Footer aligned with primary nav:** Thinking and Leadership footer links removed → Work · About.
+- **Footer aligned with primary nav:** Thinking and Leadership footer links removed → Case Studies · About.
 - **ADR-078 accepted;** ADR-041 superseded.
 
 ## Horizon
