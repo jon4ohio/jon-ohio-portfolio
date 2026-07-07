@@ -1,4 +1,4 @@
-import { Link } from "@jedi/react";
+import { Link } from "@/components/ui/Link";
 import { getContactMailtoHref } from "@/lib/contact";
 
 export default function Footer() {

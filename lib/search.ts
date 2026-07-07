@@ -61,14 +61,6 @@ const STATIC_PAGES: SearchResult[] = [
     href: "/thinking",
     keywords: "thinking writing press conversations",
   },
-  {
-    id: "page:playground",
-    kind: "page",
-    title: "Playground",
-    subtitle: "JEDI component experiments",
-    href: "/playground",
-    keywords: "playground jedi components experiments",
-  },
 ];
 
 function projectResults(): SearchResult[] {

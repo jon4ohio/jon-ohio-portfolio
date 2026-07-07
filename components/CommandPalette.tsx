@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Link } from "@jedi/react";
 import { searchContent, type SearchResult } from "@/lib/search";
 
 const isMac =
@@ -56,10 +55,6 @@ export default function CommandPalette() {
   }, [close]);
 
   useEffect(() => {
-    setActiveIndex(0);
-  }, [query]);
-
-  useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -109,7 +104,10 @@ export default function CommandPalette() {
         <input
           autoFocus
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => {
+            setQuery(e.target.value);
+            setActiveIndex(0);
+          }}
           placeholder="Search work, writing, pages…"
           aria-label="Search query"
           style={{
@@ -191,9 +189,7 @@ export default function CommandPalette() {
           <span>
             <kbd style={{ fontFamily: "inherit" }}>{isMac ? "⌘" : "Ctrl"}</kbd> K to toggle
           </span>
-          <Link href="/playground" onClick={close} style={{ fontSize: 12, color: "var(--accent)" }}>
-            Open Playground
-          </Link>
+          <span style={{ fontSize: 12 }}>Esc to close</span>
         </div>
       </div>
     </div>
