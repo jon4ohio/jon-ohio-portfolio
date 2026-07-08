@@ -883,26 +883,26 @@ export const projects: Project[] = [
     company: "Rivva · Nigeria",
     period: "Jul 2025 – Jan 2026",
     summary:
-      "Co-led design for an AI scheduling product shipped from beta to full release — reaching #4 on Product Hunt in its first week and surpassing 500 downloads within the first month. Owned the web app end-to-end and contributed to mobile.",
-    role: "Product Designer (Founding Team) from product definition to cross-platform system design.",
+      "Helping Rivva turn a promising AI beta into a production-ready AI product by making AI scheduling understandable and trustworthy.",
+    role: "Lead Product Designer · Founding Product Team (Contract)",
     scope:
-      "AI interaction design, Apple Health onboarding, web app design, and shared patterns spanning iOS, Android, and web.",
+      "Product design leadership, AI interaction patterns, cross-platform UX, and Nia explanation layer across web, iOS, and Android.",
     metrics: [
       { value: "#4", label: "Product Hunt — Product of the Day" },
       { value: "500+", label: "Downloads in first month" },
       { value: "30+", label: "Paying customers in 2 months" },
     ],
     context:
-      "Rivva is an AI scheduling platform that uses biometric data from Apple Health to build energy-aware daily plans — not just calendars, but schedules informed by how the user actually feels. The product was in prototype when the founding team brought in design: a functional ML model existed, but no interaction layer, no onboarding, and no way for a user to understand or trust what the AI was suggesting.",
+      "Rivva is an AI scheduling platform built around cognitive energy rather than calendar availability. When I joined the founding product team, the core vision had validated through beta — but the experience was not yet ready for launch.",
     problem:
-      "The ML model could generate a schedule. The design problem was that users had no reason to follow it. Biometric data creates a power asymmetry — the system knows something the user doesn't — and the first instinct in most AI tools is to hide that asymmetry rather than explain it. Early concept testing confirmed users would accept AI suggestions they could understand and reject ones they couldn't, regardless of the quality of the recommendation.",
+      "AI scheduling recommendations were not always understandable, behaviour differed across web and mobile, and users hesitated to trust decisions they could not interpret. For an AI product, that hesitation mattered more than model sophistication.",
     action:
-      "Designed the full interaction layer from 0→1: Apple Health onboarding, energy-aware scheduling model, and the daily planning experience across iOS, Android, and web. Co-designed Nia, the AI assistant, as an explanation layer — translating ML outputs into language users could act on and disagree with. Built the cross-platform design system that unified the experience across mobile and web. Collaborated with the ML team on how the model's reasoning could be surfaced without overwhelming the interface.",
+      "Led day-to-day product design to transform a fragmented beta into a launch-ready product — defining interaction patterns, co-designing Nia as an explanation layer, and unifying behaviour across web, mobile, and conversational AI.",
     impact:
-      "Rivva launched from beta to full release and reached #4 Product of the Day on Product Hunt in its first week. 500+ downloads came in the first month, and 30+ paying customers converted within two months — without a paid marketing budget. The AI explainability layer held: post-launch user feedback consistently cited trust in Nia's recommendations as a reason for staying with the product.",
-    tags: ["Product Design", "Web App", "0→1", "Consumer", "AI/ML", "Health Tech"],
+      "Rivva launched across Web, iOS, and Android, reached #4 on Product Hunt, surpassed 500 downloads in the first month, and converted 30+ paying customers within two months.",
+    tags: ["Product Design", "AI Interaction Design", "Cross-platform UX", "Consumer", "Health Tech"],
     featured: true,
-    workInProgress: true,
+    workInProgress: false,
     assets: {
       thumbnails: [
         {

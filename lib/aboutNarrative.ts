@@ -85,7 +85,7 @@ export type TimelineEntry = {
 /** CV-aligned ordering: current role first, then descending by role start (overlaps ordered by recency). */
 export const aboutTimeline: TimelineEntry[] = [
   { year: "2025–Present", role: "Lead, DesignOps & AI-UX", org: "SeamlessHR" },
-  { year: "2025–2026", role: "Product Designer (Founding Team)", org: "Rivva" },
+  { year: "2025–2026", role: "Lead Product Designer · Founding Product Team (Contract)", org: "Rivva" },
   { year: "2022–2025", role: "Lead Product Designer", org: "SeamlessHR" },
   { year: "2024–2025", role: "Product Designer (Founding Member)", org: "ClearPrice" },
   { year: "2021–2025", role: "Senior UX Contractor", org: "Fets" },
