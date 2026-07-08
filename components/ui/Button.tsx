@@ -18,7 +18,7 @@ function variantStyle(variant: ButtonVariant): CSSProperties {
       return {
         border: "1px solid var(--border)",
         background: "var(--theme-toggle-active-bg, var(--surface-emphasis))",
-        color: "var(--fg-on-emphasis)",
+        color: "var(--theme-toggle-active-fg, var(--fg-on-emphasis))",
       };
     case "secondary":
       return {
