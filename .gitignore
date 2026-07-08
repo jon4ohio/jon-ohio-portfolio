@@ -47,6 +47,7 @@ yarn-error.log*
 
 # local agent outputs
 _bmad-output
+.superpowers/
 
 # playwright mcp artifacts (may contain signed URLs / telemetry)
 .playwright-mcp/
