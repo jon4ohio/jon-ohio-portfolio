@@ -40,6 +40,17 @@ export const metadata: Metadata = {
   title: "Rivva",
   description: rivvaHeroMeta.subtitle,
   alternates: { canonical: "/work/rivva" },
+  openGraph: {
+    title: `Rivva — AI Scheduling Platform`,
+    description: rivvaHeroMeta.subtitle,
+    url: "/work/rivva",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Rivva",
+    description: rivvaHeroMeta.subtitle,
+  },
 };
 
 const chapters: Chapter[] = [
@@ -149,7 +160,7 @@ export default function RivvaFlagshipCaseStudy() {
 
       <section id="hero" style={{ maxWidth: 1240, margin: "0 auto", padding: "48px 24px 64px" }}>
         <Link href="/work" style={{ fontSize: 13, color: "var(--fg-muted)", textDecoration: "none" }}>
-          ← Work
+          ← Case Studies
         </Link>
 
         <p
