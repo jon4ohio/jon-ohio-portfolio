@@ -1,10 +1,11 @@
 import * as React from "react";
 
 export type RoleMissionBriefProps = {
-  mission: string;
+  mission?: string;
   collaboration?: string;
   led: string[];
   collaboratedOn: string[];
+  collaboratedLabel?: string;
   close: string;
 };
 
@@ -44,30 +45,33 @@ export default function RoleMissionBrief({
   collaboration,
   led,
   collaboratedOn,
+  collaboratedLabel = "I collaborated on",
   close,
 }: RoleMissionBriefProps) {
   return (
     <div style={{ maxWidth: 760 }}>
-      <div
-        style={{
-          borderLeft: "3px solid var(--accent-orange)",
-          paddingLeft: 20,
-          marginBottom: 28,
-        }}
-      >
-        <Micro>Mission</Micro>
-        <p
+      {mission ? (
+        <div
           style={{
-            margin: "10px 0 0",
-            fontSize: 18,
-            fontWeight: 600,
-            lineHeight: 1.55,
-            color: "var(--fg)",
+            borderLeft: "3px solid var(--accent-orange)",
+            paddingLeft: 20,
+            marginBottom: 28,
           }}
         >
-          {mission}
-        </p>
-      </div>
+          <Micro>Mission</Micro>
+          <p
+            style={{
+              margin: "10px 0 0",
+              fontSize: 18,
+              fontWeight: 600,
+              lineHeight: 1.55,
+              color: "var(--fg)",
+            }}
+          >
+            {mission}
+          </p>
+        </div>
+      ) : null}
 
       {collaboration ? (
         <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: "0 0 28px" }}>
@@ -77,7 +81,7 @@ export default function RoleMissionBrief({
 
       <div className="grid-2" style={{ gap: 32, marginBottom: 28 }}>
         <ListColumn label="I led" items={led} />
-        <ListColumn label="I collaborated on" items={collaboratedOn} />
+        <ListColumn label={collaboratedLabel} items={collaboratedOn} />
       </div>
 
       <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>{close}</p>
