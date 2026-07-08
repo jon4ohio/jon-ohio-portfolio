@@ -71,7 +71,7 @@ New code should prefer decision tokens first, then aliases only when needed for 
 
 ## QA Matrix
 - **Themes:** `light`, `dark`
-- **Pages:** `/`, `/work`, `/work/[slug]`, `/about`, `/leadership`, `/thinking`, `not-found`
+- **Pages:** `/`, `/work`, `/work/[slug]`, `/about`, `/thinking`, `not-found`
 - **Breakpoints:** desktop, `<=900px`, `<=640px`
 - **Flows:** first load, refresh persistence, route change, theme switch while mobile menu is open, keyboard-only navigation
 
