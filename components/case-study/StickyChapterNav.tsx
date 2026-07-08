@@ -44,13 +44,13 @@ export default function StickyChapterNav({ chapters = DEFAULT_CHAPTERS }: { chap
       style={{
         position: "sticky",
         top: 56,
-        zIndex: 50,
-        background: "var(--nav-backdrop)",
+        zIndex: 49,
+        background: "color-mix(in srgb, var(--bg) 92%, transparent)",
         borderBottom: "1px solid var(--border)",
         height: 44,
         width: "100%",
-        backdropFilter: "blur(8px)",
-        WebkitBackdropFilter: "blur(8px)",
+        backdropFilter: "blur(10px)",
+        WebkitBackdropFilter: "blur(10px)",
       }}
     >
       <div
