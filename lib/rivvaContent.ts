@@ -33,9 +33,9 @@ export const rivvaHeroMeta: RivvaHeroMeta = {
     "Helping Rivva turn a promising AI beta into a production-ready AI product by making AI scheduling understandable and trustworthy.",
   role: "Lead Product Designer · Founding Product Team (Contract)",
   timeline: "July 2025 – January 2026",
-  team: "CEO · COO · Machine Learning Engineer · Full-stack Engineers · Product Design",
+  team: "Founding team (incl. co-founder John Etokhana) · ML · Engineering · Product Design",
   mission:
-    "Joined the founding product team to lead day-to-day product design, partnering closely with the founders to transform a promising beta into a production-ready AI product.",
+    "Partnered with the founding team to transform a promising beta into a production-ready AI product by making AI scheduling understandable, predictable, and consistent.",
   outcomes: [
     "Product Hunt #4",
     "Web + iOS + Android",
@@ -71,33 +71,12 @@ export const rivvaChallengeClose: string[] = [
   "It was making AI understandable enough for everyday use.",
 ];
 
-export const rivvaRoleMission =
-  "Partner with the founding team to transform a validated beta into a launch-ready AI product.";
-
-export const rivvaRoleCollaboration =
-  "I worked closely with co-founder John Etokhana throughout the project. As his focus increasingly shifted toward company leadership, investor relations, and operations, he continued to provide product vision and design validation while I led day-to-day product design, interaction design, product refinement, and close collaboration with engineering and machine learning teams.";
-
-export const rivvaLed: string[] = [
-  "Product experience",
-  "AI interaction design",
-  "Web application",
-  "Cross-platform UX",
-  "Nia conversational UX",
-  "User journeys",
-  "Product refinement",
-  "Design validation",
-  "Engineering collaboration",
+export const rivvaRoleParagraphs: string[] = [
+  "I joined Rivva during beta as Lead Product Designer within the founding product team, partnering closely with the founders to prepare the product for launch.",
+  "Working together, we refined the product experience, validated design decisions against the company’s vision, and translated product strategy into experiences that users could understand and engineers could build.",
+  "While the founding team led overall product vision and direction, I led design execution—defining interaction patterns, shaping the web experience, evolving Nia’s conversational UX, and collaborating with engineering and machine learning teams to ensure the product behaved consistently across every touchpoint.",
+  "My work focused on making ambitious product ideas practical, coherent, and ready for production.",
 ];
-
-export const rivvaCollaboratedOn: string[] = [
-  "Product strategy",
-  "Mobile UX",
-  "AI interaction rules",
-  "Launch planning",
-];
-
-export const rivvaRoleClose =
-  "My work focused on making ambitious product ideas practical, coherent, and ready for production.";
 
 export const rivvaDecisions: RivvaDecision[] = [
   {
@@ -131,11 +110,11 @@ export const rivvaDecisions: RivvaDecision[] = [
 ];
 
 export const rivvaVision: string[] = [
-  "The founders had already established a compelling vision for energy-aware productivity.",
+  "Rivva’s founders had already established a compelling vision for energy-aware productivity.",
   "My role was to work closely with the founding team to translate that vision into a cohesive product experience.",
-  "Together, we refined workflows, interaction patterns, and AI behaviours through continuous design exploration and validation—ensuring the product remained aligned with its original philosophy while becoming practical for engineering to build and intuitive for users to understand.",
-  "The result wasn't simply a redesigned interface.",
-  "It was a more coherent product.",
+  "We iterated continuously—using design explorations to validate ideas, challenge assumptions, and refine the interaction model before implementation.",
+  "That close partnership ensured the product remained aligned with its founding philosophy while becoming practical enough to launch.",
+  "The result wasn’t simply a redesigned interface—it was a more coherent product.",
 ];
 
 export const rivvaDesignInActionIntro =

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ReadingProgressBar from "@/components/case-study/ReadingProgressBar";
 import StickyChapterNav, { type Chapter } from "@/components/case-study/StickyChapterNav";
-import RoleMissionBrief from "@/components/case-study/RoleMissionBrief";
 import EvidenceClaimBlock from "@/components/case-study/EvidenceClaimBlock";
 import DesignPrinciplePanel from "@/components/case-study/DesignPrinciplePanel";
 import DecisionArchitectureDiagram from "@/components/case-study/DecisionArchitectureDiagram";
@@ -25,11 +24,7 @@ import {
   rivvaResultsClose,
   rivvaResultsIntro,
   rivvaResultsTiers,
-  rivvaRoleClose,
-  rivvaRoleCollaboration,
-  rivvaRoleMission,
-  rivvaCollaboratedOn,
-  rivvaLed,
+  rivvaRoleParagraphs,
   rivvaVision,
 } from "@/lib/rivvaContent";
 
@@ -265,13 +260,7 @@ export default function RivvaFlagshipCaseStudy() {
         <Micro>03 My Role</Micro>
         <SectionHeading>My Role</SectionHeading>
         <div style={{ marginTop: 28 }}>
-          <RoleMissionBrief
-            mission={rivvaRoleMission}
-            collaboration={rivvaRoleCollaboration}
-            led={rivvaLed}
-            collaboratedOn={rivvaCollaboratedOn}
-            close={rivvaRoleClose}
-          />
+          <ProseBlock paragraphs={rivvaRoleParagraphs} />
         </div>
       </section>
 

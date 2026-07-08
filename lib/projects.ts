@@ -883,26 +883,26 @@ export const projects: Project[] = [
     company: "Rivva · Nigeria",
     period: "Jul 2025 – Jan 2026",
     summary:
-      "Co-led design for an AI scheduling product shipped from beta to full release — reaching #4 on Product Hunt in its first week and surpassing 500 downloads within the first month. Owned the web app end-to-end and contributed to mobile.",
-    role: "Product Designer (Founding Team) from product definition to cross-platform system design.",
+      "Partnered with Rivva’s founding team to help turn a promising AI beta into a production-ready product—making AI scheduling understandable and trustworthy. #4 Product Hunt, 500+ downloads, 30+ paying customers.",
+    role: "Lead Product Designer · Founding Product Team (Contract)",
     scope:
-      "AI interaction design, Apple Health onboarding, web app design, and shared patterns spanning iOS, Android, and web.",
+      "Day-to-day product design, AI interaction patterns, web experience, Nia conversational UX, cross-platform consistency, and engineering collaboration through launch.",
     metrics: [
       { value: "#4", label: "Product Hunt — Product of the Day" },
       { value: "500+", label: "Downloads in first month" },
       { value: "30+", label: "Paying customers in 2 months" },
     ],
     context:
-      "Rivva is an AI scheduling platform that uses biometric data from Apple Health to build energy-aware daily plans — not just calendars, but schedules informed by how the user actually feels. The product was in prototype when the founding team brought in design: a functional ML model existed, but no interaction layer, no onboarding, and no way for a user to understand or trust what the AI was suggesting.",
+      "Rivva is an AI scheduling platform that uses calendar data and wearable health signals to recommend when to focus, recover, or reschedule based on cognitive energy. Rivva had validated its vision through an early beta; as the founding team's focus expanded toward fundraising and operations, I joined to lead day-to-day product design and keep launch momentum.",
     problem:
-      "The ML model could generate a schedule. The design problem was that users had no reason to follow it. Biometric data creates a power asymmetry — the system knows something the user doesn't — and the first instinct in most AI tools is to hide that asymmetry rather than explain it. Early concept testing confirmed users would accept AI suggestions they could understand and reject ones they couldn't, regardless of the quality of the recommendation.",
+      "The beta showed promise, but the product wasn't launch-ready: AI recommendations weren't always understandable, behaviour differed across platforms, and users hesitated to trust scheduling decisions they couldn't interpret.",
     action:
-      "Designed the full interaction layer from 0→1: Apple Health onboarding, energy-aware scheduling model, and the daily planning experience across iOS, Android, and web. Co-designed Nia, the AI assistant, as an explanation layer — translating ML outputs into language users could act on and disagree with. Built the cross-platform design system that unified the experience across mobile and web. Collaborated with the ML team on how the model's reasoning could be surfaced without overwhelming the interface.",
+      "As Lead Product Designer on the founding product team, partnered with founders, engineering, and ML to evolve Rivva from beta to launch—leading design execution across web, Nia, and cross-platform interaction patterns that made AI scheduling understandable and consistent.",
     impact:
-      "Rivva launched from beta to full release and reached #4 Product of the Day on Product Hunt in its first week. 500+ downloads came in the first month, and 30+ paying customers converted within two months — without a paid marketing budget. The AI explainability layer held: post-launch user feedback consistently cited trust in Nia's recommendations as a reason for staying with the product.",
-    tags: ["Product Design", "Web App", "0→1", "Consumer", "AI/ML", "Health Tech"],
+      "Rivva launched across Web, iOS, and Android—reaching #4 Product of the Day on Product Hunt in its first week. 500+ downloads came in the first month, and 30+ paying customers converted within two months. Average session duration exceeded six minutes, demonstrating users incorporated AI-assisted scheduling into daily workflows.",
+    tags: ["Product Design", "AI Interaction Design", "Cross-platform UX", "Consumer", "Health Tech"],
     featured: true,
-    workInProgress: true,
+    workInProgress: false,
     assets: {
       thumbnails: [
         {

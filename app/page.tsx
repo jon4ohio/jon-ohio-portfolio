@@ -74,7 +74,7 @@ const ownershipItems = [
     name: "Rivva",
     type: "AI Scheduling Platform",
     description:
-      "Co-led design for an AI scheduling product shipped from beta to full release — reaching #4 on Product Hunt in its first week and 500+ downloads within the first month.",
+      "Partnered with Rivva’s founding team to turn a promising AI beta into a production-ready product—making AI scheduling understandable and trustworthy. #4 Product Hunt, 500+ downloads, 30+ paying customers.",
   },
 ] as const;
 
