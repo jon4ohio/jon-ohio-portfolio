@@ -3,7 +3,7 @@ import AxeBuilder from "@axe-core/playwright";
 import { projects } from "@/lib/projects";
 import { THEME_STORAGE_KEY } from "@/components/theme";
 
-const staticPaths = ["/", "/work", "/thinking", "/about"];
+const staticPaths = ["/", "/work", "/thinking", "/about", "/notes/design-doesnt-end-in-figma"];
 
 /** Pin light theme so axe runs are deterministic (avoids site default dark). */
 test.beforeEach(async ({ page }) => {

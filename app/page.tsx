@@ -80,6 +80,11 @@ const ownershipItems = [
 
 const homepageWritingItems = [
   {
+    href: "/notes/design-doesnt-end-in-figma",
+    title: "Design Doesn't End in Figma Anymore",
+    meta: "Field note · Jul 2026",
+  },
+  {
     href: "https://theuxcompany.substack.com/p/design-tokens-the-connective-tissue",
     title: "Design tokens: the connective tissue",
     meta: "The UX Company — Substack",
@@ -304,6 +309,8 @@ export default function Home() {
             <div style={{ display: "flex", flexDirection: "column", gap: 14, maxWidth: 720 }}>
               {homepageWritingItems.map((item, index) => {
                 const isLast = index === homepageWritingItems.length - 1;
+                const isInternal = item.href.startsWith("/");
+                const linkStyle = { fontSize: 15, color: "var(--accent-orange)", textDecoration: "none" as const };
                 return (
                   <div
                     key={item.href}
@@ -312,14 +319,15 @@ export default function Home() {
                       borderBottom: isLast ? "none" : "1px solid var(--border)",
                     }}
                   >
-                    <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      style={{ fontSize: 15, color: "var(--accent-orange)", textDecoration: "none" }}
-                    >
-                      {item.title}
-                    </a>
+                    {isInternal ? (
+                      <Link href={item.href} style={linkStyle}>
+                        {item.title}
+                      </Link>
+                    ) : (
+                      <a href={item.href} target="_blank" rel="noreferrer" style={linkStyle}>
+                        {item.title}
+                      </a>
+                    )}
                     <p style={{ marginTop: 6, fontSize: 12, color: "var(--fg-subtle)" }}>{item.meta}</p>
                   </div>
                 );

@@ -1,6 +1,6 @@
 {
   "version": "2.3.0",
-  "generatedAt": "2026-07-08T20:01:23.038Z",
+  "generatedAt": "2026-07-08T20:10:39.120Z",
   "items": [
     {
       "id": "page:home",
@@ -81,6 +81,14 @@
       "subtitle": "AI Scheduling Platform",
       "href": "/work/rivva",
       "keywords": "rivva ai scheduling platform intelligent systems rivva · nigeria rivva used ai and wearable health data to recommend when to focus, recover, or reschedule based on energy rather than availability. i led day-to-day product design through launch. product design ai interaction design cross-platform ux consumer health tech"
+    },
+    {
+      "id": "note:design-doesnt-end-in-figma",
+      "kind": "note",
+      "title": "Design Doesn't End in Figma Anymore",
+      "subtitle": "Field note",
+      "href": "/notes/design-doesnt-end-in-figma",
+      "keywords": "design doesn't end in figma anymore a field note on how i think, work, and build with ai my portfolio is a record of how my thinking evolves — the finished work is only part of it. a field note on ai-assisted design, implementation, and preserving intent. field note ai figma cursor mcp anchor design workflow rivva seamlessai smart ranking nia product design"
     },
     {
       "id": "writing:design-tokens",
