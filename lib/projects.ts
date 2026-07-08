@@ -883,23 +883,24 @@ export const projects: Project[] = [
     company: "Rivva · Nigeria",
     period: "Jul 2025 – Jan 2026",
     summary:
-      "Helping Rivva turn a promising AI beta into a production-ready AI product by making AI scheduling understandable and trustworthy.",
+      "Rivva used AI and wearable health data to recommend when to focus, recover, or reschedule based on energy rather than availability. I led day-to-day product design through launch.",
     role: "Lead Product Designer · Founding Product Team (Contract)",
     scope:
-      "Product design leadership, AI interaction patterns, cross-platform UX, and Nia explanation layer across web, iOS, and Android.",
+      "Product experience, AI interaction design, Nia conversational UX, cross-platform interaction rules, and engineering collaboration across web, iOS, and Android.",
     metrics: [
-      { value: "#4", label: "Product Hunt — Product of the Day" },
-      { value: "500+", label: "Downloads in first month" },
-      { value: "30+", label: "Paying customers in 2 months" },
+      { value: "#4", label: "Product Hunt — release day" },
+      { value: "500+", label: "Downloads following launch" },
+      { value: "30+", label: "Paying customers" },
+      { value: "~10%", label: "Conversion rate" },
     ],
     context:
-      "Rivva is an AI scheduling platform built around cognitive energy rather than calendar availability. When I joined the founding product team, the core vision had validated through beta — but the experience was not yet ready for launch.",
+      "Most productivity tools schedule around calendars. Rivva scheduled around people — using AI and wearable signals to understand cognitive energy and recommend when someone should focus, recover, or reschedule. By the time I joined, the idea had validated through beta and the company was preparing to launch.",
     problem:
-      "AI scheduling recommendations were not always understandable, behaviour differed across web and mobile, and users hesitated to trust decisions they could not interpret. For an AI product, that hesitation mattered more than model sophistication.",
+      "The vision wasn't the problem — trust was. AI scheduling recommendations weren't always easy to understand, behaviour differed across web, mobile, and Nia, and inconsistent experiences kept users from trusting the product. None of this was a modelling problem; it was a communication problem.",
     action:
-      "Led day-to-day product design to transform a fragmented beta into a launch-ready product — defining interaction patterns, co-designing Nia as an explanation layer, and unifying behaviour across web, mobile, and conversational AI.",
+      "Led day-to-day product design through launch: built an explanation layer for every scheduling suggestion, defined shared interaction rules across web, mobile, and Nia, and rebuilt the planner around energy signals rather than open calendar slots.",
     impact:
-      "Rivva launched across Web, iOS, and Android, reached #4 on Product Hunt, surpassed 500 downloads in the first month, and converted 30+ paying customers within two months.",
+      "Rivva reached public release across web, iOS, and Android — #4 on Product Hunt on release day, 500+ downloads and 30+ paying customers in the weeks following launch, with a ~10% conversion rate and average sessions above six minutes.",
     tags: ["Product Design", "AI Interaction Design", "Cross-platform UX", "Consumer", "Health Tech"],
     featured: true,
     workInProgress: false,

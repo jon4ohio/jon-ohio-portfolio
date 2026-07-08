@@ -1,6 +1,6 @@
 {
   "version": "2.3.0",
-  "generatedAt": "2026-07-08T17:26:35.304Z",
+  "generatedAt": "2026-07-08T20:01:23.038Z",
   "items": [
     {
       "id": "page:home",
@@ -80,7 +80,7 @@
       "title": "Rivva",
       "subtitle": "AI Scheduling Platform",
       "href": "/work/rivva",
-      "keywords": "rivva ai scheduling platform intelligent systems rivva · nigeria helping rivva turn a promising ai beta into a production-ready ai product by making ai scheduling understandable and trustworthy. product design ai interaction design cross-platform ux consumer health tech"
+      "keywords": "rivva ai scheduling platform intelligent systems rivva · nigeria rivva used ai and wearable health data to recommend when to focus, recover, or reschedule based on energy rather than availability. i led day-to-day product design through launch. product design ai interaction design cross-platform ux consumer health tech"
     },
     {
       "id": "writing:design-tokens",

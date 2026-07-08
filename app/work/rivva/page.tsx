@@ -5,32 +5,24 @@ import StickyChapterNav, { type Chapter } from "@/components/case-study/StickyCh
 import RoleMissionBrief from "@/components/case-study/RoleMissionBrief";
 import EvidenceClaimBlock from "@/components/case-study/EvidenceClaimBlock";
 import DesignPrinciplePanel from "@/components/case-study/DesignPrinciplePanel";
-import DecisionArchitectureDiagram from "@/components/case-study/DecisionArchitectureDiagram";
 import OutcomeCards from "@/components/case-study/OutcomeCards";
 import PrevNextNav from "@/components/case-study/PrevNextNav";
 import { projects } from "@/lib/projects";
 import {
-  rivvaChallengeBullets,
-  rivvaChallengeClose,
-  rivvaChallengeIntro,
-  rivvaDecisionArchitectureCaption,
-  rivvaDecisions,
-  rivvaDesignInActionIntro,
   rivvaDesignPrinciple,
-  rivvaEvidenceItems,
   rivvaHeroMeta,
-  rivvaLearned,
+  rivvaLed,
   rivvaOpportunity,
-  rivvaPortfolioThread,
-  rivvaResultsClose,
+  rivvaPreparingForLaunchBullets,
+  rivvaPreparingForLaunchClose,
+  rivvaPreparingForLaunchIntro,
+  rivvaProductDecisions,
+  rivvaReflection,
   rivvaResultsIntro,
   rivvaResultsTiers,
   rivvaRoleClose,
   rivvaRoleCollaboration,
-  rivvaRoleMission,
-  rivvaCollaboratedOn,
-  rivvaLed,
-  rivvaVision,
+  rivvaWorkedCloselyOn,
 } from "@/lib/rivvaContent";
 
 const SECTION_PAD = "80px 24px 0";
@@ -55,14 +47,12 @@ export const metadata: Metadata = {
 
 const chapters: Chapter[] = [
   { id: "opportunity", label: "01 Opportunity" },
-  { id: "challenge", label: "02 Challenge" },
+  { id: "launch", label: "02 Preparing for Launch" },
   { id: "role", label: "03 My Role" },
   { id: "decisions", label: "04 Decisions" },
-  { id: "vision", label: "05 Vision" },
-  { id: "action", label: "06 In Action" },
-  { id: "results", label: "07 Results" },
-  { id: "learned", label: "08 Learned" },
-  { id: "principle", label: "09 Principle" },
+  { id: "results", label: "05 Results" },
+  { id: "reflection", label: "06 Reflection" },
+  { id: "principle", label: "07 Principle" },
 ];
 
 function Micro({ children }: { children: React.ReactNode }) {
@@ -129,26 +119,22 @@ export default function RivvaFlagshipCaseStudy() {
 
       <style>{`
         #opportunity,
-        #challenge,
+        #launch,
         #role,
         #decisions,
-        #vision,
-        #action,
         #results,
-        #learned,
+        #reflection,
         #principle {
           scroll-margin-top: 100px;
         }
         @media (max-width: 768px) {
           .case-study-chapter-nav { display: none !important; }
           #opportunity,
-          #challenge,
+          #launch,
           #role,
           #decisions,
-          #vision,
-          #action,
           #results,
-          #learned,
+          #reflection,
           #principle {
             scroll-margin-top: 64px;
           }
@@ -201,6 +187,20 @@ export default function RivvaFlagshipCaseStudy() {
           {rivvaHeroMeta.subtitle}
         </p>
 
+        <div style={{ marginTop: 40, paddingTop: 32, borderTop: "1px solid var(--border)", maxWidth: 900 }}>
+          <Micro>Impact</Micro>
+          <div className="stats-grid stats-grid--4" style={{ background: "var(--border)", marginTop: 16 }}>
+            {rivvaHeroMeta.impact.map(({ value, label }) => (
+              <div key={label} className="stats-cell" style={{ background: "var(--bg)" }}>
+                <div style={{ fontSize: 35, fontWeight: 600, letterSpacing: "-0.03em", color: "var(--fg)" }}>
+                  {value}
+                </div>
+                <div style={{ fontSize: 11.5, lineHeight: 1.45, color: "var(--fg-muted)", marginTop: 8 }}>{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div
           className="rivva-hero-meta"
           style={{
@@ -229,22 +229,6 @@ export default function RivvaFlagshipCaseStudy() {
               {rivvaHeroMeta.team}
             </p>
           </div>
-          <div style={{ gridColumn: "1 / -1" }}>
-            <Micro>Mission</Micro>
-            <p style={{ margin: "8px 0 0", fontSize: 15, color: "var(--fg-body)", lineHeight: 1.6 }}>
-              {rivvaHeroMeta.mission}
-            </p>
-          </div>
-          <div style={{ gridColumn: "1 / -1" }}>
-            <Micro>Impact</Micro>
-            <ul style={{ margin: "8px 0 0", paddingLeft: 18, color: "var(--fg-body)", lineHeight: 1.7 }}>
-              {rivvaHeroMeta.outcomes.map((o) => (
-                <li key={o} style={{ fontSize: 15 }}>
-                  {o}
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
       </section>
 
@@ -256,19 +240,19 @@ export default function RivvaFlagshipCaseStudy() {
         </div>
       </section>
 
-      <section id="challenge" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
-        <Micro>02 The Challenge</Micro>
-        <SectionHeading>The Challenge</SectionHeading>
+      <section id="launch" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
+        <Micro>02 Preparing for Launch</Micro>
+        <SectionHeading>Preparing for Launch</SectionHeading>
         <div style={{ marginTop: 24 }}>
-          <ProseBlock paragraphs={rivvaChallengeIntro} />
+          <ProseBlock paragraphs={rivvaPreparingForLaunchIntro} />
           <ul style={{ margin: "0 0 20px", paddingLeft: 18, maxWidth: PROSE_MAX }}>
-            {rivvaChallengeBullets.map((b) => (
+            {rivvaPreparingForLaunchBullets.map((b) => (
               <li key={b} style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, marginBottom: 8 }}>
                 {b}
               </li>
             ))}
           </ul>
-          <ProseBlock paragraphs={rivvaChallengeClose} />
+          <ProseBlock paragraphs={rivvaPreparingForLaunchClose} />
         </div>
       </section>
 
@@ -277,160 +261,51 @@ export default function RivvaFlagshipCaseStudy() {
         <SectionHeading>My Role</SectionHeading>
         <div style={{ marginTop: 28 }}>
           <RoleMissionBrief
-            mission={rivvaRoleMission}
             collaboration={rivvaRoleCollaboration}
             led={rivvaLed}
-            collaboratedOn={rivvaCollaboratedOn}
+            collaboratedOn={rivvaWorkedCloselyOn}
+            collaboratedLabel="I worked closely on"
             close={rivvaRoleClose}
           />
         </div>
       </section>
 
-      <section id="decisions" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
-        <Micro>04 Key Design Decisions</Micro>
-        <SectionHeading>Key Design Decisions</SectionHeading>
-        <div style={{ marginTop: 32, display: "flex", flexDirection: "column", gap: 48, maxWidth: PROSE_MAX }}>
-          {rivvaDecisions.map((d, i) => (
-            <div key={d.title}>
-              <p style={{ fontSize: 14, color: "var(--fg-muted)", lineHeight: 1.6, margin: "0 0 10px" }}>
-                {d.problem}
-              </p>
-              <h3
-                style={{
-                  fontSize: 18,
-                  fontWeight: 700,
-                  color: "var(--fg)",
-                  margin: "0 0 12px",
-                  lineHeight: 1.4,
-                }}
-              >
-                {i + 1}. {d.title}
-              </h3>
-              {d.body.map((para) => (
-                <p
-                  key={para}
-                  style={{
-                    fontSize: 16,
-                    color: "var(--fg-body)",
-                    lineHeight: 1.75,
-                    margin: "0 0 12px",
-                  }}
-                >
-                  {para}
-                </p>
-              ))}
-              <p
-                style={{
-                  fontSize: 15,
-                  color: "var(--fg-muted)",
-                  lineHeight: 1.7,
-                  margin: "8px 0 0",
-                  fontStyle: "italic",
-                }}
-              >
-                {d.outcome}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="vision" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
-        <Micro>05 From Vision to Product</Micro>
-        <SectionHeading>From Vision to Product</SectionHeading>
-        <div style={{ marginTop: 24 }}>
-          <ProseBlock paragraphs={rivvaVision} />
-        </div>
-        <div style={{ marginTop: 40 }}>
-          <DecisionArchitectureDiagram />
-          <p style={{ margin: "16px 0 0", fontSize: 13, lineHeight: 1.6 }}>
-            <span
-              style={{
-                fontSize: 11,
-                textTransform: "uppercase",
-                letterSpacing: "0.08em",
-                color: "var(--fg-subtle)",
-              }}
-            >
-              Figure A
-            </span>
-            {" — "}
-            <span style={{ color: "var(--fg-muted)", fontStyle: "italic" }}>
-              {rivvaDecisionArchitectureCaption}
-            </span>
-          </p>
-        </div>
-      </section>
-
-      <section id="action" style={{ padding: `${SECTION_PAD.split(" ")[0]} 0 0` }}>
+      <section id="decisions" style={{ padding: `${SECTION_PAD.split(" ")[0]} 0 0` }}>
         <div style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px" }}>
-          <Micro>06 Design in Action</Micro>
-          <SectionHeading>Design in Action</SectionHeading>
-          <p
-            style={{
-              marginTop: 16,
-              fontSize: 17,
-              color: "var(--fg-muted)",
-              lineHeight: 1.75,
-              maxWidth: PROSE_MAX,
-              fontStyle: "italic",
-            }}
-          >
-            {rivvaDesignInActionIntro}
-          </p>
+          <Micro>04 Three Product Decisions</Micro>
+          <SectionHeading>Three Product Decisions</SectionHeading>
         </div>
         <div style={{ marginTop: 48, display: "flex", flexDirection: "column", gap: 64 }}>
-          {rivvaEvidenceItems.map((item, i) => (
+          {rivvaProductDecisions.map((d, i) => (
             <EvidenceClaimBlock
-              key={item.heading}
+              key={d.title}
               index={i + 1}
-              heading={item.heading}
-              problem={item.problem}
-              imageSrc={item.imageSrc}
-              imageAlt={item.imageAlt}
-              caption={item.caption}
-              outcome={item.outcome}
+              heading={d.title}
+              problem={d.problem}
+              decision={d.decision}
+              imageSrc={d.imageSrc}
+              imageAlt={d.imageAlt}
+              caption={d.caption}
+              outcome={d.outcome}
             />
           ))}
         </div>
       </section>
 
       <section id="results" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
-        <Micro>07 Results</Micro>
+        <Micro>05 Results</Micro>
         <SectionHeading>Results</SectionHeading>
         <p style={{ marginTop: 16, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: PROSE_MAX }}>
           {rivvaResultsIntro}
         </p>
         <OutcomeCards tiers={rivvaResultsTiers} />
-        <p
-          style={{
-            marginTop: 28,
-            fontSize: 17,
-            color: "var(--fg-body)",
-            lineHeight: 1.75,
-            maxWidth: PROSE_MAX,
-          }}
-        >
-          {rivvaResultsClose}
-        </p>
       </section>
 
-      <section id="learned" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
-        <Micro>08 What I Learned</Micro>
-        <SectionHeading>What I Learned</SectionHeading>
+      <section id="reflection" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
+        <Micro>06 Reflection</Micro>
+        <SectionHeading>Reflection</SectionHeading>
         <div style={{ marginTop: 24 }}>
-          <ProseBlock paragraphs={rivvaLearned} />
-          <p
-            style={{
-              fontSize: 17,
-              color: "var(--fg-body)",
-              lineHeight: 1.75,
-              maxWidth: PROSE_MAX,
-              margin: 0,
-            }}
-          >
-            {rivvaPortfolioThread}
-          </p>
+          <ProseBlock paragraphs={rivvaReflection} />
         </div>
       </section>
 

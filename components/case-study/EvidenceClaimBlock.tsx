@@ -5,16 +5,34 @@ export type EvidenceClaimBlockProps = {
   index: number;
   heading: string;
   problem: string;
+  decision?: string;
   imageSrc?: string;
   imageAlt: string;
   caption: string;
   outcome: string;
 };
 
+function Micro({ children }: { children: React.ReactNode }) {
+  return (
+    <p
+      style={{
+        fontSize: 11,
+        textTransform: "uppercase",
+        letterSpacing: "0.08em",
+        color: "var(--fg-subtle)",
+        margin: "0 0 8px",
+      }}
+    >
+      {children}
+    </p>
+  );
+}
+
 export default function EvidenceClaimBlock({
   index,
   heading,
   problem,
+  decision,
   imageSrc,
   imageAlt,
   caption,
@@ -28,15 +46,16 @@ export default function EvidenceClaimBlock({
           fontWeight: 700,
           letterSpacing: "-0.02em",
           color: "var(--fg)",
-          margin: "0 0 16px",
+          margin: "0 0 20px",
         }}
       >
         {heading}
       </h3>
 
-      <p style={{ fontSize: 16, color: "var(--fg-body)", lineHeight: 1.7, margin: "0 0 20px", maxWidth: 760 }}>
-        {problem}
-      </p>
+      <div style={{ maxWidth: 760 }}>
+        <Micro>Problem</Micro>
+        <p style={{ fontSize: 16, color: "var(--fg-body)", lineHeight: 1.7, margin: "0 0 24px" }}>{problem}</p>
+      </div>
 
       <AnnotatedFigure
         figure={index}
@@ -48,18 +67,16 @@ export default function EvidenceClaimBlock({
         reviewable
       />
 
-      <p
-        style={{
-          marginTop: 16,
-          fontSize: 15,
-          color: "var(--fg-muted)",
-          lineHeight: 1.7,
-          maxWidth: 760,
-          fontStyle: "italic",
-        }}
-      >
-        {outcome}
-      </p>
+      <div style={{ maxWidth: 760, marginTop: 20 }}>
+        {decision ? (
+          <>
+            <Micro>Decision</Micro>
+            <p style={{ fontSize: 16, color: "var(--fg-body)", lineHeight: 1.7, margin: "0 0 20px" }}>{decision}</p>
+          </>
+        ) : null}
+        <Micro>Outcome</Micro>
+        <p style={{ fontSize: 16, color: "var(--fg-body)", lineHeight: 1.7, margin: 0, fontWeight: 500 }}>{outcome}</p>
+      </div>
     </article>
   );
 }
