@@ -37,9 +37,8 @@ yarn-error.log*
 .env*
 !.env.example
 
-# vendored jedi clone (install script only; slim packages are committed)
-/vendor/jedi
-/vendor/**/node_modules
+# legacy vendored packages (removed — keep local trees out of git)
+/vendor
 
 # editor / agent state (keep local)
 .cursor

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { projects } from "@/lib/projects";
+import { getListableProjects } from "@/lib/projects";
 import { getSiteUrl, isIndexableDeployment } from "@/lib/siteUrl";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/work`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/thinking`, lastModified: now, changeFrequency: "monthly", priority: 0.82 },
     { url: `${baseUrl}/about`, lastModified: now, changeFrequency: "yearly", priority: 0.7 },
-    ...projects.map((p) => ({
+    ...getListableProjects().map((p) => ({
       url: `${baseUrl}/work/${p.slug}`,
       lastModified: now,
       changeFrequency: "yearly" as const,

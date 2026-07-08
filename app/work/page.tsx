@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { projects } from "@/lib/projects";
+import { getListableProjects, type Project } from "@/lib/projects";
 import ProjectListingPreview from "@/components/ProjectListingPreview";
 import WorkInProgressBadge from "@/components/WorkInProgressBadge";
 
@@ -27,9 +27,11 @@ const CATEGORIES = [
 ] as const;
 
 export default function WorkIndex() {
-  const grouped = CATEGORIES.reduce<Array<{ category: string; startIndex: number; projects: typeof projects }>>(
+  const listableProjects = getListableProjects();
+
+  const grouped = CATEGORIES.reduce<Array<{ category: string; startIndex: number; projects: Project[] }>>(
     (acc, category) => {
-      const items = projects.filter((p) => p.category === category);
+      const items = listableProjects.filter((p) => p.category === category);
       if (items.length === 0) return acc;
 
       const startIndex = acc.length ? acc[acc.length - 1].startIndex + acc[acc.length - 1].projects.length : 0;

@@ -8,10 +8,11 @@
 
 ## Delta
 
+- **PR realignment:** Closed 15 stale/conflicted open PRs; consolidated work on `realign/cleanup` off `main`.
 - **Work → Case Studies (label-only IA):** Primary nav, footer, search, case study back links, breadcrumb schema, and 404 CTA relabeled to **Case Studies**; `/work` URLs unchanged. `/work` index hero refreshed (label, H1, body).
-- **`/leadership` retired (ADR-079):** Route deleted; nav/footer/sitemap/search/graph/a11y references removed. Leadership thesis staged as forthcoming homepage Writing entry ("Scaling design as a system, not a service").
-- **Footer aligned with primary nav:** Thinking and Leadership footer links removed → Case Studies · About.
-- **ADR-079 accepted;** ADR-041 superseded.
+- **`/leadership` retired (ADR-079):** Route deleted; nav/footer/sitemap/search/graph/a11y references removed.
+- **Placeholder cleanup:** Homepage Writing shows linked entries only; `/work`, search, sitemap, and graph exclude case studies whose primary preview is still under `_placeholders/`.
+- **ADR-079 accepted;** ADR-041 superseded. ADR-078 reserved for JEDI removal.
 
 ## Horizon
 
@@ -19,7 +20,8 @@
 
 ## Next
 
-- **Publish leadership essay:** Fill platform, URL, and date in homepage Writing row (`app/page.tsx`); convert forthcoming plain title to linked `<a>` when live. Not a blocker for deploy.
+- **Publish leadership essay:** When live, add URL/platform/date to homepage Writing (`app/page.tsx`) as a linked row.
+- **Replace placeholder case-study assets:** SeamlessAI, ClearPrice, ABMS, Workforce Ecosystem, BluAlliance still use `_placeholders/` — add real art or keep hidden from listings.
 
 ## Blocked
 
@@ -27,7 +29,7 @@
 
 ## Branch / PR
 
-- **Branch:** `cursor/retire-leadership-route`
+- **Branch:** `realign/cleanup`
 - **Production:** https://johnohio.vercel.app
 - **Observation start:** 2026-07-03
 
@@ -40,10 +42,12 @@ See `ai/session-arbitration.md`.
 | Date | Repeated explanation | Contract | Root cause | Action |
 |------|---------------------|----------|------------|--------|
 | 2026-07-04 | `dev:clean` broke preview (Turbopack) | Implementation | missing `--webpack` on dev:clean | aligned dev:clean + preview scripts |
+| 2026-07-08 | Many open PRs with merge conflicts | Session continuity | long-lived branches + parallel IA edits | closed stale PRs; `realign/cleanup` off main |
 
 ---
 
 ## Pointers
 
 - ADR-079: `docs/adrs/ADR-079-retire-leadership-route-essay-relocation.md`
+- ADR-078: `docs/adrs/ADR-078-remove-jedi-astryx-from-portfolio.md`
 - ADR-075: `docs/adrs/ADR-075-jedi-platform-migration-preservation-first.md`

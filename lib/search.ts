@@ -2,7 +2,7 @@
  * Client-side search index (V2.3) — projects, thinking, and static pages.
  */
 
-import { projects } from "@/lib/projects";
+import { getListableProjects } from "@/lib/projects";
 import {
   conversationItems,
   recognitionItems,
@@ -56,7 +56,7 @@ const STATIC_PAGES: SearchResult[] = [
 ];
 
 function projectResults(): SearchResult[] {
-  return projects.map((p) => ({
+  return getListableProjects().map((p) => ({
     id: `project:${p.slug}`,
     kind: "project",
     title: p.title,

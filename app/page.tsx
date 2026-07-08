@@ -78,6 +78,19 @@ const ownershipItems = [
   },
 ] as const;
 
+const homepageWritingItems = [
+  {
+    href: "https://theuxcompany.substack.com/p/design-tokens-the-connective-tissue",
+    title: "Design tokens: the connective tissue",
+    meta: "The UX Company — Substack",
+  },
+  {
+    href: "https://techcabal.com/2026/02/13/john-ohio-quick-fire/",
+    title: "Quick Fire — AI, enterprise design, and product craft",
+    meta: "TechCabal · Feb 2026",
+  },
+] as const;
+
 export default function Home() {
   const mailtoHref = getContactMailtoHref();
   return (
@@ -289,44 +302,28 @@ export default function Home() {
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", gap: 14, maxWidth: 720 }}>
-              {/* Placeholder: fill platform, URL, date once essay is live — do not fabricate a link */}
-              <div style={{ paddingBottom: 14, borderBottom: "1px solid var(--border)" }}>
-                <p style={{ fontSize: 15, color: "var(--fg)", marginBottom: 0 }}>
-                  Scaling design as a system, not a service
-                </p>
-                <p style={{ marginTop: 6, fontSize: 12, color: "var(--fg-subtle)" }}>[Platform TBD] (forthcoming)</p>
-              </div>
-
-              <div style={{ paddingBottom: 14, borderBottom: "1px solid var(--border)" }}>
-                <a
-                  href="https://theuxcompany.substack.com/p/design-tokens-the-connective-tissue"
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{ fontSize: 15, color: "var(--accent-orange)", textDecoration: "none" }}
-                >
-                  Design tokens: the connective tissue
-                </a>
-                <p style={{ marginTop: 6, fontSize: 12, color: "var(--fg-subtle)" }}>The UX Company — Substack</p>
-              </div>
-
-              <div style={{ paddingBottom: 14, borderBottom: "1px solid var(--border)" }}>
-                <p style={{ fontSize: 15, color: "var(--fg)", marginBottom: 0 }}>
-                  Designing for Failure: How High-Risk Digital Systems Really Fail
-                </p>
-                <p style={{ marginTop: 6, fontSize: 12, color: "var(--fg-subtle)" }}>TechCabal (forthcoming)</p>
-              </div>
-
-              <div>
-                <a
-                  href="https://techcabal.com/2026/02/13/john-ohio-quick-fire/"
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{ fontSize: 15, color: "var(--accent-orange)", textDecoration: "none" }}
-                >
-                  Quick Fire — AI, enterprise design, and product craft
-                </a>
-                <p style={{ marginTop: 6, fontSize: 12, color: "var(--fg-subtle)" }}>TechCabal · Feb 2026</p>
-              </div>
+              {homepageWritingItems.map((item, index) => {
+                const isLast = index === homepageWritingItems.length - 1;
+                return (
+                  <div
+                    key={item.href}
+                    style={{
+                      paddingBottom: isLast ? 0 : 14,
+                      borderBottom: isLast ? "none" : "1px solid var(--border)",
+                    }}
+                  >
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{ fontSize: 15, color: "var(--accent-orange)", textDecoration: "none" }}
+                    >
+                      {item.title}
+                    </a>
+                    <p style={{ marginTop: 6, fontSize: 12, color: "var(--fg-subtle)" }}>{item.meta}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
