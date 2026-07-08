@@ -19,6 +19,8 @@ function kindLabel(kind: SearchResult["kind"]): string {
       return "Press";
     case "conversation":
       return "Conversation";
+    case "note":
+      return "Field note";
     default: {
       const _exhaustive: never = kind;
       return _exhaustive;

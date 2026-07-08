@@ -74,4 +74,5 @@
 | 079 | Retire `/leadership` route — essay relocation to homepage Writing | Accepted | 2026-07-07 | None |
 | 080 | Rivva flagship case study finalized — role, narrative, and cross-platform scope updated | Accepted | 2026-07-08 | None |
 | 081 | Rivva case study v2 — seven-section spine and merged decision evidence | Accepted | 2026-07-08 | None |
+| 082 | On-site field notes route (`/notes/[slug]`) | Accepted | 2026-07-08 | None |
 Chronological audit notes: [`LOG.md`](./LOG.md).

@@ -8,6 +8,7 @@
 
 ## Delta
 
+- **Field note published (ADR-082):** *Design Doesn't End in Figma Anymore* live at `/notes/design-doesnt-end-in-figma` — typed content in `lib/fieldNotes.ts`, placeholder figures, homepage Writing + `/thinking` Field notes discovery.
 - **PR realignment:** Closed 15 stale/conflicted open PRs; consolidated work on `realign/cleanup` off `main`.
 - **Rivva flagship shipped (ADR-080):** `/work/rivva` complete — 9-chapter case study, evidence assets, `workInProgress: false`. Listing/homepage/about copy aligned to [`lib/rivvaContent.ts`](lib/rivvaContent.ts).
 - **Work → Case Studies (label-only IA):** Primary nav, footer, search, case study back links, breadcrumb schema, and 404 CTA relabeled to **Case Studies**; `/work` URLs unchanged. `/work` index hero refreshed (label, H1, body).
@@ -22,6 +23,7 @@
 
 ## Next
 
+- **Swap field note images:** Drop assets in `public/images/notes-ai/` (workflow, Nia, Smart Ranking, Anchor repo) — placeholders ship until then.
 - **Publish leadership essay:** When live, add URL/platform/date to homepage Writing (`app/page.tsx`) as a linked row.
 - **Replace placeholder case-study assets:** SeamlessAI, ClearPrice, ABMS, Workforce Ecosystem, BluAlliance still use `_placeholders/` — add real art or keep hidden from listings.
 
@@ -50,6 +52,7 @@ See `ai/session-arbitration.md`.
 
 ## Pointers
 
+- ADR-082: `docs/adrs/ADR-082-on-site-field-notes-route.md`
 - ADR-080: `docs/adrs/ADR-080-rivva-flagship-case-study-finalized.md`
 - ADR-079: `docs/adrs/ADR-079-retire-leadership-route-essay-relocation.md`
 - ADR-078: `docs/adrs/ADR-078-remove-jedi-astryx-from-portfolio.md`

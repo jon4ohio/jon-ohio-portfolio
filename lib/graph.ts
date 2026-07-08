@@ -4,13 +4,14 @@
  */
 
 import { getListableProjects } from "@/lib/projects";
+import { fieldNotes } from "@/lib/fieldNotes";
 import {
   conversationItems,
   recognitionItems,
   writingItems,
 } from "@/lib/thinking";
 
-export type GraphNodeKind = "project" | "writing" | "press" | "conversation" | "topic";
+export type GraphNodeKind = "project" | "writing" | "press" | "conversation" | "topic" | "note";
 
 export interface GraphNode {
   id: string;
@@ -55,6 +56,16 @@ function projectNodes(): GraphNode[] {
     title: p.title,
     href: `/work/${p.slug}`,
     tags: p.tags,
+  }));
+}
+
+function fieldNoteNodes(): GraphNode[] {
+  return fieldNotes.map((note) => ({
+    id: `note:${note.slug}`,
+    kind: "note" as const,
+    title: note.title,
+    href: `/notes/${note.slug}`,
+    tags: ["field-note", "ai", "workflow", ...note.keywords],
   }));
 }
 
@@ -112,6 +123,9 @@ const MANUAL_EDGES: GraphEdge[] = [
   { from: "project:seamless-hiring", to: "topic:enterprise-ux", relation: "related" },
   { from: "project:ibedc", to: "topic:enterprise-ux", relation: "related" },
   { from: "writing:design-tokens", to: "project:seamkit", relation: "extends" },
+  { from: "note:design-doesnt-end-in-figma", to: "project:rivva", relation: "extends" },
+  { from: "note:design-doesnt-end-in-figma", to: "project:seamless-hiring", relation: "extends" },
+  { from: "note:design-doesnt-end-in-figma", to: "topic:design-systems", relation: "governance" },
 ];
 
 let cached: KnowledgeGraph | null = null;
@@ -119,7 +133,7 @@ let cached: KnowledgeGraph | null = null;
 export function getKnowledgeGraph(): KnowledgeGraph {
   if (cached) return cached;
 
-  const nodes = [...projectNodes(), ...thinkingNodes(), ...TOPIC_NODES];
+  const nodes = [...projectNodes(), ...fieldNoteNodes(), ...thinkingNodes(), ...TOPIC_NODES];
   const edges = [...tagEdges(nodes), ...MANUAL_EDGES];
 
   cached = { nodes, edges };

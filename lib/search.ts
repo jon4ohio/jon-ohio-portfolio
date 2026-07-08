@@ -1,7 +1,8 @@
 /**
- * Client-side search index (V2.3) — projects, thinking, and static pages.
+ * Client-side search index (V2.3) — projects, thinking, field notes, and static pages.
  */
 
+import { fieldNotes } from "@/lib/fieldNotes";
 import { getListableProjects } from "@/lib/projects";
 import {
   conversationItems,
@@ -9,7 +10,7 @@ import {
   writingItems,
 } from "@/lib/thinking";
 
-export type SearchResultKind = "page" | "project" | "writing" | "press" | "conversation";
+export type SearchResultKind = "page" | "project" | "writing" | "press" | "conversation" | "note";
 
 export interface SearchResult {
   id: string;
@@ -68,6 +69,17 @@ function projectResults(): SearchResult[] {
   }));
 }
 
+function fieldNoteResults(): SearchResult[] {
+  return fieldNotes.map((note) => ({
+    id: `note:${note.slug}`,
+    kind: "note" as const,
+    title: note.title,
+    subtitle: "Field note",
+    href: `/notes/${note.slug}`,
+    keywords: [note.title, note.subtitle, note.description, ...note.keywords].join(" ").toLowerCase(),
+  }));
+}
+
 function thinkingResults(): SearchResult[] {
   const writing = writingItems.map((w) => ({
     id: `writing:${w.id}`,
@@ -100,7 +112,7 @@ let cachedIndex: SearchResult[] | null = null;
 
 export function getSearchIndex(): SearchResult[] {
   if (cachedIndex) return cachedIndex;
-  cachedIndex = [...STATIC_PAGES, ...projectResults(), ...thinkingResults()];
+  cachedIndex = [...STATIC_PAGES, ...projectResults(), ...fieldNoteResults(), ...thinkingResults()];
   return cachedIndex;
 }
 

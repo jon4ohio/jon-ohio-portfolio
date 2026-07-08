@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { fieldNotes } from "@/lib/fieldNotes";
 import {
   conversationItems,
   recognitionItems,
@@ -164,6 +166,69 @@ export default function ThinkingPage() {
               description={item.description}
               href={item.href}
             />
+          ))}
+        </div>
+      </section>
+
+      {/* Field notes */}
+      <section
+        style={{
+          background: "var(--surface)",
+          borderTop: "1px solid var(--border)",
+          borderBottom: "1px solid var(--border)",
+        }}
+      >
+        <div style={{ maxWidth: 1240, margin: "0 auto", padding: "72px 24px" }}>
+          <p className="section-label" style={{ marginBottom: 16 }}>
+            Field notes
+          </p>
+          <h2
+            style={{
+              fontSize: "clamp(22px, 2.8vw, 32px)",
+              fontWeight: 600,
+              letterSpacing: "-0.02em",
+              marginBottom: 28,
+              maxWidth: 560,
+            }}
+          >
+            On-site essays on practice
+          </h2>
+
+          {fieldNotes.map((note) => (
+            <article
+              key={note.slug}
+              id={`field-note-${note.slug}`}
+              style={{
+                padding: "32px 28px",
+                borderRadius: 12,
+                border: "1px solid var(--border)",
+                background: "var(--bg)",
+                marginBottom: 20,
+              }}
+            >
+              <p style={{ fontSize: 12, fontWeight: 500, color: "var(--fg-subtle)", marginBottom: 10 }}>
+                {note.label} · {note.published}
+              </p>
+              <h3
+                style={{
+                  fontSize: "clamp(20px, 2.2vw, 26px)",
+                  fontWeight: 600,
+                  letterSpacing: "-0.02em",
+                  marginBottom: 8,
+                }}
+              >
+                {note.title}
+              </h3>
+              <p style={{ fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.65, marginBottom: 16, maxWidth: 640 }}>
+                {note.subtitle}
+              </p>
+              <Link
+                href={`/notes/${note.slug}`}
+                style={{ fontSize: 14, fontWeight: 500, color: "var(--accent-orange)", textDecoration: "none" }}
+              >
+                Read field note →
+              </Link>
+            </article>
           ))}
         </div>
       </section>
