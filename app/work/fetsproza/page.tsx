@@ -73,117 +73,6 @@ function SectionDivider() {
   );
 }
 
-function EcosystemShiftDiagram() {
-  const panelStyle = {
-    flex: 1,
-    minWidth: 0,
-    padding: "24px 20px",
-    borderRadius: 8,
-    border: "1px solid var(--border)",
-    background: "var(--surface-subtle)",
-  } as const;
-
-  const labelStyle = {
-    fontSize: 11,
-    fontWeight: 600,
-    textTransform: "uppercase" as const,
-    letterSpacing: "0.08em",
-    color: "var(--fg-subtle)",
-    margin: 0,
-  };
-
-  const nodeStyle = {
-    fontSize: 14,
-    color: "var(--fg-body)",
-    lineHeight: 1.5,
-    textAlign: "center" as const,
-  };
-
-  return (
-    <section
-      aria-label="Before and after: fragmented payment orchestration versus unified FetsProza operating platform"
-      style={{ maxWidth: 960, margin: "0 auto", padding: "40px 24px 0" }}
-    >
-      <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)", margin: 0 }}>
-        From fragmented payment orchestration to a unified operating platform
-      </p>
-      <div className="case-study-ecosystem-diagram" style={{ marginTop: 20, display: "flex", gap: 20 }}>
-        <div style={panelStyle}>
-          <p style={labelStyle}>Before</p>
-          <div style={{ marginTop: 20, display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
-            <p style={{ ...nodeStyle, fontWeight: 600, color: "var(--fg)" }}>Customer</p>
-            <p style={{ fontSize: 18, color: "var(--fg-muted)", lineHeight: 1, margin: 0 }} aria-hidden>
-              │
-            </p>
-            <p style={{ fontSize: 18, color: "var(--fg-muted)", lineHeight: 1, margin: 0 }} aria-hidden>
-              ▼
-            </p>
-            <div style={{ width: "100%", display: "flex", flexDirection: "column", gap: 6, marginTop: 4 }}>
-              {["Vendor A", "Vendor B", "Vendor C", "Vendor D"].map((vendor) => (
-                <div
-                  key={vendor}
-                  style={{
-                    padding: "10px 12px",
-                    borderRadius: 6,
-                    border: "1px dashed var(--border)",
-                    background: "var(--bg)",
-                    fontSize: 13,
-                    color: "var(--fg-muted)",
-                    textAlign: "center",
-                  }}
-                >
-                  {vendor}
-                </div>
-              ))}
-            </div>
-            <p style={{ marginTop: 12, fontSize: 13, color: "var(--fg-muted)", textAlign: "center", lineHeight: 1.5 }}>
-              Business struggles to operate
-            </p>
-          </div>
-        </div>
-        <div style={{ display: "flex", alignItems: "center", color: "var(--fg-subtle)", fontSize: 20 }} aria-hidden>
-          →
-        </div>
-        <div style={panelStyle}>
-          <p style={labelStyle}>After</p>
-          <div style={{ marginTop: 20, display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
-            <p style={{ ...nodeStyle, fontWeight: 600, color: "var(--fg)" }}>Customer</p>
-            <p style={{ fontSize: 18, color: "var(--fg-muted)", lineHeight: 1, margin: 0 }} aria-hidden>
-              │
-            </p>
-            <p style={{ fontSize: 18, color: "var(--fg-muted)", lineHeight: 1, margin: 0 }} aria-hidden>
-              ▼
-            </p>
-            <div
-              style={{
-                width: "100%",
-                marginTop: 4,
-                padding: "16px 14px",
-                borderRadius: 6,
-                border: "1px solid var(--border)",
-                background: "var(--bg)",
-                textAlign: "center",
-              }}
-            >
-              <p style={{ margin: 0, fontSize: 15, fontWeight: 600, color: "var(--fg)" }}>FetsProza</p>
-              <p style={{ margin: "10px 0 0", fontSize: 13, color: "var(--fg-body)", lineHeight: 1.55 }}>
-                One operational platform
-                <br />
-                One transaction lifecycle
-                <br />
-                One operational model
-              </p>
-            </div>
-            <p style={{ marginTop: 12, fontSize: 13, color: "var(--fg-body)", textAlign: "center", lineHeight: 1.5, fontWeight: 500 }}>
-              Business controls the financial operating system
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export default function FetsprozaFlagshipCaseStudy() {
   const project = getProject("fetsproza");
   if (!project) return null;
@@ -211,8 +100,6 @@ export default function FetsprozaFlagshipCaseStudy() {
           .case-study-tension-grid { flex-direction: column !important; }
           .case-study-nextread { flex-direction: column !important; }
           .case-study-nextread-media { width: 100% !important; }
-          .case-study-ecosystem-diagram { flex-direction: column !important; }
-          .case-study-ecosystem-diagram > div:nth-child(2) { transform: rotate(90deg); align-self: center; }
         }
         @media (min-width: 901px) {
           .case-study-phase-mobile { display: none !important; }
@@ -246,7 +133,14 @@ export default function FetsprozaFlagshipCaseStudy() {
         }}
       />
 
-      <EcosystemShiftDiagram />
+      <div style={{ maxWidth: 1240, margin: "40px auto 0", padding: "0 24px" }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/work/fetsproza/block-orchestration-shift.png"
+          alt="Before and after: fragmented payment orchestration with vendor dependencies versus unified FetsProza operating platform"
+          style={{ width: "100%", height: "auto", display: "block", borderRadius: 24 }}
+        />
+      </div>
 
       <section id="challenge" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
         <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>

@@ -57,7 +57,7 @@ export default function NotFound() {
               textDecoration: "none",
             }}
           >
-            View work
+            View case studies
           </Link>
         </div>
       </section>

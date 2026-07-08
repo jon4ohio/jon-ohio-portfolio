@@ -2,15 +2,16 @@
 
 **Contract:** Handoff  
 **Problem coordinated:** What changed recently? What's next?  
-**Updated:** 2026-07-07
+**Updated:** 2026-07-08
 
 ---
 
 ## Delta
 
-- **`/leadership` retired (ADR-078):** Route deleted; nav/footer/sitemap/search/graph/a11y references removed. Leadership thesis staged as forthcoming homepage Writing entry ("Scaling design as a system, not a service").
-- **Footer aligned with primary nav:** Thinking and Leadership footer links removed → Work · About.
-- **ADR-078 accepted;** ADR-041 superseded.
+- **Work → Case Studies (label-only IA):** Primary nav, footer, search, case study back links, breadcrumb schema, and 404 CTA relabeled to **Case Studies**; `/work` URLs unchanged. `/work` index hero refreshed (label, H1, body).
+- **`/leadership` retired (ADR-079):** Route deleted; nav/footer/sitemap/search/graph/a11y references removed. Leadership thesis staged as forthcoming homepage Writing entry ("Scaling design as a system, not a service").
+- **Footer aligned with primary nav:** Thinking and Leadership footer links removed → Case Studies · About.
+- **ADR-079 accepted;** ADR-041 superseded.
 
 ## Horizon
 
@@ -44,5 +45,5 @@ See `ai/session-arbitration.md`.
 
 ## Pointers
 
-- ADR-078: `docs/adrs/ADR-078-retire-leadership-route-essay-relocation.md`
+- ADR-079: `docs/adrs/ADR-079-retire-leadership-route-essay-relocation.md`
 - ADR-075: `docs/adrs/ADR-075-jedi-platform-migration-preservation-first.md`

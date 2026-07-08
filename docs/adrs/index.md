@@ -41,7 +41,7 @@
 | 038 | Homepage copy refresh, Seamkit narrative update, and Rivva Product Hunt metric | Accepted | 2026-04-22 | None |
 | 039 | Homepage “What I own” uses `/work` case study row layout (no S/N) and folds in Rivva | Proposed | 2026-04-22 | None |
 | 040 | Homepage metrics strip (4 items) and ownership copy precision refresh | Proposed | 2026-04-23 | None |
-| 041 | Leadership page — mobile philosophy typography and focus cards layout | Superseded by ADR-078 | 2026-04-24 | ADR-078 |
+| 041 | Leadership page — mobile philosophy typography and focus cards layout | Superseded by ADR-079 | 2026-04-24 | ADR-079 |
 | 042 | Flagship case study via static route override | Proposed | 2026-04-24 | None |
 | 043 | Flagship executive brief bento, before-state artifact, and hero metrics balance | Proposed | 2026-04-24 | None |
 | 044 | Phase V pilot-review artifact and AI narrative boundary (SeamlessHiring) | Proposed | 2026-04-26 | None |
@@ -69,7 +69,7 @@
 | 073 | Case study progress status, dark default theme, and homepage systems headline | Accepted | 2026-06-29 | None |
 | 074 | Shared MediaViewTrigger and reviewable generic block assets | Accepted | 2026-06-29 | None |
 | 075 | Platform migration (preservation-first) | Superseded | 2026-07-03 | 078 |
-| 078 | Remove JEDI/Astryx integration from portfolio | Accepted | 2026-07-07 | None |
 | 077 | Knowledge graph model (Portfolio V2.2) | Accepted | 2026-07-03 | None |
-| 078 | Retire `/leadership` route — essay relocation to homepage Writing | Accepted | 2026-07-07 | None |
+| 078 | Remove JEDI/Astryx integration from portfolio | Accepted | 2026-07-07 | None |
+| 079 | Retire `/leadership` route — essay relocation to homepage Writing | Accepted | 2026-07-07 | None |
 Chronological audit notes: [`LOG.md`](./LOG.md).

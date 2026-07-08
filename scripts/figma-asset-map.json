@@ -400,6 +400,12 @@
           "out": "block-walkthrough.png",
           "designWidth": 1192,
           "designHeight": 584
+        },
+        {
+          "id": "29811:14397",
+          "out": "block-orchestration-shift.png",
+          "designWidth": 1194,
+          "designHeight": 687
         }
       ],
       "gifs": [

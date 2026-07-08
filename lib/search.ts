@@ -32,10 +32,10 @@ const STATIC_PAGES: SearchResult[] = [
   {
     id: "page:work",
     kind: "page",
-    title: "Work",
+    title: "Case Studies",
     subtitle: "Case studies and systems work",
     href: "/work",
-    keywords: "work case studies projects",
+    keywords: "case studies projects systems",
   },
   {
     id: "page:about",

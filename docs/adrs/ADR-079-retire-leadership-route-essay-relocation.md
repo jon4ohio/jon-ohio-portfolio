@@ -1,4 +1,4 @@
-# ADR-078: Retire `/leadership` route — essay relocation to homepage Writing
+# ADR-079: Retire `/leadership` route — essay relocation to homepage Writing
 
 ## Status
 

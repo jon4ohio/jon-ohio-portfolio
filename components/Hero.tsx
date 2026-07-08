@@ -350,7 +350,7 @@ export default function Hero() {
               lineHeight: 1.6,
             }}
           >
-            Open to Senior / Staff Product Design and Design Systems roles (IC or Lead) in global teams. Based in Nigeria · Available for remote (UK/EU/US) · Open to relocation.
+            Available for work and advising · Based in Nigeria · Open to relocation
           </p>
           <div className="animate-fade-up delay-5 hero-cta">
             <Link

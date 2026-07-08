@@ -41,7 +41,7 @@ export default function CaseHero({
   return (
     <section style={{ maxWidth: 1240, margin: "0 auto", padding: "48px 24px 0" }}>
       <Link href="/work" style={{ fontSize: 13, color: "var(--fg-muted)", textDecoration: "none" }}>
-        ← Work
+        ← Case Studies
       </Link>
 
       <p
