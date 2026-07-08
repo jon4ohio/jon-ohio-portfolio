@@ -1,10 +1,6 @@
 {
   "version": "2.3.0",
-<<<<<<< HEAD
-  "generatedAt": "2026-07-08T14:38:11.754Z",
-=======
-  "generatedAt": "2026-07-08T14:37:59.661Z",
->>>>>>> ff10c20 (realign: close stale PRs, hide placeholders, refresh handoff)
+  "generatedAt": "2026-07-08T14:41:47.940Z",
   "items": [
     {
       "id": "page:home",
