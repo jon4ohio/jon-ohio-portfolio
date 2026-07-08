@@ -1297,9 +1297,27 @@ export const projects: Project[] = [
   },
 ];
 
+const PLACEHOLDER_ASSET_PREFIX = "/assets/work/_placeholders/";
+
 /** Same image as the case study hero when `hero` is set; otherwise first listing thumbnail. Keeps `/`, `/work`, and `/work/[slug]` in sync. */
 export function getPrimaryPreviewImage(assets?: ProjectAssets): ImageAsset | undefined {
   return assets?.hero ?? assets?.thumbnails?.[0];
+}
+
+export function isPlaceholderPreviewImage(image?: ImageAsset): boolean {
+  if (!image) return true;
+  return image.src.includes(PLACEHOLDER_ASSET_PREFIX);
+}
+
+/** True when the project has a real preview image for public listings and search. */
+export function hasListablePreview(assets?: ProjectAssets): boolean {
+  const primary = getPrimaryPreviewImage(assets);
+  return primary !== undefined && !isPlaceholderPreviewImage(primary);
+}
+
+/** Projects safe to show on `/work`, homepage ownership rows, search, and sitemap. */
+export function getListableProjects(): Project[] {
+  return projects.filter((p) => hasListablePreview(p.assets));
 }
 
 export function getProject(slug: string) {
@@ -1307,5 +1325,5 @@ export function getProject(slug: string) {
 }
 
 export function getFeaturedProjects() {
-  return projects.filter((p) => p.featured);
+  return getListableProjects().filter((p) => p.featured);
 }
