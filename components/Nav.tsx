@@ -176,49 +176,52 @@ export default function Nav() {
             </a>
           </div>
 
-          {/* Mobile hamburger */}
-          <button
-            type="button"
-            className="nav-hamburger"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={menuOpen}
-            aria-controls="nav-mobile-panel"
-          >
-            <span
-              aria-hidden
-              style={{
-                display: "block",
-                width: 22,
-                height: 1.5,
-                background: "var(--fg)",
-                transition: "transform 0.2s",
-                transform: menuOpen ? "translateY(6.5px) rotate(45deg)" : "none",
-              }}
-            />
-            <span
-              aria-hidden
-              style={{
-                display: "block",
-                width: 22,
-                height: 1.5,
-                background: "var(--fg)",
-                transition: "opacity 0.2s",
-                opacity: menuOpen ? 0 : 1,
-              }}
-            />
-            <span
-              aria-hidden
-              style={{
-                display: "block",
-                width: 22,
-                height: 1.5,
-                background: "var(--fg)",
-                transition: "transform 0.2s",
-                transform: menuOpen ? "translateY(-6.5px) rotate(-45deg)" : "none",
-              }}
-            />
-          </button>
+          {/* Mobile: theme icon + hamburger */}
+          <div className="nav-mobile-actions">
+            <ThemeToggle compact />
+            <button
+              type="button"
+              className="nav-hamburger"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              aria-controls="nav-mobile-panel"
+            >
+              <span
+                aria-hidden
+                style={{
+                  display: "block",
+                  width: 22,
+                  height: 1.5,
+                  background: "var(--fg)",
+                  transition: "transform 0.2s",
+                  transform: menuOpen ? "translateY(6.5px) rotate(45deg)" : "none",
+                }}
+              />
+              <span
+                aria-hidden
+                style={{
+                  display: "block",
+                  width: 22,
+                  height: 1.5,
+                  background: "var(--fg)",
+                  transition: "opacity 0.2s",
+                  opacity: menuOpen ? 0 : 1,
+                }}
+              />
+              <span
+                aria-hidden
+                style={{
+                  display: "block",
+                  width: 22,
+                  height: 1.5,
+                  background: "var(--fg)",
+                  transition: "transform 0.2s",
+                  transform: menuOpen ? "translateY(-6.5px) rotate(-45deg)" : "none",
+                }}
+              />
+            </button>
+          </div>
         </nav>
       </header>
 
@@ -254,7 +257,6 @@ export default function Nav() {
             })}
           </div>
           <div className="nav-mobile-panel-footer">
-            <ThemeToggle compact />
             <a
               href={mailtoHref}
               onClick={() => setMenuOpen(false)}

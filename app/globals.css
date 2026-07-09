@@ -388,9 +388,60 @@ p, li {
   }
 }
 
-.theme-toggle-segment:focus-visible {
+.theme-icon-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--fg-muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.theme-icon-btn:hover {
+  background: var(--surface-hover);
+  color: var(--fg);
+}
+
+.theme-icon-btn:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+.theme-icon-btn[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--fg);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow: 0 2px 8px color-mix(in oklab, var(--fg) 8%, transparent);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.12s ease;
+  z-index: 60;
+}
+
+.theme-icon-btn[data-tooltip]:hover::after,
+.theme-icon-btn[data-tooltip]:focus-visible::after {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-icon-btn[data-tooltip]::after {
+    transition: none;
+  }
 }
 
 /* Nav brand avatar — discourage drag / selection (casual copy/save friction only) */
@@ -1122,6 +1173,12 @@ button:focus-visible {
   justify-content: center;
 }
 
+.nav-mobile-actions {
+  display: none;
+  align-items: center;
+  gap: 4px;
+}
+
 .nav-mobile-panel {
   display: none;
   flex-direction: column;
@@ -1201,13 +1258,18 @@ button:focus-visible {
   }
 }
 
-/* Tablet: collapse links + move toggles into hamburger panel */
+/* Tablet: collapse links + move CTA into hamburger panel; theme icon stays in header */
 @media (max-width: 900px) {
   .nav-desktop-toggle { display: none !important; }
   .nav-desktop-cta { display: none !important; }
+  .nav-mobile-actions { display: inline-flex; }
   .nav-hamburger { display: flex !important; }
   .nav-mobile-panel { display: flex; }
   .nav-inner { padding: 0 20px !important; }
+  .nav-mobile-actions .theme-icon-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
 }
 
 @media (max-width: 640px) {
