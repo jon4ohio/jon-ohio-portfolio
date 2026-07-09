@@ -1,13 +1,8 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useState, type KeyboardEvent } from "react";
-import { Button } from "@/components/ui/Button";
-import { coerceTheme, DEFAULT_THEME, THEME_STORAGE_KEY, THEMES, type ThemeName } from "@/components/theme";
-
-const labels: Record<ThemeName, string> = {
-  light: "Light",
-  dark: "Dark",
-};
+import { useEffect, useLayoutEffect, useState } from "react";
+import { MoonIcon, SunIcon } from "@/components/icons/ThemeIcons";
+import { coerceTheme, DEFAULT_THEME, THEME_STORAGE_KEY, type ThemeName } from "@/components/theme";
 
 function persistUserTheme(next: ThemeName) {
   try {
@@ -29,18 +24,15 @@ function readThemeFromDom(): ThemeName {
 
 export default function ThemeToggle({ compact = false }: { compact?: boolean }) {
   const [theme, setTheme] = useState<ThemeName>(DEFAULT_THEME);
-  const [mounted, setMounted] = useState(false);
 
   const chooseUserTheme = (next: ThemeName) => {
     setTheme(next);
     persistUserTheme(next);
   };
 
-  // ThemeScript sets data-theme before hydration; defer active toggle UI until synced.
   /* eslint-disable react-hooks/set-state-in-effect -- one-shot read of DOM/localStorage after blocking head script (external system) */
   useLayoutEffect(() => {
     setTheme(readThemeFromDom());
-    setMounted(true);
   }, []);
   /* eslint-enable react-hooks/set-state-in-effect */
 
@@ -48,7 +40,6 @@ export default function ThemeToggle({ compact = false }: { compact?: boolean }) 
     if (document.documentElement.dataset.theme !== theme) {
       document.documentElement.dataset.theme = theme;
     }
-    // Components like the hero canvas listen to resize for color refresh.
     window.dispatchEvent(new Event("resize"));
   }, [theme]);
 
@@ -61,70 +52,19 @@ export default function ThemeToggle({ compact = false }: { compact?: boolean }) 
     return () => window.removeEventListener("storage", onStorage);
   }, []);
 
-  const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    const currentIndex = THEMES.indexOf(theme);
-    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
-      event.preventDefault();
-      chooseUserTheme(THEMES[(currentIndex + 1) % THEMES.length]);
-      return;
-    }
-    if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
-      event.preventDefault();
-      chooseUserTheme(THEMES[(currentIndex - 1 + THEMES.length) % THEMES.length]);
-      return;
-    }
-    if (event.key === "Home") {
-      event.preventDefault();
-      chooseUserTheme(THEMES[0]);
-      return;
-    }
-    if (event.key === "End") {
-      event.preventDefault();
-      chooseUserTheme(THEMES[THEMES.length - 1]);
-    }
-  };
+  const iconSize = compact ? 16 : 18;
+  const nextTheme: ThemeName = theme === "light" ? "dark" : "light";
+  const switchLabel = theme === "light" ? "Switch to dark mode" : "Switch to light mode";
 
   return (
-    <div
-      role="radiogroup"
-      aria-label="Theme"
-      onKeyDown={onKeyDown}
-      style={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap: compact ? 4 : 6,
-        border: "1px solid var(--border)",
-        borderRadius: 999,
-        padding: compact ? 2 : 3,
-        background: "transparent",
-      }}
+    <button
+      type="button"
+      className="theme-icon-btn"
+      aria-label={switchLabel}
+      data-tooltip={switchLabel}
+      onClick={() => chooseUserTheme(nextTheme)}
     >
-      {THEMES.map((item) => {
-        const active = mounted && item === theme;
-        return (
-          <Button
-            key={item}
-            type="button"
-            role="radio"
-            className="theme-toggle-segment"
-            aria-checked={mounted ? item === theme : false}
-            aria-label={`Theme ${labels[item]}`}
-            tabIndex={mounted ? (active ? 0 : -1) : item === DEFAULT_THEME ? 0 : -1}
-            onClick={() => chooseUserTheme(item)}
-            variant={active ? "primary" : "ghost"}
-            size="sm"
-            label={labels[item]}
-            style={{
-              borderRadius: 999,
-              padding: compact ? "5px 8px" : "6px 10px",
-              fontSize: compact ? 11 : 12,
-              fontWeight: 500,
-              letterSpacing: "0.01em",
-              boxShadow: active ? "var(--theme-toggle-active-shadow)" : "none",
-            }}
-          />
-        );
-      })}
-    </div>
+      {theme === "light" ? <MoonIcon size={iconSize} /> : <SunIcon size={iconSize} />}
+    </button>
   );
 }
