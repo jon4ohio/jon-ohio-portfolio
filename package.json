@@ -6,7 +6,7 @@
     "dev": "next dev --port 3000 --webpack",
     "dev:clean": "lsof -ti:3000 | xargs kill -9 2>/dev/null || true; next dev --port 3000 --webpack",
     "build": "next build --webpack",
-    "postbuild": "tsx scripts/generate-content-index.ts",
+    "postbuild": "tsx scripts/generate-content-index.ts && node scripts/verify-seo-surfaces.mjs && node scripts/write-indexnow-key.mjs",
     "start": "next start",
     "preview:local": "npm run build && next start --port 3000",
     "preview:local:clean": "lsof -ti:3000 | xargs kill -9 2>/dev/null || true; npm run preview:local",
@@ -21,6 +21,8 @@
     "check:spacing-grid": "node scripts/check-spacing-grid.mjs",
     "check:spacing-grid:all": "node scripts/check-spacing-grid.mjs --all",
     "verify:showcase-publish": "node scripts/verify-showcase-publish-tree.mjs",
+    "submit:indexnow": "node scripts/submit-indexnow.mjs",
+    "notify:search": "node scripts/notify-search-engines.mjs",
     "hooks:install": "node scripts/install-hooks.mjs"
   },
   "dependencies": {

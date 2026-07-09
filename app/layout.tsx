@@ -16,6 +16,9 @@ const indexable = isIndexableDeployment();
 const defaultTitle = siteTitle;
 const defaultDescription = siteDescription;
 
+const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION?.trim();
+const bingSiteVerification = process.env.BING_SITE_VERIFICATION?.trim();
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   applicationName: "John Ohio — Portfolio",
@@ -80,6 +83,16 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  ...(googleSiteVerification || bingSiteVerification
+    ? {
+        verification: {
+          ...(googleSiteVerification ? { google: googleSiteVerification } : {}),
+          ...(bingSiteVerification
+            ? { other: { "msvalidate.01": bingSiteVerification } }
+            : {}),
+        },
+      }
+    : {}),
 };
 
 export const viewport: Viewport = {
