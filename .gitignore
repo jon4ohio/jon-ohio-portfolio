@@ -40,8 +40,11 @@ yarn-error.log*
 # legacy vendored packages (removed — keep local trees out of git)
 /vendor
 
-# editor / agent state (keep local)
-.cursor
+# editor / agent state (keep local; track Anchor Cursor adapter only)
+.cursor/*
+!.cursor/rules/
+.cursor/rules/*
+!.cursor/rules/anchor-session-arbitration.mdc
 .claude
 
 # local agent outputs

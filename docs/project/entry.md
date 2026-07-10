@@ -44,7 +44,7 @@ Fast, accessible, maintainable. Minimal dependencies. Clear content over clever 
 ### Decision Records
 
 - **Contract:** Anchor ADR (preserve significant architectural decisions)
-- **Implementation:** [Operational ADR](https://github.com/jon4ohio/operational-adr)
+- **Implementation:** [Operational ADR v1.0.0](https://github.com/jon4ohio/operational-adr/tree/v1.0.0) ([spec](https://github.com/jon4ohio/operational-adr/blob/v1.0.0/spec/adr-v1.0.md))
 - **Location:** `docs/adrs/`
 
 ### Session Coordination

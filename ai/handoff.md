@@ -8,6 +8,7 @@
 
 ## Delta
 
+- **Adoption Refresh (Anchor v0.2):** Contracts already satisfied; closed hygiene gaps — Cursor adapter tracked at `.cursor/rules/anchor-session-arbitration.mdc`, declared Operational ADR implementation pinned to v1.0.0, gitignore exception for that rule only. ADR corpus unchanged.
 - **Implementation declarations in Entry:** Decision Records → Operational ADR; Session Coordination → Anchor Session Arbitration + adapters; Handoff path. Stops AI reverse-engineering ADR approach from local templates alone.
 - **Theme switcher (Astryx-style):** Single sun/moon icon in nav — shows destination theme with hover tooltip; persistent in mobile header beside hamburger (removed from menu footer).
 - **Field note published (ADR-082):** *Design Doesn't End in Figma Anymore* live at `/notes/design-doesnt-end-in-figma` — typed content in `lib/fieldNotes.ts`, placeholder figures, homepage Writing + `/thinking` Field notes discovery.
@@ -35,9 +36,10 @@
 
 ## Branch / PR
 
-- **Branch:** `realign/cleanup`
+- **Branch:** `cursor/declare-implementations`
 - **Production:** https://johnohio.vercel.app
 - **Observation start:** 2026-07-03
+- **ADR impact:** none (reason: Anchor instrument/adapter hygiene; no architecture change)
 
 ## Session coordination
 
@@ -49,11 +51,15 @@ See `ai/session-arbitration.md`.
 |------|---------------------|----------|------------|--------|
 | 2026-07-04 | `dev:clean` broke preview (Turbopack) | Implementation | missing `--webpack` on dev:clean | aligned dev:clean + preview scripts |
 | 2026-07-08 | Many open PRs with merge conflicts | Session continuity | long-lived branches + parallel IA edits | closed stale PRs; `realign/cleanup` off main |
+| 2026-07-10 | Entry declared Cursor adapter but file missing | Session Coordination | `.cursor` fully gitignored; rule never installed | tracked `.cursor/rules/anchor-session-arbitration.mdc` + gitignore exception |
+| 2026-07-10 | Adoption Refresh ownership pass | Project Entry | CLAUDE mixes expertise with project guidance | acceptable — session state stays in Handoff; Spec/Skill/Playbook still deferred |
 
 ---
 
 ## Pointers
 
+- Entry: `docs/project/entry.md` (Operational ADR @ v1.0.0; session adapters)
+- Cursor adapter: `.cursor/rules/anchor-session-arbitration.mdc`
 - ADR-082: `docs/adrs/ADR-082-on-site-field-notes-route.md`
 - ADR-080: `docs/adrs/ADR-080-rivva-flagship-case-study-finalized.md`
 - ADR-079: `docs/adrs/ADR-079-retire-leadership-route-essay-relocation.md`
