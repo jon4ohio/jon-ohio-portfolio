@@ -37,8 +37,25 @@ Fast, accessible, maintainable. Minimal dependencies. Clear content over clever 
 
 ## Contracts in Use
 
-✓ Project Entry  
-✓ ADRs (`docs/adrs/`)  
-✓ Handoff  
+### Project Entry
+
+- **Location:** `docs/project/entry.md` (this document)
+
+### Decision Records
+
+- **Contract:** Anchor ADR (preserve significant architectural decisions)
+- **Implementation:** [Operational ADR](https://github.com/jon4ohio/operational-adr)
+- **Location:** `docs/adrs/`
+
+### Session Coordination
+
+- **Contract:** Anchor Session Arbitration (research protocol)
+- **Implementation:** Anchor Session Arbitration
+- **Instrument:** [`ai/session-arbitration.md`](../../ai/session-arbitration.md)
+- **Adapters:** Cursor (`.cursor/rules/anchor-session-arbitration.mdc`); Claude Code (`AGENTS.md` / `CLAUDE.md`)
+
+### Handoff
+
+- **Location:** [`ai/handoff.md`](../../ai/handoff.md)
 
 Additional Anchor contracts will be adopted only when real work requires them.
