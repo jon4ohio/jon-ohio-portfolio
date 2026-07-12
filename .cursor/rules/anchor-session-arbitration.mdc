@@ -1,0 +1,39 @@
+---
+description: Anchor session arbitration — resolve responsibility before gathering context. Reference implementation for session-arbitration protocol slice.
+globs:
+alwaysApply: true
+---
+
+# Session arbitration
+
+Read and follow the adopting project's session-arbitration instrument, which points to Anchor research protocol `research/protocol/session-arbitration.md`.
+
+## Orientation (before loading context)
+
+Determine what **responsibility** owns the user's question:
+
+- **Session continuity** — what changed, what's next, blocks, branch
+- **Decision rationale** — why a decision was made
+- **Implementation scope** — what to build, task scope
+- **Orientation gap** — project identity, where truths live
+
+Output the responsibility name before selecting files.
+
+## Session (minimum sufficient context)
+
+| Responsibility | Load |
+|----------------|------|
+| Session continuity | Handoff contract only |
+| Decision rationale | Named ADR — do **not** load Handoff first when ADR is known from the question |
+| Implementation scope | Handoff horizon → only paths referenced there |
+| Orientation gap | Entry contract index |
+
+Do not run version-control history queries to answer questions when the bundle above suffices.
+
+## Observation (end of substantive work)
+
+Did responsibility move? Update Handoff, ADR, or friction log only if yes. Otherwise state Handoff unchanged.
+
+## Negative control reminder
+
+For decision-rationale questions, load the ADR directly — not Handoff first.

@@ -9,29 +9,23 @@
 
 [Anchor research/protocol/session-arbitration.md](https://github.com/jon4ohio/anchor/blob/main/research/protocol/session-arbitration.md)
 
-Local mirror (if submodule or copy): point to Anchor meta-repo `research/protocol/session-arbitration.md`.
+This file is a local path map for the protocol. It should stay thin.
 
 ---
 
-## Path mappings (this project)
+## Local path mappings
 
-| Abstract contract | This project |
-|-------------------|--------------|
-| Handoff | `ai/handoff.md` |
-| Entry | `docs/project/entry.md` |
-| ADR | `docs/adrs/` |
-
----
-
-## Implementations
-
-| Environment | Reference |
-|-------------|-----------|
-| Cursor | [Anchor implementations/reference/cursor/](https://github.com/jon4ohio/anchor/tree/main/implementations/reference/cursor) — `.cursor/rules/anchor-session-arbitration.mdc` |
-| Claude Code | [Anchor implementations/reference/claude-code/](https://github.com/jon4ohio/anchor/tree/main/implementations/reference/claude-code) — `AGENTS.md` snippet + `CLAUDE.md` @import |
+| Responsibility | This project |
+|----------------|--------------|
+| Orientation gap | `docs/project/entry.md` |
+| Session continuity | `ai/handoff.md` |
+| Decision rationale | `docs/adrs/` |
+| Implementation scope | `ai/handoff.md` horizon, then only the named paths |
 
 ---
 
-## Experiment reference
+## Local rules
 
-Maintainer validation: [context-arbitration-experiment.md](https://github.com/jon4ohio/anchor/blob/main/releases/v0.2/context-arbitration-experiment.md)
+- Do not use version-control history when the context bundle above is sufficient.
+- Load a named ADR directly when the question is about decision rationale.
+- Treat `AGENTS.md` as the canonical AI dispatch layer for this repository.
