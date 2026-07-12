@@ -2,12 +2,13 @@
 
 **Contract:** Handoff  
 **Problem coordinated:** What changed recently? What's next?  
-**Updated:** 2026-07-10
+**Updated:** 2026-07-12
 
 ---
 
 ## Delta
 
+- **Anchor AI entry-layer alignment:** `AGENTS.md` is now the canonical AI dispatch layer, `CLAUDE.md` is reduced to a thin adapter, `ai/session-arbitration.md` is a local path map only, and Entry now states canonical locations explicitly. Figma MCP setup relocated to `docs/figma-jop-structure.md` §6; §7 styling backlink retargeted to CONTRIBUTING / ADR-001.
 - **Adoption Refresh (Anchor v0.2):** Contracts already satisfied; closed hygiene gaps — Cursor adapter tracked at `.cursor/rules/anchor-session-arbitration.mdc`, declared Operational ADR implementation pinned to v1.0.0, gitignore exception for that rule only. ADR corpus unchanged.
 - **Implementation declarations in Entry:** Decision Records → Operational ADR; Session Coordination → Anchor Session Arbitration + adapters; Handoff path. Stops AI reverse-engineering ADR approach from local templates alone.
 - **Theme switcher (Astryx-style):** Single sun/moon icon in nav — shows destination theme with hover tooltip; persistent in mobile header beside hamburger (removed from menu footer).
@@ -53,6 +54,7 @@ See `ai/session-arbitration.md`.
 | 2026-07-08 | Many open PRs with merge conflicts | Session continuity | long-lived branches + parallel IA edits | closed stale PRs; `realign/cleanup` off main |
 | 2026-07-10 | Entry declared Cursor adapter but file missing | Session Coordination | `.cursor` fully gitignored; rule never installed | tracked `.cursor/rules/anchor-session-arbitration.mdc` + gitignore exception |
 | 2026-07-10 | Adoption Refresh ownership pass | Project Entry | CLAUDE mixes expertise with project guidance | acceptable — session state stays in Handoff; Spec/Skill/Playbook still deferred |
+| 2026-07-12 | AI entry layer drifted into duplicate project documentation | Session Coordination | `CLAUDE.md` and related entry files accumulated overlapping facts instead of routing to canonical owners | made `AGENTS.md` canonical dispatch; reduced `CLAUDE.md` to adapter; slimmed session-arbitration instrument; clarified Entry |
 
 ---
 

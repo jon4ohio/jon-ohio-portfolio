@@ -84,6 +84,51 @@ Use **Title Case** after the prefix. Patterns:
 
 ## 6. MCP and maintenance
 
+Use the **remote Figma MCP** at `https://mcp.figma.com/mcp` for a two-way loop in chat: read tools pull design context from Figma; write/capture tools (`use_figma`, `generate_figma_design`) push or edit the canvas. This repo uses **remote-only** — do not configure `figma-desktop` / `localhost:3845`.
+
+### MCP setup
+
+1. Copy [`docs/mcp.json.example`](./mcp.json.example) to `.cursor/mcp.json` (project root).
+2. **Restart Cursor** so MCP config reloads.
+3. Open **Cursor Settings → MCP**, find **`figma`**, and complete **Connect** / **Login with Figma** (OAuth).
+4. Verify: `whoami` on the `figma` server should return your Figma user/plan.
+
+If both the Figma plugin and `.cursor/mcp.json` register a server named `figma`, keep only one entry in MCP settings to avoid duplicates.
+
+`FIGMA_TOKEN` in `.env.local` is for `npm run export:figma-assets` (REST API) — separate from MCP OAuth.
+
+### Site URLs (for capture into Figma)
+
+With `npm run dev`, pass the **full URL including path** to tools like `generate_figma_design`:
+
+| Use | URL pattern |
+|-----|-------------|
+| Local base | `http://localhost:3000` |
+| Homepage | `http://localhost:3000/` |
+| Work index | `http://localhost:3000/work` |
+| Case study | `http://localhost:3000/work/<slug>` (slug from `lib/projects.ts`) |
+| Other pages | `http://localhost:3000/about` |
+
+For production capture, use the deployed origin instead of localhost.
+
+### Figma file URLs (for MCP tools)
+
+From `https://www.figma.com/design/{fileKey}/...?node-id=1-2`:
+
+- **`fileKey`** — first path segment after `/design/` (use branch key as `fileKey` for branch URLs).
+- **`nodeId`** — convert `node-id` by replacing the hyphen between numbers with a colon (e.g. `1-2` → `1:2`).
+
+### Which flow to use
+
+| Goal | Tools / approach |
+|------|------------------|
+| Import a running page into Figma (pixel capture) | `generate_figma_design` (poll `captureId` until complete); target `newFile`, `existingFile` + `fileKey`, or `clipboard` |
+| Build or edit frames with the team design system | `search_design_system` + `use_figma` (load the `figma-use` skill before `use_figma` when available) |
+| Implement or align code with a Figma frame | `get_design_context` + adapt output to this repo (inline styles, `lib/projects.ts`); follow §7 and [ADR-023](./adrs/ADR-023-figma-mcp-handoff-jop-tokens.md) |
+| Map components ↔ code | Code Connect tools (`get_code_connect_map`, `add_code_connect_map`, etc.) |
+
+### Tool tips
+
 - **`get_design_context`:** Works best when frames use components and variables; generated code maps more cleanly to [theme-tokens.md](./theme-tokens.md).
 - **`use_figma` / `search_design_system`:** Prefer **instancing** existing `Atom/*` and `Org/*` components over drawing new rectangles.
 - After **generate_figma_design** imports, refactor captures into **components + auto layout** rather than leaving flat groups.
@@ -92,7 +137,7 @@ Use **Title Case** after the prefix. Patterns:
 
 When moving **from Figma to code** (e.g. after **`get_design_context`** or any generated snippet):
 
-1. **Treat output as layout and structure reference**, not drop-in styling. MCP output often includes **literal hex/RGB** or class names that do not match this repo’s **inline `style` + CSS variables** convention ([`CLAUDE.md`](../CLAUDE.md), [ADR-001](./adrs/ADR-001-inline-styles-for-layout-and-visuals.md)).
+1. **Treat output as layout and structure reference**, not drop-in styling. MCP output often includes **literal hex/RGB** or class names that do not match this repo’s **inline `style` + CSS variables** convention ([CONTRIBUTING.md](../CONTRIBUTING.md), [ADR-001](./adrs/ADR-001-inline-styles-for-layout-and-visuals.md)).
 2. **Do not merge pasted hex** as final styles if it bypasses **JOP** and [ADR-007](./adrs/ADR-007-theme-naming-and-contrast-hardening.md) theme behaviour. Map fills and text to **`var(--jop-…)`** decision tokens first; use primitives only when no semantic token fits ([theme-tokens.md](./theme-tokens.md)).
 3. **Frames authored with raw hex in Figma** do not auto-tokenize in code—you still choose matching **`var(--jop-…)`** at implementation time. Rebasing Figma to JOP variables improves parity; Code Connect does not substitute tokens automatically—review every color line.
 4. **Case study content** remains authored in [`lib/projects.ts`](../lib/projects.ts) per [ADR-002](./adrs/ADR-002-static-in-repo-data-for-case-studies.md); do not replace it with generated copy from MCP alone.
