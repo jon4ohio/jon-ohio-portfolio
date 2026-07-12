@@ -1,7 +1,7 @@
 /** Shared positioning copy — keep Hero, About, and metadata aligned (see ADR-055). */
 
 export const expertiseEyebrow =
-  "Systems · Enterprise UX · Design Systems · AI Product Design";
+  "Enterprise UX · Design Systems · Agentic Dev";
 
 export const heroHeadline = "Designing the systems products and teams run on";
 

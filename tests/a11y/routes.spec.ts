@@ -22,6 +22,25 @@ if (!caseStudySlug) {
   throw new Error("projects[0] is required for case study a11y route");
 }
 
+test("theme toggle exposes current state and updates theme", async ({ page }) => {
+  await page.goto("/", { waitUntil: "networkidle" });
+
+  const toggle = page.getByRole("button", {
+    name: /light theme active\. switch to dark mode\./i,
+  });
+  await expect(toggle).toHaveAttribute("aria-pressed", "false");
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+
+  await toggle.click();
+
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  await expect(
+    page.getByRole("button", {
+      name: /dark theme active\. switch to light mode\./i,
+    })
+  ).toHaveAttribute("aria-pressed", "true");
+});
+
 function formatViolations(violations: import("axe-core").Result[]) {
   return violations.map((v) => ({
     id: v.id,
