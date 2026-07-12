@@ -323,13 +323,6 @@
   --theme-toggle-active-bg: var(--surface-hover);
   --theme-toggle-active-fg: var(--fg-on-emphasis);
   --theme-toggle-active-shadow: inset 0 0 0 1px var(--border);
-  --theme-toggle-bg: transparent;
-  --theme-toggle-border: transparent;
-  --theme-toggle-shadow: none;
-  --theme-toggle-hover-bg: var(--surface-hover);
-  --theme-toggle-hover-border: transparent;
-  --theme-toggle-hover-fg: var(--fg);
-  --theme-toggle-focus-ring: var(--accent);
   --surface-emphasis: var(--jop-bg-emphasis);
 
   --hero-overlay-strong: var(--jop-overlay-hero-strong);
@@ -343,21 +336,12 @@
   --figjam-embed-border: var(--jop-figjam-embed-border);
 }
 
-/* Light theme: softer hover + toggle active step on sage canvas */
+/* Light theme: calm sage hover wash with no white-backed toggle chrome */
 :root[data-theme="light"] {
-  --surface-hover: color-mix(in oklab, var(--jop-bg-canvas) 62%, var(--jop-bg-surface-subtle) 38%);
+  --surface-hover: color-mix(in oklab, var(--jop-bg-canvas) 84%, var(--jop-bg-surface-subtle) 16%);
   --theme-toggle-active-bg: var(--jop-color-sage-40);
   --theme-toggle-active-fg: var(--jop-text-primary);
   --theme-toggle-active-shadow: inset 0 0 0 1px var(--border);
-  --theme-toggle-bg: color-mix(in oklab, var(--jop-bg-canvas) 88%, var(--jop-color-lavender-10) 12%);
-  --theme-toggle-border: color-mix(in oklab, var(--jop-color-sage-60) 32%, var(--jop-border-default));
-  --theme-toggle-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.85),
-    0 10px 24px color-mix(in oklab, var(--jop-color-sage-80) 9%, transparent);
-  --theme-toggle-hover-bg: color-mix(in oklab, var(--jop-color-lavender-10) 48%, var(--jop-color-sage-40) 52%);
-  --theme-toggle-hover-border: color-mix(in oklab, var(--jop-color-sage-80) 16%, var(--theme-toggle-border));
-  --theme-toggle-hover-fg: var(--jop-text-primary);
-  --theme-toggle-focus-ring: var(--jop-color-forest-80);
 }
 
 * { box-sizing: border-box; padding: 0; margin: 0; }
@@ -409,42 +393,23 @@ p, li {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  padding: 0;
-  border: 1px solid var(--theme-toggle-border);
-  border-radius: 10px;
-  background: var(--theme-toggle-bg);
-  box-shadow: var(--theme-toggle-shadow);
+  padding: 6px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
   color: var(--fg-muted);
   cursor: pointer;
-  transition:
-    background 0.15s ease,
-    border-color 0.15s ease,
-    box-shadow 0.15s ease,
-    color 0.15s ease,
-    transform 0.15s ease;
+  transition: background 0.15s, color 0.15s;
 }
 
 .theme-icon-btn:hover {
-  background: var(--theme-toggle-hover-bg);
-  border-color: var(--theme-toggle-hover-border);
-  box-shadow: var(--theme-toggle-shadow);
-  color: var(--theme-toggle-hover-fg);
-  transform: translateY(-1px);
+  background: var(--surface-hover);
+  color: var(--fg);
 }
 
 .theme-icon-btn:focus-visible {
-  outline: 2px solid var(--theme-toggle-focus-ring);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
-}
-
-.theme-icon-btn:active {
-  transform: translateY(0);
-}
-
-.theme-icon-btn[data-current-theme="light"] {
-  color: var(--jop-color-forest-80);
 }
 
 .theme-icon-btn[data-tooltip]::after {
@@ -474,15 +439,6 @@ p, li {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .theme-icon-btn {
-    transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
-  }
-
-  .theme-icon-btn:hover,
-  .theme-icon-btn:active {
-    transform: none;
-  }
-
   .theme-icon-btn[data-tooltip]::after {
     transition: none;
   }
