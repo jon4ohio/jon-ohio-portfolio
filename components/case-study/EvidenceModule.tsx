@@ -22,6 +22,8 @@ export interface EvidenceModuleProps {
   /** Stacked scan layout: headline → problem → decision → screenshot → outcome */
   decisionLayout?: "default" | "scan";
   decisionHeadline?: string;
+  /** Render figure + secondaryFigure side-by-side at equal width (stacks under 900px). */
+  pairFigures?: boolean;
 }
 
 function Micro({ children }: { children: React.ReactNode }) {
@@ -58,6 +60,7 @@ export default function EvidenceModule({
   evidenceLabel = "Evidence",
   decisionLayout = "default",
   decisionHeadline,
+  pairFigures = false,
 }: EvidenceModuleProps) {
   const isFlagshipDecision = Boolean(reasoning) || decisionLayout === "scan";
 
@@ -102,16 +105,14 @@ export default function EvidenceModule({
     <div style={{ maxWidth: accent ? 560 : 460, minWidth: 0 }}>
       <div
         style={{
-          display: "inline-block",
-          border: "1px solid var(--border)",
-          borderRadius: 999,
-          padding: "4px 12px",
-          fontSize: 12.5,
+          fontSize: 11,
           fontWeight: 600,
+          textTransform: "uppercase",
+          letterSpacing: "0.08em",
           color: "var(--fg)",
-          letterSpacing: "0.01em",
-          marginBottom: 16,
-          background: "var(--surface)",
+          paddingBottom: 10,
+          borderBottom: "1px solid var(--border)",
+          marginBottom: 20,
         }}
       >
         {phase}
@@ -170,6 +171,18 @@ export default function EvidenceModule({
             </div>
           ) : null}
         </>
+      ) : pairFigures && secondaryFigure ? (
+        <div
+          className="case-study-figure-pair"
+          style={{ display: "flex", gap: 24, alignItems: "flex-start" }}
+        >
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <AnnotatedFigure {...figure} />
+          </div>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <AnnotatedFigure {...secondaryFigure} hideDecisionNotes={secondaryFigure.hideDecisionNotes ?? true} />
+          </div>
+        </div>
       ) : (
         <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
           <AnnotatedFigure {...figure} />

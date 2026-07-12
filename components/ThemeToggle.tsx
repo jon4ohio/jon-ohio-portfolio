@@ -55,13 +55,22 @@ export default function ThemeToggle({ compact = false }: { compact?: boolean }) 
   const iconSize = compact ? 16 : 18;
   const nextTheme: ThemeName = theme === "light" ? "dark" : "light";
   const switchLabel = theme === "light" ? "Switch to dark mode" : "Switch to light mode";
+  const accessibleLabel =
+    theme === "light"
+      ? "Light theme active. Switch to dark mode."
+      : "Dark theme active. Switch to light mode.";
+  const tooltipLabel =
+    theme === "light" ? "Light active - switch to dark" : "Dark active - switch to light";
 
   return (
     <button
       type="button"
       className="theme-icon-btn"
-      aria-label={switchLabel}
-      data-tooltip={switchLabel}
+      aria-label={accessibleLabel}
+      aria-pressed={theme === "dark"}
+      data-current-theme={theme}
+      data-tooltip={tooltipLabel}
+      title={switchLabel}
       onClick={() => chooseUserTheme(nextTheme)}
     >
       {theme === "light" ? <MoonIcon size={iconSize} /> : <SunIcon size={iconSize} />}
