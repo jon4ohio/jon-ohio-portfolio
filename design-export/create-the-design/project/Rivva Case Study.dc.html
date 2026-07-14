@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{margin:0;background:linear-gradient(135deg,#232830 0%,#2a3039 100%);background-attachment:fixed;color:#f0f3f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6}
+a{color:#aba2fb;text-decoration:none}
+a:hover{color:#dcd6ff}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+</style>
+</helmet>
+<div style="min-height:100vh" data-screen-label="Rivva case study">
+  <header style="position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid #3c4550;background:rgba(30,34,40,0.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)">
+    <nav style="max-width:1240px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between">
+      <a href="Home.dc.html" style="display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;color:#f0f3f5;letter-spacing:-0.01em">
+        <span style="width:32px;height:32px;flex-shrink:0;border-radius:50%;overflow:hidden;border:1px solid #3c4550;display:block"><img src="assets/avatar.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></img></span>
+        John Ohio
+      </a>
+      <div style="display:flex;align-items:center;gap:10px">
+        <a href="#" title="Add live project URL" style="font-size:13px;color:#b7c0ca;padding:6px 12px;border-radius:6px;white-space:nowrap" style-hover="background:#2a3039;color:#f0f3f5">View live project ↗</a>
+        <button aria-label="Toggle theme" title="Theme" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border:none;background:transparent;color:#b7c0ca;border-radius:8px;font-size:15px;cursor:pointer;padding:0" style-hover="background:#2a3039;color:#f0f3f5">◐</button>
+        <a href="Contact.dc.html" style="font-size:13px;font-weight:500;color:#f0f3f5;border:1px solid #f0f3f5;padding:7px 16px;border-radius:8px;white-space:nowrap;transition:background .15s,color .15s" style-hover="background:#323a44">Contact me</a>
+      </div>
+    </nav>
+  </header>
+
+  <div style="padding-top:56px">
+    <!-- Hero -->
+    <section style="max-width:1240px;margin:0 auto;padding:96px 24px 0" data-screen-label="Rivva hero">
+      <nav aria-label="Breadcrumb" style="display:flex;align-items:center;gap:10px;font-size:12px;margin-bottom:20px"><a href="Home.dc.html" style="color:#97a1ad;letter-spacing:0.08em;text-transform:uppercase" style-hover="color:#f0f3f5">Home</a><span style="color:#555f6d">/</span><a href="Work.dc.html" style="color:#97a1ad;letter-spacing:0.08em;text-transform:uppercase" style-hover="color:#f0f3f5">Case Studies</a><span style="color:#555f6d">/</span><span style="color:#b7c0ca;font-weight:500;letter-spacing:0.08em;text-transform:uppercase">Rivva · Flagship</span></nav>
+      <h1 style="font-size:clamp(32px,4.4vw,52px);font-weight:600;letter-spacing:-0.03em;line-height:1.12;max-width:900px;margin-bottom:24px">Rivva turned a validated AI beta into a product people could trust with their day.</h1>
+      <p style="font-size:18px;color:#b7c0ca;max-width:720px;line-height:1.6;margin-bottom:40px">Rivva is an AI scheduling platform that plans your day around your energy, not just your calendar. I joined the founding product team to help prepare it for launch, leading day-to-day product design alongside the founders.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px 40px;padding:24px 0;border-top:1px solid #3c4550;border-bottom:1px solid #3c4550;margin-bottom:48px">
+        <div style="min-width:160px"><p style="font-size:11px;color:#97a1ad;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px">Role</p><p style="font-size:14px;color:#e6ebf0">Product Design Lead, founding product team</p></div>
+        <div style="min-width:160px"><p style="font-size:11px;color:#97a1ad;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px">Timeline</p><p style="font-size:14px;color:#e6ebf0">Jul 2025 – Jan 2026</p></div>
+        <div style="min-width:160px"><p style="font-size:11px;color:#97a1ad;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px">Model</p><p style="font-size:14px;color:#e6ebf0">Co-led with the founding team</p></div>
+        <div style="min-width:160px"><p style="font-size:11px;color:#97a1ad;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:6px">Outcome</p><p style="font-size:14px;color:#e6ebf0">Shipped on Web, iOS, and Android</p></div>
+      </div>
+      <figure style="margin:0 0 20px">
+        <div style="border-radius:14px;overflow:hidden;border:1px solid #323a44;background:#232830"><img src="assets/rivva-hero.png" alt="Rivva product overview" style="width:100%;display:block"></img></div>
+        <figcaption style="font-size:13px;color:#97a1ad;line-height:1.6;margin-top:14px;max-width:720px">Rivva at launch. A scheduling experience where AI recommendations and user control share the same surface, so plans stay flexible without becoming unpredictable.</figcaption>
+      </figure>
+    </section>
+
+    <!-- The Opportunity -->
+    <section style="max-width:1240px;margin:0 auto;padding:96px 24px 0" data-screen-label="The Opportunity">
+      <div style="max-width:720px">
+        <p style="font-size:12px;font-weight:500;color:#b7c0ca;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px">The Opportunity</p>
+        <h2 style="font-size:clamp(24px,3vw,34px);font-weight:600;letter-spacing:-0.02em;line-height:1.2;margin-bottom:24px">A different idea about productivity.</h2>
+        <p style="font-size:16px;color:#e6ebf0;line-height:1.75;margin-bottom:20px">Most scheduling tools treat every hour as equal. Rivva doesn't. It learns when you have energy and plans your most important work for those windows. That idea resonated: the beta validated demand, and the company had real momentum.</p>
+        <p style="font-size:16px;color:#e6ebf0;line-height:1.75;margin-bottom:20px">When I joined, Rivva was preparing to go from beta to public launch across three platforms. The founding team was small, and the co-founder leading product was increasingly pulled into company leadership, fundraising, and partnerships. The product needed someone to maintain design momentum every day.</p>
+        <p style="font-size:16px;color:#e6ebf0;line-height:1.75">That is why the team expanded, and why I joined.</p>
+      </div>
+    </section>
+
+    <!-- Preparing for Launch -->
+    <section style="max-width:1240px;margin:0 auto;padding:96px 24px 0" data-screen-label="Preparing for Launch">
+      <div style="max-width:720px">
+        <p style="font-size:12px;font-weight:500;color:#b7c0ca;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px">Preparing for Launch</p>
+        <h2 style="font-size:clamp(24px,3vw,34px);font-weight:600;letter-spacing:-0.02em;line-height:1.2;margin-bottom:24px">The beta worked. It wasn't ready.</h2>
+        <p style="font-size:16px;color:#e6ebf0;line-height:1.75;margin-bottom:20px">Beta users liked what Rivva promised but struggled with what it did. Recommendations appeared without explanation, so people didn't know whether to accept them. The web, iOS, and Android experiences had drifted apart. Patterns that meant one thing on one platform meant something else on another.</p>
+        <p style="font-size:16px;color:#e6ebf0;line-height:1.75;margin-bottom:28px">The underlying technology was good. Trust in it had not caught up.</p>
+        <p style="font-size:20px;font-weight:600;letter-spacing:-0.01em;line-height:1.45;color:#f0f3f5;border-top:1px solid #3c4550;padding-top:24px">The challenge wasn't building more AI. It was making AI understandable enough for everyday use.</p>
+      </div>
+    </section>
+
+    <!-- My Role -->
+    <section style="max-width:1240px;margin:0 auto;padding:96px 24px 0" data-screen-label="My Role">
+      <div style="max-width:720px">
+        <p style="font-size:12px;font-weight:500;color:#b7c0ca;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px">My Role</p>
+        <h2 style="font-size:clamp(24px,3vw,34px);font-weight:600;letter-spacing:-0.02em;line-height:1.2;margin-bottom:24px">Complementary leadership, not competing ownership.</h2>
+        <p style="font-size:16px;color:#e6ebf0;line-height:1.75;margin-bottom:20px">Rivva remained founder-led throughout. Co-founder John Etokhana continued shaping product direction while balancing company leadership, fundraising, partnerships, and investor relations. I joined the founding product team to maintain product momentum, leading day-to-day product design and working closely with him and with engineering to prepare the product for launch.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;margin:32px 0">
+          <div style="border-top:1px solid #3c4550;padding-top:18px">
+            <p style="font-size:11px;color:#97a1ad;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:12px">I led</p>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:8px">
+              <li style="font-size:14px;color:#e6ebf0;line-height:1.6">Day-to-day product design across Web, iOS, and Android</li>
+              <li style="font-size:14px;color:#e6ebf0;line-height:1.6">Interaction patterns for AI recommendations</li>
+              <li style="font-size:14px;color:#e6ebf0;line-height:1.6">Cross-platform consistency and launch readiness</li>
+            </ul>
+          </div>
+          <div style="border-top:1px solid #3c4550;padding-top:18px">
+            <p style="font-size:11px;color:#97a1ad;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:12px">I collaborated on</p>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:8px">
+              <li style="font-size:14px;color:#e6ebf0;line-height:1.6">Product direction and prioritization with the founders</li>
+              <li style="font-size:14px;color:#e6ebf0;line-height:1.6">Recommendation behavior with the ML team</li>
+              <li style="font-size:14px;color:#e6ebf0;line-height:1.6">Implementation details with engineering</li>
+            </ul>
+          </div>
+        </div>
+        <p style="font-size:16px;color:#e6ebf0;line-height:1.75">Everything after this section is about the product.</p>
+      </div>
+    </section>
+
+    <!-- Three Product Decisions -->
+    <section style="background:#232830;border-top:1px solid #3c4550;border-bottom:1px solid #3c4550;margin-top:96px" data-screen-label="Three Product Decisions">
+      <div style="max-width:1240px;margin:0 auto;padding:96px 24px">
+        <div style="max-width:720px;margin-bottom:64px">
+          <p style="font-size:12px;font-weight:500;color:#b7c0ca;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px">Three Product Decisions</p>
+          <h2 style="font-size:clamp(24px,3vw,34px);font-weight:600;letter-spacing:-0.02em;line-height:1.2;margin-bottom:16px">The work, in three decisions.</h2>
+          <p style="font-size:16px;color:#b7c0ca;line-height:1.7">Each follows the same rhythm. The problem, the work, the decision, the outcome.</p>
+        </div>
+
+        <!-- Decision 1 -->
+        <div style="padding-bottom:80px;border-bottom:1px solid #3c4550;margin-bottom:80px">
+          <div style="max-width:720px;margin-bottom:32px">
+            <p style="font-size:12px;color:#97a1ad;margin-bottom:12px">Decision 01</p>
+            <h3 style="font-size:clamp(20px,2.4vw,28px);font-weight:600;letter-spacing:-0.02em;line-height:1.25;margin-bottom:16px">Make AI recommendations easier to understand.</h3>
+            <p style="font-size:16px;color:#e6ebf0;line-height:1.75">In beta, Rivva moved things on people's schedules without saying why. Users either accepted blindly or ignored the AI entirely. Neither is trust.</p>
+          </div>
+          <figure style="margin:0 0 24px">
+            <div style="border-radius:14px;overflow:hidden;border:1px solid #3c4550;background:#1e2228"><img src="assets/rivva-nia.png" alt="Rivva recommendation explanation interface" style="width:100%;display:block"></img></div>
+            <figcaption style="font-size:13px;color:#97a1ad;line-height:1.6;margin-top:14px;max-width:720px">Every recommendation now carries its reasoning. Before Rivva asks users to act, it explains what it noticed and why the change helps.</figcaption>
+          </figure>
+          <div style="max-width:720px">
+            <p style="font-size:16px;color:#e6ebf0;line-height:1.75;margin-bottom:16px">We decided that no recommendation would appear without an explanation a non-technical person could read in one glance. That constraint shaped the interaction model: recommend, explain, then let the user decide.</p>
+            <p style="font-size:16px;color:#e6ebf0;line-height:1.75">Acceptance of recommendations went up because people finally understood what they were agreeing to.</p>
+          </div>
+        </div>
+
+        <!-- Decision 2 -->
+        <div style="padding-bottom:80px;border-bottom:1px solid #3c4550;margin-bottom:80px">
+          <div style="max-width:720px;margin-bottom:32px">
+            <p style="font-size:12px;color:#97a1ad;margin-bottom:12px">Decision 02</p>
+            <h3 style="font-size:clamp(20px,2.4vw,28px);font-weight:600;letter-spacing:-0.02em;line-height:1.25;margin-bottom:16px">Create one consistent experience across every touchpoint.</h3>
+            <p style="font-size:16px;color:#e6ebf0;line-height:1.75">The web, iOS, and Android apps had been built at different speeds by different hands. The same feature looked and behaved three ways. For a product asking people to trust its judgment, inconsistency read as unreliability.</p>
+          </div>
+          <figure style="margin:0 0 24px">
+            <div style="border-radius:14px;overflow:hidden;border:1px solid #3c4550;background:#1e2228"><img src="assets/rivva-cross-platform.png" alt="Rivva across web, iOS, and Android" style="width:100%;display:block"></img></div>
+            <figcaption style="font-size:13px;color:#97a1ad;line-height:1.6;margin-top:14px;max-width:720px">One experience across Web, iOS, and Android. The same patterns mean the same things everywhere, so switching devices never means relearning the product.</figcaption>
+          </figure>
+          <div style="max-width:720px">
+            <p style="font-size:16px;color:#e6ebf0;line-height:1.75;margin-bottom:16px">Instead of redesigning each platform separately, we defined the core patterns once and adapted them to each platform's conventions. Engineering could build against one source of truth instead of three interpretations.</p>
+            <p style="font-size:16px;color:#e6ebf0;line-height:1.75">The product shipped on all three platforms simultaneously at launch, something the team could not have attempted in beta.</p>
+          </div>
+        </div>
+
+        <!-- Decision 3 -->
+        <div>
+          <div style="max-width:720px;margin-bottom:32px">
+            <p style="font-size:12px;color:#97a1ad;margin-bottom:12px">Decision 03</p>
+            <h3 style="font-size:clamp(20px,2.4vw,28px);font-weight:600;letter-spacing:-0.02em;line-height:1.25;margin-bottom:16px">Design around how people actually work, not how calendars work.</h3>
+            <p style="font-size:16px;color:#e6ebf0;line-height:1.75">Calendars assume every hour is interchangeable. Rivva's whole premise is that it isn't. But the beta still presented the day as a standard grid of time slots, which buried the product's core idea.</p>
+          </div>
+          <figure style="margin:0 0 24px">
+            <div style="border-radius:14px;overflow:hidden;border:1px solid #3c4550;background:#1e2228"><img src="assets/rivva-dashboard.png" alt="Rivva planner workspace" style="width:100%;display:block"></img></div>
+            <figcaption style="font-size:13px;color:#97a1ad;line-height:1.6;margin-top:14px;max-width:720px">The planner became the centre of the experience, combining AI recommendations with user control so schedules remained flexible without becoming unpredictable.</figcaption>
+          </figure>
+          <div style="max-width:720px">
+            <p style="font-size:16px;color:#e6ebf0;line-height:1.75;margin-bottom:16px">We rebuilt the planner around energy and priorities rather than empty slots. The planner evolved from a static scheduling tool into a decision-making workspace, helping users understand why Rivva recommended changes before asking them to act.</p>
+            <p style="font-size:16px;color:#e6ebf0;line-height:1.75">Users stopped treating Rivva as another calendar and started treating it as the place where they decided their day.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section style="max-width:1240px;margin:0 auto;padding:96px 24px 0" data-screen-label="Results">
+      <div style="max-width:720px;margin-bottom:48px">
+        <p style="font-size:12px;font-weight:500;color:#b7c0ca;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px">Results</p>
+        <h2 style="font-size:clamp(24px,3vw,34px);font-weight:600;letter-spacing:-0.02em;line-height:1.2">How the story ended. And keeps going.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px">
+        <div style="border-top:1px solid #3c4550;padding-top:20px">
+          <p style="font-size:11px;color:#97a1ad;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:12px">Launch</p>
+          <p style="font-size:15px;color:#e6ebf0;line-height:1.7;margin-bottom:12px">The product shipped across Web, iOS, and Android and reached Product Hunt shortly after launch.</p>
+          <p style="font-size:13px;color:#97a1ad">#4 Product of the Day, a team result</p>
+        </div>
+        <div style="border-top:1px solid #3c4550;padding-top:20px">
+          <p style="font-size:11px;color:#97a1ad;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:12px">Adoption</p>
+          <p style="font-size:15px;color:#e6ebf0;line-height:1.7;margin-bottom:12px">Early customers validated that people were willing to trust a different approach to productivity.</p>
+          <p style="font-size:13px;color:#97a1ad">500+ downloads · 30+ paying customers</p>
+        </div>
+        <div style="border-top:1px solid #3c4550;padding-top:20px">
+          <p style="font-size:11px;color:#97a1ad;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:12px">Engagement</p>
+          <p style="font-size:15px;color:#e6ebf0;line-height:1.7;margin-bottom:12px">Usage patterns suggested that people continued returning after onboarding rather than abandoning the experience.</p>
+          <p style="font-size:13px;color:#97a1ad">Further engagement metrics pending final confirmation</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reflection -->
+    <section style="max-width:1240px;margin:0 auto;padding:96px 24px 0" data-screen-label="Reflection">
+      <div style="max-width:720px">
+        <p style="font-size:12px;font-weight:500;color:#b7c0ca;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px">Reflection</p>
+        <p style="font-size:17px;color:#e6ebf0;line-height:1.8;margin-bottom:20px">Rivva changed the way I think about AI products. The quality of an AI product depends as much on how decisions are communicated as on how they are made. A recommendation that cannot explain itself is a demand, and people do not build habits around demands.</p>
+        <p style="font-size:17px;color:#e6ebf0;line-height:1.8;margin-bottom:20px">That perspective followed me into later work. The explanation patterns we shaped at Rivva informed how I approach AI features inside enterprise products, where the cost of unexplained automation is even higher.</p>
+      </div>
+    </section>
+
+    <!-- Design Principle -->
+    <section style="max-width:1240px;margin:0 auto;padding:96px 24px 120px" data-screen-label="Design Principle">
+      <div style="max-width:760px;border-top:1px solid #3c4550;padding-top:40px">
+        <p style="font-size:12px;font-weight:500;color:#b7c0ca;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px">Design Principle</p>
+        <p style="font-size:clamp(22px,2.8vw,30px);font-weight:600;letter-spacing:-0.02em;line-height:1.35">People trust products they can understand. AI is no different.</p>
+        <div style="display:flex;gap:24px;margin-top:48px;flex-wrap:wrap">
+          <a href="Work.dc.html" style="font-size:14px;font-weight:500;color:#aba2fb">← All case studies</a>
+          <a href="Contact.dc.html" style="font-size:14px;font-weight:500;color:#aba2fb">Talk to me about AI products →</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer style="border-top:1px solid #3c4550">
+    <div style="max-width:1240px;margin:0 auto;padding:48px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px">
+      <div>
+        <p style="font-weight:600;font-size:15px;margin-bottom:4px">John Ohio</p>
+        <p style="font-size:13px;color:#b7c0ca">Product Design Lead · Abuja, Nigeria</p>
+      </div>
+      <nav style="display:flex;gap:32px">
+        <a href="Work.dc.html" style="font-size:14px;color:#b7c0ca" style-hover="color:#f0f3f5">Case Studies</a>
+        <a href="About.dc.html" style="font-size:14px;color:#b7c0ca" style-hover="color:#f0f3f5">About</a>
+        <a href="Writing.dc.html" style="font-size:14px;color:#b7c0ca" style-hover="color:#f0f3f5">Writing</a>
+        <a href="Contact.dc.html" style="font-size:14px;color:#b7c0ca" style-hover="color:#f0f3f5">Contact</a>
+      </nav>
+      <div style="display:flex;gap:16px">
+        <a href="mailto:jon4ohio@gmail.com" style="font-size:13px;color:#aba2fb">jon4ohio@gmail.com</a>
+        <a href="https://linkedin.com/in/jon4ohio" target="_blank" style="font-size:13px;color:#b7c0ca" style-hover="color:#f0f3f5">LinkedIn ↗</a>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+</body>
+</html>

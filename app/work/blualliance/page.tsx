@@ -11,6 +11,8 @@ import EvidenceTierBand from "@/components/case-study/EvidenceTierBand";
 import MaturityLegend, { MaturityTag } from "@/components/case-study/MaturityLegend";
 import OutcomeCards, { type OutcomeTier } from "@/components/case-study/OutcomeCards";
 import UnlockPanel from "@/components/case-study/UnlockPanel";
+import SectionDivider from "@/components/case-study/SectionDivider";
+import RailSection from "@/components/case-study/RailSection";
 import PrevNextNav from "@/components/case-study/PrevNextNav";
 import { getProject, projects } from "@/lib/projects";
 
@@ -35,7 +37,8 @@ const chapters: Chapter[] = [
   { id: "tensions", label: "02 Decisions" },
   { id: "evidence", label: "03 Evidence" },
   { id: "outcomes", label: "04 Outcomes" },
-  { id: "unlocks", label: "05 Unlocks" },
+  { id: "reflection", label: "05 Reflection" },
+  { id: "unlocks", label: "06 Unlocks" },
 ];
 
 const phases: Phase[] = [
@@ -171,10 +174,13 @@ export default function BluallianceFlagshipCaseStudy() {
         </p>
       </div>
 
-      <TensionCards
-        label="02 Strategic Decisions"
-        heading="More opportunity than capacity"
-        subhead="The research surfaced more opportunities than the organisation could realistically pursue. Three strategic decisions shaped platform direction."
+      <RailSection id="tensions" eyebrow="02 Strategic Decisions" title="More opportunity than capacity">
+        <p style={{ margin: 0, fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.6, maxWidth: 640 }}>
+          The research surfaced more opportunities than the organisation could realistically pursue. Three strategic
+          decisions shaped platform direction.
+        </p>
+        <TensionCards
+        embedded
         cards={[
           {
             number: "01",
@@ -195,28 +201,26 @@ export default function BluallianceFlagshipCaseStudy() {
               "Each opportunity could ship as a standalone product or as a service within a shared platform. The most valuable decision was defining what would be shared — so future products could evolve without fragmenting the workforce experience.",
           },
         ]}
-      />
+        />
+      </RailSection>
 
-      <section id="evidence" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
-        <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          03 Evidence
-        </p>
-        <p style={{ marginTop: 8, fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.6, maxWidth: 680 }}>
+      <RailSection id="evidence" eyebrow="03 Evidence">
+        <p style={{ margin: 0, fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.6, maxWidth: 640 }}>
           From capability handoff through future-state architecture — eight artefacts showing how strategy became
           platform direction.
         </p>
         <div style={{ marginTop: 24 }}>
           <PhaseTimeline phases={phases} />
         </div>
-      </section>
+      </RailSection>
 
-      <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 72 }}>
+      <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 96 }}>
         <EvidenceTierBand label="Strategy" sublabel="Prioritisation and platform direction — where the strategic work happened." />
 
         <EvidenceModule
           id="phase-capability"
           phase="01 — Opportunity & Capability Map"
-          layout="text-left"
+          layout="rail"
           challenge="The ecosystem research produced eight capability domains. Product teams needed a map connecting research findings to actionable build areas without losing architectural coherence."
           intervention="Translated capability architecture into an opportunity map aligned to research language. Output: eight domains mapped with dependencies and integration points."
           figure={{
@@ -233,14 +237,12 @@ export default function BluallianceFlagshipCaseStudy() {
           }}
         />
 
-        <div style={{ padding: "0 24px" }}>
-          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
-        </div>
+        <SectionDivider />
 
         <EvidenceModule
           id="phase-prioritization"
           phase="02 — Prioritization Matrix"
-          layout="text-right"
+          layout="rail"
           accent
           pullQuote="Eight domains became six opportunities — explicit deprioritisation, not an implicit backlog."
           challenge="Without a prioritisation artefact, teams jumped from capability architecture to product debates. The decision layer — what to pursue first and what to defer — needed to be visible."
@@ -259,14 +261,12 @@ export default function BluallianceFlagshipCaseStudy() {
           }}
         />
 
-        <div style={{ padding: "0 24px" }}>
-          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
-        </div>
+        <SectionDivider />
 
         <EvidenceModule
           id="phase-vision"
           phase="03 — Platform Vision"
-          layout="text-left"
+          layout="rail"
           challenge="Parallel squads risked building isolated products that couldn't integrate later — especially across WhatsApp, web, and supervisor tooling."
           intervention="Defined BluAlliance platform vision: shared capability services powering multiple experience streams. Output: capability-led platform model."
           figure={{
@@ -295,7 +295,7 @@ export default function BluallianceFlagshipCaseStudy() {
         <EvidenceModule
           id="phase-portfolio-breeze"
           phase="04 — Breeze Experience Architecture"
-          layout="text-left"
+          layout="rail"
           challenge="Employers and employees need a consolidated workforce experience — but standard HR IA patterns organise around systems, not goals."
           intervention="Redesigned Breeze information architecture around employee needs and lifecycle workflows. Output: goal-oriented navigation and self-service surfaces."
           figure={{
@@ -319,14 +319,12 @@ export default function BluallianceFlagshipCaseStudy() {
           </div>
         </div>
 
-        <div style={{ padding: "0 24px" }}>
-          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
-        </div>
+        <SectionDivider />
 
         <EvidenceModule
           id="phase-portfolio-whatsapp"
           phase="04 — WhatsApp ESS Service Flow"
-          layout="text-right"
+          layout="rail"
           challenge="Frontline workers don't sit at desks. WhatsApp is often the primary digital channel — ESS via messaging requires different interaction patterns than web forms."
           intervention="Designed WhatsApp ESS flows for worker self-service — leave, payslip, attendance — using conversational patterns native to the channel."
           figure={{
@@ -350,14 +348,12 @@ export default function BluallianceFlagshipCaseStudy() {
           </div>
         </div>
 
-        <div style={{ padding: "0 24px" }}>
-          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
-        </div>
+        <SectionDivider />
 
         <EvidenceModule
           id="phase-portfolio-productivity"
           phase="04 — Frontline Productivity Framework"
-          layout="text-left"
+          layout="rail"
           challenge="Supervisor coordination emerged as the critical insight from ecosystem research but had no dedicated product surface."
           intervention="Designed frontline productivity framework: team visibility, shift coordination, attendance, escalation — designed around supervisory workflows."
           figure={{
@@ -381,14 +377,12 @@ export default function BluallianceFlagshipCaseStudy() {
           </div>
         </div>
 
-        <div style={{ padding: "0 24px" }}>
-          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
-        </div>
+        <SectionDivider />
 
         <EvidenceModule
           id="phase-portfolio-prosperity"
           phase="04 — Workforce Prosperity Framework"
-          layout="text-right"
+          layout="rail"
           challenge="Research showed prosperity extends beyond employment — benefits, financial wellbeing, learning, and career mobility matter as peer capabilities."
           intervention="Designed prosperity framework connecting benefits, financial wellbeing, and career mobility within the platform capability model."
           figure={{
@@ -417,7 +411,7 @@ export default function BluallianceFlagshipCaseStudy() {
         <EvidenceModule
           id="phase-architecture"
           phase="05 — Future State Platform Architecture"
-          layout="text-left"
+          layout="rail"
           accent
           pullQuote="The most valuable decision was defining what would be shared — not what would ship first."
           challenge="Experience streams progressing in parallel needed a target architecture so integration wouldn't require rework when streams converged."
@@ -437,29 +431,20 @@ export default function BluallianceFlagshipCaseStudy() {
         />
       </div>
 
-      <section id="outcomes" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
-        <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          04 Outcomes
-        </p>
-        <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          What the platform work established
-        </h2>
+      <RailSection id="outcomes" eyebrow="04 Outcomes" title="What the platform work established">
         <OutcomeCards tiers={outcomeTiers} />
-      </section>
+      </RailSection>
 
-      <div style={{ maxWidth: 1240, margin: "48px auto 0", padding: "0 24px" }}>
-        <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          Reflection
-        </p>
-        <p style={{ marginTop: 14, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 760 }}>
+      <RailSection id="reflection" eyebrow="05 Reflection">
+        <p style={{ margin: 0, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 640 }}>
           The Workforce Ecosystem initiative helped us understand the workforce. This work focused on determining where
           and how to act. The most valuable strategic decision wasn&apos;t what to build first — it was defining what
           would be shared, so future products could evolve without fragmenting the workforce experience.
         </p>
-      </div>
+      </RailSection>
 
       <UnlockPanel
-        label="05 Unlocks"
+        label="06 Unlocks"
         items={[
           "Prioritisation matrix made eight-to-six domain decisions legible — explicit trade-offs, not implicit backlog.",
           "Channel strategy resolved: WhatsApp as first-class ESS alongside Breeze — a design decision, not a compromise.",

@@ -7,11 +7,12 @@ import PhaseTimeline from "@/components/case-study/PhaseTimeline";
 import { type Phase } from "@/components/case-study/PhaseTimeline";
 import EvidenceModule from "@/components/case-study/EvidenceModule";
 import AnnotatedFigure from "@/components/case-study/AnnotatedFigure";
+import SectionDivider from "@/components/case-study/SectionDivider";
+import RailSection from "@/components/case-study/RailSection";
 import PrevNextNav from "@/components/case-study/PrevNextNav";
 import { getProject, projects } from "@/lib/projects";
 
 const STORY_TITLE = "FetsProza";
-const SECTION_PAD = "56px 24px 0";
 
 const SNAPSHOT_THESIS_LEAD =
   "Designing the operating platform that unified a fragmented payment ecosystem.";
@@ -34,8 +35,9 @@ const chapters: Chapter[] = [
   { id: "challenge", label: "02 Challenge" },
   { id: "strategy", label: "03 Strategy" },
   { id: "decisions", label: "04 Decisions" },
-  { id: "impact", label: "05 Impact" },
-  { id: "reflection", label: "06 Reflection" },
+  { id: "operational-walkthrough", label: "05 Walkthrough" },
+  { id: "impact", label: "06 Impact" },
+  { id: "reflection", label: "07 Reflection" },
 ];
 
 const decisions: Phase[] = [
@@ -64,14 +66,6 @@ const decisions: Phase[] = [
     description: "Roles, onboarding, and team admin at network scale",
   },
 ];
-
-function SectionDivider() {
-  return (
-    <div style={{ padding: "0 24px" }}>
-      <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
-    </div>
-  );
-}
 
 export default function FetsprozaFlagshipCaseStudy() {
   const project = getProject("fetsproza");
@@ -133,23 +127,25 @@ export default function FetsprozaFlagshipCaseStudy() {
         }}
       />
 
-      <div style={{ maxWidth: 1240, margin: "40px auto 0", padding: "0 24px" }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/assets/work/fetsproza/block-orchestration-shift.png"
-          alt="Before and after: fragmented payment orchestration with vendor dependencies versus unified FetsProza operating platform"
-          style={{ width: "100%", height: "auto", display: "block", borderRadius: 24 }}
-        />
-      </div>
+      <section
+        aria-label="Orchestration shift — before and after"
+        style={{ maxWidth: 1240, margin: "40px auto 0", padding: "0 24px" }}
+      >
+        <div style={{ borderRadius: 24, overflow: "hidden" }}>
+          <AnnotatedFigure
+            figure={0}
+            label="Orchestration shift"
+            caption=""
+            imageSrc="/assets/work/fetsproza/block-orchestration-shift.png"
+            imageAlt="Before and after: fragmented payment orchestration with vendor dependencies versus unified FetsProza operating platform"
+            imageOnly
+            borderless
+          />
+        </div>
+      </section>
 
-      <section id="challenge" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
-        <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          02 Challenge
-        </p>
-        <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          Why fragmented infrastructure blocked growth
-        </h2>
-        <div style={{ marginTop: 20, maxWidth: 760 }}>
+      <RailSection id="challenge" eyebrow="02 Challenge" title="Why fragmented infrastructure blocked growth">
+        <div style={{ maxWidth: 640 }}>
           <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
             Behind every customer transaction were four to five independent systems built by different vendors. A failed
             handshake could debit customers without delivering service, break reconciliation across platforms, and inflate
@@ -189,12 +185,12 @@ export default function FetsprozaFlagshipCaseStudy() {
           ]}
         />
 
-        <p style={{ marginTop: 28, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 760 }}>
+        <p style={{ marginTop: 28, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 640 }}>
           The redesign ultimately spanned eleven connected workflows. Rather than documenting every screen, this case
           study focuses on the <strong>four decisions</strong> that fundamentally changed how the business operated.
         </p>
 
-        <div style={{ marginTop: 24, maxWidth: 960 }}>
+        <div style={{ marginTop: 32 }}>
           <AnnotatedFigure
             figure={0}
             label="Platform scope — eleven operational workflows"
@@ -204,16 +200,10 @@ export default function FetsprozaFlagshipCaseStudy() {
             decisionNotes={[]}
           />
         </div>
-      </section>
+      </RailSection>
 
-      <section id="strategy" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
-        <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          03 Strategy
-        </p>
-        <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          Principles for unifying the operating model
-        </h2>
-        <div style={{ marginTop: 24, maxWidth: 760, display: "flex", flexDirection: "column", gap: 16 }}>
+      <RailSection id="strategy" eyebrow="03 Strategy" title="Principles for unifying the operating model">
+        <div style={{ maxWidth: 640, display: "flex", flexDirection: "column", gap: 16 }}>
           <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
             Rather than continuing to integrate independent platforms, we designed FetsProza around a unified orchestration
             model. Every operational workflow — from configuration to reconciliation — would operate on a{" "}
@@ -236,29 +226,23 @@ export default function FetsprozaFlagshipCaseStudy() {
             workflows — not eleven disconnected modules.
           </p>
         </div>
-      </section>
+      </RailSection>
 
-      <section id="decisions" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
-        <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          04 Decisions
-        </p>
-        <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          The decisions that changed how the business operated
-        </h2>
-        <p style={{ marginTop: 8, fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.6, maxWidth: 680 }}>
+      <RailSection id="decisions" eyebrow="04 Decisions" title="The decisions that changed how the business operated">
+        <p style={{ margin: 0, fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.6, maxWidth: 640 }}>
           Four judgments that changed how the business ran — not what we shipped.
         </p>
         <div style={{ marginTop: 24 }}>
           <PhaseTimeline phases={decisions} />
         </div>
-      </section>
+      </RailSection>
 
       <div style={{ marginTop: 24, display: "flex", flexDirection: "column", gap: 48 }}>
         <EvidenceModule
           id="decision-config"
           phase=""
-          layout="text-left"
-          decisionLayout="scan"
+          layout="rail"
+          interventionLabel=""
           decisionHeadline="Enable business teams to configure products independently"
           challenge="Business configuration depended on engineering for routine changes."
           intervention="Give business teams governed self-service configuration with validation and guardrails — rejecting minimal forms that failed in production."
@@ -281,8 +265,8 @@ export default function FetsprozaFlagshipCaseStudy() {
         <EvidenceModule
           id="decision-visibility"
           phase=""
-          layout="text-left"
-          decisionLayout="scan"
+          layout="rail"
+          interventionLabel=""
           decisionHeadline="Give operators real-time visibility into transaction health"
           challenge="Stuck and failed transactions required engineering escalation."
           intervention="Put transaction health and re-query where operators work — rejecting simplified views that hid the density they scan daily."
@@ -304,8 +288,8 @@ export default function FetsprozaFlagshipCaseStudy() {
         <EvidenceModule
           id="decision-reconciliation"
           phase=""
-          layout="text-left"
-          decisionLayout="scan"
+          layout="rail"
+          interventionLabel=""
           decisionHeadline="Make reconciliation part of daily operations"
           challenge="Closing the books required coordinating across teams and tools."
           intervention="Embed matched and unmatched flows into daily operations — rejecting batch reconciliation at period close."
@@ -327,8 +311,8 @@ export default function FetsprozaFlagshipCaseStudy() {
         <EvidenceModule
           id="decision-administration"
           phase=""
-          layout="text-left"
-          decisionLayout="scan"
+          layout="rail"
+          interventionLabel=""
           decisionHeadline="Create a scalable operating model for administration"
           challenge="Partner onboarding broke down as the agent network grew."
           intervention="Standardize roles and guided onboarding for the network — rejecting feature breadth that added training burden."
@@ -350,23 +334,8 @@ export default function FetsprozaFlagshipCaseStudy() {
         <SectionDivider />
       </div>
 
-      <div
-        id="operational-walkthrough"
-        style={{ maxWidth: 1240, margin: "40px auto 96px", padding: "0 24px" }}
-      >
-        <h3
-          style={{
-            fontSize: 22,
-            fontWeight: 700,
-            letterSpacing: "-0.02em",
-            color: "var(--fg)",
-            lineHeight: 1.3,
-            margin: 0,
-          }}
-        >
-          Seeing the redesign in practice
-        </h3>
-        <p style={{ marginTop: 16, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 760 }}>
+      <RailSection id="operational-walkthrough" eyebrow="05 Walkthrough" title="Seeing the redesign in practice">
+        <p style={{ margin: 0, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 640 }}>
           The four decisions above changed how operators configured, monitored, and managed the platform. The
           walkthrough below brings those decisions together, showing how operational teams could move from understanding
           transaction health to investigating issues and monitoring business performance—all within a single workspace,
@@ -397,16 +366,10 @@ export default function FetsprozaFlagshipCaseStudy() {
           Operators could move from transaction health to investigation and operational oversight without switching
           tools or involving engineering.
         </p>
-      </div>
+      </RailSection>
 
-      <section id="impact" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
-        <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          05 Impact
-        </p>
-        <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          What improved — and what it unlocked
-        </h2>
-        <p style={{ marginTop: 20, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 760 }}>
+      <RailSection id="impact" eyebrow="06 Impact" title="What improved — and what it unlocked">
+        <p style={{ margin: 0, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 640 }}>
           FETS replaced fragmented vendor orchestration with a unified operating platform—cutting $1M+ in annual vendor
           cost while improving operational reliability and enabling business teams to own day-to-day financial operations.
         </p>
@@ -424,20 +387,14 @@ export default function FetsprozaFlagshipCaseStudy() {
           />
         </div>
 
-        <p style={{ marginTop: 28, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 760 }}>
+        <p style={{ marginTop: 28, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 640 }}>
           Together, these improvements enabled FETS to evolve its financial operations on a unified enterprise platform
           rather than depend on fragmented vendor systems.
         </p>
-      </section>
+      </RailSection>
 
-      <section id="reflection" style={{ maxWidth: 1240, margin: "0 auto", padding: "56px 24px 48px" }}>
-        <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          06 Reflection
-        </p>
-        <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          What this changed about how I design at scale
-        </h2>
-        <div style={{ marginTop: 24, maxWidth: 760 }}>
+      <RailSection id="reflection" eyebrow="07 Reflection" title="What this changed about how I design at scale">
+        <div style={{ maxWidth: 640, paddingBottom: 48 }}>
           <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, margin: 0 }}>
             The hardest work wasn&apos;t designing interfaces—it was understanding how the business actually operated
             before deciding what to simplify, standardize, or remove.
@@ -451,7 +408,7 @@ export default function FetsprozaFlagshipCaseStudy() {
             just interfaces.
           </p>
         </div>
-      </section>
+      </RailSection>
 
       <PrevNextNav prev={prev} next={next} />
     </div>

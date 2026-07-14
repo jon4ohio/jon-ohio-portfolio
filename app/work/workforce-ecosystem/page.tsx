@@ -12,6 +12,8 @@ import CapabilityHandoff from "@/components/case-study/CapabilityHandoff";
 import OutcomeCards, { type OutcomeTier } from "@/components/case-study/OutcomeCards";
 import UnlockPanel from "@/components/case-study/UnlockPanel";
 import NextReadCard from "@/components/case-study/NextReadCard";
+import SectionDivider from "@/components/case-study/SectionDivider";
+import RailSection from "@/components/case-study/RailSection";
 import PrevNextNav from "@/components/case-study/PrevNextNav";
 import { getProject, projects } from "@/lib/projects";
 
@@ -40,7 +42,8 @@ const chapters: Chapter[] = [
   { id: "tensions", label: "02 Principles" },
   { id: "evidence", label: "03 Evidence" },
   { id: "outcomes", label: "04 Outcomes" },
-  { id: "unlocks", label: "05 Unlocks" },
+  { id: "reflection", label: "05 Reflection" },
+  { id: "unlocks", label: "06 Unlocks" },
 ];
 
 const phases: Phase[] = [
@@ -159,10 +162,13 @@ export default function WorkforceEcosystemFlagshipCaseStudy() {
         workInProgress={project.workInProgress}
       />
 
-      <TensionCards
-        label="02 Design Principles"
-        heading="Three principles from the research"
-        subhead="Patterns that held across industries and geographies — framed as constraints for service design and platform decisions."
+      <RailSection id="tensions" eyebrow="02 Design Principles" title="Three principles from the research">
+        <p style={{ margin: 0, fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.6, maxWidth: 640 }}>
+          Patterns that held across industries and geographies — framed as constraints for service design and platform
+          decisions.
+        </p>
+        <TensionCards
+        embedded
         cards={[
           {
             number: "01",
@@ -183,27 +189,25 @@ export default function WorkforceEcosystemFlagshipCaseStudy() {
               "Financial wellbeing, learning, benefits, and career mobility matter as much as payroll. Capability architecture must treat prosperity outcomes as peer domains — not add-ons to core HRM.",
           },
         ]}
-      />
+        />
+      </RailSection>
 
-      <section id="evidence" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
-        <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          03 Evidence
-        </p>
-        <p style={{ marginTop: 8, fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.6, maxWidth: 680 }}>
+      <RailSection id="evidence" eyebrow="03 Evidence">
+        <p style={{ margin: 0, fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.6, maxWidth: 640 }}>
           Evidence → models → architecture. Six deliverables — each with a named output, not just a research activity.
         </p>
         <div style={{ marginTop: 24 }}>
           <PhaseTimeline phases={phases} />
         </div>
-      </section>
+      </RailSection>
 
-      <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 72 }}>
+      <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 96 }}>
         <EvidenceTierBand label="Foundation" sublabel="Evidence and synthesis — grounding the programme in multi-country field reality." />
 
         <EvidenceModule
           id="phase-research"
           phase="01 — Research Program"
-          layout="text-left"
+          layout="rail"
           challenge="Frontline workforce dynamics in Nigeria and Kenya had not been documented at ecosystem scale. The programme needed grounded evidence before any product scope could be credible."
           intervention="Designed and led multi-country research with 150+ participants — employers, workers, supervisors, and field partners. Output: a multi-country workforce evidence base."
           figure={{
@@ -220,14 +224,12 @@ export default function WorkforceEcosystemFlagshipCaseStudy() {
           }}
         />
 
-        <div style={{ padding: "0 24px" }}>
-          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
-        </div>
+        <SectionDivider />
 
         <EvidenceModule
           id="phase-insights"
           phase="02 — Insight Framework"
-          layout="text-right"
+          layout="rail"
           challenge="Raw field notes risked staying anecdotal. Stakeholders needed actionable principles, not interview transcripts."
           intervention="Synthesised research into three ecosystem design principles with implications for service and platform work. Output: Insight Framework — three ecosystem principles."
           figure={{
@@ -252,7 +254,7 @@ export default function WorkforceEcosystemFlagshipCaseStudy() {
         <EvidenceModule
           id="phase-ecosystem"
           phase="03 — Workforce Ecosystem Blueprint"
-          layout="text-left"
+          layout="rail"
           accent
           challenge="HR product thinking defaults to employer–worker dyads. Frontline work involves supervisors, agents, informal intermediaries, and channel-specific coordination."
           intervention="Mapped actors, relationships, channels, and coordination layers. Output: Workforce Ecosystem Blueprint — shared model of workforce interactions."
@@ -270,14 +272,12 @@ export default function WorkforceEcosystemFlagshipCaseStudy() {
           }}
         />
 
-        <div style={{ padding: "0 24px" }}>
-          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
-        </div>
+        <SectionDivider />
 
         <EvidenceModule
           id="phase-lifecycle"
           phase="04 — Workforce Lifecycle Framework"
-          layout="text-right"
+          layout="rail"
           accent
           challenge="Feature-based scoping would fragment the programme. The team needed one organising spine that could hold employer, worker, and supervisor perspectives."
           intervention="Defined seven stages: Discover, Join, Show Up, Do Work, Get Rewarded, Grow, Thrive. Output: Workforce Lifecycle Framework — seven-stage workforce journey model."
@@ -295,14 +295,12 @@ export default function WorkforceEcosystemFlagshipCaseStudy() {
           }}
         />
 
-        <div style={{ padding: "0 24px" }}>
-          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
-        </div>
+        <SectionDivider />
 
         <EvidenceModule
           id="phase-blueprint"
           phase="05 — Workforce Service Blueprint"
-          layout="text-left"
+          layout="rail"
           accent
           challenge="Lifecycle stages needed operational detail — frontstage and backstage actions, support processes, and failure points visible to cross-functional teams."
           intervention="Produced high-level and detailed service blueprints connecting worker, supervisor, and employer touchpoints to backstage processes. Output: Workforce Service Blueprint — operational view of workforce delivery."
@@ -325,7 +323,7 @@ export default function WorkforceEcosystemFlagshipCaseStudy() {
         <EvidenceModule
           id="phase-capability"
           phase="06 — Capability Architecture"
-          layout="text-right"
+          layout="rail"
           accent
           pullQuote="The architecture became the handoff layer between workforce research and product strategy."
           challenge="Service blueprints revealed dozens of opportunity areas. Without a capability map, prioritisation would collapse into feature debates disconnected from research."
@@ -351,21 +349,12 @@ export default function WorkforceEcosystemFlagshipCaseStudy() {
         nextTitle="BluAlliance"
       />
 
-      <section id="outcomes" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
-        <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          04 Outcomes
-        </p>
-        <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          What the deliverables established
-        </h2>
+      <RailSection id="outcomes" eyebrow="04 Outcomes" title="What the deliverables established">
         <OutcomeCards tiers={outcomeTiers} />
-      </section>
+      </RailSection>
 
-      <div style={{ maxWidth: 1240, margin: "48px auto 0", padding: "0 24px" }}>
-        <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          Reflection
-        </p>
-        <p style={{ marginTop: 14, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 760 }}>
+      <RailSection id="reflection" eyebrow="05 Reflection">
+        <p style={{ margin: 0, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 640 }}>
           The hardest part wasn&apos;t understanding workers. It was creating a shared model that product, business, and
           field teams could all use to reason about the workforce ecosystem. Running this alongside{" "}
           <Link href="/work/seamkit" style={{ color: "var(--fg)", textDecoration: "underline", textUnderlineOffset: 3 }}>
@@ -375,7 +364,7 @@ export default function WorkforceEcosystemFlagshipCaseStudy() {
           fit frontline reality). Both are necessary — ecosystem models ensure product work stays coherent with how work
           actually happens.
         </p>
-      </div>
+      </RailSection>
 
       <NextReadCard
         microLabel="Next in series · Translate the system"
@@ -387,7 +376,7 @@ export default function WorkforceEcosystemFlagshipCaseStudy() {
       />
 
       <UnlockPanel
-        label="05 Unlocks"
+        label="06 Unlocks"
         items={[
           "Capability architecture became the handoff layer for BluAlliance platform strategy — see the next case study.",
           "Established shared language across Gates Foundation programme stakeholders, SeamlessHR product leadership, and field partners.",

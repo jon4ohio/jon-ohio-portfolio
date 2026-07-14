@@ -65,7 +65,7 @@ export default function PhaseTimeline({ phases }: { phases: Phase[] }) {
             >
               <div
                 style={{
-                  borderTop: `2px solid ${isActive ? "var(--fg)" : "var(--border)"}`,
+                  borderTop: `1px solid ${isActive ? "var(--fg)" : "var(--border)"}`,
                   paddingTop: 16,
                   transition: "border-color 0.2s",
                 }}
@@ -89,7 +89,7 @@ export default function PhaseTimeline({ phases }: { phases: Phase[] }) {
       </div>
 
       {/* Mobile stepper */}
-      <div className="case-study-phase-mobile" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+      <div className="case-study-phase-mobile" style={{ display: "flex", flexDirection: "column", gap: 0 }}>
         {phases.map((p) => {
           const isActive = p.id === active;
           return (
@@ -99,10 +99,8 @@ export default function PhaseTimeline({ phases }: { phases: Phase[] }) {
               style={{
                 textDecoration: "none",
                 color: "inherit",
-                border: `1px solid ${isActive ? "color-mix(in oklab, var(--border), var(--fg) 14%)" : "var(--border)"}`,
-                borderRadius: 8,
-                padding: 16,
-                background: "var(--surface)",
+                borderTop: `1px solid ${isActive ? "var(--fg)" : "var(--border)"}`,
+                padding: "16px 0",
               }}
             >
               <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>

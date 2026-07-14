@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{margin:0;background:linear-gradient(135deg,#232830 0%,#2a3039 100%);background-attachment:fixed;color:#f0f3f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6}
+a{color:#aba2fb;text-decoration:none}
+a:hover{color:#dcd6ff}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+</style>
+</helmet>
+<div style="min-height:100vh" data-screen-label="Work index">
+  <header style="position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid #3c4550;background:rgba(30,34,40,0.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)">
+    <nav style="max-width:1240px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between">
+      <a href="Home.dc.html" style="display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;color:#f0f3f5;letter-spacing:-0.01em">
+        <span style="width:32px;height:32px;flex-shrink:0;border-radius:50%;overflow:hidden;border:1px solid #3c4550;display:block"><img src="assets/avatar.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></img></span>
+        John Ohio
+      </a>
+      <div style="display:flex;align-items:center;gap:10px">
+        <button aria-label="Toggle theme" title="Theme" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border:none;background:transparent;color:#b7c0ca;border-radius:8px;font-size:15px;cursor:pointer;padding:0" style-hover="background:#2a3039;color:#f0f3f5">◐</button>
+        <a href="Contact.dc.html" style="font-size:13px;font-weight:500;color:#f0f3f5;border:1px solid #f0f3f5;padding:7px 16px;border-radius:8px;white-space:nowrap;transition:background .15s,color .15s" style-hover="background:#323a44">Contact me</a>
+      </div>
+    </nav>
+  </header>
+
+  <div style="padding-top:56px">
+    <section style="max-width:1240px;margin:0 auto;padding:96px 24px 0" data-screen-label="Work hero">
+      <nav aria-label="Breadcrumb" style="display:flex;align-items:center;gap:10px;font-size:12px;margin-bottom:20px"><a href="Home.dc.html" style="color:#97a1ad;letter-spacing:0.08em;text-transform:uppercase" style-hover="color:#f0f3f5">Home</a><span style="color:#555f6d">/</span><span style="color:#b7c0ca;font-weight:500;letter-spacing:0.08em;text-transform:uppercase">Case Studies</span></nav>
+      <h1 style="font-size:clamp(32px,4.4vw,52px);font-weight:600;letter-spacing:-0.03em;line-height:1.1;max-width:820px;margin-bottom:20px">What I've built.</h1>
+      <p style="font-size:17px;color:#b7c0ca;max-width:640px;line-height:1.6">Each case study follows the same structure: the problem, the decision, the solution, the results, and what it taught me.</p>
+    </section>
+
+    <!-- Featured Work -->
+    <section style="max-width:1240px;margin:0 auto;padding:80px 24px 0" data-screen-label="Featured Work">
+      <p style="font-size:12px;font-weight:500;color:#b7c0ca;letter-spacing:0.08em;text-transform:uppercase;padding-bottom:20px;border-bottom:1px solid #3c4550">Featured Work</p>
+      <div style="display:flex;flex-direction:column">
+        <div style="border-bottom:1px solid #3c4550;padding:24px 0;display:grid;grid-template-columns:48px minmax(0,1fr);gap:0 28px;align-items:start">
+          <p style="font-size:12px;color:#97a1ad;font-weight:500;letter-spacing:0.04em;padding-top:28px">01</p>
+          <a href="Work.dc.html" style="display:grid;grid-template-columns:minmax(240px,427px) minmax(0,1fr) 28px;align-items:start;gap:20px 28px;padding:12px 16px;border-radius:12px;color:inherit" style-hover="background:#2a3039;color:inherit">
+            <div style="aspect-ratio:16/9;border-radius:10px;overflow:hidden;border:1px solid #323a44;background:#232830"><img src="assets/seamkit.png" alt="SeamKit preview" style="width:100%;height:100%;object-fit:cover;display:block"></img></div>
+            <div style="min-width:0">
+              <div style="display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap"><span style="font-size:11px;color:#97a1ad">SeamlessHR</span><span style="font-size:11px;color:#aba2fb">·</span><span style="font-size:11px;color:#97a1ad">Dec 2023 – Present</span></div>
+              <h3 style="font-size:22px;font-weight:600;letter-spacing:-0.02em;margin-bottom:8px;color:#f0f3f5">SeamKit</h3>
+              <p style="font-size:14px;color:rgba(230,235,240,0.8);line-height:1.65;max-width:720px;margin-bottom:12px">A shared design system that standardized decisions before components, now governing how 12+ product teams build across the organization.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:6px 8px">
+                <span style="border:1px solid #3c4550;border-radius:999px;padding:3px 10px;background:#232830;display:inline-flex;align-items:baseline;gap:5px"><span style="font-size:13px;font-weight:700;color:#f0f3f5">12+</span><span style="font-size:10.5px;color:#b7c0ca">teams onboarded</span></span>
+                <span style="border:1px solid #3c4550;border-radius:999px;padding:3px 10px;background:#232830;display:inline-flex;align-items:baseline;gap:5px"><span style="font-size:13px;font-weight:700;color:#f0f3f5">2.49M</span><span style="font-size:10.5px;color:#b7c0ca">token insertions</span></span>
+                <span style="border:1px solid #3c4550;border-radius:999px;padding:3px 10px;background:#232830;display:inline-flex;align-items:baseline;gap:5px"><span style="font-size:13px;font-weight:700;color:#f0f3f5">88.9</span><span style="font-size:10.5px;color:#b7c0ca">adoption score</span></span>
+              </div>
+            </div>
+            <div style="color:#97a1ad;font-size:16px;padding-top:4px">→</div>
+          </a>
+        </div>
+        <div style="border-bottom:1px solid #3c4550;padding:24px 0;display:grid;grid-template-columns:48px minmax(0,1fr);gap:0 28px;align-items:start">
+          <p style="font-size:12px;color:#97a1ad;font-weight:500;letter-spacing:0.04em;padding-top:28px">02</p>
+          <a href="Work.dc.html" style="display:grid;grid-template-columns:minmax(240px,427px) minmax(0,1fr) 28px;align-items:start;gap:20px 28px;padding:12px 16px;border-radius:12px;color:inherit" style-hover="background:#2a3039;color:inherit">
+            <div style="aspect-ratio:16/9;border-radius:10px;overflow:hidden;border:1px solid #323a44;background:#232830"><img src="assets/seamless-hiring.png" alt="SeamlessHiring preview" style="width:100%;height:100%;object-fit:cover;display:block"></img></div>
+            <div style="min-width:0">
+              <div style="display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap"><span style="font-size:11px;color:#97a1ad">SeamlessHR</span><span style="font-size:11px;color:#aba2fb">·</span><span style="font-size:11px;color:#97a1ad">Mar 2022 – Mar 2025</span></div>
+              <h3 style="font-size:22px;font-weight:600;letter-spacing:-0.02em;margin-bottom:8px;color:#f0f3f5">SeamlessHiring</h3>
+              <p style="font-size:14px;color:rgba(230,235,240,0.8);line-height:1.65;max-width:720px;margin-bottom:12px">Incremental modernization of the highest-friction hiring workflows, turning an underperforming add-on into a flagship module.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:6px 8px">
+                <span style="border:1px solid #3c4550;border-radius:999px;padding:3px 10px;background:#232830;display:inline-flex;align-items:baseline;gap:5px"><span style="font-size:13px;font-weight:700;color:#f0f3f5">75%</span><span style="font-size:10.5px;color:#b7c0ca">higher satisfaction</span></span>
+                <span style="border:1px solid #3c4550;border-radius:999px;padding:3px 10px;background:#232830;display:inline-flex;align-items:baseline;gap:5px"><span style="font-size:13px;font-weight:700;color:#f0f3f5">↓50%</span><span style="font-size:10.5px;color:#b7c0ca">support requests</span></span>
+                <span style="border:1px solid #3c4550;border-radius:999px;padding:3px 10px;background:#232830;display:inline-flex;align-items:baseline;gap:5px"><span style="font-size:13px;font-weight:700;color:#f0f3f5">↓24%</span><span style="font-size:10.5px;color:#b7c0ca">application drop-offs</span></span>
+              </div>
+            </div>
+            <div style="color:#97a1ad;font-size:16px;padding-top:4px">→</div>
+          </a>
+        </div>
+        <div style="border-bottom:1px solid #3c4550;padding:24px 0;display:grid;grid-template-columns:48px minmax(0,1fr);gap:0 28px;align-items:start">
+          <p style="font-size:12px;color:#97a1ad;font-weight:500;letter-spacing:0.04em;padding-top:28px">03</p>
+          <a href="Work.dc.html" style="display:grid;grid-template-columns:minmax(240px,427px) minmax(0,1fr) 28px;align-items:start;gap:20px 28px;padding:12px 16px;border-radius:12px;color:inherit" style-hover="background:#2a3039;color:inherit">
+            <div style="aspect-ratio:16/9;border-radius:10px;overflow:hidden;border:1px solid #323a44;background:#232830"><img src="assets/fetsproza.png" alt="FetsProza preview" style="width:100%;height:100%;object-fit:cover;display:block"></img></div>
+            <div style="min-width:0">
+              <div style="display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap"><span style="font-size:11px;color:#97a1ad">Fets · Nigeria</span><span style="font-size:11px;color:#aba2fb">·</span><span style="font-size:11px;color:#97a1ad">2024 · 8 months</span></div>
+              <h3 style="font-size:22px;font-weight:600;letter-spacing:-0.02em;margin-bottom:8px;color:#f0f3f5">FetsProza</h3>
+              <p style="font-size:14px;color:rgba(230,235,240,0.8);line-height:1.65;max-width:720px;margin-bottom:12px">The shared operating layer that unified a fragmented payment ecosystem and retired an external vendor.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:6px 8px">
+                <span style="border:1px solid #3c4550;border-radius:999px;padding:3px 10px;background:#232830;display:inline-flex;align-items:baseline;gap:5px"><span style="font-size:13px;font-weight:700;color:#f0f3f5">$1M+</span><span style="font-size:10.5px;color:#b7c0ca">annual savings</span></span>
+                <span style="border:1px solid #3c4550;border-radius:999px;padding:3px 10px;background:#232830;display:inline-flex;align-items:baseline;gap:5px"><span style="font-size:13px;font-weight:700;color:#f0f3f5">2×</span><span style="font-size:10.5px;color:#b7c0ca">transaction capacity</span></span>
+              </div>
+            </div>
+            <div style="color:#97a1ad;font-size:16px;padding-top:4px">→</div>
+          </a>
+        </div>
+        <div style="border-bottom:1px solid #3c4550;padding:24px 0;display:grid;grid-template-columns:48px minmax(0,1fr);gap:0 28px;align-items:start">
+          <p style="font-size:12px;color:#97a1ad;font-weight:500;letter-spacing:0.04em;padding-top:28px">04</p>
+          <a href="Work.dc.html" style="display:grid;grid-template-columns:minmax(240px,427px) minmax(0,1fr) 28px;align-items:start;gap:20px 28px;padding:12px 16px;border-radius:12px;color:inherit" style-hover="background:#2a3039;color:inherit">
+            <div style="aspect-ratio:16/9;border-radius:10px;overflow:hidden;border:1px solid #323a44;background:#232830"><img src="assets/ibedc.png" alt="IBEDC preview" style="width:100%;height:100%;object-fit:cover;display:block"></img></div>
+            <div style="min-width:0">
+              <div style="display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap"><span style="font-size:11px;color:#97a1ad">Fets × IBEDC</span><span style="font-size:11px;color:#aba2fb">·</span><span style="font-size:11px;color:#97a1ad">2022 – 2024</span></div>
+              <h3 style="font-size:22px;font-weight:600;letter-spacing:-0.02em;margin-bottom:8px;color:#f0f3f5">IBEDC — Unified Billing System</h3>
+              <p style="font-size:14px;color:rgba(230,235,240,0.8);line-height:1.65;max-width:720px;margin-bottom:12px">Consumer and field payment tools for one of Nigeria's largest electricity distributors, closing the gap between billing and reality.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:6px 8px">
+                <span style="border:1px solid #3c4550;border-radius:999px;padding:3px 10px;background:#232830;display:inline-flex;align-items:baseline;gap:5px"><span style="font-size:13px;font-weight:700;color:#f0f3f5">↓80%</span><span style="font-size:10.5px;color:#b7c0ca">fraud reduction</span></span>
+              </div>
+            </div>
+            <div style="color:#97a1ad;font-size:16px;padding-top:4px">→</div>
+          </a>
+        </div>
+        <div style="padding:24px 0;display:grid;grid-template-columns:48px minmax(0,1fr);gap:0 28px;align-items:start">
+          <p style="font-size:12px;color:#97a1ad;font-weight:500;letter-spacing:0.04em;padding-top:28px">05</p>
+          <a href="Rivva Case Study.dc.html" style="display:grid;grid-template-columns:minmax(240px,427px) minmax(0,1fr) 28px;align-items:start;gap:20px 28px;padding:12px 16px;border-radius:12px;color:inherit" style-hover="background:#2a3039;color:inherit">
+            <div style="aspect-ratio:16/9;border-radius:10px;overflow:hidden;border:1px solid #323a44;background:#232830"><img src="assets/rivva.png" alt="Rivva preview" style="width:100%;height:100%;object-fit:cover;display:block"></img></div>
+            <div style="min-width:0">
+              <div style="display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap;align-items:center"><span style="font-size:11px;color:#97a1ad">Rivva · Nigeria</span><span style="font-size:11px;color:#aba2fb">·</span><span style="font-size:11px;color:#97a1ad">Jul 2025 – Jan 2026</span><span style="font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#aba2fb;border:1px solid #634eca;border-radius:999px;padding:2px 8px">Co-led</span></div>
+              <h3 style="font-size:22px;font-weight:600;letter-spacing:-0.02em;margin-bottom:8px;color:#f0f3f5">Rivva</h3>
+              <p style="font-size:14px;color:rgba(230,235,240,0.8);line-height:1.65;max-width:720px;margin-bottom:12px">Helping Rivva prepare a validated AI beta for launch by making AI scheduling easier to understand, more consistent, and ready for everyday use.</p>
+            </div>
+            <div style="color:#97a1ad;font-size:16px;padding-top:4px">→</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Other Work -->
+    <section style="max-width:1240px;margin:0 auto;padding:80px 24px 0" data-screen-label="Other Work">
+      <p style="font-size:12px;font-weight:500;color:#b7c0ca;letter-spacing:0.08em;text-transform:uppercase;padding-bottom:20px;border-bottom:1px solid #3c4550">Other Work</p>
+      <div style="display:flex;flex-direction:column">
+        <a href="Work.dc.html" style="display:grid;grid-template-columns:minmax(160px,220px) minmax(0,1fr) 28px;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid #323a44;border-radius:10px;color:inherit" style-hover="background:#2a3039;color:inherit">
+          <h3 style="font-size:16px;font-weight:600;letter-spacing:-0.01em;color:#f0f3f5">SeamlessAI</h3>
+          <p style="font-size:14px;color:#b7c0ca;line-height:1.6">AI-UX patterns and guardrails across the SeamlessHR suite · Jan 2025 – Present</p>
+          <span style="color:#97a1ad;font-size:16px">→</span>
+        </a>
+        <a href="Work.dc.html" style="display:grid;grid-template-columns:minmax(160px,220px) minmax(0,1fr) 28px;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid #323a44;border-radius:10px;color:inherit" style-hover="background:#2a3039;color:inherit">
+          <h3 style="font-size:16px;font-weight:600;letter-spacing:-0.01em;color:#f0f3f5">Workforce Ecosystem</h3>
+          <p style="font-size:14px;color:#b7c0ca;line-height:1.6">Research and capability architecture · Gates Foundation × SeamlessHR · 2025 – Present</p>
+          <span style="color:#97a1ad;font-size:16px">→</span>
+        </a>
+        <a href="Work.dc.html" style="display:grid;grid-template-columns:minmax(160px,220px) minmax(0,1fr) 28px;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid #323a44;border-radius:10px;color:inherit" style-hover="background:#2a3039;color:inherit">
+          <h3 style="font-size:16px;font-weight:600;letter-spacing:-0.01em;color:#f0f3f5">BluAlliance</h3>
+          <p style="font-size:14px;color:#b7c0ca;line-height:1.6">Platform over isolated products · Gates Foundation × SeamlessHR · 2025 – Present</p>
+          <span style="color:#97a1ad;font-size:16px">→</span>
+        </a>
+        <a href="Work.dc.html" style="display:grid;grid-template-columns:minmax(160px,220px) minmax(0,1fr) 28px;gap:24px;align-items:baseline;padding:20px 16px;border-bottom:1px solid #323a44;border-radius:10px;color:inherit" style-hover="background:#2a3039;color:inherit">
+          <h3 style="font-size:16px;font-weight:600;letter-spacing:-0.01em;color:#f0f3f5">ClearPrice</h3>
+          <p style="font-size:14px;color:#b7c0ca;line-height:1.6">MVP definition and product UX as a founding member · Oct 2024 – Jul 2025</p>
+          <span style="color:#97a1ad;font-size:16px">→</span>
+        </a>
+        <a href="Work.dc.html" style="display:grid;grid-template-columns:minmax(160px,220px) minmax(0,1fr) 28px;gap:24px;align-items:baseline;padding:20px 16px;border-radius:10px;color:inherit" style-hover="background:#2a3039;color:inherit">
+          <h3 style="font-size:16px;font-weight:600;letter-spacing:-0.01em;color:#f0f3f5">ABMS</h3>
+          <p style="font-size:14px;color:#b7c0ca;line-height:1.6">Operations and field workflows for Fets · 2022 – 2024</p>
+          <span style="color:#97a1ad;font-size:16px">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Experiments -->
+    <section style="max-width:1240px;margin:0 auto;padding:80px 24px 120px" data-screen-label="Experiments">
+      <p style="font-size:12px;font-weight:500;color:#b7c0ca;letter-spacing:0.08em;text-transform:uppercase;padding-bottom:20px;border-bottom:1px solid #3c4550">Experiments</p>
+      <a href="Work.dc.html" style="display:grid;grid-template-columns:minmax(200px,320px) minmax(0,1fr) 28px;align-items:start;gap:24px;padding:20px 16px;border-radius:12px;color:inherit;margin-top:4px" style-hover="background:#2a3039;color:inherit">
+        <div style="aspect-ratio:16/9;border-radius:10px;overflow:hidden;border:1px solid #323a44;background:#232830"><img src="assets/orchestrated-portfolio.png" alt="Agentic Portfolio preview" style="width:100%;height:100%;object-fit:contain;display:block"></img></div>
+        <div style="min-width:0">
+          <div style="display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap"><span style="font-size:11px;color:#97a1ad">Self-directed</span><span style="font-size:11px;color:#aba2fb">·</span><span style="font-size:11px;color:#97a1ad">2026</span></div>
+          <h3 style="font-size:18px;font-weight:600;letter-spacing:-0.02em;margin-bottom:8px;color:#f0f3f5">Agentic Portfolio</h3>
+          <p style="font-size:14px;color:rgba(230,235,240,0.8);line-height:1.65;max-width:720px">This site, built through an orchestrated system of AI tools with every judgment call made by hand: what to build, in what order, and which tool to trust.</p>
+        </div>
+        <span style="color:#97a1ad;font-size:16px;padding-top:4px">→</span>
+      </a>
+    </section>
+  </div>
+
+  <footer style="border-top:1px solid #3c4550">
+    <div style="max-width:1240px;margin:0 auto;padding:48px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px">
+      <div>
+        <p style="font-weight:600;font-size:15px;margin-bottom:4px">John Ohio</p>
+        <p style="font-size:13px;color:#b7c0ca">Product Design Lead · Abuja, Nigeria</p>
+      </div>
+      <nav style="display:flex;gap:32px">
+        <a href="Work.dc.html" style="font-size:14px;color:#b7c0ca" style-hover="color:#f0f3f5">Case Studies</a>
+        <a href="About.dc.html" style="font-size:14px;color:#b7c0ca" style-hover="color:#f0f3f5">About</a>
+        <a href="Writing.dc.html" style="font-size:14px;color:#b7c0ca" style-hover="color:#f0f3f5">Writing</a>
+        <a href="Contact.dc.html" style="font-size:14px;color:#b7c0ca" style-hover="color:#f0f3f5">Contact</a>
+      </nav>
+      <div style="display:flex;gap:16px">
+        <a href="mailto:jon4ohio@gmail.com" style="font-size:13px;color:#aba2fb">jon4ohio@gmail.com</a>
+        <a href="https://linkedin.com/in/jon4ohio" target="_blank" style="font-size:13px;color:#b7c0ca" style-hover="color:#f0f3f5">LinkedIn ↗</a>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+</body>
+</html>

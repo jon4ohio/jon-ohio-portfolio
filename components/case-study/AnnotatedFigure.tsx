@@ -333,13 +333,6 @@ export default function AnnotatedFigure({
                   lineHeight: 1.75,
                   paddingLeft: decisionLabel === "Decision" ? 0 : 16,
                   position: "relative",
-                  borderLeft:
-                    decisionLabel === "Decision" ? "2px solid var(--border)" : undefined,
-                  padding:
-                    decisionLabel === "Decision" ? "12px 16px" : undefined,
-                  background:
-                    decisionLabel === "Decision" ? "var(--surface)" : undefined,
-                  borderRadius: decisionLabel === "Decision" ? 6 : undefined,
                 }}
               >
                 {decisionLabel !== "Decision" ? (

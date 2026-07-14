@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{margin:0;background:linear-gradient(135deg,#232830 0%,#2a3039 100%);background-attachment:fixed;color:#f0f3f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6}
+a{color:#aba2fb;text-decoration:none}
+a:hover{color:#dcd6ff}
+h1,h2,h3{text-wrap:balance}
+p{text-wrap:pretty}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@media (prefers-reduced-motion: reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+</style>
+</helmet>
+<div style="min-height:100vh" data-screen-label="Home">
+  <!-- Nav -->
+  <header style="position:fixed;top:0;left:0;right:0;z-index:50;border-bottom:1px solid #3c4550;background:rgba(30,34,40,0.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)">
+    <nav style="max-width:1240px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between">
+      <a href="Home.dc.html" style="display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;color:#f0f3f5;letter-spacing:-0.01em">
+        <span style="width:32px;height:32px;flex-shrink:0;border-radius:50%;overflow:hidden;border:1px solid #3c4550;display:block"><img src="assets/avatar.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></img></span>
+        John Ohio
+      </a>
+      <div style="display:flex;align-items:center;gap:10px">
+        <button aria-label="Toggle theme" title="Theme" style="width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border:none;background:transparent;color:#b7c0ca;border-radius:8px;font-size:15px;cursor:pointer;padding:0" style-hover="background:#2a3039;color:#f0f3f5">◐</button>
+        <a href="Contact.dc.html" style="font-size:13px;font-weight:500;color:#f0f3f5;border:1px solid #f0f3f5;padding:7px 16px;border-radius:8px;white-space:nowrap;transition:background .15s,color .15s" style-hover="background:#323a44">Contact me</a>
+      </div>
+    </nav>
+  </header>
+
+  <div style="padding-top:56px">
+    <!-- 1. Hero -->
+    <div style="position:relative;overflow:hidden;width:100%" data-screen-label="Hero">
+      <canvas ref="{{ canvasRef }}" style="position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:0"></canvas>
+      <div style="background:radial-gradient(ellipse 55% 65% at 38% 52%, rgba(30,34,40,0.94) 0%, rgba(35,40,48,0.58) 55%, transparent 100%);position:absolute;inset:0;pointer-events:none;z-index:1"></div>
+      <section style="max-width:1240px;margin:0 auto;padding:120px 24px 80px;position:relative;z-index:2">
+        <p style="font-size:clamp(11px,1.15vw,13px);font-weight:500;color:#aba2fb;letter-spacing:clamp(0.05em,0.14vw,0.08em);text-transform:uppercase;line-height:1.2;margin-bottom:clamp(16px,2.2vw,24px);opacity:0;animation:fadeUp .7s cubic-bezier(.16,1,.3,1) .1s forwards">Enterprise Products · Design Systems · AI Experiences</p>
+        <h1 style="font-size:clamp(36px,5.6vw,64px);font-weight:600;letter-spacing:-0.03em;line-height:1.1;max-width:880px;margin-bottom:28px;opacity:0;animation:fadeUp .7s cubic-bezier(.16,1,.3,1) .2s forwards">Designing systems that help products and teams scale.</h1>
+        <p style="font-size:20px;color:#b7c0ca;max-width:680px;margin-bottom:24px;line-height:1.5;opacity:0;animation:fadeUp .7s cubic-bezier(.16,1,.3,1) .3s forwards">I design enterprise products, design systems, and AI experiences that simplify complex workflows and help teams build more consistently.</p>
+        <p style="font-size:13px;color:#97a1ad;max-width:560px;margin-bottom:8px;line-height:1.6;opacity:0;animation:fadeUp .7s cubic-bezier(.16,1,.3,1) .4s forwards">Enterprise HR · Financial Infrastructure · Workforce Technology · AI</p>
+        <p style="font-size:13px;color:#97a1ad;max-width:560px;margin-bottom:40px;line-height:1.6;opacity:0;animation:fadeUp .7s cubic-bezier(.16,1,.3,1) .45s forwards">Product Design Lead · Based in Nigeria · Available for remote and relocation</p>
+        <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;opacity:0;animation:fadeUp .7s cubic-bezier(.16,1,.3,1) .5s forwards">
+          <a href="Work.dc.html" style="display:inline-flex;align-items:center;gap:8px;background:#323a44;color:#f8fafc;font-size:14px;font-weight:500;padding:12px 24px;border-radius:8px;letter-spacing:-0.01em" style-hover="background:#3c4550;color:#f8fafc">Case studies →</a>
+          <a href="About.dc.html" style="font-size:14px;color:#b7c0ca" style-hover="color:#f0f3f5">Learn more about me →</a>
+        </div>
+      </section>
+    </div>
+
+    <!-- 2. Selected Work -->
+    <section style="max-width:1240px;margin:0 auto;padding:96px 24px 0" data-screen-label="Selected Work">
+      <p style="font-size:12px;font-weight:500;color:#b7c0ca;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px">Selected Work</p>
+      <h2 style="font-size:clamp(24px,3vw,36px);font-weight:600;letter-spacing:-0.02em;line-height:1.2;margin-bottom:48px;max-width:720px">Systems that ship, and the results they produced.</h2>
+
+      <div style="display:flex;flex-direction:column">
+        <!-- SeamKit -->
+        <div style="border-bottom:1px solid #3c4550;padding:24px 0">
+          <a href="Work.dc.html" style="display:grid;grid-template-columns:minmax(240px,427px) minmax(0,1fr) 28px;align-items:start;gap:20px 28px;padding:12px 16px;border-radius:12px;color:inherit;transition:background .15s ease" style-hover="background:#2a3039;color:inherit">
+            <div style="aspect-ratio:16/9;border-radius:10px;overflow:hidden;border:1px solid #323a44;background:#232830"><img src="assets/seamkit.png" alt="SeamKit design system preview" style="width:100%;height:100%;object-fit:cover;display:block"></img></div>
+            <div style="min-width:0">
+              <div style="display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap;align-items:baseline"><span style="font-size:11px;color:#97a1ad">SeamlessHR</span><span style="font-size:11px;color:#aba2fb">·</span><span style="font-size:11px;color:#97a1ad">Enterprise Design System</span></div>
+              <h3 style="font-size:22px;font-weight:600;letter-spacing:-0.02em;margin-bottom:8px;color:#f0f3f5">SeamKit</h3>
+              <p style="font-size:14px;color:#b7c0ca;margin-bottom:10px">Helping product teams build more consistently.</p>
+              <p style="font-size:14px;color:rgba(230,235,240,0.8);line-height:1.65;max-width:720px;margin-bottom:14px">Created a shared design system that standardized decisions before components, governing 12+ product teams across the organization.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:6px 8px;margin-bottom:12px">
+                <span style="border:1px solid #3c4550;border-radius:999px;padding:3px 10px;background:#232830;display:inline-flex;align-items:baseline;gap:5px"><span style="font-size:13px;font-weight:700;letter-spacing:-0.02em;color:#f0f3f5">12+</span><span style="font-size:10.5px;color:#b7c0ca">teams onboarded</span></span>
+                <span style="border:1px solid #3c4550;border-radius:999px;padding:3px 10px;background:#232830;display:inline-flex;align-items:baseline;gap:5px"><span style="font-size:13px;font-weight:700;letter-spacing:-0.02em;color:#f0f3f5">2.49M</span><span style="font-size:10.5px;color:#b7c0ca">token insertions</span></span>
+                <span style="border:1px solid #3c4550;border-radius:999px;padding:3px 10px;background:#232830;display:inline-flex;align-items:baseline;gap:5px"><span style="font-size:13px;font-weight:700;letter-spacing:-0.02em;color:#f0f3f5">88.9</span><span style="font-size:10.5px;color:#b7c0ca">adoption score</span></span>
+              </div>
+              <span style="font-size:13px;font-weight:500;color:#aba2fb">View case study →</span>
+            </div>
+            <div style="color:#97a1ad;font-size:16px;padding-top:4px">→</div>
+          </a>
+        </div>
+        <!-- SeamlessHiring -->
+        <div style="border-bottom:1px solid #3c4550;padding:24px 0">
+          <a href="Work.dc.html" style="display:grid;grid-template-columns:minmax(240px,427px) minmax(0,1fr) 28px;align-items:start;gap:20px 28px;padding:12px 16px;border-radius:12px;color:inherit;transition:background .15s ease" style-hover="background:#2a3039;color:inherit">
+            <div style="aspect-ratio:16/9;border-radius:10px;overflow:hidden;border:1px solid #323a44;background:#232830"><img src="assets/seamless-hiring.png" alt="SeamlessHiring product preview" style="width:100%;height:100%;object-fit:cover;display:block"></img></div>
+            <div style="min-width:0">
+              <div style="display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap;align-items:baseline"><span style="font-size:11px;color:#97a1ad">SeamlessHR</span><span style="font-size:11px;color:#aba2fb">·</span><span style="font-size:11px;color:#97a1ad">Recruitment Management System</span></div>
+              <h3 style="font-size:22px;font-weight:600;letter-spacing:-0.02em;margin-bottom:8px;color:#f0f3f5">SeamlessHiring</h3>
+              <p style="font-size:14px;color:#b7c0ca;margin-bottom:10px">Helping enterprise hiring teams work with less friction.</p>
+              <p style="font-size:14px;color:rgba(230,235,240,0.8);line-height:1.65;max-width:720px;margin-bottom:14px">Improved the highest-friction workflows through incremental modernization instead of a full redesign.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:6px 8px;margin-bottom:12px">
+                <span style="border:1px solid #3c4550;border-radius:999px;padding:3px 10px;background:#232830;display:inline-flex;align-items:baseline;gap:5px"><span style="font-size:13px;font-weight:700;letter-spacing:-0.02em;color:#f0f3f5">75%</span><span style="font-size:10.5px;color:#b7c0ca">higher satisfaction (27→74 NPS)</span></span>
+                <span style="border:1px solid #3c4550;border-radius:999px;padding:3px 10px;background:#232830;display:inline-flex;align-items:baseline;gap:5px"><span style="font-size:13px;font-weight:700;letter-spacing:-0.02em;color:#f0f3f5">↓50%</span><span style="font-size:10.5px;color:#b7c0ca">fewer support requests</span></span>
+                <span style="border:1px solid #3c4550;border-radius:999px;padding:3px 10px;background:#232830;display:inline-flex;align-items:baseline;gap:5px"><span style="font-size:13px;font-weight:700;letter-spacing:-0.02em;color:#f0f3f5">↓24%</span><span style="font-size:10.5px;color:#b7c0ca">fewer application drop-offs</span></span>
+              </div>
+              <span style="font-size:13px;font-weight:500;color:#aba2fb">View case study →</span>
+            </div>
+            <div style="color:#97a1ad;font-size:16px;padding-top:4px">→</div>
+          </a>
+        </div>
+        <!-- FetsProza -->
+        <div style="border-bottom:1px solid #3c4550;padding:24px 0">
+          <a href="Work.dc.html" style="display:grid;grid-template-columns:minmax(240px,427px) minmax(0,1fr) 28px;align-items:start;gap:20px 28px;padding:12px 16px;border-radius:12px;color:inherit;transition:background .15s ease" style-hover="background:#2a3039;color:inherit">
+            <div style="aspect-ratio:16/9;border-radius:10px;overflow:hidden;border:1px solid #323a44;background:#232830"><img src="assets/fetsproza.png" alt="FetsProza platform preview" style="width:100%;height:100%;object-fit:cover;display:block"></img></div>
+            <div style="min-width:0">
+              <div style="display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap;align-items:baseline"><span style="font-size:11px;color:#97a1ad">Fets</span><span style="font-size:11px;color:#aba2fb">·</span><span style="font-size:11px;color:#97a1ad">Financial Operations Platform</span></div>
+              <h3 style="font-size:22px;font-weight:600;letter-spacing:-0.02em;margin-bottom:8px;color:#f0f3f5">FetsProza</h3>
+              <p style="font-size:14px;color:#b7c0ca;margin-bottom:10px">Helping operations manage payments as one connected platform.</p>
+              <p style="font-size:14px;color:rgba(230,235,240,0.8);line-height:1.65;max-width:720px;margin-bottom:14px">Designed the shared operating layer instead of replacing existing systems, retiring an external vendor.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:6px 8px;margin-bottom:12px">
+                <span style="border:1px solid #3c4550;border-radius:999px;padding:3px 10px;background:#232830;display:inline-flex;align-items:baseline;gap:5px"><span style="font-size:13px;font-weight:700;letter-spacing:-0.02em;color:#f0f3f5">$1M+</span><span style="font-size:10.5px;color:#b7c0ca">annual savings</span></span>
+                <span style="border:1px solid #3c4550;border-radius:999px;padding:3px 10px;background:#232830;display:inline-flex;align-items:baseline;gap:5px"><span style="font-size:13px;font-weight:700;letter-spacing:-0.02em;color:#f0f3f5">2×</span><span style="font-size:10.5px;color:#b7c0ca">transaction capacity</span></span>
+                <span style="border:1px solid #3c4550;border-radius:999px;padding:3px 10px;background:#232830;display:inline-flex;align-items:baseline;gap:5px"><span style="font-size:10.5px;color:#b7c0ca">external vendor retired</span></span>
+              </div>
+              <span style="font-size:13px;font-weight:500;color:#aba2fb">View case study →</span>
+            </div>
+            <div style="color:#97a1ad;font-size:16px;padding-top:4px">→</div>
+          </a>
+        </div>
+        <!-- IBEDC -->
+        <div style="border-bottom:1px solid #3c4550;padding:24px 0">
+          <a href="Work.dc.html" style="display:grid;grid-template-columns:minmax(240px,427px) minmax(0,1fr) 28px;align-items:start;gap:20px 28px;padding:12px 16px;border-radius:12px;color:inherit;transition:background .15s ease" style-hover="background:#2a3039;color:inherit">
+            <div style="aspect-ratio:16/9;border-radius:10px;overflow:hidden;border:1px solid #323a44;background:#232830"><img src="assets/ibedc.png" alt="IBEDC billing system preview" style="width:100%;height:100%;object-fit:cover;display:block"></img></div>
+            <div style="min-width:0">
+              <div style="display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap;align-items:baseline"><span style="font-size:11px;color:#97a1ad">Fets × IBEDC</span><span style="font-size:11px;color:#aba2fb">·</span><span style="font-size:11px;color:#97a1ad">Unified Billing System</span></div>
+              <h3 style="font-size:22px;font-weight:600;letter-spacing:-0.02em;margin-bottom:8px;color:#f0f3f5">IBEDC</h3>
+              <p style="font-size:14px;color:#b7c0ca;margin-bottom:10px">Helping a utility provider close the gap between billing and reality.</p>
+              <p style="font-size:14px;color:rgba(230,235,240,0.8);line-height:1.65;max-width:720px;margin-bottom:14px">Designed consumer and field payment tools for one of Nigeria's largest electricity distributors, unifying billing across channels.</p>
+              <div style="display:flex;flex-wrap:wrap;gap:6px 8px;margin-bottom:12px">
+                <span style="border:1px solid #3c4550;border-radius:999px;padding:3px 10px;background:#232830;display:inline-flex;align-items:baseline;gap:5px"><span style="font-size:13px;font-weight:700;letter-spacing:-0.02em;color:#f0f3f5">↓80%</span><span style="font-size:10.5px;color:#b7c0ca">fraud reduction</span></span>
+              </div>
+              <span style="font-size:13px;font-weight:500;color:#aba2fb">View case study →</span>
+            </div>
+            <div style="color:#97a1ad;font-size:16px;padding-top:4px">→</div>
+          </a>
+        </div>
+        <!-- Rivva: distinct, forward-looking -->
+        <div style="padding:24px 0">
+          <a href="Rivva Case Study.dc.html" style="display:grid;grid-template-columns:minmax(240px,427px) minmax(0,1fr) 28px;align-items:start;gap:20px 28px;padding:12px 16px;border-radius:12px;color:inherit;transition:background .15s ease" style-hover="background:#2a3039;color:inherit">
+            <div style="aspect-ratio:16/9;border-radius:10px;overflow:hidden;border:1px solid #323a44;background:#232830"><img src="assets/rivva.png" alt="Rivva product preview" style="width:100%;height:100%;object-fit:cover;display:block"></img></div>
+            <div style="min-width:0">
+              <div style="display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap;align-items:center">
+                <span style="font-size:11px;color:#97a1ad">Rivva</span><span style="font-size:11px;color:#aba2fb">·</span><span style="font-size:11px;color:#97a1ad">AI Scheduling Platform · Flagship</span>
+              </div>
+              <h3 style="font-size:22px;font-weight:600;letter-spacing:-0.02em;margin-bottom:8px;color:#f0f3f5">Rivva</h3>
+              <p style="font-size:14px;color:#b7c0ca;margin-bottom:10px">Co-led a new product from concept to market launch.</p>
+              <p style="font-size:14px;color:rgba(230,235,240,0.8);line-height:1.65;max-width:720px;margin-bottom:14px">Founding team member. Product design co-led alongside the team, preparing a validated AI beta for everyday use. Strong day-one reception.</p>
+              <span style="font-size:13px;font-weight:500;color:#aba2fb">View case study →</span>
+            </div>
+            <div style="color:#97a1ad;font-size:16px;padding-top:4px">→</div>
+          </a>
+        </div>
+      </div>
+      <div style="padding-top:32px"><a href="Work.dc.html" style="font-size:14px;font-weight:500;color:#aba2fb">View more case studies →</a></div>
+    </section>
+
+    <!-- 3. How I Work -->
+    <section style="max-width:1240px;margin:0 auto;padding:120px 24px 0" data-screen-label="How I Work">
+      <p style="font-size:12px;font-weight:500;color:#b7c0ca;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px">How I Work</p>
+      <h2 style="font-size:clamp(24px,3vw,36px);font-weight:600;letter-spacing:-0.02em;line-height:1.2;margin-bottom:48px;max-width:720px">Understand → Simplify → Standardize → Scale</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px">
+        <div style="border-top:1px solid #3c4550;padding-top:20px"><p style="font-size:12px;color:#97a1ad;margin-bottom:10px">01</p><h3 style="font-size:17px;font-weight:600;margin-bottom:8px;letter-spacing:-0.01em">Understand</h3><p style="font-size:14px;color:#b7c0ca;line-height:1.65">Understand the product, people, and business before proposing solutions.</p></div>
+        <div style="border-top:1px solid #3c4550;padding-top:20px"><p style="font-size:12px;color:#97a1ad;margin-bottom:10px">02</p><h3 style="font-size:17px;font-weight:600;margin-bottom:8px;letter-spacing:-0.01em">Simplify</h3><p style="font-size:14px;color:#b7c0ca;line-height:1.65">Reduce complexity to the decisions that matter.</p></div>
+        <div style="border-top:1px solid #3c4550;padding-top:20px"><p style="font-size:12px;color:#97a1ad;margin-bottom:10px">03</p><h3 style="font-size:17px;font-weight:600;margin-bottom:8px;letter-spacing:-0.01em">Standardize</h3><p style="font-size:14px;color:#b7c0ca;line-height:1.65">Turn successful decisions into reusable patterns.</p></div>
+        <div style="border-top:1px solid #3c4550;padding-top:20px"><p style="font-size:12px;color:#97a1ad;margin-bottom:10px">04</p><h3 style="font-size:17px;font-weight:600;margin-bottom:8px;letter-spacing:-0.01em">Scale</h3><p style="font-size:14px;color:#b7c0ca;line-height:1.65">Help teams build consistently through shared systems.</p></div>
+      </div>
+    </section>
+
+    <!-- 4. Results -->
+    <section style="background:#232830;border-top:1px solid #3c4550;border-bottom:1px solid #3c4550;margin-top:120px" data-screen-label="Results">
+      <div style="max-width:1240px;margin:0 auto;padding:96px 24px">
+        <p style="font-size:12px;font-weight:500;color:#b7c0ca;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0;padding-bottom:20px;border-bottom:1px solid #3c4550">Results, grouped by the value they created</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px;padding-top:40px">
+          <div style="border-left:1px solid rgba(60,69,80,0.6);padding-left:16px"><p style="font-size:11px;color:#97a1ad;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px">Business</p><p style="font-size:clamp(30px,4vw,36px);font-weight:600;letter-spacing:-0.03em;line-height:1">$1M+</p><p style="margin-top:8px;font-size:12px;color:#b7c0ca;line-height:1.45">annual savings</p></div>
+          <div style="border-left:1px solid rgba(60,69,80,0.6);padding-left:16px"><p style="font-size:11px;color:#97a1ad;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px">Customer</p><p style="font-size:clamp(30px,4vw,36px);font-weight:600;letter-spacing:-0.03em;line-height:1">75%</p><p style="margin-top:8px;font-size:12px;color:#b7c0ca;line-height:1.45">higher satisfaction</p></div>
+          <div style="border-left:1px solid rgba(60,69,80,0.6);padding-left:16px"><p style="font-size:11px;color:#97a1ad;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px">Organization</p><p style="font-size:clamp(30px,4vw,36px);font-weight:600;letter-spacing:-0.03em;line-height:1">12+</p><p style="margin-top:8px;font-size:12px;color:#b7c0ca;line-height:1.45">teams aligned</p></div>
+          <div style="border-left:1px solid rgba(60,69,80,0.6);padding-left:16px"><p style="font-size:11px;color:#97a1ad;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px">Recognition</p><p style="font-size:clamp(30px,4vw,36px);font-weight:600;letter-spacing:-0.03em;line-height:1">↓80%</p><p style="margin-top:8px;font-size:12px;color:#b7c0ca;line-height:1.45">fraud reduction</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. About teaser -->
+    <section style="max-width:1240px;margin:0 auto;padding:120px 24px 0" data-screen-label="About teaser">
+      <div style="max-width:760px">
+        <p style="font-size:12px;font-weight:500;color:#b7c0ca;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:24px">About</p>
+        <h2 style="font-size:clamp(22px,2.8vw,30px);font-weight:600;letter-spacing:-0.02em;line-height:1.25;margin-bottom:20px">The products changed. The work stayed the same.</h2>
+        <p style="font-size:16px;color:#b7c0ca;line-height:1.7;margin-bottom:28px">Over the last five years I've worked across enterprise HR, financial infrastructure, workforce technology, AI, and design systems. Although the products changed, the work remained consistent: understanding complex problems, simplifying them, and building systems that help products and teams scale. Today I work at the intersection of product design, systems thinking, and AI, helping organizations build products that are easier to use, easier to maintain, and easier to grow.</p>
+        <a href="About.dc.html" style="font-size:14px;font-weight:500;color:#aba2fb">Learn more →</a>
+      </div>
+    </section>
+
+    <!-- 6. Writing -->
+    <section style="max-width:1240px;margin:0 auto;padding:120px 24px 0" data-screen-label="Writing">
+      <p style="font-size:12px;font-weight:500;color:#b7c0ca;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px">Writing</p>
+      <h2 style="font-size:clamp(22px,2.8vw,30px);font-weight:600;letter-spacing:-0.02em;line-height:1.25;margin-bottom:48px;max-width:720px">Ideas I contribute beyond delivery.</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px">
+        <div style="border-top:1px solid #3c4550;padding-top:20px">
+          <p style="font-size:11px;color:#97a1ad;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px">Enterprise Product Design</p>
+          <a href="Writing.dc.html" style="font-size:15px;color:#f0f3f5;line-height:1.5;display:block" style-hover="color:#dcd6ff">Design Doesn't End in Figma Anymore</a>
+          <p style="margin-top:6px;font-size:12px;color:#97a1ad">Field note · Jul 2026</p>
+        </div>
+        <div style="border-top:1px solid #3c4550;padding-top:20px">
+          <p style="font-size:11px;color:#97a1ad;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px">Design Systems</p>
+          <a href="Writing.dc.html" style="font-size:15px;color:#f0f3f5;line-height:1.5;display:block" style-hover="color:#dcd6ff">Design tokens: the connective tissue</a>
+          <p style="margin-top:6px;font-size:12px;color:#97a1ad">The UX Company · Substack</p>
+        </div>
+        <div style="border-top:1px solid #3c4550;padding-top:20px">
+          <p style="font-size:11px;color:#97a1ad;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px">AI</p>
+          <a href="Writing.dc.html" style="font-size:15px;color:#f0f3f5;line-height:1.5;display:block" style-hover="color:#dcd6ff">Embedding AI into design systems and product experiences</a>
+          <p style="margin-top:6px;font-size:12px;color:#97a1ad">Talk · AIDA 2025</p>
+        </div>
+        <div style="border-top:1px solid #3c4550;padding-top:20px">
+          <p style="font-size:11px;color:#97a1ad;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:14px">Organizational Design</p>
+          <a href="Writing.dc.html" style="font-size:15px;color:#f0f3f5;line-height:1.5;display:block" style-hover="color:#dcd6ff">Design thinking for problem solving: beyond UX</a>
+          <p style="margin-top:6px;font-size:12px;color:#97a1ad">Talk · GDG Lagos, DevFest 2024</p>
+        </div>
+      </div>
+      <div style="padding-top:32px"><a href="Writing.dc.html" style="font-size:14px;font-weight:500;color:#aba2fb">All writing →</a></div>
+    </section>
+
+    <!-- 7. Contact -->
+    <section style="max-width:1240px;margin:0 auto;padding:120px 24px 120px" data-screen-label="Contact">
+      <div style="max-width:760px">
+        <p style="font-size:12px;font-weight:500;color:#b7c0ca;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:24px">Contact</p>
+        <h2 style="font-size:clamp(22px,2.8vw,30px);font-weight:600;letter-spacing:-0.02em;line-height:1.25;margin-bottom:20px">If your team is scaling a product, a system, or both, let's talk.</h2>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-top:32px">
+          <a href="mailto:jon4ohio@gmail.com" style="display:inline-flex;align-items:center;gap:8px;background:#323a44;color:#f8fafc;font-size:14px;font-weight:500;padding:14px 28px;border-radius:8px" style-hover="background:#3c4550;color:#f8fafc">jon4ohio@gmail.com →</a>
+          <a href="https://linkedin.com/in/jon4ohio" target="_blank" style="font-size:14px;color:#b7c0ca" style-hover="color:#f0f3f5">LinkedIn ↗</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer style="border-top:1px solid #3c4550">
+    <div style="max-width:1240px;margin:0 auto;padding:48px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px">
+      <div>
+        <p style="font-weight:600;font-size:15px;margin-bottom:4px">John Ohio</p>
+        <p style="font-size:13px;color:#b7c0ca">Product Design Lead · Abuja, Nigeria</p>
+      </div>
+      <nav style="display:flex;gap:32px">
+        <a href="Work.dc.html" style="font-size:14px;color:#b7c0ca" style-hover="color:#f0f3f5">Case Studies</a>
+        <a href="About.dc.html" style="font-size:14px;color:#b7c0ca" style-hover="color:#f0f3f5">About</a>
+        <a href="Writing.dc.html" style="font-size:14px;color:#b7c0ca" style-hover="color:#f0f3f5">Writing</a>
+        <a href="Contact.dc.html" style="font-size:14px;color:#b7c0ca" style-hover="color:#f0f3f5">Contact</a>
+      </nav>
+      <div style="display:flex;gap:16px">
+        <a href="mailto:jon4ohio@gmail.com" style="font-size:13px;color:#aba2fb">jon4ohio@gmail.com</a>
+        <a href="https://linkedin.com/in/jon4ohio" target="_blank" style="font-size:13px;color:#b7c0ca" style-hover="color:#f0f3f5">LinkedIn ↗</a>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;gridMotion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const canvas = this._canvas;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    const COLS = 26, ROWS = 20, FL = 520;
+    const IDLE_FPS_INTERVAL_MS = 1000 / 30;
+    const ACTIVE_BOOST_WINDOW_MS = 2000;
+    const RGB = [183, 192, 202]; // --fg-muted (dark theme)
+    let raf = null, lastDrawTs = 0, activeUntilTs = 0, dpr = 1;
+    const clamp = (v, mn, mx) => Math.min(mx, Math.max(mn, v));
+    const reduceMotion = () => window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const motionEnabled = () => (this.props.gridMotion ?? true) && !reduceMotion();
+
+    const drawFrame = (ts) => {
+      const t = ts * 0.001;
+      const W = canvas.offsetWidth, H = canvas.offsetHeight;
+      const [r, g, b] = RGB;
+      const anchorY = clamp(H * 0.98, H * 0.9, H - 8);
+      const ultraWideDampen = clamp(1800 / Math.max(W, 1), 0.9, 1);
+      const xSpread = 1200 * clamp(W / 1240, 1.0, 1.22) * ultraWideDampen;
+      const zSpread = 1100 * clamp(H / 720, 0.8, 1.15);
+      const waveScale = 1.45, yBase = 120;
+      ctx.clearRect(0, 0, W, H);
+      const pts = [];
+      for (let rI = 0; rI <= ROWS; rI++) {
+        pts[rI] = [];
+        for (let cI = 0; cI <= COLS; cI++) {
+          const nx = (cI / COLS) * 2 - 1, nz = rI / ROWS;
+          const x3 = nx * xSpread, z3 = (1 - nz) * zSpread + 80;
+          const wave1 = Math.sin(nx * 2.2 + nz * 1.8 - t * 0.55) * 38;
+          const wave2 = Math.sin(nx * 4.1 - nz * 2.6 + t * 0.38) * 16;
+          const y3 = (wave1 + wave2) * waveScale - yBase;
+          const scale = FL / (FL + z3);
+          const sx = W * 0.5 + x3 * scale;
+          const sy = anchorY + y3 * scale;
+          const depthFade = nz * 0.9;
+          const sideFade = Math.abs(nx) * 0.4 + 0.6;
+          const alpha = Math.min(Math.pow(depthFade * sideFade * 0.11 * 1.25, 0.78), 0.16);
+          pts[rI][cI] = { sx, sy, alpha };
+        }
+      }
+      ctx.lineWidth = 0.65 / Math.max(1, dpr);
+      for (let rI = 0; rI <= ROWS; rI++) for (let cI = 0; cI < COLS; cI++) {
+        const p1 = pts[rI][cI], p2 = pts[rI][cI + 1];
+        const a = (p1.alpha + p2.alpha) * 0.5;
+        if (a < 0.003) continue;
+        ctx.beginPath(); ctx.moveTo(p1.sx, p1.sy); ctx.lineTo(p2.sx, p2.sy);
+        ctx.strokeStyle = `rgba(${r},${g},${b},${a})`; ctx.stroke();
+      }
+      for (let cI = 0; cI <= COLS; cI++) for (let rI = 0; rI < ROWS; rI++) {
+        const p1 = pts[rI][cI], p2 = pts[rI + 1][cI];
+        const a = (p1.alpha + p2.alpha) * 0.5;
+        if (a < 0.003) continue;
+        ctx.beginPath(); ctx.moveTo(p1.sx, p1.sy); ctx.lineTo(p2.sx, p2.sy);
+        ctx.strokeStyle = `rgba(${r},${g},${b},${a})`; ctx.stroke();
+      }
+    };
+
+    const resize = () => {
+      const cssW = canvas.offsetWidth, cssH = canvas.offsetHeight;
+      const now = performance.now();
+      const isActive = now < activeUntilTs;
+      dpr = !motionEnabled() ? 1 : isActive ? Math.min(window.devicePixelRatio || 1, 2) : 1;
+      canvas.width = Math.floor(cssW * dpr);
+      canvas.height = Math.floor(cssH * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (!motionEnabled()) drawFrame(performance.now());
+    };
+
+    const tick = (ts) => {
+      raf = null;
+      if (document.hidden || !motionEnabled()) return;
+      const isActive = ts < activeUntilTs;
+      if (!isActive && ts - lastDrawTs < IDLE_FPS_INTERVAL_MS) { raf = requestAnimationFrame(tick); return; }
+      const desiredDpr = isActive ? Math.min(window.devicePixelRatio || 1, 2) : 1;
+      if (Math.abs(desiredDpr - dpr) > 0.001) resize();
+      lastDrawTs = ts;
+      drawFrame(ts);
+      raf = requestAnimationFrame(tick);
+    };
+
+    const bumpActive = () => {
+      const prevActive = performance.now() < activeUntilTs;
+      activeUntilTs = performance.now() + ACTIVE_BOOST_WINDOW_MS;
+      if (!prevActive) resize();
+      if (!document.hidden && raf == null && motionEnabled()) raf = requestAnimationFrame(tick);
+    };
+
+    const onVisibility = () => {
+      if (document.hidden) { if (raf != null) cancelAnimationFrame(raf); raf = null; return; }
+      resize();
+      if (motionEnabled() && raf == null) raf = requestAnimationFrame(tick);
+    };
+
+    resize();
+    window.addEventListener("resize", resize);
+    document.addEventListener("visibilitychange", onVisibility);
+    const evts = ["pointermove", "pointerdown", "wheel", "scroll", "keydown", "touchstart"];
+    for (const e of evts) window.addEventListener(e, bumpActive, { passive: true });
+    if (motionEnabled()) raf = requestAnimationFrame(tick);
+    this._cleanup = () => {
+      window.removeEventListener("resize", resize);
+      document.removeEventListener("visibilitychange", onVisibility);
+      for (const e of evts) window.removeEventListener(e, bumpActive);
+      if (raf != null) cancelAnimationFrame(raf);
+    };
+  }
+  componentWillUnmount() { if (this._cleanup) this._cleanup(); }
+  renderVals() {
+    return { canvasRef: (el) => { this._canvas = el; } };
+  }
+}
+</script>
+</body>
+</html>
