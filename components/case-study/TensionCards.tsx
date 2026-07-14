@@ -20,15 +20,13 @@ export default function TensionCards({
   embedded?: boolean;
 }) {
   const grid = (
-    <div className="case-study-tension-grid" style={{ display: "flex", gap: 16, marginTop: embedded ? 24 : 28 }}>
+    <div className="case-study-tension-grid" style={{ display: "flex", gap: 40, marginTop: embedded ? 28 : 36 }}>
       {cards.map((c) => (
         <div
           key={c.number}
           style={{
-            border: "1px solid var(--border)",
-            borderRadius: 8,
-            padding: "28px 24px",
-            background: "var(--surface)",
+            borderTop: "1px solid var(--border)",
+            paddingTop: 24,
             flex: 1,
             minWidth: 0,
           }}
@@ -38,15 +36,15 @@ export default function TensionCards({
             style={{
               fontSize: 48,
               fontWeight: 800,
-              /* sand-70 / fg-muted: ≥3:1 on surface for large decorative index (axe color-contrast) */
+              /* sand-70 / fg-muted: ≥3:1 on bg for large decorative index (axe color-contrast) */
               color: "var(--fg-muted)",
               lineHeight: 1,
             }}
           >
             {c.number}
           </div>
-          <div style={{ marginTop: 12, fontSize: 15, fontWeight: 600, color: "var(--fg)" }}>{c.title}</div>
-          <p style={{ marginTop: 8, fontSize: 14, color: "var(--fg-body)", lineHeight: 1.7 }}>{c.body}</p>
+          <div style={{ marginTop: 16, fontSize: 16, fontWeight: 600, color: "var(--fg)" }}>{c.title}</div>
+          <p style={{ marginTop: 8, fontSize: 14.5, color: "var(--fg-body)", lineHeight: 1.7 }}>{c.body}</p>
         </div>
       ))}
     </div>

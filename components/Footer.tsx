@@ -1,6 +1,13 @@
 import { Link } from "@/components/ui/Link";
 import { getContactMailtoHref } from "@/lib/contact";
 
+const footerNav = [
+  { label: "Case Studies", href: "/work" },
+  { label: "About", href: "/about" },
+  { label: "Writing", href: "/thinking" },
+  { label: "Contact", href: "/contact" },
+] as const;
+
 export default function Footer() {
   const mailtoHref = getContactMailtoHref();
   return (
@@ -19,14 +26,11 @@ export default function Footer() {
       >
         <div>
           <p style={{ fontWeight: 600, fontSize: 15, marginBottom: 4 }}>John Ohio</p>
-          <p style={{ fontSize: 13, color: "var(--fg-muted)" }}>Lead Product Designer · Abuja, Nigeria</p>
+          <p style={{ fontSize: 13, color: "var(--fg-muted)" }}>Product Design Lead · Abuja, Nigeria</p>
         </div>
 
-        <nav aria-label="Footer navigation" className="footer-nav" style={{ display: "flex", gap: 32 }}>
-          {[
-            { label: "Case Studies", href: "/work" },
-            { label: "About", href: "/about" },
-          ].map((l) => (
+        <nav aria-label="Footer navigation" className="footer-nav" style={{ display: "flex", gap: 32, flexWrap: "wrap" }}>
+          {footerNav.map((l) => (
             <Link key={l.href} href={l.href} style={{ fontSize: 14, color: "var(--fg-muted)", textDecoration: "none" }}>
               {l.label}
             </Link>
@@ -37,7 +41,12 @@ export default function Footer() {
           <a href={mailtoHref} style={{ fontSize: 13, color: "var(--accent-orange)", textDecoration: "none" }}>
             jon4ohio@gmail.com
           </a>
-          <a href="https://linkedin.com/in/jon4ohio" target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: "var(--fg-muted)", textDecoration: "none" }}>
+          <a
+            href="https://linkedin.com/in/jon4ohio"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ fontSize: 13, color: "var(--fg-muted)", textDecoration: "none" }}
+          >
             LinkedIn ↗
           </a>
         </div>

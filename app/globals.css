@@ -357,7 +357,9 @@ body {
   color: var(--fg);
   font-size: 16px;
   line-height: 1.6;
-  overflow-x: hidden;
+  /* `clip` prevents horizontal scroll without creating a scroll container —
+     `hidden` here would break position: sticky (case-study rail titles). */
+  overflow-x: clip;
 }
 
 /* Typography: reduce orphans with better wrapping */
@@ -369,12 +371,22 @@ p, li {
   hyphens: auto;
 }
 
-.section-label {
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--fg-muted);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.about-intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 80px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .about-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.nav-cta-link:hover,
+.nav-cta-link:focus-visible {
+  color: var(--fg);
 }
 
 /* Hero h1 — natural wrap on narrow viewports; intentional two lines from tablet up */
@@ -467,6 +479,18 @@ p, li {
   transform: translateX(4px);
   color: var(--fg);
 }
+.work-list-cta {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent-orange);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.work-list-row:hover .work-list-cta,
+.work-list-row:focus-visible .work-list-cta {
+  transform: translateX(4px);
+  color: var(--fg);
+}
 .grid-systems-group a:not(.system-project-link):hover,
 .home-systems-group a:not(.system-project-link):hover {
   text-decoration: underline;
@@ -544,8 +568,8 @@ p, li {
 .case-study-nav-link:focus-visible {
   background: var(--surface-hover);
 }
-.nav-desktop-links a:hover {
-  background: var(--surface-hover);
+.page-crumb-back:hover,
+.page-crumb-link:hover {
   color: var(--fg);
 }
 .footer-nav a:hover,
@@ -819,7 +843,7 @@ button:focus-visible {
 .work-list-row {
   display: grid;
   /* Thumb uses a 16:9 aspect box; 240px height => ~427px width */
-  grid-template-columns: minmax(240px, 427px) minmax(0, 1fr) 28px;
+  grid-template-columns: minmax(240px, var(--work-thumb-max, 427px)) minmax(0, 1fr);
   align-items: start;
   gap: 20px 28px;
   min-width: 0;
@@ -831,8 +855,36 @@ button:focus-visible {
   color: inherit;
   transition: background 0.15s ease;
 }
+.work-list-row--dashed {
+  border: 1px dashed var(--border);
+}
+.work-list-row--compact {
+  display: grid;
+  grid-template-columns: minmax(160px, 220px) minmax(0, 1fr) 28px;
+  gap: 24px;
+  align-items: baseline;
+  padding: 20px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  border-radius: 10px;
+}
+.work-list-compact-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  margin: 0;
+}
+.work-list-compact-desc {
+  font-size: 14px;
+  color: var(--fg-muted);
+  line-height: 1.6;
+  margin: 0;
+}
 .work-list-thumb {
   min-width: 0;
+}
+.work-list-thumb--sm {
+  max-width: 280px;
 }
 
 /* Case study: 2-up image galleries stack on narrow viewports */
@@ -886,9 +938,32 @@ button:focus-visible {
     flex-direction: column !important;
     gap: 32px !important;
   }
+  .case-study-figure-pair {
+    flex-direction: column !important;
+    gap: 32px !important;
+  }
 }
-.work-list-body {
-  min-width: 0;
+
+/* Case study rail sections: sticky title column beside scrolling body */
+.case-study-rail-title {
+  width: 264px;
+  flex-shrink: 0;
+  position: sticky;
+  /* Clears fixed header (56) + sticky chapter nav (44) with breathing room */
+  top: 124px;
+}
+@media (max-width: 900px) {
+  .case-study-rail {
+    flex-direction: column !important;
+    gap: 28px !important;
+  }
+  .case-study-rail-title {
+    position: static;
+    width: auto;
+  }
+}
+.work-list-metrics {
+  margin-bottom: 12px;
 }
 
 /* Homepage hero metrics — minimalist editorial report style */
@@ -1017,18 +1092,6 @@ button:focus-visible {
   .grid-systems-group { grid-template-columns: 160px 1fr; gap: 24px; }
   .grid-systems-group--narrow { grid-template-columns: 120px 1fr; }
   .grid-systems-group--wide { grid-template-columns: 200px 1fr; }
-  .work-list-item {
-    grid-template-columns: 40px minmax(0, 1fr);
-    gap: 0 20px;
-  }
-  .work-list-item--no-idx {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0;
-  }
-  .work-list-row {
-    grid-template-columns: minmax(200px, 356px) minmax(0, 1fr) 24px;
-    gap: 16px 20px;
-  }
 }
 
 /* Homepage hero primary CTAs — stack full-width on small screens */
@@ -1036,6 +1099,11 @@ button:focus-visible {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  align-items: center;
+}
+.hero-cta-secondary:hover {
+  background: var(--surface-hover);
+  color: var(--fg);
 }
 @media (max-width: 640px) {
   .hero-cta {
@@ -1051,6 +1119,8 @@ button:focus-visible {
   }
 }
 
+
+
 /* ── Mobile  ≤ 640px ─────────────────────────────── */
 @media (max-width: 640px) {
   .grid-2         { grid-template-columns: 1fr; }
@@ -1059,47 +1129,13 @@ button:focus-visible {
   .grid-3         { grid-template-columns: 1fr; }
   .grid-work-feat { grid-template-columns: 1fr; }
 
-  .work-list-item {
-    grid-template-columns: auto 1fr;
-    column-gap: 12px;
-    align-items: start;
-    padding: 20px 0;
+  .work-list-row--compact {
+    grid-template-columns: minmax(0, 1fr) 28px;
+    gap: 12px;
   }
-  .work-list-item--no-idx {
-    grid-template-columns: 1fr;
-    column-gap: 0;
-  }
-  .work-list-idx {
-    grid-column: 1;
-    grid-row: 1;
-    padding-top: 12px;
-  }
-  .work-list-row {
-    grid-column: 2;
-    grid-row: 1;
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  .work-list-item--no-idx .work-list-row {
-    grid-column: 1;
-    grid-row: 1;
-  }
-  .work-list-arrow {
-    grid-column: 1 / -1;
-    grid-row: 4;
+  .work-list-row--compact .work-list-arrow {
     justify-self: end;
-    align-self: end;
-    padding-right: 0 !important;
-    padding-top: 8px;
-  }
-  .work-list-thumb {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    max-width: 100%;
-  }
-  .work-list-body {
-    grid-column: 1 / -1;
-    grid-row: 3;
+    padding-top: 4px;
   }
 
   /* Selected systems / capabilities rows stack on mobile */
@@ -1150,12 +1186,6 @@ button:focus-visible {
 /* ─────────────────────────────────────────────────────
    Navigation responsive
 ───────────────────────────────────────────────────── */
-.nav-desktop-links {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
 .nav-desktop-cta {
   display: inline-flex;
   align-items: center;
@@ -1273,10 +1303,9 @@ button:focus-visible {
 }
 
 @media (max-width: 640px) {
-  .nav-desktop-links { display: none !important; }
-  .nav-desktop-cta   { display: none !important; }
-  .nav-hamburger     { display: flex !important; }
-  .nav-mobile-panel  { display: flex; }
+  .nav-desktop-cta  { display: none !important; }
+  .nav-hamburger    { display: flex !important; }
+  .nav-mobile-panel { display: flex; }
 }
 
 /* Evidence review — ADR-069 */

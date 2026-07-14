@@ -8,7 +8,7 @@ export interface EvidenceModuleProps {
   intervention: string;
   figure: Omit<AnnotatedFigureProps, "imageOnly">;
   secondaryFigure?: AnnotatedFigureProps;
-  layout: "text-left" | "text-right";
+  layout: "text-left" | "text-right" | "rail";
   accent?: boolean;
   pullQuote?: string;
   /** Flagship decision spine — Context / Decision / Reasoning / Evidence / Outcome */
@@ -62,7 +62,114 @@ export default function EvidenceModule({
   decisionHeadline,
   pairFigures = false,
 }: EvidenceModuleProps) {
-  const isFlagshipDecision = Boolean(reasoning) || decisionLayout === "scan";
+  /* Evidence-only figure treatment is scoped to the scan layout; `reasoning`
+     alone renders as a third text block with fully annotated figures. */
+  const isFlagshipDecision = decisionLayout === "scan";
+
+  if (layout === "rail") {
+    const textBlocks = (
+      <div style={{ maxWidth: 640 }}>
+        {challengeLabel ? <Micro>{challengeLabel}</Micro> : null}
+        <p style={{ marginTop: challengeLabel ? 10 : 0, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>
+          {challenge}
+        </p>
+        <div style={{ marginTop: 18 }}>
+          {interventionLabel ? <Micro>{interventionLabel}</Micro> : null}
+          <p style={{ marginTop: interventionLabel ? 10 : 0, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>
+            {intervention}
+          </p>
+        </div>
+        {reasoning ? (
+          <div style={{ marginTop: 18 }}>
+            <Micro>{reasoningLabel}</Micro>
+            <p style={{ marginTop: 10, fontSize: 16, color: "var(--fg-body)", lineHeight: 1.75 }}>{reasoning}</p>
+          </div>
+        ) : null}
+        {pullQuote ? (
+          <blockquote
+            style={{
+              fontSize: 22,
+              fontWeight: 600,
+              fontStyle: "italic",
+              color: "var(--fg)",
+              borderLeft: "3px solid var(--fg)",
+              paddingLeft: 24,
+              margin: "40px 0 0",
+            }}
+          >
+            {pullQuote}
+          </blockquote>
+        ) : null}
+      </div>
+    );
+
+    const figures =
+      pairFigures && secondaryFigure ? (
+        <div className="case-study-figure-pair" style={{ display: "flex", gap: 24, alignItems: "flex-start" }}>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <AnnotatedFigure {...figure} />
+          </div>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <AnnotatedFigure {...secondaryFigure} hideDecisionNotes={secondaryFigure.hideDecisionNotes ?? true} />
+          </div>
+        </div>
+      ) : (
+        <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
+          <AnnotatedFigure {...figure} />
+          {secondaryFigure ? (
+            <AnnotatedFigure {...secondaryFigure} hideDecisionNotes={secondaryFigure.hideDecisionNotes ?? true} />
+          ) : null}
+        </div>
+      );
+
+    return (
+      <section
+        id={id}
+        style={{
+          padding: accent ? "64px 24px" : "0 24px",
+          background: accent ? "var(--surface-subtle)" : "transparent",
+        }}
+      >
+        <div
+          className="case-study-rail"
+          style={{ maxWidth: 1240, margin: "0 auto", display: "flex", gap: 56, alignItems: "flex-start" }}
+        >
+          <div className="case-study-rail-title">
+            <h3
+              style={{
+                fontSize: 22,
+                fontWeight: 700,
+                letterSpacing: "-0.02em",
+                lineHeight: 1.3,
+                color: "var(--fg)",
+                margin: 0,
+              }}
+            >
+              {decisionHeadline ?? phase}
+            </h3>
+          </div>
+          <div className="case-study-rail-body" style={{ flex: 1, minWidth: 0 }}>
+            {textBlocks}
+            <div style={{ marginTop: 40 }}>{figures}</div>
+            {outcome ? (
+              <p
+                style={{
+                  marginTop: 24,
+                  maxWidth: 640,
+                  fontSize: 16,
+                  fontWeight: 500,
+                  color: "var(--fg-body)",
+                  lineHeight: 1.75,
+                }}
+              >
+                {outcome}
+              </p>
+            ) : null}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   if (decisionLayout === "scan" && decisionHeadline) {
     return (

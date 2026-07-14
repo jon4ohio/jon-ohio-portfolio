@@ -75,4 +75,6 @@
 | 080 | Rivva flagship case study finalized — role, narrative, and cross-platform scope updated | Accepted | 2026-07-08 | None |
 | 081 | Rivva case study v2 — seven-section spine and merged decision evidence | Accepted | 2026-07-08 | None |
 | 082 | On-site field notes route (`/notes/[slug]`) | Accepted | 2026-07-08 | None |
+| 083 | Case-study editorial redesign (de-densify + composition pass) | Accepted | 2026-07-12 | None |
+| 084 | Portfolio marketing-shell redesign from Claude Design handoff | Accepted | 2026-07-14 | None |
 Chronological audit notes: [`LOG.md`](./LOG.md).

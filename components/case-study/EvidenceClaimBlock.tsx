@@ -10,6 +10,8 @@ export type EvidenceClaimBlockProps = {
   imageAlt: string;
   caption: string;
   outcome: string;
+  /** Omit the outer max-width/padding wrapper when rendered inside a rail body. */
+  bare?: boolean;
 };
 
 function Micro({ children }: { children: React.ReactNode }) {
@@ -37,9 +39,10 @@ export default function EvidenceClaimBlock({
   imageAlt,
   caption,
   outcome,
+  bare = false,
 }: EvidenceClaimBlockProps) {
   return (
-    <article style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px" }}>
+    <article style={bare ? undefined : { maxWidth: 1240, margin: "0 auto", padding: "0 24px" }}>
       <h3
         style={{
           fontSize: 20,

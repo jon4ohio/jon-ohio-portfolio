@@ -1,7 +1,12 @@
 "use client";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { expertiseEyebrow, heroHeadline, positioningLine } from "@/lib/sitePositioning";
+import {
+  expertiseEyebrow,
+  heroDomainsLine,
+  heroHeadline,
+  positioningLine,
+} from "@/lib/sitePositioning";
 
 function parseCssColorToRgb(inputRaw: string): [number, number, number] | null {
   const input = inputRaw.trim().toLowerCase();
@@ -350,7 +355,7 @@ export default function Hero() {
               lineHeight: 1.6,
             }}
           >
-            Available for work and advising · Based in Nigeria · Open to relocation
+            {heroDomainsLine}
           </p>
           <div className="animate-fade-up delay-5 hero-cta">
             <Link
@@ -369,7 +374,28 @@ export default function Hero() {
                 letterSpacing: "-0.01em",
               }}
             >
-              View case studies →
+              Case studies →
+            </Link>
+            <Link
+              href="/about"
+              className="hero-cta-secondary"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                fontSize: 14,
+                fontWeight: 500,
+                padding: "12px 24px",
+                borderRadius: 8,
+                border: "1px solid var(--border)",
+                background: "transparent",
+                color: "var(--fg)",
+                textDecoration: "none",
+                letterSpacing: "-0.01em",
+                transition: "background 0.15s, color 0.15s",
+              }}
+            >
+              Learn more about me →
             </Link>
           </div>
         </div>

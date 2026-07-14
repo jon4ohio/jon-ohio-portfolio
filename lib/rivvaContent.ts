@@ -1,8 +1,14 @@
 export type RivvaHeroMeta = {
+  eyebrow: string;
+  headline: string;
   subtitle: string;
   role: string;
   timeline: string;
-  team: string;
+  model: string;
+  outcome: string;
+  heroImageSrc: string;
+  heroImageAlt: string;
+  heroCaption: string;
   impact: Array<{ value: string; label: string }>;
 };
 
@@ -22,11 +28,18 @@ export type RivvaResultsTier = {
 };
 
 export const rivvaHeroMeta: RivvaHeroMeta = {
+  eyebrow: "Flagship Case Study · Rivva",
+  headline: "Rivva turned a validated AI beta into a product people could trust with their day.",
   subtitle:
-    "Rivva used AI and wearable health data to recommend when to focus, recover, or reschedule, based on energy rather than availability. I joined the founding product team during its beta phase and led day-to-day product design through launch.",
-  role: "Lead Product Designer · Founding Product Team (Contract)",
-  timeline: "July 2025 – January 2026",
-  team: "CEO · COO · Machine Learning Engineer · Full-stack Engineers · Product Design",
+    "Rivva is an AI scheduling platform that plans your day around your energy, not just your calendar. I joined the founding product team to help prepare it for launch, leading day-to-day product design alongside the founders.",
+  role: "Product Design Lead, founding product team",
+  timeline: "Jul 2025 – Jan 2026",
+  model: "Co-led with the founding team",
+  outcome: "Shipped on Web, iOS, and Android",
+  heroImageSrc: "/assets/work/rivva/rivva-hero.png",
+  heroImageAlt: "Rivva product overview",
+  heroCaption:
+    "Rivva at launch. A scheduling experience where AI recommendations and user control share the same surface, so plans stay flexible without becoming unpredictable.",
   impact: [
     { value: "#4", label: "Product Hunt" },
     { value: "500+", label: "Downloads" },
@@ -36,121 +49,115 @@ export const rivvaHeroMeta: RivvaHeroMeta = {
 };
 
 export const rivvaOpportunity: string[] = [
-  "Most productivity tools schedule around calendars. Rivva scheduled around people, using AI and wearable signals to understand cognitive energy and recommend when someone should focus, recover, or reschedule.",
-  "By the time I joined, the idea had already been validated through an early beta. Users responded to it. The company was preparing to launch, and the founders' attention was expanding into fundraising, partnerships, and operations.",
-  "The product still needed someone focused entirely on it. That's why I joined the founding product team, to keep day-to-day design and product decisions moving while the founders built the company around it.",
+  "Most scheduling tools treat every hour as equal. Rivva doesn't. It learns when you have energy and plans your most important work for those windows. That idea resonated: the beta validated demand, and the company had real momentum.",
+  "When I joined, Rivva was preparing to go from beta to public launch across three platforms. The founding team was small, and the co-founder leading product was increasingly pulled into company leadership, fundraising, and partnerships. The product needed someone to maintain design momentum every day.",
+  "That is why the team expanded, and why I joined.",
 ];
 
 export const rivvaPreparingForLaunchIntro: string[] = [
-  "The vision wasn't the problem. Getting people to trust it was.",
-  "During beta, a few issues kept surfacing:",
+  "The beta worked. It wasn't ready.",
+  "Beta users liked what Rivva promised but struggled with what it did. Recommendations appeared without explanation, so people didn't know whether to accept them. The web, iOS, and Android experiences had drifted apart. Patterns that meant one thing on one platform meant something else on another.",
 ];
 
 export const rivvaPreparingForLaunchBullets: string[] = [
-  "AI scheduling recommendations weren't always easy to understand.",
-  "The product behaved differently depending on whether someone was on web, mobile, or talking to Nia, Rivva's AI assistant.",
-  "Because behaviour wasn't consistent, trust didn't build the way the product needed it to.",
+  "AI recommendations appeared without explanation.",
+  "Web, iOS, and Android had drifted into inconsistent patterns.",
+  "Trust in the underlying technology had not caught up.",
 ];
 
 export const rivvaPreparingForLaunchClose: string[] = [
-  "None of this was a modelling problem. It was a communication problem.",
+  "The underlying technology was good. Trust in it had not caught up.",
   "The challenge wasn't building more AI. It was making AI understandable enough for everyday use.",
 ];
 
 export const rivvaRoleCollaboration =
-  "I worked closely with co-founder John Etokhana throughout the engagement. As his time increasingly went toward company leadership, investors, and partnerships, he stayed involved in product vision and design validation, and I took on day-to-day product design, interaction design, and the day-to-day collaboration with engineering and machine learning.";
+  "Rivva remained founder-led throughout. Co-founder John Etokhana continued shaping product direction while balancing company leadership, fundraising, partnerships, and investor relations. I joined the founding product team to maintain product momentum, leading day-to-day product design and working closely with him and with engineering to prepare the product for launch.";
 
 export const rivvaLed: string[] = [
-  "Product experience",
-  "AI interaction design",
-  "Web application",
-  "Nia's conversational UX",
-  "User journeys",
-  "Product refinement",
-  "Engineering collaboration",
+  "Day-to-day product design across Web, iOS, and Android",
+  "Interaction patterns for AI recommendations",
+  "Cross-platform consistency and launch readiness",
 ];
 
 export const rivvaWorkedCloselyOn: string[] = [
-  "Product strategy",
-  "Mobile UX",
-  "AI interaction rules",
-  "Launch planning",
+  "Product direction and prioritization with the founders",
+  "Recommendation behavior with the ML team",
+  "Implementation details with engineering",
 ];
 
-export const rivvaRoleClose =
-  "The goal was never to redesign Rivva. It was to make an ambitious idea practical enough to ship.";
+export const rivvaRoleClose = "Everything after this section is about the product.";
 
 export const rivvaProductDecisions: RivvaProductDecision[] = [
   {
-    title: "Decision one: make recommendations understandable before making them automatic",
+    title: "Make AI recommendations easier to understand.",
     problem:
-      "Users didn't understand why Rivva had moved their schedule, so they didn't act on what it suggested.",
+      "In beta, Rivva moved things on people's schedules without saying why. Users either accepted blindly or ignored the AI entirely. Neither is trust.",
     decision:
-      "We built a layer that explained the reasoning behind every scheduling suggestion, before asking anyone to act on it.",
+      "We decided that no recommendation would appear without an explanation a non-technical person could read in one glance. That constraint shaped the interaction model: recommend, explain, then let the user decide.",
     outcome:
-      "People could evaluate a recommendation instead of guessing at it. That's what made the next decision possible.",
-    imageSrc: "/assets/work/rivva/block-nia-explanation.png",
-    imageAlt: "Nia explanation flow — contextual AI scheduling recommendations",
+      "Acceptance of recommendations went up because people finally understood what they were agreeing to.",
+    imageSrc: "/assets/work/rivva/rivva-nia.png",
+    imageAlt: "Rivva recommendation explanation interface",
     caption:
-      "Before Rivva could ask people to trust a recommendation, it had to say why it was making one. Every scheduling change now carries a short, plain explanation of the reasoning behind it.",
+      "Every recommendation now carries its reasoning. Before Rivva asks users to act, it explains what it noticed and why the change helps.",
   },
   {
-    title: "Decision two: make Rivva behave the same way everywhere",
+    title: "Create one consistent experience across every touchpoint.",
     problem:
-      "Web, mobile, and Nia had grown into three different products. The same request could produce three different experiences depending on where someone made it.",
+      "The web, iOS, and Android apps had been built at different speeds by different hands. The same feature looked and behaved three ways. For a product asking people to trust its judgment, inconsistency read as unreliability.",
     decision:
-      "Working with engineering, we defined one shared set of interaction rules and applied it across every surface, rather than fixing each product's interface on its own.",
+      "Instead of redesigning each platform separately, we defined the core patterns once and adapted them to each platform's conventions. Engineering could build against one source of truth instead of three interpretations.",
     outcome:
-      "Someone could move between web, mobile, and Nia without relearning how the product behaved.",
-    imageSrc: "/assets/work/rivva/block-cross-platform.png",
-    imageAlt: "Shared interaction patterns across Rivva web and mobile",
+      "The product shipped on all three platforms simultaneously at launch, something the team could not have attempted in beta.",
+    imageSrc: "/assets/work/rivva/rivva-cross-platform.png",
+    imageAlt: "Rivva across web, iOS, and Android",
     caption:
-      "We rebuilt the underlying interaction patterns first, so a decision made on web and a decision made through Nia followed the same logic before either surface was restyled.",
+      "One experience across Web, iOS, and Android. The same patterns mean the same things everywhere, so switching devices never means relearning the product.",
   },
   {
-    title: "Decision three: schedule around energy, not availability",
+    title: "Design around how people actually work, not how calendars work.",
     problem:
-      "Even with consistent behaviour, the underlying schedule still optimised for open calendar slots, which is the exact assumption Rivva was built to challenge.",
+      "Calendars assume every hour is interchangeable. Rivva's whole premise is that it isn't. But the beta still presented the day as a standard grid of time slots, which buried the product's core idea.",
     decision:
-      "We rebuilt the planner around energy signals, so a free slot on the calendar wasn't automatically treated as the right time to work.",
+      "We rebuilt the planner around energy and priorities rather than empty slots. The planner evolved from a static scheduling tool into a decision-making workspace, helping users understand why Rivva recommended changes before asking them to act.",
     outcome:
-      "The schedule started reflecting how someone could actually work that day, not just what their calendar allowed.",
-    imageSrc: "/assets/work/rivva/block-web-dashboard.png",
-    imageAlt: "Rivva planner with energy-aware scheduling recommendations",
+      "Users stopped treating Rivva as another calendar and started treating it as the place where they decided their day.",
+    imageSrc: "/assets/work/rivva/rivva-dashboard.png",
+    imageAlt: "Rivva planner workspace",
     caption:
-      'The planner stopped asking "what\'s free" and started asking "what makes sense," weighing recovery and focus alongside open time.',
+      "The planner became the centre of the experience, combining AI recommendations with user control so schedules remained flexible without becoming unpredictable.",
   },
 ];
 
-export const rivvaResultsIntro =
-  "The work helped take Rivva from beta to a public release across web, iOS, and Android.";
+export const rivvaResultsIntro = "How the story ended. And keeps going.";
 
 export const rivvaResultsTiers: RivvaResultsTier[] = [
   {
     category: "Launch",
-    items: ["#4 Product Hunt — release day across web, iOS, and Android"],
+    items: [
+      "The product shipped across Web, iOS, and Android and reached Product Hunt shortly after launch.",
+      "#4 Product of the Day, a team result",
+    ],
   },
   {
     category: "Adoption",
     items: [
-      "500+ downloads in the weeks following launch",
-      "30+ paying customers — for a product asking people to change how they think about scheduling entirely",
+      "Early customers validated that people were willing to trust a different approach to productivity.",
+      "500+ downloads · 30+ paying customers",
     ],
   },
   {
     category: "Engagement",
     items: [
-      "~10% conversion rate",
-      "Average sessions above six minutes — people weren't just trying Rivva once; they were coming back to it",
+      "Usage patterns suggested that people continued returning after onboarding rather than abandoning the experience.",
+      "Further engagement metrics pending final confirmation",
     ],
   },
 ];
 
 export const rivvaReflection: string[] = [
-  "Rivva changed how I think about AI products.",
-  "The lesson wasn't about the model. It was about trust, and trust came from explanation, consistency, and giving people some control over decisions made on their behalf, not from making the AI more sophisticated.",
-  "I've carried that into every AI-related product since, from SeamlessHiring to SeamKit: reduce the complexity a user has to hold in their head, and give them a reason to believe the system.",
+  "Rivva changed the way I think about AI products. The quality of an AI product depends as much on how decisions are communicated as on how they are made. A recommendation that cannot explain itself is a demand, and people do not build habits around demands.",
+  "That perspective followed me into later work. The explanation patterns we shaped at Rivva informed how I approach AI features inside enterprise products, where the cost of unexplained automation is even higher.",
 ];
 
-export const rivvaDesignPrinciple =
-  "People don't trust AI because it's intelligent. They trust it because they understand how it works.";
+export const rivvaDesignPrinciple = "People trust products they can understand. AI is no different.";

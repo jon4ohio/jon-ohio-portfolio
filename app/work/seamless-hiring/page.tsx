@@ -8,6 +8,8 @@ import { type Phase } from "@/components/case-study/PhaseTimeline";
 import EvidenceModule from "@/components/case-study/EvidenceModule";
 import AnnotatedFigure from "@/components/case-study/AnnotatedFigure";
 import DecisionAccordion from "@/components/case-study/DecisionAccordion";
+import SectionDivider from "@/components/case-study/SectionDivider";
+import RailSection from "@/components/case-study/RailSection";
 import OutcomeCards, { type OutcomeTier } from "@/components/case-study/OutcomeCards";
 import UnlockPanel from "@/components/case-study/UnlockPanel";
 import YouTubePosterPlayer from "@/components/case-study/YouTubePosterPlayer";
@@ -138,10 +140,13 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         executiveBrief={project.brief}
       />
 
-      <TensionCards
-        label="02 Core Tensions"
-        heading="What was broken"
-        subhead="Three systemic failures that made redesign unavoidable — not isolated interface issues, but structural breakdowns that prevented the system from supporting enterprise hiring at scale."
+      <RailSection id="tensions" eyebrow="02 Core Tensions" title="What was broken">
+        <p style={{ margin: 0, fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.6, maxWidth: 640 }}>
+          Three systemic failures that made redesign unavoidable — not isolated interface issues, but structural
+          breakdowns that prevented the system from supporting enterprise hiring at scale.
+        </p>
+        <TensionCards
+        embedded
         cards={[
           {
             number: "01",
@@ -162,9 +167,11 @@ export default function SeamlessHiringFlagshipCaseStudy() {
               "Legacy RBAC could not support multi-entity client realities, forcing manual CS workarounds and capping how large the platform could sell.",
           },
         ]}
-      />
+        />
+      </RailSection>
 
-      <div style={{ maxWidth: 1240, margin: "32px auto 0", padding: "0 24px", display: "flex", flexDirection: "column", gap: 48 }}>
+      <RailSection title="The system before redesign" ariaLabel="The system before redesign">
+        <div style={{ display: "flex", flexDirection: "column", gap: 64 }}>
         <AnnotatedFigure
           figure="B"
           label="The experience before redesign"
@@ -193,22 +200,18 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           caption="The redesign spanned three years across five phases — with an AI-powered layer added only after workflow trust was restored."
           hideDecisionNotes
         />
-      </div>
-
-      <section id="evidence" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
-        <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          03 Evidence in Practice
-        </p>
-        <div style={{ marginTop: 24 }}>
-          <PhaseTimeline phases={phases} />
         </div>
-      </section>
+      </RailSection>
 
-      <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 72 }}>
+      <RailSection id="evidence" eyebrow="03 Evidence in Practice">
+        <PhaseTimeline phases={phases} />
+      </RailSection>
+
+      <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 96 }}>
         <EvidenceModule
           id="phase-I"
           phase="Phase I — Stabilize"
-          layout="text-left"
+          layout="rail"
           challengeLabel=""
           interventionLabel="Intervention"
           challenge={
@@ -229,6 +232,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
               "Required fields enforced at creation stage, not mid-application — eliminating a class of errors that only surfaced after applicant submission",
             ],
           }}
+          pairFigures
           secondaryFigure={{
             figure: 1,
             label: "ATS Application Management",
@@ -240,14 +244,12 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           }}
         />
 
-        <div style={{ padding: "0 24px" }}>
-          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
-        </div>
+        <SectionDivider />
 
         <EvidenceModule
           id="phase-II"
           phase="Phase II — Streamline"
-          layout="text-right"
+          layout="rail"
           challengeLabel=""
           interventionLabel="Intervention"
           challenge={
@@ -270,14 +272,12 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           }}
         />
 
-        <div style={{ padding: "0 24px" }}>
-          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
-        </div>
+        <SectionDivider />
 
         <EvidenceModule
           id="phase-III"
           phase="Phase III — Structure"
-          layout="text-left"
+          layout="rail"
           challengeLabel=""
           interventionLabel="Intervention"
           challenge={
@@ -302,14 +302,12 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           }}
         />
 
-        <div style={{ padding: "0 24px" }}>
-          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
-        </div>
+        <SectionDivider />
 
         <EvidenceModule
           id="phase-IV"
           phase="Phase IV — Scale"
-          layout="text-right"
+          layout="rail"
           challengeLabel=""
           interventionLabel="Intervention"
           challenge={
@@ -332,14 +330,12 @@ export default function SeamlessHiringFlagshipCaseStudy() {
           }}
         />
 
-        <div style={{ padding: "0 24px" }}>
-          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
-        </div>
+        <SectionDivider />
 
         <EvidenceModule
           id="phase-V"
           phase="Phase V — Augment"
-          layout="text-left"
+          layout="rail"
           challengeLabel=""
           interventionLabel="Intervention"
           accent
@@ -382,16 +378,10 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         Those structural fixes restored workflow trust first — the judgments below explain what we traded off to get there.
       </p>
 
-      <section id="strategic-decisions" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
-        <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          04 Strategic Decisions
-        </p>
-        <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          Judgment, trade-offs, and outcomes
-        </h2>
+      <RailSection id="strategic-decisions" eyebrow="04 Strategic Decisions" title="Judgment, trade-offs, and outcomes">
         <p
           style={{
-            marginTop: 12,
+            margin: 0,
             fontSize: 15,
             color: "var(--fg-muted)",
             lineHeight: 1.7,
@@ -403,17 +393,11 @@ export default function SeamlessHiringFlagshipCaseStudy() {
         <div style={{ marginTop: 28, maxWidth: 760 }}>
           <DecisionAccordion entries={project.brief.strategicDecisions ?? []} />
         </div>
-      </section>
+      </RailSection>
 
-      <section id="outcomes" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
-        <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          05 Outcomes
-        </p>
-        <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          Results across four dimensions
-        </h2>
+      <RailSection id="outcomes" eyebrow="05 Outcomes" title="Results across four dimensions">
         <OutcomeCards tiers={outcomeTiers} />
-      </section>
+      </RailSection>
 
       <div style={{ maxWidth: 1240, margin: "48px auto 0", padding: "0 24px" }}>
         <p style={{ fontSize: 15, color: "var(--fg-muted)", fontStyle: "italic", lineHeight: 1.7, maxWidth: 760, margin: 0 }}>

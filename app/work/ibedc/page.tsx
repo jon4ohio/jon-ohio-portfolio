@@ -8,6 +8,8 @@ import { type Phase } from "@/components/case-study/PhaseTimeline";
 import EvidenceModule from "@/components/case-study/EvidenceModule";
 import OutcomeCards, { type OutcomeTier } from "@/components/case-study/OutcomeCards";
 import UnlockPanel from "@/components/case-study/UnlockPanel";
+import SectionDivider from "@/components/case-study/SectionDivider";
+import RailSection from "@/components/case-study/RailSection";
 import PrevNextNav from "@/components/case-study/PrevNextNav";
 import { getProject, projects } from "@/lib/projects";
 
@@ -130,10 +132,12 @@ export default function IbedcFlagshipCaseStudy() {
         workInProgress={project.workInProgress}
       />
 
-      <TensionCards
-        label="02 Core Tensions"
-        heading="What made this hard"
-        subhead="Three system failures that made fragmentation dangerous, not just inconvenient."
+      <RailSection id="tensions" eyebrow="02 Core Tensions" title="What made this hard">
+        <p style={{ margin: 0, fontSize: 15, color: "var(--fg-muted)", lineHeight: 1.6, maxWidth: 640 }}>
+          Three system failures that made fragmentation dangerous, not just inconvenient.
+        </p>
+        <TensionCards
+        embedded
         cards={[
           {
             number: "01",
@@ -154,29 +158,22 @@ export default function IbedcFlagshipCaseStudy() {
               "Staff at walk-in centres had no real-time view of transactions. Fraud was undetectable, disputes unresolvable, and revenue leakage structural — because there was no unified record of what had been paid, by whom, and through which channel.",
           },
         ]}
-      />
-
-      <div style={{ maxWidth: 1240, margin: "32px auto 0", padding: "0 24px" }}>
-        <p style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 760 }}>
+        />
+        <p style={{ marginTop: 32, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: 640 }}>
           The solution was not to digitise payments, but to unify how payments behave across channels — regardless of where the
           transaction originates.
         </p>
-      </div>
+      </RailSection>
 
-      <section id="evidence" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
-        <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          03 Evidence in practice
-        </p>
-        <div style={{ marginTop: 24 }}>
-          <PhaseTimeline phases={model} />
-        </div>
-      </section>
+      <RailSection id="evidence" eyebrow="03 Evidence in practice">
+        <PhaseTimeline phases={model} />
+      </RailSection>
 
-      <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 72 }}>
+      <div style={{ marginTop: 28, display: "flex", flexDirection: "column", gap: 96 }}>
         <EvidenceModule
           id="model-1"
           phase="Surface 1 — IBEDC Care App"
-          layout="text-left"
+          layout="rail"
           challenge="Self-service consumer experience: payment channel selection (bank transfer, Quickteller, FETS), token generation, and payment confirmation — designed for independent use without agent support."
           intervention="Multi-channel payment flow unified under a single billing model — customers choose method, system resolves identically."
           figure={{
@@ -194,14 +191,12 @@ export default function IbedcFlagshipCaseStudy() {
           }}
         />
 
-        <div style={{ padding: "0 24px" }}>
-          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
-        </div>
+        <SectionDivider />
 
         <EvidenceModule
           id="model-2"
           phase="Surface 2 — Agent POS Workflow"
-          layout="text-right"
+          layout="rail"
           challenge="Walk-in centre operations: agent login, bill lookup, payment initiation, and receipt printing. Agents step in and continue any transaction without switching systems or reprocessing."
           intervention="POS terminal workflow built on the same transaction logic as the app — agents and customers operate from one shared system."
           figure={{
@@ -217,14 +212,12 @@ export default function IbedcFlagshipCaseStudy() {
           }}
         />
 
-        <div style={{ padding: "0 24px" }}>
-          <div style={{ borderTop: "1px solid var(--border-subtle)", maxWidth: 1240, margin: "0 auto" }} />
-        </div>
+        <SectionDivider />
 
         <EvidenceModule
           id="model-3"
           phase="Layer 3 — Real-time visibility"
-          layout="text-left"
+          layout="rail"
           challenge="Token delivery became immediate. Transactions visible to staff at point of interaction. Disputes resolvable without escalation."
           intervention="Unified transaction record made reconciliation auditable across every channel — fraud detectable, revenue trackable."
           figure={{
@@ -242,18 +235,12 @@ export default function IbedcFlagshipCaseStudy() {
         />
       </div>
 
-      <section id="outcomes" style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
-        <p style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "0.08em", color: "var(--fg-subtle)" }}>
-          05 Outcomes
-        </p>
-        <h2 style={{ marginTop: 14, fontSize: 28, fontWeight: 700, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-          What the system delivered
-        </h2>
+      <RailSection id="outcomes" eyebrow="04 Outcomes" title="What the system delivered">
         <OutcomeCards tiers={outcomeTiers} />
-      </section>
+      </RailSection>
 
       <UnlockPanel
-        label="06 Foundations"
+        label="05 Foundations"
         items={[
           "The dual-surface model — validated at 2.4 million customer scale — established the template adopted by three external utilities without rebuilding from scratch.",
           "Shared transaction logic proved that digital and physical payment channels don't need separate systems. The same principle now applies to every utility operator that adopted the POS template.",

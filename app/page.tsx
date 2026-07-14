@@ -1,10 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
-import { siteDescription, siteTitle } from "@/lib/sitePositioning";
-import SystemModel from "@/components/SystemModel";
-import ProjectListingPreview from "@/components/ProjectListingPreview";
-import WorkInProgressBadge from "@/components/WorkInProgressBadge";
+import { availabilityLine, siteDescription, siteTitle } from "@/lib/sitePositioning";
+import WorkListRow from "@/components/WorkListRow";
 import { projects } from "@/lib/projects";
 import { getContactMailtoHref } from "@/lib/contact";
 
@@ -15,118 +13,136 @@ export const metadata: Metadata = {
   openGraph: {
     title: siteTitle,
     description:
-      "Lead Product Designer — design systems, enterprise UX, AI product design. Based in Nigeria, open to remote (UK/EU/US).",
+      "Product Design Lead — enterprise products, design systems, AI experiences. Based in Nigeria, open to remote (UK/EU/US).",
     url: "/",
     type: "website",
   },
 };
 
-const heroMetrics: Array<{ value: string; label: string }> = [
-  {
-    value: "$1M+",
-    label: "Saved through infrastructure redesign of a mobile money system",
-  },
-  {
-    value: "↑75%",
-    label: "Increase in user satisfaction from enterprise workflow re-architecture",
-  },
-  {
-    value: "12+",
-    label: "Teams onboarded to a unified design system (Seamkit)",
-  },
-  {
-    value: "#4",
-    label: "Product of the Day — Product Hunt launch (Rivva)",
-  },
-];
-
-const ownershipItems = [
+const selectedWork = [
   {
     slug: "seamkit",
-    name: "Seamkit",
+    displayTitle: "SeamKit",
+    company: "SeamlessHR",
     type: "Enterprise Design System",
+    lead: "Helping product teams build more consistently.",
     description:
-      "Coordinated designers, engineers, and product stakeholders across 12 teams to establish a token-driven system embedded across every SeamlessHR product.",
+      "Created a shared design system that standardized decisions before components, governing 12+ product teams across the organization.",
+    metrics: [
+      { value: "12+", label: "teams onboarded" },
+      { value: "2.49M", label: "token insertions" },
+      { value: "88.9", label: "adoption score" },
+    ],
   },
   {
     slug: "seamless-hiring",
-    name: "SeamlessHiring 2.0",
+    displayTitle: "SeamlessHiring",
+    company: "SeamlessHR",
     type: "Recruitment Management System",
+    lead: "Helping enterprise hiring teams work with less friction.",
     description:
-      "Led a phased rebuild with PM, engineering, and GTM — transforming an underperforming add-on into a flagship module and blueprint for suite-wide modernization.",
+      "Improved the highest-friction workflows through incremental modernization instead of a full redesign.",
+    metrics: [
+      { value: "75%", label: "higher satisfaction (27→74 NPS)" },
+      { value: "↓50%", label: "fewer support requests" },
+      { value: "↓24%", label: "fewer application drop-offs" },
+    ],
   },
   {
     slug: "fetsproza",
-    name: "FetsProza",
-    type: "Financial Operations",
+    displayTitle: "FetsProza",
+    company: "Fets",
+    type: "Financial Operations Platform",
+    lead: "Helping operations manage payments as one connected platform.",
     description:
-      "Designed the operating platform that unified a fragmented payment ecosystem—replacing vendor dependency with an owned financial operating model.",
+      "Designed the shared operating layer instead of replacing existing systems, retiring an external vendor.",
+    metrics: [
+      { value: "$1M+", label: "annual savings" },
+      { value: "2×", label: "transaction capacity" },
+      { value: "", label: "external vendor retired" },
+    ],
   },
   {
     slug: "ibedc",
-    name: "IBEDC Digital Transformation",
-    type: "Care App + POS System",
+    displayTitle: "IBEDC",
+    company: "Fets × IBEDC",
+    type: "Unified Billing System",
+    lead: "Helping a utility provider close the gap between billing and reality.",
     description:
-      "Designed consumer and field payment tools for one of Nigeria's largest electricity distributors — translating utility infrastructure into usable workflows at public-sector scale.",
-  },
-  {
-    slug: "rivva",
-    name: "Rivva",
-    type: "AI Scheduling Platform",
-    description:
-      "Helped Rivva turn a promising AI beta into a production-ready product by making AI scheduling understandable and trustworthy — #4 on Product Hunt, 500+ downloads, 30+ paying customers.",
+      "Designed consumer and field payment tools for one of Nigeria's largest electricity distributors, unifying billing across channels.",
+    metrics: [{ value: "↓80%", label: "fraud reduction" }],
   },
 ] as const;
 
-const homepageWritingItems = [
+const howIWork = [
   {
+    n: "01",
+    title: "Understand",
+    body: "Understand the product, people, and business before proposing solutions.",
+  },
+  {
+    n: "02",
+    title: "Simplify",
+    body: "Reduce complexity to the decisions that matter.",
+  },
+  {
+    n: "03",
+    title: "Standardize",
+    body: "Turn successful decisions into reusable patterns.",
+  },
+  {
+    n: "04",
+    title: "Scale",
+    body: "Help teams build consistently through shared systems.",
+  },
+] as const;
+
+const resultGroups = [
+  { category: "Business", value: "$1M+", label: "annual savings" },
+  { category: "Customer", value: "75%", label: "higher satisfaction" },
+  { category: "Organization", value: "12+", label: "teams aligned" },
+  { category: "Recognition", value: "↓80%", label: "fraud reduction" },
+] as const;
+
+const writingThemes = [
+  {
+    theme: "Enterprise Product Design",
     href: "/notes/design-doesnt-end-in-figma",
     title: "Design Doesn't End in Figma Anymore",
     meta: "Field note · Jul 2026",
   },
   {
+    theme: "Design Systems",
     href: "https://theuxcompany.substack.com/p/design-tokens-the-connective-tissue",
     title: "Design tokens: the connective tissue",
-    meta: "The UX Company — Substack",
+    meta: "The UX Company · Substack",
   },
   {
-    href: "https://techcabal.com/2026/02/13/john-ohio-quick-fire/",
-    title: "Quick Fire — AI, enterprise design, and product craft",
-    meta: "TechCabal · Feb 2026",
+    theme: "AI",
+    href: "https://www.youtube.com/watch?v=k7KGv6FYIhM&t=1549s",
+    title: "Embedding AI into design systems and product experiences",
+    meta: "Talk · AIDA 2025",
+  },
+  {
+    theme: "Organizational Design",
+    href: "https://www.youtube.com/watch?v=9NG7TWiyIjo",
+    title: "Design thinking for problem solving: beyond UX",
+    meta: "Talk · GDG Lagos, DevFest 2024",
   },
 ] as const;
 
 export default function Home() {
   const mailtoHref = getContactMailtoHref();
+  const rivva = projects.find((p) => p.slug === "rivva");
+
   return (
     <div style={{ paddingTop: 56 }}>
-      {/* ── 1. HERO ──────────────────────────────────────────── */}
       <Hero />
 
-      {/* ── 2. IMPACT ────────────────────────────────────────── */}
-      <section aria-label="Career metrics" style={{ padding: "0" }}>
-        <div style={{ maxWidth: 1240, margin: "0 auto", padding: "48px 24px 0" }}>
-          <p
-            className="section-label"
-            style={{ marginBottom: 0, paddingBottom: 20, borderBottom: "1px solid var(--border)" }}
-          >
-            Impact across products, systems, and operations
-          </p>
-          <div className="hero-metrics" style={{ paddingTop: 32 }}>
-            {heroMetrics.map((m) => (
-              <div key={`${m.value}-${m.label}`} className="hero-metric" style={{ whiteSpace: "normal" }}>
-                <p className="hero-metric-value">{m.value}</p>
-                <p className="hero-metric-label">{m.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 3. OWNERSHIP ─────────────────────────────────────── */}
-      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "120px 24px 0" }}>
+      {/* Selected Work */}
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "96px 24px 0" }}>
         <p className="section-label" style={{ marginBottom: 20 }}>
-          Systems I&apos;ve Shaped
+          Selected Work
         </p>
         <h2
           style={{
@@ -138,115 +154,94 @@ export default function Home() {
             maxWidth: 720,
           }}
         >
-          I design systems that scale.
+          Systems that ship, and the results they produced.
         </h2>
 
         <div className="work-list-stack">
-          {ownershipItems.map((item) => {
+          {selectedWork.map((item) => {
             const p = projects.find((project) => project.slug === item.slug);
             if (!p) return null;
-            const copy = ownershipItems.find((o) => o.slug === item.slug);
-            if (!copy) return null;
             return (
-              <div key={p.slug} className="work-list-item work-list-item--no-idx">
-                <Link
-                  href={`/work/${p.slug}`}
-                  className="work-list-row"
-                  aria-label={`${copy.name} — ${copy.type}`}
-                >
-                  <div className="work-list-thumb">
-                    <ProjectListingPreview slug={p.slug} title={copy.name} assets={p.assets} />
-                  </div>
-
-                  <div className="work-list-body">
-                    <div style={{ display: "flex", gap: 12, marginBottom: 10, flexWrap: "wrap" }}>
-                      <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{p.company}</span>
-                      <span aria-hidden="true" style={{ fontSize: 11, color: "var(--accent-orange)" }}>
-                        ·
-                      </span>
-                      <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{p.period}</span>
-                      {p.workInProgress ? (
-                        <>
-                          <span aria-hidden="true" style={{ fontSize: 11, color: "var(--accent-orange)" }}>
-                            ·
-                          </span>
-                          <WorkInProgressBadge />
-                        </>
-                      ) : null}
-                    </div>
-                    <h3
-                      style={{
-                        fontSize: 22,
-                        fontWeight: 600,
-                        letterSpacing: "-0.02em",
-                        marginBottom: 8,
-                        marginTop: 0,
-                      }}
-                    >
-                      {copy.name}
-                    </h3>
-                    <p style={{ fontSize: 14, color: "var(--fg-muted)", marginBottom: 10 }}>{copy.type}</p>
-
-                    <p
-                      style={{
-                        fontSize: 14,
-                        color: "var(--fg-body-muted)",
-                        lineHeight: 1.65,
-                        maxWidth: 720,
-                        marginBottom: 12,
-                      }}
-                    >
-                      {copy.description}
-                    </p>
-
-                    <div className="metric-badges" style={{ marginBottom: 12 }}>
-                      {p.metrics.map((m, j) => (
-                        <div key={j} className="metric-badge">
-                          <span className="metric-badge__value">{m.value}</span>
-                          <span className="metric-badge__label">{m.label}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                      {p.tags.map((t) => (
-                        <span
-                          key={t}
-                          style={{
-                            fontSize: 11,
-                            color: "var(--accent-orange)",
-                            border: "1px solid var(--border)",
-                            padding: "3px 8px",
-                            borderRadius: 4,
-                          }}
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div
-                    className="work-list-arrow"
-                    style={{ color: "var(--fg-subtle)", fontSize: 16, paddingTop: 4, paddingRight: 32 }}
-                    aria-hidden
-                  >
-                    →
-                  </div>
-                </Link>
-              </div>
+              <WorkListRow
+                key={item.slug}
+                href={`/work/${item.slug}`}
+                title={item.displayTitle}
+                company={item.company}
+                periodOrType={item.type}
+                lead={item.lead}
+                description={item.description}
+                metrics={[...item.metrics]}
+                project={p}
+                variant="home"
+              />
             );
           })}
-        </div>
 
-        <div style={{ paddingTop: 18 }}>
-          <Link href="/work" style={{ fontSize: 14, fontWeight: 500, color: "var(--accent-orange)", textDecoration: "none" }}>
-            View all case studies →
+          {rivva ? (
+            <WorkListRow
+              href="/work/rivva"
+              title="Rivva"
+              company="Rivva"
+              periodOrType="AI Scheduling Platform · Flagship"
+              lead="Co-led a new product from concept to market launch."
+              description="Founding team member. Product design co-led alongside the team, preparing a validated AI beta for everyday use. Strong day-one reception."
+              project={rivva}
+              variant="home"
+            />
+          ) : null}
+        </div>
+        <div style={{ paddingTop: 32 }}>
+          <Link
+            href="/work"
+            style={{
+              fontSize: 14,
+              fontWeight: 500,
+              color: "var(--accent-orange)",
+              textDecoration: "none",
+            }}
+          >
+            View more case studies →
           </Link>
         </div>
       </section>
 
-      {/* ── 4. THINKING ──────────────────────────────────────── */}
+      {/* How I Work */}
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "120px 24px 0" }}>
+        <p className="section-label" style={{ marginBottom: 20 }}>
+          How I Work
+        </p>
+        <h2
+          style={{
+            fontSize: "clamp(24px, 3vw, 36px)",
+            fontWeight: 600,
+            letterSpacing: "-0.02em",
+            lineHeight: 1.2,
+            marginBottom: 48,
+            maxWidth: 720,
+          }}
+        >
+          Understand → Simplify → Standardize → Scale
+        </h2>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gap: 32,
+          }}
+        >
+          {howIWork.map((step) => (
+            <div key={step.n} style={{ borderTop: "1px solid var(--border)", paddingTop: 20 }}>
+              <p style={{ fontSize: 12, color: "var(--fg-subtle)", marginBottom: 10 }}>{step.n}</p>
+              <h3 style={{ fontSize: 17, fontWeight: 600, marginBottom: 8, letterSpacing: "-0.01em" }}>
+                {step.title}
+              </h3>
+              <p style={{ fontSize: 14, color: "var(--fg-muted)", lineHeight: 1.65 }}>{step.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Results */}
       <section
         style={{
           background: "var(--surface)",
@@ -255,148 +250,153 @@ export default function Home() {
           marginTop: 120,
         }}
       >
-        <div style={{ maxWidth: 1240, margin: "0 auto", padding: "120px 24px" }}>
-          <p className="section-label" style={{ marginBottom: 20 }}>
-            Perspectives
-          </p>
-          <h2
-            style={{
-              fontSize: "clamp(24px, 3vw, 36px)",
-              fontWeight: 600,
-              letterSpacing: "-0.02em",
-              lineHeight: 1.2,
-              marginBottom: 16,
-              maxWidth: 720,
-            }}
-          >
-            I approach product design as a progression of system maturity — from fragmented experiences to intelligent, adaptive systems.
-          </h2>
+        <div style={{ maxWidth: 1240, margin: "0 auto", padding: "96px 24px" }}>
           <p
-            style={{
-              fontSize: 16,
-              color: "var(--fg-muted)",
-              lineHeight: 1.7,
-              maxWidth: 720,
-              marginBottom: 40,
-            }}
+            className="section-label"
+            style={{ marginBottom: 0, paddingBottom: 20, borderBottom: "1px solid var(--border)" }}
           >
-            Fragmented → Structured → Scalable → Intelligent
+            Results, grouped by the value they created
           </p>
-
-          <div style={{ paddingTop: 8, borderTop: "1px solid var(--border)" }}>
-            <SystemModel />
-          </div>
-
-          <p
-            style={{
-              fontSize: 15,
-              color: "var(--fg-muted)",
-              lineHeight: 1.7,
-              maxWidth: 720,
-              marginTop: 40,
-              paddingTop: 32,
-              borderTop: "1px solid var(--border)",
-            }}
-          >
-            My work focuses on moving products forward across this curve — designing not just interfaces, but the systems behind them.
-          </p>
-
-          <div style={{ marginTop: 40, paddingTop: 32, borderTop: "1px solid var(--border)" }}>
-            <p className="section-label" style={{ marginBottom: 16, fontSize: 12 }}>
-              Writing
-            </p>
-
-            <div style={{ display: "flex", flexDirection: "column", gap: 14, maxWidth: 720 }}>
-              {homepageWritingItems.map((item, index) => {
-                const isLast = index === homepageWritingItems.length - 1;
-                const isInternal = item.href.startsWith("/");
-                const linkStyle = { fontSize: 15, color: "var(--accent-orange)", textDecoration: "none" as const };
-                return (
-                  <div
-                    key={item.href}
-                    style={{
-                      paddingBottom: isLast ? 0 : 14,
-                      borderBottom: isLast ? "none" : "1px solid var(--border)",
-                    }}
-                  >
-                    {isInternal ? (
-                      <Link href={item.href} style={linkStyle}>
-                        {item.title}
-                      </Link>
-                    ) : (
-                      <a href={item.href} target="_blank" rel="noreferrer" style={linkStyle}>
-                        {item.title}
-                      </a>
-                    )}
-                    <p style={{ marginTop: 6, fontSize: 12, color: "var(--fg-subtle)" }}>{item.meta}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <div style={{ marginTop: 40, paddingTop: 32, borderTop: "1px solid var(--border)" }}>
-            <p className="section-label" style={{ marginBottom: 16, fontSize: 12 }}>
-              Talks
-            </p>
-
-            <div style={{ display: "flex", flexDirection: "column", gap: 14, maxWidth: 720 }}>
-              <div style={{ paddingBottom: 14, borderBottom: "1px solid var(--border)" }}>
-                <a
-                  href="https://www.youtube.com/watch?v=9NG7TWiyIjo"
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{ fontSize: 15, color: "var(--accent-orange)", textDecoration: "none" }}
+          <div className="hero-metrics" style={{ paddingTop: 40 }}>
+            {resultGroups.map((m) => (
+              <div key={m.category} className="hero-metric" style={{ whiteSpace: "normal" }}>
+                <p
+                  style={{
+                    fontSize: 11,
+                    color: "var(--fg-subtle)",
+                    letterSpacing: "0.06em",
+                    textTransform: "uppercase",
+                    marginBottom: 10,
+                  }}
                 >
-                  Design Thinking for Problem Solving: Beyond UX
-                </a>
-                <p style={{ marginTop: 6, fontSize: 12, color: "var(--fg-subtle)" }}>GDG Lagos — DevFest 2024</p>
+                  {m.category}
+                </p>
+                <p className="hero-metric-value">{m.value}</p>
+                <p className="hero-metric-label">{m.label}</p>
               </div>
-
-              <div>
-                <a
-                  href="https://www.youtube.com/watch?v=k7KGv6FYIhM&t=1549s"
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{ fontSize: 15, color: "var(--accent-orange)", textDecoration: "none" }}
-                >
-                  Embedding AI into Design Systems and Product Experiences
-                </a>
-                <p style={{ marginTop: 6, fontSize: 12, color: "var(--fg-subtle)" }}>AIDA 2025</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── 5. CLOSING ───────────────────────────────────────── */}
-      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "120px 24px 120px" }}>
+      {/* About teaser */}
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "120px 24px 0" }}>
         <div style={{ maxWidth: 760 }}>
           <p className="section-label" style={{ marginBottom: 24 }}>
             About
           </p>
-          <p
+          <h2
             style={{
-              fontSize: "clamp(20px, 2.8vw, 28px)",
+              fontSize: "clamp(22px, 2.8vw, 30px)",
               fontWeight: 600,
               letterSpacing: "-0.02em",
               lineHeight: 1.25,
               marginBottom: 20,
             }}
           >
-            Lead Product Designer — design systems, enterprise UX, and AI-enabled experiences across SaaS, fintech, and platform products.
+            The products changed. The work stayed the same.
+          </h2>
+          <p style={{ fontSize: 16, color: "var(--fg-muted)", lineHeight: 1.7, marginBottom: 28 }}>
+            Over the last five years I&apos;ve worked across enterprise HR, financial infrastructure, workforce
+            technology, AI, and design systems. Although the products changed, the work remained consistent:
+            understanding complex problems, simplifying them, and building systems that help products and teams
+            scale. Today I work at the intersection of product design, systems thinking, and AI, helping
+            organizations build products that are easier to use, easier to maintain, and easier to grow.
           </p>
-          <p
+          <Link href="/about" style={{ fontSize: 14, fontWeight: 500, color: "var(--accent-orange)", textDecoration: "none" }}>
+            Learn more →
+          </Link>
+        </div>
+      </section>
+
+      {/* Writing */}
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "120px 24px 0" }}>
+        <p className="section-label" style={{ marginBottom: 20 }}>
+          Writing
+        </p>
+        <h2
+          style={{
+            fontSize: "clamp(22px, 2.8vw, 30px)",
+            fontWeight: 600,
+            letterSpacing: "-0.02em",
+            lineHeight: 1.25,
+            marginBottom: 48,
+            maxWidth: 720,
+          }}
+        >
+          Ideas I contribute beyond delivery.
+        </h2>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+            gap: 32,
+          }}
+        >
+          {writingThemes.map((item) => {
+            const isInternal = item.href.startsWith("/");
+            const linkStyle = {
+              fontSize: 15,
+              color: "var(--fg)",
+              lineHeight: 1.5,
+              display: "block" as const,
+              textDecoration: "none" as const,
+            };
+            return (
+              <div key={item.href} style={{ borderTop: "1px solid var(--border)", paddingTop: 20 }}>
+                <p
+                  style={{
+                    fontSize: 11,
+                    color: "var(--fg-subtle)",
+                    letterSpacing: "0.06em",
+                    textTransform: "uppercase",
+                    marginBottom: 14,
+                  }}
+                >
+                  {item.theme}
+                </p>
+                {isInternal ? (
+                  <Link href={item.href} style={linkStyle}>
+                    {item.title}
+                  </Link>
+                ) : (
+                  <a href={item.href} target="_blank" rel="noreferrer" style={linkStyle}>
+                    {item.title}
+                  </a>
+                )}
+                <p style={{ marginTop: 6, fontSize: 12, color: "var(--fg-subtle)" }}>{item.meta}</p>
+              </div>
+            );
+          })}
+        </div>
+        <div style={{ paddingTop: 32 }}>
+          <Link href="/thinking" style={{ fontSize: 14, fontWeight: 500, color: "var(--accent-orange)", textDecoration: "none" }}>
+            All writing →
+          </Link>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "120px 24px 120px" }}>
+        <div style={{ maxWidth: 760 }}>
+          <p className="section-label" style={{ marginBottom: 24 }}>
+            Contact
+          </p>
+          <h2
             style={{
-              fontSize: 16,
-              color: "var(--fg-muted)",
-              lineHeight: 1.7,
-              marginBottom: 40,
+              fontSize: "clamp(22px, 2.8vw, 30px)",
+              fontWeight: 600,
+              letterSpacing: "-0.02em",
+              lineHeight: 1.25,
+              marginBottom: 20,
             }}
           >
-            My work sits at the intersection of product design, design systems, and operational scale — helping teams move from fragmented experiences to scalable, intelligent systems.
+            If your team is scaling a product, a system, or both, let&apos;s talk.
+          </h2>
+          <p style={{ fontSize: 13, color: "var(--fg-subtle)", lineHeight: 1.6, marginBottom: 0 }}>
+            {availabilityLine}
           </p>
-          <div style={{ display: "flex", gap: 16, flexWrap: "wrap", alignItems: "center" }}>
+          <div style={{ display: "flex", gap: 16, flexWrap: "wrap", alignItems: "center", marginTop: 32 }}>
             <a
               href={mailtoHref}
               style={{
@@ -414,16 +414,14 @@ export default function Home() {
             >
               jon4ohio@gmail.com →
             </a>
-            <Link
-              href="/about"
-              style={{
-                fontSize: 14,
-                color: "var(--fg-muted)",
-                textDecoration: "none",
-              }}
+            <a
+              href="https://linkedin.com/in/jon4ohio"
+              target="_blank"
+              rel="noreferrer"
+              style={{ fontSize: 14, color: "var(--fg-muted)", textDecoration: "none" }}
             >
-              More about me →
-            </Link>
+              LinkedIn ↗
+            </a>
           </div>
         </div>
       </section>

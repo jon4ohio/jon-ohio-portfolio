@@ -26,7 +26,7 @@ const STATIC_PAGES: SearchResult[] = [
     id: "page:home",
     kind: "page",
     title: "Home",
-    subtitle: "John Ohio — Lead Product Designer",
+    subtitle: "John Ohio — Product Design Lead",
     href: "/",
     keywords: "home portfolio john ohio",
   },
@@ -49,10 +49,18 @@ const STATIC_PAGES: SearchResult[] = [
   {
     id: "page:thinking",
     kind: "page",
-    title: "Thinking",
-    subtitle: "Writing, press, and conversations",
+    title: "Writing",
+    subtitle: "Essays and talks by theme",
     href: "/thinking",
-    keywords: "thinking writing press conversations",
+    keywords: "thinking writing press conversations essays talks",
+  },
+  {
+    id: "page:contact",
+    kind: "page",
+    title: "Contact",
+    subtitle: "Get in touch",
+    href: "/contact",
+    keywords: "contact email hire talk linkedin",
   },
 ];
 
