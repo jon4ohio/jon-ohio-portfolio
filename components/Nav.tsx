@@ -4,12 +4,11 @@ import { usePathname } from "next/navigation";
 import { startTransition, useEffect, useState } from "react";
 import { Link } from "@/components/ui/Link";
 import ThemeToggle from "@/components/ThemeToggle";
-import { getContactMailtoHref } from "@/lib/contact";
 
 const NAV_AVATAR_SRC = "/assets/nav/avatar.png";
 
-const links = [
-  { href: "/", label: "Home" },
+/** Mobile-only destinations after desktop primary links were removed (ADR-084 follow-on). */
+const mobileLinks = [
   { href: "/work", label: "Case Studies" },
   { href: "/about", label: "About" },
 ];
@@ -17,7 +16,7 @@ const links = [
 export default function Nav() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
-  const mailtoHref = getContactMailtoHref();
+  const contactActive = pathname === "/contact" || pathname.startsWith("/contact/");
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -110,70 +109,26 @@ export default function Nav() {
             John Ohio
           </Link>
 
-          {/* Desktop nav links */}
-          <div className="nav-desktop-links">
-            {links.map((l) => {
-              const active = pathname === l.href || (l.href !== "/" && pathname.startsWith(l.href));
-              return (
-                <Link
-                  key={l.href}
-                  href={l.href}
-                  style={{
-                    fontSize: 14,
-                    fontWeight: active ? 500 : 400,
-                    color: active ? "var(--fg)" : "var(--fg-muted)",
-                    textDecoration: "none",
-                    padding: "6px 12px",
-                    borderRadius: 6,
-                    transition: "color 0.15s, background 0.15s",
-                    background: active ? "var(--surface-subtle)" : "transparent",
-                  }}
-                >
-                  {l.label}
-                </Link>
-              );
-            })}
-          </div>
-
-          {/* Desktop actions: keep switcher tight to CTA and away from link cluster */}
-          <div className="nav-desktop-cta" style={{ gap: 18, marginLeft: 12 }}>
+          {/* Desktop: theme + Get in touch */}
+          <div className="nav-desktop-cta" style={{ gap: 18 }}>
             <span className="nav-desktop-toggle">
               <ThemeToggle compact />
             </span>
-            <a
-              href={mailtoHref}
+            <Link
+              href="/contact"
               className="nav-cta-link"
               style={{
                 fontSize: 13,
                 fontWeight: 500,
-                color: "var(--fg)",
+                color: contactActive ? "var(--fg)" : "var(--fg-muted)",
                 textDecoration: "none",
-                border: "1px solid var(--fg)",
-                padding: "7px 16px",
-                borderRadius: 8,
-                transition: "background 0.15s, color 0.15s",
                 whiteSpace: "nowrap",
                 flexShrink: 0,
-              }}
-              onMouseEnter={(e) => {
-                (e.target as HTMLElement).style.background = "var(--surface-emphasis)";
-                (e.target as HTMLElement).style.color = "var(--fg-on-emphasis)";
-              }}
-              onMouseLeave={(e) => {
-                (e.target as HTMLElement).style.background = "transparent";
-                (e.target as HTMLElement).style.color = "var(--fg)";
-              }}
-              onFocus={(e) => {
-                (e.target as HTMLElement).style.background = "var(--surface-emphasis)";
-                (e.target as HTMLElement).style.color = "var(--fg-on-emphasis)";
-              }}
-              onBlur={(e) => {
-                (e.target as HTMLElement).style.background = "transparent";
-                (e.target as HTMLElement).style.color = "var(--fg)";
+                transition: "color 0.15s",
               }}
             >
-              Get in touch
-            </a>
+              Get in touch ↗
+            </Link>
           </div>
 
           {/* Mobile: theme icon + hamburger */}
@@ -235,8 +190,8 @@ export default function Nav() {
       >
         <div className="nav-mobile-panel-inner">
           <div className="nav-mobile-panel-scroll">
-            {links.map((l) => {
-              const active = pathname === l.href || (l.href !== "/" && pathname.startsWith(l.href));
+            {mobileLinks.map((l) => {
+              const active = pathname === l.href || pathname.startsWith(`${l.href}/`);
               return (
                 <Link
                   key={l.href}
@@ -257,26 +212,22 @@ export default function Nav() {
             })}
           </div>
           <div className="nav-mobile-panel-footer">
-            <a
-              href={mailtoHref}
+            <Link
+              href="/contact"
+              className="nav-cta-link"
               onClick={() => setMenuOpen(false)}
               style={{
-                display: "flex",
+                display: "inline-flex",
                 alignItems: "center",
-                justifyContent: "center",
-                width: "100%",
-                boxSizing: "border-box",
                 fontSize: 14,
                 fontWeight: 500,
-                color: "var(--fg-on-emphasis)",
+                color: contactActive ? "var(--fg)" : "var(--fg-muted)",
                 textDecoration: "none",
-                background: "var(--surface-emphasis)",
-                padding: "10px 20px",
-                borderRadius: 8,
+                transition: "color 0.15s",
               }}
             >
-              Get in touch →
-            </a>
+              Get in touch ↗
+            </Link>
           </div>
         </div>
       </nav>

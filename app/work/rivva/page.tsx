@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Image from "next/image";
 import ReadingProgressBar from "@/components/case-study/ReadingProgressBar";
 import StickyChapterNav, { type Chapter } from "@/components/case-study/StickyChapterNav";
 import RoleMissionBrief from "@/components/case-study/RoleMissionBrief";
+import RailSection from "@/components/case-study/RailSection";
 import EvidenceClaimBlock from "@/components/case-study/EvidenceClaimBlock";
 import DesignPrinciplePanel from "@/components/case-study/DesignPrinciplePanel";
 import OutcomeCards from "@/components/case-study/OutcomeCards";
 import PrevNextNav from "@/components/case-study/PrevNextNav";
+import PageCrumbHeader from "@/components/PageCrumbHeader";
 import { projects } from "@/lib/projects";
 import {
   rivvaDesignPrinciple,
@@ -25,8 +27,7 @@ import {
   rivvaWorkedCloselyOn,
 } from "@/lib/rivvaContent";
 
-const SECTION_PAD = "80px 24px 0";
-const PROSE_MAX = 760;
+const PROSE_MAX = 640;
 
 export const metadata: Metadata = {
   title: "Rivva",
@@ -91,22 +92,6 @@ function ProseBlock({ paragraphs }: { paragraphs: string[] }) {
   );
 }
 
-function SectionHeading({ children }: { children: React.ReactNode }) {
-  return (
-    <h2
-      style={{
-        marginTop: 14,
-        fontSize: 28,
-        fontWeight: 700,
-        letterSpacing: "-0.02em",
-        color: "var(--fg)",
-      }}
-    >
-      {children}
-    </h2>
-  );
-}
-
 export default function RivvaFlagshipCaseStudy() {
   const currentIndex = projects.findIndex((p) => p.slug === "rivva");
   const prev = currentIndex > 0 ? projects[currentIndex - 1] : undefined;
@@ -144,141 +129,138 @@ export default function RivvaFlagshipCaseStudy() {
         }
       `}</style>
 
-      <section id="hero" style={{ maxWidth: 1240, margin: "0 auto", padding: "48px 24px 64px" }}>
-        <Link href="/work" style={{ fontSize: 13, color: "var(--fg-muted)", textDecoration: "none" }}>
-          ← Case Studies
-        </Link>
-
-        <p
-          style={{
-            marginTop: 32,
-            fontSize: 11,
-            textTransform: "uppercase",
-            letterSpacing: "0.08em",
-            color: "var(--fg-muted)",
-          }}
-        >
-          Intelligent Systems · Rivva · Nigeria · {rivvaHeroMeta.timeline}
-        </p>
+      <section id="hero" style={{ maxWidth: 1240, margin: "0 auto", padding: "96px 24px 0" }}>
+        <PageCrumbHeader
+          backHref="/work"
+          crumbs={[
+            { href: "/", label: "Home" },
+            { href: "/work", label: "Case Studies" },
+            { label: "Rivva · Flagship" },
+          ]}
+        />
 
         <h1
           style={{
-            marginTop: 12,
-            fontSize: "clamp(34px, 4.6vw, 60px)",
-            fontWeight: 800,
+            fontSize: "clamp(32px, 4.4vw, 52px)",
+            fontWeight: 600,
             letterSpacing: "-0.03em",
-            lineHeight: 1.1,
+            lineHeight: 1.12,
             color: "var(--fg)",
+            maxWidth: 900,
+            marginBottom: 24,
           }}
         >
-          Rivva
+          {rivvaHeroMeta.headline}
         </h1>
 
         <p
           style={{
-            marginTop: 16,
-            fontSize: "clamp(17px, 2.2vw, 22px)",
-            fontWeight: 500,
-            lineHeight: 1.5,
-            color: "var(--fg)",
-            maxWidth: PROSE_MAX,
+            fontSize: 18,
+            color: "var(--fg-muted)",
+            maxWidth: 720,
+            lineHeight: 1.6,
+            marginBottom: 40,
           }}
         >
           {rivvaHeroMeta.subtitle}
         </p>
 
-        <div style={{ marginTop: 40, paddingTop: 32, borderTop: "1px solid var(--border)", maxWidth: 900 }}>
-          <Micro>Impact</Micro>
-          <div className="stats-grid stats-grid--4" style={{ background: "var(--border)", marginTop: 16 }}>
-            {rivvaHeroMeta.impact.map(({ value, label }) => (
-              <div key={label} className="stats-cell" style={{ background: "var(--bg)" }}>
-                <div style={{ fontSize: 35, fontWeight: 600, letterSpacing: "-0.03em", color: "var(--fg)" }}>
-                  {value}
-                </div>
-                <div style={{ fontSize: 11.5, lineHeight: 1.45, color: "var(--fg-muted)", marginTop: 8 }}>{label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         <div
           className="rivva-hero-meta"
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-            gap: 24,
-            marginTop: 40,
-            maxWidth: 900,
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "12px 40px",
+            padding: "24px 0",
+            borderTop: "1px solid var(--border)",
+            borderBottom: "1px solid var(--border)",
+            marginBottom: 48,
           }}
         >
-          <div>
-            <Micro>Role</Micro>
-            <p style={{ margin: "8px 0 0", fontSize: 15, color: "var(--fg-body)", lineHeight: 1.6 }}>
-              {rivvaHeroMeta.role}
-            </p>
+          {(
+            [
+              ["Role", rivvaHeroMeta.role],
+              ["Timeline", rivvaHeroMeta.timeline],
+              ["Model", rivvaHeroMeta.model],
+              ["Outcome", rivvaHeroMeta.outcome],
+            ] as const
+          ).map(([label, value]) => (
+            <div key={label} style={{ minWidth: 160 }}>
+              <Micro>{label}</Micro>
+              <p style={{ margin: "6px 0 0", fontSize: 14, color: "var(--fg-body)", lineHeight: 1.5 }}>{value}</p>
+            </div>
+          ))}
+        </div>
+
+        <figure style={{ margin: "0 0 20px" }}>
+          <div
+            style={{
+              position: "relative",
+              borderRadius: 14,
+              overflow: "hidden",
+              border: "1px solid var(--border-subtle)",
+              background: "var(--surface)",
+              aspectRatio: "16 / 9",
+            }}
+          >
+            <Image
+              src={rivvaHeroMeta.heroImageSrc}
+              alt={rivvaHeroMeta.heroImageAlt}
+              fill
+              sizes="(max-width: 1240px) 100vw, 1240px"
+              style={{ objectFit: "cover" }}
+              priority
+            />
           </div>
-          <div>
-            <Micro>Timeline</Micro>
-            <p style={{ margin: "8px 0 0", fontSize: 15, color: "var(--fg-body)", lineHeight: 1.6 }}>
-              {rivvaHeroMeta.timeline}
-            </p>
-          </div>
-          <div style={{ gridColumn: "1 / -1" }}>
-            <Micro>Team</Micro>
-            <p style={{ margin: "8px 0 0", fontSize: 15, color: "var(--fg-body)", lineHeight: 1.6 }}>
-              {rivvaHeroMeta.team}
-            </p>
-          </div>
-        </div>
+          <figcaption
+            style={{
+              fontSize: 13,
+              color: "var(--fg-subtle)",
+              lineHeight: 1.6,
+              marginTop: 14,
+              maxWidth: 720,
+            }}
+          >
+            {rivvaHeroMeta.heroCaption}
+          </figcaption>
+        </figure>
       </section>
 
-      <section id="opportunity" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
-        <Micro>01 The Opportunity</Micro>
-        <SectionHeading>The Opportunity</SectionHeading>
-        <div style={{ marginTop: 24 }}>
-          <ProseBlock paragraphs={rivvaOpportunity} />
-        </div>
-      </section>
+      <RailSection id="opportunity" eyebrow="The Opportunity" title="A different idea about productivity.">
+        <ProseBlock paragraphs={rivvaOpportunity} />
+      </RailSection>
 
-      <section id="launch" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
-        <Micro>02 Preparing for Launch</Micro>
-        <SectionHeading>Preparing for Launch</SectionHeading>
-        <div style={{ marginTop: 24 }}>
-          <ProseBlock paragraphs={rivvaPreparingForLaunchIntro} />
-          <ul style={{ margin: "0 0 20px", paddingLeft: 18, maxWidth: PROSE_MAX }}>
-            {rivvaPreparingForLaunchBullets.map((b) => (
-              <li key={b} style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, marginBottom: 8 }}>
-                {b}
-              </li>
-            ))}
-          </ul>
-          <ProseBlock paragraphs={rivvaPreparingForLaunchClose} />
-        </div>
-      </section>
+      <RailSection id="launch" eyebrow="Preparing for Launch" title="The beta worked. It wasn't ready.">
+        <ProseBlock paragraphs={rivvaPreparingForLaunchIntro} />
+        <ul style={{ margin: "0 0 20px", paddingLeft: 18, maxWidth: PROSE_MAX }}>
+          {rivvaPreparingForLaunchBullets.map((b) => (
+            <li key={b} style={{ fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, marginBottom: 8 }}>
+              {b}
+            </li>
+          ))}
+        </ul>
+        <ProseBlock paragraphs={rivvaPreparingForLaunchClose} />
+      </RailSection>
 
-      <section id="role" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
-        <Micro>03 My Role</Micro>
-        <SectionHeading>My Role</SectionHeading>
-        <div style={{ marginTop: 28 }}>
-          <RoleMissionBrief
-            collaboration={rivvaRoleCollaboration}
-            led={rivvaLed}
-            collaboratedOn={rivvaWorkedCloselyOn}
-            collaboratedLabel="I worked closely on"
-            close={rivvaRoleClose}
-          />
-        </div>
-      </section>
+      <RailSection id="role" eyebrow="My Role" title="Complementary leadership, not competing ownership.">
+        <RoleMissionBrief
+          collaboration={rivvaRoleCollaboration}
+          led={rivvaLed}
+          collaboratedOn={rivvaWorkedCloselyOn}
+          collaboratedLabel="I collaborated on"
+          close={rivvaRoleClose}
+        />
+      </RailSection>
 
-      <section id="decisions" style={{ padding: `${SECTION_PAD.split(" ")[0]} 0 0` }}>
-        <div style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px" }}>
-          <Micro>04 Three Product Decisions</Micro>
-          <SectionHeading>Three Product Decisions</SectionHeading>
-        </div>
-        <div style={{ marginTop: 48, display: "flex", flexDirection: "column", gap: 64 }}>
+      <RailSection id="decisions" eyebrow="Three Product Decisions" title="The work, in three decisions.">
+        <p style={{ margin: "0 0 48px", fontSize: 16, color: "var(--fg-muted)", lineHeight: 1.7, maxWidth: 720 }}>
+          Each follows the same rhythm. The problem, the work, the decision, the outcome.
+        </p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 80 }}>
           {rivvaProductDecisions.map((d, i) => (
             <EvidenceClaimBlock
               key={d.title}
+              bare
               index={i + 1}
               heading={d.title}
               problem={d.problem}
@@ -290,24 +272,15 @@ export default function RivvaFlagshipCaseStudy() {
             />
           ))}
         </div>
-      </section>
+      </RailSection>
 
-      <section id="results" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
-        <Micro>05 Results</Micro>
-        <SectionHeading>Results</SectionHeading>
-        <p style={{ marginTop: 16, fontSize: 17, color: "var(--fg-body)", lineHeight: 1.75, maxWidth: PROSE_MAX }}>
-          {rivvaResultsIntro}
-        </p>
+      <RailSection id="results" eyebrow="Results" title={rivvaResultsIntro}>
         <OutcomeCards tiers={rivvaResultsTiers} />
-      </section>
+      </RailSection>
 
-      <section id="reflection" style={{ maxWidth: 1240, margin: "0 auto", padding: SECTION_PAD }}>
-        <Micro>06 Reflection</Micro>
-        <SectionHeading>Reflection</SectionHeading>
-        <div style={{ marginTop: 24 }}>
-          <ProseBlock paragraphs={rivvaReflection} />
-        </div>
-      </section>
+      <RailSection id="reflection" eyebrow="06 Reflection" title="Reflection">
+        <ProseBlock paragraphs={rivvaReflection} />
+      </RailSection>
 
       <DesignPrinciplePanel principle={rivvaDesignPrinciple} />
 

@@ -60,7 +60,7 @@ if (expectedOrigin && !body.includes(`<loc>${expectedOrigin}/</loc>`)) {
   process.exit(1);
 }
 
-const requiredPaths = ["/work", "/thinking", "/about", "/notes/design-doesnt-end-in-figma", "/work/rivva"];
+const requiredPaths = ["/work", "/thinking", "/about", "/contact", "/notes/design-doesnt-end-in-figma", "/work/rivva"];
 for (const path of requiredPaths) {
   const needle = expectedOrigin ? `<loc>${expectedOrigin}${path}</loc>` : `<loc>${path}</loc>`;
   if (!body.includes(needle) && expectedOrigin) {

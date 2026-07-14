@@ -1,200 +1,223 @@
-import Link from "next/link";
 import type { Metadata } from "next";
-import { getListableProjects, type Project } from "@/lib/projects";
-import ProjectListingPreview from "@/components/ProjectListingPreview";
-import WorkInProgressBadge from "@/components/WorkInProgressBadge";
+import WorkListRow from "@/components/WorkListRow";
+import PageCrumbHeader from "@/components/PageCrumbHeader";
+import { getProject, getListableProjects } from "@/lib/projects";
 
 export const metadata: Metadata = {
-  title: "Selected Systems",
+  title: "Case Studies",
   description:
-    "Case studies in product systems, not isolated screens. Enterprise SaaS, fintech infrastructure, design systems, and AI-native workflows.",
+    "Each case study follows the same structure: the problem, the decision, the solution, the results, and what it taught me.",
   alternates: { canonical: "/work" },
   openGraph: {
-    title: "Selected Systems — John Ohio",
+    title: "Case Studies — John Ohio",
     description:
-      "Case studies in product systems: SeamlessHiring, Seamkit, FetsProza, IBEDC, Rivva, Agentic Portfolio, ClearPrice and more.",
+      "Selected work across enterprise SaaS, fintech, AI, and design systems — SeamKit, SeamlessHiring, FetsProza, IBEDC, Rivva, and more.",
     url: "/work",
     type: "website",
   },
 };
 
-const CATEGORIES = [
-  "Design Systems",
-  "Structured Systems",
-  "Scalable Systems",
-  "Intelligent Systems",
-  "0→1 Systems",
+const FEATURED = [
+  {
+    slug: "seamkit",
+    displayTitle: "SeamKit",
+    description:
+      "A shared design system that standardized decisions before components, now governing how 12+ product teams build across the organization.",
+    metrics: [
+      { value: "12+", label: "teams onboarded" },
+      { value: "2.49M", label: "token insertions" },
+      { value: "88.9", label: "adoption score" },
+    ],
+  },
+  {
+    slug: "seamless-hiring",
+    displayTitle: "SeamlessHiring",
+    description:
+      "Incremental modernization of the highest-friction hiring workflows, turning an underperforming add-on into a flagship module.",
+    metrics: [
+      { value: "75%", label: "higher satisfaction" },
+      { value: "↓50%", label: "support requests" },
+      { value: "↓24%", label: "application drop-offs" },
+    ],
+  },
+  {
+    slug: "fetsproza",
+    displayTitle: "FetsProza",
+    companyOverride: "Fets · Nigeria",
+    description:
+      "The shared operating layer that unified a fragmented payment ecosystem and retired an external vendor.",
+    metrics: [
+      { value: "$1M+", label: "annual savings" },
+      { value: "2×", label: "transaction capacity" },
+    ],
+  },
+  {
+    slug: "ibedc",
+    displayTitle: "IBEDC — Unified Billing System",
+    description:
+      "Consumer and field payment tools for one of Nigeria's largest electricity distributors, closing the gap between billing and reality.",
+    metrics: [{ value: "↓80%", label: "fraud reduction" }],
+  },
+  {
+    slug: "rivva",
+    displayTitle: "Rivva",
+    description:
+      "Helping Rivva prepare a validated AI beta for launch by making AI scheduling easier to understand, more consistent, and ready for everyday use.",
+    metrics: [],
+    coLed: true,
+  },
+] as const;
+
+const OTHER = [
+  {
+    slug: "seamless-ai",
+    title: "SeamlessAI",
+    blurb: "AI-UX patterns and guardrails across the SeamlessHR suite · Jan 2025 – Present",
+  },
+  {
+    slug: "workforce-ecosystem",
+    title: "Workforce Ecosystem",
+    blurb: "Research and capability architecture · Gates Foundation × SeamlessHR · 2025 – Present",
+  },
+  {
+    slug: "blualliance",
+    title: "BluAlliance",
+    blurb: "Platform over isolated products · Gates Foundation × SeamlessHR · 2025 – Present",
+  },
+  {
+    slug: "clearprice",
+    title: "ClearPrice",
+    blurb: "MVP definition and product UX as a founding member · Oct 2024 – Jul 2025",
+  },
+  {
+    slug: "abms",
+    title: "ABMS",
+    blurb: "Operations and field workflows for Fets · 2022 – 2024",
+  },
 ] as const;
 
 export default function WorkIndex() {
-  const listableProjects = getListableProjects();
+  const listable = new Set(getListableProjects().map((p) => p.slug));
 
-  const grouped = CATEGORIES.reduce<Array<{ category: string; startIndex: number; projects: Project[] }>>(
-    (acc, category) => {
-      const items = listableProjects.filter((p) => p.category === category);
-      if (items.length === 0) return acc;
+  const featured = FEATURED.map((item, i) => {
+    const project = getProject(item.slug);
+    if (!project || !listable.has(item.slug)) return null;
+    return (
+      <WorkListRow
+        key={item.slug}
+        index={String(i + 1).padStart(2, "0")}
+        href={`/work/${item.slug}`}
+        title={item.displayTitle}
+        company={"companyOverride" in item && item.companyOverride ? item.companyOverride : project.company}
+        periodOrType={project.period}
+        description={item.description}
+        metrics={[...item.metrics]}
+        project={project}
+        variant="featured"
+        badge={
+          "coLed" in item && item.coLed ? (
+            <span
+              style={{
+                fontSize: 10,
+                fontWeight: 600,
+                letterSpacing: "0.06em",
+                textTransform: "uppercase",
+                color: "var(--accent-orange)",
+                border: "1px solid var(--jop-color-violet-80, #634eca)",
+                borderRadius: 999,
+                padding: "2px 8px",
+              }}
+            >
+              Co-led
+            </span>
+          ) : undefined
+        }
+      />
+    );
+  }).filter(Boolean);
 
-      const startIndex = acc.length ? acc[acc.length - 1].startIndex + acc[acc.length - 1].projects.length : 0;
-      acc.push({ category, startIndex, projects: items });
-      return acc;
-    },
-    [],
-  );
+  const other = OTHER.filter((item) => listable.has(item.slug) || getProject(item.slug)).map((item) => (
+    <WorkListRow
+      key={item.slug}
+      href={`/work/${item.slug}`}
+      title={item.title}
+      lead={item.blurb}
+      variant="compact"
+    />
+  ));
+
+  const agentic = getProject("orchestrated-portfolio");
 
   return (
     <div style={{ paddingTop: 56 }}>
-      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 64px" }}>
-        <p className="section-label" style={{ marginBottom: 20 }}>
-          Case Studies
-        </p>
-        <h1 style={{ fontSize: "clamp(32px, 5vw, 56px)", fontWeight: 600, letterSpacing: "-0.03em", lineHeight: 1.1, maxWidth: 640, marginBottom: 20 }}>
-          Building products that scale.
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "96px 24px 0" }}>
+        <PageCrumbHeader
+          backHref="/"
+          crumbs={[{ href: "/", label: "Home" }, { label: "Case Studies" }]}
+        />
+        <h1
+          style={{
+            fontSize: "clamp(32px, 4.4vw, 52px)",
+            fontWeight: 600,
+            letterSpacing: "-0.03em",
+            lineHeight: 1.1,
+            maxWidth: 820,
+            marginBottom: 20,
+          }}
+        >
+          What I&apos;ve built.
         </h1>
-        <p style={{ fontSize: 17, color: "var(--fg-muted)", maxWidth: "min(100%, 760px)", lineHeight: 1.6 }}>
-          Explore selected case studies across enterprise SaaS, fintech, AI, and design systems. Each highlights the problem, the approach, and the impact.
+        <p style={{ fontSize: 17, color: "var(--fg-muted)", maxWidth: 640, lineHeight: 1.6 }}>
+          Each case study follows the same structure: the problem, the decision, the solution, the results, and what
+          it taught me.
         </p>
       </section>
 
-      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "0 24px 120px" }}>
-        {grouped.map((group, groupIndex) => {
-          const isFirst = groupIndex === 0;
-          return (
-            <section
-              key={group.category}
-              style={{
-                paddingTop: isFirst ? 0 : 56,
-              }}
-              aria-label={group.category}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "baseline",
-                  justifyContent: "space-between",
-                  gap: 16,
-                  padding: "0 0 16px",
-                  borderBottom: "1px solid var(--border)",
-                  marginBottom: 8,
-                  flexWrap: "wrap",
-                }}
-              >
-                <h2
-                  style={{
-                    fontSize: "clamp(18px, 2.2vw, 22px)",
-                    fontWeight: 600,
-                    letterSpacing: "-0.02em",
-                    margin: 0,
-                  }}
-                >
-                  {group.category}
-                </h2>
-              </div>
-
-              <div className="work-list-stack">
-                {group.projects.map((p, i) => {
-                  const itemNumber = group.startIndex + i + 1;
-                  return (
-                    <div key={p.slug} className="work-list-item">
-                      <span className="work-list-idx">{String(itemNumber).padStart(2, "0")}</span>
-                      <Link
-                        href={`/work/${p.slug}`}
-                        className="work-list-row"
-                        aria-label={`${p.title} — ${p.subtitle}`}
-                      >
-                      <div className="work-list-thumb">
-                        <ProjectListingPreview slug={p.slug} title={p.title} assets={p.assets} />
-                      </div>
-
-                      <div className="work-list-body">
-                        <div style={{ display: "flex", gap: 12, marginBottom: 10, flexWrap: "wrap" }}>
-                          <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{p.company}</span>
-                          <span aria-hidden="true" style={{ fontSize: 11, color: "var(--accent-orange)" }}>
-                            ·
-                          </span>
-                          <span style={{ fontSize: 11, color: "var(--fg-subtle)" }}>{p.period}</span>
-                          {p.workInProgress ? (
-                            <>
-                              <span aria-hidden="true" style={{ fontSize: 11, color: "var(--accent-orange)" }}>
-                                ·
-                              </span>
-                              <WorkInProgressBadge />
-                            </>
-                          ) : null}
-                        </div>
-                        <h3
-                          style={{
-                            fontSize: 22,
-                            fontWeight: 600,
-                            letterSpacing: "-0.02em",
-                            marginBottom: 8,
-                            marginTop: 0,
-                          }}
-                        >
-                          {p.title}
-                        </h3>
-                        <p style={{ fontSize: 14, color: "var(--fg-muted)", marginBottom: 10 }}>
-                          {p.subtitle}
-                        </p>
-
-                        <p
-                          style={{
-                            fontSize: 14,
-                            color: "var(--fg-body-muted)",
-                            lineHeight: 1.65,
-                            maxWidth: 720,
-                            display: "-webkit-box",
-                            WebkitLineClamp: 3,
-                            WebkitBoxOrient: "vertical",
-                            overflow: "hidden",
-                            marginBottom: 12,
-                          }}
-                        >
-                          {p.summary}
-                        </p>
-
-                        <div className="metric-badges" style={{ marginBottom: 12 }}>
-                          {p.metrics.map((m, j) => (
-                            <div key={j} className="metric-badge">
-                              <span className="metric-badge__value">{m.value}</span>
-                              <span className="metric-badge__label">{m.label}</span>
-                            </div>
-                          ))}
-                        </div>
-
-                        <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                          {p.tags.map((t) => (
-                            <span
-                              key={t}
-                              style={{
-                                fontSize: 11,
-                                color: "var(--accent-orange)",
-                                border: "1px solid var(--border)",
-                                padding: "3px 8px",
-                                borderRadius: 4,
-                              }}
-                            >
-                              {t}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div
-                        className="work-list-arrow"
-                        style={{ color: "var(--fg-subtle)", fontSize: 16, paddingTop: 4, paddingRight: 32 }}
-                        aria-hidden
-                      >
-                        →
-                      </div>
-                      </Link>
-                    </div>
-                  );
-                })}
-              </div>
-            </section>
-          );
-        })}
+      <section style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
+        <p
+          className="section-label"
+          style={{ marginBottom: 0, paddingBottom: 20, borderBottom: "1px solid var(--border)" }}
+        >
+          Featured Work
+        </p>
+        <div className="work-list-stack">{featured}</div>
       </section>
+
+      {other.length > 0 ? (
+        <section style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 0" }}>
+          <p
+            className="section-label"
+            style={{ marginBottom: 0, paddingBottom: 20, borderBottom: "1px solid var(--border)" }}
+          >
+            Other Work
+          </p>
+          <div style={{ display: "flex", flexDirection: "column" }}>{other}</div>
+        </section>
+      ) : null}
+
+      {agentic && listable.has(agentic.slug) ? (
+        <section style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 24px 120px" }}>
+          <p
+            className="section-label"
+            style={{ marginBottom: 0, paddingBottom: 20, borderBottom: "1px solid var(--border)" }}
+          >
+            Experiments
+          </p>
+          <div className="work-list-stack" style={{ marginTop: 4 }}>
+            <WorkListRow
+              href={`/work/${agentic.slug}`}
+              title="Agentic Portfolio"
+              company="Self-directed"
+              periodOrType="2026"
+              description="This site, built through an orchestrated system of AI tools with every judgment call made by hand: what to build, in what order, and which tool to trust."
+              project={agentic}
+              variant="experiment"
+            />
+          </div>
+        </section>
+      ) : (
+        <div style={{ paddingBottom: 120 }} />
+      )}
     </div>
   );
 }
