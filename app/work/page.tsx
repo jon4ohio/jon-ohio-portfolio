@@ -66,6 +66,13 @@ const FEATURED = [
     metrics: [],
     coLed: true,
   },
+  {
+    slug: "anchor",
+    displayTitle: "Anchor",
+    description:
+      "Anchor preserves project knowledge so humans and AI can continue work instead of reconstructing context.",
+    metrics: [],
+  },
 ] as const;
 
 const OTHER = [

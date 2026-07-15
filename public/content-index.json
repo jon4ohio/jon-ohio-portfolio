@@ -1,6 +1,6 @@
 {
   "version": "2.3.0",
-  "generatedAt": "2026-07-14T11:05:54.760Z",
+  "generatedAt": "2026-07-15T06:45:25.715Z",
   "items": [
     {
       "id": "page:home",
@@ -89,6 +89,14 @@
       "subtitle": "AI Scheduling Platform",
       "href": "/work/rivva",
       "keywords": "rivva ai scheduling platform intelligent systems rivva · nigeria rivva used ai and wearable health data to recommend when to focus, recover, or reschedule based on energy rather than availability. i led day-to-day product design through launch. product design ai interaction design cross-platform ux consumer health tech"
+    },
+    {
+      "id": "project:anchor",
+      "kind": "project",
+      "title": "Anchor",
+      "subtitle": "Continue instead of reconstruct",
+      "href": "/work/anchor",
+      "keywords": "anchor continue instead of reconstruct design engineering open source anchor preserves project knowledge so humans and ai can continue work instead of reconstructing context. design engineering ai collaboration documentation systems open source evidence-first"
     },
     {
       "id": "note:design-doesnt-end-in-figma",

@@ -134,6 +134,7 @@ const writingThemes = [
 export default function Home() {
   const mailtoHref = getContactMailtoHref();
   const rivva = projects.find((p) => p.slug === "rivva");
+  const anchor = projects.find((p) => p.slug === "anchor");
 
   return (
     <div style={{ paddingTop: 56 }}>
@@ -186,6 +187,19 @@ export default function Home() {
               lead="Co-led a new product from concept to market launch."
               description="Founding team member. Product design co-led alongside the team, preparing a validated AI beta for everyday use. Strong day-one reception."
               project={rivva}
+              variant="home"
+            />
+          ) : null}
+
+          {anchor ? (
+            <WorkListRow
+              href="/work/anchor"
+              title="Anchor"
+              company="Open Source"
+              periodOrType="Design Engineering · Case Study"
+              lead="Continue instead of reconstruct."
+              description="Anchor preserves project knowledge so humans and AI can continue work instead of reconstructing context."
+              project={anchor}
               variant="home"
             />
           ) : null}

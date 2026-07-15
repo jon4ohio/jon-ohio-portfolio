@@ -77,4 +77,5 @@
 | 082 | On-site field notes route (`/notes/[slug]`) | Accepted | 2026-07-08 | None |
 | 083 | Case-study editorial redesign (de-densify + composition pass) | Accepted | 2026-07-12 | None |
 | 084 | Portfolio marketing-shell redesign from Claude Design handoff | Accepted | 2026-07-14 | None |
+| 085 | Anchor case study hosted on the portfolio (Setup C) | Accepted | 2026-07-15 | None |
 Chronological audit notes: [`LOG.md`](./LOG.md).
