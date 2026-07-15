@@ -8,6 +8,7 @@
 
 ## Delta
 
+- **Case-study card thumbs restored (ADR-022 sync):** Listing `hero` / `thumbnails[0]` for Rivva, SeamlessHiring, and FetsProza now match each case-study page hero (`rivva-hero.png`, `preview-hero-media.png`, `preview-hero.gif`); SeamlessHiring + FetsProza use evidence chrome on cards instead of `previewFlat`. Featured/home list rows stack thumb full-width above copy at ≤640px so thumbs stay visible on mobile.
 - **Anchor case study (ADR-085 / Setup C):** `/work/anchor` five-moment editorial page shipped from drop-in — page-local ink/teal + scoped Newsreader / Source Sans 3 / IBM Plex Mono; problem-first catalog copy; chain preview SVG; primary CTAs → GitHub. Portfolio tells the story; repo remains proof. Not a seven-contract docs homepage.
 - **Hero secondary outline softened:** “Learn more about me” ghost CTA uses `var(--border)` instead of `var(--fg)` so it reads below the filled primary.
 - **Nav CTA + hero positioning + availability:** Nav **Get in touch ↗** is a text link (desktop + mobile); hero eyebrow → Enterprise UX; domains → Enterprise SaaS · Financial Infrastructure · Systems Design · AI; availability micro-line removed from hero, shown on About intro + home Contact footer (`availabilityLine` / `aboutCredibilityLine`).

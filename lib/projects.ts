@@ -339,13 +339,14 @@ export const projects: Project[] = [
     featured: true,
     workInProgress: false,
     assets: {
-      previewFlat: true,
+      previewChrome: "evidence",
+      previewChromeSize: "card",
       thumbnails: [
         {
-          src: "/assets/work/seamless-hiring/preview-hero.png",
-          alt: "SeamlessHiring 2.0 case study header with RMS dashboard preview",
+          src: "/assets/work/seamless-hiring/preview-hero-media.png",
+          alt: "SeamlessHiring 2.0 product overview",
           width: 2384,
-          height: 1440,
+          height: 1390,
         },
         {
           src: "/assets/work/seamless-hiring/thumb-2.png",
@@ -355,10 +356,10 @@ export const projects: Project[] = [
         },
       ],
       hero: {
-        src: "/assets/work/seamless-hiring/preview-hero.png",
-        alt: "SeamlessHiring 2.0 case study header with RMS dashboard preview",
+        src: "/assets/work/seamless-hiring/preview-hero-media.png",
+        alt: "SeamlessHiring 2.0 product overview",
         width: 2384,
-        height: 1440,
+        height: 1390,
       },
       blocks: [
         {
@@ -505,13 +506,14 @@ export const projects: Project[] = [
     featured: true,
     workInProgress: false,
     assets: {
-      previewFlat: true,
+      previewChrome: "evidence",
+      previewChromeSize: "card",
       thumbnails: [
         {
-          src: "/assets/work/fetsproza/preview-hero.png",
+          src: "/assets/work/fetsproza/preview-hero.gif",
           alt: "FetsProza operating platform — product overview and operator workflows at production scale",
-          width: 2384,
-          height: 1343,
+          width: 1920,
+          height: 1147,
         },
         {
           src: "/assets/work/fetsproza/thumb-2.png",
@@ -521,10 +523,10 @@ export const projects: Project[] = [
         },
       ],
       hero: {
-        src: "/assets/work/fetsproza/preview-hero.png",
+        src: "/assets/work/fetsproza/preview-hero.gif",
         alt: "FetsProza operating platform — product overview and operator workflows at production scale",
-        width: 2384,
-        height: 1343,
+        width: 1920,
+        height: 1147,
       },
       blocks: [
         {
@@ -907,17 +909,17 @@ export const projects: Project[] = [
     assets: {
       thumbnails: [
         {
-          src: "/assets/work/rivva/preview-16x9.png",
-          alt: "Rivva — AI daily planner web landing page hero with product UI preview",
+          src: "/assets/work/rivva/rivva-hero.png",
+          alt: "Rivva product overview",
           width: 1024,
-          height: 576,
+          height: 768,
         },
       ],
       hero: {
-        src: "/assets/work/rivva/preview-16x9.png",
-        alt: "Rivva — AI daily planner web landing page hero with product UI preview",
+        src: "/assets/work/rivva/rivva-hero.png",
+        alt: "Rivva product overview",
         width: 1024,
-        height: 576,
+        height: 768,
       },
     },
   },

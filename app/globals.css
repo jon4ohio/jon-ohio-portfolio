@@ -1138,6 +1138,16 @@ button:focus-visible {
     padding-top: 4px;
   }
 
+  /* Featured/home list rows: thumb full-width above copy (avoids crushed 240px column) */
+  .work-list-row:not(.work-list-row--compact) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .work-list-row:not(.work-list-row--compact) .work-list-thumb {
+    max-width: none;
+    width: 100%;
+  }
+
   /* Selected systems / capabilities rows stack on mobile */
   .grid-systems-group {
     grid-template-columns: 1fr !important;
