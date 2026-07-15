@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Anchor  Continue instead of reconstruct</title>
+  <desc id="desc">Conversation leads to Evidence leads to Knowledge</desc>
+  <rect width="1600" height="900" fill="#0a0c0d"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#f4f5f4">
+    <text x="800" y="248" text-anchor="middle" font-size="42" letter-spacing="0.04em">Conversation</text>
+    <line x1="800" y1="272" x2="800" y2="328" stroke="#2a6b6a" stroke-width="2"/>
+    <polygon points="800,340 794,328 806,328" fill="#2a6b6a"/>
+    <text x="800" y="400" text-anchor="middle" font-size="42" letter-spacing="0.04em">Evidence</text>
+    <line x1="800" y1="424" x2="800" y2="480" stroke="#2a6b6a" stroke-width="2"/>
+    <polygon points="800,492 794,480 806,480" fill="#2a6b6a"/>
+    <text x="800" y="564" text-anchor="middle" font-size="42" letter-spacing="0.04em">Knowledge</text>
+  </g>
+  <text x="800" y="680" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="36" fill="#3d8f8d">Continue instead of reconstruct.</text>
+</svg>

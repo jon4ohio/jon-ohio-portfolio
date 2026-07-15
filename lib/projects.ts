@@ -922,6 +922,56 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "anchor",
+    title: "Anchor",
+    subtitle: "Continue instead of reconstruct",
+    category: "Design Engineering",
+    company: "Open Source",
+    period: "2025 – Present",
+    summary:
+      "Anchor preserves project knowledge so humans and AI can continue work instead of reconstructing context.",
+    role: "Creator · Design Engineer",
+    scope:
+      "Responsibility-owned project contracts, session coordination, evidence-first adoption guides, and the portfolio case study that bridges story to the open-source repository.",
+    metrics: [
+      { value: "7", label: "contract types" },
+      { value: "Setup C", label: "portfolio story → repo proof" },
+    ],
+    context:
+      "AI-assisted development scatters decisions across disposable conversations. Returning after days or weeks means reconstructing project memory instead of continuing the work.",
+    problem:
+      "Every AI conversation starts from zero, even when the project already has intent, decisions, constraints, and history.",
+    action:
+      "Built Anchor as a Design Engineering framework that separates project knowledge into typed contracts, then told the story as a five-moment editorial case study on this portfolio with the repository as the primary engineering CTA.",
+    impact:
+      "Visitors experience the continuity problem before the framework label; the case study earns curiosity and routes into real artifacts on GitHub rather than duplicating documentation on the marketing site.",
+    tags: [
+      "Design Engineering",
+      "AI Collaboration",
+      "Documentation Systems",
+      "Open Source",
+      "Evidence-First",
+    ],
+    featured: true,
+    workInProgress: false,
+    assets: {
+      thumbnails: [
+        {
+          src: "/assets/work/anchor/preview-16x9.svg",
+          alt: "Anchor — Conversation to Evidence to Knowledge; continue instead of reconstruct",
+          width: 1600,
+          height: 900,
+        },
+      ],
+      hero: {
+        src: "/assets/work/anchor/preview-16x9.svg",
+        alt: "Anchor — Conversation to Evidence to Knowledge; continue instead of reconstruct",
+        width: 1600,
+        height: 900,
+      },
+    },
+  },
+  {
     slug: "seamless-ai",
     title: "SeamlessAI",
     subtitle: "AI-Native Enterprise Layer",

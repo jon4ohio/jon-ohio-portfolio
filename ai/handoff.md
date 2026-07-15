@@ -2,12 +2,13 @@
 
 **Contract:** Handoff  
 **Problem coordinated:** What changed recently? What's next?  
-**Updated:** 2026-07-14
+**Updated:** 2026-07-15
 
 ---
 
 ## Delta
 
+- **Anchor case study (ADR-085 / Setup C):** `/work/anchor` five-moment editorial page shipped from drop-in — page-local ink/teal + scoped Newsreader / Source Sans 3 / IBM Plex Mono; problem-first catalog copy; chain preview SVG; primary CTAs → GitHub. Portfolio tells the story; repo remains proof. Not a seven-contract docs homepage.
 - **Hero secondary outline softened:** “Learn more about me” ghost CTA uses `var(--border)` instead of `var(--fg)` so it reads below the filled primary.
 - **Nav CTA + hero positioning + availability:** Nav **Get in touch ↗** is a text link (desktop + mobile); hero eyebrow → Enterprise UX; domains → Enterprise SaaS · Financial Infrastructure · Systems Design · AI; availability micro-line removed from hero, shown on About intro + home Contact footer (`availabilityLine` / `aboutCredibilityLine`).
 - **Ghost About CTA + Experience timeline:** Home secondary “Learn more about me →” is an outline (ghost) button; `PageCrumbHeader` keeps ← Back and breadcrumbs on one row; About restores **Experience** timeline from `aboutTimeline` (after How I Think).
@@ -45,10 +46,10 @@
 
 ## Branch / PR
 
-- **Branch:** `cursor/2026-07-12-q754-5f496`
+- **Branch:** `cursor/case-study-rail-e8bc0`
 - **Production:** https://johnohio.vercel.app
 - **Observation start:** 2026-07-03
-- **ADR impact:** ADR-084 (marketing-shell Claude Design handoff); ADR-083 prior
+- **ADR impact:** ADR-085 (Anchor Setup C portfolio host); ADR-084 prior
 
 ## Session coordination
 
@@ -72,6 +73,7 @@ See `ai/session-arbitration.md`.
 - Entry: `docs/project/entry.md` (Operational ADR @ v1.0.0; session adapters)
 - Cursor adapter: `.cursor/rules/anchor-session-arbitration.mdc`
 - Design handoff reference: `design-export/create-the-design/`
+- ADR-085: `docs/adrs/ADR-085-anchor-case-study-setup-c-portfolio-host.md`
 - ADR-084: `docs/adrs/ADR-084-portfolio-marketing-shell-claude-design.md`
 - ADR-083: `docs/adrs/ADR-083-case-study-editorial-redesign.md`
 - ADR-082: `docs/adrs/ADR-082-on-site-field-notes-route.md`
