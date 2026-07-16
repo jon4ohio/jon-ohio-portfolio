@@ -1,9 +1,9 @@
 # ADR-086: Responsive work catalog track constraints
 
 ## Status
-**Status:** Accepted  
-**Date:** 2026-07-16  
-**Decision Maker(s):** John Ohio (Owner/Maintainer)  
+**Status:** Accepted
+**Date:** 2026-07-16
+**Decision Maker(s):** John Ohio (Owner/Maintainer)
 **Supersedes:** None
 
 ## Context
@@ -12,7 +12,7 @@ John Ohio’s portfolio uses shared `WorkListRow` grids for the `/work` catalog.
 
 The catalog must preserve ADR-084’s horizontal desktop treatment and existing per-variant thumbnail maxima without making project copy unreadable at narrow widths. The triggering event was the responsive regression found after the marketing-shell changes in commit `6e2bb18`.
 
-**In scope:** CSS grid placement and track sizing for shared work catalog rows, plus responsive geometry regression coverage.  
+**In scope:** CSS grid placement and track sizing for shared work catalog rows, plus responsive geometry regression coverage.
 **Out of scope:** catalog content, project visibility, thumbnail assets, case-study interior layouts, and redesigning the listing-row visual treatment.
 
 ## Decision Drivers
