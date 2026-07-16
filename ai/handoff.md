@@ -52,10 +52,10 @@
 
 ## Branch / PR
 
-- **Branch:** `cursor/anchor-narrative-v1-1` (ADR-090 lighten)
+- **Branch:** `main` (post PR #207)
 - **Production:** https://johnohio.vercel.app
 - **Observation start:** 2026-07-03
-- **ADR impact:** ADR-090 supersedes ADR-089; ADR-088 via #205; ADR-087 via #204; ADR-085 superseded
+- **ADR impact:** ADR-090 via #207 (supersedes ADR-089); ADR-088 via #205; ADR-087 via #204; ADR-085 superseded
 
 ## Session coordination
 
