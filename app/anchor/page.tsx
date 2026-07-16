@@ -25,23 +25,23 @@ const plexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
+const META_DESCRIPTION =
+  "Version-controlled coordination for human–AI collaboration. Seven contracts. One source of truth each. No build step.";
+
 export const metadata: Metadata = {
   title: "Anchor — Continue instead of reconstruct",
-  description:
-    "A thin coordination layer for AI-assisted projects. 7 contracts. One owner each. No build step.",
+  description: META_DESCRIPTION,
   alternates: { canonical: "/anchor" },
   openGraph: {
     title: "Anchor — Continue instead of reconstruct",
-    description:
-      "A thin coordination layer for AI-assisted projects. 7 contracts. One owner each. No build step.",
+    description: META_DESCRIPTION,
     url: "/anchor",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Anchor — Continue instead of reconstruct",
-    description:
-      "A thin coordination layer for AI-assisted projects. 7 contracts. One owner each. No build step.",
+    description: META_DESCRIPTION,
   },
 };
 
@@ -59,14 +59,17 @@ const c = {
 } as const;
 
 const GITHUB = "https://github.com/jon4ohio/anchor";
+const DOCS =
+  "https://github.com/jon4ohio/anchor/blob/main/docs/experience/04-building-your-own.md";
 const pad = "clamp(24px, 5vw, 64px)";
 const sectionPad = `clamp(80px, 14vh, 160px) ${pad}`;
 
 const navSections = [
-  { id: "home", label: "Home" },
+  { id: "home", label: "Start" },
   { id: "problem", label: "The Problem" },
   { id: "contracts", label: "The Framework" },
-  { id: "adopt", label: "Get Started" },
+  { id: "evidence", label: "Evidence" },
+  { id: "explore", label: "Explore" },
 ];
 
 const contracts = [
@@ -94,6 +97,51 @@ const steps = [
     n: "03",
     heading: "Reference, don't duplicate",
     body: "Contracts point to each other. Knowledge lives in one place. Nothing gets contradicted.",
+  },
+];
+
+const evidenceCards = [
+  {
+    title: "Existing Project Adoption",
+    body: "Applied to established repositories without replacing existing documentation.",
+  },
+  {
+    title: "Evidence-First ADR",
+    body: "Design decisions supported by traceable evidence rather than opinion.",
+  },
+  {
+    title: "Multi-Agent Collaboration",
+    body: "Explores how humans and AI coordinate effectively over time.",
+  },
+  {
+    title: "Portfolio Integration",
+    body: "Anchor presented as a living Design Engineering case study.",
+  },
+];
+
+const researchLinks: {
+  label: string;
+  href: string;
+  external?: boolean;
+}[] = [
+  {
+    label: "Evidence-First ADR",
+    href: "https://github.com/jon4ohio/anchor/blob/main/docs/decisions/ADR-004-evidence-first-adr-compatible-format.md",
+    external: true,
+  },
+  {
+    label: "Decision-Rationale Investigation",
+    href: "https://github.com/jon4ohio/anchor/blob/main/docs/decisions/POSITION-anchor-coordination-architecture.md",
+    external: true,
+  },
+  {
+    label: "Context Engineering",
+    href: "https://github.com/jon4ohio/anchor/blob/main/docs/decisions/POSITION-context-arbitration.md",
+    external: true,
+  },
+  {
+    label: "Agentic Development Process",
+    href: "/notes/design-doesnt-end-in-figma",
   },
 ];
 
@@ -148,14 +196,17 @@ function PrimaryBtn({
 
 function OutlineBtn({
   href,
+  external,
   children,
 }: {
   href: string;
+  external?: boolean;
   children: React.ReactNode;
 }) {
   return (
     <a
       href={href}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       style={{
         display: "inline-flex",
         alignItems: "center",
@@ -242,6 +293,9 @@ export default function AnchorLandingPage() {
         <style>{`
           .anchor-crumb-back:hover,
           .anchor-crumb-link:hover {
+            color: ${c.paper} !important;
+          }
+          .anchor-research-link:hover {
             color: ${c.paper} !important;
           }
         `}</style>
@@ -386,15 +440,17 @@ export default function AnchorLandingPage() {
             fontFamily: c.display,
             fontStyle: "italic",
             fontWeight: 400,
-            fontSize: "clamp(44px, 7vw, 84px)",
-            lineHeight: 1.08,
+            fontSize: "clamp(40px, 6.5vw, 76px)",
+            lineHeight: 1.1,
             letterSpacing: "-0.03em",
             color: c.paper,
             margin: "0 auto clamp(28px, 5vh, 40px)",
-            maxWidth: "16ch",
+            maxWidth: "18ch",
           }}
         >
-          Coordination without the meetings.
+          Every session starts from scratch.
+          <br />
+          Anchor makes sure your project doesn&rsquo;t.
         </h1>
 
         <p
@@ -408,8 +464,7 @@ export default function AnchorLandingPage() {
             maxWidth: "44ch",
           }}
         >
-          Most teams need a standup to know what&rsquo;s current. Anchor needs
-          a markdown file.
+          Version-controlled coordination for human–AI collaboration.
         </p>
 
         <div
@@ -423,7 +478,7 @@ export default function AnchorLandingPage() {
           }}
         >
           <PrimaryBtn href={GITHUB}>View on GitHub →</PrimaryBtn>
-          <OutlineBtn href="#problem">See how it works ↓</OutlineBtn>
+          <OutlineBtn href="#problem">See how it works →</OutlineBtn>
         </div>
       </section>
 
@@ -446,10 +501,12 @@ export default function AnchorLandingPage() {
             letterSpacing: "-0.028em",
             color: c.paper,
             margin: "0 0 clamp(40px, 7vh, 64px)",
-            maxWidth: "18ch",
+            maxWidth: "16ch",
           }}
         >
-          Every session starts from scratch.
+          Projects accumulate knowledge.
+          <br />
+          AI sessions rarely do.
         </h2>
 
         <div
@@ -559,10 +616,12 @@ export default function AnchorLandingPage() {
             letterSpacing: "-0.025em",
             color: c.paper,
             margin: "0 0 24px",
-            maxWidth: "20ch",
+            maxWidth: "22ch",
           }}
         >
-          7 contracts. One owner each.
+          Seven contracts.
+          <br />
+          One source of truth each.
         </h2>
 
         <p
@@ -676,7 +735,6 @@ export default function AnchorLandingPage() {
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))",
             maxWidth: 960,
-            marginBottom: "clamp(56px, 9vh, 80px)",
           }}
         >
           {steps.map((s) => (
@@ -726,55 +784,240 @@ export default function AnchorLandingPage() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* ─── Evidence ─────────────────────────────────── */}
+      <section
+        id="evidence"
+        style={{
+          padding: sectionPad,
+          borderBottom: `1px solid ${c.line}`,
+        }}
+      >
+        <MonoLabel>Evidence</MonoLabel>
+
+        <h2
+          style={{
+            fontFamily: c.display,
+            fontWeight: 400,
+            fontSize: "clamp(32px, 4.5vw, 56px)",
+            lineHeight: 1.08,
+            letterSpacing: "-0.025em",
+            color: c.paper,
+            margin: "0 0 24px",
+            maxWidth: "18ch",
+          }}
+        >
+          Built through continuous validation.
+        </h2>
+
+        <p
+          style={{
+            fontFamily: c.body,
+            fontSize: 17,
+            lineHeight: 1.65,
+            color: c.muted,
+            margin: "0 0 clamp(48px, 8vh, 72px)",
+            maxWidth: "54ch",
+          }}
+        >
+          Anchor evolved through real projects, design investigations, and
+          repeated validation rather than a predefined roadmap. Every refinement
+          is grounded in observable evidence.
+        </p>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))",
+            gap: "clamp(16px, 2.5vw, 24px)",
+            maxWidth: 960,
+            marginBottom: "clamp(48px, 8vh, 64px)",
+          }}
+        >
+          {evidenceCards.map((card) => (
+            <div
+              key={card.title}
+              style={{
+                background: "rgba(255,255,255,0.025)",
+                border: `1px solid ${c.line}`,
+                borderRadius: 3,
+                padding: "clamp(20px, 3vw, 28px)",
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: c.body,
+                  fontSize: 16,
+                  fontWeight: 600,
+                  color: c.paper,
+                  margin: "0 0 10px",
+                  lineHeight: 1.35,
+                  letterSpacing: "-0.01em",
+                }}
+              >
+                {card.title}
+              </p>
+              <p
+                style={{
+                  fontFamily: c.body,
+                  fontSize: 15,
+                  lineHeight: 1.6,
+                  color: c.muted,
+                  margin: 0,
+                }}
+              >
+                {card.body}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <OutlineBtn href={GITHUB} external>
+          Explore the repository →
+        </OutlineBtn>
+      </section>
+
+      {/* ─── Related Research ─────────────────────────── */}
+      <section
+        style={{
+          padding: sectionPad,
+          borderBottom: `1px solid ${c.line}`,
+        }}
+      >
+        <MonoLabel>Research</MonoLabel>
+
+        <h2
+          style={{
+            fontFamily: c.display,
+            fontWeight: 400,
+            fontSize: "clamp(32px, 4.5vw, 56px)",
+            lineHeight: 1.08,
+            letterSpacing: "-0.025em",
+            color: c.paper,
+            margin: "0 0 24px",
+            maxWidth: "16ch",
+          }}
+        >
+          Related Research
+        </h2>
+
+        <p
+          style={{
+            fontFamily: c.body,
+            fontSize: 17,
+            lineHeight: 1.65,
+            color: c.muted,
+            margin: "0 0 clamp(40px, 7vh, 56px)",
+            maxWidth: "52ch",
+          }}
+        >
+          Anchor emerged through a series of design investigations that informed
+          its philosophy and architecture.
+        </p>
+
+        <div style={{ maxWidth: 640 }}>
+          {researchLinks.map((item, i) => {
+            const linkStyle = {
+              display: "block",
+              fontFamily: c.body,
+              fontSize: 17,
+              fontWeight: 500,
+              color: c.paper,
+              textDecoration: "none",
+              letterSpacing: "-0.01em",
+              transition: "color 0.15s",
+            } as const;
+
+            return (
+              <div
+                key={item.label}
+                style={{
+                  padding: "clamp(18px, 2.5vh, 22px) 0",
+                  borderTop: `1px solid ${c.line}`,
+                  ...(i === researchLinks.length - 1
+                    ? { borderBottom: `1px solid ${c.line}` }
+                    : {}),
+                }}
+              >
+                {item.external ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="anchor-research-link"
+                    style={linkStyle}
+                  >
+                    {item.label} ↗
+                  </a>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="anchor-research-link"
+                    style={linkStyle}
+                  >
+                    {item.label} →
+                  </Link>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ─── Explore ──────────────────────────────────── */}
+      <section
+        id="explore"
+        style={{
+          padding: sectionPad,
+          borderBottom: `1px solid ${c.line}`,
+        }}
+      >
+        <MonoLabel>Explore</MonoLabel>
+
+        <h2
+          style={{
+            fontFamily: c.display,
+            fontWeight: 400,
+            fontSize: "clamp(32px, 4.5vw, 56px)",
+            lineHeight: 1.08,
+            letterSpacing: "-0.025em",
+            color: c.paper,
+            margin: "0 0 clamp(40px, 7vh, 56px)",
+            maxWidth: "14ch",
+          }}
+        >
+          Continue in the repository.
+        </h2>
 
         <div
           style={{
             display: "flex",
-            gap: "clamp(20px, 3vw, 32px)",
+            gap: "clamp(16px, 2.5vw, 24px)",
             flexWrap: "wrap",
             alignItems: "center",
+            marginBottom: "clamp(32px, 5vh, 48px)",
           }}
         >
-          <PrimaryBtn href={GITHUB}>Open Anchor on GitHub →</PrimaryBtn>
+          <PrimaryBtn href={GITHUB}>Explore the Repository →</PrimaryBtn>
+          <OutlineBtn href="/work">Browse Portfolio →</OutlineBtn>
+          <GhostLink href={DOCS} external>
+            Documentation →
+          </GhostLink>
         </div>
-      </section>
 
-      {/* ─── Footer bar ───────────────────────────────── */}
-      <footer
-        style={{
-          padding: `clamp(24px, 4vh, 36px) ${pad}`,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          gap: 16,
-        }}
-      >
-        <span
+        <p
           style={{
             fontFamily: c.mono,
             fontSize: 11,
             color: c.muted,
             letterSpacing: "0.04em",
+            margin: 0,
           }}
         >
           Anchor by Jon Ohio · MIT License
-        </span>
-        <a
-          href={GITHUB}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            fontFamily: c.mono,
-            fontSize: 11,
-            color: c.muted,
-            textDecoration: "none",
-            letterSpacing: "0.04em",
-          }}
-        >
-          github.com/jon4ohio/anchor ↗
-        </a>
-      </footer>
+        </p>
+      </section>
     </div>
   );
 }

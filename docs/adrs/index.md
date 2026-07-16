@@ -81,4 +81,5 @@
 | 086 | Anchor framework landing page at `/anchor` (standalone route, no shell chrome) | Accepted | 2026-07-16 | None |
 | 087 | Anchor landing at `/anchor` replaces `/work/anchor` case study | Accepted | 2026-07-16 | None |
 | 088 | Anchor hero navy gradient + scroll-spy side nav | Accepted | 2026-07-16 | None |
+| 089 | Anchor landing narrative refinement (v1.1) | Accepted | 2026-07-16 | None |
 Chronological audit notes: [`LOG.md`](./LOG.md).
