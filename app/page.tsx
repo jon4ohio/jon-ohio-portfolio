@@ -201,6 +201,7 @@ export default function Home() {
               description="Anchor preserves project knowledge so humans and AI can continue work instead of reconstructing context."
               project={anchor}
               variant="home"
+              ctaLabel="View Anchor →"
             />
           ) : null}
         </div>
