@@ -8,7 +8,7 @@
 
 ## Delta
 
-- **Work catalog responsive regression fixed:** Compact “Other Work” copy now stays in the content column at ≤640px instead of collapsing into the 28px arrow track; featured thumbnail tracks cap at 45% before their variant max so the body no longer collapses immediately above the mobile breakpoint. Added a Playwright geometry regression check at 390px and 641px.
+- **Work catalog responsive regression fixed (ADR-086):** Compact “Other Work” copy now stays in the content column at ≤640px instead of collapsing into the 28px arrow track; featured thumbnail tracks cap at 45% before their variant max so the body no longer collapses immediately above the mobile breakpoint. Added a Playwright geometry regression check at 390px and 641px.
 - **Case-study card thumbs restored (ADR-022 sync):** Listing `hero` / `thumbnails[0]` for Rivva, SeamlessHiring, and FetsProza now match each case-study page hero (`rivva-hero.png`, `preview-hero-media.png`, `preview-hero.gif`); SeamlessHiring + FetsProza use evidence chrome on cards instead of `previewFlat`. Featured/home list rows stack thumb full-width above copy at ≤640px so thumbs stay visible on mobile.
 - **Anchor case study (ADR-085 / Setup C):** `/work/anchor` five-moment editorial page shipped from drop-in — page-local ink/teal + scoped Newsreader / Source Sans 3 / IBM Plex Mono; problem-first catalog copy; chain preview SVG; primary CTAs → GitHub. Portfolio tells the story; repo remains proof. Not a seven-contract docs homepage.
 - **Hero secondary outline softened:** “Learn more about me” ghost CTA uses `var(--border)` instead of `var(--fg)` so it reads below the filled primary.
@@ -51,7 +51,7 @@
 - **Branch:** `cursor/critical-correctness-bugs-b342`
 - **Production:** https://johnohio.vercel.app
 - **Observation start:** 2026-07-03
-- **ADR impact:** None — responsive bug fix restores ADR-084 listing-row readability without changing the decision.
+- **ADR impact:** ADR-086 (responsive work catalog track constraints); refines ADR-084.
 
 ## Session coordination
 
