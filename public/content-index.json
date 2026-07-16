@@ -1,6 +1,6 @@
 {
   "version": "2.3.0",
-  "generatedAt": "2026-07-16T11:56:56.565Z",
+  "generatedAt": "2026-07-16T13:38:58.414Z",
   "items": [
     {
       "id": "page:home",
@@ -95,7 +95,7 @@
       "kind": "project",
       "title": "Anchor",
       "subtitle": "Continue instead of reconstruct",
-      "href": "/work/anchor",
+      "href": "/anchor",
       "keywords": "anchor continue instead of reconstruct design engineering open source anchor preserves project knowledge so humans and ai can continue work instead of reconstructing context. design engineering ai collaboration documentation systems open source evidence-first"
     },
     {

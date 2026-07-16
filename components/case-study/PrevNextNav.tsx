@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getProjectHref } from "@/lib/projects";
 
 type NavItem = {
   slug: string;
@@ -9,11 +10,9 @@ type NavItem = {
 export default function PrevNextNav({
   prev,
   next,
-  basePathPrefix = "/work/",
 }: {
   prev?: NavItem;
   next?: NavItem;
-  basePathPrefix?: string;
 }) {
   if (!prev && !next) return null;
 
@@ -22,7 +21,7 @@ export default function PrevNextNav({
       <div className="grid-2" style={{ borderTop: "1px solid var(--border)", paddingTop: 40, gap: 24 }}>
         <div>
           {prev ? (
-            <Link href={`${basePathPrefix}${prev.slug}`} className="case-study-nav-link" style={{ textDecoration: "none", color: "inherit" }}>
+            <Link href={getProjectHref(prev.slug)} className="case-study-nav-link" style={{ textDecoration: "none", color: "inherit" }}>
               <p style={{ fontSize: 12, color: "var(--fg-subtle)", marginBottom: 8 }}>← Previous</p>
               <p style={{ fontSize: 16, fontWeight: 600, letterSpacing: "-0.01em" }}>{prev.title}</p>
               <p style={{ marginTop: 4, fontSize: 13, color: "var(--fg-muted)", lineHeight: 1.4 }}>{prev.subtitle}</p>
@@ -31,7 +30,7 @@ export default function PrevNextNav({
         </div>
         <div className="next-item" style={{ textAlign: "right" }}>
           {next ? (
-            <Link href={`${basePathPrefix}${next.slug}`} className="case-study-nav-link" style={{ textDecoration: "none", color: "inherit" }}>
+            <Link href={getProjectHref(next.slug)} className="case-study-nav-link" style={{ textDecoration: "none", color: "inherit" }}>
               <p style={{ fontSize: 12, color: "var(--fg-subtle)", marginBottom: 8 }}>Next →</p>
               <p style={{ fontSize: 16, fontWeight: 600, letterSpacing: "-0.01em" }}>{next.title}</p>
               <p style={{ marginTop: 4, fontSize: 13, color: "var(--fg-muted)", lineHeight: 1.4 }}>{next.subtitle}</p>

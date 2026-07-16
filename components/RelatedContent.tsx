@@ -43,7 +43,7 @@ export default function RelatedContent({ slug }: { slug: string }) {
         }}
       >
         {related.map((node) => {
-          const project = getProject(node.href.replace("/work/", ""));
+          const project = getProject(node.id.replace(/^project:/, ""));
           if (!project) return null;
           return (
             <li key={node.id}>

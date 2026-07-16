@@ -23,6 +23,16 @@ const nextConfig: NextConfig = {
     // and resolve correctly when running from a git worktree.
     root: findPackageRoot(__dirname),
   },
+  async redirects() {
+    return [
+      // ADR-087: case study URL permanently redirects to the standalone landing.
+      {
+        source: "/work/anchor",
+        destination: "/anchor",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

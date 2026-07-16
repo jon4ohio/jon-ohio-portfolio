@@ -3,7 +3,7 @@
  */
 
 import { fieldNotes } from "@/lib/fieldNotes";
-import { getListableProjects } from "@/lib/projects";
+import { getListableProjects, getProjectHref } from "@/lib/projects";
 import {
   conversationItems,
   recognitionItems,
@@ -70,7 +70,7 @@ function projectResults(): SearchResult[] {
     kind: "project",
     title: p.title,
     subtitle: p.subtitle,
-    href: `/work/${p.slug}`,
+    href: getProjectHref(p.slug),
     keywords: [p.title, p.subtitle, p.category, p.company, p.summary, ...p.tags]
       .join(" ")
       .toLowerCase(),
