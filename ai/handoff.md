@@ -8,6 +8,7 @@
 
 ## Delta
 
+- **Favicon.ico from avatar:** Replaced default Next/Vercel `app/favicon.ico` with multi-size ICO from nav avatar (tab icon was still showing the triangle).
 - **Favicon = nav avatar:** Replaced monogram `app/icon.svg` with `app/icon.png` + `app/apple-icon.png` derived from `public/assets/nav/avatar.png` (ADR impact: none).
 - **Rivva catalog thumb refresh:** Listing/hero `rivva-hero.png` replaced with composite product shot (desktop calendar + Nia mobile + social proof, 1024×491).
 - **Anchor catalog thumb refresh:** Listing/hero preview replaced with navy hero screenshot (`preview-16x9.png`, 1024×533).
@@ -55,10 +56,10 @@
 
 ## Branch / PR
 
-- **Branch:** `main` (post PR #211)
+- **Branch:** `cursor/replace-vercel-favicon`
 - **Production:** https://johnohio.vercel.app
 - **Observation start:** 2026-07-03
-- **ADR impact:** none (favicon uses ADR-019 avatar asset); ADR-090 via #207; ADR-088 via #205; ADR-087 via #204; ADR-085 superseded
+- **ADR impact:** none (favicon.ico from ADR-019 avatar)
 
 ## Session coordination
 
