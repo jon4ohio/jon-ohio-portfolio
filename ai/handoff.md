@@ -8,9 +8,11 @@
 
 ## Delta
 
+- **Anchor landing polish (#205):** Screenshot thumb for catalog cards; `/anchor` header ← Back + Home / Case Studies / Anchor crumbs.
 - **Anchor catalog hygiene (ADR-087 follow-on):** Listing CTA for Anchor is `View Anchor →` (not “case study”); `getCaseStudyNeighbors` skips chrome-free landings so Prev/Next never dumps mid–case-study browse onto `/anchor`.
 - **Anchor hero restyle (ADR-088):** `/anchor` navy gradient hero + scroll-spy side nav (renumbered from a colliding draft ADR-087 after #204).
-- **Anchor landing replaces case study (ADR-087):** Canonical public URL is `/anchor`. PR **#203** shipped the ADR-086 landing; PR **#204** made it the sole public entry. Home + `/work` rows remain via `getProjectHref` → `/anchor`. Permanent redirect `/work/anchor` → `/anchor`. Case-study package removed; listing thumb SVG retained. ADR-085 superseded.- **Case-study card thumbs restored (ADR-022 sync):** Listing `hero` / `thumbnails[0]` for Rivva, SeamlessHiring, and FetsProza now match each case-study page hero (`rivva-hero.png`, `preview-hero-media.png`, `preview-hero.gif`); SeamlessHiring + FetsProza use evidence chrome on cards instead of `previewFlat`. Featured/home list rows stack thumb full-width above copy at ≤640px so thumbs stay visible on mobile.
+- **Anchor landing replaces case study (ADR-087):** Canonical public URL is `/anchor`. PR **#203** shipped the ADR-086 landing; PR **#204** made it the sole public entry. Home + `/work` rows remain via `getProjectHref` → `/anchor`. Permanent redirect `/work/anchor` → `/anchor`. Case-study package removed; listing thumb SVG retained. ADR-085 superseded.
+- **Case-study card thumbs restored (ADR-022 sync):** Listing `hero` / `thumbnails[0]` for Rivva, SeamlessHiring, and FetsProza now match each case-study page hero (`rivva-hero.png`, `preview-hero-media.png`, `preview-hero.gif`); SeamlessHiring + FetsProza use evidence chrome on cards instead of `previewFlat`. Featured/home list rows stack thumb full-width above copy at ≤640px so thumbs stay visible on mobile.
 - **Hero secondary outline softened:** “Learn more about me” ghost CTA uses `var(--border)` instead of `var(--fg)` so it reads below the filled primary.
 - **Nav CTA + hero positioning + availability:** Nav **Get in touch ↗** is a text link (desktop + mobile); hero eyebrow → Enterprise UX; domains → Enterprise SaaS · Financial Infrastructure · Systems Design · AI; availability micro-line removed from hero, shown on About intro + home Contact footer (`availabilityLine` / `aboutCredibilityLine`).
 - **Ghost About CTA + Experience timeline:** Home secondary “Learn more about me →” is an outline (ghost) button; `PageCrumbHeader` keeps ← Back and breadcrumbs on one row; About restores **Experience** timeline from `aboutTimeline` (after How I Think).
@@ -48,10 +50,10 @@
 
 ## Branch / PR
 
-- **Branch:** `claude/review-repo-updates-x0kvz` (ADR-088 + catalog hygiene; based on main post #204)
+- **Branch:** `main` (post PR #205)
 - **Production:** https://johnohio.vercel.app
 - **Observation start:** 2026-07-03
-- **ADR impact:** none for catalog CTA/neighbors slice (implements ADR-087); ADR-088 on this branch; #204 / ADR-087 prior
+- **ADR impact:** ADR-088 shipped via #205; ADR-087 via #204; ADR-085 superseded
 
 ## Session coordination
 
