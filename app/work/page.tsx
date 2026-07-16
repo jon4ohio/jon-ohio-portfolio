@@ -121,6 +121,7 @@ export default function WorkIndex() {
         metrics={[...item.metrics]}
         project={project}
         variant="featured"
+        ctaLabel={item.slug === "anchor" ? "View Anchor →" : undefined}
         badge={
           "coLed" in item && item.coLed ? (
             <span

@@ -8,7 +8,8 @@
 
 ## Delta
 
-- **Anchor landing replaces case study (ADR-087):** Canonical public URL is `/anchor` (PR #203 / ADR-086 landing). Home + `/work` rows remain; all hrefs use `getProjectHref` → `/anchor`. Permanent redirect `/work/anchor` → `/anchor`. Case-study package `app/work/anchor/` removed; listing thumb SVG retained. ADR-085 superseded.
+- **Anchor catalog hygiene (ADR-087 follow-on):** Listing CTA for Anchor is `View Anchor →` (not “case study”); `getCaseStudyNeighbors` skips chrome-free landings so Prev/Next never dumps mid–case-study browse onto `/anchor`. Handoff aligned to `main` / PR #204.
+- **Anchor landing replaces case study (ADR-087):** Canonical public URL is `/anchor`. PR **#203** shipped the ADR-086 landing; PR **#204** made it the sole public entry. Home + `/work` rows remain via `getProjectHref` → `/anchor`. Permanent redirect `/work/anchor` → `/anchor`. Case-study package removed; listing thumb SVG retained. ADR-085 superseded.
 - **Case-study card thumbs restored (ADR-022 sync):** Listing `hero` / `thumbnails[0]` for Rivva, SeamlessHiring, and FetsProza now match each case-study page hero (`rivva-hero.png`, `preview-hero-media.png`, `preview-hero.gif`); SeamlessHiring + FetsProza use evidence chrome on cards instead of `previewFlat`. Featured/home list rows stack thumb full-width above copy at ≤640px so thumbs stay visible on mobile.
 - **Hero secondary outline softened:** “Learn more about me” ghost CTA uses `var(--border)` instead of `var(--fg)` so it reads below the filled primary.
 - **Nav CTA + hero positioning + availability:** Nav **Get in touch ↗** is a text link (desktop + mobile); hero eyebrow → Enterprise UX; domains → Enterprise SaaS · Financial Infrastructure · Systems Design · AI; availability micro-line removed from hero, shown on About intro + home Contact footer (`availabilityLine` / `aboutCredibilityLine`).
@@ -47,10 +48,10 @@
 
 ## Branch / PR
 
-- **Branch:** `cursor/case-study-rail-e8bc0`
+- **Branch:** `main` (post PR #204)
 - **Production:** https://johnohio.vercel.app
 - **Observation start:** 2026-07-03
-- **ADR impact:** ADR-087 (landing replaces case study); ADR-086 prior; ADR-085 superseded
+- **ADR impact:** none this slice (implements ADR-087); prior #204 / ADR-087, #203 / ADR-086; ADR-085 superseded
 
 ## Session coordination
 

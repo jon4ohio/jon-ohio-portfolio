@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getPrimaryPreviewImage, getProject, getProjectHref, projects } from "@/lib/projects";
+import { getPrimaryPreviewImage, getProject, getProjectHref, getCaseStudyNeighbors, isCaseStudyRoute, projects } from "@/lib/projects";
 import AssetImage from "@/components/AssetImage";
 import CaseStudyBlockRenderer from "@/components/case-study/CaseStudyBlockRenderer";
 import MetadataBrief from "@/components/case-study/MetadataBrief";
@@ -10,7 +10,7 @@ import RelatedContent from "@/components/RelatedContent";
 import WorkInProgressBadge from "@/components/WorkInProgressBadge";
 
 export async function generateStaticParams() {
-  return projects.filter((p) => p.slug !== "anchor").map((p) => ({ slug: p.slug }));
+  return projects.filter((p) => isCaseStudyRoute(p.slug)).map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
@@ -45,9 +45,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
   const project = getProject(slug);
   if (!project || slug === "anchor") notFound();
 
-  const currentIndex = projects.findIndex((p) => p.slug === slug);
-  const next = projects[currentIndex + 1];
-  const prev = projects[currentIndex - 1];
+  const { prev, next } = getCaseStudyNeighbors(slug);
 
   const caseStudySchema = {
     "@context": "https://schema.org",

@@ -23,6 +23,8 @@ export type WorkListRowProps = {
   /** Smaller thumb + dashed border (Rivva homepage treatment). */
   highlight?: boolean;
   className?: string;
+  /** Override row CTA (default: View case study →). Use for non–case-study destinations like Anchor. */
+  ctaLabel?: string;
 };
 
 export default function WorkListRow({
@@ -39,6 +41,7 @@ export default function WorkListRow({
   project,
   highlight = false,
   className,
+  ctaLabel = "View case study →",
 }: WorkListRowProps) {
   if (variant === "compact") {
     return (
@@ -144,7 +147,7 @@ export default function WorkListRow({
           </div>
         ) : null}
 
-        <span className="work-list-cta">View case study →</span>
+        <span className="work-list-cta">{ctaLabel}</span>
       </div>
     </Link>
   );

@@ -10,7 +10,7 @@ import AnnotatedFigure from "@/components/case-study/AnnotatedFigure";
 import SectionDivider from "@/components/case-study/SectionDivider";
 import RailSection from "@/components/case-study/RailSection";
 import PrevNextNav from "@/components/case-study/PrevNextNav";
-import { getProject, projects } from "@/lib/projects";
+import { getProject, getCaseStudyNeighbors } from "@/lib/projects";
 
 const STORY_TITLE = "FetsProza";
 
@@ -72,9 +72,7 @@ export default function FetsprozaFlagshipCaseStudy() {
   if (!project) return null;
   if (!project.brief) return null;
 
-  const currentIndex = projects.findIndex((p) => p.slug === "fetsproza");
-  const prev = currentIndex > 0 ? projects[currentIndex - 1] : undefined;
-  const next = currentIndex >= 0 ? projects[currentIndex + 1] : undefined;
+  const { prev, next } = getCaseStudyNeighbors("fetsproza");
 
   return (
     <div style={{ paddingTop: 56 }}>

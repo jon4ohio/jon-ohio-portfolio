@@ -14,7 +14,7 @@ import OutcomeCards, { type OutcomeTier } from "@/components/case-study/OutcomeC
 import UnlockPanel from "@/components/case-study/UnlockPanel";
 import YouTubePosterPlayer from "@/components/case-study/YouTubePosterPlayer";
 import PrevNextNav from "@/components/case-study/PrevNextNav";
-import { getProject, projects } from "@/lib/projects";
+import { getProject, getCaseStudyNeighbors } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "SeamlessHiring 2.0",
@@ -85,9 +85,7 @@ export default function SeamlessHiringFlagshipCaseStudy() {
   const project = getProject("seamless-hiring");
   if (!project?.brief) return null;
 
-  const currentIndex = projects.findIndex((p) => p.slug === "seamless-hiring");
-  const prev = currentIndex > 0 ? projects[currentIndex - 1] : undefined;
-  const next = currentIndex >= 0 ? projects[currentIndex + 1] : undefined;
+  const { prev, next } = getCaseStudyNeighbors("seamless-hiring");
 
   return (
     <div style={{ paddingTop: 56 }}>
