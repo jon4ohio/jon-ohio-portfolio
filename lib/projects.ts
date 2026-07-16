@@ -910,16 +910,16 @@ export const projects: Project[] = [
       thumbnails: [
         {
           src: "/assets/work/rivva/rivva-hero.png",
-          alt: "Rivva product overview",
+          alt: "Rivva — desktop calendar and Nia mobile scheduling with Product Hunt badge",
           width: 1024,
-          height: 768,
+          height: 491,
         },
       ],
       hero: {
         src: "/assets/work/rivva/rivva-hero.png",
-        alt: "Rivva product overview",
+        alt: "Rivva — desktop calendar and Nia mobile scheduling with Product Hunt badge",
         width: 1024,
-        height: 768,
+        height: 491,
       },
     },
   },
