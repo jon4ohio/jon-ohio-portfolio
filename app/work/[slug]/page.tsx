@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getPrimaryPreviewImage, getProject, projects } from "@/lib/projects";
+import { getPrimaryPreviewImage, getProject, getProjectHref, projects } from "@/lib/projects";
 import AssetImage from "@/components/AssetImage";
 import CaseStudyBlockRenderer from "@/components/case-study/CaseStudyBlockRenderer";
 import MetadataBrief from "@/components/case-study/MetadataBrief";
@@ -10,7 +10,7 @@ import RelatedContent from "@/components/RelatedContent";
 import WorkInProgressBadge from "@/components/WorkInProgressBadge";
 
 export async function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }));
+  return projects.filter((p) => p.slug !== "anchor").map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
@@ -20,8 +20,8 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
   const project = getProject(slug);
-  if (!project) return {};
-  const url = `/work/${project.slug}`;
+  if (!project || slug === "anchor") return {};
+  const url = getProjectHref(project.slug);
   return {
     title: project.title,
     description: project.summary,
@@ -43,7 +43,7 @@ export async function generateMetadata({
 export default async function CaseStudy({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const project = getProject(slug);
-  if (!project) notFound();
+  if (!project || slug === "anchor") notFound();
 
   const currentIndex = projects.findIndex((p) => p.slug === slug);
   const next = projects[currentIndex + 1];
@@ -77,7 +77,7 @@ export default async function CaseStudy({ params }: { params: Promise<{ slug: st
         "@type": "ListItem",
         position: 3,
         name: project.title,
-        item: `/work/${project.slug}`,
+        item: getProjectHref(project.slug),
       },
     ],
   };

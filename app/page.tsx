@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import { availabilityLine, siteDescription, siteTitle } from "@/lib/sitePositioning";
 import WorkListRow from "@/components/WorkListRow";
-import { projects } from "@/lib/projects";
+import { projects, getProjectHref } from "@/lib/projects";
 import { getContactMailtoHref } from "@/lib/contact";
 
 export const metadata: Metadata = {
@@ -165,7 +165,7 @@ export default function Home() {
             return (
               <WorkListRow
                 key={item.slug}
-                href={`/work/${item.slug}`}
+                href={getProjectHref(item.slug)}
                 title={item.displayTitle}
                 company={item.company}
                 periodOrType={item.type}
@@ -193,10 +193,10 @@ export default function Home() {
 
           {anchor ? (
             <WorkListRow
-              href="/work/anchor"
+              href={getProjectHref("anchor")}
               title="Anchor"
               company="Open Source"
-              periodOrType="Design Engineering · Case Study"
+              periodOrType="Design Engineering · Framework"
               lead="Continue instead of reconstruct."
               description="Anchor preserves project knowledge so humans and AI can continue work instead of reconstructing context."
               project={anchor}

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import WorkListRow from "@/components/WorkListRow";
 import PageCrumbHeader from "@/components/PageCrumbHeader";
-import { getProject, getListableProjects } from "@/lib/projects";
+import { getProject, getListableProjects, getProjectHref } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Case Studies",
@@ -113,7 +113,7 @@ export default function WorkIndex() {
       <WorkListRow
         key={item.slug}
         index={String(i + 1).padStart(2, "0")}
-        href={`/work/${item.slug}`}
+        href={getProjectHref(item.slug)}
         title={item.displayTitle}
         company={"companyOverride" in item && item.companyOverride ? item.companyOverride : project.company}
         periodOrType={project.period}
@@ -146,7 +146,7 @@ export default function WorkIndex() {
   const other = OTHER.filter((item) => listable.has(item.slug) || getProject(item.slug)).map((item) => (
     <WorkListRow
       key={item.slug}
-      href={`/work/${item.slug}`}
+      href={getProjectHref(item.slug)}
       title={item.title}
       lead={item.blurb}
       variant="compact"
