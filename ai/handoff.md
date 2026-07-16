@@ -8,6 +8,7 @@
 
 ## Delta
 
+- **Favicon = nav avatar:** Replaced monogram `app/icon.svg` with `app/icon.png` + `app/apple-icon.png` derived from `public/assets/nav/avatar.png` (ADR impact: none).
 - **Rivva catalog thumb refresh:** Listing/hero `rivva-hero.png` replaced with composite product shot (desktop calendar + Nia mobile + social proof, 1024×491).
 - **Anchor catalog thumb refresh:** Listing/hero preview replaced with navy hero screenshot (`preview-16x9.png`, 1024×533).
 - **Anchor hierarchy lightened (ADR-090):** `/anchor` back to four beats (Hero → Problem → Framework → Adoption); Option 1 hero “Continue instead of reconstruct.”; thin Related Work links; Evidence/Explore chapters removed. Supersedes ADR-089 spine.
@@ -54,10 +55,10 @@
 
 ## Branch / PR
 
-- **Branch:** `main` (post PR #209 / #210)
+- **Branch:** `cursor/avatar-favicon`
 - **Production:** https://johnohio.vercel.app
 - **Observation start:** 2026-07-03
-- **ADR impact:** none (Rivva thumb asset + alt); ADR-090 via #207; ADR-088 via #205; ADR-087 via #204; ADR-085 superseded
+- **ADR impact:** none (favicon uses ADR-019 avatar asset)
 
 ## Session coordination
 
