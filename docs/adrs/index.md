@@ -79,4 +79,5 @@
 | 084 | Portfolio marketing-shell redesign from Claude Design handoff | Accepted | 2026-07-14 | None |
 | 085 | Anchor case study hosted on the portfolio (Setup C) | Accepted | 2026-07-15 | None |
 | 086 | Anchor framework landing page at `/anchor` (standalone route, no shell chrome) | Accepted | 2026-07-16 | None |
+| 087 | Anchor hero navy gradient + scroll-spy side nav | Accepted | 2026-07-16 | None |
 Chronological audit notes: [`LOG.md`](./LOG.md).
