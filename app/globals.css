@@ -843,7 +843,9 @@ button:focus-visible {
 .work-list-row {
   display: grid;
   /* Thumb uses a 16:9 aspect box; 240px height => ~427px width */
-  grid-template-columns: minmax(240px, var(--work-thumb-max, 427px)) minmax(0, 1fr);
+  grid-template-columns:
+    minmax(240px, min(45%, var(--work-thumb-max, 427px)))
+    minmax(0, 1fr);
   align-items: start;
   gap: 20px 28px;
   min-width: 0;
@@ -1133,7 +1135,17 @@ button:focus-visible {
     grid-template-columns: minmax(0, 1fr) 28px;
     gap: 12px;
   }
+  .work-list-row--compact .work-list-compact-title {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .work-list-row--compact .work-list-compact-desc {
+    grid-column: 1;
+    grid-row: 2;
+  }
   .work-list-row--compact .work-list-arrow {
+    grid-column: 2;
+    grid-row: 1 / span 2;
     justify-self: end;
     padding-top: 4px;
   }

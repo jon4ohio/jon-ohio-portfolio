@@ -41,6 +41,25 @@ test("theme toggle exposes current state and updates theme", async ({ page }) =>
   ).toHaveAttribute("aria-pressed", "true");
 });
 
+test("work catalog rows remain readable at narrow breakpoints", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/work", { waitUntil: "domcontentloaded" });
+
+  const compactDescriptionWidth = await page
+    .locator(".work-list-row--compact .work-list-compact-desc")
+    .first()
+    .evaluate((element) => element.getBoundingClientRect().width);
+  expect(compactDescriptionWidth).toBeGreaterThan(150);
+
+  await page.setViewportSize({ width: 641, height: 844 });
+
+  const featuredBodyWidth = await page
+    .locator(".work-list-row:not(.work-list-row--compact) .work-list-body")
+    .first()
+    .evaluate((element) => element.getBoundingClientRect().width);
+  expect(featuredBodyWidth).toBeGreaterThan(150);
+});
+
 function formatViolations(violations: import("axe-core").Result[]) {
   return violations.map((v) => ({
     id: v.id,
