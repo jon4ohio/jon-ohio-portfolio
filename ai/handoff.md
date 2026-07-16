@@ -55,10 +55,10 @@
 
 ## Branch / PR
 
-- **Branch:** `cursor/avatar-favicon`
+- **Branch:** `main` (post PR #211)
 - **Production:** https://johnohio.vercel.app
 - **Observation start:** 2026-07-03
-- **ADR impact:** none (favicon uses ADR-019 avatar asset)
+- **ADR impact:** none (favicon uses ADR-019 avatar asset); ADR-090 via #207; ADR-088 via #205; ADR-087 via #204; ADR-085 superseded
 
 ## Session coordination
 
