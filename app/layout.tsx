@@ -1,9 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import "./globals.css";
-import CommandPalette from "@/components/CommandPalette";
-import Footer from "@/components/Footer";
-import Nav from "@/components/Nav";
+import { SiteShell } from "@/components/SiteShell";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import ThemeScript from "@/components/ThemeScript";
@@ -171,10 +169,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main" className="skip-link">
           Skip to main content
         </a>
-        <Nav />
-        <main id="main">{children}</main>
-        <Footer />
-        <CommandPalette />
+        <SiteShell>{children}</SiteShell>
         <SpeedInsights />
         <Analytics />
         {process.env.NODE_ENV === "development" && (
