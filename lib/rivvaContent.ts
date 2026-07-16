@@ -37,7 +37,8 @@ export const rivvaHeroMeta: RivvaHeroMeta = {
   model: "Co-led with the founding team",
   outcome: "Shipped on Web, iOS, and Android",
   heroImageSrc: "/assets/work/rivva/rivva-hero.png",
-  heroImageAlt: "Rivva product overview",
+  heroImageAlt:
+    "Rivva — desktop calendar and Nia mobile scheduling with Product Hunt badge",
   heroCaption:
     "Rivva at launch. A scheduling experience where AI recommendations and user control share the same surface, so plans stay flexible without becoming unpredictable.",
   impact: [
