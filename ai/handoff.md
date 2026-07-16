@@ -8,6 +8,7 @@
 
 ## Delta
 
+- **Rivva catalog thumb refresh:** Listing/hero `rivva-hero.png` replaced with composite product shot (desktop calendar + Nia mobile + social proof, 1024×491).
 - **Anchor catalog thumb refresh:** Listing/hero preview replaced with navy hero screenshot (`preview-16x9.png`, 1024×533).
 - **Anchor hierarchy lightened (ADR-090):** `/anchor` back to four beats (Hero → Problem → Framework → Adoption); Option 1 hero “Continue instead of reconstruct.”; thin Related Work links; Evidence/Explore chapters removed. Supersedes ADR-089 spine.
 - **Anchor narrative v1.1 (ADR-089):** Superseded by ADR-090 — longer Evidence/Research/Explore spine retired.
