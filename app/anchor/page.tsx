@@ -370,7 +370,7 @@ export default function AnchorLandingPage() {
                 fontSize: 10,
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                color: c.faint,
+                color: c.muted,
                 margin: "0 0 20px",
               }}
             >
@@ -501,7 +501,7 @@ export default function AnchorLandingPage() {
           style={{
             fontFamily: c.mono,
             fontSize: 11,
-            color: c.faint,
+            color: c.muted,
             letterSpacing: "0.06em",
             marginTop: 28,
           }}
@@ -619,7 +619,7 @@ export default function AnchorLandingPage() {
           style={{
             fontFamily: c.mono,
             fontSize: 11,
-            color: c.faint,
+            color: c.muted,
             letterSpacing: "0.04em",
           }}
         >
@@ -632,7 +632,7 @@ export default function AnchorLandingPage() {
           style={{
             fontFamily: c.mono,
             fontSize: 11,
-            color: c.faint,
+            color: c.muted,
             textDecoration: "none",
             letterSpacing: "0.04em",
           }}
