@@ -1,4 +1,4 @@
-# ADR-087: Anchor hero navy gradient + scroll-spy side nav
+# ADR-088: Anchor hero navy gradient + scroll-spy side nav
 
 ## Status
 **Status:** Accepted  
@@ -18,9 +18,10 @@ across page sections via small diamond markers connected by a line.
 content, add a persistent scroll-spy side navigation across the page's four
 sections, and give the top-bar GitHub link a bordered pill treatment.  
 **Out of scope:** Re-theming the Problem / 7 Contracts / Adopt sections' existing
-ink-black background (already shipped under ADR-086); changing `/work/anchor`;
-literal color-matching the reference's orange glow (replaced with Anchor's
-established teal accent for brand consistency).
+ink-black background (already shipped under ADR-086); literal color-matching the
+reference's orange glow (replaced with Anchor's established teal accent for brand
+consistency). Route coexistence with `/work/anchor` is governed by ADR-087 (landing
+is the sole public surface).
 
 ## Decision Drivers
 
@@ -82,8 +83,19 @@ established teal accent for brand consistency).
   revert the hero section, top-bar link, and section `id`s in `page.tsx` to their
   ADR-086 state.
 
+### Risks
+
+| Risk | Likelihood | Impact | Mitigation | Owner/Role | Review Trigger |
+|------|-----------|--------|------------|------------|----------------|
+| Side nav IntersectionObserver mis-highlights on short viewports | Med | Low | Tune rootMargin/threshold in `AnchorSideNav`; hide under 880px | Owner | Reports of wrong active section |
+
 ## Related ADRs
 
-- ADR-086 — supersedes: hero visual treatment and copy (page structure/route
-  suppression from ADR-086 is otherwise unchanged)
-- ADR-085 — related: `/work/anchor` case study remains untouched
+- ADR-086 — related: `/anchor` route + SiteShell; this ADR restyles the hero and adds side nav
+- ADR-087 — related: `/anchor` is the sole public Anchor surface; `/work/anchor` redirects here
+
+## References
+
+- Implementation: `app/anchor/page.tsx`, `app/anchor/AnchorSideNav.tsx`
+- Visual reference (structure only): https://lafys.com
+- Anchor repository: https://github.com/jon4ohio/anchor

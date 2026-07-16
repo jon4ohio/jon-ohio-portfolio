@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getFieldNoteSlugs } from "@/lib/fieldNotes";
-import { getListableProjects } from "@/lib/projects";
+import { getListableProjects, getProjectHref } from "@/lib/projects";
 import { getSiteUrl } from "@/lib/siteUrl";
 
 /** Indexable static routes for sitemap.xml. */
@@ -44,7 +44,7 @@ export function buildSitemapEntries(now = new Date()): MetadataRoute.Sitemap {
   }));
 
   const projectEntries = getListableProjects().map((project) => ({
-    url: `${baseUrl}/work/${project.slug}`,
+    url: `${baseUrl}${getProjectHref(project.slug)}`,
     lastModified: now,
     changeFrequency: "yearly" as const,
     priority: 0.6,

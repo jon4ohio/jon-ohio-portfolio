@@ -3,7 +3,7 @@
  * Nodes reference existing routes; edges express topical relationships.
  */
 
-import { getListableProjects } from "@/lib/projects";
+import { getListableProjects, getProjectHref } from "@/lib/projects";
 import { fieldNotes } from "@/lib/fieldNotes";
 import {
   conversationItems,
@@ -54,7 +54,7 @@ function projectNodes(): GraphNode[] {
     id: `project:${p.slug}`,
     kind: "project" as const,
     title: p.title,
-    href: `/work/${p.slug}`,
+    href: getProjectHref(p.slug),
     tags: p.tags,
   }));
 }

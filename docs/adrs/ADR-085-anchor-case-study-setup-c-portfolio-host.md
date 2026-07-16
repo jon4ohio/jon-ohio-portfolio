@@ -1,7 +1,7 @@
 # ADR-085: Anchor case study hosted on the portfolio (Setup C)
 
 ## Status
-**Status:** Accepted  
+**Status:** Superseded by ADR-087  
 **Date:** 2026-07-15  
 **Decision Maker(s):** John Ohio (Owner/Maintainer)  
 **Supersedes:** None
@@ -86,6 +86,7 @@ Rationale captured as operating rules:
 
 ## Related ADRs
 
+- ADR-087 — supersedes: `/anchor` landing replaces `/work/anchor` case study
 - ADR-001 — constrains: inline styles for layout/visuals (Anchor page follows)
 - ADR-007 — constrains: dual theme remains on shell; Anchor page-local palette does not replace tokens
 - ADR-083 — related: editorial case-study direction; Anchor uses a custom five-moment spine, not rail kit

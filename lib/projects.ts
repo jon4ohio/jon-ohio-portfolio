@@ -934,19 +934,19 @@ export const projects: Project[] = [
       "Anchor preserves project knowledge so humans and AI can continue work instead of reconstructing context.",
     role: "Creator · Design Engineer",
     scope:
-      "Responsibility-owned project contracts, session coordination, evidence-first adoption guides, and the portfolio case study that bridges story to the open-source repository.",
+      "Responsibility-owned project contracts, session coordination, evidence-first adoption guides, and a chrome-free portfolio landing that bridges story to the open-source repository.",
     metrics: [
       { value: "7", label: "contract types" },
-      { value: "Setup C", label: "portfolio story → repo proof" },
+      { value: "/anchor", label: "landing → repo proof" },
     ],
     context:
       "AI-assisted development scatters decisions across disposable conversations. Returning after days or weeks means reconstructing project memory instead of continuing the work.",
     problem:
       "Every AI conversation starts from zero, even when the project already has intent, decisions, constraints, and history.",
     action:
-      "Built Anchor as a Design Engineering framework that separates project knowledge into typed contracts, then told the story as a five-moment editorial case study on this portfolio with the repository as the primary engineering CTA.",
+      "Built Anchor as a Design Engineering framework that separates project knowledge into typed contracts, then published a standalone adoption landing on this portfolio with the repository as the primary engineering CTA.",
     impact:
-      "Visitors experience the continuity problem before the framework label; the case study earns curiosity and routes into real artifacts on GitHub rather than duplicating documentation on the marketing site.",
+      "Visitors experience the continuity problem before the framework label; the landing earns curiosity and routes into real artifacts on GitHub rather than duplicating documentation on the marketing site.",
     tags: [
       "Design Engineering",
       "AI Collaboration",
@@ -1375,6 +1375,12 @@ export function getListableProjects(): Project[] {
 
 export function getProject(slug: string) {
   return projects.find((p) => p.slug === slug);
+}
+
+/** Public href for a project slug. Anchor uses the standalone landing (ADR-087). */
+export function getProjectHref(slug: string): string {
+  if (slug === "anchor") return "/anchor";
+  return `/work/${slug}`;
 }
 
 export function getFeaturedProjects() {

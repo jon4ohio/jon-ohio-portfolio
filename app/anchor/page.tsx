@@ -669,7 +669,6 @@ export default function AnchorLandingPage() {
           }}
         >
           <PrimaryBtn href={GITHUB}>Open Anchor on GitHub →</PrimaryBtn>
-          <GhostLink href="/work/anchor">Read the case study ↗</GhostLink>
         </div>
       </section>
 

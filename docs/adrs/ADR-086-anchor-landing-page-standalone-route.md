@@ -64,4 +64,5 @@ Introduce two additions:
 
 - ADR-001 — constrains: inline styles for layout/visuals
 - ADR-007 — constrains: dual theme on shell; `/anchor` uses page-local dark tokens
-- ADR-085 — related: `/work/anchor` case study; visitor flow = `/anchor` → GitHub → `/work/anchor`
+- ADR-085 — related (historical): `/work/anchor` case study; superseded for that route by ADR-087
+- ADR-087 — follow-up: `/anchor` becomes the sole public Anchor surface; `/work/anchor` redirects here
