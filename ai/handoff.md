@@ -8,7 +8,8 @@
 
 ## Delta
 
-- **Anchor narrative v1.1 (ADR-089):** `/anchor` hero problem/promise framing; framework “source of truth”; Evidence + Related Research + Explore; side-nav Start → Explore. Repository remains primary CTA.
+- **Anchor hierarchy lightened (ADR-090):** `/anchor` back to four beats (Hero → Problem → Framework → Adoption); Option 1 hero “Continue instead of reconstruct.”; thin Related Work links; Evidence/Explore chapters removed. Supersedes ADR-089 spine.
+- **Anchor narrative v1.1 (ADR-089):** Superseded by ADR-090 — longer Evidence/Research/Explore spine retired.
 - **Anchor landing polish (#205):** Screenshot thumb for catalog cards; `/anchor` header ← Back + Home / Case Studies / Anchor crumbs.
 - **Anchor catalog hygiene (ADR-087 follow-on):** Listing CTA for Anchor is `View Anchor →` (not “case study”); `getCaseStudyNeighbors` skips chrome-free landings so Prev/Next never dumps mid–case-study browse onto `/anchor`.
 - **Anchor hero restyle (ADR-088):** `/anchor` navy gradient hero + scroll-spy side nav (renumbered from a colliding draft ADR-087 after #204).
@@ -51,10 +52,10 @@
 
 ## Branch / PR
 
-- **Branch:** `main` (ADR-089 narrative v1.1 in progress)
+- **Branch:** `cursor/anchor-narrative-v1-1` (ADR-090 lighten)
 - **Production:** https://johnohio.vercel.app
 - **Observation start:** 2026-07-03
-- **ADR impact:** ADR-089 narrative v1.1; ADR-088 via #205; ADR-087 via #204; ADR-085 superseded
+- **ADR impact:** ADR-090 supersedes ADR-089; ADR-088 via #205; ADR-087 via #204; ADR-085 superseded
 
 ## Session coordination
 
@@ -78,7 +79,8 @@ See `ai/session-arbitration.md`.
 - Entry: `docs/project/entry.md` (Operational ADR @ v1.0.0; session adapters)
 - Cursor adapter: `.cursor/rules/anchor-session-arbitration.mdc`
 - Design handoff reference: `design-export/create-the-design/`
-- ADR-089: `docs/adrs/ADR-089-anchor-landing-narrative-v1-1.md`
+- ADR-090: `docs/adrs/ADR-090-anchor-landing-hierarchy-lightened.md`
+- ADR-089: `docs/adrs/ADR-089-anchor-landing-narrative-v1-1.md` (superseded)
 - ADR-088: `docs/adrs/ADR-088-anchor-hero-navy-gradient-and-scroll-spy-nav.md`
 - ADR-087: `docs/adrs/ADR-087-anchor-landing-replaces-case-study.md`
 - ADR-086: `docs/adrs/ADR-086-anchor-landing-page-standalone-route.md`

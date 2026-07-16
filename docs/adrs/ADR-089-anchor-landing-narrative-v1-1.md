@@ -1,7 +1,7 @@
 # ADR-089: Anchor landing narrative refinement (v1.1)
 
 ## Status
-**Status:** Accepted  
+**Status:** Superseded by ADR-090  
 **Date:** 2026-07-16  
 **Decision Maker(s):** John Ohio (Owner/Maintainer)  
 **Supersedes:** None
@@ -75,6 +75,7 @@ Hero opens with “Every session starts from scratch. / Anchor makes sure your p
 
 ## Related ADRs
 
+- ADR-090 — supersedes: hierarchy lightened; Evidence / Related Research / Explore removed
 - ADR-086 — constrains: standalone `/anchor` identity and GitHub-primary funnel
 - ADR-087 — constrains: `/anchor` is sole public Anchor surface
 - ADR-088 — constrains: navy hero + scroll-spy side nav pattern (section ids updated, pattern retained)
