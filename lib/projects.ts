@@ -960,16 +960,16 @@ export const projects: Project[] = [
       thumbnails: [
         {
           src: "/assets/work/anchor/preview-16x9.png",
-          alt: "Anchor landing — Coordination without the meetings; navy hero with GitHub CTA",
+          alt: "Anchor landing — navy gradient hero with GitHub CTA and scroll-spy side nav",
           width: 1024,
-          height: 826,
+          height: 533,
         },
       ],
       hero: {
         src: "/assets/work/anchor/preview-16x9.png",
-        alt: "Anchor landing — Coordination without the meetings; navy hero with GitHub CTA",
+        alt: "Anchor landing — navy gradient hero with GitHub CTA and scroll-spy side nav",
         width: 1024,
-        height: 826,
+        height: 533,
       },
     },
   },
