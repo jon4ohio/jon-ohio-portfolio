@@ -12,7 +12,7 @@ import AnnotatedFigure from "@/components/case-study/AnnotatedFigure";
 import EvidenceImage from "@/components/case-study/evidence/EvidenceImage";
 import OutcomeCards, { type OutcomeTier } from "@/components/case-study/OutcomeCards";
 import PrevNextNav from "@/components/case-study/PrevNextNav";
-import { getProject, projects } from "@/lib/projects";
+import { getProject, getCaseStudyNeighbors } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Seamkit",
@@ -144,9 +144,7 @@ export default function SeamkitFlagshipCaseStudy() {
   const project = getProject("seamkit");
   if (!project) return null;
 
-  const currentIndex = projects.findIndex((p) => p.slug === "seamkit");
-  const prev = currentIndex > 0 ? projects[currentIndex - 1] : undefined;
-  const next = currentIndex >= 0 ? projects[currentIndex + 1] : undefined;
+  const { prev, next } = getCaseStudyNeighbors("seamkit");
 
   return (
     <div style={{ paddingTop: 56 }}>

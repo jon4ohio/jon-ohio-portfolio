@@ -14,7 +14,7 @@ import UnlockPanel from "@/components/case-study/UnlockPanel";
 import SectionDivider from "@/components/case-study/SectionDivider";
 import RailSection from "@/components/case-study/RailSection";
 import PrevNextNav from "@/components/case-study/PrevNextNav";
-import { getProject, projects } from "@/lib/projects";
+import { getProject, getCaseStudyNeighbors } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "BluAlliance",
@@ -108,9 +108,7 @@ export default function BluallianceFlagshipCaseStudy() {
   const project = getProject("blualliance");
   if (!project?.brief) return null;
 
-  const currentIndex = projects.findIndex((p) => p.slug === "blualliance");
-  const prev = currentIndex > 0 ? projects[currentIndex - 1] : undefined;
-  const next = currentIndex >= 0 ? projects[currentIndex + 1] : undefined;
+  const { prev, next } = getCaseStudyNeighbors("blualliance");
 
   return (
     <div style={{ paddingTop: 56 }}>

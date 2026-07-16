@@ -80,4 +80,5 @@
 | 085 | Anchor case study hosted on the portfolio (Setup C) | Superseded by ADR-087 | 2026-07-15 | ADR-087 |
 | 086 | Anchor framework landing page at `/anchor` (standalone route, no shell chrome) | Accepted | 2026-07-16 | None |
 | 087 | Anchor landing at `/anchor` replaces `/work/anchor` case study | Accepted | 2026-07-16 | None |
+| 088 | Anchor hero navy gradient + scroll-spy side nav | Accepted | 2026-07-16 | None |
 Chronological audit notes: [`LOG.md`](./LOG.md).

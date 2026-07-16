@@ -959,17 +959,17 @@ export const projects: Project[] = [
     assets: {
       thumbnails: [
         {
-          src: "/assets/work/anchor/preview-16x9.svg",
-          alt: "Anchor — Conversation to Evidence to Knowledge; continue instead of reconstruct",
-          width: 1600,
-          height: 900,
+          src: "/assets/work/anchor/preview-16x9.png",
+          alt: "Anchor landing — Coordination without the meetings; navy hero with GitHub CTA",
+          width: 1024,
+          height: 826,
         },
       ],
       hero: {
-        src: "/assets/work/anchor/preview-16x9.svg",
-        alt: "Anchor — Conversation to Evidence to Knowledge; continue instead of reconstruct",
-        width: 1600,
-        height: 900,
+        src: "/assets/work/anchor/preview-16x9.png",
+        alt: "Anchor landing — Coordination without the meetings; navy hero with GitHub CTA",
+        width: 1024,
+        height: 826,
       },
     },
   },
@@ -1352,7 +1352,7 @@ export const projects: Project[] = [
 
 const PLACEHOLDER_ASSET_PREFIX = "/assets/work/_placeholders/";
 
-/** Same image as the case study hero when `hero` is set; otherwise first listing thumbnail. Keeps `/`, `/work`, and `/work/[slug]` in sync. */
+/** Same image as the case study hero when `hero` is set; otherwise first listing thumbnail. Keeps listing thumbs in sync across home, `/work`, and case-study routes. */
 export function getPrimaryPreviewImage(assets?: ProjectAssets): ImageAsset | undefined {
   return assets?.hero ?? assets?.thumbnails?.[0];
 }
@@ -1381,6 +1381,37 @@ export function getProject(slug: string) {
 export function getProjectHref(slug: string): string {
   if (slug === "anchor") return "/anchor";
   return `/work/${slug}`;
+}
+
+/** True when the project is a portfolio case-study route under `/work/` (not chrome-free landings). */
+export function isCaseStudyRoute(slug: string): boolean {
+  return getProjectHref(slug).startsWith("/work/");
+}
+
+type CaseStudyNavItem = Pick<Project, "slug" | "title" | "subtitle">;
+
+/** Prev/next neighbors for case-study chrome — skips landings like Anchor (ADR-087). */
+export function getCaseStudyNeighbors(slug: string): {
+  prev?: CaseStudyNavItem;
+  next?: CaseStudyNavItem;
+} {
+  const caseStudies = projects.filter((p) => isCaseStudyRoute(p.slug));
+  const currentIndex = caseStudies.findIndex((p) => p.slug === slug);
+  if (currentIndex < 0) return {};
+
+  const toNav = (p: Project): CaseStudyNavItem => ({
+    slug: p.slug,
+    title: p.title,
+    subtitle: p.subtitle,
+  });
+
+  return {
+    prev: currentIndex > 0 ? toNav(caseStudies[currentIndex - 1]!) : undefined,
+    next:
+      currentIndex >= 0 && currentIndex < caseStudies.length - 1
+        ? toNav(caseStudies[currentIndex + 1]!)
+        : undefined,
+  };
 }
 
 export function getFeaturedProjects() {

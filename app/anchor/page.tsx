@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { IBM_Plex_Mono, Newsreader, Source_Sans_3 } from "next/font/google";
+import AnchorSideNav from "./AnchorSideNav";
 
 const newsreader = Newsreader({
   subsets: ["latin"],
@@ -59,6 +61,13 @@ const c = {
 const GITHUB = "https://github.com/jon4ohio/anchor";
 const pad = "clamp(24px, 5vw, 64px)";
 const sectionPad = `clamp(80px, 14vh, 160px) ${pad}`;
+
+const navSections = [
+  { id: "home", label: "Home" },
+  { id: "problem", label: "The Problem" },
+  { id: "contracts", label: "The Framework" },
+  { id: "adopt", label: "Get Started" },
+];
 
 const contracts = [
   { n: "01", name: "Entry", desc: "Who reads what, in what order" },
@@ -137,6 +146,37 @@ function PrimaryBtn({
   );
 }
 
+function OutlineBtn({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        padding: "13px 25px",
+        background: "transparent",
+        border: "1px solid rgba(240, 240, 238, 0.28)",
+        color: c.paper,
+        fontFamily: c.body,
+        fontSize: 15,
+        fontWeight: 500,
+        textDecoration: "none",
+        borderRadius: 2,
+        letterSpacing: "-0.01em",
+        whiteSpace: "nowrap",
+      }}
+    >
+      {children}
+    </a>
+  );
+}
+
 function GhostLink({
   href,
   external,
@@ -178,7 +218,7 @@ export default function AnchorLandingPage() {
         minHeight: "100vh",
       }}
     >
-      {/* ─── Minimal wordmark header ──────────────────── */}
+      {/* ─── Portfolio return + GitHub ───────────────── */}
       <header
         style={{
           position: "fixed",
@@ -186,58 +226,149 @@ export default function AnchorLandingPage() {
           left: 0,
           right: 0,
           zIndex: 20,
-          height: 52,
-          padding: `0 ${pad}`,
+          minHeight: 52,
+          padding: `10px ${pad}`,
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          gap: 16,
+          flexWrap: "wrap",
           borderBottom: `1px solid ${c.line}`,
           background: "rgba(0,0,0,0.88)",
           backdropFilter: "blur(14px)",
           WebkitBackdropFilter: "blur(14px)",
         }}
       >
-        <span
+        <style>{`
+          .anchor-crumb-back:hover,
+          .anchor-crumb-link:hover {
+            color: ${c.paper} !important;
+          }
+        `}</style>
+        <div
           style={{
-            fontFamily: c.mono,
-            fontSize: 13,
-            letterSpacing: "0.07em",
-            textTransform: "uppercase",
-            color: c.paper,
+            display: "flex",
+            alignItems: "center",
+            flexWrap: "wrap",
+            gap: 10,
+            minWidth: 0,
           }}
         >
-          Anchor
-        </span>
+          <Link
+            href="/work"
+            className="anchor-crumb-back"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 4,
+              fontFamily: c.mono,
+              fontSize: 12,
+              color: c.muted,
+              textDecoration: "none",
+              flexShrink: 0,
+              transition: "color 0.15s",
+            }}
+          >
+            ← Back
+          </Link>
+          <span aria-hidden style={{ color: c.faint, fontSize: 12, lineHeight: 1 }}>
+            ·
+          </span>
+          <nav
+            aria-label="Breadcrumb"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: 8,
+              fontFamily: c.mono,
+              fontSize: 11,
+              letterSpacing: "0.06em",
+              textTransform: "uppercase",
+              minWidth: 0,
+            }}
+          >
+            <Link
+              href="/"
+              className="anchor-crumb-link"
+              style={{ color: c.muted, textDecoration: "none", transition: "color 0.15s" }}
+            >
+              Home
+            </Link>
+            <span aria-hidden style={{ color: c.faint }}>
+              /
+            </span>
+            <Link
+              href="/work"
+              className="anchor-crumb-link"
+              style={{ color: c.muted, textDecoration: "none", transition: "color 0.15s" }}
+            >
+              Case Studies
+            </Link>
+            <span aria-hidden style={{ color: c.faint }}>
+              /
+            </span>
+            <span style={{ color: c.paper, fontWeight: 500 }} aria-current="page">
+              Anchor
+            </span>
+          </nav>
+        </div>
         <a
           href={GITHUB}
           target="_blank"
           rel="noopener noreferrer"
           style={{
+            display: "inline-flex",
+            alignItems: "center",
+            padding: "6px 14px",
+            border: `1px solid rgba(240, 240, 238, 0.28)`,
+            borderRadius: 2,
             fontFamily: c.mono,
             fontSize: 11,
-            color: c.teal,
+            color: c.paper,
             textDecoration: "none",
             letterSpacing: "0.06em",
             textTransform: "uppercase",
+            flexShrink: 0,
           }}
         >
           GitHub ↗
         </a>
       </header>
 
+      <AnchorSideNav sections={navSections} />
+
       {/* ─── Hero ─────────────────────────────────────── */}
       <section
+        id="home"
         style={{
+          position: "relative",
           minHeight: "100svh",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "flex-end",
-          padding: `120px ${pad} clamp(64px, 10vh, 112px)`,
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          padding: `120px ${pad}`,
           borderBottom: `1px solid ${c.line}`,
+          overflow: "hidden",
+          background:
+            "linear-gradient(180deg, #050b14 0%, #0a1a2a 55%, #000 100%)",
         }}
       >
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "radial-gradient(ellipse 70% 50% at 50% 25%, rgba(61, 143, 141, 0.22), transparent 70%)",
+          }}
+        />
+
         <p
           style={{
+            position: "relative",
             fontFamily: c.mono,
             fontSize: 11,
             letterSpacing: "0.12em",
@@ -251,50 +382,54 @@ export default function AnchorLandingPage() {
 
         <h1
           style={{
+            position: "relative",
             fontFamily: c.display,
             fontStyle: "italic",
             fontWeight: 400,
-            fontSize: "clamp(52px, 9vw, 112px)",
-            lineHeight: 1.02,
+            fontSize: "clamp(44px, 7vw, 84px)",
+            lineHeight: 1.08,
             letterSpacing: "-0.03em",
             color: c.paper,
-            margin: "0 0 clamp(28px, 5vh, 48px)",
-            maxWidth: "15ch",
+            margin: "0 auto clamp(28px, 5vh, 40px)",
+            maxWidth: "16ch",
           }}
         >
-          Continue instead of reconstruct.
+          Coordination without the meetings.
         </h1>
 
         <p
           style={{
+            position: "relative",
             fontFamily: c.body,
-            fontSize: "clamp(16px, 1.8vw, 20px)",
+            fontSize: "clamp(16px, 1.6vw, 19px)",
             lineHeight: 1.55,
             color: c.muted,
-            margin: "0 0 clamp(40px, 6vh, 64px)",
-            maxWidth: "50ch",
+            margin: "0 auto clamp(40px, 6vh, 56px)",
+            maxWidth: "44ch",
           }}
         >
-          A thin coordination layer that gives AI assistants — and the humans
-          working alongside them — a single place to find project context
-          without rebuilding it every session.
+          Most teams need a standup to know what&rsquo;s current. Anchor needs
+          a markdown file.
         </p>
 
         <div
           style={{
+            position: "relative",
             display: "flex",
-            gap: "clamp(20px, 3vw, 32px)",
+            gap: "clamp(16px, 2.5vw, 24px)",
             flexWrap: "wrap",
             alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <PrimaryBtn href={GITHUB}>View on GitHub →</PrimaryBtn>
-          <GhostLink href="#contracts">How it works ↓</GhostLink>
+          <OutlineBtn href="#problem">See how it works ↓</OutlineBtn>
         </div>
       </section>
 
       {/* ─── Problem ──────────────────────────────────── */}
       <section
+        id="problem"
         style={{
           padding: sectionPad,
           borderBottom: `1px solid ${c.line}`,
@@ -512,6 +647,7 @@ export default function AnchorLandingPage() {
 
       {/* ─── Adopt ────────────────────────────────────── */}
       <section
+        id="adopt"
         style={{
           padding: sectionPad,
           borderBottom: `1px solid ${c.line}`,

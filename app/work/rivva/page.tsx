@@ -9,7 +9,7 @@ import DesignPrinciplePanel from "@/components/case-study/DesignPrinciplePanel";
 import OutcomeCards from "@/components/case-study/OutcomeCards";
 import PrevNextNav from "@/components/case-study/PrevNextNav";
 import PageCrumbHeader from "@/components/PageCrumbHeader";
-import { projects } from "@/lib/projects";
+import { getCaseStudyNeighbors } from "@/lib/projects";
 import {
   rivvaDesignPrinciple,
   rivvaHeroMeta,
@@ -93,9 +93,7 @@ function ProseBlock({ paragraphs }: { paragraphs: string[] }) {
 }
 
 export default function RivvaFlagshipCaseStudy() {
-  const currentIndex = projects.findIndex((p) => p.slug === "rivva");
-  const prev = currentIndex > 0 ? projects[currentIndex - 1] : undefined;
-  const next = currentIndex >= 0 ? projects[currentIndex + 1] : undefined;
+  const { prev, next } = getCaseStudyNeighbors("rivva");
 
   return (
     <div style={{ paddingTop: 56 }}>
