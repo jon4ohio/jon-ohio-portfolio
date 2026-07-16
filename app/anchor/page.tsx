@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { IBM_Plex_Mono, Newsreader, Source_Sans_3 } from "next/font/google";
 import AnchorSideNav from "./AnchorSideNav";
 
@@ -217,7 +218,7 @@ export default function AnchorLandingPage() {
         minHeight: "100vh",
       }}
     >
-      {/* ─── Minimal wordmark header ──────────────────── */}
+      {/* ─── Portfolio return + GitHub ───────────────── */}
       <header
         style={{
           position: "fixed",
@@ -225,28 +226,93 @@ export default function AnchorLandingPage() {
           left: 0,
           right: 0,
           zIndex: 20,
-          height: 52,
-          padding: `0 ${pad}`,
+          minHeight: 52,
+          padding: `10px ${pad}`,
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          gap: 16,
+          flexWrap: "wrap",
           borderBottom: `1px solid ${c.line}`,
           background: "rgba(0,0,0,0.88)",
           backdropFilter: "blur(14px)",
           WebkitBackdropFilter: "blur(14px)",
         }}
       >
-        <span
+        <style>{`
+          .anchor-crumb-back:hover,
+          .anchor-crumb-link:hover {
+            color: ${c.paper} !important;
+          }
+        `}</style>
+        <div
           style={{
-            fontFamily: c.mono,
-            fontSize: 13,
-            letterSpacing: "0.07em",
-            textTransform: "uppercase",
-            color: c.paper,
+            display: "flex",
+            alignItems: "center",
+            flexWrap: "wrap",
+            gap: 10,
+            minWidth: 0,
           }}
         >
-          Anchor
-        </span>
+          <Link
+            href="/work"
+            className="anchor-crumb-back"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 4,
+              fontFamily: c.mono,
+              fontSize: 12,
+              color: c.muted,
+              textDecoration: "none",
+              flexShrink: 0,
+              transition: "color 0.15s",
+            }}
+          >
+            ← Back
+          </Link>
+          <span aria-hidden style={{ color: c.faint, fontSize: 12, lineHeight: 1 }}>
+            ·
+          </span>
+          <nav
+            aria-label="Breadcrumb"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: 8,
+              fontFamily: c.mono,
+              fontSize: 11,
+              letterSpacing: "0.06em",
+              textTransform: "uppercase",
+              minWidth: 0,
+            }}
+          >
+            <Link
+              href="/"
+              className="anchor-crumb-link"
+              style={{ color: c.muted, textDecoration: "none", transition: "color 0.15s" }}
+            >
+              Home
+            </Link>
+            <span aria-hidden style={{ color: c.faint }}>
+              /
+            </span>
+            <Link
+              href="/work"
+              className="anchor-crumb-link"
+              style={{ color: c.muted, textDecoration: "none", transition: "color 0.15s" }}
+            >
+              Case Studies
+            </Link>
+            <span aria-hidden style={{ color: c.faint }}>
+              /
+            </span>
+            <span style={{ color: c.paper, fontWeight: 500 }} aria-current="page">
+              Anchor
+            </span>
+          </nav>
+        </div>
         <a
           href={GITHUB}
           target="_blank"
@@ -263,6 +329,7 @@ export default function AnchorLandingPage() {
             textDecoration: "none",
             letterSpacing: "0.06em",
             textTransform: "uppercase",
+            flexShrink: 0,
           }}
         >
           GitHub ↗

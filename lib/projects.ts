@@ -959,17 +959,17 @@ export const projects: Project[] = [
     assets: {
       thumbnails: [
         {
-          src: "/assets/work/anchor/preview-16x9.svg",
-          alt: "Anchor — Conversation to Evidence to Knowledge; continue instead of reconstruct",
-          width: 1600,
-          height: 900,
+          src: "/assets/work/anchor/preview-16x9.png",
+          alt: "Anchor landing — Coordination without the meetings; navy hero with GitHub CTA",
+          width: 1024,
+          height: 826,
         },
       ],
       hero: {
-        src: "/assets/work/anchor/preview-16x9.svg",
-        alt: "Anchor — Conversation to Evidence to Knowledge; continue instead of reconstruct",
-        width: 1600,
-        height: 900,
+        src: "/assets/work/anchor/preview-16x9.png",
+        alt: "Anchor landing — Coordination without the meetings; navy hero with GitHub CTA",
+        width: 1024,
+        height: 826,
       },
     },
   },
