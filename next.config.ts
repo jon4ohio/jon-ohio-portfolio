@@ -24,14 +24,9 @@ const nextConfig: NextConfig = {
     root: findPackageRoot(__dirname),
   },
   async redirects() {
-    return [
-      // ADR-087: case study URL permanently redirects to the standalone landing.
-      {
-        source: "/work/anchor",
-        destination: "/anchor",
-        permanent: true,
-      },
-    ];
+    // ADR-091: /work/anchor is the canonical portfolio case study again.
+    // Product site remains at /anchor (no redirect between them).
+    return [];
   },
   images: {
     remotePatterns: [

@@ -1,7 +1,7 @@
 # ADR-090: Anchor landing hierarchy lightened (v1.1.1)
 
 ## Status
-**Status:** Accepted  
+**Status:** Accepted (product spine amended by ADR-091)  
 **Date:** 2026-07-16  
 **Decision Maker(s):** John Ohio (Owner/Maintainer)  
 **Supersedes:** ADR-089
@@ -63,8 +63,9 @@ ADR-089 extended `/anchor` with Evidence, Related Research, and Explore sections
 
 - ADR-089 — superseded: Evidence / Related Research / Explore spine
 - ADR-086 — constrains: standalone `/anchor` + GitHub-primary funnel
-- ADR-087 — constrains: sole public Anchor surface
+- ADR-087 — superseded by ADR-091 for sole-surface / listing href rules
 - ADR-088 — constrains: navy hero + scroll-spy side nav
+- ADR-091 — amends: product homepage spine (Hero → How → Start → Learn → Why)
 
 ## References
 

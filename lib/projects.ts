@@ -929,24 +929,24 @@ export const projects: Project[] = [
     subtitle: "Continue instead of reconstruct",
     category: "Design Engineering",
     company: "Open Source",
-    period: "2025 – Present",
+    period: "2026 – Present",
     summary:
-      "Anchor preserves project knowledge so humans and AI can continue work instead of reconstructing context.",
+      "A case study in designing a coordination architecture so humans and AI continue from durable project context instead of reconstructing it.",
     role: "Creator · Design Engineer",
     scope:
-      "Responsibility-owned project contracts, session coordination, evidence-first adoption guides, and a chrome-free portfolio landing that bridges story to the open-source repository.",
+      "Systems judgment across responsibility contracts, product narrative, Capability API, and a thin runtime — with a separate product website for adoption.",
     metrics: [
-      { value: "7", label: "contract types" },
-      { value: "/anchor", label: "landing → repo proof" },
+      { value: "5", label: "architectural shifts" },
+      { value: "0.1.0", label: "runtime on npm" },
     ],
     context:
-      "AI-assisted development scatters decisions across disposable conversations. Returning after days or weeks means reconstructing project memory instead of continuing the work.",
+      "Software projects lose reasoning between sessions. Repositories preserve code more reliably than intent, so returning collaborators — human or AI — reconstruct context by hand.",
     problem:
-      "Every AI conversation starts from zero, even when the project already has intent, decisions, constraints, and history.",
+      "Coordination fails when many truths exist and none are routed by responsibility. Generation is plentiful; continuity is scarce.",
     action:
-      "Built Anchor as a Design Engineering framework that separates project knowledge into typed contracts, then published a standalone adoption landing on this portfolio with the repository as the primary engineering CTA.",
+      "Designed Anchor through cumulative shifts — responsibilities over files, product over framework, coordination over raw context, capabilities over directory layout, runtime as consequence — and published a portfolio case study with a separate product site for adoption.",
     impact:
-      "Visitors experience the continuity problem before the framework label; the landing earns curiosity and routes into real artifacts on GitHub rather than duplicating documentation on the marketing site.",
+      "Hiring managers can evaluate systems judgment on /work/anchor; adopters can install and evaluate the product on /anchor without reading the design history.",
     tags: [
       "Design Engineering",
       "AI Collaboration",
@@ -960,14 +960,14 @@ export const projects: Project[] = [
       thumbnails: [
         {
           src: "/assets/work/anchor/preview-16x9.png",
-          alt: "Anchor landing — navy gradient hero with GitHub CTA and scroll-spy side nav",
+          alt: "Anchor case study — systems judgment narrative with product website link",
           width: 1024,
           height: 533,
         },
       ],
       hero: {
         src: "/assets/work/anchor/preview-16x9.png",
-        alt: "Anchor landing — navy gradient hero with GitHub CTA and scroll-spy side nav",
+        alt: "Anchor case study — systems judgment narrative with product website link",
         width: 1024,
         height: 533,
       },
@@ -1377,20 +1377,20 @@ export function getProject(slug: string) {
   return projects.find((p) => p.slug === slug);
 }
 
-/** Public href for a project slug. Anchor uses the standalone landing (ADR-087). */
+/** Public href for a project slug. Anchor’s canonical portfolio entry is `/work/anchor` (ADR-091). */
 export function getProjectHref(slug: string): string {
-  if (slug === "anchor") return "/anchor";
+  // ADR-091: Anchor’s canonical portfolio entry is the case study.
   return `/work/${slug}`;
 }
 
-/** True when the project is a portfolio case-study route under `/work/` (not chrome-free landings). */
+/** True when the project is a portfolio case-study route under `/work/`. */
 export function isCaseStudyRoute(slug: string): boolean {
   return getProjectHref(slug).startsWith("/work/");
 }
 
 type CaseStudyNavItem = Pick<Project, "slug" | "title" | "subtitle">;
 
-/** Prev/next neighbors for case-study chrome — skips landings like Anchor (ADR-087). */
+/** Prev/next neighbors for case-study chrome — `/work/*` only (ADR-091). */
 export function getCaseStudyNeighbors(slug: string): {
   prev?: CaseStudyNavItem;
   next?: CaseStudyNavItem;

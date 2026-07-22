@@ -79,8 +79,9 @@
 | 084 | Portfolio marketing-shell redesign from Claude Design handoff | Accepted | 2026-07-14 | None |
 | 085 | Anchor case study hosted on the portfolio (Setup C) | Superseded by ADR-087 | 2026-07-15 | ADR-087 |
 | 086 | Anchor framework landing page at `/anchor` (standalone route, no shell chrome) | Accepted | 2026-07-16 | None |
-| 087 | Anchor landing at `/anchor` replaces `/work/anchor` case study | Accepted | 2026-07-16 | None |
+| 087 | Anchor landing at `/anchor` replaces `/work/anchor` case study | Superseded by ADR-091 | 2026-07-16 | ADR-091 |
 | 088 | Anchor hero navy gradient + scroll-spy side nav | Accepted | 2026-07-16 | None |
 | 089 | Anchor landing narrative refinement (v1.1) | Superseded by ADR-090 | 2026-07-16 | ADR-090 |
-| 090 | Anchor landing hierarchy lightened (v1.1.1) | Accepted | 2026-07-16 | None |
+| 090 | Anchor landing hierarchy lightened (v1.1.1) | Accepted (amended by ADR-091) | 2026-07-16 | None |
+| 091 | Portfolio/Product Surface Separation (Anchor) | Accepted | 2026-07-22 | None |
 Chronological audit notes: [`LOG.md`](./LOG.md).
