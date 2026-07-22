@@ -1,7 +1,7 @@
 # ADR-087: Anchor landing at `/anchor` replaces `/work/anchor` case study
 
 ## Status
-**Status:** Accepted  
+**Status:** Superseded by ADR-091  
 **Date:** 2026-07-16  
 **Decision Maker(s):** John Ohio (Owner/Maintainer)  
 **Supersedes:** ADR-085
@@ -89,6 +89,7 @@ Operating rules:
 
 - ADR-085 — superseded by this ADR (Setup C case study at `/work/anchor`)
 - ADR-086 — depends on: `/anchor` landing + SiteShell remain the implementation host
+- ADR-091 — supersedes this ADR (Portfolio/Product Surface Separation)
 - ADR-001 — constrains: inline styles on `/anchor`
 - ADR-007 — constrains: page-local dark tokens on `/anchor`; shell theme unchanged
 

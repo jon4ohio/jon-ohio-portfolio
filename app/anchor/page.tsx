@@ -26,7 +26,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 const META_DESCRIPTION =
-  "Continue instead of reconstruct. Seven contracts. One responsibility each. No build step.";
+  "Continue instead of reconstruct. Anchor coordinates durable project context so humans and AI can continue work instead of rebuilding it.";
 
 export const metadata: Metadata = {
   title: "Anchor — Continue instead of reconstruct",
@@ -59,51 +59,55 @@ const c = {
 } as const;
 
 const GITHUB = "https://github.com/jon4ohio/anchor";
+const NPM = "https://www.npmjs.com/package/@jon4ohio/anchor-runtime";
+const DOCS =
+  "https://github.com/jon4ohio/anchor/blob/main/docs/experience/04-building-your-own.md";
+const CONTRACTS =
+  "https://github.com/jon4ohio/anchor/blob/main/docs/project/entry.md";
+const CAPABILITY_API =
+  "https://github.com/jon4ohio/anchor/blob/main/docs/decisions/ADR-006-capability-api.md";
+const POSITION =
+  "https://github.com/jon4ohio/anchor/blob/main/docs/decisions/POSITION-anchor-coordination-architecture.md";
+
 const pad = "clamp(24px, 5vw, 64px)";
 const sectionPad = `clamp(80px, 14vh, 160px) ${pad}`;
 
 const navSections = [
   { id: "home", label: "Start" },
-  { id: "problem", label: "The Problem" },
-  { id: "contracts", label: "The Framework" },
-  { id: "adopt", label: "Get Started" },
+  { id: "how", label: "How it works" },
+  { id: "start", label: "Get started" },
+  { id: "learn", label: "Learn" },
+  { id: "why", label: "Why" },
 ];
 
-const contracts = [
-  { n: "01", name: "Entry", desc: "Who reads what, in what order" },
-  { n: "02", name: "Handoff", desc: "What changed, what's next, what's in flight" },
-  { n: "03", name: "Decision", desc: "Why an architectural choice was made" },
-  { n: "04", name: "Spec", desc: "What a feature must do and how it behaves" },
-  { n: "05", name: "Domain", desc: "How this system works — the stable model" },
-  { n: "06", name: "Research", desc: "Discovered facts from external sources" },
-  { n: "07", name: "Validation", desc: "Evidence that something works as claimed" },
+const howSteps = [
+  {
+    n: "01",
+    title: "Responsibility",
+    body: "Project knowledge is owned by responsibility — orientation, decisions, scope, continuity — not by whichever file happened to mention it last.",
+  },
+  {
+    n: "02",
+    title: "Capability",
+    body: "Engineering responsibilities become stable capability identities. Clients depend on what to fulfill, not on a directory layout.",
+  },
+  {
+    n: "03",
+    title: "Runtime",
+    body: "A thin local runtime initializes a workspace and fulfills responsibilities, writing durable artifacts into your repository. Your host AI provides inference.",
+  },
 ];
 
-const steps = [
-  { n: "01", heading: "Classify", body: "Map existing files." },
-  { n: "02", heading: "Fill gaps", body: "Add what's missing." },
-  { n: "03", heading: "Reference", body: "One fact. One place." },
+const learnLinks = [
+  { label: "Seven Contracts", href: CONTRACTS },
+  { label: "Capability API", href: CAPABILITY_API },
+  { label: "Position Paper", href: POSITION },
 ];
 
-const relatedWork: {
-  label: string;
-  href: string;
-  external?: boolean;
-}[] = [
-  {
-    label: "Evidence-First ADR",
-    href: "https://github.com/jon4ohio/anchor/blob/main/docs/decisions/ADR-004-evidence-first-adr-compatible-format.md",
-    external: true,
-  },
-  {
-    label: "Context Engineering",
-    href: "https://github.com/jon4ohio/anchor/blob/main/docs/decisions/POSITION-context-arbitration.md",
-    external: true,
-  },
-  {
-    label: "Agentic Development Process",
-    href: "/notes/design-doesnt-end-in-figma",
-  },
+const installCommands = [
+  "npm install -g @jon4ohio/anchor-runtime",
+  "anchor init",
+  "anchor fulfill orientation",
 ];
 
 function MonoLabel({ children }: { children: React.ReactNode }) {
@@ -126,15 +130,16 @@ function MonoLabel({ children }: { children: React.ReactNode }) {
 function PrimaryBtn({
   href,
   children,
+  external,
 }: {
   href: string;
   children: React.ReactNode;
+  external?: boolean;
 }) {
   return (
     <a
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       style={{
         display: "inline-flex",
         alignItems: "center",
@@ -189,7 +194,7 @@ function OutlineBtn({
   );
 }
 
-export default function AnchorLandingPage() {
+export default function AnchorProductPage() {
   return (
     <div
       className={`${newsreader.variable} ${sourceSans.variable} ${plexMono.variable}`}
@@ -202,7 +207,6 @@ export default function AnchorLandingPage() {
         minHeight: "100vh",
       }}
     >
-      {/* ─── Portfolio return + GitHub ───────────────── */}
       <header
         style={{
           position: "fixed",
@@ -226,8 +230,11 @@ export default function AnchorLandingPage() {
         <style>{`
           .anchor-crumb-back:hover,
           .anchor-crumb-link:hover,
-          .anchor-related-link:hover {
+          .anchor-learn-link:hover {
             color: ${c.paper} !important;
+          }
+          @media (max-width: 880px) {
+            .anchor-side-nav { display: none !important; }
           }
         `}</style>
         <div
@@ -240,7 +247,7 @@ export default function AnchorLandingPage() {
           }}
         >
           <Link
-            href="/work"
+            href="/work/anchor"
             className="anchor-crumb-back"
             style={{
               display: "inline-flex",
@@ -254,49 +261,23 @@ export default function AnchorLandingPage() {
               transition: "color 0.15s",
             }}
           >
-            ← Back
+            ← Case study
           </Link>
           <span aria-hidden style={{ color: c.faint, fontSize: 12, lineHeight: 1 }}>
             ·
           </span>
-          <nav
-            aria-label="Breadcrumb"
+          <span
             style={{
-              display: "flex",
-              alignItems: "center",
-              flexWrap: "wrap",
-              gap: 8,
               fontFamily: c.mono,
               fontSize: 11,
               letterSpacing: "0.06em",
               textTransform: "uppercase",
-              minWidth: 0,
+              color: c.paper,
+              fontWeight: 500,
             }}
           >
-            <Link
-              href="/"
-              className="anchor-crumb-link"
-              style={{ color: c.muted, textDecoration: "none", transition: "color 0.15s" }}
-            >
-              Home
-            </Link>
-            <span aria-hidden style={{ color: c.faint }}>
-              /
-            </span>
-            <Link
-              href="/work"
-              className="anchor-crumb-link"
-              style={{ color: c.muted, textDecoration: "none", transition: "color 0.15s" }}
-            >
-              Case Studies
-            </Link>
-            <span aria-hidden style={{ color: c.faint }}>
-              /
-            </span>
-            <span style={{ color: c.paper, fontWeight: 500 }} aria-current="page">
-              Anchor
-            </span>
-          </nav>
+            Product
+          </span>
         </div>
         <a
           href={GITHUB}
@@ -323,7 +304,6 @@ export default function AnchorLandingPage() {
 
       <AnchorSideNav sections={navSections} />
 
-      {/* ─── Hero ─────────────────────────────────────── */}
       <section
         id="home"
         style={{
@@ -337,8 +317,7 @@ export default function AnchorLandingPage() {
           padding: `120px ${pad}`,
           borderBottom: `1px solid ${c.line}`,
           overflow: "hidden",
-          background:
-            "linear-gradient(180deg, #050b14 0%, #0a1a2a 55%, #000 100%)",
+          background: "linear-gradient(180deg, #050b14 0%, #0a1a2a 55%, #000 100%)",
         }}
       >
         <div
@@ -385,430 +364,247 @@ export default function AnchorLandingPage() {
         <p
           style={{
             position: "relative",
-            fontFamily: c.body,
-            fontSize: "clamp(16px, 1.6vw, 19px)",
+            fontSize: "clamp(17px, 2.2vw, 20px)",
             lineHeight: 1.55,
             color: c.muted,
-            margin: "0 auto clamp(40px, 6vh, 56px)",
-            maxWidth: "40ch",
+            maxWidth: 540,
+            margin: "0 auto clamp(36px, 6vh, 48px)",
           }}
         >
-          Every session starts from scratch. Anchor makes sure your project
-          doesn&rsquo;t.
+          Anchor coordinates durable project context so humans and AI can continue work instead of
+          rebuilding it.
         </p>
 
         <div
           style={{
             position: "relative",
             display: "flex",
-            gap: "clamp(16px, 2.5vw, 24px)",
             flexWrap: "wrap",
-            alignItems: "center",
+            gap: 12,
             justifyContent: "center",
           }}
         >
-          <PrimaryBtn href={GITHUB}>View on GitHub →</PrimaryBtn>
-          <OutlineBtn href="#problem">See how it works →</OutlineBtn>
+          <PrimaryBtn href={NPM} external>
+            Install Runtime
+          </PrimaryBtn>
+          <OutlineBtn href={DOCS} external>
+            Read Docs
+          </OutlineBtn>
+          <OutlineBtn href={GITHUB} external>
+            GitHub
+          </OutlineBtn>
         </div>
       </section>
 
-      {/* ─── Problem ──────────────────────────────────── */}
-      <section
-        id="problem"
-        style={{
-          padding: sectionPad,
-          borderBottom: `1px solid ${c.line}`,
-        }}
-      >
-        <MonoLabel>The Problem</MonoLabel>
-
+      <section id="how" style={{ padding: sectionPad, borderBottom: `1px solid ${c.line}` }}>
+        <MonoLabel>How it works</MonoLabel>
         <h2
           style={{
             fontFamily: c.display,
             fontWeight: 400,
-            fontSize: "clamp(36px, 5.5vw, 68px)",
-            lineHeight: 1.06,
-            letterSpacing: "-0.028em",
-            color: c.paper,
-            margin: "0 0 clamp(40px, 7vh, 64px)",
-            maxWidth: "16ch",
+            fontSize: "clamp(28px, 4vw, 40px)",
+            letterSpacing: "-0.02em",
+            lineHeight: 1.2,
+            margin: "0 0 48px",
+            maxWidth: 720,
           }}
         >
-          Projects accumulate knowledge.
-          <br />
-          AI sessions rarely do.
+          Responsibility → Capability → Runtime
         </h2>
-
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 380px), 1fr))",
-            gap: "clamp(40px, 6vw, 80px)",
-            maxWidth: 960,
-            alignItems: "start",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gap: 28,
           }}
         >
-          <div>
-            <p
-              style={{
-                fontFamily: c.body,
-                fontSize: 17,
-                lineHeight: 1.7,
-                color: c.muted,
-                margin: "0 0 20px",
-              }}
-            >
-              You&rsquo;ve built context over dozens of sessions. The next AI
-              session starts from zero.
-            </p>
-            <p
-              style={{
-                fontFamily: c.body,
-                fontSize: 17,
-                lineHeight: 1.7,
-                color: c.muted,
-                margin: 0,
-              }}
-            >
-              Anchor gives project knowledge a durable home.
-            </p>
-          </div>
-
-          <div
-            style={{
-              background: "rgba(255,255,255,0.025)",
-              border: `1px solid ${c.line}`,
-              borderRadius: 3,
-              padding: "clamp(20px, 3vw, 32px)",
-            }}
-          >
-            <p
-              style={{
-                fontFamily: c.mono,
-                fontSize: 10,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                color: c.muted,
-                margin: "0 0 20px",
-              }}
-            >
-              AGENTS.md (typical)
-            </p>
-            {[
-              { text: "This is a TypeScript monorepo.", fade: false },
-              { text: "We use Prisma for the database.", fade: false },
-              { text: "IMPORTANT: don't touch the auth module.", fade: false },
-              { text: "# Notes from last session — see if still valid", fade: true },
-              { text: "# TODO: clean this up before next sprint", fade: true },
-              { text: "[continues for 200 more lines]", fade: true, faint: true },
-            ].map((line, i) => (
+          {howSteps.map((step) => (
+            <div key={step.n} style={{ borderTop: `1px solid ${c.line}`, paddingTop: 24 }}>
               <p
-                key={i}
                 style={{
                   fontFamily: c.mono,
                   fontSize: 12,
-                  lineHeight: 1.8,
-                  color: line.faint
-                    ? "rgba(240,240,238,0.18)"
-                    : line.fade
-                      ? "rgba(240,240,238,0.3)"
-                      : c.muted,
-                  margin: 0,
+                  color: c.teal,
+                  letterSpacing: "0.08em",
+                  margin: "0 0 12px",
                 }}
               >
-                {line.text}
+                {step.n}
               </p>
-            ))}
-          </div>
+              <h3 style={{ margin: "0 0 12px", fontSize: 20, fontWeight: 600 }}>{step.title}</h3>
+              <p style={{ margin: 0, fontSize: 15, lineHeight: 1.65, color: c.muted }}>{step.body}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* ─── Framework ────────────────────────────────── */}
-      <section
-        id="contracts"
-        style={{
-          padding: sectionPad,
-          borderBottom: `1px solid ${c.line}`,
-        }}
-      >
-        <MonoLabel>The Framework</MonoLabel>
-
+      <section id="start" style={{ padding: sectionPad, borderBottom: `1px solid ${c.line}` }}>
+        <MonoLabel>Getting started</MonoLabel>
         <h2
           style={{
             fontFamily: c.display,
             fontWeight: 400,
-            fontSize: "clamp(32px, 4.5vw, 56px)",
-            lineHeight: 1.08,
-            letterSpacing: "-0.025em",
-            color: c.paper,
-            margin: "0 0 24px",
-            maxWidth: "20ch",
+            fontSize: "clamp(28px, 4vw, 40px)",
+            letterSpacing: "-0.02em",
+            lineHeight: 1.2,
+            margin: "0 0 20px",
+            maxWidth: 520,
           }}
         >
-          Seven contracts.
-          <br />
-          One responsibility each.
+          Install, initialize, fulfill.
         </h2>
-
-        <p
-          style={{
-            fontFamily: c.body,
-            fontSize: 17,
-            lineHeight: 1.65,
-            color: c.muted,
-            margin: "0 0 clamp(48px, 8vh, 72px)",
-            maxWidth: "42ch",
-          }}
-        >
-          Every kind of project knowledge has one home. Classify what exists.
-          Fill the gaps.
+        <p style={{ margin: "0 0 32px", fontSize: 16, lineHeight: 1.65, color: c.muted, maxWidth: 560 }}>
+          Today, engineering responsibilities are fulfilled by a compatible AI host — such as Cursor
+          or Claude Code — using the installed Anchor Runtime. Durable artifacts stay in your
+          repository.
         </p>
-
-        <div style={{ maxWidth: 800 }}>
-          {contracts.map((row, i) => (
-            <div
-              key={row.n}
+        <ol style={{ listStyle: "none", margin: 0, padding: 0, maxWidth: 640 }}>
+          {installCommands.map((cmd, i) => (
+            <li
+              key={cmd}
               style={{
                 display: "grid",
-                gridTemplateColumns: "2.5ch 140px 1fr",
-                gap: "0 clamp(16px, 2.5vw, 32px)",
-                padding: "clamp(18px, 2.5vh, 24px) 0",
+                gridTemplateColumns: "48px 1fr",
+                gap: 16,
+                alignItems: "center",
+                padding: "16px 0",
                 borderTop: `1px solid ${c.line}`,
-                ...(i === contracts.length - 1
-                  ? { borderBottom: `1px solid ${c.line}` }
-                  : {}),
-                alignItems: "baseline",
               }}
             >
-              <span
+              <span style={{ fontFamily: c.mono, fontSize: 12, color: c.teal }}>
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <code
                 style={{
                   fontFamily: c.mono,
-                  fontSize: 11,
-                  color: c.teal,
-                  letterSpacing: "0.04em",
-                }}
-              >
-                {row.n}
-              </span>
-              <span
-                style={{
-                  fontFamily: c.body,
-                  fontSize: 15,
-                  fontWeight: 600,
+                  fontSize: 14,
                   color: c.paper,
-                  letterSpacing: "-0.01em",
+                  background: "rgba(240,240,238,0.04)",
+                  border: `1px solid ${c.line}`,
+                  borderRadius: 4,
+                  padding: "12px 14px",
+                  overflowWrap: "anywhere",
                 }}
               >
-                {row.name}
-              </span>
-              <span
-                style={{
-                  fontFamily: c.body,
-                  fontSize: 15,
-                  color: c.muted,
-                  lineHeight: 1.5,
-                }}
-              >
-                {row.desc}
-              </span>
-            </div>
+                {cmd}
+              </code>
+            </li>
           ))}
-        </div>
-
-        <p
-          style={{
-            fontFamily: c.mono,
-            fontSize: 11,
-            color: c.muted,
-            letterSpacing: "0.06em",
-            marginTop: 28,
-          }}
-        >
-          No build step · No tooling dependency · Version-controlled markdown
+        </ol>
+        <p style={{ margin: "28px 0 0", fontSize: 13, lineHeight: 1.6, color: c.faint, maxWidth: 560 }}>
+          Verify with <code style={{ fontFamily: c.mono }}>anchor help</code> (the CLI has no{" "}
+          <code style={{ fontFamily: c.mono }}>--help</code> flag). Fulfillment language stays
+          provisional until the Capability API acceptance gate clears in real adoption.
         </p>
       </section>
 
-      {/* ─── Adopt ────────────────────────────────────── */}
-      <section
-        id="adopt"
-        style={{
-          padding: sectionPad,
-          borderBottom: `1px solid ${c.line}`,
-        }}
-      >
-        <MonoLabel>Get Started</MonoLabel>
-
+      <section id="learn" style={{ padding: sectionPad, borderBottom: `1px solid ${c.line}` }}>
+        <MonoLabel>Learn the ideas</MonoLabel>
         <h2
           style={{
             fontFamily: c.display,
             fontWeight: 400,
-            fontSize: "clamp(36px, 5.5vw, 68px)",
-            lineHeight: 1.06,
-            letterSpacing: "-0.028em",
-            color: c.paper,
-            margin: "0 0 clamp(48px, 8vh, 72px)",
-            maxWidth: "14ch",
+            fontSize: "clamp(28px, 4vw, 40px)",
+            letterSpacing: "-0.02em",
+            lineHeight: 1.2,
+            margin: "0 0 32px",
           }}
         >
-          Drop it in.{" "}
-          <em style={{ fontStyle: "italic" }}>Don&rsquo;t move files.</em>
+          Go deeper in the repository.
         </h2>
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))",
-            maxWidth: 960,
-            marginBottom: "clamp(56px, 9vh, 80px)",
-          }}
-        >
-          {steps.map((s) => (
-            <div
-              key={s.n}
-              style={{
-                padding: "clamp(24px, 3.5vh, 36px) clamp(0px, 2.5vw, 24px) clamp(24px, 3.5vh, 36px) 0",
-                borderTop: `1px solid ${c.line}`,
-              }}
-            >
-              <p
-                style={{
-                  fontFamily: c.mono,
-                  fontSize: 11,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  color: c.teal,
-                  margin: "0 0 16px",
-                }}
-              >
-                {s.n}
-              </p>
-              <p
-                style={{
-                  fontFamily: c.body,
-                  fontSize: 16,
-                  fontWeight: 600,
-                  color: c.paper,
-                  margin: "0 0 10px",
-                  lineHeight: 1.35,
-                  letterSpacing: "-0.01em",
-                }}
-              >
-                {s.heading}
-              </p>
-              <p
-                style={{
-                  fontFamily: c.body,
-                  fontSize: 15,
-                  lineHeight: 1.65,
-                  color: c.muted,
-                  margin: 0,
-                }}
-              >
-                {s.body}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <PrimaryBtn href={GITHUB}>View on GitHub →</PrimaryBtn>
-      </section>
-
-      {/* ─── Related Work (thin) ──────────────────────── */}
-      <footer
-        style={{
-          padding: `clamp(40px, 7vh, 64px) ${pad} clamp(28px, 4vh, 40px)`,
-        }}
-      >
-        <p
-          style={{
-            fontFamily: c.mono,
-            fontSize: 11,
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            color: c.teal,
-            margin: "0 0 20px",
-          }}
-        >
-          Related Work
-        </p>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "clamp(16px, 3vw, 28px)",
-            marginBottom: "clamp(36px, 6vh, 48px)",
-          }}
-        >
-          {relatedWork.map((item) => {
-            const style = {
-              fontFamily: c.body,
-              fontSize: 15,
-              fontWeight: 500,
-              color: c.muted,
-              textDecoration: "none",
-              letterSpacing: "-0.01em",
-              transition: "color 0.15s",
-            } as const;
-
-            return item.external ? (
+        <ul style={{ listStyle: "none", margin: 0, padding: 0, maxWidth: 480 }}>
+          {learnLinks.map((link) => (
+            <li key={link.label} style={{ borderTop: `1px solid ${c.line}` }}>
               <a
-                key={item.label}
-                href={item.href}
+                href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="anchor-related-link"
-                style={style}
+                className="anchor-learn-link"
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  gap: 16,
+                  padding: "18px 0",
+                  color: c.muted,
+                  textDecoration: "none",
+                  fontSize: 17,
+                  transition: "color 0.15s",
+                }}
               >
-                {item.label} →
+                <span>{link.label}</span>
+                <span aria-hidden style={{ fontFamily: c.mono, fontSize: 12 }}>
+                  ↗
+                </span>
               </a>
-            ) : (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="anchor-related-link"
-                style={style}
-              >
-                {item.label} →
-              </Link>
-            );
-          })}
-        </div>
+            </li>
+          ))}
+        </ul>
+      </section>
 
-        <div
+      <section id="why" style={{ padding: sectionPad, borderBottom: `1px solid ${c.line}` }}>
+        <MonoLabel>Why Anchor exists</MonoLabel>
+        <h2
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            flexWrap: "wrap",
-            gap: 16,
-            paddingTop: 24,
-            borderTop: `1px solid ${c.line}`,
+            fontFamily: c.display,
+            fontWeight: 400,
+            fontSize: "clamp(28px, 4vw, 40px)",
+            letterSpacing: "-0.02em",
+            lineHeight: 1.2,
+            margin: "0 0 20px",
+            maxWidth: 560,
           }}
         >
-          <span
-            style={{
-              fontFamily: c.mono,
-              fontSize: 11,
-              color: c.muted,
-              letterSpacing: "0.04em",
-            }}
-          >
-            Anchor by Jon Ohio · MIT License
-          </span>
-          <a
-            href={GITHUB}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              fontFamily: c.mono,
-              fontSize: 11,
-              color: c.muted,
-              textDecoration: "none",
-              letterSpacing: "0.04em",
-            }}
-          >
-            github.com/jon4ohio/anchor ↗
+          Designed for coordination, not another prompt pack.
+        </h2>
+        <p style={{ margin: "0 0 28px", fontSize: 16, lineHeight: 1.65, color: c.muted, maxWidth: 560 }}>
+          If you want the systems-thinking story — the shifts, tradeoffs, and evidence — read the
+          design case study on this portfolio.
+        </p>
+        <Link
+          href="/work/anchor"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            fontSize: 16,
+            fontWeight: 500,
+            color: c.paper,
+            textDecoration: "none",
+            borderBottom: `1px solid rgba(240, 240, 238, 0.28)`,
+            paddingBottom: 4,
+          }}
+        >
+          Read the design case study →
+        </Link>
+      </section>
+
+      <footer
+        style={{
+          padding: `32px ${pad} 48px`,
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 16,
+          justifyContent: "space-between",
+          alignItems: "center",
+          fontFamily: c.mono,
+          fontSize: 11,
+          letterSpacing: "0.06em",
+          textTransform: "uppercase",
+          color: c.faint,
+        }}
+      >
+        <span>MIT · @jon4ohio/anchor-runtime</span>
+        <div style={{ display: "flex", gap: 16 }}>
+          <a href={NPM} target="_blank" rel="noopener noreferrer" style={{ color: c.muted, textDecoration: "none" }}>
+            npm
           </a>
+          <a href={GITHUB} target="_blank" rel="noopener noreferrer" style={{ color: c.muted, textDecoration: "none" }}>
+            GitHub
+          </a>
+          <Link href="/work/anchor" style={{ color: c.muted, textDecoration: "none" }}>
+            Case study
+          </Link>
         </div>
       </footer>
     </div>
