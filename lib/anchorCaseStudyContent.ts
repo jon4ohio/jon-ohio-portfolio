@@ -49,13 +49,8 @@ export const anchorMetadata = {
 
 export const anchorProductLinks: AnchorProductLink[] = [
   { label: "Website", href: "/anchor" },
-  { label: "GitHub", href: "https://github.com/jon4ohio/anchor", external: true },
+  { label: "Docs", href: "/anchor/docs" },
   { label: "npm", href: "https://www.npmjs.com/package/@jon4ohio/anchor-runtime", external: true },
-  {
-    label: "Docs",
-    href: "https://github.com/jon4ohio/anchor/blob/main/docs/experience/04-building-your-own.md",
-    external: true,
-  },
 ];
 
 export const anchorSkim: AnchorSkimItem[] = [
@@ -269,25 +264,12 @@ export const anchorExplore = {
     "Anchor is an active project. If you’re interested in the coordination architecture described here, you can:",
   actions: [
     { label: "Visit the product website", href: "/anchor" },
+    { label: "Read the documentation", href: "/anchor/docs" },
     {
       label: "Install the runtime",
       href: "https://www.npmjs.com/package/@jon4ohio/anchor-runtime",
       external: true,
     },
-    {
-      label: "Browse the repository",
-      href: "https://github.com/jon4ohio/anchor",
-      external: true,
-    },
-    {
-      label: "Read the architecture decisions",
-      href: "https://github.com/jon4ohio/anchor/tree/main/docs/decisions",
-      external: true,
-    },
-    {
-      label: "Follow ongoing evidence",
-      href: "https://github.com/jon4ohio/anchor/blob/main/releases/v0.2/evidence.md",
-      external: true,
-    },
+    { label: "Follow maturity notes", href: "/anchor/docs#maturity" },
   ] satisfies AnchorExploreAction[],
 };
