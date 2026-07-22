@@ -14,22 +14,28 @@ export const anchorDocsMeta = {
   description:
     "How to adopt Anchor — Getting Started, concepts, architecture, and runtime reference. Independent of the implementation repository.",
   intro:
-    "This is the canonical How surface for Anchor. Product introduces adoption; Documentation owns it.",
+    "Install the runtime. Adopt the methodology. This is the canonical How surface for Anchor — product introduces adoption; Documentation owns the walkthrough.",
 };
 
 export const anchorDocsSections: AnchorDocsSection[] = [
   {
     id: "getting-started",
     label: "Getting Started",
-    title: "Install, initialize, fulfill.",
+    title: "Install the runtime. Adopt the methodology.",
     paragraphs: [
-      "Engineering responsibilities are fulfilled by a compatible AI host — such as Cursor or Claude Code — using the installed Anchor Runtime. Durable artifacts stay in your repository.",
-      "Verify with anchor help (the CLI has no --help flag). Fulfillment language stays provisional until the Capability API acceptance gate clears in real adoption.",
+      "Anchor separates tooling from practice. You install a runtime once; you adopt a coordination methodology into your own project artifacts.",
+      "Software steps come first: install the runtime, then initialize your workspace. After anchor init, your project's .anchor workspace is the primary working context. Engineering decisions and project state belong there — not in the public documentation.",
+      "Next, adopt the methodology: orient your AI host (Cursor, Claude Code, or another compatible host) and establish project context — typically Project Entry and Handoff. Depending on whether you are adopting Anchor in an existing project or starting a new one, follow the guidance that matches your situation below.",
+      "Then begin engineering from those durable artifacts. Verify the CLI with anchor help (there is no --help flag).",
     ],
     commands: [
       "npm install -g @jon4ohio/anchor-runtime",
-      "anchor init",
-      "anchor fulfill orientation",
+      "cd your-project && anchor init",
+    ],
+    bullets: [
+      "Existing project — map what already owns each responsibility; create Entry and Handoff only where gaps remain; keep existing ADRs and docs in place.",
+      "New project — establish Entry and Handoff early; add a Spec when scope is clear; skip ADRs until a decision constrains future work.",
+      "Ask your AI host to orient before work: Entry first; Handoff if continuing; relevant Spec or ADR for the task.",
     ],
     nextHref: "#concepts",
     nextLabel: "Learn the concepts →",
@@ -69,12 +75,13 @@ export const anchorDocsSections: AnchorDocsSection[] = [
     label: "Reference",
     title: "Runtime commands and behavior.",
     paragraphs: [
-      "The runtime prepares a workspace and fulfills declared engineering responsibilities. It does not host inference, own project state, or decide when work should happen.",
+      "Once you have begun engineering, these commands describe runtime capabilities. The runtime prepares a workspace and can fulfill declared engineering responsibilities. It does not host inference, own project state, or decide when work should happen.",
+      "Capability fulfillment language remains provisional until the Capability API acceptance gate clears in real adoption.",
     ],
     bullets: [
       "anchor help — list commands (no --help flag).",
       "anchor init — create .anchor workspace config and default artifact locations.",
-      "anchor fulfill <identity> — fulfill a capability identity (e.g. orientation).",
+      "anchor fulfill <identity> — fulfill a capability identity (e.g. orientation) after you have adopted the methodology.",
       "Local MCP tool aliases map to fulfill(\"<identity>\") where the host supports them.",
     ],
     nextHref: "#maturity",

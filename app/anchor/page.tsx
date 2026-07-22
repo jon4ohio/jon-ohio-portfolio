@@ -71,9 +71,9 @@ const howSteps = [
 
 const learnLinks = [
   { label: "Getting Started", href: "/anchor/docs#getting-started" },
-  { label: "Concepts", href: "/anchor/docs#concepts" },
+  { label: "Seven Contracts", href: "/anchor/docs#concepts" },
+  { label: "Capability API", href: "/anchor/docs#architecture" },
   { label: "Architecture", href: "/anchor/docs#architecture" },
-  { label: "Reference", href: "/anchor/docs#reference" },
 ];
 
 const problemParagraphs = [
@@ -285,8 +285,8 @@ export default function AnchorProductPage() {
             margin: "0 auto 36px",
           }}
         >
-          Anchor coordinates durable project context so humans and AI can continue work instead of
-          rebuilding it.
+          Install the runtime. Adopt the methodology. Anchor coordinates durable project context so
+          humans and AI can continue work instead of reconstructing it.
         </p>
 
         <div
@@ -356,8 +356,9 @@ export default function AnchorProductPage() {
         <MonoLabel>Getting started</MonoLabel>
         <h2 style={h2Style}>Start in minutes.</h2>
         <p style={{ ...bodyCopyStyle, marginBottom: 28 }}>
-          Install the runtime, then follow the canonical Getting Started guide in Documentation —
-          product introduces adoption; docs owns the full walkthrough.
+          Install the runtime. Adopt the methodology. Product introduces adoption; Documentation owns
+          the full walkthrough — initialize your project, orient your AI host, and begin engineering
+          from durable context.
         </p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
           <PrimaryBtn href={c.npm} external>
@@ -369,10 +370,10 @@ export default function AnchorProductPage() {
 
       <section id="learn" style={{ padding: c.sectionPad, borderBottom: `1px solid ${c.line}` }}>
         <MonoLabel>Learn</MonoLabel>
-        <h2 style={h2Style}>Documentation — the How surface.</h2>
+        <h2 style={h2Style}>Understand how Anchor works.</h2>
         <p style={{ ...bodyCopyStyle, marginBottom: 28 }}>
-          Concepts, architecture, and runtime reference live on the product documentation surface —
-          not in the implementation repository.
+          Concepts, capability identities, and architecture live on the product documentation
+          surface — the public How, independent of the implementation repository.
         </p>
         <ul style={{ listStyle: "none", margin: 0, padding: 0, maxWidth: 480 }}>
           {learnLinks.map((link) => (
