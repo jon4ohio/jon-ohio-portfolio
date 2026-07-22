@@ -84,5 +84,6 @@
 | 089 | Anchor landing narrative refinement (v1.1) | Superseded by ADR-090 | 2026-07-16 | ADR-090 |
 | 090 | Anchor landing hierarchy lightened (v1.1.1) | Accepted (amended by ADR-091) | 2026-07-16 | None |
 | 091 | Portfolio/Product Surface Separation (Anchor) | Accepted | 2026-07-22 | None |
-| 092 | Public Knowledge Surface Independent of Implementation Repository | Accepted | 2026-07-22 | None |
+| 092 | Public Knowledge Surface Independent of Implementation Repository | Accepted (amended by ADR-093) | 2026-07-22 | None |
+| 093 | Product Surface Independent of Implementation Workspace | Accepted | 2026-07-22 | None |
 Chronological audit notes: [`LOG.md`](./LOG.md).

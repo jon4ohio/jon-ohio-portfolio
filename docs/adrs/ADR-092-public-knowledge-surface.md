@@ -65,7 +65,7 @@ ADR-091 separated portfolio judgment (`/work/anchor`) from product adoption (`/a
 
 **Promotion rule:** Promote a docs section to its own route only when it acquires an independent responsibility (distinct audience/task), not because of page length.
 
-**Release criterion:** A new user can discover, evaluate, learn, install, and adopt Anchor without depending on GitHub. Only then is making the implementation repository private an implementation/collaboration decision rather than a product decision.
+**Release criterion:** A first-time adopter can successfully discover, understand, install, initialize, and begin using Anchor without visiting GitHub (tightened by [ADR-093](ADR-093-product-surface-independent-of-implementation-workspace.md)). Only then is making the implementation repository private an implementation/collaboration decision rather than a product decision.
 
 ## Consequences
 
@@ -97,6 +97,7 @@ ADR-091 separated portfolio judgment (`/work/anchor`) from product adoption (`/a
 ## Related ADRs
 
 - ADR-091 — depends on: portfolio/product surface split
+- ADR-093 — follow-up: product surface independent of implementation workspace (journey criterion + releases SOT)
 - ADR-086 / ADR-090 — amends: GitHub-primary documentation funnel
 - ADR-001 / ADR-007 — constrain: inline styles and page-local dark tokens under `/anchor`
 

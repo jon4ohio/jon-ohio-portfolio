@@ -271,5 +271,6 @@ export const anchorExplore = {
       external: true,
     },
     { label: "Follow maturity notes", href: "/anchor/docs#maturity" },
+    { label: "Release notes", href: "/anchor/docs/releases" },
   ] satisfies AnchorExploreAction[],
 };
