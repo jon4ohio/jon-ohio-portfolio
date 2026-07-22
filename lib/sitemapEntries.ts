@@ -4,7 +4,7 @@ import { getListableProjects, getProjectHref } from "@/lib/projects";
 import { getSiteUrl } from "@/lib/siteUrl";
 
 /** Indexable static routes for sitemap.xml. */
-const STATIC_PATHS = ["/", "/work", "/thinking", "/about", "/contact"] as const;
+const STATIC_PATHS = ["/", "/work", "/thinking", "/about", "/contact", "/anchor", "/anchor/docs"] as const;
 
 const STATIC_PRIORITIES: Record<(typeof STATIC_PATHS)[number], number> = {
   "/": 1,
@@ -12,6 +12,8 @@ const STATIC_PRIORITIES: Record<(typeof STATIC_PATHS)[number], number> = {
   "/thinking": 0.82,
   "/about": 0.7,
   "/contact": 0.65,
+  "/anchor": 0.88,
+  "/anchor/docs": 0.86,
 };
 
 const STATIC_CHANGE_FREQUENCY: Record<
@@ -23,6 +25,8 @@ const STATIC_CHANGE_FREQUENCY: Record<
   "/thinking": "monthly",
   "/about": "yearly",
   "/contact": "yearly",
+  "/anchor": "monthly",
+  "/anchor/docs": "monthly",
 };
 
 /** Build sitemap entries for production deployments. */

@@ -1,30 +1,8 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import Link from "next/link";
-import { IBM_Plex_Mono, Newsreader, Source_Sans_3 } from "next/font/google";
 import AnchorSideNav from "./AnchorSideNav";
-
-const newsreader = Newsreader({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  style: ["normal", "italic"],
-  variable: "--font-anchor-display",
-  display: "swap",
-});
-
-const sourceSans = Source_Sans_3({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-anchor-body",
-  display: "swap",
-});
-
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-anchor-mono",
-  display: "swap",
-});
+import { anchorProduct as c } from "./anchorProduct";
 
 const META_DESCRIPTION =
   "Continue instead of reconstruct. Anchor coordinates durable project context so humans and AI can continue work instead of rebuilding it.";
@@ -46,30 +24,6 @@ export const metadata: Metadata = {
   },
 };
 
-const c = {
-  bg: "#000000",
-  paper: "#f0f0ee",
-  muted: "rgba(240, 240, 238, 0.52)",
-  faint: "rgba(240, 240, 238, 0.22)",
-  teal: "#3d8f8d",
-  line: "rgba(240, 240, 238, 0.09)",
-  display:
-    'var(--font-anchor-display), "Iowan Old Style", "Palatino Linotype", Palatino, serif',
-  body: 'var(--font-anchor-body), "Helvetica Neue", Helvetica, Arial, sans-serif',
-  mono: 'var(--font-anchor-mono), "SF Mono", ui-monospace, Menlo, monospace',
-} as const;
-
-const GITHUB = "https://github.com/jon4ohio/anchor";
-const NPM = "https://www.npmjs.com/package/@jon4ohio/anchor-runtime";
-const CONTRACTS =
-  "https://github.com/jon4ohio/anchor/blob/main/docs/project/entry.md";
-const CAPABILITY_API =
-  "https://github.com/jon4ohio/anchor/blob/main/docs/decisions/ADR-006-capability-api.md";
-const POSITION =
-  "https://github.com/jon4ohio/anchor/blob/main/docs/decisions/POSITION-anchor-coordination-architecture.md";
-
-const pad = "clamp(24px, 5vw, 64px)";
-const sectionPad = `clamp(88px, 12vh, 120px) ${pad}`;
 const h2Style: CSSProperties = {
   fontFamily: c.display,
   fontWeight: 400,
@@ -79,6 +33,7 @@ const h2Style: CSSProperties = {
   margin: "0 0 24px",
   maxWidth: 640,
 };
+
 const bodyCopyStyle: CSSProperties = {
   margin: "0 0 16px",
   fontSize: 16,
@@ -115,15 +70,10 @@ const howSteps = [
 ];
 
 const learnLinks = [
-  { label: "Seven Contracts", href: CONTRACTS },
-  { label: "Capability API", href: CAPABILITY_API },
-  { label: "Position Paper", href: POSITION },
-];
-
-const installCommands = [
-  "npm install -g @jon4ohio/anchor-runtime",
-  "anchor init",
-  "anchor fulfill orientation",
+  { label: "Getting Started", href: "/anchor/docs#getting-started" },
+  { label: "Concepts", href: "/anchor/docs#concepts" },
+  { label: "Architecture", href: "/anchor/docs#architecture" },
+  { label: "Reference", href: "/anchor/docs#reference" },
 ];
 
 const problemParagraphs = [
@@ -184,17 +134,14 @@ function PrimaryBtn({
 
 function OutlineBtn({
   href,
-  external,
   children,
 }: {
   href: string;
-  external?: boolean;
   children: React.ReactNode;
 }) {
   return (
     <a
       href={href}
-      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       style={{
         display: "inline-flex",
         alignItems: "center",
@@ -241,10 +188,7 @@ function ContinuityDiagram() {
       <p style={{ margin: 0, fontFamily: c.mono, fontSize: 13, lineHeight: 1.7, color: c.paper }}>
         {top}
       </p>
-      <p
-        aria-hidden
-        style={{ margin: "6px 0", fontFamily: c.mono, fontSize: 13, color: c.teal }}
-      >
+      <p aria-hidden style={{ margin: "6px 0", fontFamily: c.mono, fontSize: 13, color: c.teal }}>
         ↓
       </p>
       <p style={{ margin: 0, fontFamily: c.mono, fontSize: 13, lineHeight: 1.7, color: c.muted }}>
@@ -271,112 +215,7 @@ function ContinuityDiagram() {
 
 export default function AnchorProductPage() {
   return (
-    <div
-      className={`${newsreader.variable} ${sourceSans.variable} ${plexMono.variable}`}
-      style={{
-        background: c.bg,
-        color: c.paper,
-        fontFamily: c.body,
-        WebkitFontSmoothing: "antialiased",
-        MozOsxFontSmoothing: "grayscale",
-        minHeight: "100vh",
-      }}
-    >
-      <header
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 20,
-          minHeight: 52,
-          padding: `10px ${pad}`,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: 16,
-          flexWrap: "wrap",
-          borderBottom: `1px solid ${c.line}`,
-          background: "rgba(0,0,0,0.88)",
-          backdropFilter: "blur(14px)",
-          WebkitBackdropFilter: "blur(14px)",
-        }}
-      >
-        <style>{`
-          .anchor-crumb-back:hover,
-          .anchor-learn-link:hover,
-          .anchor-footer-link:hover {
-            color: ${c.paper} !important;
-          }
-          @media (max-width: 880px) {
-            .anchor-side-nav { display: none !important; }
-          }
-        `}</style>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            flexWrap: "wrap",
-            gap: 10,
-            minWidth: 0,
-          }}
-        >
-          <Link
-            href="/work/anchor"
-            className="anchor-crumb-back"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 4,
-              fontFamily: c.mono,
-              fontSize: 12,
-              color: c.muted,
-              textDecoration: "none",
-              flexShrink: 0,
-              transition: "color 0.15s",
-            }}
-          >
-            ← Case study
-          </Link>
-          <span aria-hidden style={{ color: c.faint, fontSize: 12, lineHeight: 1 }}>
-            ·
-          </span>
-          <span
-            style={{
-              fontFamily: c.mono,
-              fontSize: 11,
-              letterSpacing: "0.06em",
-              textTransform: "uppercase",
-              color: c.paper,
-              fontWeight: 500,
-            }}
-          >
-            Product
-          </span>
-        </div>
-        <a
-          href={GITHUB}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            padding: "6px 14px",
-            border: `1px solid rgba(240, 240, 238, 0.28)`,
-            borderRadius: 2,
-            fontFamily: c.mono,
-            fontSize: 11,
-            color: c.paper,
-            textDecoration: "none",
-            letterSpacing: "0.06em",
-            textTransform: "uppercase",
-            flexShrink: 0,
-          }}
-        >
-          GitHub ↗
-        </a>
-      </header>
-
+    <>
       <AnchorSideNav sections={navSections} />
 
       <section
@@ -389,7 +228,7 @@ export default function AnchorProductPage() {
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-          padding: `120px ${pad}`,
+          padding: `120px ${c.pad}`,
           borderBottom: `1px solid ${c.line}`,
           overflow: "hidden",
           background: "linear-gradient(180deg, #050b14 0%, #0a1a2a 55%, #000 100%)",
@@ -459,14 +298,14 @@ export default function AnchorProductPage() {
             justifyContent: "center",
           }}
         >
-          <PrimaryBtn href={NPM} external>
+          <PrimaryBtn href={c.npm} external>
             Install Runtime
           </PrimaryBtn>
           <OutlineBtn href="#problem">See the problem →</OutlineBtn>
         </div>
       </section>
 
-      <section id="problem" style={{ padding: sectionPad, borderBottom: `1px solid ${c.line}` }}>
+      <section id="problem" style={{ padding: c.sectionPad, borderBottom: `1px solid ${c.line}` }}>
         <MonoLabel>The Problem</MonoLabel>
         <h2 style={h2Style}>Why Anchor exists.</h2>
         {problemParagraphs.map((p, i) => (
@@ -483,7 +322,7 @@ export default function AnchorProductPage() {
         <ContinuityDiagram />
       </section>
 
-      <section id="how" style={{ padding: sectionPad, borderBottom: `1px solid ${c.line}` }}>
+      <section id="how" style={{ padding: c.sectionPad, borderBottom: `1px solid ${c.line}` }}>
         <MonoLabel>How it works</MonoLabel>
         <h2 style={h2Style}>Responsibility → Capability → Runtime</h2>
         <div
@@ -513,64 +352,33 @@ export default function AnchorProductPage() {
         </div>
       </section>
 
-      <section id="start" style={{ padding: sectionPad, borderBottom: `1px solid ${c.line}` }}>
+      <section id="start" style={{ padding: c.sectionPad, borderBottom: `1px solid ${c.line}` }}>
         <MonoLabel>Getting started</MonoLabel>
-        <h2 style={h2Style}>Install, initialize, fulfill.</h2>
+        <h2 style={h2Style}>Start in minutes.</h2>
         <p style={{ ...bodyCopyStyle, marginBottom: 28 }}>
-          Today, engineering responsibilities are fulfilled by a compatible AI host — such as Cursor
-          or Claude Code — using the installed Anchor Runtime. Durable artifacts stay in your
-          repository.
+          Install the runtime, then follow the canonical Getting Started guide in Documentation —
+          product introduces adoption; docs owns the full walkthrough.
         </p>
-        <ol style={{ listStyle: "none", margin: 0, padding: 0, maxWidth: 640 }}>
-          {installCommands.map((cmd, i) => (
-            <li
-              key={cmd}
-              style={{
-                display: "grid",
-                gridTemplateColumns: "48px 1fr",
-                gap: 16,
-                alignItems: "center",
-                padding: "16px 0",
-                borderTop: `1px solid ${c.line}`,
-              }}
-            >
-              <span style={{ fontFamily: c.mono, fontSize: 12, color: c.teal }}>
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <code
-                style={{
-                  fontFamily: c.mono,
-                  fontSize: 14,
-                  color: c.paper,
-                  background: "rgba(240,240,238,0.04)",
-                  border: `1px solid ${c.line}`,
-                  borderRadius: 4,
-                  padding: "12px 14px",
-                  overflowWrap: "anywhere",
-                }}
-              >
-                {cmd}
-              </code>
-            </li>
-          ))}
-        </ol>
-        <p style={{ margin: "28px 0 0", fontSize: 13, lineHeight: 1.6, color: c.faint, maxWidth: 560 }}>
-          Verify with <code style={{ fontFamily: c.mono }}>anchor help</code> (the CLI has no{" "}
-          <code style={{ fontFamily: c.mono }}>--help</code> flag). Fulfillment language stays
-          provisional until the Capability API acceptance gate clears in real adoption.
-        </p>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
+          <PrimaryBtn href={c.npm} external>
+            Install Runtime
+          </PrimaryBtn>
+          <OutlineBtn href="/anchor/docs#getting-started">Open Getting Started →</OutlineBtn>
+        </div>
       </section>
 
-      <section id="learn" style={{ padding: sectionPad, borderBottom: `1px solid ${c.line}` }}>
-        <MonoLabel>Learn the ideas</MonoLabel>
-        <h2 style={h2Style}>Go deeper in the repository.</h2>
+      <section id="learn" style={{ padding: c.sectionPad, borderBottom: `1px solid ${c.line}` }}>
+        <MonoLabel>Learn</MonoLabel>
+        <h2 style={h2Style}>Documentation — the How surface.</h2>
+        <p style={{ ...bodyCopyStyle, marginBottom: 28 }}>
+          Concepts, architecture, and runtime reference live on the product documentation surface —
+          not in the implementation repository.
+        </p>
         <ul style={{ listStyle: "none", margin: 0, padding: 0, maxWidth: 480 }}>
           {learnLinks.map((link) => (
             <li key={link.label} style={{ borderTop: `1px solid ${c.line}` }}>
-              <a
+              <Link
                 href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="anchor-learn-link"
                 style={{
                   display: "flex",
@@ -586,15 +394,15 @@ export default function AnchorProductPage() {
               >
                 <span>{link.label}</span>
                 <span aria-hidden style={{ fontFamily: c.mono, fontSize: 12 }}>
-                  ↗
+                  →
                 </span>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
       </section>
 
-      <section id="why" style={{ padding: sectionPad, borderBottom: `1px solid ${c.line}` }}>
+      <section id="why" style={{ padding: c.sectionPad, borderBottom: `1px solid ${c.line}` }}>
         <MonoLabel>Why Anchor exists</MonoLabel>
         <h2 style={h2Style}>Designed for coordination, not another prompt pack.</h2>
         <p style={{ ...bodyCopyStyle, marginBottom: 28 }}>
@@ -621,7 +429,7 @@ export default function AnchorProductPage() {
 
       <footer
         style={{
-          padding: `28px ${pad} 40px`,
+          padding: `28px ${c.pad} 40px`,
           display: "flex",
           flexWrap: "wrap",
           gap: 16,
@@ -635,14 +443,10 @@ export default function AnchorProductPage() {
         }}
       >
         <span>MIT Licensed</span>
-        <Link
-          href="/work/anchor"
-          className="anchor-footer-link"
-          style={{ color: c.muted, textDecoration: "none", transition: "color 0.15s" }}
-        >
+        <Link href="/work/anchor" style={{ color: c.muted, textDecoration: "none" }}>
           Case Study →
         </Link>
       </footer>
-    </div>
+    </>
   );
 }

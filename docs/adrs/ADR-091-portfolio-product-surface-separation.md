@@ -91,6 +91,7 @@ Operating rules:
 - ADR-087 — superseded by this ADR
 - ADR-086 — depends on: `/anchor` chrome-free host remains
 - ADR-090 — amended: four-beat Problem/Framework/Adopt spine replaced by product homepage spine
+- ADR-092 — follow-up: public Knowledge Surface at `/anchor/docs` (How)
 - ADR-083 — constrains: editorial rail grammar for `/work/anchor`
 - ADR-001 / ADR-007 — constrain: inline styles and page-local dark tokens on `/anchor`
 
