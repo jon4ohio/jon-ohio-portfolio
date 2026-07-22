@@ -72,8 +72,10 @@ const howSteps = [
 const learnLinks = [
   { label: "Getting Started", href: "/anchor/docs#getting-started" },
   { label: "Seven Contracts", href: "/anchor/docs#concepts" },
+  { label: "Build with Anchor", href: "/anchor/docs#build" },
   { label: "Capability API", href: "/anchor/docs#architecture" },
   { label: "Architecture", href: "/anchor/docs#architecture" },
+  { label: "Release Notes", href: "/anchor/docs/releases" },
 ];
 
 const problemParagraphs = [

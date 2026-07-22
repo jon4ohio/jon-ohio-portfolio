@@ -199,6 +199,18 @@ export default function AnchorDocsPage() {
             >
               ← Product overview
             </Link>
+            <Link
+              href="/anchor/docs/releases"
+              style={{
+                fontSize: 15,
+                color: c.paper,
+                textDecoration: "none",
+                borderBottom: `1px solid rgba(240, 240, 238, 0.28)`,
+                paddingBottom: 2,
+              }}
+            >
+              Release notes →
+            </Link>
             <a
               href={c.npm}
               target="_blank"

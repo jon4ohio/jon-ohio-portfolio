@@ -12,9 +12,9 @@ export type AnchorDocsSection = {
 export const anchorDocsMeta = {
   title: "Anchor Documentation",
   description:
-    "How to adopt Anchor — Getting Started, concepts, architecture, and runtime reference. Independent of the implementation repository.",
+    "How to adopt and build with Anchor — Getting Started, concepts, Build, architecture, and runtime reference. Independent of the implementation workspace.",
   intro:
-    "Install the runtime. Adopt the methodology. This is the canonical How surface for Anchor — product introduces adoption; Documentation owns the walkthrough.",
+    "Install the runtime. Adopt the methodology. This is the canonical How surface for Anchor — product introduces adoption; Documentation owns the walkthrough. The implementation workspace is not required for the public journey.",
 };
 
 export const anchorDocsSections: AnchorDocsSection[] = [
@@ -67,6 +67,26 @@ export const anchorDocsSections: AnchorDocsSection[] = [
       "A thin local runtime delivers methodology as versioned knowledge snapshots. The host AI provides inference; project state remains in the adopter’s repository.",
       "Underlying records (ADRs, position papers) support these concepts. They are implementation artifacts for the architecture surface, not the primary way users browse How.",
     ],
+    nextHref: "#build",
+    nextLabel: "Build with Anchor →",
+  },
+  {
+    id: "build",
+    label: "Build",
+    title: "How do I build with Anchor?",
+    paragraphs: [
+      "Build is about using Anchor in your projects — not about building the Anchor engine. After Getting Started, this section is where day-to-day engineering practice lives.",
+      "You integrate Anchor into a repository, establish orientation and continuity, add responsibilities as coordination problems appear, and evolve team workflows without depending on the implementation workspace.",
+    ],
+    bullets: [
+      "Integrating Anchor — install the runtime, run anchor init, keep durable artifacts (Entry, Handoff, Specs, ADRs) in your project.",
+      "Using Orientations — ask your AI host to orient from Entry (and Handoff when continuing) before substantive work.",
+      "Adding responsibilities — introduce Spec, ADR, Review, or other contracts only when a real coordination gap appears.",
+      "Capability overlays — map existing docs and AI context files to Anchor responsibilities; preserve what already works.",
+      "Advanced workflows — multi-session continuity, refresh of adoption guidance, and host-specific dispatch (AGENTS.md / CLAUDE.md as thin pointers).",
+      "Migration — move from chat-only context or ad-hoc docs toward responsibility-owned artifacts without a big-bang rewrite.",
+      "Team adoption — share Entry and Handoff as the shared board; keep AI dispatch as a pointer, not a second wiki.",
+    ],
     nextHref: "#reference",
     nextLabel: "Runtime reference →",
   },
@@ -95,6 +115,32 @@ export const anchorDocsMaturity = {
   title: "Evidence Window open.",
   paragraphs: [
     "Independent adoption evidence is still pending. Maintainer dogfooding and a controlled portfolio experiment support capability claims under labeled conditions — not broad market validation.",
-    "The Capability API remains Proposed upstream until acceptance gates clear in real adoption. This Documentation surface is the public How; the implementation repository is optional for adoption.",
+    "The Capability API remains Proposed upstream until acceptance gates clear in real adoption. This Documentation surface is the public How; the implementation workspace is optional for adoption.",
+    "Product and runtime release notes for users live at /anchor/docs/releases — that page is the public source of truth.",
   ],
 };
+
+export type AnchorReleaseNote = {
+  version: string;
+  date: string;
+  title: string;
+  whyItMatters: string;
+  highlights: string[];
+};
+
+/** Public source of truth for Anchor Runtime release communication. */
+export const anchorReleaseNotes: AnchorReleaseNote[] = [
+  {
+    version: "0.1.0",
+    date: "2026-07-22",
+    title: "First public npm distribution",
+    whyItMatters:
+      "Anchor became installable through npm — primary onboarding shifted from cloning a repository to installing a runtime.",
+    highlights: [
+      "Published @jon4ohio/anchor-runtime to the public npm registry",
+      "anchor init and public install path",
+      "Bundled methodology for Orientation, Continuity, and Review (orientation@1, continuity@1, review@1)",
+      "Public product onboarding via the Anchor website and documentation",
+    ],
+  },
+];
