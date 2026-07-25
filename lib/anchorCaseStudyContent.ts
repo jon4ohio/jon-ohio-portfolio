@@ -69,7 +69,7 @@ export const anchorSkim: AnchorSkimItem[] = [
   },
   {
     label: "Runtime",
-    value: "@jon4ohio/anchor-runtime@0.1.0 published on npm as a thin local delivery layer.",
+    value: "@jon4ohio/anchor-runtime published on npm as a thin local delivery layer.",
   },
   {
     label: "Evidence today",
@@ -188,7 +188,7 @@ export const anchorEvidenceColumns: AnchorEvidenceColumn[] = [
       "Dogfooded foundation: Anchor coordinates its own development through the contract model.",
       "Product narrative redesign (v0.2): responsibility-first README, Experience, and adoption path under teach-vs-claim governance.",
       "Context arbitration experiment on jon-ohio-portfolio: smaller sufficient bundles vs unconstrained baseline in a pre-registered maintainer study (Cursor).",
-      "Runtime packaging: parity-oriented fixture checks and public install path for @jon4ohio/anchor-runtime@0.1.0.",
+      "Runtime packaging: parity-oriented fixture checks and public install path for @jon4ohio/anchor-runtime.",
     ],
   },
   {
