@@ -5,13 +5,18 @@ import { usePathname } from "next/navigation";
 import { anchorProduct as c } from "./anchorProduct";
 
 const links = [
-  { href: "/work/anchor", label: "Case study" },
-  { href: "/anchor", label: "Product", match: (path: string) => path === "/anchor" },
+  { href: "/anchor", label: "Home", match: (path: string) => path === "/anchor" },
+  {
+    href: "/anchor/articles",
+    label: "Articles",
+    match: (path: string) => path === "/anchor/articles" || path.startsWith("/anchor/articles/"),
+  },
   {
     href: "/anchor/docs",
     label: "Docs",
     match: (path: string) => path === "/anchor/docs" || path.startsWith("/anchor/docs/"),
   },
+  { href: "/work/anchor", label: "Case study" },
 ] as const;
 
 export default function AnchorProductChrome() {
@@ -64,6 +69,12 @@ export default function AnchorProductChrome() {
               : path === link.href || path.startsWith(`${link.href}/`);
           const isCaseStudy = link.href === "/work/anchor";
           const isActive = isCaseStudy ? false : active;
+          const linkStyle = {
+            color: isActive ? c.paper : c.muted,
+            textDecoration: "none",
+            fontWeight: isActive ? 500 : 400,
+            transition: "color 0.15s",
+          };
           return (
             <span key={link.href} style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
               {i > 0 ? (
@@ -75,12 +86,7 @@ export default function AnchorProductChrome() {
                 href={link.href}
                 className="anchor-chrome-link"
                 aria-current={isActive ? "page" : undefined}
-                style={{
-                  color: isActive ? c.paper : c.muted,
-                  textDecoration: "none",
-                  fontWeight: isActive ? 500 : 400,
-                  transition: "color 0.15s",
-                }}
+                style={linkStyle}
               >
                 {link.label}
               </Link>

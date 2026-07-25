@@ -1,6 +1,6 @@
 {
   "version": "2.3.0",
-  "generatedAt": "2026-07-16T14:03:48.267Z",
+  "generatedAt": "2026-07-25T16:31:32.764Z",
   "items": [
     {
       "id": "page:home",
@@ -41,6 +41,22 @@
       "subtitle": "Get in touch",
       "href": "/contact",
       "keywords": "contact email hire talk linkedin"
+    },
+    {
+      "id": "page:anchor",
+      "kind": "page",
+      "title": "Anchor",
+      "subtitle": "AI-assisted engineering approach for project understanding",
+      "href": "/anchor",
+      "keywords": "anchor ai-assisted engineering project understanding continue instead reconstruct"
+    },
+    {
+      "id": "page:anchor-article-understanding-before-code",
+      "kind": "page",
+      "title": "Projects Become Harder to Understand Before They Become Harder to Code",
+      "subtitle": "Anchor article",
+      "href": "/anchor/articles/projects-become-harder-to-understand-before-they-become-harder-to-code",
+      "keywords": "anchor article project understanding ai-assisted engineering coherent sessions tools contributors"
     },
     {
       "id": "project:seamkit",
@@ -95,8 +111,8 @@
       "kind": "project",
       "title": "Anchor",
       "subtitle": "Continue instead of reconstruct",
-      "href": "/anchor",
-      "keywords": "anchor continue instead of reconstruct design engineering open source anchor preserves project knowledge so humans and ai can continue work instead of reconstructing context. design engineering ai collaboration documentation systems open source evidence-first"
+      "href": "/work/anchor",
+      "keywords": "anchor continue instead of reconstruct design engineering open source a case study in designing a coordination architecture so humans and ai continue from durable project context instead of reconstructing it. design engineering ai collaboration documentation systems open source evidence-first"
     },
     {
       "id": "note:design-doesnt-end-in-figma",

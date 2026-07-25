@@ -62,6 +62,22 @@ const STATIC_PAGES: SearchResult[] = [
     href: "/contact",
     keywords: "contact email hire talk linkedin",
   },
+  {
+    id: "page:anchor",
+    kind: "page",
+    title: "Anchor",
+    subtitle: "AI-assisted engineering approach for project understanding",
+    href: "/anchor",
+    keywords: "anchor ai-assisted engineering project understanding continue instead reconstruct",
+  },
+  {
+    id: "page:anchor-article-understanding-before-code",
+    kind: "page",
+    title: "Projects Become Harder to Understand Before They Become Harder to Code",
+    subtitle: "Anchor article",
+    href: "/anchor/articles/projects-become-harder-to-understand-before-they-become-harder-to-code",
+    keywords: "anchor article project understanding ai-assisted engineering coherent sessions tools contributors",
+  },
 ];
 
 function projectResults(): SearchResult[] {
