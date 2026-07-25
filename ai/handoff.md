@@ -8,7 +8,7 @@
 
 ## Delta
 
-- **Anchor Phase 1 site (PR #217):** Applied cloud-agent `portfolio_anchor_phase_one_source_cleanup.patch` on `anchor-phase-one-site` — project-understanding narrative on `/anchor`, new `/anchor/articles` + core article, scoped trust/source claims; build verified.
+- **Anchor Phase 1 site (PR #217 merged; ADR-094 follow-up):** Phase 1 surface landed on `main` via squash merge; ADR-094 records `/anchor/articles`, homepage spine, and scoped trust/source claims (ADR gate follow-up).
 - **Favicon.ico from avatar:** Replaced default Next/Vercel `app/favicon.ico` with multi-size ICO from nav avatar (tab icon was still showing the triangle).
 - **Favicon = nav avatar:** Replaced monogram `app/icon.svg` with `app/icon.png` + `app/apple-icon.png` derived from `public/assets/nav/avatar.png` (ADR impact: none).
 - **Rivva catalog thumb refresh:** Listing/hero `rivva-hero.png` replaced with composite product shot (desktop calendar + Nia mobile + social proof, 1024×491).
@@ -57,10 +57,10 @@
 
 ## Branch / PR
 
-- **Branch:** `anchor-phase-one-site` — PR **#217**
+- **Branch:** `cursor/bc-776201e8-5a92-4241-b784-53f7959e9b9e-f817` — ADR-094 follow-up after merged PR **#217**
 - **Production:** https://johnohio.vercel.app
 - **Observation start:** 2026-07-03
-- **ADR impact:** none for this patch apply (copy/IA follow-on to ADR-091–093 product-surface work)
+- **ADR impact:** ADR-094 (articles surface + Phase 1 narrative / trust-claim scoping); follow-up after #217 squash merge
 
 ## Session coordination
 
