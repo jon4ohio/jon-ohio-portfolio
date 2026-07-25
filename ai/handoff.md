@@ -57,7 +57,7 @@
 
 ## Branch / PR
 
-- **Branch:** `cursor/bc-776201e8-5a92-4241-b784-53f7959e9b9e-f817` — ADR-094 follow-up after merged PR **#217**
+- **Branch:** `cursor/bc-776201e8-5a92-4241-b784-53f7959e9b9e-f817` — PR **#218** (ADR-094 follow-up after merged #217)
 - **Production:** https://johnohio.vercel.app
 - **Observation start:** 2026-07-03
 - **ADR impact:** ADR-094 (articles surface + Phase 1 narrative / trust-claim scoping); follow-up after #217 squash merge
