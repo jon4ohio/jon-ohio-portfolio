@@ -5,7 +5,7 @@ import AnchorSideNav from "./AnchorSideNav";
 import { anchorProduct as c } from "./anchorProduct";
 
 const META_DESCRIPTION =
-  "Anchor is an approach to AI-assisted engineering that helps projects stay coherent as they evolve across sessions, tools, and contributors.";
+  "Anchor is a coordination protocol that keeps AI-assisted projects coherent across sessions, tools, and contributors.";
 
 export const metadata: Metadata = {
   title: "Anchor — Continue instead of reconstruct",
@@ -208,25 +208,24 @@ export default function AnchorProductPage() {
         <h1
           style={{
             position: "relative",
-            fontFamily: c.display,
-            fontStyle: "italic",
-            fontWeight: 400,
-            fontSize: "clamp(44px, 7vw, 84px)",
-            lineHeight: 1.08,
-            letterSpacing: "-0.03em",
+            fontFamily: c.mono,
+            fontStyle: "normal",
+            fontWeight: 500,
+            fontSize: "clamp(32px, 5.2vw, 56px)",
+            lineHeight: 1.2,
+            letterSpacing: "-0.02em",
             color: c.paper,
             margin: "0 auto 24px",
-            maxWidth: "14ch",
+            maxWidth: "22ch",
           }}
         >
-          Build bigger with AI.
-          <br />
           Continue instead of reconstruct.
         </h1>
 
         <p
           style={{
             position: "relative",
+            fontFamily: c.body,
             fontSize: "clamp(17px, 2.2vw, 20px)",
             lineHeight: 1.55,
             color: c.muted,
@@ -234,8 +233,8 @@ export default function AnchorProductPage() {
             margin: "0 auto 36px",
           }}
         >
-          Anchor is an approach to AI-assisted engineering that helps projects stay coherent as they
-          evolve across sessions, tools, and contributors.
+          Anchor is a coordination protocol that keeps AI-assisted projects coherent across sessions,
+          tools, and contributors.
         </p>
 
         <div

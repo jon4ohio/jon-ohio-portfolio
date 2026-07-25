@@ -111,8 +111,8 @@ export default function ProjectUnderstandingArticlePage() {
         }}
       >
         <p style={{ margin: "0 0 18px", color: c.muted, fontSize: 16, lineHeight: 1.65 }}>
-          Anchor is an approach to AI-assisted engineering that helps projects stay coherent as they evolve
-          across sessions, tools, and contributors.
+          Anchor is a coordination protocol that keeps AI-assisted projects coherent across sessions, tools,
+          and contributors.
         </p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 18 }}>
           <a href={c.npm} target="_blank" rel="noopener noreferrer" style={{ color: c.paper, textDecoration: "none" }}>
