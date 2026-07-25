@@ -243,7 +243,7 @@ export default function AnchorDocsPage() {
             color: c.faint,
           }}
         >
-          <span>MIT Licensed</span>
+          <span>Runtime on npm</span>
           <Link href="/work/anchor" style={{ color: c.muted, textDecoration: "none" }}>
             Case Study →
           </Link>

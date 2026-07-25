@@ -78,8 +78,7 @@ export default function AnchorDocsReleasesPage() {
         </h1>
         <p style={{ ...bodyStyle, marginBottom: 0 }}>
           This page is the public source of truth for Anchor Runtime releases. Install from npm;
-          read what changed here. GitHub Releases, when present, are an engineering artifact — not
-          the product changelog.
+          read what changed here. Internal engineering release records are not the product changelog.
         </p>
       </section>
 
@@ -181,7 +180,7 @@ export default function AnchorDocsReleasesPage() {
           color: c.faint,
         }}
       >
-        <span>MIT Licensed</span>
+        <span>Runtime on npm</span>
         <Link href="/work/anchor" style={{ color: c.muted, textDecoration: "none" }}>
           Case Study →
         </Link>
