@@ -2,12 +2,13 @@
 
 **Contract:** Handoff  
 **Problem coordinated:** What changed recently? What's next?  
-**Updated:** 2026-07-16
+**Updated:** 2026-07-25
 
 ---
 
 ## Delta
 
+- **Anchor Phase 1 site (PR #217):** Applied cloud-agent `portfolio_anchor_phase_one_source_cleanup.patch` on `anchor-phase-one-site` — project-understanding narrative on `/anchor`, new `/anchor/articles` + core article, scoped trust/source claims; build verified.
 - **Favicon.ico from avatar:** Replaced default Next/Vercel `app/favicon.ico` with multi-size ICO from nav avatar (tab icon was still showing the triangle).
 - **Favicon = nav avatar:** Replaced monogram `app/icon.svg` with `app/icon.png` + `app/apple-icon.png` derived from `public/assets/nav/avatar.png` (ADR impact: none).
 - **Rivva catalog thumb refresh:** Listing/hero `rivva-hero.png` replaced with composite product shot (desktop calendar + Nia mobile + social proof, 1024×491).
@@ -56,10 +57,10 @@
 
 ## Branch / PR
 
-- **Branch:** `main` (post PR #212)
+- **Branch:** `anchor-phase-one-site` — PR **#217**
 - **Production:** https://johnohio.vercel.app
 - **Observation start:** 2026-07-03
-- **ADR impact:** none (favicon.ico from ADR-019 avatar); ADR-090 via #207; ADR-088 via #205; ADR-087 via #204; ADR-085 superseded
+- **ADR impact:** none for this patch apply (copy/IA follow-on to ADR-091–093 product-surface work)
 
 ## Session coordination
 
@@ -69,6 +70,7 @@ See `ai/session-arbitration.md`.
 
 | Date | Repeated explanation | Contract | Root cause | Action |
 |------|---------------------|----------|------------|--------|
+| 2026-07-25 | Cloud patch path applied in wrong repo | Session continuity | `/opt/cursor/artifacts/…` is VM-only; instructions run in `operational-adr` | deleted empty remote branch; downloaded artifact via Cursor API; applied on portfolio `#217` |
 | 2026-07-04 | `dev:clean` broke preview (Turbopack) | Implementation | missing `--webpack` on dev:clean | aligned dev:clean + preview scripts |
 | 2026-07-08 | Many open PRs with merge conflicts | Session continuity | long-lived branches + parallel IA edits | closed stale PRs; `realign/cleanup` off main |
 | 2026-07-10 | Entry declared Cursor adapter but file missing | Session Coordination | `.cursor` fully gitignored; rule never installed | tracked `.cursor/rules/anchor-session-arbitration.mdc` + gitignore exception |
