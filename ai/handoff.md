@@ -2,12 +2,13 @@
 
 **Contract:** Handoff  
 **Problem coordinated:** What changed recently? What's next?  
-**Updated:** 2026-07-25
+**Updated:** 2026-07-26
 
 ---
 
 ## Delta
 
+- **Medium essay on Writing:** *Every Team Thought They Had the Right Button* (Seamkit origin) linked under Design Systems on `/thinking`, homepage Writing band, and `lib/thinking.ts` search/graph catalog (friend URL for member-only read).
 - **Anchor Phase 1 site (PR #217 merged; ADR-094 follow-up):** Phase 1 surface landed on `main` via squash merge; ADR-094 records `/anchor/articles`, homepage spine, and scoped trust/source claims (ADR gate follow-up).
 - **Favicon.ico from avatar:** Replaced default Next/Vercel `app/favicon.ico` with multi-size ICO from nav avatar (tab icon was still showing the triangle).
 - **Favicon = nav avatar:** Replaced monogram `app/icon.svg` with `app/icon.png` + `app/apple-icon.png` derived from `public/assets/nav/avatar.png` (ADR impact: none).
@@ -57,10 +58,10 @@
 
 ## Branch / PR
 
-- **Branch:** `cursor/bc-776201e8-5a92-4241-b784-53f7959e9b9e-f817` — PR **#218** (ADR-094 follow-up after merged #217)
+- **Branch:** `content/medium-right-button` — Medium Writing entry (*Every Team Thought They Had the Right Button*)
 - **Production:** https://johnohio.vercel.app
 - **Observation start:** 2026-07-03
-- **ADR impact:** ADR-094 (articles surface + Phase 1 narrative / trust-claim scoping); follow-up after #217 squash merge
+- **ADR impact:** none (external Writing link only)
 
 ## Session coordination
 

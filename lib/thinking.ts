@@ -57,6 +57,12 @@ export const recognitionItems: RecognitionItem[] = [
 
 export const writingItems: WritingItem[] = [
   {
+    id: "right-button",
+    title: "Every Team Thought They Had the Right Button",
+    kind: "featured",
+    href: "https://medium.com/@jon4ohio/every-team-thought-they-had-the-right-button-7efe792b0621?sk=19d5a14e80942e50912e71b77f60cca2",
+  },
+  {
     id: "design-tokens",
     title: "Design tokens: the connective tissue",
     kind: "featured",
