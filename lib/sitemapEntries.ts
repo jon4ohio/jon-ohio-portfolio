@@ -11,8 +11,6 @@ const STATIC_PATHS = [
   "/about",
   "/contact",
   "/anchor",
-  "/anchor/articles",
-  "/anchor/articles/projects-become-harder-to-understand-before-they-become-harder-to-code",
   "/anchor/docs",
   "/anchor/docs/releases",
 ] as const;
@@ -24,8 +22,6 @@ const STATIC_PRIORITIES: Record<(typeof STATIC_PATHS)[number], number> = {
   "/about": 0.7,
   "/contact": 0.65,
   "/anchor": 0.88,
-  "/anchor/articles": 0.84,
-  "/anchor/articles/projects-become-harder-to-understand-before-they-become-harder-to-code": 0.83,
   "/anchor/docs": 0.86,
   "/anchor/docs/releases": 0.84,
 };
@@ -40,8 +36,6 @@ const STATIC_CHANGE_FREQUENCY: Record<
   "/about": "yearly",
   "/contact": "yearly",
   "/anchor": "monthly",
-  "/anchor/articles": "monthly",
-  "/anchor/articles/projects-become-harder-to-understand-before-they-become-harder-to-code": "yearly",
   "/anchor/docs": "monthly",
   "/anchor/docs/releases": "weekly",
 };

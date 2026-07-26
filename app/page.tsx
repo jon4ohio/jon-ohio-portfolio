@@ -119,9 +119,9 @@ const writingThemes = [
   },
   {
     theme: "AI",
-    href: "https://www.youtube.com/watch?v=k7KGv6FYIhM&t=1549s",
-    title: "Embedding AI into design systems and product experiences",
-    meta: "Talk · AIDA 2025",
+    href: "https://medium.com/@jon4ohio/projects-become-harder-to-understand-before-they-become-harder-to-code-a49540c19de5",
+    title: "Projects Become Harder to Understand Before They Become Harder to Code",
+    meta: "Medium · Jul 2026",
   },
   {
     theme: "Organizational Design",

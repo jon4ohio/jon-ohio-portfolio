@@ -57,6 +57,12 @@ export const recognitionItems: RecognitionItem[] = [
 
 export const writingItems: WritingItem[] = [
   {
+    id: "understanding-before-code",
+    title: "Projects Become Harder to Understand Before They Become Harder to Code",
+    kind: "featured",
+    href: "https://medium.com/@jon4ohio/projects-become-harder-to-understand-before-they-become-harder-to-code-a49540c19de5",
+  },
+  {
     id: "right-button",
     title: "Every Team Thought They Had the Right Button",
     kind: "featured",

@@ -8,7 +8,9 @@
 
 ## Delta
 
+- **Anchor essay → Medium (ADR-096):** Articles removed from Anchor product chrome (Home → Docs → Case study). Homepage “Read the article →” and portfolio Writing point at Medium; `/anchor/articles` routes deleted with permanent redirects. Amends ADR-094.
 - **Medium essay on Writing:** *Every Team Thought They Had the Right Button* (Seamkit origin) linked under Design Systems on `/thinking`, homepage Writing band, and `lib/thinking.ts` search/graph catalog (friend URL for member-only read).
+- **Anchor homepage mechanism spine (ADR-095):** `/anchor` rewritten to Home→Problem→Approach→No magic→Try it→Principles; identity SVG in Problem; real portfolio `.anchor/config.json` + map targets as No-magic evidence; Try It uses *declares* wording (init does not discover paths). ADR-094 amended; Articles unchanged.
 - **Anchor Phase 1 site (PR #217 merged; ADR-094 follow-up):** Phase 1 surface landed on `main` via squash merge; ADR-094 records `/anchor/articles`, homepage spine, and scoped trust/source claims (ADR gate follow-up).
 - **Favicon.ico from avatar:** Replaced default Next/Vercel `app/favicon.ico` with multi-size ICO from nav avatar (tab icon was still showing the triangle).
 - **Favicon = nav avatar:** Replaced monogram `app/icon.svg` with `app/icon.png` + `app/apple-icon.png` derived from `public/assets/nav/avatar.png` (ADR impact: none).

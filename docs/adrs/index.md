@@ -86,5 +86,7 @@
 | 091 | Portfolio/Product Surface Separation (Anchor) | Accepted (amended by ADR-094) | 2026-07-22 | None |
 | 092 | Public Knowledge Surface Independent of Implementation Repository | Accepted (amended by ADR-093, ADR-094) | 2026-07-22 | None |
 | 093 | Product Surface Independent of Implementation Workspace | Accepted | 2026-07-22 | None |
-| 094 | Anchor Phase 1 articles surface and project-understanding narrative | Accepted | 2026-07-25 | None |
+| 094 | Anchor Phase 1 articles surface and project-understanding narrative | Accepted (amended by ADR-095, ADR-096) | 2026-07-25 | None |
+| 095 | Anchor homepage mechanism spine (No magic) | Accepted | 2026-07-26 | None |
+| 096 | Anchor essay on Medium (off product chrome) | Accepted | 2026-07-26 | None |
 Chronological audit notes: [`LOG.md`](./LOG.md).
