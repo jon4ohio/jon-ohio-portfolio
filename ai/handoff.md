@@ -60,10 +60,10 @@
 
 ## Branch / PR
 
-- **Branch:** `content/medium-right-button` — Medium Writing entry (*Every Team Thought They Had the Right Button*)
+- **Branch:** `main` — PR **#222** merged (ADR-095 mechanism spine + ADR-096 essay → Medium / portfolio Writing)
 - **Production:** https://johnohio.vercel.app
 - **Observation start:** 2026-07-03
-- **ADR impact:** none (external Writing link only)
+- **ADR impact:** ADR-095, ADR-096 (amends ADR-094)
 
 ## Session coordination
 
