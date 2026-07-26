@@ -1,11 +1,12 @@
 # ADR-094: Anchor Phase 1 Articles Surface and Project-Understanding Narrative
 
 ## Status
-**Status:** Accepted  
+**Status:** Accepted (amended by ADR-095, ADR-096)  
 **Date:** 2026-07-25  
 **Decision Maker(s):** John Ohio (Owner/Maintainer)  
 **Supersedes:** None  
-**Amends:** ADR-091 (product homepage spine/copy); ADR-092 (adds Articles as a public knowledge responsibility); related to ADR-093
+**Amends:** ADR-091 (product homepage spine/copy); ADR-092 (adds Articles as a public knowledge responsibility); related to ADR-093  
+**Amended by:** [ADR-095](ADR-095-anchor-homepage-mechanism-spine.md) (homepage mechanism spine); [ADR-096](ADR-096-anchor-essay-on-medium.md) (Articles leave product chrome; essay on Medium / portfolio writing)
 
 ## Context
 
@@ -98,6 +99,8 @@ Phase 1 source cleanup needs a durable home for the core argument (“projects b
 - ADR-092 — amends: adds Articles responsibility; promotion rule applied
 - ADR-093 — constrains: product surface independent of implementation workspace; trust/source claims
 - ADR-086 — constrains: chrome-free `/anchor` host
+- ADR-095 — amended by: homepage mechanism spine (No magic); Articles unchanged (further amended by ADR-096)
+- ADR-096 — amended by: Articles leave product chrome; essay on Medium / portfolio writing
 
 ## References
 

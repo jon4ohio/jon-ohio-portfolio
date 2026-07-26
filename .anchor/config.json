@@ -1,0 +1,17 @@
+{
+  "anchor": {
+    "runtime": "@jon4ohio/anchor-runtime",
+    "capabilityApi": "v1"
+  },
+  "capabilities": [
+    "continuity@1",
+    "orientation@1",
+    "review@1"
+  ],
+  "project": {
+    "map": {
+      "Project Entry": "docs/project/entry.md",
+      "Handoff": "ai/handoff.md"
+    }
+  }
+}

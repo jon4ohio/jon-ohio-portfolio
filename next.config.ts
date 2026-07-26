@@ -24,9 +24,21 @@ const nextConfig: NextConfig = {
     root: findPackageRoot(__dirname),
   },
   async redirects() {
-    // ADR-091: /work/anchor is the canonical portfolio case study again.
-    // Product site remains at /anchor (no redirect between them).
-    return [];
+    const mediumEssay =
+      "https://medium.com/@jon4ohio/projects-become-harder-to-understand-before-they-become-harder-to-code-a49540c19de5";
+    // ADR-096: Anchor essays live on Medium / portfolio writing, not product chrome.
+    return [
+      {
+        source: "/anchor/articles",
+        destination: mediumEssay,
+        permanent: true,
+      },
+      {
+        source: "/anchor/articles/projects-become-harder-to-understand-before-they-become-harder-to-code",
+        destination: mediumEssay,
+        permanent: true,
+      },
+    ];
   },
   images: {
     remotePatterns: [

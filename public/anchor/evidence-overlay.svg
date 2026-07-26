@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 560" width="920" height="560" role="img" aria-labelledby="ev-title ev-desc">
+  <title id="ev-title">Actual Anchor overlay from this project</title>
+  <desc id="ev-desc">
+    Real .anchor/config.json from jon-ohio-portfolio after anchor init, shown beside
+    the Project Entry and Handoff files the map declares.
+  </desc>
+
+  <rect width="920" height="560" fill="#050b14"/>
+
+  <rect x="24" y="24" width="360" height="512" rx="4" fill="#0c141c" stroke="rgba(240,240,238,0.12)" stroke-width="1"/>
+  <rect x="24" y="24" width="360" height="40" rx="4" fill="#121c26"/>
+  <rect x="24" y="48" width="360" height="16" fill="#121c26"/>
+  <circle cx="44" cy="44" r="5" fill="#ff5f57"/>
+  <circle cx="62" cy="44" r="5" fill="#febc2e"/>
+  <circle cx="80" cy="44" r="5" fill="#28c840"/>
+  <text x="108" y="48" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="rgba(240,240,238,0.55)">.anchor/config.json</text>
+
+  <text x="44" y="88" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="rgba(240,240,238,0.35)">1</text>
+  <text x="68" y="88" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="#f0f0ee">{</text>
+  <text x="44" y="108" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="rgba(240,240,238,0.35)">2</text>
+  <text x="68" y="108" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="#f0f0ee">  "anchor": {</text>
+  <text x="44" y="128" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="rgba(240,240,238,0.35)">3</text>
+  <text x="68" y="128" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="#f0f0ee">    "runtime": "@jon4ohio/anchor-runtime",</text>
+  <text x="44" y="148" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="rgba(240,240,238,0.35)">4</text>
+  <text x="68" y="148" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="#f0f0ee">    "capabilityApi": "v1"</text>
+  <text x="44" y="168" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="rgba(240,240,238,0.35)">5</text>
+  <text x="68" y="168" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="#f0f0ee">  },</text>
+  <text x="44" y="188" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="rgba(240,240,238,0.35)">6</text>
+  <text x="68" y="188" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="#f0f0ee">  "capabilities": [</text>
+  <text x="44" y="208" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="rgba(240,240,238,0.35)">7</text>
+  <text x="68" y="208" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="#3d8f8d">    "continuity@1",</text>
+  <text x="44" y="228" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="rgba(240,240,238,0.35)">8</text>
+  <text x="68" y="228" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="#3d8f8d">    "orientation@1",</text>
+  <text x="44" y="248" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="rgba(240,240,238,0.35)">9</text>
+  <text x="68" y="248" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="#3d8f8d">    "review@1"</text>
+  <text x="44" y="268" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="rgba(240,240,238,0.35)">10</text>
+  <text x="68" y="268" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="#f0f0ee">  ],</text>
+  <text x="44" y="288" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="rgba(240,240,238,0.35)">11</text>
+  <text x="68" y="288" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="#f0f0ee">  "project": {</text>
+  <text x="44" y="308" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="rgba(240,240,238,0.35)">12</text>
+  <text x="68" y="308" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="#f0f0ee">    "map": {</text>
+  <text x="44" y="328" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="rgba(240,240,238,0.35)">13</text>
+  <text x="68" y="328" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="#febc2e">      "Project Entry": "docs/project/entry.md",</text>
+  <text x="44" y="348" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="rgba(240,240,238,0.35)">14</text>
+  <text x="68" y="348" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="#febc2e">      "Handoff": "ai/handoff.md"</text>
+  <text x="44" y="368" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="rgba(240,240,238,0.35)">15</text>
+  <text x="68" y="368" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="#f0f0ee">    }</text>
+  <text x="44" y="388" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="rgba(240,240,238,0.35)">16</text>
+  <text x="68" y="388" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="#f0f0ee">  }</text>
+  <text x="44" y="408" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="rgba(240,240,238,0.35)">17</text>
+  <text x="68" y="408" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="#f0f0ee">}</text>
+
+  <text x="44" y="460" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="rgba(240,240,238,0.4)">From this repository after</text>
+  <text x="44" y="478" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="#3d8f8d">anchor init</text>
+
+  <line x1="400" y1="220" x2="448" y2="160" stroke="rgba(240,240,238,0.28)" stroke-width="1.5"/>
+  <polygon points="452,154 442,158 448,168" fill="rgba(240,240,238,0.28)"/>
+  <line x1="400" y1="340" x2="448" y2="400" stroke="rgba(240,240,238,0.28)" stroke-width="1.5"/>
+  <polygon points="452,406 448,396 442,402" fill="rgba(240,240,238,0.28)"/>
+
+  <rect x="460" y="24" width="436" height="240" rx="4" fill="#0c141c" stroke="rgba(240,240,238,0.12)" stroke-width="1"/>
+  <rect x="460" y="24" width="436" height="40" fill="#121c26"/>
+  <circle cx="480" cy="44" r="5" fill="#ff5f57"/>
+  <circle cx="498" cy="44" r="5" fill="#febc2e"/>
+  <circle cx="516" cy="44" r="5" fill="#28c840"/>
+  <text x="544" y="48" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="rgba(240,240,238,0.55)">docs/project/entry.md</text>
+
+  <text x="484" y="92" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="600" fill="#f0f0ee"># Project Entry</text>
+  <text x="484" y="118" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="rgba(240,240,238,0.45)">Contract: Project Entry</text>
+  <text x="484" y="148" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="rgba(240,240,238,0.7)">John Ohio's portfolio - a living design-engineering</text>
+  <text x="484" y="168" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="rgba(240,240,238,0.7)">record of product work, case studies, and evidence.</text>
+  <text x="484" y="188" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="rgba(240,240,238,0.7)">The site is the artifact; the repo is the source of</text>
+  <text x="484" y="208" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="rgba(240,240,238,0.7)">truth for content, decisions, and delivery.</text>
+  <text x="484" y="240" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#3d8f8d">Pre-existing project documentation</text>
+
+  <rect x="460" y="288" width="436" height="248" rx="4" fill="#0c141c" stroke="rgba(240,240,238,0.12)" stroke-width="1"/>
+  <rect x="460" y="288" width="436" height="40" fill="#121c26"/>
+  <circle cx="480" cy="308" r="5" fill="#ff5f57"/>
+  <circle cx="498" cy="308" r="5" fill="#febc2e"/>
+  <circle cx="516" cy="308" r="5" fill="#28c840"/>
+  <text x="544" y="312" font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="12" fill="rgba(240,240,238,0.55)">ai/handoff.md</text>
+
+  <text x="484" y="356" font-family="ui-sans-serif, system-ui, sans-serif" font-size="16" font-weight="600" fill="#f0f0ee"># Handoff</text>
+  <text x="484" y="382" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="rgba(240,240,238,0.45)">Contract: Handoff - Updated: 2026-07-25</text>
+  <text x="484" y="412" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="rgba(240,240,238,0.7)">What changed recently? What's next?</text>
+  <text x="484" y="442" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="rgba(240,240,238,0.7)">Session continuity for humans and AI - durable</text>
+  <text x="484" y="462" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="rgba(240,240,238,0.7)">deltas, not chat history.</text>
+  <text x="484" y="500" font-family="ui-sans-serif, system-ui, sans-serif" font-size="12" fill="#3d8f8d">Map target - not duplicated by init</text>
+</svg>

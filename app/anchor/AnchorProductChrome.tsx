@@ -7,11 +7,6 @@ import { anchorProduct as c } from "./anchorProduct";
 const links = [
   { href: "/anchor", label: "Home", match: (path: string) => path === "/anchor" },
   {
-    href: "/anchor/articles",
-    label: "Articles",
-    match: (path: string) => path === "/anchor/articles" || path.startsWith("/anchor/articles/"),
-  },
-  {
     href: "/anchor/docs",
     label: "Docs",
     match: (path: string) => path === "/anchor/docs" || path.startsWith("/anchor/docs/"),

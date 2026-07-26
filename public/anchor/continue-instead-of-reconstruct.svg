@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" width="720" height="440" role="img" aria-labelledby="title desc">
+  <title id="title">Continue Instead of Reconstruct</title>
+  <desc id="desc">
+    Side-by-side comparison. Without Anchor, conversations lead to starting over.
+    With Anchor, a conversation leads to Project Understanding, then Continue.
+  </desc>
+
+  <!-- Light figure ground — readable on GitHub light and dark themes -->
+  <rect x="0" y="0" width="720" height="440" fill="#fafafa"/>
+
+  <!-- Outer frame — hairline engineering figure, not a UI card -->
+  <rect x="24" y="52" width="672" height="340" fill="#ffffff" stroke="#c8c8c8" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="360" y="36" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="22" font-weight="600" fill="#1a1a1a">Continue Instead of Reconstruct</text>
+
+  <!-- Column labels -->
+  <text x="180" y="78" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#a65d5d">Without Anchor</text>
+  <text x="540" y="78" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#4f7d5e">With Anchor</text>
+
+  <!-- Vertical divider -->
+  <line x1="360" y1="70" x2="360" y2="360" stroke="#d0d0d0" stroke-width="1"/>
+
+  <!-- Without column -->
+  <text x="180" y="120" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" fill="#1a1a1a">Conversation</text>
+  <text x="180" y="148" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" fill="#1a1a1a">Conversation</text>
+  <text x="180" y="176" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" fill="#1a1a1a">Conversation</text>
+
+  <line x1="180" y1="192" x2="180" y2="248" stroke="#888888" stroke-width="1.5" fill="none"/>
+  <polygon points="180,256 175,244 185,244" fill="#888888"/>
+
+  <text x="180" y="286" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" fill="#1a1a1a">Start over</text>
+  <text x="180" y="330" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" fill="#555555">Every session reconstructs</text>
+  <text x="180" y="348" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" fill="#555555">project understanding.</text>
+
+  <!-- With column -->
+  <text x="540" y="120" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" fill="#1a1a1a">Conversation</text>
+
+  <line x1="540" y1="136" x2="540" y2="168" stroke="#888888" stroke-width="1.5" fill="none"/>
+  <polygon points="540,176 535,164 545,164" fill="#888888"/>
+
+  <text x="540" y="206" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" fill="#1a1a1a">Project Understanding</text>
+
+  <line x1="540" y1="222" x2="540" y2="254" stroke="#888888" stroke-width="1.5" fill="none"/>
+  <polygon points="540,262 535,250 545,250" fill="#888888"/>
+
+  <text x="540" y="286" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="15" fill="#1a1a1a">Continue</text>
+  <text x="540" y="330" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" fill="#555555">Every session continues from</text>
+  <text x="540" y="348" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="13" fill="#555555">shared project understanding.</text>
+</svg>

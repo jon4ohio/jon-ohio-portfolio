@@ -4,34 +4,48 @@ import Link from "next/link";
 import AnchorSideNav from "./AnchorSideNav";
 import { anchorProduct as c } from "./anchorProduct";
 
-const META_DESCRIPTION =
-  "Anchor is a coordination protocol that keeps AI-assisted projects coherent across sessions, tools, and contributors.";
+const DEFINITION =
+  "Anchor is an approach to AI-assisted engineering that helps projects stay coherent as they evolve across sessions, tools, and contributors.";
+
+const CORE_INSIGHT =
+  "Projects become harder to understand long before they become harder to code.";
 
 export const metadata: Metadata = {
   title: "Anchor — Continue instead of reconstruct",
-  description: META_DESCRIPTION,
+  description: DEFINITION,
   alternates: { canonical: "/anchor" },
   openGraph: {
     title: "Anchor — Continue instead of reconstruct",
-    description: META_DESCRIPTION,
+    description: DEFINITION,
     url: "/anchor",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Anchor — Continue instead of reconstruct",
-    description: META_DESCRIPTION,
+    description: DEFINITION,
   },
 };
 
 const navSections = [
   { id: "home", label: "Home" },
   { id: "problem", label: "Problem" },
-  { id: "proof", label: "Proof" },
-  { id: "start", label: "Start" },
+  { id: "approach", label: "Approach" },
+  { id: "proof", label: "No magic" },
+  { id: "start", label: "Try it" },
+  { id: "principles", label: "Principles" },
 ];
 
-const articleHref = "/anchor/articles/projects-become-harder-to-understand-before-they-become-harder-to-code";
+const articleHref =
+  "https://medium.com/@jon4ohio/projects-become-harder-to-understand-before-they-become-harder-to-code-a49540c19de5";
+
+const principles = [
+  "Projects outlive conversations.",
+  "Durable artifacts beat chat history.",
+  "Explicit responsibilities reduce ambiguity.",
+  "Continue instead of reconstruct.",
+  "Map existing documentation — don't own it.",
+];
 
 const h2Style: CSSProperties = {
   fontFamily: c.display,
@@ -64,26 +78,13 @@ const codeBlockStyle: CSSProperties = {
   overflowX: "auto",
 };
 
-const anchorTree = `.anchor/
-└── config.json`;
-
-const anchorConfig = `{
-  "anchor": {
-    "runtime": "@jon4ohio/anchor-runtime",
-    "capabilityApi": "v1"
-  },
-  "capabilities": [
-    "continuity@1",
-    "orientation@1",
-    "review@1"
-  ],
-  "project": {
-    "map": {
-      "Project Entry": "docs/project/entry.md",
-      "Handoff": "ai/handoff.md"
-    }
-  }
-}`;
+const figureCaptionStyle: CSSProperties = {
+  margin: "14px 0 0",
+  fontSize: 14,
+  lineHeight: 1.55,
+  color: c.muted,
+  maxWidth: 720,
+};
 
 function MonoLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -208,15 +209,15 @@ export default function AnchorProductPage() {
         <h1
           style={{
             position: "relative",
-            fontFamily: c.mono,
+            fontFamily: c.display,
             fontStyle: "normal",
-            fontWeight: 500,
-            fontSize: "clamp(32px, 5.2vw, 56px)",
-            lineHeight: 1.2,
-            letterSpacing: "-0.02em",
+            fontWeight: 400,
+            fontSize: "clamp(32px, 5.2vw, 52px)",
+            lineHeight: 1.15,
+            letterSpacing: "-0.03em",
             color: c.paper,
             margin: "0 auto 24px",
-            maxWidth: "22ch",
+            maxWidth: "16ch",
           }}
         >
           Continue instead of reconstruct.
@@ -233,8 +234,7 @@ export default function AnchorProductPage() {
             margin: "0 auto 36px",
           }}
         >
-          Anchor is a coordination protocol that keeps AI-assisted projects coherent across sessions,
-          tools, and contributors.
+          {DEFINITION}
         </p>
 
         <div
@@ -246,29 +246,46 @@ export default function AnchorProductPage() {
             justifyContent: "center",
           }}
         >
-          <PrimaryBtn href={c.npm} external>
-            Install Runtime
-          </PrimaryBtn>
-          <OutlineBtn href="/work/anchor">Read the Case Study →</OutlineBtn>
+          <PrimaryBtn href="#start">Install Anchor</PrimaryBtn>
         </div>
       </section>
 
       <section id="problem" style={{ padding: c.sectionPad, borderBottom: `1px solid ${c.line}` }}>
         <MonoLabel>The Problem</MonoLabel>
-        <h2 style={h2Style}>Projects become harder to understand long before they become harder to code.</h2>
+        <h2 style={h2Style}>{CORE_INSIGHT}</h2>
         <p style={bodyCopyStyle}>
-          AI tools can write code. But projects are built across conversations, decisions, constraints,
-          handoffs, and returns after time away.
+          Conversations are enough at first. Decisions pile up. A different tool or a new session
+          suggests something incompatible with what was already settled. More time goes into
+          restoring context than building.
         </p>
         <p style={bodyCopyStyle}>
           When project understanding lives in chat history, every new session starts by reconstructing
           what the project already knew.
         </p>
-        <Link
+
+        <figure style={{ margin: "40px 0 0", maxWidth: 720 }}>
+          {/* eslint-disable-next-line @next/next/no-img-element -- local SVG identity asset */}
+          <img
+            src="/anchor/continue-instead-of-reconstruct.svg"
+            alt="Continue Instead of Reconstruct: without Anchor, conversations lead to starting over; with Anchor, a conversation leads to Project Understanding, then Continue."
+            width={720}
+            height={440}
+            style={{
+              width: "100%",
+              height: "auto",
+              borderRadius: 4,
+              border: `1px solid ${c.line}`,
+            }}
+          />
+        </figure>
+
+        <a
           href={articleHref}
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
             display: "inline-flex",
-            marginTop: 12,
+            marginTop: 28,
             color: c.paper,
             textDecoration: "none",
             borderBottom: `1px solid rgba(240, 240, 238, 0.28)`,
@@ -276,47 +293,161 @@ export default function AnchorProductPage() {
           }}
         >
           Read the article →
-        </Link>
+        </a>
+      </section>
+
+      <section id="approach" style={{ padding: c.sectionPad, borderBottom: `1px solid ${c.line}` }}>
+        <MonoLabel>The Approach</MonoLabel>
+        <h2 style={h2Style}>
+          Anchor organizes project understanding so humans and AI can build from the same foundation.
+        </h2>
+        <p style={bodyCopyStyle}>
+          Like version control and CI/CD before it, Anchor makes an engineering constraint explicit —
+          durable project context — so collaborators stop reconstructing it from scratch.
+        </p>
       </section>
 
       <section id="proof" style={{ padding: c.sectionPad, borderBottom: `1px solid ${c.line}` }}>
-        <MonoLabel>Proof</MonoLabel>
-        <h2 style={h2Style}>Project understanding becomes plain files.</h2>
-        <p style={bodyCopyStyle}>
-          `anchor init` creates an inspectable `.anchor` workspace in your repository. This is from a real
-          init run, not a mockup.
-        </p>
+        <MonoLabel>No magic</MonoLabel>
+        <h2 style={h2Style}>Anchor doesn’t become your documentation. It becomes the map to it.</h2>
+
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "minmax(180px, 0.55fr) minmax(260px, 1.45fr)",
-            gap: 18,
-            marginTop: 32,
-            maxWidth: 860,
+            gridTemplateColumns: "minmax(220px, 0.72fr) minmax(320px, 1.28fr)",
+            gap: 20,
+            marginTop: 36,
+            alignItems: "start",
+            maxWidth: 980,
           }}
+          className="anchor-proof-grid"
         >
-          <pre style={codeBlockStyle}>{anchorTree}</pre>
-          <pre style={codeBlockStyle}>{anchorConfig}</pre>
+          <figure style={{ margin: 0 }}>
+            <p
+              style={{
+                fontFamily: c.mono,
+                fontSize: 11,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: c.faint,
+                margin: "0 0 12px",
+              }}
+            >
+              How it works
+            </p>
+            {/* eslint-disable-next-line @next/next/no-img-element -- local SVG diagram */}
+            <img
+              src="/anchor/mechanism-map.svg"
+              alt="Conceptual diagram: AI host reads .anchor/config.json, which declares paths to Project Entry and Handoff."
+              width={640}
+              height={360}
+              style={{
+                width: "100%",
+                height: "auto",
+                borderRadius: 4,
+                border: `1px solid ${c.line}`,
+              }}
+            />
+            <figcaption style={figureCaptionStyle}>
+              A small configuration declares where your project’s durable documentation should live.
+            </figcaption>
+          </figure>
+
+          <figure style={{ margin: 0 }}>
+            <p
+              style={{
+                fontFamily: c.mono,
+                fontSize: 11,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: c.faint,
+                margin: "0 0 12px",
+              }}
+            >
+              What that looks like
+            </p>
+            {/* eslint-disable-next-line @next/next/no-img-element -- local SVG evidence panel */}
+            <img
+              src="/anchor/evidence-overlay.svg"
+              alt="Actual .anchor/config.json from this project after anchor init, mapped to docs/project/entry.md and ai/handoff.md."
+              width={920}
+              height={560}
+              style={{
+                width: "100%",
+                height: "auto",
+                borderRadius: 4,
+                border: `1px solid ${c.line}`,
+              }}
+            />
+            <figcaption style={figureCaptionStyle}>
+              Actual output from Anchor in this project. No hidden memory. No cloud service. No
+              lock-in. Everything is stored as plain files in your repository.
+            </figcaption>
+          </figure>
         </div>
+
+        <style>{`
+          @media (max-width: 860px) {
+            .anchor-proof-grid {
+              grid-template-columns: 1fr !important;
+            }
+          }
+        `}</style>
       </section>
 
       <section id="start" style={{ padding: c.sectionPad, borderBottom: `1px solid ${c.line}` }}>
-        <MonoLabel>Try Anchor</MonoLabel>
+        <MonoLabel>Try it</MonoLabel>
         <h2 style={h2Style}>Install, initialize, then point your AI host at the project.</h2>
-        <pre style={{ ...codeBlockStyle, maxWidth: 640, marginBottom: 24 }}>{`npm install -g @jon4ohio/anchor-runtime
+        <pre style={{ ...codeBlockStyle, maxWidth: 640, marginBottom: 20 }}>{`npm install -g @jon4ohio/anchor-runtime
 
 cd your-project
 anchor init`}</pre>
         <p style={bodyCopyStyle}>
-          Today, Anchor does not promise automatic discovery across every AI tool. After initialization,
-          configure the MCP server or ask a compatible AI host to use Anchor for the repository.
+          `anchor init` creates a small `.anchor/config.json` that declares where your project’s
+          durable documentation should live. It doesn’t duplicate or replace it.
+        </p>
+        <p style={bodyCopyStyle}>
+          Today, Anchor does not promise automatic discovery across every AI tool. After
+          initialization, configure the MCP server or ask a compatible AI host to use Anchor for the
+          repository.
         </p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 28 }}>
           <PrimaryBtn href={c.npm} external>
-            Install Runtime
+            Install Anchor
           </PrimaryBtn>
           <OutlineBtn href="/work/anchor">Read the Case Study →</OutlineBtn>
         </div>
+      </section>
+
+      <section id="principles" style={{ padding: c.sectionPad, borderBottom: `1px solid ${c.line}` }}>
+        <MonoLabel>A few principles</MonoLabel>
+        <ul
+          style={{
+            listStyle: "none",
+            margin: 0,
+            padding: 0,
+            maxWidth: 640,
+            display: "flex",
+            flexDirection: "column",
+            gap: 18,
+          }}
+        >
+          {principles.map((line) => (
+            <li
+              key={line}
+              style={{
+                fontFamily: c.body,
+                fontSize: 18,
+                lineHeight: 1.45,
+                color: c.paper,
+                paddingBottom: 18,
+                borderBottom: `1px solid ${c.line}`,
+              }}
+            >
+              {line}
+            </li>
+          ))}
+        </ul>
       </section>
 
       <footer
@@ -335,9 +466,14 @@ anchor init`}</pre>
         }}
       >
         <span>Runtime on npm</span>
-        <Link href="/anchor/docs" style={{ color: c.muted, textDecoration: "none" }}>
-          Docs →
-        </Link>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 20 }}>
+          <Link href="/anchor/docs" style={{ color: c.muted, textDecoration: "none" }}>
+            Docs →
+          </Link>
+          <Link href="/work/anchor" style={{ color: c.muted, textDecoration: "none" }}>
+            Case Study →
+          </Link>
+        </div>
       </footer>
     </>
   );
